@@ -1,0 +1,14 @@
+site_name: Code Capsules
+
+theme:
+  features:
+    - navigation.tabs
+  name: material
+  logo: assets/cclogo.png
+  palette:
+    scheme: slate
+    primary: orange
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
