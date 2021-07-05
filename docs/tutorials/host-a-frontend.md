@@ -95,7 +95,7 @@ Now we'll change the text that displays at the top of the portfolio. Scroll down
 
 Save the file and open it in a web browser. Our portfolio should now look something like this: 
 
-![image2](../assets/tutorials/tutorial-1/Image2.png)
+![image2](../assets/tutorials/host-a-frontend/Image2.png)
 
 Next, we'll take a look at deleting the date entries above each portfolio piece, removing the "Generic Page" and "Elements Reference" tabs, and modifying the social media links. 
 
@@ -146,7 +146,7 @@ In this section we'll:
 - Remove the contact form
 
 - Remove pagination
-    ![pagination](../assets/tutorials/tutorial-1/pagination.png)
+    ![pagination](../assets/tutorials/host-a-frontend/pagination.png)
 
 - Update or remove contact information
 
@@ -260,7 +260,7 @@ Follow the steps below to create a remote repository on GitHub:
 - Name your repository anything (in this picture it was named "myPortfolio").
 - Copy the URL given to you under "Quick setup".
 
-    ![image10](../assets/tutorials/tutorial-1/image10.png)
+    ![image10](../assets/tutorials/host-a-frontend/image10.png)
     _Locate the link to your repository under "Quick Setup"_
 
 ### Sending files to the GitHub repository 
@@ -297,7 +297,7 @@ Replace the URL above with the URL to your remote repository (copied in the [pre
 
 Now you can see the portfolio code in your GitHub repository. Your repository should look similar to the below, where all of your portfolio code is contained in a sub-directory (in this image, the sub-directory is "portFolder"):
 
-![image11](../assets/tutorials/tutorial-1/image11.png)
+![image11](../assets/tutorials/host-a-frontend/image11.png)
 
 Now Code Capsules can host the portfolio. 
 
@@ -307,7 +307,7 @@ To deploy the portfolio to Code Capsules, navigate to https://codecapsules.io/, 
 
 After logging in, you'll be greeted with a page that looks like the below.
 
-![team](../assets/tutorials/tutorial-1/team.png)
+![team](../assets/tutorials/host-a-frontend/team.png)
 
 Notice the "Team Personal" at the top left. Every new account starts with a "Team Personal". Code Capsules provides Teams for collaborative development – you can invite other people to your Team and Team members can view and edit your web-applications. You can create other teams - but the default "Personal" team is fine for now. 
 
@@ -317,7 +317,7 @@ At the center, you'll see a clickable box, labeled "Personal". This is called a 
 
 We need to give Code Capsules access to our portfolio. Click on your profile image at the top right of the screen, then find the "GitHub" button – click on it. Code Capsules will redirect you to GitHub.
 
-![GitHubButton](../assets/tutorials/tutorial-1/github_button.png)
+![GitHubButton](../assets/tutorials/host-a-frontend/github_button.png)
 
 Then: 
 
@@ -327,7 +327,7 @@ Then:
 4. From the drop-down menu, type the repository's name containing your portfolio and select it.
 5. Press "Install & Authorize".
     
-    ![permissions_git](../assets/tutorials/tutorial-1/permissions_git.png)
+    ![permissions_git](../assets/tutorials/host-a-frontend/permissions_git.png)
 
 Now we can deploy our portfolio. Return back to your Team, and enter the space labeled "Personal"
 
@@ -342,17 +342,17 @@ You'll be prompted to choose a Capsule type – our portfolio contains only fron
 3. Press "Next".
 4. Leave the build command blank and enter the name of the sub-directory containing the portfolio files in the "Static Content Folder Path" entry box.
 
-  ![Creating a capsule](../assets/tutorials/tutorial-1/new_capsule.gif)
+  ![Creating a capsule](../assets/tutorials/host-a-frontend/new_capsule.gif)
 
 5. Press "Create Capsule". 
 
 Your Capsule is now building. This process will make your portfolio visible online. After it has deployed, click the "Overview" tab, then press the link under "Domains" to view your portfolio.
 
-![image15](../assets/tutorials/tutorial-1/image15.png)
+![image15](../assets/tutorials/host-a-frontend/image15.png)
 
 ## Conclusion and Further Reading
 
-![finished_port](../assets/tutorials/tutorial-1/finished_port.png)
+![finished_port](../assets/tutorials/host-a-frontend/finished_port.png)
 
 We've created a portfolio, pushed it to GitHub, and made the portfolio visible to the world. In the future, we'll take a look at "Backend" capsules. These "Backend" capsules will enable us to host back-end code and provide additional functionality – like implementing the contact form we removed at the beginning of the tutorial. 
 

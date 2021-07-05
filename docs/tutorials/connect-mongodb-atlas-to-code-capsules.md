@@ -68,7 +68,7 @@ There are multiple ways to connect to the a MongoDB Atlas cluster - we want to c
 MongoDB Atlas provides drivers for various programming languages to connect to their databases. Choose your driver and version, and check the "Include full driver code example" box to see the code you'll need to connect to your database.
 
 Below is their Python driver, with "Fin" as the user. 
-![driver-options](../assets/tutorials/tutorial-8/driveroptions.png)
+![driver-options](../assets/tutorials/connect-mongodb-atlas-to-code-capsules/driveroptions.png)
 
 In your driver, you'll see something like this: `mongodb+srv://YOURUSERNAME:<password>@cluster0.e2fw3.mongodb.net/<dbname>?retryWrites=true&w=majorhostity`. This is a [URI](https://danielmiessler.com/study/difference-between-uri-url/). To connect your application to your database, copy and paste the driver into your code. In your URI, **replace** `<password>` and `<dbname>` with the user's password we created [previously](#setting-up-a-cluster-and-access-configurations) . 
 
@@ -93,4 +93,4 @@ On Code Capsules you would then set an environment variable named `DATABASE-URI`
 
 To set environment variables on Code Capsules, host your application on Code Capsules and navigate to the "Config" tab in your Capsule. Make sure to click "Update" when done.
 
-![enviro-set](../assets/tutorials/tutorial-8/enviro-set.png)
+![enviro-set](../assets/tutorials/connect-mongodb-atlas-to-code-capsules/enviro-set.png)

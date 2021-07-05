@@ -32,9 +32,9 @@ In addition to creating a MongoDB Atlas Cluster, make sure you have the followin
 
 Creating this sleep tracker will be a two-part process. First, we will create a login and registration page and a user management backend. Second, we will create a page where users enter their sleep data and view a graph. 
 
-![login](../assets/tutorials/tutorial-6-1/login.png)
+![login](../assets/tutorials/develop-persistent-sleep-tracker-part-1/login.png)
 
-![sleep](../assets/tutorials/tutorial-6-1/sleep.png)
+![sleep](../assets/tutorials/develop-persistent-sleep-tracker-part-1/sleep.png)
 
 This tutorial will focus on the first part: dealing with user management. To start, create a `sleep-tracker` directory somewhere on your computer. All of our project's files will be in this directory.
 
@@ -232,7 +232,7 @@ View the application by opening a terminal in the `sleep-tracker` directory and 
 
 After running the application, Flask will provide you with URL. Enter this URL in your web browser, and you'll see the login screen. It should look something like this:
 
-![](../assets/tutorials/tutorial-6-1/login.png)
+![](../assets/tutorials/develop-persistent-sleep-tracker-part-1/login.png)
 
 ## Handling User Registration and Login
 

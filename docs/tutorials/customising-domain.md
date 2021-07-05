@@ -39,7 +39,7 @@ To purchase a domain on Gandi:
 
 Follow the prompts to create an account and purchase your domain. Then log in to Gandi.net with your new account and click the "Domain" button on the dashboard.
 
-![image3](../assets/tutorials/tutorial-2/image3.png)
+![image3](../assets/tutorials/customising-domain/image3.png)
 
 If Gandi has processed the domain, find it under the "Active" tab – if it's still processing, view it under the "Pending" tab. Processing a domain can take some time.
 
@@ -81,7 +81,7 @@ To register an SSL certificate for our domain we must:
 
 8. Choose "Permanent" under **Type of web forwarding**
 
-	![image4](../assets/tutorials/tutorial-2/image4.png)
+	![image4](../assets/tutorials/customising-domain/image4.png)
 
 9. The above image shows an example form – click create when done.
 
@@ -135,7 +135,7 @@ To allow users to enter in "www." before your domain name:
 5. Enter "www" in the name text-box.
 
 6. Type your default Code Capsules web-application URL under **Hostname** (find this in the "Overview" tab in your web-application's Capsule), with a period at the end. It should look like the below:
-	![image2](../assets/tutorials/tutorial-2/image2.png)
+	![image2](../assets/tutorials/customising-domain/image2.png)
 
 7. Click create.
 

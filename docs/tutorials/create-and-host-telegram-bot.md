@@ -228,7 +228,7 @@ if __name__ == '__main__':
 
 Below is a conversation with a bot created using this program. Run `bot.py` and try it out yourself.
 
-![conversation](../assets/tutorials/tutorial-5/conversation.png)
+![conversation](../assets/tutorials/create-and-host-telegram-bot/conversation.png)
 
 We won't be able to send messages to our bot if this program isn't running, so hosting it on Code Capsules will allow us to interact with the bot without having to keep this code permanently running on our development PC.
 
@@ -318,7 +318,7 @@ We haven't supplied our webhook a URL yet, and we still need to create an enviro
 2. Click the "Config" tab.
 3. Add an environment variable with the name "BOTAPIKEY" and give it your bot's API key as a value. Make sure to hit the update button after adding the variable.
 
-![env-var](../assets/tutorials/tutorial-5/env_var.png)
+![env-var](../assets/tutorials/create-and-host-telegram-bot/env_var.png)
 
 Next, let's supply our webhook with the correct domain.
 
