@@ -178,7 +178,7 @@ The `index` function has a [route decorator](https://flask.palletsprojects.com/e
 
 When `render_template("index.html")` runs, Flask will look in the `templates` directory for a file named `index.html` and render it by executing its Jinja template code and serving the resulting HTML. To see this, run `app.py` with `flask run` in your terminal. Open the provided IP address in your browser – the web application should look like this:
 
-![website initialise](../assets/tutorials/tutorial-4/website_init.png)
+![website initialise](../assets/tutorials/stripe-checkout-and-email-with-flask/website_init.png)
 
 Let's make this web application useful and implement the first bit of functionality – the email list feature.
 
@@ -192,7 +192,7 @@ With an account registered, create a mailing list by doing the following:
 
 2. Click "Sending" then "Mailing lists" on the dashboard.
 
-    ![Mailing list](../assets/tutorials/tutorial-4/mailing_lists.png)
+    ![Mailing list](../assets/tutorials/stripe-checkout-and-email-with-flask/mailing_lists.png)
 
 3. At the top right, click "Create mailing list".
 
@@ -319,7 +319,7 @@ All that's left is to add functionality to our "Buy Now" button.
 
 Stripe Checkout allows business owners to accept payments on their web applications. Let's [create an account](https://dashboard.stripe.com/register). After creating an account, log in and find your API keys by clicking "Developers" then "API keys" on the dashboard.
 
-![stripe-dashboard](../assets/tutorials/tutorial-4/stripe_dashboard.png)
+![stripe-dashboard](../assets/tutorials/stripe-checkout-and-email-with-flask/stripe_dashboard.png)
 
 Here we'll see two API keys – a *publishable* API key, and a *secret* API key. You can think of these as a username and password. Stripe uses the publishable API key to identify your account, and the secret API key to ensure it's really you using it.
 
@@ -538,7 +538,7 @@ Now let's create the Capsule:
 
 All that's left is to set the environment variables. Navigate to the Capsule and click on the "Config" tab. Use the image below as a guide to properly add your environment variables. Replace each value with the appropriate API key.
 
-![environment-variables](../assets/tutorials/tutorial-4/enviro_vars.png)
+![environment-variables](../assets/tutorials/stripe-checkout-and-email-with-flask/enviro_vars.png)
 
 After entering the API keys, __make sure to click "Update"__.
 

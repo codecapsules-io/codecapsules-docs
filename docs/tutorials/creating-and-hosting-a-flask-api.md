@@ -41,7 +41,7 @@ source env/bin/activate
 
 If the virtual environment has activated correctly, you'll see `(env)` to the left of your name in the terminal.
 
-![command prompt](../assets/tutorials/tutorial-3/env-active.png)
+![command prompt](../assets/tutorials/creating-and-hosting-a-flask-api/env-active.png)
 
 ### Installing the Dependencies 
 
@@ -67,14 +67,14 @@ First, let's register an account on OpenExchangeRates. Navigate to https://opene
 2. On the dashboard, click "App IDs". 
 3. **Save** your "App ID" (API key) on your computer.
  
-	![OpenExchangeRates api key](../assets/tutorials/tutorial-3/image2.png)
+	![OpenExchangeRates api key](../assets/tutorials/creating-and-hosting-a-flask-api/image2.png)
 
 Obtaining the WeatherStack API key is similar:
 
 1. Create a free account on [WeatherStack](https://weatherstack.com/product)
 2. Log in and save the API key presented to you.
 	
-	![WeatherStack api key](../assets/tutorials/tutorial-3/image3.png)
+	![WeatherStack api key](../assets/tutorials/creating-and-hosting-a-flask-api/image3.png)
 
 Now we can retrieve data from the OpenExchangeRates and WeatherStack APIs using our API keys. Let's try that out now.
 
@@ -261,7 +261,7 @@ Once the Capsule has been built, Code Capsules will provide you with a URL (foun
 
 Depending on your browser (Google Chrome was used below), you'll see something like this:
 
-![image4](../assets/tutorials/tutorial-3/image4.png)
+![image4](../assets/tutorials/creating-and-hosting-a-flask-api/image4.png)
 
 Now try interacting with the API through code. In a new file, enter the following, replacing the URL with your Code Capsules URL (ensure `/get` is at the end of the URL):
 
