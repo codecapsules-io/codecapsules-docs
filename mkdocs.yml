@@ -3,6 +3,7 @@ site_name: Code Capsules
 theme:
   features:
     - navigation.tabs
+    - navigation.sections
   name: material
   logo: assets/cclogo.png
   palette:
@@ -12,3 +13,37 @@ theme:
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
+
+nav:
+  - Getting Started: index.md
+  - Deployment: 
+    - Overview: deployment/index.md
+    - How to Deploy an Angular Application to Production on Code Capsules: deployment/how-to-deploy-angular-application-to-production.md
+    - How to Deploy an Express Application to Production on Code Capsules: deployment/how-to-deploy-express-application-to-production.md
+    - How to Deploy a Flask Application to Production on Code Capsules: deployment/how-to-deploy-flask-application-to-production.md
+    - How to Deploy a Java Application to Production on Code Capsules: deployment/how-to-deploy-java-application-to-production.md
+    - How to Deploy a React Application to Production on Code Capsules: deployment/how-to-deploy-react-application-to-production.md
+    - How to Deploy an HTML Site to Production on Code Capsules: deployment/how-to-deploy-static-html-to-production.md
+    - How to Deploy a Vue Application to Production on Code Capsules: deployment/how-to-deploy-vue-application-to-production.md
+  - Reference: 
+    - Overview: reference/index.md
+    - Custom Domains: reference/custom_domains.md
+  - Tutorials: 
+    - Build Slackbot with Node.js: tutorials/build-slackbot-with-node.md
+    - Connect MongoDB Atlas to Code Capsules: tutorials/connect-mongodb-atlas-to-code-capsules.md
+    - Create And Host Telegram Bot: tutorials/create-and-host-telegram-bot.md
+    - Creating and Hosting a Flask API: tutorials/creating-and-hosting-a-flask-api.md
+    - Customising Your Domain on Code Capsules: tutorials/customising-domain.md
+    - Developing a Persistent Sleep Tracker Part 1: tutorials/develop-persistent-sleep-tracker-part-1.md
+    - Developing a Persistent Sleep Tracker Part 2: tutorials/develop-persistent-sleep-tracker-part-2.md
+    - Building and Hosting Your Front-end Portfolio: tutorials/host-a-frontend.md
+    - Setting up Stripe Checkout and Email Subscription with Flask and Code Capsules: tutorials/stripe-checkout-and-email-with-flask.md
+  - FAQ: 
+    - Teams, Spaces and Capsules: FAQ/teams-spaces-capsules.md
+    - What Is A Capsule?: FAQ/what-is-a-capsule.md
+    - What Is A Space?: FAQ/what-is-a-space.md
+    - What Is A Team?: FAQ/what-is-a-team.md
+    - How To Add Custom Domain: FAQ/how-to-add-custom-domain.md
+  - Comparisons:
+    - PaaS Providers: docs/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.md
+    - SaaS vs PaaS vs IaaS: docs/saas-paas-iaas.md
