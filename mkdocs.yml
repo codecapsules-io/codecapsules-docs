@@ -2,6 +2,7 @@ site_name: Code Capsules
 
 theme:
   features:
+    - navigation.indexes
     - navigation.tabs
     - navigation.sections
   name: material
@@ -45,5 +46,9 @@ nav:
     - What Is A Team?: FAQ/what-is-a-team.md
     - How To Add Custom Domain: FAQ/how-to-add-custom-domain.md
   - Comparisons:
+    - docs/index.md
     - PaaS Providers: docs/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.md
     - SaaS vs PaaS vs IaaS: docs/saas-paas-iaas.md
+
+extra:
+  generator: false
