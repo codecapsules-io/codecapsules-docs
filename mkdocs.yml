@@ -29,6 +29,7 @@ nav:
   - Reference: 
     - Overview: reference/index.md
     - Custom Domains: reference/custom_domains.md
+    - Create And Connect MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md 
   - Tutorials: 
     - Build Slackbot with Node.js: tutorials/build-slackbot-with-node.md
     - Connect MongoDB Atlas to Code Capsules: tutorials/connect-mongodb-atlas-to-code-capsules.md
