@@ -53,3 +53,9 @@ nav:
 
 extra:
   generator: false
+
+
+plugins:
+  - redirects:
+      redirect_maps:
+        docs/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules: docs/paas-providers-heroku-vs-digitalocean-vs-code-capsules.md
