@@ -1,5 +1,7 @@
 # Customising Your Domain on Code Capsules
 
+![Customising Domain Cover](../assets/tutorials/customising-domain/customising-domain-cover.jpg)
+
 In this tutorial, we'll set up a custom domain name for your website or application hosted on Code Capsules.
 
 ## Why Custom Domains and How Do They Work?

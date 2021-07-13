@@ -1,5 +1,7 @@
 # Adding Functionality to Your Web Application: Setting up Stripe Checkout and Email Subscription with Flask and Code Capsules
 
+![Creating Flask API Cover](../assets/tutorials/stripe-checkout-and-email-with-flask/stripe-checkout-cover.jpg)
+
 ## What We'll Cover
 
 Constructing a frontend for your web application is the first step towards providing an interactive user experience. The next step is building a working backend, or making your web application functional. Buttons are nice to have, but it's more interesting to have those buttons do something. That's what we'll focus on today.

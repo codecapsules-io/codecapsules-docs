@@ -1,5 +1,7 @@
 # Build a Slackbot with Node.js to Monitor your Applications
 
+![Building Slackbot Cover](../assets/tutorials/build-slackbot-with-node/CodeCapsules_SlackBot.jpg)
+
 Slack is a really useful communication tool when working in teams. Many developers find themselves using it almost constantly when working on projects. 
 
 One of the stand out features of Slack is the rich API it exposes, to allow developers to integrate with it. 

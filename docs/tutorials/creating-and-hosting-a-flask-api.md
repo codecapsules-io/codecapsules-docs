@@ -1,5 +1,7 @@
 # Creating and Hosting an API with Flask and Code Capsules
 
+![Creating Flask API Cover](../assets/tutorials/creating-and-hosting-a-flask-api/creating-flask-api-cover.jpg)
+
 An _API_, or Application Programming Interface, is a tool enabling developers to interact with data online. Imagine: you navigate to some website and see your location's temperature displayed on their homepage. How did they present this information?
 
 Without a doubt, they used an API. APIs are hosted on a server and operate as an access point between the user and some data. 

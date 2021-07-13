@@ -31,6 +31,7 @@ nav:
     - Custom Domains: reference/custom_domains.md
     - Create And Connect MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md 
   - Tutorials: 
+    - tutorials/index.md
     - Build Slackbot with Node.js: tutorials/build-slackbot-with-node.md
     - Connect MongoDB Atlas to Code Capsules: tutorials/connect-mongodb-atlas-to-code-capsules.md
     - Create And Host Telegram Bot: tutorials/create-and-host-telegram-bot.md
@@ -47,15 +48,18 @@ nav:
     - What Is A Team?: FAQ/what-is-a-team.md
     - How To Add Custom Domain: FAQ/how-to-add-custom-domain.md
   - Comparisons:
-    - docs/index.md
-    - PaaS Providers: docs/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.md
-    - SaaS vs PaaS vs IaaS: docs/saas-paas-iaas.md
+    - comparisons/index.md
+    - PaaS Providers: comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.md
+    - SaaS vs PaaS vs IaaS: comparisons/saas-paas-iaas.md
+  - Community:
+    - Introducing Code Capsules: community/introducing-code-capsules.md
+    - Hack Days and Free Tech Consulting: community/codecapsules-hack-days.md
+    - Founder Fridays: community/founder-fridays.md
 
 extra:
   generator: false
 
-
 plugins:
   - redirects:
       redirect_maps:
-        docs/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules: docs/paas-providers-heroku-vs-digitalocean-vs-code-capsules.md
+        comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.md: comparisons/index.md

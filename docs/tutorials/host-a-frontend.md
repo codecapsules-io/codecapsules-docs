@@ -1,5 +1,7 @@
 # Hosting a Front-end: Building and Deploying Your Portfolio to Code Capsules
 
+![Portfolio Cover Image](../assets/tutorials/host-a-frontend/portfolio-1.jpg)
+
 Publishing your portfolio online requires a solid technical background – managing servers can be challenging. You need to choose a server's operating system, maintain and update the server, and figure out where to host the server itself. 
 
 In this tutorial, we'll work with an alternative to the traditional method of hosting a front-end (content that visitors see when they load your website), called [Code Capsules](https://codecapsules.io). Code Capsules is a service that hosts front-end (and back-end) code online. Furthermore, Code Capsules:

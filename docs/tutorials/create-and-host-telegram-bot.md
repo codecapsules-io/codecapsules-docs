@@ -1,6 +1,8 @@
 
 # How to Create and Host a Telegram Bot on Code Capsules
 
+![Creating Telegram Bot Cover](../assets/tutorials/create-and-host-telegram-bot/telegram-bot-cover.jpg)
+
 In [a previous tutorial](https://codecapsules.io/docs/creating-and-hosting-a-personal-api-with-flask-and-code-capsules/), we created and hosted an API on Code Capsules. In this tutorial, we'll create a client for this API in the form of a Telegram bot. This will allow us to pull temperature, weather and exchange rate data on the go by messaging our bot in the Telegram app. 
 
 We'll also learn how to host this bot on [Code Capsules](https://codecapsules.io/) so it can be used by others. Along the way, we'll learn some key concepts about hosting bots securely and efficiently.
