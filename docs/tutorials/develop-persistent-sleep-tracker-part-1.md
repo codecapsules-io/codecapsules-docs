@@ -1,5 +1,7 @@
 # Developing a Persistent Sleep Tracker Part 1: Handling Users with Flask-Login
 
+![Sleep Tracker Cover](../assets/tutorials/develop-persistent-sleep-tracker-part-1/code_capsules_sleep_tracker.jpg)
+
 ## Introduction
 
 In this two-part tutorial series, we'll learn how to create a sleep tracker web application hosted on Code Capsules. Users will register an account with the sleep tracker and log in. To track their sleep data, users will enter a date and number of hours slept. We'll present users with a graph showing the sleep data they've logged, so users can get a visual representation of their sleep habits over time. 
