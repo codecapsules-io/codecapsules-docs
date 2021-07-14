@@ -10,7 +10,7 @@ In the New Data Capsule dialog, choose "MongoDB Database Cluster" as your data t
 
 ![MongoDB Database Cluster](../assets/reference/mongodb-database-cluster.png)
 
-To allow your data capsule to be publicly accessible, navigate to the "Overview" tab of the capsule details screen and switch the button under "Public Access" to on. 
+To allow your data capsule to be publicly accessible, navigate to the "Overview" tab of the capsule details screen and toggle the switch under "Public Access" to on. 
 
 ![Allow Public Access](../assets/reference/public-access.png)
 
@@ -23,6 +23,8 @@ Data capsules need to be connected to a backend capsule or application before yo
 ![Bind Data Capsule](../assets/reference/bind-data-capsule.png)
 
 Click "Bind" to bind your data and backend capsules. During the bind process, Code Capsules creates a `DATABASE_URL` environmental variable to let your backend capsule know how to access services and features of your data capsule. Once the two capsules have been bound, you can scroll to the top of the Config tab to find the value of this variable. 
+
+![Database url environment variable](../assets/reference/environment-variable.png)
 
 We can use this database variable in code to read and write to our data capsule. Copy the value of the `DATABASE_URL` variable and append `/your_db_name?authSource=admin` to it as a query parameter. This tells the data capsule to read and write to the specified database. If a database named `your_db_name` doesn't exist, the data capsule will create it. This allows you to have multiple databases in one data capsule.
 
@@ -39,7 +41,7 @@ database_one_url = data_capsule_url + "/database_one?authSource=admin"
 production_database_url = data_capsule_url + "/production_database?authSource=admin"
 
 client = pymongo.MongoClient(database_one_url)
-db = client.test
+db = client.database_one
 
 ### Do something with the db variable here
 
@@ -70,19 +72,19 @@ If you're not hosting your backend application on Code Capsules you can still co
 
 ![Get Connection String](../assets/reference/connection-string.png)
 
-If public access to your data capsule is allowed, a connection string is visible below the "Public Access" switch, as shown in the above picture. Copy this connection string and paste it into your backend application's code to access your data capsule's services.  
+If public access to your data capsule is enabled, a connection string is visible below the "Public Access" switch, as shown in the above picture. Copy this connection string and paste it into your backend application's code to access your data capsule's services. Take note if you copy the connection string from the capsule it will already include the database name eg. in the screenshot above this part of the connection string `/app?ssl=true` includes the database name which is `app` in this case. 
 
 ### Connecting to a MongoDB Data Capsule From an Externally Hosted Python Application 
 
-If your backend application is written in Python, using the following code to connect to your MongoDB Data Capsule: 
+If your backend application is written in Python, use the following code to connect to your MongoDB Data Capsule: 
 
 ```python
 import pymongo
 
-database_url = "<connection_string_here>" + "/database_one?authSource=admin"
+database_url = "<connection_string_here>" + "/database_one?authSource=admin&ssl=true"
 
 client = pymongo.MongoClient(database_url)
-db = client.test
+db = client.database_one
 
 ### Do something with the db variable here
 
