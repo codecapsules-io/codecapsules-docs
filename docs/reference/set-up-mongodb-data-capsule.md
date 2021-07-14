@@ -81,7 +81,7 @@ If your backend application is written in Python, use the following code to conn
 ```python
 import pymongo
 
-database_url = "<connection_string_here>" + "/database_one?authSource=admin&ssl=true"
+database_url = "<connection_string_here>" + "/database_one?authSource=admin"
 
 client = pymongo.MongoClient(database_url)
 db = client.database_one
