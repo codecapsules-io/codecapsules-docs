@@ -2,7 +2,7 @@
 
 Having an online web drive, accessible to all your devices, anywhere is a very useful tool. This is the basis of services like Dropbox and Google Drive. 
 
-Cloud Capsules has added a File System Data Capsule, which mounts as a standard file system to a Backend Capsule. This makes it very convenient to use for file storage, as opposed to using a blob store on other providers, as the file system interface is already well supported in most programming languages, and the concepts are already understood by programmers. 
+Code Capsules has added a File System Data Capsule, which mounts as a standard file system to a Backend Capsule. This makes it very convenient to use for file storage, as opposed to using a blob store on other providers, as the file system interface is already well supported in most programming languages, and the concepts are already understood by programmers. 
 
 In this tutorial, we'll use a [Backend Capsule](https://codecapsules.io) along with a file store Data Capsule to build a very simple web file store. We'll use [Node.js](https://nodejs.org/) as the programming language, and use [Express](http://expressjs.com) as the web framework. 
 
@@ -19,13 +19,13 @@ You'll need the following service and software setup for this tutorial
 
 ## Setting Up The Project
 
-With our requirements in place, we can get started on setting them up to work as needed for our web file project.
+With our requirements in place, we can get started on setting them up to work as needed for our web file store project.
 
 ### Creating a New Repo 
 
 We need a place to store our code from which [Code Capsules](https://code.visualstudio.com) can deploy to a capsule.
 
-Head over to [GitHub](https://github.com), and create a new repo. We're calling it _filedrop_ here, but you can call it whatever you like. You can choose a **Node** `.gitignore` file to get started. Then clone the new Github repo onto your computer and navigate to that directory in terminal (or command prompt, if you're on Windows).
+Head over to [GitHub](https://github.com), and create a new repo. We're calling it _filedrop_ here, but you can call it whatever you like. You can choose a **Node** `.gitignore` file to get started. Then clone the new GitHub repo onto your computer and navigate to that directory in terminal (or command prompt, if you're on Windows).
 
 ### Initialising the Base Project
 
@@ -36,7 +36,7 @@ npx express-generator --hbs
 npm install
 ```
 
-This creates a few files and folders that we can edit. The `--hbs` option tells the generator to use [Handlebars](https://handlebarsjs.com) as the HTML template language. We'll use Handlebars as it is very close to plain HTML, therefore making it easier to pick up initially. 
+This creates a few files and folders that we can edit. The `--hbs` option tells the generator to use [Handlebars](https://handlebarsjs.com) as the HTML template language. We'll use Handlebars as it is very close to plain HTML, therefore making it easier to pick up quickly. 
 
 The command `npm install` downloads and installs all the dependencies and packages required by the base project. Open the folder with [Visual Studio Code](https://code.visualstudio.com) or an editor of your choice, and browse through the files to get familiar. The `app.js` file in the project root is the main entry point for the app. 
 
@@ -53,10 +53,12 @@ git push origin
 We'll need a place to host our app. 
 
 1. Log in to [Code Capsules](https://codecapsules.io), and create a Team and Space as necessary.
-2. Link [Code Capsules](https://codecapsules.io) to the [GitHub account](https://github.com) repository created above. You can do this by clicking your user name at the top right, and choosing _Edit Profile_. Now you can click the _Github_ button to link to a repo. 
+2. Link [Code Capsules](https://codecapsules.io) to the [GitHub account](https://github.com) repository created above. You can do this by clicking your username at the top right, and choosing _Edit Profile_. Now you can click the _Github_ button to link to a repo. 
 3. Create a new Capsule, selecting the "Backend" capsule type.
 4. Select the GitHub repository you create above. If you are only using the repo for this project, you can leave the _Repo Subpath_ field empty. You may need to add your repo to the team repo if you haven't already. Click the _Modify Team Repos_ to do so. 
 5. Click _Next_, then on the following page, click _Create Capsule_. 
+
+![Create backend capsule](../assets/tutorials/build-a-web-file-store/create-backend-capsule.gif)
 
 ### Creating a new Data Capsule 
 
@@ -66,13 +68,15 @@ We'll need some data storage to store the files that are uploaded to the web dri
 1. Select "A persistent storage mounted directly to your capsule." as the Data Type. Choose a product size, and give it a name. 
 1. Click "Create Capsule". 
 
+![Create data capsule](../assets/tutorials/build-a-web-file-store/create-data-capsule.gif)
+
 ### Link the Capsules
 
-To use the Data Capsule with the Backend Capsule, we need to link them. Head over to the backend capsule you created above, and click on the "Config" tab. Then scroll down to "Bind Data Capsule", and click "Bind" under the name of the data capsule you created. 
+To use the Data Capsule with the Backend Capsule, we need to link them. Head over to the backend capsule you created above, and click on the "Configure" tab. Then scroll down to "Bind Data Capsule", and click "Bind" under the name of the data capsule you created. 
 
 ![Bind data capsule](../assets/tutorials/build-a-web-file-store/bind-capsule.png)
 
-After binding the capsules, scrolling up to the section "Capsule Parameters", you'll notice that an environment variable, `PERSISTENT_STORAGE_DIR`, with the mount point is automatically added. We'll use this environment variable in the code to access the storage drive. 
+After binding the capsules, scroll up to the section "Capsule Parameters", you'll notice that an environment variable, `PERSISTENT_STORAGE_DIR`, with the mount point is automatically added. We'll use this environment variable in the code to access the storage drive. 
 
 ![Storage path environment variable](../assets/tutorials/build-a-web-file-store/storageenv.png)
 
@@ -102,7 +106,7 @@ router.get('/', function(req, res, next) {
 });
 ```
 
-This code uses the [`readdir`](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback) function to get an array of all the files in the storage drive. Note that we use the environment variable which was automatically setup when we bound the capsules to specify the path to the function. Environment variables are accessible through the [`process.env`](https://nodejs.org/api/process.html#process_process_env) object in Node.js.
+This code uses the [`readdir`](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback) function to get an array of all the files in the storage drive. Note that we use the environment variable which was automatically setup when we bound the capsules to specify the path to the storage drive. Environment variables are accessible through the [`process.env`](https://nodejs.org/api/process.html#process_process_env) object in Node.js.
 
 The [`readdir`](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)  function calls a callback function once it has the file list. The callback has 2 arguments: `err`, which will contain an error object if the folder could not be read, and `files`, which is a string array of all the filenames in the folder, if the call was successful. 
 
@@ -138,9 +142,9 @@ Our backend route gets the file list, and passes it through to the `index` HTML 
 
 Handlebars uses the sequence `{{ }}` to indicate a section to template. In the first line, we template in `{{title}}`, which we specified in the return from the `GET / ` route we added earlier. 
 
-Then, we setup a simple table, and use the [Handlebars each](https://handlebarsjs.com/guide/builtin-helpers.html#each) function to iterate over the elements in the `files` array we passed from the `Get / ` route. The Handlebars keyword `this` is used to refer to the current file name each iteration. 
+Then, we set up a simple table, and use the [Handlebars each](https://handlebarsjs.com/guide/builtin-helpers.html#each) function to iterate over the elements in the `files` array we passed from the `Get / ` route. The Handlebars keyword `this` is used to refer to the current file name on each iteration. 
 
-You can save and commit so far. It should all automatically be deployed on [Code Capsules](https://codecapsules.io). After deploying, you can visit the public URL, and you should see something like this:
+You can save, commit and push your changes so far. It should all automatically be deployed on [Code Capsules](https://codecapsules.io). After deploying, you can visit the public URL, and you should see something like this:
 
 ![Unpopulated file list](../assets/tutorials/build-a-web-file-store/blank-files.png)
 
@@ -163,27 +167,27 @@ Let's add functionality to upload a file, then we'll be able to view it in the l
     </form> 
 </div>
 ```
-This code adds in a new HTML form, which `POST`s to the root `/` (our index page) on submit. We add in two inputs on the form - one, a file upload, specified by the `type="file"` attribute, and the other the submit button. Note the `name` given to the file input - we'll need to remember this when processing the upload on the server side. 
+This code adds in a new HTML form, which makes a `POST` request to the root `/` (our index page) on submit. We add in two inputs on the form - one, a file upload, specified by the `type="file"` attribute, and the other the submit button. Note the `name` given to the file input - we'll need to remember this when processing the upload on the server side. 
 
-Now that we have a way for the user to select a file to upload and send it the server, we need to create a route to process it. In the `index.js` file in the  `routes` folder, we'll add a new HTTP route. This one will be a [POST](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) route, as we are using it to upload a new file (or resource) onto the server. Add this stub for the route in the `index.js` file: 
+Now that we have a way for the user to select a file to upload and send to the server, we need to create a route to process the submitted file. In the `index.js` file in the  `routes` folder, we'll add a new HTTP route. This one will be a [POST](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) route, as we are using it to upload a new file (or resource) onto the server. Add this stub for the route in the `index.js` file: 
 
 ```js
-router.post('/', function(req, res,){
+router.post('/', function(req, res){
 
 }); 
 ```
-To handle file uploads with Express, we'll use a package that takes care of all the encoding and streaming concerns of file upload. Open up the terminal and install the [`express-fileupload`](https://www.npmjs.com/package/express-fileupload) package using npm: 
+To handle file uploads with Express, we'll use a package that takes care of all the encoding and streaming concerns of file uploads. Open up the terminal and install the [`express-fileupload`](https://www.npmjs.com/package/express-fileupload) package using npm: 
 
 ```bash
 npm install express-fileupload
 ```
-To use this package, we need to add it into the [middleware](http://expressjs.com/en/guide/using-middleware.html) of our Express server. Open up the `app.js` file in the root folder of project, and import the package by adding the following `require` statement at the top of the file:
+To use this package, we need to add it into the [middleware](http://expressjs.com/en/guide/using-middleware.html) of our Express server. Open up the `app.js` file in the root folder of the project, and import the package by adding the following `require` statement at the top of the file:
 
 ```js
 const fileUpload = require('express-fileupload');
 ```
 
-Then, insert it into the Express middleware pipeline by add the following line just under the `var app = express();` statement:
+Then, insert it into the Express middleware pipeline by adding the following line just under the `var app = express();` statement:
 
 ```js
 app.use(fileUpload());
@@ -194,7 +198,7 @@ Adding in `express-fileupload` to the middleware will process any file upload an
 Now we can expand on the route stub. In the `index.js` file, complete the  `POST` route as follows:
 
 ```js
-router.post('/', function(req, res,){
+router.post('/', function(req, res){
   
     if (!req.files || Object.keys(req.files).length === 0) {
       return res.status(400).send('No files were uploaded.');
@@ -210,15 +214,15 @@ router.post('/', function(req, res,){
 
 });
 ```
-First, we check if the  `files` object doesn't exist on the route, OR if it does exist that there are no sub-objects on the list (i.e. no form `input` fields were populated). If this is the case, there is no file for the code to process, so we return early with a [HTTP status `400`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_client_errors) code and a message to the user. Status code `400` means there is an input error from the user side. 
+First, we check if the  `files` object doesn't exist on the route, or if it does exist we check that there are no sub-objects on the list (i.e. no form `input` fields were populated). If this is the case, there is no file for the code to process, so we return early with a [HTTP status `400`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_client_errors) code and a message to the user. Status code `400` means there is an input error from the user side. 
 
 
-Then, we can safely assume there is a file uploaded, so we get the file object by referencing the same name we gave to our HTML input field, on the `files` object that `express-fileupload` added to the `req` object. Now that we have the file object, we can construct a path to the data capsule location to save the file, by using the environment variable for the data capsule mount point, along with the path separator `/` and the name of the uploaded file. You can see all the properties available on the file object at the [`express-fileupload` npm page](https://www.npmjs.com/package/express-fileupload). 
+Otherwise, we can safely assume there is a file uploaded, so we get the file object by referencing the same name we gave to our HTML input field, on the `files` object that `express-fileupload` added to the `req` object. Now that we have the file object, we can construct a path to the data capsule's location to save the file, by using the environment variable for the data capsule mount point, along with the path separator `/` and the name of the uploaded file. You can see all the properties available on the file object at the [`express-fileupload` npm page](https://www.npmjs.com/package/express-fileupload). 
 
 
 All we need to do now is to save the file to the upload path. `express-fileupload` provides a method `mv` on the file object to save the file to a disk location. It then calls a provided callback function when done, or if an error occurs. If we get a error back, we send an [HTTP code `500`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_server_errors) back to the client, which means that there was an error on the server side. Otherwise, if all goes well, we redirect the client back to the index `/` page, which will call the `GET` route added earlier to refresh the file list on the client side.
 
-This is a good point to commit the code to git, and test the new deploy out on Code Capsules. After deploying, navigate to the site. It should look something like this: 
+This is a good point to commit the code to git, and test the new deployment on Code Capsules. After the capsule finishes rebuilding, navigate to the site. It should look something like this: 
 
 ![upload file](../assets/tutorials/build-a-web-file-store/upload-section.png)
 
@@ -241,7 +245,7 @@ router.get('/:filename', function(req, res, next){
 ```
 This sets up a `GET` route, with the requested filename as a parameter. Then the function constructs a path to the file,  using the environment variable for the data capsule mount point, along with the path separator `/` and the name of the requested file. 
 
-Then we call the [`download`](http://expressjs.com/en/5x/api.html#res.download) method on the `res` (result) object with the constructed path. This sends the file back to the server. 
+Then we call the [`download`](http://expressjs.com/en/5x/api.html#res.download) method on the `res` (result) object with the constructed path. This sends the file back to the browser. 
 
 Now we need a way to call this route from the front end. Open the `index.hbs` file in the `views` folder, and modify the `{{this}}` template in the file list table to an HTML [anchor `<a>` tag](https://www.w3schools.com/tags/tag_a.asp), with the `href` to the route we added above. We'll also add the [`download`](https://www.w3schools.com/tags/att_a_download.asp) attribute to the tag. This means that the link will not be opened in the browser, but rather downloaded. The updated file list table should look like this now: 
 
@@ -271,7 +275,7 @@ Commit these changes, and wait for Code Capsules to redeploy the site. If you na
 
 We can upload and download now. We'll probably also need to remove, or delete, files at some point as well, if we need to free up space, or just clean up old files. We can use the HTTP [`DELETE` verb](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods) on a route for this. 
 
-Since the data capsule appears just like a regular filesystem to our code, we can use the built in Node.js [`fs`](https://nodejs.org/api/fs.html#fs_file_system) module here again. It has a method called [`unlink`](https://nodejs.org/api/fs.html#fs_fs_unlinksync_path) which deletes a file from a filesystem. We supply it with a path the the file and a callback function which let's us know the result of deleting the file. This could be either a success, or an error. If we get an error, we'll send an [HTTP code `500`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_server_errors) status back to the browser, to let the browser know that an error occurred. If it is successful, we'll send a status code [`200`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_success), which let's the browser know the operation was a success. Add this route to the `index.js` file to implement the `DELETE` route: 
+Since the data capsule appears just like a regular filesystem to our code, we can use the built-in Node.js [`fs`](https://nodejs.org/api/fs.html#fs_file_system) module here again. It has a method called [`unlink`](https://nodejs.org/api/fs.html#fs_fs_unlinksync_path) which deletes a file from a filesystem. We supply it with a path to the file, and a callback function which let's us know the result of deleting the file. This could be either a success, or an error. If we get an error, we'll send an [HTTP code `500`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_server_errors) status back to the browser, to let the browser know that an error occurred. If the delete action is successful, we'll send a status code [`200`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_success), which lets the browser know that the operation was a success. Add this route to the `index.js` file to implement the `DELETE` route: 
 
 ```js
 router.delete('/:filename', function(req, res){
@@ -344,11 +348,11 @@ Commit these changes, and wait for Code Capsules to redeploy the site. Then navi
 
 We've created the basic functions of a web drive. However, anyone can get to the site and upload, download or delete documents. We need a way to control access. For this tutorial, we'll implement a very simple access control system, that only allows access to one pre-defined user. To do this, we'll use as the basis of the system the [`Passport` node package](http://www.passportjs.org). This is a modular package, which is great because it allows for very simple authentication schemes to very elaborate ones, meaning you can upgrade the security of this app as you need. 
 
-The basic scheme we'll use is a simple username a password combination, entered on a HTML form that is posted to a `login` route. Once authenticated with these 2 pieces of information, we'll set a [session cookie](https://en.wikipedia.org/wiki/HTTP_cookie) to remember the logged-in user while using the site. We'll use the package [`express-session`](https://www.npmjs.com/package/express-session) to manage the session. 
+The basic scheme we'll use is a simple username and password combination, entered on an HTML form that is posted to a `login` route. Once authenticated with these 2 pieces of information, we'll set a [session cookie](https://en.wikipedia.org/wiki/HTTP_cookie) to remember the logged-in user while using the site. We'll use the package [`express-session`](https://www.npmjs.com/package/express-session) to manage the session. 
 
 Passport has a plugin called [`Local Strategy`](https://www.npmjs.com/package/passport-local) to achieve the username and password scheme.  
 
-Let's start by installing all theses packages and plugins. Type the following at the terminal:
+Let's start by installing all these packages and plugins. Type the following at the terminal:
 
 ```bash
 npm install passport passport-local express-session
@@ -362,7 +366,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var session = require("express-session");
 ```
 
-The first thing to add to the app is the session middleware, then the passport auth middelware. Add the following after the `app.use(express.static(path.join(__dirname, 'public')));` line: 
+The first thing to add to the app is the session middleware, then the passport auth middleware. Add the following after the `app.use(express.static(path.join(__dirname, 'public')));` line: 
 
 ```js
 app.use(session({secret : "<YOUR_SECRET>"})); 
@@ -391,7 +395,7 @@ passport.deserializeUser(function(user, done) {
 ```
 In our case, since we are implementing a super simple auth scheme with just one user, we don't need to call out to a database or other store to get user information. In fact, since there is no real user information that is of use to our app at the moment, we just return the `user` object that passport sends to us straight back, as we don't really have a use for it. Even though we are doing nothing with the information, we need to register these functions with Passport, as it calls them regardless. 
 
-Now we can setup the rest of Passport. Add this code just above the serialisation code: 
+Now we can set up the rest of the logic for Passport. Add this code just above the serialisation code: 
 
 ```js
 passport.use(new LocalStrategy(
@@ -407,13 +411,13 @@ passport.use(new LocalStrategy(
 
 ```
 
-This plugs in and registers the Local Strategy module into Passport. The local strategy means we'll be using a simple user name and password, checked on the local server. There are many other [strategies available](http://www.passportjs.org/packages/) for Passport, from oAuth2.0 strategies which allow authentication through Facebook, Google, Twitter and other oAuth2.0 providers, and to API authentication strategies such as Bearer Tokens etc. 
+This plugs in and registers the Local Strategy module into Passport. The local strategy means we'll be using a simple username and password, checked on the local server. There are many other [strategies available](http://www.passportjs.org/packages/) for Passport, from oAuth2.0 strategies which allow authentication through Facebook, Google, Twitter and other oAuth2.0 providers, and to API authentication strategies such as Bearer Tokens etc. 
 
-The local strategy requires a function which accepts a username and password for validation. The function needs to check if these credentials are valid, and send back a user object if they are through the `done` callback. If the credentials don't checkout, we send back an error message. 
+The local strategy requires a function which accepts a username and password for validation. The function needs to check if these credentials are valid, and send back a user object if they are, through the `done` callback. If the credentials don't checkout, we send back an error message. 
 
-In this function, we simply check against a username and passport stored in our environment variables. If the credentials to be checked match the creds in our environment variables, we authenticate the user. 
+In this function, we simply check against a username and password stored in our environment variables. If the credentials to be checked match the credentials in our environment variables, we authenticate the user. 
 
-Head over to the "Config" page on your backend Code Capsule, and add 2 new environment variables : `USERNAME` and `PASSWORD`. Supply values of your own to set your username and password. 
+Head over to the "Configure" tab on your backend Code Capsule, and add 2 new environment variables : `USERNAME` and `PASSWORD`. Supply values of your own to set your username and password, then click the "Update Capsule" button to save the changes. 
 
 ![Username and password environment variables](../assets/tutorials/build-a-web-file-store/username-env.png)
 
@@ -421,7 +425,7 @@ Head over to the "Config" page on your backend Code Capsule, and add 2 new envir
 
 Now we can add the login page routes to render the login page, and also to handle the form post with user credentials from the page, through to Passport. 
 
-Add these 2 routes just above the index routes (`app.use('/', indexRouter);`): 
+Add these 2 routes just above the index routes (`app.use('/', indexRouter);`) in `app.js`: 
 
 ```js
 app.get('/login', function(req,res){
@@ -431,9 +435,9 @@ app.post('/login',
   passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }));
 ```
 
-The first `GET` route adds adds a `/login` url to our app. The route handler function calls the [`res.render`](http://expressjs.com/en/4x/api.html#res.render) Express method to serve up the login template, which we'll add shortly. The second `POST` route handles a form submission from the `/login` route, and passes it through through to Passport. We supply a parameter to tell Passport to use our Local Strategy to process this authentication request, and also supply redirect for the cases of both successful (send to the main file list page), or unsuccessful (failure, send back to login to try again) attempts.
+The first `GET` route adds a `/login` url to our app. The route handler function calls the [`res.render`](http://expressjs.com/en/4x/api.html#res.render) Express method to serve up the login template, which we'll add shortly. The second `POST` route handles a form submission from the `/login` route, and passes it through to Passport. We supply a parameter to tell Passport to use our Local Strategy to process this authentication request, and also supply redirects for the cases of both successful (send to the main file list page), or unsuccessful (failure, send back to login to try again).
 
-There's one more bit of code to add before we add the login front end form. We need to check if a user was successfully authenticated before the can access the file list and other functionality. To do this, we'll insert a call to an auth check function in our app middelware. Add this code just above the `app.use('/', indexRouter);` line, so it is called before any of those routes are served: 
+There's one more bit of code to add before we add the login front end form. We need to check if a user was successfully authenticated before they can access the file list and other functionality. To do this, we'll insert a call to an auth check function in our app middleware. Add this code just above the `app.use('/', indexRouter);` line, so it is called before any of those routes are served: 
 
 ```js
 app.use(isAuthenticated); 
@@ -469,7 +473,7 @@ Great, now we have all the back end pieces for authentication in place. Let's ad
     </div>
 </form>
 ```
-This adds a very simple form, which `POST`s back to our `/login` route, with inputs for a username and password. 
+This adds a very simple form, which makes a `POST` request back to our `/login` route, with inputs for a username and password. 
 
 We are done with authentication. Once again, commit these changes, and wait for Code Capsules to redeploy the site. Then navigate over and test it out. This time, the site should prompt for your username and password (which you added to the environment variables) before letting you through to the files page. 
 
