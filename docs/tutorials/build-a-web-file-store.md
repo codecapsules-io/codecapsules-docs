@@ -1,5 +1,7 @@
 # Building a Web File Store
 
+![Building Web file store Cover](../assets/tutorials/build-a-web-file-store/web_file_store.png)
+
 Having an online web drive, accessible to all your devices, anywhere is a very useful tool. This is the basis of services like Dropbox and Google Drive. 
 
 Code Capsules has added a File System Data Capsule, which mounts as a standard file system to a Backend Capsule. This makes it very convenient to use for file storage, as opposed to using a blob store on other providers, as the file system interface is already well supported in most programming languages, and the concepts are already understood by programmers. 
