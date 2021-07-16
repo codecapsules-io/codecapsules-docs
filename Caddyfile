@@ -1,0 +1,7 @@
+http://ccpreview.ritza.co
+
+redir /docs/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules/ /docs/comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.html
+
+root * /var/www
+file_server
+
