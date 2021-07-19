@@ -1,32 +1,31 @@
-https://codecapsules.io
+localhost:5555
 
-redir /docs/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules/ /docs/comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.html
-redir /docs/saas-vs-paas-vs-iaas-comparing-three-paradigms/ /docs/comparisons/saas-vs-paas-vs-iaas-comparing-three-paradigms.html
-redir /docs/hosting-a-front-end-building-and-deploying-your-portfolio-to-code-capsules/ /docs/tutorials/host-a-frontend.html
-redir /docs/customising-your-domain-on-code-capsules/ /docs/tutorials/customising-domain.html
-redir /docs/how-to-connect-a-mongodb-using-mongodb-atlas-with-your-code-capsules-application/ /docs/tutorials/connect-mongodb-atlas-to-code-capsules.html
-redir /docs/creating-and-hosting-a-personal-api-with-flask-and-code-capsules/ /docs/tutorials/creating-and-hosting-a-flask-api.html
-redir /docs/adding-functionality-to-your-web-application-setting-up-stripe-checkout-and-email-subscription-with-flask-and-code-capsules/ /docs/tutorials/stripe-checkout-and-email-with-flask.html
-redir /docs/create-and-host-a-telegram-bot-on-code-capsules/  /docs/tutorials/create-and-host-telegram-bot.html
-redir /docs/developing-a-persistent-sleep-tracker-part-1-handling-users-with-flask-login/ /docs/tutorials/develop-persistent-sleep-tracker-part-1.html
-redir /docs/developing-a-persistent-sleep-tracker-part-2-tracking-and-graphing-sleep-data/ /docs/tutorials/develop-persistent-sleep-tracker-part-2.html
-redir /docs/build-a-slack-bot-with-nodejs-to-monitor-your-applications/ /docs/tutorials/build-slackbot-with-node.html
-redir /docs/custom-domains/ /docs/reference/custom_domains.html
-redir /docs/how-to-deploy-a-react-application-to-production-on-code-capsules/ /docs/deployment/how-to-deploy-react-application-to-production.html
-redir /docs/how-to-deploy-an-angular-application-to-production-on-code-capsules/ /docs/deployment/how-to-deploy-angular-application-to-production.html
-redir /docs/how-to-deploy-an-express-js-application-to-production-on-code-capsules/ /docs/deployment/how-to-deploy-express-application-to-production.html
-redir /docs/how-to-deploy-an-html-site-to-production-on-code-capsules/ /docs/deployment/how-to-deploy-static-html-to-production.html
-redir /docs/how-to-deploy-a-java-application-to-production-on-code-capsules/ /docs/deployment/how-to-deploy-java-application-to-production.html
-redir /docs/how-to-deploy-a-flask-application-to-production-on-code-capsules/ /docs/deployment/how-to-deploy-flask-application-to-production.html
-redir /docs/how-to-deploy-a-vue-application-to-production-on-code-capsules/ /docs/deployment/how-to-deploy-vue-application-to-production.html
-redir /docs/faq/teams-spaces-and-capsules/ /docs/FAQ/teams-spaces-capsules.html
-redir /docs/faq/what-is-a-team/ /docs/FAQ/what-is-a-team.html
-redir /docs/faq/what-is-a-space/ /docs/FAQ/what-is-a-space.html
-redir /docs/faq/what-is-a-capsule/ /docs/FAQ/what-is-a-capsule.html
-redir /docs/codecapsules-hack-days/ /docs/community/codecapsules-hack-days.html
-redir /docs/introducing-code-capsules/ /docs/community/introducing-code-capsules.html
-redir /docs/founder-fridays/ /docs/community/founder-fridays.html
+redir /comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules/ /comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.html permanent
+redir /saas-vs-paas-vs-iaas-comparing-three-paradigms/ /comparisons/saas-vs-paas-vs-iaas-comparing-three-paradigms.html permanent
+redir /hosting-a-front-end-building-and-deploying-your-portfolio-to-code-capsules/ /tutorials/host-a-frontend.html permanent
+redir /customising-your-domain-on-code-capsules/ /tutorials/customising-domain.html permanent
+redir /how-to-connect-a-mongodb-using-mongodb-atlas-with-your-code-capsules-application/ /tutorials/connect-mongodb-atlas-to-code-capsules.html permanent
+redir /creating-and-hosting-a-personal-api-with-flask-and-code-capsules/ /tutorials/creating-and-hosting-a-flask-api.html permanent
+redir /adding-functionality-to-your-web-application-setting-up-stripe-checkout-and-email-subscription-with-flask-and-code-capsules/ /tutorials/stripe-checkout-and-email-with-flask.html permanent
+redir /create-and-host-a-telegram-bot-on-code-capsules/  /tutorials/create-and-host-telegram-bot.html permanent
+redir /developing-a-persistent-sleep-tracker-part-1-handling-users-with-flask-login/ /tutorials/develop-persistent-sleep-tracker-part-1.html permanent
+redir /developing-a-persistent-sleep-tracker-part-2-tracking-and-graphing-sleep-data/ /tutorials/develop-persistent-sleep-tracker-part-2.html permanent
+redir /build-a-slack-bot-with-nodejs-to-monitor-your-applications/ /tutorials/build-slackbot-with-node.html permanent
+redir /custom-domains/ /reference/custom_domains.html permanent
+redir /how-to-deploy-a-react-application-to-production-on-code-capsules/ /deployment/how-to-deploy-react-application-to-production.html permanent
+redir /how-to-deploy-an-angular-application-to-production-on-code-capsules/ /deployment/how-to-deploy-angular-application-to-production.html permanent
+redir /how-to-deploy-an-express-js-application-to-production-on-code-capsules/ /deployment/how-to-deploy-express-application-to-production.html permanent
+redir /how-to-deploy-an-html-site-to-production-on-code-capsules/ /deployment/how-to-deploy-static-html-to-production.html permanent
+redir /how-to-deploy-a-java-application-to-production-on-code-capsules/ /deployment/how-to-deploy-java-application-to-production.html permanent
+redir /how-to-deploy-a-flask-application-to-production-on-code-capsules/ /deployment/how-to-deploy-flask-application-to-production.html permanent
+redir /how-to-deploy-a-vue-application-to-production-on-code-capsules/ /deployment/how-to-deploy-vue-application-to-production.html permanent
+redir /faq/teams-spaces-and-capsules/ /FAQ/teams-spaces-capsules.html permanent
+redir /faq/what-is-a-team/ /FAQ/what-is-a-team.html permanent
+redir /faq/what-is-a-space/ /FAQ/what-is-a-space.html permanent
+redir /faq/what-is-a-capsule/ /FAQ/what-is-a-capsule.html permanent
+redir /codecapsules-hack-days/ /community/codecapsules-hack-days.html permanent
+redir /introducing-code-capsules/ /community/introducing-code-capsules.html permanent
+redir /founder-fridays/ /community/founder-fridays.html permanent
 
 root * /var/www
 file_server
-
