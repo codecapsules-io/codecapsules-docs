@@ -1206,6 +1206,7 @@
                 
                 
                 <h1 id="how-to-set-up-a-mongodb-data-capsule">How to Set Up a MongoDB Data Capsule</h1>
+<p>MongoDB provides reliable NoSQL persistent storage for your applications. In this tutorial, we look at how to create a MongoDB instance you can use with your backend applications that are running on Code Capsules and elsewhere. </p>
 <h2 id="create-a-mongodb-data-capsule">Create a MongoDB Data Capsule</h2>
 <p>Log in to your Code Capsules account and navigate to the Space your MongoDB data capsule will be contained in. Click "New Capsule" and select the "Data Capsule" option from the Create New Capsule dialog that slides in from the right. </p>
 <p><img alt="Create Data Capsule" src="../assets/reference/create-data-capsule.png" /></p>
@@ -1215,11 +1216,12 @@
 <p><img alt="Allow Public Access" src="../assets/reference/public-access.png" /></p>
 <p>Select this option if you plan on connecting your data capsule to an application that's not hosted on Code Capsules.  </p>
 <h2 id="binding-a-data-capsule-to-a-backend-capsule">Binding a Data Capsule to a Backend Capsule</h2>
-<p>Data capsules need to be connected to a backend capsule or application before you can use them. If you're hosting your backend application on Code Capsules, navigate to the capsule of the backend application and click "Config" to open the capsule's config tab. Scroll down to the "Bind Data capsule" section where your recently created data capsule will show.</p>
+<p>To connect a data capsule to a backend capsule hosted on Code Capsules you need to bind the two together before you can connect to and use your data capsule. If you're not hosting your backend application on Code Capsules you can jump to <a href="#connecting-to-a-mongodb-data-capsule-from-outside-code-capsules">this section</a> as the binding step is not applicable in that use case.</p>
+<p>Navigate to the backend capsule and click "Config" to open the capsule's config tab. Scroll down to the "Bind Data capsule" section where your recently created data capsule will show.</p>
 <p><img alt="Bind Data Capsule" src="../assets/reference/bind-data-capsule.png" /></p>
 <p>Click "Bind" to bind your data and backend capsules. During the bind process, Code Capsules creates a <code>DATABASE_URL</code> environmental variable to let your backend capsule know how to access services and features of your data capsule. Once the two capsules have been bound, you can scroll to the top of the Config tab to find the value of this variable. </p>
 <p><img alt="Database url environment variable" src="../assets/reference/environment-variable.png" /></p>
-<p>We can use this database variable in code to read and write to our data capsule. Copy the value of the <code>DATABASE_URL</code> variable and append <code>/your_db_name?authSource=admin</code> to it as a query parameter. This tells the data capsule to read and write to the specified database. If a database named <code>your_db_name</code> doesn't exist, the data capsule will create it. This allows you to have multiple databases in one data capsule.</p>
+<p>We can use this database variable in code to read and write to our data capsule. Copy the value of the <code>DATABASE_URL</code> variable and append <code>/your_db_name?authSource=admin</code> to it as a query parameter. Make sure to replace <code>your_db_name</code> with the actual name of your database. This tells the data capsule to read and write to the specified database. If a database named <code>your_db_name</code> doesn't exist, the data capsule will create it. This allows you to have multiple databases in one data capsule.</p>
 <h3 id="connecting-to-a-mongodb-data-capsule-from-a-python-application">Connecting to a MongoDB Data Capsule From a Python Application</h3>
 <p>If your backend capsule is a Python application, use the following code to connect to your MongoDB Data Capsule:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>

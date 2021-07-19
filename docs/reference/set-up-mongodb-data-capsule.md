@@ -1,5 +1,7 @@
 # How to Set Up a MongoDB Data Capsule
 
+MongoDB provides reliable NoSQL persistent storage for your applications. In this tutorial, we look at how to create a MongoDB instance you can use with your backend applications that are running on Code Capsules and elsewhere. 
+
 ## Create a MongoDB Data Capsule
 
 Log in to your Code Capsules account and navigate to the Space your MongoDB data capsule will be contained in. Click "New Capsule" and select the "Data Capsule" option from the Create New Capsule dialog that slides in from the right. 
@@ -18,7 +20,9 @@ Select this option if you plan on connecting your data capsule to an application
 
 ## Binding a Data Capsule to a Backend Capsule
 
-Data capsules need to be connected to a backend capsule or application before you can use them. If you're hosting your backend application on Code Capsules, navigate to the capsule of the backend application and click "Config" to open the capsule's config tab. Scroll down to the "Bind Data capsule" section where your recently created data capsule will show.
+To connect a data capsule to a backend capsule hosted on Code Capsules you need to bind the two together before you can connect to and use your data capsule. If you're not hosting your backend application on Code Capsules you can jump to [this section](#connecting-to-a-mongodb-data-capsule-from-outside-code-capsules) as the binding step is not applicable in that use case.
+
+Navigate to the backend capsule and click "Config" to open the capsule's config tab. Scroll down to the "Bind Data capsule" section where your recently created data capsule will show.
 
 ![Bind Data Capsule](../assets/reference/bind-data-capsule.png)
 
@@ -26,7 +30,7 @@ Click "Bind" to bind your data and backend capsules. During the bind process, Co
 
 ![Database url environment variable](../assets/reference/environment-variable.png)
 
-We can use this database variable in code to read and write to our data capsule. Copy the value of the `DATABASE_URL` variable and append `/your_db_name?authSource=admin` to it as a query parameter. This tells the data capsule to read and write to the specified database. If a database named `your_db_name` doesn't exist, the data capsule will create it. This allows you to have multiple databases in one data capsule.
+We can use this database variable in code to read and write to our data capsule. Copy the value of the `DATABASE_URL` variable and append `/your_db_name?authSource=admin` to it as a query parameter. Make sure to replace `your_db_name` with the actual name of your database. This tells the data capsule to read and write to the specified database. If a database named `your_db_name` doesn't exist, the data capsule will create it. This allows you to have multiple databases in one data capsule.
 
 ### Connecting to a MongoDB Data Capsule From a Python Application 
 
