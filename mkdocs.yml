@@ -58,8 +58,3 @@ nav:
 
 extra:
   generator: false
-
-plugins:
-  - redirects:
-      redirect_maps:
-        comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.md: comparisons/index.md
