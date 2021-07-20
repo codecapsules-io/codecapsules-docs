@@ -30,6 +30,7 @@ nav:
     - Overview: reference/index.md
     - Custom Domains: reference/custom_domains.md
     - Create And Connect MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md 
+    - Create And Connect MySQL Data Capsule: reference/set-up-mysql-data-capsule.md
   - Tutorials: 
     - tutorials/index.md
     - Build Slackbot with Node.js: tutorials/build-slackbot-with-node.md
