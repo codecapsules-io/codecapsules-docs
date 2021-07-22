@@ -14,17 +14,17 @@ Throughout this tutorial series, we'll use many tools to create an interactive e
 
 This tutorial series is best suited for those with some Python, HTML, and Flask experience. But even if you feel you don't have much experience with these, don't worry. We'll walk through this application step-by-step. Let's get started! 
 
-## MongoDB Atlas
+## MongoDB Data Capsule
 
 One of the most important aspects of this tutorial is using a Mongo Database (MongoDB). With this MongoDB, we can track users' login information and sleep data. MongoDB is a _NoSQL_ databases, which means we can store data easily, in variable formats, without having to first create tables, as we would have to with a traditional SQL databse. If you're unfamiliar with NoSQL databases or MongoDB in general, take a look at [this explainer](https://www.mongodb.com/nosql-explained) by the MongoDB organisation. 
 
-MongoDB Atlas clusters are free to use. Follow [this short tutorial](https://codecapsules.io/docs/how-to-connect-a-mongodb-using-mongodb-atlas-with-your-code-capsules-application) to create the MongoDB Atlas cluster that we'll use to store the user data for this sleep tracker application. This step is *extremely* important – without a database, our application will not function. 
+Follow [this short tutorial](../reference/set-up-mongodb-data-capsule.md) to create a MongoDB data capsule that we'll use to store the user data for this sleep tracker application. This step is *extremely* important – without a database, our application will not function. 
 
-Once you've set up a MongoDB Atlas cluster, continue with this tutorial.
+Once you've set up a MongoDB data capsule, continue with this tutorial.
 
 ## Requirements
 
-In addition to creating a MongoDB Atlas Cluster, make sure you have the following:
+In addition to creating a MongoDB Data Capsule, make sure you have the following:
 
 - [Git](https://git-scm.com/) installed and a registered [GitHub](https://github.com) account.
 - [Virtualenv](https://pypi.org/project/virtualenv/) installed. 
@@ -238,7 +238,7 @@ After running the application, Flask will provide you with URL. Enter this URL i
 
 ## Handling User Registration and Login
 
-Rather than implementing a user registration and login system ourselves, we'll use the Flask Login library that we installed earlier to provide this functionality. This will help us to save time and avoid common usability and security pitfalls. We will store user information in the database we created [at the beginning of this tutorial](#mongodb-atlas).
+Rather than implementing a user registration and login system ourselves, we'll use the Flask Login library that we installed earlier to provide this functionality. This will help us to save time and avoid common usability and security pitfalls. We will store user information in the database we created [at the beginning of this tutorial](#mongodb-data-capsule).
 
 First, let's import the functionality we'll need from:
 + `flask-login`, `flask-bcrypt`, to handle users.
@@ -279,7 +279,7 @@ client = pymongo.MongoClient('mongodb+srv://YOURUSERNAME:YOURPASSWORD@cluster0.e
 db = client.user_login
 ```
 
-Here we import the `pymongo` library and use it to connect to our MongoDB instance on MongoDB Atlas. Replace `YOURUSERNAME` and `YOURPASSWORD` with the MongoDB Atlas user account information you created in [this tutorial](https://codecapsules.io/docs/how-to-connect-a-mongodb-using-mongodb-atlas-with-your-code-capsules-application/).
+Here we import the `pymongo` library and use it to connect to our MongoDB instance. Replace `YOURUSERNAME` and `YOURPASSWORD` with your data capsule account information.
 
 ### Create the user class 
 
