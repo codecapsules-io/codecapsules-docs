@@ -17,7 +17,7 @@ markdown_extensions:
 
 nav:
   - Getting Started: index.md
-  - Deployment: 
+  - Deployment:
     - Overview: deployment/index.md
     - How to Deploy an Angular Application to Production on Code Capsules: deployment/how-to-deploy-angular-application-to-production.md
     - How to Deploy an Express Application to Production on Code Capsules: deployment/how-to-deploy-express-application-to-production.md
@@ -26,11 +26,11 @@ nav:
     - How to Deploy a React Application to Production on Code Capsules: deployment/how-to-deploy-react-application-to-production.md
     - How to Deploy an HTML Site to Production on Code Capsules: deployment/how-to-deploy-static-html-to-production.md
     - How to Deploy a Vue Application to Production on Code Capsules: deployment/how-to-deploy-vue-application-to-production.md
-  - Reference: 
+  - Reference:
     - Overview: reference/index.md
     - Custom Domains: reference/custom_domains.md
-    - Create And Connect MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md 
-  - Tutorials: 
+    - Create And Connect MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md
+  - Tutorials:
     - tutorials/index.md
     - Build Slackbot with Node.js: tutorials/build-slackbot-with-node.md
     - Connect MongoDB Atlas to Code Capsules: tutorials/connect-mongodb-atlas-to-code-capsules.md
@@ -41,7 +41,8 @@ nav:
     - Developing a Persistent Sleep Tracker Part 2: tutorials/develop-persistent-sleep-tracker-part-2.md
     - Building and Hosting Your Front-end Portfolio: tutorials/host-a-frontend.md
     - Setting up Stripe Checkout and Email Subscription with Flask and Code Capsules: tutorials/stripe-checkout-and-email-with-flask.md
-  - FAQ: 
+    - Building a Web File Store: tutorials/build-a-web-file-store.md
+  - FAQ:
     - Teams, Spaces and Capsules: FAQ/teams-spaces-capsules.md
     - What Is A Capsule?: FAQ/what-is-a-capsule.md
     - What Is A Space?: FAQ/what-is-a-space.md
