@@ -108,7 +108,7 @@ def add_sleep(time, date, user):
         user['date'] = [date]
         user['time'] = [time]
 
-    # Update MongoDB Atlas
+    # Update MongoDB 
     db.users.update_one({ 'username': user['username'] },
         { '$set': { 'date': user['date'],
           'time': user['time'] }})

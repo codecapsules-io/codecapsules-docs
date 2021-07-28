@@ -498,6 +498,8 @@
         
           
         
+          
+        
       
       
         
@@ -541,6 +543,20 @@
     <li class="md-nav__item">
       <a href="../reference/set-up-mongodb-data-capsule.html" class="md-nav__link">
         Create And Connect MongoDB Data Capsule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/set-up-mysql-data-capsule.html" class="md-nav__link">
+        Create And Connect MySQL Data Capsule
       </a>
     </li>
   
@@ -730,8 +746,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mongodb-atlas" class="md-nav__link">
-    MongoDB Atlas
+  <a href="#mongodb-data-capsule" class="md-nav__link">
+    MongoDB Data Capsule
   </a>
   
 </li>
@@ -1234,8 +1250,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mongodb-atlas" class="md-nav__link">
-    MongoDB Atlas
+  <a href="#mongodb-data-capsule" class="md-nav__link">
+    MongoDB Data Capsule
   </a>
   
 </li>
@@ -1394,12 +1410,12 @@
 <li>Create interactive <a href="https://plotly.com/python/">Plotly</a> graphs. </li>
 </ul>
 <p>This tutorial series is best suited for those with some Python, HTML, and Flask experience. But even if you feel you don't have much experience with these, don't worry. We'll walk through this application step-by-step. Let's get started! </p>
-<h2 id="mongodb-atlas">MongoDB Atlas</h2>
+<h2 id="mongodb-data-capsule">MongoDB Data Capsule</h2>
 <p>One of the most important aspects of this tutorial is using a Mongo Database (MongoDB). With this MongoDB, we can track users' login information and sleep data. MongoDB is a <em>NoSQL</em> databases, which means we can store data easily, in variable formats, without having to first create tables, as we would have to with a traditional SQL databse. If you're unfamiliar with NoSQL databases or MongoDB in general, take a look at <a href="https://www.mongodb.com/nosql-explained">this explainer</a> by the MongoDB organisation. </p>
-<p>MongoDB Atlas clusters are free to use. Follow <a href="https://codecapsules.io/docs/how-to-connect-a-mongodb-using-mongodb-atlas-with-your-code-capsules-application">this short tutorial</a> to create the MongoDB Atlas cluster that we'll use to store the user data for this sleep tracker application. This step is <em>extremely</em> important – without a database, our application will not function. </p>
-<p>Once you've set up a MongoDB Atlas cluster, continue with this tutorial.</p>
+<p>Follow <a href="../reference/set-up-mongodb-data-capsule.html">this short tutorial</a> to create a MongoDB data capsule that we'll use to store the user data for this sleep tracker application. This step is <em>extremely</em> important – without a database, our application will not function. </p>
+<p>Once you've set up a MongoDB data capsule, continue with this tutorial.</p>
 <h2 id="requirements">Requirements</h2>
-<p>In addition to creating a MongoDB Atlas Cluster, make sure you have the following:</p>
+<p>In addition to creating a MongoDB Data Capsule, make sure you have the following:</p>
 <ul>
 <li><a href="https://git-scm.com/">Git</a> installed and a registered <a href="https://github.com">GitHub</a> account.</li>
 <li><a href="https://pypi.org/project/virtualenv/">Virtualenv</a> installed. </li>
@@ -1561,7 +1577,7 @@
 <p>After running the application, Flask will provide you with URL. Enter this URL in your web browser, and you'll see the login screen. It should look something like this:</p>
 <p><img alt="" src="../assets/tutorials/develop-persistent-sleep-tracker-part-1/login.png" /></p>
 <h2 id="handling-user-registration-and-login">Handling User Registration and Login</h2>
-<p>Rather than implementing a user registration and login system ourselves, we'll use the Flask Login library that we installed earlier to provide this functionality. This will help us to save time and avoid common usability and security pitfalls. We will store user information in the database we created <a href="#mongodb-atlas">at the beginning of this tutorial</a>.</p>
+<p>Rather than implementing a user registration and login system ourselves, we'll use the Flask Login library that we installed earlier to provide this functionality. This will help us to save time and avoid common usability and security pitfalls. We will store user information in the database we created <a href="#mongodb-data-capsule">at the beginning of this tutorial</a>.</p>
 <p>First, let's import the functionality we'll need from:
 + <code>flask-login</code>, <code>flask-bcrypt</code>, to handle users.
 + <code>pymongo</code>, to interface with MongoDB.
@@ -1585,7 +1601,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">client</span> <span class="o">=</span> <span class="n">pymongo</span><span class="o">.</span><span class="n">MongoClient</span><span class="p">(</span><span class="s1">&#39;mongodb+srv://YOURUSERNAME:YOURPASSWORD@cluster0.e2fw3.mongodb.net/&lt;dbname&gt;?retryWrites=true&amp;w=majorhostity&#39;</span><span class="p">)</span>
 <span class="n">db</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">user_login</span>
 </code></pre></div>
-<p>Here we import the <code>pymongo</code> library and use it to connect to our MongoDB instance on MongoDB Atlas. Replace <code>YOURUSERNAME</code> and <code>YOURPASSWORD</code> with the MongoDB Atlas user account information you created in <a href="https://codecapsules.io/docs/how-to-connect-a-mongodb-using-mongodb-atlas-with-your-code-capsules-application/">this tutorial</a>.</p>
+<p>Here we import the <code>pymongo</code> library and use it to connect to our MongoDB instance. Replace <code>YOURUSERNAME</code> and <code>YOURPASSWORD</code> with your data capsule account information.</p>
 <h3 id="create-the-user-class">Create the user class</h3>
 <p>For Flask Login to work, we need to create a <code>User</code> class. This <code>User</code> class will contain information pertaining to the user that is currently logged in to our sleep tracker.</p>
 <p>Flask Login expects us to implement four methods in our <code>User</code> class: <code>is_authenticated</code>, <code>is_active</code>, <code>is_anonymous</code> and <code>get_id</code>. Rather than implementing all of these ourselves, we will have our <code>User</code> class inherit from Flask's <code>UserMixin</code>, which provides generic implementations for the first three, leaving us with only <code>get_id</code>. In addition, we'll need to implement our own <code>load_user</code> and <code>check_password</code> methods.</p>
