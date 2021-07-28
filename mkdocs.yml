@@ -7,9 +7,18 @@ theme:
     - navigation.sections
   name: material
   logo: assets/cclogo.png
+
   palette:
-    scheme: slate
-    primary: orange
+    - scheme: default
+      primary: white
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: white
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 
 markdown_extensions:
   - pymdownx.highlight
