@@ -68,3 +68,6 @@ nav:
 
 extra:
   generator: false
+
+plugins:
+  - social
