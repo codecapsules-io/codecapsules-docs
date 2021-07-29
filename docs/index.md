@@ -12,7 +12,7 @@ If you're looking to deploy a specific framework, you can find guides on how to 
 
 Visit our [FAQ](./FAQ/teams-spaces-capsules.md) to get answers to the questions our new users usually ask.
 
-## Comparisons And Community
+## Comparisons and Community
 
 Get to know us and the services we offer better by checking out our [Comparisons](./comparisons/index.md) and [Community](./community/introducing-code-capsules.md) pages.
 
