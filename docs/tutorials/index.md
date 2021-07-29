@@ -51,3 +51,10 @@ If you're looking to build cool applications that you can host on Code Capsules,
   </a>
 </figure>
 
+<figure>
+    <a href="./build-a-web-file-store.html">
+  <img src="../assets/tutorials/build-a-web-file-store/web_file_store.png" width="300" />
+  <figcaption>Building a Web File Store</figcaption>
+  </a>
+</figure>
+
