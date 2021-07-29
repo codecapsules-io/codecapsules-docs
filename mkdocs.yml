@@ -38,8 +38,8 @@ nav:
   - Reference: 
     - Overview: reference/index.md
     - Custom Domains: reference/custom_domains.md
-    - Create And Connect MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md 
-    - Create And Connect MySQL Data Capsule: reference/set-up-mysql-data-capsule.md
+    - Create and Connect MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md 
+    - Create and Connect MySQL Data Capsule: reference/set-up-mysql-data-capsule.md
   - Tutorials: 
     - tutorials/index.md
     - Slackbot with Node.js: tutorials/build-slackbot-with-node.md
@@ -53,10 +53,10 @@ nav:
     - Stripe Checkout and Email Subscription with Flask: tutorials/stripe-checkout-and-email-with-flask.md
   - FAQ: 
     - Teams, Spaces and Capsules: FAQ/teams-spaces-capsules.md
-    - What Is A Capsule?: FAQ/what-is-a-capsule.md
-    - What Is A Space?: FAQ/what-is-a-space.md
-    - What Is A Team?: FAQ/what-is-a-team.md
-    - How To Add Custom Domain: FAQ/how-to-add-custom-domain.md
+    - What is a Capsule?: FAQ/what-is-a-capsule.md
+    - What is a Space?: FAQ/what-is-a-space.md
+    - What is a Team?: FAQ/what-is-a-team.md
+    - How Do I Add a Custom Domain?: FAQ/how-to-add-custom-domain.md
   - Comparisons:
     - comparisons/index.md
     - PaaS Providers: comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.md
