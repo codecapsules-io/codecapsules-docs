@@ -1,4 +1,5 @@
 :5555 {
+    redir /docs /docs/
     handle_path /docs/* {
         redir /comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules/ /docs/comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.html permanent
         redir /saas-vs-paas-vs-iaas-comparing-three-paradigms/ /docs/comparisons/saas-paas-iaas.html permanent
