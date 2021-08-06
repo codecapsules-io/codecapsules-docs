@@ -21,9 +21,6 @@
         redir /how-to-deploy-a-flask-application-to-production-on-code-capsules/ /docs/deployment/how-to-deploy-flask-application-to-production permanent
         redir /how-to-deploy-a-vue-application-to-production-on-code-capsules/ /docs/deployment/how-to-deploy-vue-application-to-production permanent
         redir /faq/teams-spaces-and-capsules/ /docs/FAQ/teams-spaces-capsules permanent
-        redir /faq/what-is-a-team/ /docs/FAQ/what-is-a-team permanent
-        redir /faq/what-is-a-space/ /docs/FAQ/what-is-a-space permanent
-        redir /faq/what-is-a-capsule/ /docs/FAQ/what-is-a-capsule permanent
         redir /codecapsules-hack-days/ /docs/community/codecapsules-hack-days permanent
         redir /introducing-code-capsules/ /docs/community/introducing-code-capsules permanent
         redir /founder-fridays/ /docs/community/founder-fridays permanent
