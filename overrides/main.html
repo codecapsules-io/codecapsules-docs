@@ -1,18 +1,12 @@
 {% extends "base.html" %}
 
 {% block extrahead %}
-  {% set title = config.site_name %}
-  {% if page and page.meta and page.meta.title %}
-    {% set title = title ~ " - " ~ page.meta.title %}
-  {% elif page and page.title and not page.is_homepage %}
-    {% set title = title ~ " - " ~ page.title | striptags %}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="codecapsules" />
+  <meta name="twitter:creator" content="codecapsules" />
+  {% if page and page.meta and page.meta.title and page.meta.description and page.meta.image %}
+      <meta name="twitter:title" content="{{ page.meta.title }}" />
+      <meta name="twitter:description" content="{{ page.meta.description}}" />
+      <meta name="twitter:image" content="{{config.site_url}}{{page.meta.image }}" />
   {% endif %}
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ title }}">
-  <meta property="og:description" content="{{ config.site_description }}">
-  <meta property="og:image" content="https://codecapsules-docs-hfyqjc.codecapsules.co.za/assets/tutorials/build-a-web-file-store/web_file_store.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ title }}">
-  <meta name="twitter:description" content="{{ config.site_description }}">
-  <meta name="twitter:image" content="https://codecapsules-docs-hfyqjc.codecapsules.co.za/assets/tutorials/build-a-web-file-store/web_file_store.jpg">
 {% endblock %}
