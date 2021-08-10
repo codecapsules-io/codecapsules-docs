@@ -24,6 +24,9 @@
         redir /codecapsules-hack-days/ /docs/community/codecapsules-hack-days permanent
         redir /introducing-code-capsules/ /docs/community/introducing-code-capsules permanent
         redir /founder-fridays/ /docs/community/founder-fridays permanent
+        redir /topic/community/ /docs/community/introducing-code-capsules permanent
+        redir /topic/tutorials/ /docs/tutorials permanent
+        redir /faq/ /docs/FAQ/teams-spaces-capsules permanent
 
         encode zstd gzip
         root * /var/www
