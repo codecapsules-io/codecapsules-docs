@@ -46,7 +46,7 @@ nav:
     - Web File Store: tutorials/build-a-web-file-store.md
     - Telegram Bot: tutorials/create-and-host-telegram-bot.md
     - Flask API: tutorials/creating-and-hosting-a-flask-api.md
-    - Customising Domain: tutorials/customising-domain.md
+    - Custom Domains: tutorials/customising-domain.md
     - Persistent Sleep Tracker Part 1: tutorials/develop-persistent-sleep-tracker-part-1.md
     - Persistent Sleep Tracker Part 2: tutorials/develop-persistent-sleep-tracker-part-2.md
     - Front-end Portfolio: tutorials/host-a-frontend.md
