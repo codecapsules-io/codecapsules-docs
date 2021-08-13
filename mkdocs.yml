@@ -1,4 +1,9 @@
 site_name: Code Capsules
+site_url: https://codecapsules.co.za/docs
+site_description: >-
+  The documentation for Code Capsules, the easiest deployment
+  platform that lets you pull your code directly from your Github repository 
+  and build it inside the correct container, ensuring security and performance. 
 
 theme:
   features:
@@ -6,6 +11,7 @@ theme:
     - navigation.tabs
     - navigation.sections
   name: material
+  custom_dir: overrides
   logo: assets/cclogo.png
 
   palette:
@@ -23,6 +29,7 @@ theme:
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
+  - meta
 
 nav:
   - Getting Started: index.md
@@ -46,7 +53,7 @@ nav:
     - Web File Store: tutorials/build-a-web-file-store.md
     - Telegram Bot: tutorials/create-and-host-telegram-bot.md
     - Flask API: tutorials/creating-and-hosting-a-flask-api.md
-    - Customising Domain: tutorials/customising-domain.md
+    - Custom Domains: tutorials/customising-domain.md
     - Persistent Sleep Tracker Part 1: tutorials/develop-persistent-sleep-tracker-part-1.md
     - Persistent Sleep Tracker Part 2: tutorials/develop-persistent-sleep-tracker-part-2.md
     - Front-end Portfolio: tutorials/host-a-frontend.md
@@ -72,5 +79,3 @@ extra:
     provider: google
     property: UA-165274631-2
 
-plugins:
-  - social

@@ -6,22 +6,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Learn how to build a Telegram bot that messages you exchange rate data and weather forecasts for areas of your choosing.">
       
       
+      
+      
+        <link rel="canonical" href="https://codecapsules.co.za/docs/tutorials/create-and-host-telegram-bot/">
       
       
         
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.2+insiders-2.12.2">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.1+insiders-2.12.0">
     
     
       
-        <title>Telegram Bot - Code Capsules</title>
+        <title>Create a Telegram Bot - Code Capsules</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.98acb380.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f55811a5.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.73e53a79.min.css">
@@ -61,33 +65,16 @@
 
     
     
-      
-        <meta  property="og:type"  content="website" >
-      
-        <meta  property="og:title"  content="Telegram Bot - Code Capsules" >
-      
-        <meta  property="og:description"  content="None" >
-      
-        <meta  property="og:image"  content="assets/images/social/tutorials/create-and-host-telegram-bot.png" >
-      
-        <meta  property="og:image:type"  content="image/png" >
-      
-        <meta  property="og:image:width"  content="1200" >
-      
-        <meta  property="og:image:height"  content="630" >
-      
-        <meta  property="og:url"  content="None" >
-      
-        <meta  name="twitter:card"  content="summary_large_image" >
-      
-        <meta  name="twitter:title"  content="Telegram Bot - Code Capsules" >
-      
-        <meta  name="twitter:description"  content="None" >
-      
-        <meta  name="twitter:image"  content="assets/images/social/tutorials/create-and-host-telegram-bot.png" >
-      
     
-    
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="codecapsules" />
+  <meta name="twitter:creator" content="codecapsules" />
+  
+      <meta name="twitter:title" content="Create a Telegram Bot" />
+      <meta name="twitter:description" content="Learn how to build a Telegram bot that messages you exchange rate data and weather forecasts for areas of your choosing." />
+      <meta name="twitter:image" content="https://codecapsules.co.za/docs/assets/tutorials/create-and-host-telegram-bot/telegram-bot-cover.jpg" />
+  
+
   </head>
   
   
@@ -142,7 +129,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Telegram Bot
+              Create a Telegram Bot
             
           </span>
         </div>
@@ -172,6 +159,40 @@
       </form>
     
     
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     
     
   </nav>
@@ -871,7 +892,7 @@
   
     <li class="md-nav__item">
       <a href="../customising-domain/" class="md-nav__link">
-        Customising Domain
+        Custom Domains
       </a>
     </li>
   
@@ -1559,13 +1580,13 @@
 <p>We'll set up a webhook by telling Telegram to send commands sent to our bot account to our bot's Code Capsules URL. Our dispatcher will then process the command using the appropriate handler and send back the requested information. </p>
 <h3 id="creating-a-webhook">Creating a webhook</h3>
 <p>To set up the webhook, replace the line <code>updater.start_polling()</code> in the <code>main</code> function with the code below:</p>
-<div class="highlight"><pre><span></span><code>    <span class="n">PORT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PORT&#39;</span><span class="p">,</span><span class="s1">&#39;8443&#39;</span><span class="p">))</span>
-    <span class="n">updater</span><span class="o">.</span><span class="n">start_webhook</span><span class="p">(</span><span class="n">listen</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">PORT</span><span class="p">,</span> <span class="n">url_path</span><span class="o">=</span><span class="n">TOKEN</span><span class="p">)</span>
-    <span class="n">updater</span><span class="o">.</span><span class="n">bot</span><span class="o">.</span><span class="n">setWebhook</span><span class="p">(</span><span class="s1">&#39;YOUR-CODECAPSULES-URL-HERE&#39;</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">TOKEN</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>    <span class="n">PORT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PORT&#39;</span><span class="p">,</span> <span class="s1">&#39;443&#39;</span><span class="p">))</span>
+    <span class="n">HOOK_URL</span> <span class="o">=</span> <span class="s1">&#39;YOUR-CODECAPSULES-URL-HERE&#39;</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">TOKEN</span>
+    <span class="n">updater</span><span class="o">.</span><span class="n">start_webhook</span><span class="p">(</span><span class="n">listen</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">PORT</span><span class="p">,</span> <span class="n">url_path</span><span class="o">=</span><span class="n">TOKEN</span><span class="p">,</span> <span class="n">webhook_url</span><span class="o">=</span><span class="n">HOOK_URL</span><span class="p">)</span>
     <span class="n">updater</span><span class="o">.</span><span class="n">idle</span><span class="p">()</span>
 </code></pre></div>
-<p>Here we start a webhook that will listen on our Code Capsules URL at TCP port 8443 and with the path of our token. Thus, Telegram will relay commands sent to our bot to the following URL:</p>
-<div class="highlight"><pre><span></span><code>https://YOUR-CODECAPSULES-SUBDOMAIN.codecapsules.io:8443/TOKEN
+<p>Here we start a webhook that will listen on our Code Capsules URL at TCP port 443 and with the path of our token. Thus, Telegram will relay commands sent to our bot to the following URL:</p>
+<div class="highlight"><pre><span></span><code>https://YOUR-CODECAPSULES-SUBDOMAIN.codecapsules.io:443/TOKEN
 </code></pre></div>
 <p>If you've completed some of our other backend tutorials, you will be familiar with setting up web servers that receive <code>GET</code> and <code>POST</code> requests to different routes. You can think of a webhook as a very simple HTTP server that is intended to be used by bots and automated services rather than humans.</p>
 <h2 id="preparing-for-deployment">Preparing For Deployment</h2>
@@ -1586,7 +1607,7 @@
 <ol>
 <li>Navigate to the directory containing the <code>bot.py</code> file and enter the virtual environment.</li>
 <li>Create a file named <code>Procfile</code> (with no file extension).</li>
-<li>Open <code>Procfile</code>, enter <code>web: python3 app.py</code>, and save the file.</li>
+<li>Open <code>Procfile</code>, enter <code>web: python3 bot.py</code>, and save the file.</li>
 </ol>
 <p>In the same directory, open a terminal and activate the virtual environment. Then enter <code>pip3 freeze &gt; requirements.txt</code> to generate a list of requirements for our Code Capsules server.</p>
 <p>Now we can push our code to GitHub. Create a GitHub repository and send the <code>requirements.txt</code>, <code>Procfile</code>, and <code>bot.py</code> files to the repository. </p>
@@ -1604,14 +1625,14 @@
 <ol>
 <li>Navigate to your Capsule.</li>
 <li>Click the "Config" tab.</li>
-<li>Add an environment variable with the name "BOTAPIKEY" and give it your bot's API key as a value. Make sure to hit the update button after adding the variable.</li>
+<li>Add an environment variable with the name "BOTAPIKEY" and give it your bot's API key as a value. Make sure to hit the "Update Capsule" button after adding the variable.</li>
 </ol>
 <p><img alt="env-var" src="../../assets/tutorials/create-and-host-telegram-bot/env_var.png" /></p>
 <p>Next, let's supply our webhook with the correct domain.</p>
 <ol>
 <li>Navigate to the "Overview" tab.</li>
 <li>Copy the domain found under "Domains".</li>
-<li>Open the <code>bot.py</code> file and find the line <code>updater.bot.setWebhook('YOUR-CODECAPSULES-URL HERE'+TOKEN)</code>.</li>
+<li>Open the <code>bot.py</code> file and find the line <code>HOOK_URL = 'YOUR-CODECAPSULES-URL-HERE' + '/' + TOKEN</code>.</li>
 <li>Replace "YOUR-CODECAPSULES_URL" with the domain just copied.</li>
 <li>Commit and push these changes to GitHub.</li>
 </ol>
@@ -1691,10 +1712,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.61ac8e46.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.74af7bc3.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.218b5f82.min.js"></script>
+      <script src="../../assets/javascripts/bundle.1afabad3.min.js"></script>
       
     
   </body>

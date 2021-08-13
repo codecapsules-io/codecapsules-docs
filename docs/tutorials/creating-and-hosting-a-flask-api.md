@@ -1,3 +1,9 @@
+---
+title: Create a Flask API 
+description: Build a personal API that lets you access up to the minute exchange rates and weather data for cities of your choosing.
+image: assets/tutorials/creating-and-hosting-a-flask-api/creating-flask-api-cover.jpg
+---
+
 # Creating and Hosting an API with Flask and Code Capsules
 
 ![Creating Flask API Cover](../assets/tutorials/creating-and-hosting-a-flask-api/creating-flask-api-cover.jpg)
@@ -6,9 +12,9 @@ An _API_, or Application Programming Interface, is a tool enabling developers to
 
 Without a doubt, they used an API. APIs are hosted on a server and operate as an access point between the user and some data. 
 
-Part of this guide takes a look at the [WeatherStack](https://weatherstack.com/) API – an API providing weather data. For the website to retrieve your location's temperature, they would've sent a request to an API like WeatherStack. In the request, they would include information about your computer's location. WeatherStack's API would then return weather data related to your locale, such as the temperature and cloud cover. The weather website will then display this data on their homepage for you to view. 
+Part of this guide takes a look at the [weatherstack](https://weatherstack.com/) API – an API providing weather data. For the website to retrieve your location's temperature, they would've sent a request to an API like weatherstack. In the request, they would include information about your computer's location. weatherstack's API would then return weather data related to your locale, such as the temperature and cloud cover. The weather website will then display this data on their homepage for you to view. 
 
-In this tutorial, we'll learn how to create a personal API with Python (using [Flask](https://palletsprojects.com/p/flask/)). Our API will use data from the [WeatherStack](https://weatherstack.com/) and [OpenExchangeRates](https://openexchangerates.org/) APIs to give us up-to-the-minute USD exchange rates and the temperature of a given city. 
+In this tutorial, we'll learn how to create a personal API with Python (using [Flask](https://palletsprojects.com/p/flask/)). Our API will use data from the [weatherstack](https://weatherstack.com/) and [OpenExchangeRates](https://openexchangerates.org/) APIs to give us up-to-the-minute USD exchange rates and the temperature of a given city. 
 
 We'll host our API on [Code Capsules](https://codecapsules.io/) so that anyone will be able to request information from it, no matter their location. 
 
@@ -27,7 +33,11 @@ Also ensure you've installed the following:
 First, let's set up a virtual Python environment using Virtualenv. Virtualenv provides a clean Python install with no third-party libraries or packages, allowing us to work on this project without interfering with the dependencies of our other projects.
 
 1. Open your terminal and create an empty folder.
-2. Navigate to the folder via your terminal, and enter `virtualenv env`.
+2. Navigate to the folder via your terminal, and enter: 
+   
+```bash
+virtualenv env
+```
 
 To activate the virtual environment, enter one of the following:
 
@@ -53,32 +63,38 @@ Now that we've activated the virtual environment, let's take a look at the packa
 - [Gunicorn](https://gunicorn.org/) is a [WSGI](https://medium.com/analytics-vidhya/what-is-wsgi-web-server-gateway-interface-ed2d290449e) server that will help serve our Python application (the API hosted on Code Capsules). 
 - [Requests](https://pypi.org/project/requests/) is a Python library we will use to interact with APIs.
 
-From your terminal where you activated the virtual environment, install these packages with `pip3 install flask gunicorn requests`. 
+From your terminal where you activated the virtual environment, install these packages with: 
 
-## Registering Accounts on OpenExchangeRates and WeatherStack
+```bash
+pip3 install flask gunicorn requests
+```
 
-Our API will return the current temperature of a chosen city and the USD exchange rates for three currencies. We'll create our API by combining data from two other APIs – [WeatherStack](https://weatherstack.com) and [OpenExchangeRates](https://openexchangerates.org/). As their names suggest, WeatherStack will provide the temperature data, and OpenExchangeRates the exchange rate data. 
+**Note** pip will have automatically been installed when you set the virtual environment if not you can follow [this guide](https://pip.pypa.io/en/stable/installation/) to install it.
 
-Registering an account is required so that we can receive a unique _API key_. An API key is a password that lets us use a particular API. In APIs with more sensitive data, these are used to prevent unauthorised access, but for open APIs like WeatherStack and OpenExchangeRates, they're used for [rate limiting](https://en.wikipedia.org/wiki/Rate_limiting) to prevent users from sending too many requests at once and overwhelming the system.
+## Registering Accounts on OpenExchangeRates and weatherstack
+
+Our API will return the current temperature of a chosen city and the USD exchange rates for three currencies. We'll create our API by combining data from two other APIs – [weatherstack](https://weatherstack.com) and [OpenExchangeRates](https://openexchangerates.org/). As their names suggest, weatherstack will provide the temperature data, and OpenExchangeRates the exchange rate data. 
+
+Registering an account is required so that we can receive a unique _API key_. An API key is a password that lets us use a particular API. In APIs with more sensitive data, these are used to prevent unauthorised access, but for open APIs like weatherstack and OpenExchangeRates, they're used for [rate limiting](https://en.wikipedia.org/wiki/Rate_limiting) to prevent users from sending too many requests at once and overwhelming the system.
 
 ### Creating our accounts
 
-First, let's register an account on OpenExchangeRates. Navigate to https://openexchangerates.org/signup/free and:
+First, let's register an account on OpenExchangeRates. Navigate to [here](https://openexchangerates.org/signup/free) and:
 
 1. Sign up and log in.
 2. On the dashboard, click "App IDs". 
-3. **Save** your "App ID" (API key) on your computer.
+3. Take note of your "App ID" (API key) you will need to paste it into the code below.
  
 	![OpenExchangeRates api key](../assets/tutorials/creating-and-hosting-a-flask-api/image2.png)
 
-Obtaining the WeatherStack API key is similar:
+Obtaining the weatherstack API key is similar:
 
-1. Create a free account on [WeatherStack](https://weatherstack.com/product)
-2. Log in and save the API key presented to you.
+1. Create a free account on [weatherstack](https://weatherstack.com/product)
+2. Log in and take note of the API key presented in the control panel, you will need to paste it into the code below.
 	
-	![WeatherStack api key](../assets/tutorials/creating-and-hosting-a-flask-api/image3.png)
+	![weatherstack api key](../assets/tutorials/creating-and-hosting-a-flask-api/image3.png)
 
-Now we can retrieve data from the OpenExchangeRates and WeatherStack APIs using our API keys. Let's try that out now.
+Now we can retrieve data from the OpenExchangeRates and weatherstack APIs using our API keys. Let's try that out now.
 
 ### Getting exchange rates
 
@@ -137,7 +153,7 @@ In our case, we supplied the parameter `symbols` with the three currencies we wa
  
 ### Getting the temperature
 
-Now that we've obtained the exchange rates, we can retrieve the temperature for a city. Let's modify the program by adding the following below the `print` statement. Make sure to replace `YOUR-API-KEY-HERE` with the **WeatherStack** API key.
+Now that we've obtained the exchange rates, we can retrieve the temperature for a city. Let's modify the program by adding the following below the `print` statement. Make sure to replace `YOUR-API-KEY-HERE` with the **weatherstack** API key.
 
 ```python
 WEATHER_URL = 'http://api.weatherstack.com/current?access_key=YOUR-API-KEY-HERE'
@@ -153,7 +169,7 @@ Here we retrieve the temperature for Cape Town, South Africa. You can replace "C
 
 ## Creating our API
 
-Now we'll get to creating the API with Flask. Our API will package the WeatherStack and OpenExchangeRates data together in a single endpoint.
+Now we'll get to creating the API with Flask. Our API will package the weatherstack and OpenExchangeRates data together in a single endpoint.
 
 This means we can build other applications later which will be able to retrieve all of the data above by calling `requests.get(MY_CODE_CAPSULES_URL)`. 
 
@@ -189,7 +205,7 @@ def index():
     return "Welcome to my API!"
 ```
 
-Once it's hosting it on Code Capsules, you'll see "Welcome to my API!" when you visit its URL.
+Once the API is hosted on Code Capsules, you'll see "Welcome to my API!" when you visit the app's URL which you can find under the domains section of the capsule.
 
 Next, we'll implement the ability to "get" (using `requests.get()`) our data from the API when it's hosted. 
 
@@ -236,15 +252,15 @@ Next, create a new file named `Procfile` in the same directory. Open the `Procfi
 web: gunicorn app:app
 ```
 
-This tells Code Capsules to use the Gunicorn WSGI server to serve the HTTP data sent and recieved by our Flask API.
+This tells Code Capsules to use the Gunicorn WSGI server to serve the HTTP data sent and received by our Flask API.
 
 ## Hosting the API on Code Capsules
 
 The API is now ready to host on Code Capsules. Follow these steps to get it online:
 
-1. Create a remote repository on Github.
+1. Create a remote repository on GitHub.
 2. Push the `Procfile`, `requirements.txt`, and `app.py` files to the repository.
-3. Link the repository to your Code Capsules account.
+3. Link the repository to your Code Capsules account following [this guide.](https://codecapsules.io/docs/deployment/how-to-deploy-flask-application-to-production/)
 4. Create a new Team and Space (as necessary).
 
 With the repository linked to Code Capsules, we just need to store the API on a Capsule:
