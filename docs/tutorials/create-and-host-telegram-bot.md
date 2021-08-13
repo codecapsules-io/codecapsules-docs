@@ -67,7 +67,7 @@ The virtual environment will help manage our dependencies for when we host the b
 
 To interact with the Telegram Bot API, we need to install the [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) library, a Python wrapper for the [Telegram Bot API](https://core.telegram.org/bots/api). We'll also use the Python library `requests` to retrieve data from the weather and currency exchange rate API. To install these requirements, enter the following in your terminal:
 
-```
+```bash
 pip install python-telegram-bot requests
 ```
 
@@ -249,17 +249,17 @@ We'll set up a webhook by telling Telegram to send commands sent to our bot acco
 To set up the webhook, replace the line `updater.start_polling()` in the `main` function with the code below:
 
 ```python
-    PORT = int(os.environ.get('PORT','8443'))
-    updater.start_webhook(listen='0.0.0.0', port=PORT, url_path=TOKEN)
-    updater.bot.setWebhook('YOUR-CODECAPSULES-URL-HERE' + "/" + TOKEN)
+    PORT = int(os.environ.get('PORT', '443'))
+    HOOK_URL = 'YOUR-CODECAPSULES-URL-HERE' + '/' + TOKEN
+    updater.start_webhook(listen='0.0.0.0', port=PORT, url_path=TOKEN, webhook_url=HOOK_URL)
     updater.idle()
 
 ```
 
-Here we start a webhook that will listen on our Code Capsules URL at TCP port 8443 and with the path of our token. Thus, Telegram will relay commands sent to our bot to the following URL:
+Here we start a webhook that will listen on our Code Capsules URL at TCP port 443 and with the path of our token. Thus, Telegram will relay commands sent to our bot to the following URL:
 
 ```
-https://YOUR-CODECAPSULES-SUBDOMAIN.codecapsules.io:8443/TOKEN
+https://YOUR-CODECAPSULES-SUBDOMAIN.codecapsules.io:443/TOKEN
 ```
 
 If you've completed some of our other backend tutorials, you will be familiar with setting up web servers that receive `GET` and `POST` requests to different routes. You can think of a webhook as a very simple HTTP server that is intended to be used by bots and automated services rather than humans.
@@ -296,7 +296,7 @@ To create the `Procfile`:
 
 1. Navigate to the directory containing the `bot.py` file and enter the virtual environment.
 2. Create a file named `Procfile` (with no file extension).
-3. Open `Procfile`, enter `web: python3 app.py`, and save the file.
+3. Open `Procfile`, enter `web: python3 bot.py`, and save the file.
 
 In the same directory, open a terminal and activate the virtual environment. Then enter `pip3 freeze > requirements.txt` to generate a list of requirements for our Code Capsules server.
 
@@ -318,7 +318,7 @@ We haven't supplied our webhook a URL yet, and we still need to create an enviro
 
 1. Navigate to your Capsule.
 2. Click the "Config" tab.
-3. Add an environment variable with the name "BOTAPIKEY" and give it your bot's API key as a value. Make sure to hit the update button after adding the variable.
+3. Add an environment variable with the name "BOTAPIKEY" and give it your bot's API key as a value. Make sure to hit the "Update Capsule" button after adding the variable.
 
 ![env-var](../assets/tutorials/create-and-host-telegram-bot/env_var.png)
 
@@ -326,7 +326,7 @@ Next, let's supply our webhook with the correct domain.
 
 1. Navigate to the "Overview" tab.
 2. Copy the domain found under "Domains".
-3. Open the `bot.py` file and find the line `updater.bot.setWebhook('YOUR-CODECAPSULES-URL HERE'+TOKEN)`.
+3. Open the `bot.py` file and find the line `HOOK_URL = 'YOUR-CODECAPSULES-URL-HERE' + '/' + TOKEN`.
 4. Replace "YOUR-CODECAPSULES_URL" with the domain just copied.
 5. Commit and push these changes to GitHub.
 
