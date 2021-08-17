@@ -1,3 +1,8 @@
+---
+title: Deploy a Flask Application
+description: A walkthrough on how to deploy a Flask application from GitHub.
+---
+
 # How to Deploy a Flask Application to Production on Code Capsules
 
 Deploy a Flask application and learn how to host backend code on Code Capsules. 

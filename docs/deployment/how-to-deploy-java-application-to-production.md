@@ -1,3 +1,8 @@
+---
+title: Deploy a Java Application
+description: A guide on how to launch a Java application from GitHub.
+---
+
 # How to Deploy a Java Application to Production on Code Capsules
 
 Learn how to deploy backend Code on Code Capsules by deploying a Java application.
