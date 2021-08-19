@@ -2,7 +2,7 @@
 
 ![teams-spaces-capsules](../assets/faq/teamspacecapsule.png)
 
-[Teams](https://codecapsules.io/docs/faq/what-is-a-team), [Spaces](https://codecapsules.io/docs/faq/what-is-a-space), and [Capsules](https://codecapsules.io/docs/faq/what-is-a-capsule) are the foundation of [Code Capsules](https://codecapsules.io). "_Teams contain Spaces and Spaces contain Capsules_".
+[Teams](https://codecapsules.io/docs/FAQ/what-is-a-team), [Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space), and [Capsules](https://codecapsules.io/docs/FAQ/what-is-a-capsule) are the foundation of [Code Capsules](https://codecapsules.io). "_Teams contain Spaces and Spaces contain Capsules_".
 
 **Teams** are to organize people. Multiple people can join your Team, and each member of the Team can interact with the Spaces and Capsules that the Team contains. Furthermore, Teams are associated with a payment method – you add a credit card to a Team, and Code Capsules bills this credit card when a charge incurs.
 

@@ -52,7 +52,7 @@ Click the "GitHub" button. To give Code Capsules access to the React application
 
 ![Install & authorize github](../assets/deployment/react/github-integration.png)
 
-After authorising, Code Capsules will be able to read the contents of the selected repositories. All that's left to deploy the application is to add the repo to your team and create a [Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule). This Capsule will act as a storage space for the React application.
+After authorising, Code Capsules will be able to read the contents of the selected repositories. All that's left to deploy the application is to add the repo to your team and create a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule). This Capsule will act as a storage space for the React application.
 
 ## Add Repo to Team
 

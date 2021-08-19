@@ -16,7 +16,7 @@ To use the repository mentioned above, fork the application by navigating to the
 
 Navigate to [Code Capsules](https://codecapsules.io/) and click on the "Sign Up" button in the top right corner of the webpage. Enter your details to sign up for an account. Alternatively, if you have an account already, go ahead and log in. 
 
-If you've just signed up for an account, you'll be directed to the _Welcome_ page on your first login. Click on the "Go To Personal Team" button to advance to the next step. A [Team](https://codecapsules.io/docs/faq/what-is-a-team/) is an environment for you to manage your spaces and capsules.
+If you've just signed up for an account, you'll be directed to the _Welcome_ page on your first login. Click on the "Go To Personal Team" button to advance to the next step. A [Team](https://codecapsules.io/docs/FAQ/what-is-a-team/) is an environment for you to manage your spaces and capsules.
 
 ![welcome screen](../assets/deployment/express/welcome-screen.jpg)
 
@@ -53,7 +53,7 @@ Click the "GitHub" button to give Code Capsules access to the Express applicatio
 
 ![Install & authorize github](../assets/deployment/express/github-integration.png)
 
-After authorising, Code Capsules will be able to read the contents of the selected repositories. All that's left to deploy the application is to add the repo to your Team and create a [Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule). 
+After authorising, Code Capsules will be able to read the contents of the selected repositories. All that's left to deploy the application is to add the repo to your Team and create a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule). 
 
 ## Add Repo to Team
 
@@ -63,7 +63,7 @@ Click on "Team Settings" on the top navigation bar to switch to the _Team Settin
 
 ## Create the Capsule
 
-Capsules provide the server for hosting applications on Code Capsules. For a closer look at a Capsule's properties, read [this explanation on Capsules](https://codecapsules.io/docs/faq/what-is-a-capsule/).
+Capsules provide the server for hosting applications on Code Capsules. For a closer look at a Capsule's properties, read [this explanation on Capsules](https://codecapsules.io/docs/FAQ/what-is-a-capsule/).
 
 Go back to the _Spaces_ tab. Next, click on the Space you just created or are using, and create a new Capsule in that Space. To do this, click the "New Capsule" or "Create A New Capsule For Your Space" button when inside the Space.
 

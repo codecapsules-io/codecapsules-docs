@@ -11,4 +11,4 @@ For beginners, we have a series of tutorials that you can work through and get r
 
 ![Code Capsules Slack](../assets/community/code-capsules-slack.png)
 
-[Join our Slack](https://codecapsules.io/docs/codecapsules-hack-days/Let%E2%80%99s%20work%20together%20in%20Slack!%20It%E2%80%99s%20a%20faster,%20simpler%20way%20to%20talk%20shop,%20share%20files,%20and%20get%20work%20done.%20Join%20here:%20https://join.slack.com/t/codecapsules/shared_invite/zt-krsv5ott-_WR~S44xGmjATdpMsRC7yg) and come say hi.
+[Join our Slack](https://join.slack.com/t/codecapsules/shared_invite/zt-krsv5ott-_WR~S44xGmjATdpMsRC7yg) and come say hi.
