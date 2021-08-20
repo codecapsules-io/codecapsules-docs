@@ -29,13 +29,13 @@ If you've just created an account, make sure to confirm it by checking your emai
 
 ![welcome screen](../assets/deployment/vue/welcome-screen.jpg)
 
-A [Team](https://codecapsules.io/docs/faq/what-is-a-team/) is an environment for you to manage your Spaces and Capsules. Code Capsules gives every account a Personal Team as a default. The default Personal Team allows users to host static frontend websites for free.
+A [Team](https://codecapsules.io/docs/FAQ/what-is-a-team/) is an environment for you to manage your Spaces and Capsules. Code Capsules gives every account a Personal Team as a default. The default Personal Team allows users to host static frontend websites for free.
 
 ## Create a Space for Your Apps
 
 ![create a new space](../assets/deployment/vue/spaces.png)
 
-[Spaces](https://codecapsules.io/docs/faq/what-is-a-space) are an organisational tool for your applications. Click on the "Create A New Space For Your Apps" button. Alternatively, if you had logged into an existing Code Capsules account, you could click on the "New Space" button to create a new Space for this tutorial, or select any of your existing ones. After actioning either of these steps, a UI similar to the one shown below should slide in from the right of your screen.  
+[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space) are an organisational tool for your applications. Click on the "Create A New Space For Your Apps" button. Alternatively, if you had logged into an existing Code Capsules account, you could click on the "New Space" button to create a new Space for this tutorial, or select any of your existing ones. After actioning either of these steps, a UI similar to the one shown below should slide in from the right of your screen.  
 
 ![space name](../assets/deployment/vue/space-name.png)
 
@@ -58,7 +58,7 @@ Click the "GitHub" button. To give Code Capsules access to the Vue application:
 
 ![install&authorize](../assets/deployment/vue/github-integration.png)
 
-After authorising, Code Capsules will be able to read the repository containing the Vue application. All that's left to deploy the application is to add the repo to our Team and create a [Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule). 
+After authorising, Code Capsules will be able to read the repository containing the Vue application. All that's left to deploy the application is to add the repo to our Team and create a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule). 
 
 ## Add Repo to Team
 
@@ -68,7 +68,7 @@ Click on "Team Settings" on the top navigation bar to switch to the _Team Settin
 
 ## Create the Capsule
 
-Capsules act as storage spaces for applications. For a better understanding of Capsules, [read this explanation on Capsules](https://codecapsules.io/docs/faq/what-is-a-capsule/).
+Capsules act as storage spaces for applications. For a better understanding of Capsules, [read this explanation on Capsules](https://codecapsules.io/docs/FAQ/what-is-a-capsule/).
 
 To deploy the Vue application, go back to the _Spaces_ tab. Next, click on the Space you just created or are using, and create a new Capsule in that Space. Click the "New Capsule" or "Create A New Capsule For Your Space" button when inside the Space. Next:
 

@@ -21,7 +21,7 @@ We can use this repository by forking it. Navigate to the repository and "Fork" 
 
 If you don't already have a Code Capsules account, head to the site and click the "Sign Up" button in the top right. Enter your details to create an account, or log into an existing one.
 
-If you've just signed up for an account, make sure to confirm it by checking for an email from Code Capsules. On your first login, you' will be directed to the _Welcome_ page. Click on the "Go To Personal Team" button to advance to the next step. A [Team](https://codecapsules.io/docs/faq/what-is-a-team/) is an environment for you to manage your Spaces and Capsules.
+If you've just signed up for an account, make sure to confirm it by checking for an email from Code Capsules. On your first login, you' will be directed to the _Welcome_ page. Click on the "Go To Personal Team" button to advance to the next step. A [Team](https://codecapsules.io/docs/FAQ/what-is-a-team/) is an environment for you to manage your Spaces and Capsules.
 
 ![welcome screen](../assets/deployment/java/welcome-screen.jpg)
 
@@ -70,7 +70,7 @@ Click on "Team Settings" on the top navigation bar to switch to the _Team Settin
 
 ![Edit Team Repos](../assets/deployment/java/team-repos.gif)
 
-Now all that's left to do before deploying the application is to create a [Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule). This Capsule will act as storage space for the Java application.
+Now all that's left to do before deploying the application is to create a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule). This Capsule will act as storage space for the Java application.
 
 ## Create the Capsule
 

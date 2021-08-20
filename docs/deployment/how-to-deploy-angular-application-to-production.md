@@ -27,13 +27,13 @@ If you've just signed up for an account, you'll be directed to the _Welcome_ pag
 
 ![welcome screen](../assets/deployment/angular/welcome-screen.jpg)
 
-After clicking on the "Go To Personal Team" button, you will be redirected to the _Spaces_ tab for your Personal Team. A [Team](https://codecapsules.io/docs/faq/what-is-a-team/) is an environment for you to manage your Spaces and Capsules. Teams can have multiple members interacting with the projects associated with that particular Team. Code Capsules gives every account a Personal Team as the default.
+After clicking on the "Go To Personal Team" button, you will be redirected to the _Spaces_ tab for your Personal Team. A [Team](https://codecapsules.io/docs/FAQ/what-is-a-team/) is an environment for you to manage your Spaces and Capsules. Teams can have multiple members interacting with the projects associated with that particular Team. Code Capsules gives every account a Personal Team as the default.
 
 ## Create a Space for Your Apps
 
 ![create a new space](../assets/deployment/angular/spaces.png)
 
-[Spaces](https://codecapsules.io/docs/faq/what-is-a-space) are an organisational tool for your applications. Click the "Create A New Space For Your Apps" button and follow the prompts, naming the Space anything you'd like.
+[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space) are an organisational tool for your applications. Click the "Create A New Space For Your Apps" button and follow the prompts, naming the Space anything you'd like.
 
 ![space name](../assets/deployment/angular/space-name.png)
 
@@ -56,7 +56,7 @@ Click the "GitHub" button. To give Code Capsules access to the Angular applicati
 
 ![Install & authorize github](../assets/deployment/angular/github-integration.png)
 
-After authorising, Code Capsules will be able to read the contents of the selected repositories. All that's left to deploy the application is to add the repo to your Team and create a [Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule). Capsules act as storage space for the different types of applications you'd host on Code Capsules.
+After authorising, Code Capsules will be able to read the contents of the selected repositories. All that's left to deploy the application is to add the repo to your Team and create a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule). Capsules act as storage space for the different types of applications you'd host on Code Capsules.
 
 ## Add Repo to Team
 
@@ -66,7 +66,7 @@ Click on "Team Settings" on the top navigation bar to switch to the _Team Settin
 
 ## Create and Build the Capsule
 
-It's time to create a [Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule). To do this, navigate to the _Spaces_ tab and open the Space you created for this tutorial. Once inside the Space, click the "New Capsule" or "Create A New Capsule For Your Space" button and follow the instructions below.
+It's time to create a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule). To do this, navigate to the _Spaces_ tab and open the Space you created for this tutorial. Once inside the Space, click the "New Capsule" or "Create A New Capsule For Your Space" button and follow the instructions below.
 
 1. Choose a "Frontend" Capsule.
 2. Select the "Trial - Static Site Hosting" product.
@@ -81,6 +81,6 @@ You can view the build logs under the _Build and Deploy_ tab in your Capsule. Wh
 
 ![Build logs](../assets/deployment/angular/frontend-capsule-build-logs.png)
 
-For a better understanding of Capsules, [read this explanation on Capsules](https://codecapsules.io/docs/faq/what-is-a-capsule/).
+For a better understanding of Capsules, [read this explanation on Capsules](https://codecapsules.io/docs/FAQ/what-is-a-capsule/).
 
 If you want to deploy another Angular application in the future, it'll be useful to check out the script Code Capsules used to build the Angular application. [Navigate to the Angular repository](https://github.com/codecapsules-io/demo-angular/) we forked and take a look at the `package.json` file. On line four, you'll see the script Code Capsules used to deploy the application. 

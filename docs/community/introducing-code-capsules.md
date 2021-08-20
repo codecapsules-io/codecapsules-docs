@@ -58,7 +58,7 @@ We started prototyping [Code Capsules](https://codecapsules.io/) in 2019 through
 
 ![Deploying Frontend Capsule](../assets/community/introducing/creating-frontend-capsule-2.gif)
 
-After installing our [Github](https://github.com/) Application into your Code Capsules user account and team, you are able to easily create a [Frontend Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule/) in few simple steps.
+After installing our [Github](https://github.com/) Application into your Code Capsules user account and team, you are able to easily create a [Frontend Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) in few simple steps.
 
 1. Select your Github Repository and Branch
 2. Choose which folder within your Github Repository contains your static app (Angular, React or Vue)
@@ -77,7 +77,7 @@ If you have a plain old HTML and JavaScript app, you may not need a Build Comman
 
 ![Creating Backend Capsule](../assets/community/introducing/creating-backend-capsule-2.gif)
 
-Similar to the [Frontend Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule/) workflow, a few simple steps is all it takes to get your Backend App online:
+Similar to the [Frontend Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) workflow, a few simple steps is all it takes to get your Backend App online:
 
 1. Select your Github Repository and Branch
 2. Choose which folder within your Github Repository contains your static app (Node, Python, Java or .NET Core)
@@ -85,7 +85,7 @@ Similar to the [Frontend Capsule](https://codecapsules.io/docs/faq/what-is-a-cap
 
 ![Backend Capsule Build Logs](../assets/community/introducing/backend-capsule-build-logs-2.gif)
 
-The [Backend Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule/) will build your code into a container and try to serve up your application. 
+The [Backend Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) will build your code into a container and try to serve up your application. 
 
 It also automatically creates a new build and deploy every time push new code to your Github branch. This can be turned off if you prefer to create builds manually. 
 
@@ -93,18 +93,18 @@ You can view the server logs below:
 
 ![Backend Capsule Details](../assets/community/introducing/backend-capsule-tabs-2.gif)
 
-[Both Frontend and Backend Capsules](https://codecapsules.io/docs/faq/what-is-a-capsule/) will automatically create a free subdomain with an SSL certificate installed. You can choose to [point a custom domain to your capsule](https://codecapsules.io/docs/customising-your-domain-on-code-capsules/) through either a CNAME or A Record from any DNS provider you may be using.
+[Both Frontend and Backend Capsules](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) will automatically create a free subdomain with an SSL certificate installed. You can choose to [point a custom domain to your capsule](https://codecapsules.io/docs/customising-your-domain-on-code-capsules/) through either a CNAME or A Record from any DNS provider you may be using.
 
 ![Node.js Express Backend Capsule Details](../assets/community/introducing/express-backend-capsule.png)
 
 ## Team Management
 
-We have broken down the solution to allow developers to [manage their applications and cloud resources](https://codecapsules.io/docs/faq/teams-spaces-and-capsules/) that best meets their needs. 
+We have broken down the solution to allow developers to [manage their applications and cloud resources](https://codecapsules.io/docs/FAQ/teams-spaces-and-capsules/) that best meets their needs. 
 
 ![Teams, Spaces and Capsules](../assets/community/introducing/teamspacecapsule.png)
 
-- You can create as many [Teams](https://codecapsules.io/docs/faq/what-is-a-team/) as you want
-- You can create as many [Spaces](https://codecapsules.io/docs/faq/what-is-a-space/) within Teams as you want
+- You can create as many [Teams](https://codecapsules.io/docs/FAQ/what-is-a-team/) as you want
+- You can create as many [Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space/) within Teams as you want
 - You can invite users into your Team
 - You can add different payment methods to different teams, which is helpful if you want to link your clients credit card directly to the Team
 - You can view invoices broken down by Team

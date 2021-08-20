@@ -10,4 +10,4 @@ In the Overview tab, you can see your default Code Capsules URL under "Domains".
 
 With the IP address saved previously, create an A record pointing to the IP address. Visit your domain registrar for further instructions on creating an A record. After creating an A record pointing to the IP address, allow up to four hours for the changes to propagate before your domain routes to your application. 
 
-For further information on custom domains, refer to [this document](linkhere) explaining the ins and outs of adding custom domains and subdomains to your applications hosted on Code Capsules.
+For further information on custom domains, refer to [this document](https://codecapsules.io/docs/reference/custom_domains/) explaining the ins and outs of adding custom domains and subdomains to your applications hosted on Code Capsules.

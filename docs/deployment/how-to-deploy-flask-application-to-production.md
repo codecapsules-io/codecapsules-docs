@@ -23,7 +23,7 @@ After creating a new account, you'll be greeted with a screen that looks like th
 
 ![welcome screen](../assets/deployment/python/welcome-screen.jpg)
 
-Click on the "Go To Personal Team" button, and you will be redirected to the _Spaces_ tab for your Personal Team. Code Capsules provides a personal [Team](https://codecapsules.io/docs/faq/what-is-a-team/) and a personal [Space](https://codecapsules.io/docs/faq/what-is-a-space/) (located in the middle of the screen) to every new user. 
+Click on the "Go To Personal Team" button, and you will be redirected to the _Spaces_ tab for your Personal Team. Code Capsules provides a personal [Team](https://codecapsules.io/docs/FAQ/what-is-a-team/) and a personal [Space](https://codecapsules.io/docs/FAQ/what-is-a-space/) (located in the middle of the screen) to every new user. 
 
 For this tutorial, we'll need to add payment information to create a backend Capsule. Navigate to "Team Settings" at the top of the screen, then add a payment method under "Payment Methods". 
 
@@ -56,7 +56,7 @@ Click on "Team Settings" on the top navigation bar to switch to the _Team Settin
 
 ![Edit Team Repos](../assets/deployment/python/team-repos.gif)
 
-Now, all we have left to do is to create a [Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule) that will host our Flask application. But first, let's create a space for the capsule.
+Now, all we have left to do is to create a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule) that will host our Flask application. But first, let's create a space for the capsule.
 
 ## Create a Space for Your Apps
 
@@ -88,6 +88,6 @@ While the Capsule is building, you can view its logs under the "Build and Deploy
 
 ![Build logs](../assets/deployment/python/backend-capsule-build-logs.png)
 
-For a better understanding of Capsules, take a look at [this explanation](https://codecapsules.io/docs/faq/what-is-a-capsule).
+For a better understanding of Capsules, take a look at [this explanation](https://codecapsules.io/docs/FAQ/what-is-a-capsule).
 
 If you'd like to deploy your own Flask application, take a close look at the [Flask repository](https://github.com/codecapsules-io/demo-python) we forked. There, you'll find a file named `Procfile`. Code Capsules reads Procfiles to build and deploy Flask applications. [Click here](https://pythonhosted.org/deis/using_deis/process-types/) to read more about Procfiles. 
