@@ -67,7 +67,7 @@ Our sleep tracker will use the following Python libraries:
 - [Flask-Login](https://flask-login.readthedocs.io/en/latest/) provides user session management for Flask. This will help us implement a user login and registeration system without having to create one from scratch. 
 - [Flask Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) is a [hashing](https://en.wikipedia.org/wiki/Cryptographic_hash_function) extension for Flask. This allow us to store users' passwords securely and without knowing what they are.
 - [Gunicorn](https://gunicorn.org/) is the [WSGI server](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface) we'll use to host our application on Code Capsules.
-- [Pymongo](https://pymongo.readthedocs.io/en/stable/) is a Python library that has tools for interacting with MongoDBs. We'll use Pymongo to connect and send data to our MongoDB hosted on MongoDB Atlas.
+- [Pymongo](https://pymongo.readthedocs.io/en/stable/) is a Python library that has tools for interacting with MongoDBs. We'll use Pymongo to connect and send data to our MongoDB.
 
 To install these libraries, activate the virtual environment in your terminal and type the following:
 
