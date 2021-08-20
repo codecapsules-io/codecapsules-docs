@@ -1,3 +1,8 @@
+---
+title: Deploy a React Application
+description: Link a React GitHub repo to a PaaS provider to enable auto deployments.
+---
+
 # How to Deploy a React Application to Production on Code Capsules
 
 React is an efficient and flexible JavaScript library which is great for building user interfaces. If you've built a web app with React, you'll want to deploy it to production so you can share it with the rest of the world. In this tutorial, we'll show you how to do just that, step by step.
@@ -52,7 +57,7 @@ Click the "GitHub" button. To give Code Capsules access to the React application
 
 ![Install & authorize github](../assets/deployment/react/github-integration.png)
 
-After authorising, Code Capsules will be able to read the contents of the selected repositories. All that's left to deploy the application is to add the repo to your team and create a [Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule). This Capsule will act as a storage space for the React application.
+After authorising, Code Capsules will be able to read the contents of the selected repositories. All that's left to deploy the application is to add the repo to your team and create a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule). This Capsule will act as a storage space for the React application.
 
 ## Add Repo to Team
 

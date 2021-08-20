@@ -1,3 +1,8 @@
+---
+title: Hack Days and Free Tech Consulting
+description: A time for developers to share details of projects they are working on and get feedback or help if they are stuck.
+---
+
 # Code Capsules Hack Days and Free Tech Consulting
 
 Every Friday we run an informal "hack day" in [our Slack](https://join.slack.com/t/codecapsules/shared_invite/zt-krsv5ott-_WR~S44xGmjATdpMsRC7yg) from 2pm (UTC+2) onwards. This is a time where people from the dev community can come and share side projects (or main projects) that they are working on, get feedback from peers, or get help from our team on anything they need.
@@ -11,4 +16,4 @@ For beginners, we have a series of tutorials that you can work through and get r
 
 ![Code Capsules Slack](../assets/community/code-capsules-slack.png)
 
-[Join our Slack](https://codecapsules.io/docs/codecapsules-hack-days/Let%E2%80%99s%20work%20together%20in%20Slack!%20It%E2%80%99s%20a%20faster,%20simpler%20way%20to%20talk%20shop,%20share%20files,%20and%20get%20work%20done.%20Join%20here:%20https://join.slack.com/t/codecapsules/shared_invite/zt-krsv5ott-_WR~S44xGmjATdpMsRC7yg) and come say hi.
+[Join our Slack](https://join.slack.com/t/codecapsules/shared_invite/zt-krsv5ott-_WR~S44xGmjATdpMsRC7yg) and come say hi.
