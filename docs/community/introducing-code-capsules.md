@@ -1,3 +1,8 @@
+---
+title: Introducing Code Capsules
+description: A South African PaaS provider aimed at giving African developers better convenience when its time to deploy their applications. 
+---
+
 # Introducing Code Capsules
 
 ![Introducing Code Capsules](../assets/community/introducing/introducing-code-capsules.png)
