@@ -1,3 +1,8 @@
+---
+title: Deploy an HTML Site
+description: Publish a static site using its source code on GitHub.
+---
+
 # How to Deploy an HTML Site to Production on Code Capsules
 
 Deploy a static HTML site and learn how to host frontend code on Code Capsules.

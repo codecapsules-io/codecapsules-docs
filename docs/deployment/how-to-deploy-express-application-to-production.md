@@ -1,3 +1,8 @@
+---
+title: Deploy an Express.js Application
+description: Enable auto deployments for an Express.js application from a specified branch on your GitHub repo.
+---
+
 # How to Deploy an Express.js Application to Production on Code Capsules
 
 In this tutorial, we'll see how to deploy an Express.js application as well as learn how to host backend code on Code Capsules. 

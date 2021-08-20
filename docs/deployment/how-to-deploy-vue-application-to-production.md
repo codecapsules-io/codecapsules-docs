@@ -1,3 +1,8 @@
+---
+title: Deploy a Vue Application
+description: Host and set up auto deployments from a specified GitHub repo branch for a Vue application. 
+---
+
 # How to Deploy a Vue Application to Production on Code Capsules
 
 Deploy a Vue application and learn how to host frontend code on Code Capsules. 
