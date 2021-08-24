@@ -1,35 +1,35 @@
 ---
 title: Set Up Persistent File Data Storage
-description: Use a file system, directly from your PaaS app for cases where you do not want a full-blown database.
+description: Use a file system directly from your PaaS app for cases where you do not want a full-blown database.
 ---
 
 # How to Set Up a Persistent File Data Capsule
 
-Plenty of times you need to make use of persistent storage to develop applications that solve real world problems. In this tutorial, we look at how to create a persistent file data capsule that you can use with your backend applications that are running on Code Capsules. 
+You need persistent storage to develop your application that solves a real-world problem, but you don't want a full-blown database. In this tutorial, we'll show you how to create a persistent file Data Capsule that you can use with your backend applications running on Code Capsules. 
 
 ## Create a File Data Capsule
 
-Log in to your Code Capsules account and navigate to the Space where your file data capsule will be contained in. Click "New Capsule" and select the "Data Capsule" option from the Create New Capsule dialog that slides in from the right. 
+Log in to your Code Capsules account and navigate to the Space your file data capsule will be contained in. Click "New Capsule" and select the "Data Capsule" option from the "Create New Capsule" dialog that slides in from the right. 
 
 ![Create Data Capsule](../assets/reference/create-data-capsule.png)
 
-In the New Data Capsule dialog, choose "A persistent storage mounted directly to your capsule." as your data type, then click the "Create Capsule" button. 
+In the "New Data Capsule" dialog, choose "A persistent storage mounted directly to your capsule." as your data type, then click the "Create Capsule" button. 
 
 ![Persistent File Storage](../assets/reference/set-up-file-data-capsule/persistent-file-storage.png)
 
 ## Binding a Data Capsule to a Backend Capsule
 
-To connect a data capsule to a backend capsule hosted on Code Capsules you need to bind the two together before you can connect to and use your data capsule.
+You need to bind the Data Capsule to a Backend Capsule hosted on Code Capsules before you can connect to it and use it.
 
-Navigate to the backend capsule and click "Configure" to open the capsule's config tab. Scroll down to the "Bind Data capsule" section where your recently created data capsule will show.
+Navigate to the Backend Capsule and click "Configure" to open the capsule's config tab. Scroll down to the "Bind Data capsule" section where your recently created data capsule will show.
 
 ![Bind Data Capsule](../assets/reference/set-up-file-data-capsule/bind-file-data-capsule.png)
 
-Click "Bind" to bind your data and backend capsules. During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environmental variable to let your backend capsule know where your data capsule resides in order to access its features. Once the two capsules have been bound, you can scroll to the top of the Configure tab to find the value of this variable. 
+Click "Bind" to bind your Data and Backend Capsules. During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable to let your Backend Capsule know where your Data Capsule resides in order to access its features. Once the two capsules have been bound, you can scroll to the top of the Configure tab to find the value of this variable. 
 
 ![PERSISTENT STORAGE DIR Environment Variable](../assets/reference/set-up-file-data-capsule/file-data-environment-variables.png)
 
-The next step is to use this environment variable in code in order to read and write to our data capsule. Copy the value of the `PERSISTENT_STORAGE_DIR` variable or alternatively, reference it directly from code using `os.getenv` or `process.env` for Python and Node.js applications respectively. 
+The next step is to use this environment variable in code in order to read and write to our Data Capsule. Copy the value of the `PERSISTENT_STORAGE_DIR` variable and paste it in your code as the value of the `db_directory` variable. Alternatively, reference it directly in your code using `os.getenv` for Python or `process.env` for Node.js. 
 
 ### Connecting to a File Data Capsule From a Python Application 
 
