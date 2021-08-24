@@ -1,3 +1,8 @@
+---
+title: Deploy an HTML Site
+description: Publish a static site using its source code on GitHub.
+---
+
 # How to Deploy an HTML Site to Production on Code Capsules
 
 Deploy a static HTML site and learn how to host frontend code on Code Capsules.
@@ -20,13 +25,13 @@ If you've just created an account, make sure to confirm it by checking your emai
 
 ![welcome screen](../assets/deployment/html/welcome-screen.jpg)
 
-After clicking on the "Go To Personal Team" button, you will be redirected to the _Spaces_ tab for your Personal Team. A [Team](https://codecapsules.io/docs/faq/what-is-a-team/) is an environment for you to manage your Spaces and Capsules. Teams can have multiple members interacting with the projects associated with that particular Team. Code Capsules gives every account a Personal Team as the default. For this tutorial, we'll use the provided Team to host our static frontend website for free.
+After clicking on the "Go To Personal Team" button, you will be redirected to the _Spaces_ tab for your Personal Team. A [Team](https://codecapsules.io/docs/FAQ/what-is-a-team/) is an environment for you to manage your Spaces and Capsules. Teams can have multiple members interacting with the projects associated with that particular Team. Code Capsules gives every account a Personal Team as the default. For this tutorial, we'll use the provided Team to host our static frontend website for free.
 
 ## Create a Space for Your Apps
 
 ![create a new space](../assets/deployment/html/spaces.png)
 
-[Spaces](https://codecapsules.io/docs/faq/what-is-a-space) are an organisational tool for your applications. Click the "Create A New Space For Your Apps" button and follow the prompts, naming the Space anything you'd like.
+[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space) are an organisational tool for your applications. Click the "Create A New Space For Your Apps" button and follow the prompts, naming the Space anything you'd like.
 
 ![space name](../assets/deployment/html/space-name.png)
 
@@ -49,7 +54,7 @@ Click on the "GitHub" button. You can authorise Code Capsules to connect to the 
 
 ![Install & authorize github](../assets/deployment/html/github-integration.png)
 
-Once authorised on your GitHub account, Code Capsules will be able to access the repository and deploy the code. Now we just need to tell Code Capsules to deploy the HTML code, by adding the repository to our Personal Team and creating a [Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule).
+Once authorised on your GitHub account, Code Capsules will be able to access the repository and deploy the code. Now we just need to tell Code Capsules to deploy the HTML code, by adding the repository to our Personal Team and creating a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule).
 
 ## Add Repo to Team
 
@@ -59,7 +64,7 @@ On Code Capsules, click on "Team Settings" on the top navigation bar to switch t
 
 ## Create the Capsule
 
-The next step is to create a [Capsule](https://codecapsules.io/docs/faq/what-is-a-capsule/) which provides the server for hosting our application on Code Capsules. To do this, click "Spaces" on the top navigation bar to switch to the _Spaces_ tab and open the Space you created above. Once inside the Space, click the "New Capsule" or "Create A New Capsule For Your Space" button and follow the instructions below.
+The next step is to create a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) which provides the server for hosting our application on Code Capsules. To do this, click "Spaces" on the top navigation bar to switch to the _Spaces_ tab and open the Space you created above. Once inside the Space, click the "New Capsule" or "Create A New Capsule For Your Space" button and follow the instructions below.
 
 1. Choose a "Frontend" Capsule.
 2. Select the "Trial – Static Site Hosting" product.
@@ -73,4 +78,4 @@ While the Capsule is building, you can view its logs under the "Build and Deploy
 
 ![Build logs](../assets/deployment/html/frontend-capsule-build-logs.png)
 
-Once built, you can navigate to the _Overview_ tab and click on the provided URL to view the application. For a better understanding of Capsules, [read this explanation on Capsules](https://codecapsules.io/docs/faq/what-is-a-capsule/).
+Once built, you can navigate to the _Overview_ tab and click on the provided URL to view the application. For a better understanding of Capsules, [read this explanation on Capsules](https://codecapsules.io/docs/FAQ/what-is-a-capsule/).

@@ -1,3 +1,8 @@
+---
+title: Founder Fridays
+description: As iron sharpens iron so do the founders in this weekly meetup. Founders also stand to get free Code Capsules credits. 
+---
+
 # Founder Fridays
 
 ![Founder Fridays](../assets/community/founder-fridays.jpg)
