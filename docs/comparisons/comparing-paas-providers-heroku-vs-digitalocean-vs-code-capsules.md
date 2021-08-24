@@ -1,3 +1,8 @@
+---
+title: Heroku vs DigitalOcean vs Code Capsules
+description: Compare PaaS providers from their UX to the minimal steps needed for each before you can deploy your application. 
+---
+
 # Comparing PaaS providers: Heroku vs DigitalOcean vs Code Capsules
 
 Deploying a web application to a production environment is complicated. Traditionally, you need to set up a web server including the operating system and supporting software and libraries. Then you need to deploy your code, configure it, and monitor it to ensure it keeps running.
