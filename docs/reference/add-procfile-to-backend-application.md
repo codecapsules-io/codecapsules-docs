@@ -7,7 +7,7 @@ description: Write a Procfile for your backend application to outline how it sho
 
 Procfiles communicate to the backend capsule, what processes it needs to run and in which order to execute them for your application to be successfully deployed.
 
-## Procfile Properties and Location
+## Procfile Naming and Location
 
 A Procfile is a simple text file named `Procfile` exactly and should not have any extensions like `.txt` or `.py`. It should also be noted that naming the file `procfile` will not work either as it is case sensitive. 
 
