@@ -5,7 +5,11 @@ description: Write a Procfile for your backend application to outline how it sho
 
 # Add a Procfile to a Backend Application
 
-Procfiles communicate to the backend capsule, what processes it needs to run and in which order to execute them for your application to be successfully deployed.
+Procfiles communicate to the backend capsule, what processes it needs to run and in which order to execute them for your application to be successfully deployed. On Code Capsules, Procfiles aren't a strict requirement but can be provided if you want to. 
+
+The alternative to using a Procfile is using the Code Capsules UI to specify which commands to run during the build phase of your application. Below is a screenshot showing a command that may be entered as input in the UI for a `Node.js` application. 
+
+![Run command for Node application](../assets/reference/procfile/ui-run-command.png)
 
 ## Procfile Naming and Location
 
