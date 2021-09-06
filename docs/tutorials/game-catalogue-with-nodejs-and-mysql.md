@@ -18,13 +18,13 @@ You'll need the following services and software set up for this tutorial:
 
 ## Setting up the Project
 
-With our requirements in place, we can get started setting them up to work as needed for our web file project.
+With our requirements in place, we can get started setting them up to work as needed for our game catalogue project.
 
 ### Creating a New Repo 
 
 We need a place to store our code from which [Code Capsules](https://codecapsules.io) can deploy to a Capsule.
 
-Head over to [GitHub](https://github.com) and create a new repo. We're calling it _game-api_ here, but you can give it any name. Choose a **Node** `.gitignore` file to get started. Then clone the new Github repo onto your computer and navigate to that directory in terminal (or command prompt, if you're on Windows).
+Head over to [GitHub](https://github.com) and create a new repo. We're calling it _game-api_ here, but you can give it any name. Choose a **Node** `.gitignore` file to get started. Then clone the new GitHub repo onto your computer and navigate to that directory in a terminal (or command prompt, if you're on Windows).
 
 ### Initialising the Base Project
 
@@ -39,7 +39,7 @@ This creates a few files and folders that we can edit. The `--no-view` option te
 
 The command `npm install` downloads and installs all the dependencies and packages required by the base project. Open the folder with [Visual Studio Code](https://code.visualstudio.com) or an editor of your choice, and browse through the files to get familiar with them. The `app.js` file in the project root is the main entry point for the app. 
 
-Great, it's time to push this boilerplate project up to Git. We can do it with the following from the command prompt or terminal: 
+Great, it's time to push this boilerplate project up to Git. We can do it with the following commands, from the command prompt or terminal: 
 
 ```bash
 git add . 
@@ -52,10 +52,11 @@ git push origin
 We'll need a place to host our app. 
 
 1. Log in to [Code Capsules](https://codecapsules.io), and create a Team and Space as necessary.
-2. Link [Code Capsules](https://codecapsules.io) to the [GitHub account](https://github.com) repository you created above. You can do this by clicking your user name at the top right, and choosing _Edit Profile_. Now you can click the _Github_ button to link to a repo. 
+2. Link [Code Capsules](https://codecapsules.io) to the [GitHub](https://github.com) repository you created above. You can do this by clicking your username at the top right in Code Capsules, and choosing _Edit Profile_. Now you can click the _GitHub_ button to link to a repo. 
 3. Create a new Capsule, selecting the "Backend" capsule type.
 4. Select the GitHub repository. If you are only using the repo for this project, you can leave the _Repo Subpath_ field empty. You may need to add your repo to the team repo if you haven't already. Click the _Modify Team Repos_ to do so. 
 5. Click _Next_, then on the following page, click _Create Capsule_. 
+6. You can follow [this in-depth guide](https://codecapsules.io/docs/deployment/how-to-deploy-express-application-to-production/) if you'd like more information on linking to GitHub and creating an express.js Backend Capsule.
 
 ### Creating a New Data Capsule 
 
@@ -69,7 +70,7 @@ We'll need some data storage to store the files that are uploaded to the web dri
 
 ### Link the Capsules
 
-To use the Data Capsule with the Backend Capsule, we need to link them. Head over to the Backend Capsule you created above, and click on the "Config" tab. Then scroll down to "Bind Data Capsule", and click "Bind" under the name of the data capsule you created. 
+To use the Data Capsule with the Backend Capsule, we need to link them. Head over to the Backend Capsule you created above, and click on the "Configure" tab. Then scroll down to "Bind Data Capsule", and click "Bind" under the name of the data capsule you created. 
 
 ![Bind data capsule](../assets/tutorials/game-catalogue-with-nodejs-and-mysql/bind-capsule.png)
 
@@ -79,7 +80,7 @@ After binding the Capsules, scroll up to the section "Capsule Parameters". You'l
 
 ## Writing the API Code
 
-Now that we have all our systems set up, we can get onto coding part. 
+Now that we have all our systems set up, we can get onto the coding part. 
 
 ### Creating the Database Tables
 
@@ -161,6 +162,8 @@ npm run setup
 ```
 Click "Update Capsule" to save this new setting. 
 
+![Setup run command](../assets/tutorials/game-catalogue-with-nodejs-and-mysql/run-command.png)
+
 Let's commit the above code to the repo, and push it up so that Code Capsules can run it. Commit and push using the following commands in the terminal: 
 
 ```bash
@@ -176,8 +179,9 @@ If you navigate to the "Logs" tab on the Backend Capsule, you should see the scr
 Once this is done, you can change the "Run Command" under the "Configure" tab back to:
 
 ```bash
-npm start
+npm run start
 ```
+
 Remember to click "Update Capsule" to save this. 
 
 ### Adding a Read Route
@@ -206,10 +210,12 @@ router.get('/', function(req, res, next){
     return res.json(results); 
   }
 });
+
+module.exports = router;
 ```
 This code imports the Express module so that we can construct a `router`, and the `mysql2` module so that we can connect to the database. 
 
-We create a (`router`)[http://expressjs.com/en/5x/api.html#router], which is an object that allows us to group routes and middelware together logically. We'll add all our CRUD routes to this router object. Then we create a new database connection, as we did in our setup script. 
+We create a [`router`](http://expressjs.com/en/5x/api.html#router), which is an object that allows us to group routes and middleware together logically. We'll add all our CRUD routes to this router object. Then we create a new database connection, as we did in our setup script. 
 
 Express routers allow us to add routes using the following structure:
 
@@ -225,9 +231,9 @@ To create the read route, we use the HTTP `GET` verb, which can be configured us
 - `res`, a results object where we can specify how to return data to the client.
 - `next`, a function that we can call to hand control to the next middleware in our route, if there is any. If we want to signal an error, we can pass an argument to `next`, and Express will return an error to the client with the data in that argument. 
 
-In our `get` handler, we run send a SQL query to the database to select all entries from the database. The `query` method takes a SQL query and a callback function. This callback is called with the results or error from the SQL server. We use a separate named function as our callback. This is mainly a stylistic choice - we could write the function inline, but our code would be less readable, as it would have many indentations and creep to the right-hand side of the screen. 
+In our `get` handler, we run a SQL query to select all entries from the database. The `query` method takes a SQL query and a callback function. This callback is called with the results or error from the SQL server. We use a separate named function as our callback. This is mainly a stylistic choice - we could write the function inline, but our code would be less readable, as it would have many indentations and creep to the right-hand side of the screen. 
 
-In the callback, we check if the `err`, or error, paramater is set. If it is, we use the `next` function along with the error to exit the route early. This will send an error message to the client. 
+In the callback, we check if the `err`, or error, parameter is set. If it is, we use the `next` function along with the error to exit the route early. This will send an error message to the client. 
 
 If there is no error, we send the results of the SQL query back, formatted as [JSON](https://en.wikipedia.org/wiki/JSON). 
 
@@ -266,19 +272,18 @@ This works, but is not very interesting! Let's add a create route so that we can
 
 We'll use the [HTTP POST](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) method as the verb for creating a new game in the catalogue. 
 
-For the create route, it would be nice to return the newly created entry, along with the id automatically created by MySQL for the entry. To do this, we'll first need to `INSERT` the new data into the database, and then run a `SELECT` command to retrieve the fully created database object. We can use the concept of ["middleware"](http://expressjs.com/en/guide/routing.html) in Express to achieve this. 
+For the create route, it would be nice to return the newly created entry, along with the id automatically created by MySQL for the entry. To do this, we'll first need to `INSERT` the new data into the database, and then run a `SELECT` command to retrieve the fully created database object. We can use the concept of ["middleware"](http://expressjs.com/en/guide/using-middleware.html#using-middleware) in Express to achieve this. 
 
 Each route allows us to chain multiple handlers to it, with each handler running one after the other. This is the core concept of middleware. So to implement our create route with its two distinct operations, we can chain 2 handlers, like this: 
 
 ```js
 
 router.post('/', [functionOne, functionTwo])
-
-```` 
+``` 
 
 Here, `functionOne` can pass control to `functionTwo` by calling the `next()` parameter, which is passed into each handler by Express. We can also pass custom information from one handler to another by adding it onto the `req` object, which is also passed to each handler by Express.
 
-Ok, enough theory, let's add this code using what we know from above:
+Ok, enough theory, let's add this code in `games.js` above the line `module.exports = router;` using what we know from above:
 
 ```js
 router.post('/', [addNewGame, returnGameById]);  
@@ -319,7 +324,7 @@ function returnGameById(req, res, done){
 
 We've implemented each of the handlers as separate, named functions. You could implement both as inline functions, but again, it's a stylistic choice to improve readability. Also, by writing each handler as a named function, the list of the functions passed to the router is almost self-documenting, telling us the steps the route takes. Lastly, we can also re-use each of the handlers in other routes if we need to. 
 
-The first handler, `addNewGame`, uses a SQL `INSERT` query to create a new database row. Note the `?` placeholders in the query. This feature of the [MySQL2](https://www.npmjs.com/package/mysql2) package allows us to pass in arguments to the query, instead of concating the query with our incoming values. The values passed in from the client can be found on the `req.body` object, neatly parsed into JSON by Express. We can pass these values in an array as an argument to the query function. The function will substitute each `?` for a value, in order that are passed in the array. We use a function `queryResults` as we did for the `get` route, as our callback. Note here that the `results` parameter on this occasion will have an object of stats and information on the `INSERT` operation. One of the fields is `insertId`, which is the automatically assigned `id` of the new record in the database. We add this to the `req.body` object, and then call `next()` to pass control to the next handler, `returnGameById`. 
+The first handler, `addNewGame`, uses a SQL `INSERT` query to create a new database row. Note the `?` placeholders in the query. This feature of the [MySQL2](https://www.npmjs.com/package/mysql2) package allows us to pass in arguments to the query, instead of concating the query with our incoming values. The values passed in from the client can be found on the `req.body` object, neatly parsed into JSON by Express. We can pass these values in an array as an argument to the query function. The function will substitute each `?` for a value, in the order that they are passed in the array. We use a function `queryResults` as we did for the `get` route, as our callback. Note here that the `results` parameter on this occasion will have an object of stats and information on the `INSERT` operation. One of the fields is `insertId`, which is the automatically assigned `id` of the new record in the database. We add this to the `req.body` object, and then call `next()` to pass control to the next handler, `returnGameById`. 
 
 The handler `returnGameById` queries the database for the newly created object, using the `id` field we added to the `req.body` object in the first handler. In the callback for the query, `queryResults`, we return the database row as a JSON object, using the [`res.json`](http://expressjs.com/en/5x/api.html#res.json) method. 
 
@@ -381,7 +386,7 @@ This code is very similar to the `post` route. The major difference being that w
 
 In the `queryResults` callback, we set the `req.body.id` field to the `id` from the `params`. This is so the `next()` handler can access the `id` of the updated record and retrieve the latest version from the database. 
 
-Commit and push this code to deploy it to Code Capsules. Now you can test this route in Postman, by updating the HTTP method to `put`. Add the id `1` to the games path, and change some of the information in the body. Click "Send" and you should see the API return the update document. 
+Commit and push this code to deploy it to Code Capsules. Now you can test this route in Postman, by updating the HTTP method to `put`. Add the id `1` to the games path, and change some of the information in the body. Click "Send" and you should see the API return the updated document. 
 
 ![Put method with Postman](../assets/tutorials/game-catalogue-with-nodejs-and-mysql/put-game.png)
 
@@ -409,7 +414,7 @@ router.delete('/:id', function(req, res, next){
 
 As in the update route, we expect the `id` of the record to delete to be provided by the client in the URL path. Then we run the SQL `DELETE` command, with the `id` from the path in `req.params.id` passed in to replace the single `?` placeholder. 
 
-Because we don't have any record to return (we deleted it!), we just return a [status code `200`] (https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_success), which means everything worked OK. 
+Because we don't have any record to return (we deleted it!), we just return a [status code `200`](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_success), which means everything worked OK. 
 
 
 Great, it's time to commit this code, push it up and test it. You should be able select the "DELETE" verb in Postman, and add in a game `id` to the route. Click "Send", and you should see a blank reply, with the status code as `200 OK`. 
@@ -478,7 +483,7 @@ Commit and push this updated code to deploy it. Once it is running, if you try a
 
 ![Authentication error](../assets/tutorials/game-catalogue-with-nodejs-and-mysql/auth-error.png)
 
-To send the credentials along with your request, select the "Auth" tab in Postman. Choose "Basic Auth" from the dropdown list, and enter the credentials you set in the right-hand pane.
+To send the credentials along with your request, select the "Authorisation" tab in Postman. Choose "Basic Auth" from the dropdown list, and enter the credentials you set in the right-hand pane.
 
 ![Postman Auth Settings](../assets/tutorials/game-catalogue-with-nodejs-and-mysql/auth-settings.png)
 
