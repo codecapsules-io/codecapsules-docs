@@ -13,7 +13,8 @@ You'll need the following services and software set up for this tutorial:
 - [Git](https://git-scm.com) setup and installed, and a registered [GitHub account](https://github.com).
 - [Node.js](https://nodejs.org/) installed.
 - A registered [Code Capsules](https://codecapsules.io) account.
-- An IDE or text editor to create the project in. This tutorial was made using [Visual Studio Code](https://code.visualstudio.com), but you can use any tool you like. 
+- An IDE or text editor to create the project in. This tutorial was made using [Visual Studio Code](https://code.visualstudio.com), but you can use any tool you like.
+- The [Postman](https://www.postman.com/downloads/) app to interact with our API.
 
 ## Setting up the Project
 
@@ -61,9 +62,9 @@ We'll need a place to host our app.
 We'll need some data storage to store the files that are uploaded to the web drive. 
 
 1. Create a new Capsule, selecting the "Data Capsule" type. 
-1. Select "MySQL" as the Data Type. Choose a product size, and give it a name. 
-1. Click "Create Capsule". 
-1. You can follow the [in-depth creation guide](https://codecapsules.io/docs/reference/set-up-mysql-data-capsule/) if you'd like more information on creating a Data Capsule. 
+2. Select "MySQL" as the Data Type. Choose a product size, and give it a name. 
+3. Click "Create Capsule". 
+4. You can follow the [in-depth creation guide](https://codecapsules.io/docs/reference/set-up-mysql-data-capsule/) if you'd like more information on creating a Data Capsule. 
 
 
 ### Link the Capsules
