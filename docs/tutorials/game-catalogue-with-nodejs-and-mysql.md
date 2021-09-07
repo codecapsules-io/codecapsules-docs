@@ -1,3 +1,9 @@
+---
+title: Building a Game Catalogue API with NodeJS and MySQL
+description: Build a CRUD REST API using Express, Node, and MySQL to track your games.
+image: assets/tutorials/game-catalogue-with-nodejs-and-mysql/game-catalogue-cover.jpg
+---
+
 # Building a Game Catalogue API 
 
 APIs are a common way to expose data and information on the internet. Many web services and apps run off of multiple APIs in the background. Because APIs are so ubiquitous, it is very useful to learn the basics of how to build one. 
