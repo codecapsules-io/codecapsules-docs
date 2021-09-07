@@ -6,6 +6,8 @@ image: assets/tutorials/game-catalogue-with-nodejs-and-mysql/game-catalogue-cove
 
 # Building a Game Catalogue API 
 
+![Game Catalogue Cover](../assets/tutorials/game-catalogue-with-nodejs-and-mysql/game-catalogue-cover.jpg)
+
 APIs are a common way to expose data and information on the internet. Many web services and apps run off of multiple APIs in the background. Because APIs are so ubiquitous, it is very useful to learn the basics of how to build one. 
 
 In this tutorial, we'll build a simple [HTTP REST API](https://www.restapitutorial.com) to provide Create, Read, Update and Delete (CRUD for short) functions for a personal game catalogue. We'll secure it with [HTTP Basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication), while allowing for an easy upgrade to a more secure scheme. 
