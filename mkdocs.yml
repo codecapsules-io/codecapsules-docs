@@ -12,7 +12,7 @@ theme:
     - navigation.sections
   name: material
   custom_dir: overrides
-  logo: assets/cclogo.png
+  logo: assets/cclogo.svg
 
   palette:
     - scheme: default
