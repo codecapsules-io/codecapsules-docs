@@ -59,6 +59,7 @@ nav:
     - Persistent Sleep Tracker Part 2: tutorials/develop-persistent-sleep-tracker-part-2.md
     - Front-end Portfolio: tutorials/host-a-frontend.md
     - Stripe Checkout and Email Subscription with Flask: tutorials/stripe-checkout-and-email-with-flask.md
+    - Game Catalogue API with NodeJS and MySQL: tutorials/game-catalogue-with-nodejs-and-mysql.md
   - FAQ: 
     - Teams, Spaces and Capsules: FAQ/teams-spaces-capsules.md
     - What is a Capsule?: FAQ/what-is-a-capsule.md

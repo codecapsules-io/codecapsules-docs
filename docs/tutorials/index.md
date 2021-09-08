@@ -58,4 +58,16 @@ If you're looking to build cool applications that you can host on Code Capsules,
     <figcaption>Building a Web File Store</figcaption>
   </a>
 </figure>
+<figure>
+  <a href="./game-catalogue-with-nodejs-and-mysql/">
+    <img style="border-radius: 10px 10px 0" src="../assets/tutorials/game-catalogue-with-nodejs-and-mysql/game-catalogue-cover.jpg" width="300" />
+    <figcaption>Build a Game Catalogue REST API</figcaption>
+  </a>
+</figure>
+<figure>
+  <a href="./game-catalogue-with-nodejs-and-mysql/">
+    <img style="border-radius: 10px 10px 0" src="" width="300" />
+    <figcaption></figcaption>
+  </a>
+</figure>
 </div>
