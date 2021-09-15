@@ -51,6 +51,7 @@ nav:
   - Tutorials: 
     - tutorials/index.md
     - Slackbot with Node.js: tutorials/build-slackbot-with-node.md
+    - MERN Job Board: tutorials/build-mern-job-board.md
     - Web File Store: tutorials/build-a-web-file-store.md
     - Telegram Bot: tutorials/create-and-host-telegram-bot.md
     - Flask API: tutorials/creating-and-hosting-a-flask-api.md
