@@ -1,3 +1,8 @@
+---
+title: Build a MERN job board
+description: Create a job board based on the MERN architechture by extending a boilerplate MERN project.
+---
+
 # Build a MERN job board
 
 Applications built using the MERN (MongoDB, Express, React, Node) stack have the convenience of needing only one capsule to host both the frontend and backend.
