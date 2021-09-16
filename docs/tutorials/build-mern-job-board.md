@@ -12,6 +12,8 @@ We’ll start by extending the front end to show that it’s for a job board. Af
 
 When you’ve installed the node_modules you can now start the react side of the app to see how it looks by running `npm start`. After running this command you should see a page similar to the one shown below in your default browser at port 3000. 
 
+![Mern stack front end](../assets/tutorials/mern-job-board/mern-stack.png)
+
 We need to change this front end to reflect the job board functionality.
 
 ### Adding the SubmitJob Component
@@ -135,6 +137,8 @@ React displays the contents of `App.js` and the code we added imports the compon
 
 When you’ve added the above mentioned css your application should now look like this. 
 
+![Job board front end](../assets/tutorials/mern-job-board/job-board-ui.png)
+
 We’re now ready to extend the back end.
 
 ## Extending the Back End
@@ -249,3 +253,90 @@ exports.findAll = (req, res) => {
 ```
 
 The `create` export is responsible for creating a new job object using the job model and saving it to the database. The `findAll` export retrieves all jobs that were previously submitted. Delete the `person.controller.js` file that came with the boilerplate project as we won’t be needing it. 
+
+### Adding Endpoints
+
+The last step in extending the back end is to add endpoints where the front end will be making post and get requests to. Create a `job.routes.js` file in the `app/routes/` folder and add the below code to it. 
+
+```js
+module.exports = app => {
+    const jobs = require("../controllers/job.controller.js");
+  
+    var router = require("express").Router();
+  
+    // Create a new Job
+    router.post("/", jobs.create);
+  
+    // Retrieve all Jobs
+    router.get("/", jobs.findAll);
+  
+    app.use('/api/jobs', router);
+};
+```
+
+The routes use request methods and the controller exports we made earlier to decide what happens when each endpoint is hit by a get or post request. Delete the `person.routes.js` file that was in the routes folder and modify the line below in index.js in the root folder of the project.
+
+From 
+
+```js
+require("./app/routes/person.routes")(app);
+```
+
+Change to 
+
+```js
+require("./app/routes/job.routes")(app);
+```
+
+The line above tells our back end to use the routes defined in `job.routes.js`.
+
+## Integrating the Front and Back End 
+
+Before deploying a mern application you need to build the front end to optimize it for production and in our case to also update the contents in the `client/build` folder with the new frontend for the job board. Navigate to the client folder in the command terminal and run `npm run build` to build the job board front end. 
+
+Our express backend uses the contents inside the `client/build` folder to render the frontend of the mern application. The lines below in index.js in the root folder handle that responsibility.
+
+```js
+const path = __dirname + '/client/build/';
+const app = express();
+app.use(express.static(path));
+```
+
+## Deploying to Code Capsules
+
+Our job board is now ready to be deployed. To do that, push the job board code to your github repository and create a backend capsule on Code Capsules to house the job board. Link the back end capsule with the repository containing your job board application and in the run command field enter `node index.js` as shown below to tell Code Capsules how to run your application. 
+
+![Run Command](../assets/tutorials/mern-job-board/run-command.png)
+
+When you’ve deployed your application, navigate to the “Overview” tab of your capsule and scroll down to the “Domains” section in the bottom left and copy the url of your application. 
+
+![Run Command](../assets/tutorials/mern-job-board/job-board-url.png)
+
+Paste this url in `client/src/components/submitJob.js` and `client/src/components/viewJobs.js` in place of the localhost link we were using during the development phase. The `useEffect()` hook in `viewJobs.js` should now be similar to this:
+
+```js
+useEffect(() => {          
+        axios.get('https://<your-capsule-url-here>/api/jobs/')
+        .then(response => {
+            console.log(response)
+            setJobsStateArray(response.data)
+          })
+    }, [])
+```
+
+And the `postJob()` method in `submitJob.js` should look like this:
+
+```js
+const postJob = (e) => {
+        const data = { title: jobTitle, description: jobDescription, location: jobLocation,
+                        salary: jobSalary }
+        axios.post('https://<your-capsule-url-here>/api/jobs/', data)
+        .then(response => {
+          console.log(response)
+        })
+    }
+```
+
+Run `npm run build` in the client folder to rebuild your front end and push your updates to your repository. Code Capsules will automatically deploy the new version of your job board as soon as it detects a push on the main branch of your repository. 
+
+That’s it, your job board should be fully functional now.
