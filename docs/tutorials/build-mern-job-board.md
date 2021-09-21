@@ -5,11 +5,11 @@ description: Create a job board based on the MERN architechture by extending a b
 
 # Build a MERN job board
 
-Applications built using the MERN (MongoDB, Express, React, Node) stack have the convenience of needing only one capsule to host both the frontend and backend.
+A MERN (MongoDB, Express, React, Node) stack like other full stack applications has the convenience of needing only one capsule to host both the frontend and backend.
 
-In this tutorial, we’ll look at how to extend a boilerplate MERN application in order to make a job board based on the same architecture. When complete, the job board will be a platform where users can view and submit available jobs. 
+In this tutorial, which is part two of this [deployment guide]() we'll be extending the boilerplate MERN application we deployed in the first part in order to make a job board based on the same architecture. When complete, the job board will be a platform where users can view and submit available jobs.
 
-First, clone [this repository](https://github.com/codecapsules-io/mern-stack) with the boilerplate MERN application to your desired working directory. 
+To follow along, go over the [deployment guide]() first as the tutorial will be building on top of the steps detailed in that guide.
 
 ## Extending the Front End
 
@@ -39,7 +39,7 @@ const SubmitJob = () => {
     const postJob = (e) => {
         const data = { title: jobTitle, description: jobDescription, location: jobLocation,
                         salary: jobSalary }
-        axios.post('http://localhost:8080/', data)
+        axios.post('/api/jobs/', data)
         .then(response => {
           console.log(response)
         })
@@ -66,7 +66,7 @@ const SubmitJob = () => {
 export default SubmitJob
 ```
 
-The SubmitJob component uses state to keep track of the job field values as they are entered by a user. You can add more state variables if you wish to capture more job fields in your application. When the user clicks submit the postJob method posts the job field values to the endpoint specified in the `axios.post()` method. Remember to change the localhost url to an actual remote url when you deploy. 
+The SubmitJob component uses state to keep track of the job field values as they are entered by a user. You can add more state variables if you wish to capture more job fields in your application. When the user clicks submit the postJob method posts the job field values to the endpoint specified in the `axios.post()` method. Notice that we use a relative url, `/api/jobs/` in the post request since the frontend will be hosted at the same url as the backend. 
 
 ### Adding the ViewJob Component
 
@@ -81,7 +81,7 @@ const ViewJobs = () => {
     const [jobsStateArray, setJobsStateArray] = useState([])
 
     useEffect(() => {          
-        axios.get('http://localhost:8080/')
+        axios.get('/api/jobs/')
         .then(response => {
             console.log(response)
             setJobsStateArray(response.data)
@@ -144,15 +144,9 @@ When you’ve added the above mentioned css your application should now look lik
 
 ![Job board front end](../assets/tutorials/mern-job-board/job-board-ui.png)
 
-We’re now ready to extend the back end.
-
 ## Extending the Back End
 
-### Create and Connect to a MongoDB Data Capsule
-
-Connecting to a data capsule allows your application to save jobs persistently across different sessions. Create a MongoDB data capsule and copy its url value which we’ll use to connect to it. If you are unsure about how to do this, refer to [this article](https://codecapsules.io/docs/reference/set-up-mongodb-data-capsule/) for help.  
-
-As environment variables are only available in a backend capsule replace `process.env.DATABASE_URL` in `app/config/db-config.js` with the url you copied above whilst developing locally. After this, your application can now successfully read and write to your database.   
+We’re now ready to extend the back end.   
 
 ### Adding Job model
 
@@ -307,41 +301,34 @@ const app = express();
 app.use(express.static(path));
 ```
 
-## Deploying to Code Capsules
+## Using Version Control
 
-Our job board is now ready to be deployed. To do that, push the job board code to your github repository and create a backend capsule on Code Capsules to house the job board. Link the back end capsule with the repository containing your job board application and in the run command field enter `node index.js` as shown below to tell Code Capsules how to run your application. 
+We need to use version control to keep track of the new files we added when we were extending our application. 
 
-![Run Command](../assets/tutorials/mern-job-board/run-command.png)
+### Git Add
 
-When you’ve deployed your application, navigate to the “Overview” tab of your capsule and scroll down to the “Domains” section in the bottom left and copy the url of your application. 
+To add all the new files we created, run the command below in the root folder of the project.
 
-![Run Command](../assets/tutorials/mern-job-board/job-board-url.png)
-
-Paste this url in `client/src/components/submitJob.js` and `client/src/components/viewJobs.js` in place of the localhost link we were using during the development phase. The `useEffect()` hook in `viewJobs.js` should now be similar to this:
-
-```js
-useEffect(() => {          
-        axios.get('https://<your-capsule-url-here>/api/jobs/')
-        .then(response => {
-            console.log(response)
-            setJobsStateArray(response.data)
-          })
-    }, [])
+```
+git add -A
 ```
 
-And the `postJob()` method in `submitJob.js` should look like this:
+### Git Commit
 
-```js
-const postJob = (e) => {
-        const data = { title: jobTitle, description: jobDescription, location: jobLocation,
-                        salary: jobSalary }
-        axios.post('https://<your-capsule-url-here>/api/jobs/', data)
-        .then(response => {
-          console.log(response)
-        })
-    }
+Next, we need to commit the files we just added to our repository. To do this, run the command specified below.
+
+```
+git commit -m "Added job board files"
 ```
 
-Run `npm run build` in the client folder to rebuild your front end and push your updates to your repository. Code Capsules will automatically deploy the new version of your job board as soon as it detects a push on the main branch of your repository. 
+### Git Push
+
+The final step in version control is to push our committed changes to the remote repository which Code Capsules is linked to. Run the command below to push the changes we just made.
+
+```
+git push origin main
+```
+
+Code Capsules automatically deploys the new version of your application as soon as you push to the deploy branch which is `main` in this case. 
 
 That’s it, your job board should be fully functional now.
