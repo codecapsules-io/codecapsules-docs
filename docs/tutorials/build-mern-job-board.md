@@ -7,9 +7,9 @@ description: Create a job board based on the MERN architechture by extending a b
 
 A MERN (MongoDB, Express, React, Node) stack like other full stack applications has the convenience of needing only one capsule to host both the front end and back end.
 
-In this tutorial, which is part two of this [deployment guide]() we'll be extending the boilerplate MERN application we deployed in the first part in order to make a job board based on the same architecture. When complete, the job board will be a platform where users can view and submit available jobs.
+In this tutorial, which is part two of this [deployment guide](../deployment/how-to-deploy-mern-stack-application-to-production.md) we'll be extending the boilerplate MERN application we deployed in the first part in order to make a job board based on the same architecture. When complete, the job board will be a platform where users can view and submit available jobs.
 
-To follow along, go over the [deployment guide]() first as the tutorial will be building on top of the steps detailed in that guide.
+To follow along, go over the [deployment guide](../deployment/how-to-deploy-mern-stack-application-to-production.md) first as the tutorial will be building on top of the steps detailed in that guide.
 
 ## Extending the Front End
 
@@ -27,7 +27,24 @@ We don't want to track the build folder in git so we'll have to add it to gitign
 
 ### View the Boilerplate Application
 
-To see how the application looks run `node index.js` in the terminal whilst in the project's root folder. This command will start the boilerplate MERN application and you can view it in your browser at `localhost:8080`. The app should should look like the screenshot below.
+Before we can view how the application looks we need to comment out some code that relies on environment variables that are only accessible on Code Capsules. Open `index.js` in the project's root folder and comment out the lines shown below.
+
+```js
+// db.mongoose
+//   .connect(db.url, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+//   })
+//   .then(() => {
+//     console.log("Connected to the database!");
+//   })
+//   .catch(err => {
+//     console.log("Cannot connect to the database!", err);
+//     process.exit();
+//   });
+```
+
+We can now safely see how the application looks by running `node index.js` in the terminal whilst in the project's root folder. This command will start the boilerplate MERN application and you can view it in your browser at `localhost:8080`. The app should should look like the screenshot below.
 
 ![Mern stack front end](../assets/tutorials/mern-job-board/mern-stack.png)
 
@@ -287,7 +304,7 @@ module.exports = app => {
 };
 ```
 
-The routes use request methods and the controller exports we made earlier to decide what happens when each endpoint is hit by a get or post request. Delete the `person.routes.js` file that was in the routes folder and modify the line below in index.js in the root folder of the project.
+The routes use request methods and the controller exports we made earlier to decide what happens when each endpoint is hit by a get or post request. Delete the `person.routes.js` file that was in the routes folder and modify the line below in `index.js` in the root folder of the project.
 
 From 
 
@@ -302,6 +319,23 @@ require("./app/routes/job.routes")(app);
 ```
 
 The line above tells our back end to use the routes defined in `job.routes.js`.
+
+It's now also time to uncomment the code we commented out earlier when we wanted to view the application's front end. Uncomment the code below in `index.js`.
+
+```js
+db.mongoose
+  .connect(db.url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log("Connected to the database!");
+  })
+  .catch(err => {
+    console.log("Cannot connect to the database!", err);
+    process.exit();
+  });
+```
 
 ## Integrating the Front and Back End 
 
