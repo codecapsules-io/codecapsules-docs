@@ -5,7 +5,7 @@ description: Create a job board based on the MERN architechture by extending a b
 
 # Build a MERN job board
 
-A MERN (MongoDB, Express, React, Node) stack like other full stack applications has the convenience of needing only one capsule to host both the frontend and backend.
+A MERN (MongoDB, Express, React, Node) stack like other full stack applications has the convenience of needing only one capsule to host both the front end and back end.
 
 In this tutorial, which is part two of this [deployment guide]() we'll be extending the boilerplate MERN application we deployed in the first part in order to make a job board based on the same architecture. When complete, the job board will be a platform where users can view and submit available jobs.
 
@@ -13,9 +13,21 @@ To follow along, go over the [deployment guide]() first as the tutorial will be 
 
 ## Extending the Front End
 
-We’ll start by extending the front end to show that it’s for a job board. After successfully cloning the repo mentioned above, open the project’s root folder and navigate to the client directory. Inside this folder, you will find the `src` code for the react front end we want to extend. Open the command line and run `npm install` whilst in the client directory to install the project’s node_modules. 
+We’ll start by extending the front end to show that it’s for a job board. Open the project’s root folder and navigate to the client directory. Inside this folder, you will find the `src` code for the react front end we want to extend. Open the command line and run `npm install` whilst in the client directory to install the project’s node_modules. 
 
-When you’ve installed the node_modules you can now start the react side of the app to see how it looks by running `npm start`. After running this command you should see a page similar to the one shown below in your default browser at port 3000. 
+When you’ve installed the node_modules you can now build the react side of the app to create an optimized production build of the front end by running `npm run build`. This command creates a build folder and populates it with the code for the optimized front end site. 
+
+### Adding `build` to `gitignore`
+
+We don't want to track the build folder in git so we'll have to add it to gitignore. Open the `.gitignore` file in the project's root folder and add the line below to ignore the build folder in our repository.
+
+```
+ /client/build
+```
+
+### View the Boilerplate Application
+
+To see how the application looks run `node index.js` in the terminal whilst in the project's root folder. This command will start the boilerplate MERN application and you can view it in your browser at `localhost:8080`. The app should should look like the screenshot below.
 
 ![Mern stack front end](../assets/tutorials/mern-job-board/mern-stack.png)
 
@@ -138,9 +150,11 @@ function App() {
 export default App;
 ```
 
-React displays the contents of `App.js` and the code we added imports the components we made so that they can be rendered. Open your browser to see how the front end looks now. The page layout should’ve changed but the styling is a bit off. Add the contents of [this css file](https://github.com/ritza-co/mern-job-board/blob/main/client/src/App.css) to `src/App.css` in order to make our front end prettier. 
+React displays the contents of `App.js` and the code we added imports the components we made so that they can be rendered. Run `npm run build` again whilst in the client directory in the terminal to build the job board front end. When the site has been built open your browser to see how the front end looks now. 
 
-When you’ve added the above mentioned css your application should now look like this. 
+The page layout should’ve changed but the styling is a bit off. Add the contents of [this css file](https://github.com/ritza-co/mern-job-board/blob/main/client/src/App.css) to `src/App.css` in order to make our front end prettier. 
+
+When you’ve added the above mentioned css build your application again which should now look like this. 
 
 ![Job board front end](../assets/tutorials/mern-job-board/job-board-ui.png)
 
@@ -291,8 +305,6 @@ The line above tells our back end to use the routes defined in `job.routes.js`.
 
 ## Integrating the Front and Back End 
 
-Before deploying a mern application you need to build the front end to optimize it for production and in our case to also update the contents in the `client/build` folder with the new frontend for the job board. Navigate to the client folder in the command terminal and run `npm run build` to build the job board front end. 
-
 Our express backend uses the contents inside the `client/build` folder to render the frontend of the mern application. The lines below in index.js in the root folder handle that responsibility.
 
 ```js
@@ -323,7 +335,7 @@ git commit -m "Added job board files"
 
 ### Git Push
 
-The final step in version control is to push our committed changes to the remote repository which Code Capsules is linked to. Run the command below to push the changes we just made.
+The final step is to push our committed changes to the remote repository which Code Capsules is linked to. Run the command below to push the changes we just made.
 
 ```
 git push origin main
