@@ -25,7 +25,7 @@ Then create the Backend Capsule:
 
 ![Create Backend Capsule](../assets/deployment/mern/creating-backend-mern.gif)
 
-Select the repository you forked earlier. In the "Run Command" field, enter `node index.js` to let the capsule know how to run your application.
+Select the repository you forked earlier and leave the "Run Command" field blank. Click the "Create Capsule" button to start the build. You can view the [logs](#view-application-logs) whilst the capsule is building your application to track its progress as it might take a while. 
 
 ## Binding the Capsules
 
