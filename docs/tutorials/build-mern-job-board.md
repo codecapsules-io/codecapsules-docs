@@ -27,7 +27,9 @@ We don't want to track the build folder in git so we'll have to add it to gitign
 
 ### View the Boilerplate Application
 
-Before we can view how the application looks we need to comment out some code that relies on environment variables that are only accessible on Code Capsules. Open `index.js` in the project's root folder and comment out the lines shown below.
+Before we can view how the application looks we need to install the `node_modules` for the backend and comment out some code that relies on environment variables that are only accessible on Code Capsules. 
+
+Navigate to the project's root folder in a terminal window and run `npm install` there. Open `index.js` in the project's root folder and comment out the lines shown below.
 
 ```js
 // db.mongoose
