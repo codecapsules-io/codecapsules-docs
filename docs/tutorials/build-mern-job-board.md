@@ -150,8 +150,8 @@ import logo from './logo.svg';
 import './App.css';
 import React, {useState} from 'react';
 import axios from 'axios';
-import SubmitJob from './components/submitJob/submitJob';
-import ViewJobs from './components/viewJobs/viewJobs';
+import SubmitJob from './components/submitJob';
+import ViewJobs from './components/viewJobs';
 
 function App() {
   return (
