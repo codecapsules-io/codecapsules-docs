@@ -15,7 +15,14 @@ To follow along, go over the [deployment guide](../deployment/how-to-deploy-mern
 
 We’ll start by extending the front end to show that it’s for a job board. Open the project’s root folder and navigate to the client directory. Inside this folder, you will find the `src` code for the react front end we want to extend. Open the command line and run `npm install` whilst in the client directory to install the project’s node_modules. 
 
-When you’ve installed the node_modules you can now build the react side of the app to create an optimized production build of the front end by running `npm run build`. This command creates a build folder and populates it with the code for the optimized front end site. 
+When you’ve installed the node_modules you can now build the react side of the app to create an optimized production build of the front end by running `npm run build`. This command creates a build folder with an optimized version of our front-end source code. This code has all the extra spacing removed which is great for efficiency but impossible for humans to read or edit. An except is shown below.
+
+```
+a=document.createElement("script");a.charset="utf-8",a.timeout=120,i.nc&&a.setAttribute("nonce",i.nc),a.src=function(e){return i.p+"static/js/"+({}[e]||e)+"."+{3:"fe1e148c"}[e]+".chunk.js"}(e);var c=new Error;u=function(r){a.onerror=a.onload=null,clearTimeout(f);var t=o[e];if(0!==t){if(t){var n=r&&("load"===r.type?"missing":r.type),u=r&&r.target&&r.target.src;
+```
+
+This means that whenever we make changes to our application, we edit the files in the `src` directory, and then `npm run build` which creates the optimized code in the `build` directory, which is what is run in our web browser.
+
 
 ### Adding `build` to `gitignore`
 
