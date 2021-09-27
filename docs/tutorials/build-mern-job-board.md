@@ -15,6 +15,28 @@ Head over to the Code Capsules [MERN stack deployment guide](../deployment/how-t
 
 Before we can view the application's frontend, we need to install the `node_modules` for the backend and comment out some code that relies on environment variables that are only accessible on Code Capsules. 
 
+We’ll start by extending the front end to show that it’s for a job board. Open the project’s root folder and navigate to the client directory. Inside this folder, you will find the `src` code for the react front end we want to extend. Open the command line and run `npm install` whilst in the client directory to install the project’s node_modules. 
+
+When you’ve installed the node_modules you can now build the react side of the app to create an optimized production build of the front end by running `npm run build`. This command creates a build folder with an optimized version of our front-end source code. This code has all the extra spacing removed which is great for efficiency but impossible for humans to read or edit. An except is shown below.
+
+```
+a=document.createElement("script");a.charset="utf-8",a.timeout=120,i.nc&&a.setAttribute("nonce",i.nc),a.src=function(e){return i.p+"static/js/"+({}[e]||e)+"."+{3:"fe1e148c"}[e]+".chunk.js"}(e);var c=new Error;u=function(r){a.onerror=a.onload=null,clearTimeout(f);var t=o[e];if(0!==t){if(t){var n=r&&("load"===r.type?"missing":r.type),u=r&&r.target&&r.target.src;
+```
+
+This means that whenever we make changes to our application, we edit the files in the `src` directory, and then `npm run build` which creates the optimized code in the `build` directory, which is what is run in our web browser.
+
+### Adding `build` to `gitignore`
+
+We don't want to track the build folder in git so we'll have to add it to gitignore. Open the `.gitignore` file in the project's root folder and add the line below to ignore the build folder in our repository.
+
+```
+ /client/build
+```
+
+### View the Boilerplate Application
+
+Before we can view how the application looks we need to install the `node_modules` for the backend and comment out some code that relies on environment variables that are only accessible on Code Capsules. 
+
 Navigate to the project's root folder in a terminal window and run `npm install` there. Open `index.js` in the project's root folder and comment out the lines shown below.
 
 ```js
@@ -148,8 +170,8 @@ import logo from './logo.svg';
 import './App.css';
 import React, {useState} from 'react';
 import axios from 'axios';
-import SubmitJob from './components/submitJob/submitJob';
-import ViewJobs from './components/viewJobs/viewJobs';
+import SubmitJob from './components/submitJob';
+import ViewJobs from './components/viewJobs';
 
 function App() {
   return (
