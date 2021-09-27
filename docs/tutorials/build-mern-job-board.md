@@ -13,24 +13,51 @@ In this tutorial, we'll extend a boilerplate MERN application to make a job boar
 
 Head over to the Code Capsules [MERN stack deployment guide](../deployment/how-to-deploy-mern-stack-application-to-production.md) and follow the steps outlined there to set up the boilerplate application.
 
-Before we can view the application's frontend, we need to install the `node_modules` for the backend and comment out some code that relies on environment variables that are only accessible on Code Capsules.
+Before we can view the application's frontend, we need to install the `node_modules` for the backend and set a local `DATABASE_URL` environment variable similar to the one on Code Capsules.
 
-Navigate to the project's root folder in a terminal window and run `npm install` there. Open `index.js` in the project's root folder and comment out the lines shown below.
+Navigate to the project's root folder in a terminal window and run `npm install` there. Reference this [MongoDB setup guide](../reference/set-up-mongodb-data-capsule.md) to ensure that public access is turned on for your data capsule. Copy the value of the connection string and append `&authSource=admin` to it so that its format is similar to `mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin`. 
 
-```js
-// db.mongoose
-//   .connect(db.url, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-//   })
-//   .then(() => {
-//     console.log("Connected to the database!");
-//   })
-//   .catch(err => {
-//     console.log("Cannot connect to the database!", err);
-//     process.exit();
-//   });
+Set the local `DATABASE_URL` environment variable from the command line by running the commands below.
+
+For Windows:
+
 ```
+setx DATABASE_URL "mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin"
+```
+
+To confirm that the environment variable was successfully set, open another terminal window and run the command below. 
+
+```
+echo %DATABASE_URL%
+```
+
+Expected output:
+
+```
+mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin
+```
+
+If you see output similar to the string shown above then you're all set to run the application locally.
+
+For MacOS:
+
+```
+export DATABASE_URL=mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin
+```
+
+To confirm that the environment variable was successfully set, run the command below. 
+
+```
+echo $DATABASE_URL
+```
+
+Expected output:
+
+```
+mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin
+```
+
+If you see output similar to the string shown above then you're all set to run the application locally.
 
 Run `node index.js` in the terminal from the project's root folder to start the boilerplate MERN application. You can view it in your browser at `localhost:8080`. The app should should look something like this:
 
