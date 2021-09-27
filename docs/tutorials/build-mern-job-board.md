@@ -25,14 +25,6 @@ a=document.createElement("script");a.charset="utf-8",a.timeout=120,i.nc&&a.setAt
 
 This means that whenever we make changes to our application, we edit the files in the `src` directory, and then `npm run build` which creates the optimized code in the `build` directory, which is what is run in our web browser.
 
-### Adding `build` to `gitignore`
-
-We don't want to track the build folder in git so we'll have to add it to gitignore. Open the `.gitignore` file in the project's root folder and add the line below to ignore the build folder in our repository.
-
-```
- /client/build
-```
-
 ### View the Boilerplate Application
 
 Before we can view how the application looks we need to install the `node_modules` for the backend and comment out some code that relies on environment variables that are only accessible on Code Capsules. 
