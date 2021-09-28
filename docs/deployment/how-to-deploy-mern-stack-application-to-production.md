@@ -33,6 +33,14 @@ Now we need to bind the two capsules together. Navigate to the Backend Capsule y
 
 ![Bind MERN Capsules](../assets/deployment/mern/bind-mern-capsules.png)
 
+## Edit `DATABASE_URL` Environment Variable
+
+Next, we have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Capsule parameters" section on the "Configure" tab. 
+
+![Edit DATABASE_URL Environment Variable](../assets/deployment/mern/edit-database-url.png)
+
+Confirm your changes by clicking on "Update Capsule" then restart your capsule by toggling the radio button in the top right off and on again.
+
 ## View Application
 
 The application will be ready for use after binding the two capsules together. To view it, click on the "Live Website" link at the top of your Backend Capsule page.
