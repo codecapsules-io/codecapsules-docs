@@ -48,6 +48,7 @@ nav:
     - File Data Capsule: reference/set-up-file-data-capsule.md
     - MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md 
     - MySQL Data Capsule: reference/set-up-mysql-data-capsule.md
+    - Procfile: reference/add-procfile-to-backend-application.md
   - Tutorials: 
     - tutorials/index.md
     - Slackbot with Node.js: tutorials/build-slackbot-with-node.md
