@@ -65,9 +65,9 @@ If you're looking to build cool applications that you can host on Code Capsules,
   </a>
 </figure>
 <figure>
-  <a href="./game-catalogue-with-nodejs-and-mysql/">
-    <img style="border-radius: 10px 10px 0" src="" width="300" />
-    <figcaption></figcaption>
+  <a href="./build-mern-job-board/">
+    <img style="border-radius: 10px 10px 0" src="../assets/tutorials/mern-job-board/mern_job_board.jpg" width="300" />
+    <figcaption>Build a MERN Job Board</figcaption>
   </a>
 </figure>
 </div>
