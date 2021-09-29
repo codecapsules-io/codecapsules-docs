@@ -3,7 +3,7 @@ title: Build a MERN job board
 description: Create a job board based on the MERN architecture by extending a boilerplate MERN project.
 ---
 
-# Building a MERN Job Board
+# Build a MERN Job Board
 
 ![Building MERN job board cover](../assets/tutorials/mern-job-board/mern_job_board.jpg)
 
@@ -15,24 +15,51 @@ In this tutorial, we'll extend a boilerplate MERN application to make a job boar
 
 Head over to the Code Capsules [MERN stack deployment guide](../deployment/how-to-deploy-mern-stack-application-to-production.md) and follow the steps outlined there to set up the boilerplate application. You will need to clone the forked repository to your local development environment to extend the functionality of the boilerplate application. 
 
-Before we can view the application's frontend, we need to install the `node_modules` for the backend and comment out code that tries to establish a connection to the database from our local development environment. We need this connection to be established when we deploy the app to Code Capsules as the connection relies on environment variables that we have not set up on our local development environment but are accessible on Code Capsules.
+Before we can view the application's frontend, we need to install the `node_modules` for the backend and set a local `DATABASE_URL` environment variable similar to the one on Code Capsules.
 
-Navigate to the project's root folder in a terminal or command prompt window and run `npm install`. Open `index.js` in the project's root folder and comment out the lines shown below.
+Navigate to the project's root folder in a terminal or command prompt window and run `npm install` there. Reference this [MongoDB setup guide](../reference/set-up-mongodb-data-capsule.md) to ensure that public access is turned on for your data capsule. Copy the value of the connection string and append `&authSource=admin` to it so that its format is similar to `mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin`. 
 
-```js
-// db.mongoose
-//   .connect(db.url, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-//   })
-//   .then(() => {
-//     console.log("Connected to the database!");
-//   })
-//   .catch(err => {
-//     console.log("Cannot connect to the database!", err);
-//     process.exit();
-//   });
+Set the local `DATABASE_URL` environment variable from the command line by running the commands below.
+
+For Windows:
+
 ```
+setx DATABASE_URL "mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin"
+```
+
+To confirm that the environment variable was successfully set, open another terminal window and run the command below. 
+
+```
+echo %DATABASE_URL%
+```
+
+Expected output:
+
+```
+mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin
+```
+
+If you see output similar to the string shown above then you're all set to run the application locally.
+
+For MacOS:
+
+```
+export DATABASE_URL=mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin
+```
+
+To confirm that the environment variable was successfully set, run the command below. 
+
+```
+echo $DATABASE_URL
+```
+
+Expected output:
+
+```
+mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin
+```
+
+If you see output similar to the string shown above then you're all set to run the application locally.
 
 ## Extending the Frontend
 
