@@ -6,12 +6,12 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A walkthrough on how to deploy a Flask application from GitHub.">
+        <meta name="description" content="Write a Procfile for your backend application to outline how it should be run">
       
       
       
       
-        <link rel="canonical" href="https://codecapsules.io/docs/deployment/how-to-deploy-flask-application-to-production/">
+        <link rel="canonical" href="https://codecapsules.io/docs/reference/add-procfile-to-backend-application/">
       
       
         
@@ -21,7 +21,7 @@
     
     
       
-        <title>Deploy a Flask Application - Code Capsules</title>
+        <title>Add a Procfile to a Backend Application - Code Capsules</title>
       
     
     
@@ -70,8 +70,8 @@
   <meta name="twitter:site" content="codecapsules" />
   <meta name="twitter:creator" content="codecapsules" />
   
-      <meta name="twitter:title" content="Deploy a Flask Application" />
-      <meta name="twitter:description" content="A walkthrough on how to deploy a Flask application from GitHub." />
+      <meta name="twitter:title" content="Add a Procfile to a Backend Application" />
+      <meta name="twitter:description" content="Write a Procfile for your backend application to outline how it should be run" />
   
 
   </head>
@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-deploy-a-flask-application-to-production-on-code-capsules" class="md-skip">
+        <a href="#add-a-procfile-to-a-backend-application" class="md-skip">
           Skip to content
         </a>
       
@@ -128,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deploy a Flask Application
+              Add a Procfile to a Backend Application
             
           </span>
         </div>
@@ -223,15 +223,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../deployment/" class="md-tabs__link">
         Deployment
       </a>
     </li>
@@ -241,13 +239,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../reference/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Reference
       </a>
     </li>
@@ -370,14 +370,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       
       
@@ -407,7 +405,7 @@
         
         
         <div class="md-nav__link md-nav__link--container ">
-          <a href="../">Deployment</a>
+          <a href="../../deployment/">Deployment</a>
           <label for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
           </label>
@@ -429,7 +427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-deploy-angular-application-to-production/" class="md-nav__link">
+      <a href="../../deployment/how-to-deploy-angular-application-to-production/" class="md-nav__link">
         Angular
       </a>
     </li>
@@ -443,8 +441,207 @@
   
   
     <li class="md-nav__item">
-      <a href="../how-to-deploy-express-application-to-production/" class="md-nav__link">
+      <a href="../../deployment/how-to-deploy-express-application-to-production/" class="md-nav__link">
         Express
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-application-to-production/" class="md-nav__link">
+        Flask
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-java-application-to-production/" class="md-nav__link">
+        Java
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-mern-stack-application-to-production/" class="md-nav__link">
+        MERN
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-react-application-to-production/" class="md-nav__link">
+        React
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-static-html-to-production/" class="md-nav__link">
+        HTML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-vue-application-to-production/" class="md-nav__link">
+        Vue
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../">Reference</a>
+          <label for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom_domains/" class="md-nav__link">
+        Custom Domains
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-up-file-data-capsule/" class="md-nav__link">
+        File Data Capsule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-up-mongodb-data-capsule/" class="md-nav__link">
+        MongoDB Data Capsule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../set-up-mysql-data-capsule/" class="md-nav__link">
+        MySQL Data Capsule
       </a>
     </li>
   
@@ -467,12 +664,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Flask
+          Procfile
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Flask
+        Procfile
       </a>
       
         
@@ -490,43 +687,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#set-up" class="md-nav__link">
-    Set Up
+  <a href="#procfile-naming-and-location" class="md-nav__link">
+    Procfile Naming and Location
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-an-account-with-code-capsules" class="md-nav__link">
-    Creating an Account with Code Capsules
+  <a href="#procfile-processes" class="md-nav__link">
+    Procfile Processes
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#linking-to-github" class="md-nav__link">
-    Linking to GitHub
+  <a href="#procfile-format" class="md-nav__link">
+    Procfile Format
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#add-repo-to-team" class="md-nav__link">
-    Add Repo to Team
+  <a href="#example-procfile-for-pythons-flask" class="md-nav__link">
+    Example Procfile for Python's Flask
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-space-for-your-apps" class="md-nav__link">
-    Create a Space for Your Apps
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-the-capsule" class="md-nav__link">
-    Create the Capsule
+  <a href="#procfiles-for-other-languages" class="md-nav__link">
+    Procfiles for Other Languages
   </a>
   
 </li>
@@ -535,203 +725,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-deploy-java-application-to-production/" class="md-nav__link">
-        Java
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-deploy-mern-stack-application-to-production/" class="md-nav__link">
-        MERN
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-deploy-react-application-to-production/" class="md-nav__link">
-        React
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-deploy-static-html-to-production/" class="md-nav__link">
-        HTML
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../how-to-deploy-vue-application-to-production/" class="md-nav__link">
-        Vue
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-        
-          
-            
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        
-        
-        <div class="md-nav__link md-nav__link--container ">
-          <a href="../../reference/">Reference</a>
-          <label for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        </div>
-      
-      <nav class="md-nav" aria-label="Reference" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Reference
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/custom_domains/" class="md-nav__link">
-        Custom Domains
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/set-up-file-data-capsule/" class="md-nav__link">
-        File Data Capsule
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/set-up-mongodb-data-capsule/" class="md-nav__link">
-        MongoDB Data Capsule
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/set-up-mysql-data-capsule/" class="md-nav__link">
-        MySQL Data Capsule
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../reference/add-procfile-to-backend-application/" class="md-nav__link">
-        Procfile
-      </a>
     </li>
   
 
@@ -1271,43 +1264,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#set-up" class="md-nav__link">
-    Set Up
+  <a href="#procfile-naming-and-location" class="md-nav__link">
+    Procfile Naming and Location
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-an-account-with-code-capsules" class="md-nav__link">
-    Creating an Account with Code Capsules
+  <a href="#procfile-processes" class="md-nav__link">
+    Procfile Processes
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#linking-to-github" class="md-nav__link">
-    Linking to GitHub
+  <a href="#procfile-format" class="md-nav__link">
+    Procfile Format
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#add-repo-to-team" class="md-nav__link">
-    Add Repo to Team
+  <a href="#example-procfile-for-pythons-flask" class="md-nav__link">
+    Example Procfile for Python's Flask
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-space-for-your-apps" class="md-nav__link">
-    Create a Space for Your Apps
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-the-capsule" class="md-nav__link">
-    Create the Capsule
+  <a href="#procfiles-for-other-languages" class="md-nav__link">
+    Procfiles for Other Languages
   </a>
   
 </li>
@@ -1326,58 +1312,26 @@
                 
                 
                 
-                <h1 id="how-to-deploy-a-flask-application-to-production-on-code-capsules">How to Deploy a Flask Application to Production on Code Capsules</h1>
-<p>Deploy a Flask application and learn how to host backend code on Code Capsules. </p>
-<h2 id="set-up">Set Up</h2>
-<p>Here, we'll learn how to deploy backend code with Code Capsules and Flask. Because Code Capsules connects with GitHub to deploy code, you'll need a <a href="https://github.com">GitHub</a> account to follow this tutorial. We'll use a sample Flask application provided by Code Capsules to demonstrate deployment – you can find the GitHub repository for the application <a href="https://github.com/codecapsules-io/demo-python">here</a>.</p>
-<p>To deploy this repository, we'll need to fork the application by clicking "Fork" at the top right of the GitHub repository. Once forked, we're ready to deploy the application – feel free to make any edits to it, otherwise continue. </p>
-<p><img alt="demo python" src="../../assets/deployment/python/cc-demo-python-github.png" /></p>
-<h2 id="creating-an-account-with-code-capsules">Creating an Account with Code Capsules</h2>
-<p>First, we'll need to create an account with <a href="https://codecapsules.io/">Code Capsules</a>. Do so, and make sure to confirm your account by checking your email. </p>
-<p>After creating a new account, you'll be greeted with a screen that looks like this: </p>
-<p><img alt="welcome screen" src="../../assets/deployment/python/welcome-screen.jpg" /></p>
-<p>Click on the "Go To Personal Team" button, and you will be redirected to the <em>Spaces</em> tab for your Personal Team. Code Capsules provides a personal <a href="https://codecapsules.io/docs/FAQ/what-is-a-team/">Team</a> and a personal <a href="https://codecapsules.io/docs/FAQ/what-is-a-space/">Space</a> (located in the middle of the screen) to every new user. </p>
-<p>For this tutorial, we'll need to add payment information to create a backend Capsule. Navigate to "Team Settings" at the top of the screen, then add a payment method under "Payment Methods". </p>
-<p><img alt="payment methods" src="../../assets/deployment/python/payment-methods.png" /></p>
-<p>Once you've added payment information, we need to permit Code Capsules to access our GitHub repositories. </p>
-<h2 id="linking-to-github">Linking to GitHub</h2>
-<p>In order to host our Flask application on Code Capsules, we need to link our forked GitHub repository to our Code Capsules account.</p>
-<p>Find the profile image at the top right of the page and click on it. You'll see a GitHub button located under "GitHub" details. </p>
-<p><img alt="git-button" src="../../assets/deployment/python/git-button.png" /></p>
-<p>Click on the "GitHub" button. You can authorise Code Capsules to connect to the Flask application by:</p>
-<ol>
-<li>Clicking your GitHub username.</li>
-<li>Selecting "Only Select Repositories".</li>
-<li>Choosing the GitHub repository we forked.</li>
-<li>Pressing "Install &amp; Authorize".</li>
-</ol>
-<p><img alt="Install &amp; authorize github" src="../../assets/deployment/python/github-integration.png" /></p>
-<p>Once you've clicked the "Install &amp; Authorize" button, Code Capsules will link to the GitHub repository containing the Flask application. The next step is to add the repository to our "Personal Team" so that all Capsules created under that Team can read its data. </p>
-<h2 id="add-repo-to-team">Add Repo to Team</h2>
-<p>Click on "Team Settings" on the top navigation bar to switch to the <em>Team Settings</em> tab. Once there, click on the "Modify" button under the <em>Team Repos</em> section to add the repo to your Personal Team. When the "Edit Team Repos" screen slides in, select "Add" next to the repo you want to add to your Personal Team and then confirm. After this is done, all Spaces in your team will have access to this repo. </p>
-<p><img alt="Edit Team Repos" src="../../assets/deployment/python/team-repos.gif" /></p>
-<p>Now, all we have left to do is to create a <a href="https://codecapsules.io/docs/FAQ/what-is-a-capsule">Capsule</a> that will host our Flask application. But first, let's create a space for the capsule.</p>
-<h2 id="create-a-space-for-your-apps">Create a Space for Your Apps</h2>
-<p><img alt="create a new space" src="../../assets/deployment/python/spaces.png" /></p>
-<p>Navigate to the <em>Spaces</em> tab and click on the "Create A New Space For Your Apps" button. Alternatively, if you had logged into an existing Code Capsules account, you could click on the "New Space" button to create a new space for this tutorial or select any of your existing ones. After actioning either of these steps, a UI similar to the one shown below should slide in from the right of your screen.  </p>
-<p><img alt="space name" src="../../assets/deployment/python/space-name.png" /></p>
-<p>Select an appropriate region and enter a name for your space and press "Create Space".</p>
-<h2 id="create-the-capsule">Create the Capsule</h2>
-<p>Capsules provide the server for hosting applications on Code Capsules.</p>
-<p><img alt="space_image" src="../../assets/deployment/python/space.png" /></p>
-<p>We can deploy our Flask application to Code Capsules by clicking the "Create a New Capsule for Your Space" button. Do so, then:</p>
-<ol>
-<li>Choose a "Backend Capsule".</li>
-<li>Select the "Sandbox" product.</li>
-<li>Choose the GitHub repository we forked.</li>
-<li>Press next.</li>
-<li>Leave the "Run Command" blank and create the Capsule.</li>
-</ol>
-<p><img alt="Create Backend Capsule" src="../../assets/deployment/python/creating-backend-capsule.gif" /></p>
-<p>While the Capsule is building, you can view its logs under the "Build and Deploy" tab in the Capsule. Once built, you can navigate to the "Overview" tab and click on the provided URL to view the application. </p>
-<p><img alt="Build logs" src="../../assets/deployment/python/backend-capsule-build-logs.png" /></p>
-<p>For a better understanding of Capsules, take a look at <a href="https://codecapsules.io/docs/FAQ/what-is-a-capsule">this explanation</a>.</p>
-<p>If you'd like to deploy your own Flask application, take a close look at the <a href="https://github.com/codecapsules-io/demo-python">Flask repository</a> we forked. There, you'll find a file named <code>Procfile</code>. Code Capsules reads Procfiles to build and deploy Flask applications. <a href="https://pythonhosted.org/deis/using_deis/process-types/">Click here</a> to read more about Procfiles. </p>
+                <h1 id="add-a-procfile-to-a-backend-application">Add a Procfile to a Backend Application</h1>
+<p>Procfiles communicate to the backend capsule, what processes it needs to run and in which order to execute them for your application to be successfully deployed. On Code Capsules, Procfiles aren't a strict requirement but can be provided if you want to. </p>
+<p>The alternative to using a Procfile is using the Code Capsules UI to specify which commands to run during the build phase of your application. Below is a screenshot showing a command that may be entered as input in the UI for a <code>Node.js</code> application. </p>
+<p><img alt="Run command for Node application" src="../../assets/reference/procfile/ui-run-command.png" /></p>
+<h2 id="procfile-naming-and-location">Procfile Naming and Location</h2>
+<p>A Procfile is a simple text file. It should be named <code>Procfile</code> exactly and should not have any extensions, like <code>.txt</code> or <code>.py</code>. Note that naming the file <code>procfile</code> will not work either, as it is case sensitive. </p>
+<p>Locate your Procfile in the root folder of your project. It won't work in any other location.</p>
+<h2 id="procfile-processes">Procfile Processes</h2>
+<p>The <code>Procfile</code> outlines the type of processes a Backend Capsule needs to run before deploying a backend application. Common processes include but are not limited to <code>web</code>, <code>worker</code>, and <code>clock</code> processes. When declaring a process type, you should also write the command to run for that particular process.</p>
+<p>A process type command allows you to specify the port you'd like the process to run, as well as other options that are process specific. </p>
+<h2 id="procfile-format">Procfile Format</h2>
+<p>The Procfile's format is a key value listing of process types and their commands on each line as shown below: </p>
+<div class="highlight"><pre><span></span><code>&lt;process type&gt;: &lt;command&gt;
+</code></pre></div>
+<h2 id="example-procfile-for-pythons-flask">Example Procfile for Python's Flask</h2>
+<p>Code Capsules only requires a Procfile for Python applications. Here is an example of what a Procfile for a Flask application might look:</p>
+<div class="highlight"><pre><span></span><code>web: python3 -m flask run --host=0.0.0.0 --port=$PORT
+</code></pre></div>
+<h2 id="procfiles-for-other-languages">Procfiles for Other Languages</h2>
+<p>Express and Java applications don't need a Procfile to be deployed. The Backend Capsule can detect these applications and run the processes relevant to the application being deployed. </p>
                 
                   
                 
@@ -1400,7 +1354,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../how-to-deploy-express-application-to-production/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Express" rel="prev">
+        <a href="../set-up-mysql-data-capsule/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MySQL Data Capsule" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1409,20 +1363,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Express
+              MySQL Data Capsule
             </div>
           </div>
         </a>
       
       
         
-        <a href="../how-to-deploy-java-application-to-production/" class="md-footer__link md-footer__link--next" aria-label="Next: Java" rel="next">
+        <a href="../../tutorials/" class="md-footer__link md-footer__link--next" aria-label="Next: Tutorial Guides" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Java
+              Tutorial Guides
             </div>
           </div>
           <div class="md-footer__button md-icon">
