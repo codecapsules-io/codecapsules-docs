@@ -5,69 +5,39 @@ description: Create a job board based on the MERN architecture by extending a bo
 
 # Build a MERN Job Board
 
+![Building MERN job board cover](../assets/tutorials/mern-job-board/mern_job_board.jpg)
+
 Like other full stack applications, a MERN (MongoDB, Express, React, Node.js) stack has the advantage of needing only one capsule to host both the frontend and backend of an application.
 
 In this tutorial, we'll extend a boilerplate MERN application to make a job board where users can view and submit available jobs.
 
 ## Getting Started
 
-Head over to the Code Capsules [MERN stack deployment guide](../deployment/how-to-deploy-mern-stack-application-to-production.md) and follow the steps outlined there to set up the boilerplate application.
+Head over to the [MERN stack deployment guide](../deployment/how-to-deploy-mern-stack-application-to-production.md) and follow the steps outlined there to set up the boilerplate application. You will need to clone the forked repository to your local development environment to extend the functionality of the boilerplate application. 
 
 Before we can view the application's frontend, we need to install the `node_modules` for the backend and set a local `DATABASE_URL` environment variable similar to the one on Code Capsules.
 
-Navigate to the project's root folder in a terminal window and run `npm install` there. Reference this [MongoDB setup guide](../reference/set-up-mongodb-data-capsule.md) to ensure that public access is turned on for your data capsule. Copy the value of the connection string and append `&authSource=admin` to it so that its format is similar to `mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin`. 
+Navigate to the project's root folder in a terminal or command prompt window and run `npm install` there. Reference this [MongoDB setup guide](../reference/set-up-mongodb-data-capsule.md) to ensure that public access is turned on for your data capsule. Copy the value of the connection string and append `&authSource=admin` to it so that its format is similar to `mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin`. 
 
-Set the local `DATABASE_URL` environment variable from the command line by running the commands below.
+Set the local `DATABASE_URL` environment variable by following the steps below:
 
-For Windows:
-
+- Create a `.env` file in the root folder.
+- Add the line below to the `.env` file replacing the connection string with your own.
 ```
-setx DATABASE_URL "mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin"
+DATABASE_URL=mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin
 ```
-
-To confirm that the environment variable was successfully set, open another terminal window and run the command below. 
-
+- Run the command below in a terminal window from the root folder to install the package for loading environment variables.
 ```
-echo %DATABASE_URL%
+npm install dotenv
 ```
-
-Expected output:
-
+- Open the `index.js` file in the root folder and add the following line just below the other require statements.
 ```
-mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin
+require('dotenv').config();
 ```
-
-If you see output similar to the string shown above then you're all set to run the application locally.
-
-For MacOS:
-
-```
-export DATABASE_URL=mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin
-```
-
-To confirm that the environment variable was successfully set, run the command below. 
-
-```
-echo $DATABASE_URL
-```
-
-Expected output:
-
-```
-mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin
-```
-
-If you see output similar to the string shown above then you're all set to run the application locally.
-
-Run `node index.js` in the terminal from the project's root folder to start the boilerplate MERN application. You can view it in your browser at `localhost:8080`. The app should should look something like this:
-
-![Mern stack front end](../assets/tutorials/mern-job-board/mern-stack.png)
-
-Let's extend this frontend to reflect the job board functionality.
 
 ## Extending the Frontend
 
-Open the project’s root folder and navigate to the client directory. This is where you'll find the `src` code for the React frontend. Open terminal and run `npm install` from the client directory to install the project’s `node_modules`. 
+Open the project’s root folder and navigate to the client directory. This is where you'll find the code for the React frontend in the `src` subdirectory. Open a terminal and run `npm install` from the client directory to install the `node_modules` required by the frontend code. 
 
 Next, type in `npm run build`. This command creates a `build` folder with an optimized version of our frontend source code. This code has all the extra spacing removed, which is great for efficiency but impossible for humans to read or edit. An excerpt is shown below:
 
@@ -75,11 +45,19 @@ Next, type in `npm run build`. This command creates a `build` folder with an opt
 a=document.createElement("script");a.charset="utf-8",a.timeout=120,i.nc&&a.setAttribute("nonce",i.nc),a.src=function(e){return i.p+"static/js/"+({}[e]||e)+"."+{3:"fe1e148c"}[e]+".chunk.js"}(e);var c=new Error;u=function(r){a.onerror=a.onload=null,clearTimeout(f);var t=o[e];if(0!==t){if(t){var n=r&&("load"===r.type?"missing":r.type),u=r&&r.target&&r.target.src;
 ```
 
-Whenever we make changes to our application, we edit the files in the `src` directory. The command `npm run build` creates the optimized code in the `build` directory, which is run in our web browser.
+Whenever we make changes to our application's frontend code, we edit the files in the `src` directory and use the `npm run build` command to create the optimized code in the `build` directory, which will be executed when we load our application in a web browser.
+
+
+Run `node index.js` in the terminal from the project's root folder to start the boilerplate MERN application. You can view it in your browser at `http://localhost:8080`. The app should look something like this:
+
+![Mern stack front end](../assets/tutorials/mern-job-board/mern-stack.png)
+
+Let's extend this frontend to reflect the job board functionality.
+
 
 ### Adding the `SubmitJob` Component
 
-Create a `client/src/components` folder to house the submit job and view jobs components we’re going to build next. Create a `submitJob.js` file in the components folder and add the following code:  
+Create a `components` folder within the `client/src` directory ( `client/src/components` ) to house the submit job and view jobs components that we’re going to build next. Create a `submitJob.js` file in the components folder and add the following code:  
 
 ```js
 import React, {useState} from 'react'
@@ -164,11 +142,11 @@ const ViewJobs = () => {
 export default ViewJobs
 ```
 
-The `ViewJobs` component uses hooks to fetch available jobs as soon as the page loads. After fetching the jobs, they are stored in the `jobsStateArray` before being displayed using the `map` function.  
+The `ViewJobs` component uses the `useEffect` hook to fetch available jobs as soon as the page loads. After fetching the jobs, they are stored in the `jobsStateArray` before being displayed using the `map` function.  
 
 ### Viewing the Frontend 
 
-We need to add the two components we have just created to `src/App.js` before we can see the changes we made. Open `App.js` and replace its contents with this code:
+We need to import the two components we have just created in `src/App.js` before we can see the changes we just made. Open `App.js` and replace its contents with this code:
 
 ```js
 import logo from './logo.svg';
@@ -206,7 +184,7 @@ When you rebuild your application and take a look at the frontend, it should loo
 
 ## Extending the Backend
 
-We’re now ready to extend the backend to include more information about the jobs we add to the job board.
+We’re now ready to extend the backend to include functionality for the addition and retrieval of jobs on the job board.
 
 ### Adding the Job Model
 
@@ -232,24 +210,24 @@ Now create a file named `job.model.js` in the `models` folder to define the fiel
 
 ```js
 module.exports = mongoose => {
-var schema = mongoose.Schema(
-    {
-    title: String,
-    description: String,
-    location: String,
-    salary: Number
-    },
-    { timestamps: true }
-);
-
-schema.method("toJSON", function() {
-    const { __v, _id, ...object } = this.toObject();
-    object.id = _id;
-    return object;
-});
-
-const Job = mongoose.model("job", schema);
-return Job;
+    var schema = mongoose.Schema(
+        {
+        title: String,
+        description: String,
+        location: String,
+        salary: Number
+        },
+        { timestamps: true }
+    );
+    
+    schema.method("toJSON", function() {
+        const { __v, _id, ...object } = this.toObject();
+        object.id = _id;
+        return object;
+    });
+    
+    const Job = mongoose.model("job", schema);
+    return Job;
 };
 ```
 
@@ -355,22 +333,6 @@ require("./app/routes/job.routes")(app);
 
 This tells our backend to use the routes defined in our `job.routes.js` file.
 
-Now we can restore the code we commented out earlier when we wanted to view the application's frontend. Find the following code in `index.js` and uncomment it:
-
-```js
-db.mongoose
-  .connect(db.url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => {
-    console.log("Connected to the database!");
-  })
-  .catch(err => {
-    console.log("Cannot connect to the database!", err);
-    process.exit();
-  });
-```
 
 ## Integrating the Frontend and Backend 
 
@@ -386,7 +348,7 @@ app.use(express.static(path));
 
 We'll use version control to keep track of the new files we added when we were extending our application.
 
-We don't want to track the build folder in Git, so we'll add it to the `.gitignore` file in the project's root folder, like this:
+We don't want to track the build folder in git (the frontend will rebuild when we deploy to Code Capsules), so we'll add this folder to be ignored in the `.gitignore` file in the project's root folder, like this:
 
 ```
  /client/build

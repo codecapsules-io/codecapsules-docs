@@ -11,7 +11,7 @@ Deploy a MERN (MongoDB, Express, React, Node.js) stack application using a Backe
 
 In this guide, we'll show you how to deploy a MERN stack application that accepts a name as input and displays a personalized message for the user. The example application we'll use can be found on [Code Capsules's GitHub](https://github.com/codecapsules-io/mern-stack) account.
 
-Fork the example application project to your own GitHub account and link the repository to your Code Capsules account. You can do this by clicking your username at the top right of your screen in Code Capsules, and choosing "Edit Profile". Now you can click the "GitHub" button to link to the repo. 
+Fork the example application project to your own GitHub account and link the repository to your Code Capsules account. You can do this by clicking your username at the top right of your screen in Code Capsules, and choosing "Edit Profile". Now you can click the "GitHub" button to link to the forked repo. 
 
 ## Setting up the Capsules
 
