@@ -76,7 +76,9 @@ If you're not hosting your backend application on Code Capsules you can still co
 
 ![Get Connection String](../assets/reference/connection-string.png)
 
-If public access to your data capsule is enabled, a connection string is visible below the "Public Access" switch, as shown in the above picture. Copy this connection string and paste it into your backend application's code to access your data capsule's services. Take note if you copy the connection string from the capsule it will already include the database name eg. in the screenshot above this part of the connection string `/app?ssl=true` includes the database name which is `app` in this case. 
+If public access to your data capsule is enabled, a connection string is visible below the "Public Access" switch, as shown in the above picture. Copy this connection string and append `&authSource=admin` to it so that its format is similar to `mongodb://92d79d9b-64f2-0:240e1937-a9fe-4@data-capsule-kykgmd.codecapsules.co.za:27017/app?ssl=true&authSource=admin`. 
+
+The string slice preceeding `/app?ssl=true&authSource=admin` will be different in your case since you're using a different data capsule from the one used for the purpose of writing this reference guide. The last `/app?ssl=true&authSource=admin` part doesn't need to be replaced though. Paste the appended connection string into your backend application's code to access your data capsule's services. 
 
 ### Connecting to a MongoDB Data Capsule From an Externally Hosted Python Application 
 
@@ -85,7 +87,7 @@ If your backend application is written in Python, use the following code to conn
 ```python
 import pymongo
 
-database_url = "<connection_string_here>" + "/database_one?authSource=admin"
+database_url = "mongodb://92d79d9b-64f2-0:240e1937-a9fe-4@data-capsule-kykgmd.codecapsules.co.za:27017/app?ssl=true&authSource=admin"
 
 client = pymongo.MongoClient(database_url)
 db = client.database_one
@@ -94,4 +96,23 @@ db = client.database_one
 
 ```
 
-You'll notice in the code that we appended `/database_one?authSource=admin` to the connection string. This tells the data capsule to create a database with the name `database_one` if it doesn't exist, or to connect to it if it does. 
+If you copied the code snippet above remember to replace the `mongodb://92d79d9b-64f2-0:240e1937-a9fe-4@data-capsule-kykgmd.codecapsules.co.za:27017` string slice in the `database_url` variable with the corresponding value for your connection string.
+
+### Connecting to a MongoDB Data Capsule From an Externally Hosted Node.js Application 
+
+If your backend application is written in Node.js, use the following code to connect to your MongoDB Data Capsule: 
+
+```js
+
+database_url = "mongodb://92d79d9b-64f2-0:240e1937-a9fe-4@data-capsule-kykgmd.codecapsules.co.za:27017/app?ssl=true&authSource=admin"
+
+var MongoClient = require('mongodb').MongoClient;
+
+MongoClient.connect(database_url, function(err, db) {
+
+    // Do something with the db variable here
+});
+
+```
+
+If you copied the code snippet above remember to replace the `mongodb://92d79d9b-64f2-0:240e1937-a9fe-4@data-capsule-kykgmd.codecapsules.co.za:27017` string slice in the `database_url` variable with the corresponding value for your connection string.
