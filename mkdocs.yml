@@ -38,7 +38,7 @@ nav:
     - Angular: deployment/how-to-deploy-angular-application-to-production.md
     - Express: deployment/how-to-deploy-express-application-to-production.md
     - Flask: deployment/how-to-deploy-flask-application-to-production.md
-    - Java: deployment/how-to-deploy-java-application-to-production.md
+    - Java (Spring): deployment/how-to-deploy-java-application-to-production.md
     - MERN: deployment/how-to-deploy-mern-stack-application-to-production.md
     - React: deployment/how-to-deploy-react-application-to-production.md
     - HTML: deployment/how-to-deploy-static-html-to-production.md
