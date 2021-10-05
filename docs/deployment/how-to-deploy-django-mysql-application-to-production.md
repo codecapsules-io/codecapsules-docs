@@ -58,16 +58,16 @@ Select the repository you forked earlier and leave the "Run Command" field blank
 
 After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Configure" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MySQL database. 
 
-![Bind MERN Capsules](../assets/deployment/mern/bind-mern-capsules.png)
+![Bind MERN Capsules](../assets/deployment/django-mysql/bind-capsules.png)
 
 ## View Application
 
 You can now view the application after the two capsules have been binded together. To see how it looks, click on the "Live Website" link at the top of your Backend Capsule page.
 
-![Live Website Link](../assets/deployment/mern/live-website-link.png)
+![Live Website Link](../assets/deployment/django-mysql/live-website-link.png)
 
 ## View Application Logs
 
 Code Capsules also produces logs for your application. To view them, navigate to the "Logs" tab on your Backend Capsule page.
 
-![Application Logs](../assets/deployment/mern/application-logs.png)
+![Application Logs](../assets/deployment/django-mysql/application-logs.png)
