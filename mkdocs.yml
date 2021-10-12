@@ -40,6 +40,7 @@ nav:
     - Express: deployment/how-to-deploy-express-application-to-production.md
     - Django MySQL: deployment/how-to-deploy-django-mysql-application-to-production.md
     - Flask: deployment/how-to-deploy-flask-application-to-production.md
+    - Go: deployment/how-to-deploy-go-application-to-production.md
     - Java (Spring): deployment/how-to-deploy-java-application-to-production.md
     - MERN: deployment/how-to-deploy-mern-stack-application-to-production.md
     - Next: deployment/how-to-deploy-next-application-to-production.md
