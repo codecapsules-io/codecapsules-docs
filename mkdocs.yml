@@ -43,6 +43,7 @@ nav:
     - Go: deployment/how-to-deploy-go-application-to-production.md
     - Java (Spring): deployment/how-to-deploy-java-application-to-production.md
     - MERN: deployment/how-to-deploy-mern-stack-application-to-production.md
+    - Next + Express: deployment/how-to-deploy-next-express-application-to-production.md
     - Next: deployment/how-to-deploy-next-application-to-production.md
     - React: deployment/how-to-deploy-react-application-to-production.md
     - HTML: deployment/how-to-deploy-static-html-to-production.md
