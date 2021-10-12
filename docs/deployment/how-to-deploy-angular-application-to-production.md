@@ -9,78 +9,71 @@ Deploy an Angular application and learn how to host frontend code on Code Capsul
 
 ## Set Up
 
-Code Capsules connects to GitHub repositories to deploy applications. For this tutorial, you'll need:
-- A [Code Capsules](https://codecapsules.io/) account. 
-- A [GitHub](https://github.com/) account.  
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy an Angular application with Code Capsules, we'll use our [example application](https://github.com/codecapsules-io/demo-angular). 
+To demonstrate how to deploy an Angular application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-angular).
 
-Follow the link above and fork the application by clicking "fork" at the top-right of the repository. With the Angular application forked to your GitHub account, we are ready to deploy it on Code Capsules.
+Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
-![demo angular github](../assets/deployment/angular/cc-demo-angular-github.png)
+## Create an Account with Code Capsules
 
-## Sign Up for Code Capsules
+If you don’t already have an account, navigate to the [Code Capsules](https://codecapsules.io/) site and click the “Sign Up” button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
 
-If you don't already have a [Code Capsules](https://codecapsules.io/) account, head to the site and click the "Sign Up" button in the top right. Enter your details to create an account, or log into an existing one.
-
-If you've just signed up for an account, you'll be directed to the _Welcome_ page on your first login. Click on the "Go To Personal Team" button.
+If you’ve just signed up for an account, you’ll be directed to a welcome page on your first login. Click on the “Go To Personal Team” button.
 
 ![welcome screen](../assets/deployment/angular/welcome-screen.jpg)
 
-After clicking on the "Go To Personal Team" button, you will be redirected to the _Spaces_ tab for your Personal Team. A [Team](https://codecapsules.io/docs/FAQ/what-is-a-team/) is an environment for you to manage your Spaces and Capsules. Teams can have multiple members interacting with the projects associated with that particular Team. Code Capsules gives every account a Personal Team as the default.
+Alternatively, if you’re signing in again, click on “Spaces” in the top right corner of your screen.
+
+Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](https://codecapsules.io/docs/FAQ/teams-spaces-capsules/).
 
 ## Create a Space for Your Apps
 
-![create a new space](../assets/deployment/angular/spaces.png)
+[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space/) are an organisational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this application, or you can create a new Space. In the Spaces Tab, click the "Create A New Space For Your Apps" button.
 
-[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space) are an organisational tool for your applications. Click the "Create A New Space For Your Apps" button and follow the prompts, naming the Space anything you'd like.
+Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.
 
 ![space name](../assets/deployment/angular/space-name.png)
 
-Now that we've created a Space, we need to connect the GitHub repository we forked to our Code Capsules.
-
 ## Link to GitHub
 
-To host our application on Code Capsules, we need to link our forked GitHub repository to our Code Capsules account.
+To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the “GitHub” button under “GitHub Details”.
 
-We can link the GitHub repository by clicking the profile image at the top right of the screen, and finding the "GitHub" button under "GitHub Details".
+![git-button](../assets/deployment/angular/git-button.png)
 
-![git-button](../assets/deployment/angular/git-button.png) 
-
-Click the "GitHub" button. To give Code Capsules access to the Angular application:
-
-1. Click your GitHub username.
-2. Select "Only Select Repositories".
-3. Choose the GitHub repository we forked.
-4. Press "Install & Authorize".
+Click the “GitHub” button, select your GitHub username, and do the following in the dialog box that appears:
+1. Select "Only Select Repositories".
+2. Choose the GitHub repository we forked.
+3. Press "Install & Authorize".
 
 ![Install & authorize github](../assets/deployment/angular/github-integration.png)
 
-After authorising, Code Capsules will be able to read the contents of the selected repositories. All that's left to deploy the application is to add the repo to your Team and create a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule). Capsules act as storage space for the different types of applications you'd host on Code Capsules.
-
 ## Add Repo to Team
 
-Click on "Team Settings" on the top navigation bar to switch to the _Team Settings_ tab. Once there, click on the "Modify" button under the _Team Repos_ section to add the repo to your Personal Team. When the "Edit Team Repos" screen slides in, select "Add" next to the repo you want to add to your Personal Team and then confirm. After this is done, all Spaces in your Team will have access to this repo. 
+Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.
+
+Click on the "Modify" button under the Team Repos section, and an “Edit Team Repos” screen will slide in from the right. Click “Add” next to the demo repo, and then “Confirm”. All the Spaces in your Team will now have access to this repo. 
 
 ![Edit Team Repos](../assets/deployment/angular/team-repos.gif)
 
-## Create and Build the Capsule
+## Create the Capsule
 
-It's time to create a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule). To do this, navigate to the _Spaces_ tab and open the Space you created for this tutorial. Once inside the Space, click the "New Capsule" or "Create A New Capsule For Your Space" button and follow the instructions below.
+A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-1. Choose a "Frontend" Capsule.
-2. Select the "Trial - Static Site Hosting" product.
-3. Choose the GitHub repository we forked.
-4. Press next.
-5. Use `npm run build` for the "Build command" and `dist` for "Static content folder path".
-6. Press "Create Capsule".
+Navigate to the “Spaces” tab and open the Space you’ll be using.
 
-![Create Front-end Capsule](../assets/deployment/angular/creating-frontend-capsule.gif)
+Click the “Create a New Capsule for Your Space” button, and follow the instructions below:
+1. Choose “Frontend Capsule”.
+2. Under “Product”, select “Trial - Static Site Hosting”.
+3. Choose the GitHub repository you forked.
+4. Press “Next”.
+5. Type `npm run build` in “Build Command” and `dist` in “Static Content Folder Path”.
+6. Click “Create Capsule”.
 
-You can view the build logs under the _Build and Deploy_ tab in your Capsule. When the Capsule builds, navigate to the _Overview_ tab and click on the provided URL to view the application. 
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking “View Build Progress” next to the “Building Capsule” message. When the build is complete, a “Live Website” link will appear at the top of the tab.
+
+Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section.
 
 ![Build logs](../assets/deployment/angular/frontend-capsule-build-logs.png)
 
-For a better understanding of Capsules, [read this explanation on Capsules](https://codecapsules.io/docs/FAQ/what-is-a-capsule/).
-
-If you want to deploy another Angular application in the future, it'll be useful to check out the script Code Capsules used to build the Angular application. [Navigate to the Angular repository](https://github.com/codecapsules-io/demo-angular/) we forked and take a look at the `package.json` file. On line four, you'll see the script Code Capsules used to deploy the application. 
+If you’d like to deploy another Angular application in the future, take a look at the [Angular repository](https://github.com/codecapsules-io/demo-angular/) we forked. The script Code Capsules used to deploy the application can be found on line 4 in the `package.json` file.
