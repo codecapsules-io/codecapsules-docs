@@ -5,74 +5,79 @@ description: A guide to deploying a Go application from GitHub.
 
 # How to Deploy a Go Application to Production on Code Capsules
 
-Deploy a Go application that responds with a "Hello World" message when it receives a request. 
+Deploy a Go application and learn how to host backend code on Code Capsules. 
 
-## Getting Started
+## Set up
 
-Go is a good choice for writing backends where performance is a priority because of how easily it can be compiled into machine code. 
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-In this guide, we will take a look at how to deploy a Go application from a Backend Capsule using a [go-demo application]() that can be found on Code Capsules GitHub account. Start by forking the example application mentioned above to your own GitHub account. 
+To demonstrate how to deploy a Go application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](insert link).
 
-![Go Demo]()
+Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
-## Linking to GitHub
+## Create an Account with Code Capsules
 
-Now we have to link the forked repository with the Go application to Code Capsules. Sign into your Code Capsules account and navigate to the "Profile" tab. Do this by clicking your profile image at the top right of your screen in Code Capsules. 
+If you don’t already have an account, navigate to the [Code Capsules](https://codecapsules.io/) site and click the “Sign Up” button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
 
-![git-button](../assets/deployment/java/git-button.png)
+If you’ve just signed up for an account, you’ll be directed to a welcome page on your first login. Click on the “Go To Personal Team” button.
 
-On the "Profile" tab click the "GitHub" button to start the process of linking to the repo. 
+Alternatively, if you’re signing in again, click on “Spaces” in the top right corner of your screen.
 
-Authorise Code Capsules to connect to the Go application repository by:
+Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](https://codecapsules.io/docs/FAQ/teams-spaces-capsules/).
 
-1. Clicking your GitHub username.
-2. Selecting "Only Select Repositories".
-3. Choosing the GitHub repository we forked.
-4. Pressing "Install & Authorize".
+## Create a Space for your Apps
 
-![Install & authorize github](../assets/deployment/python/github-integration.png)
+[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space/) are an organisational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this application, or you can create a new Space. In the Spaces Tab, click the "Create A New Space For Your Apps" button. 
 
-Clicking the "Install & Authorize" button finalizes the linking process and gives Code Capsules access to your repository. 
-
-## Add Repo to Team
-
-After linking Code Capsules to the repository with the Go application, the next step will be to add the repo to your "Personal Team". Doing so allows all Capsules created under that Team to read its data.
-
-Navigate to the "Team Settings" tab and click on the "Modify" button under the _Team Repos_ section to add the repo to your Personal Team. When the "Edit Team Repos" screen slides in, select "Add" next to the repo you linked to in the previous step and confirm your changes. 
-
-![Edit Team Repos](../assets/deployment/python/team-repos.gif)
-
-## Create a Space for Your App
-
-Create a Space to contain the Backend Capsule that will host the Go application we'll deploy shortly. Do this by navigating to the "Spaces" tab and clicking on the "Create A New Space For Your Apps" button.
-
-Actioning this step should trigger the screen shown below to slide in from the right.
+Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.
 
 ![space name](../assets/deployment/python/space-name.png)
 
-Select an appropriate region and enter a name for your space and press "Create Space".
+## Link to GitHub
+
+To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the “GitHub” button under “GitHub Details”.
+
+![GitHub button](../assets/deployment/express/git-button.png)
+
+Click the “GitHub” button, select your GitHub username, and do the following in the dialog box that appears:
+
+1. Select "Only Select Repositories".
+2. Choose the GitHub repository we forked.
+3. Press "Install & Authorize".
+
+![Install & authorize github](../assets/deployment/express/github-integration.png)
+
+## Add Repository to Team
+
+Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.
+
+Click on the "Modify" button under the Team Repos section, and an “Edit Team Repos” screen will slide in from the right. Click “Add” next to the demo repo, and then “Confirm”. All the Spaces in your Team will now have access to this repo.
+
+![Edit Team Repos](../assets/deployment/express/team-repos.gif)
 
 ## Create the Capsule
 
-In your recently created Space, create a Backend Capsule by clicking on the "Create a New Capsule for Your Space" button.
+A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-Choose a Backend Capsule on the screen that follows, then:
+Navigate to the “Spaces” tab and open the Space you’ll be using.
 
-1. Select the "Sandbox" product.
-2. Choose the GitHub repository we forked.
-3. Press next.
-4. Leave the "Run Command" blank and create the Capsule.
+Click the “Create a New Capsule for Your Space” button, and follow the instructions below:
 
-![Create Backend Capsule](../assets/deployment/java/creating-backend-capsule.gif)
+1. Choose “Backend Capsule”.
+2. Under “Product”, select “Sandbox”.
+3. Choose the GitHub repository you forked.
+4. Press “Next”.
+5. Leave “Run Command” blank.
+6. Click “Create Capsule”.
 
-## View Logs
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking “View Build Progress” next to the “Building Capsule” message.
 
-While the Capsule is building, you can view its build logs under the "Deploy" tab in the Capsule.  
+Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section.
 
 ![Build logs](../assets/deployment/python/backend-capsule-build-logs.png)
 
-## View Application
+Once the build is complete, a “Live Website” link will appear at the top of the tab. Click the link and you should see your deployed application.
 
-Once built, you can view your application by clicking on the "Live Website" link at the top of your Capsule page.
+[Insert screenshot of deployed application]
 
-![Live Website Link](../assets/deployment/mern/live-website-link.png)
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
