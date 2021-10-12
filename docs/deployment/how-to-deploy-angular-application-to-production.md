@@ -21,8 +21,6 @@ If you don’t already have an account, navigate to the [Code Capsules](https://
 
 If you’ve just signed up for an account, you’ll be directed to a welcome page on your first login. Click on the “Go To Personal Team” button.
 
-![welcome screen](../assets/deployment/angular/welcome-screen.jpg)
-
 Alternatively, if you’re signing in again, click on “Spaces” in the top right corner of your screen.
 
 Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](https://codecapsules.io/docs/FAQ/teams-spaces-capsules/).
@@ -42,13 +40,14 @@ To link to GitHub, click your profile image at the top right of the Code Capsule
 ![git-button](../assets/deployment/angular/git-button.png)
 
 Click the “GitHub” button, select your GitHub username, and do the following in the dialog box that appears:
+
 1. Select "Only Select Repositories".
 2. Choose the GitHub repository we forked.
 3. Press "Install & Authorize".
 
 ![Install & authorize github](../assets/deployment/angular/github-integration.png)
 
-## Add Repo to Team
+## Add Repository to Team
 
 Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.
 
@@ -63,6 +62,7 @@ A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the se
 Navigate to the “Spaces” tab and open the Space you’ll be using.
 
 Click the “Create a New Capsule for Your Space” button, and follow the instructions below:
+
 1. Choose “Frontend Capsule”.
 2. Under “Product”, select “Trial - Static Site Hosting”.
 3. Choose the GitHub repository you forked.
@@ -76,4 +76,8 @@ Once your application is live, you can view the build log by selecting the “De
 
 ![Build logs](../assets/deployment/angular/frontend-capsule-build-logs.png)
 
-If you’d like to deploy another Angular application in the future, take a look at the [Angular repository](https://github.com/codecapsules-io/demo-angular/) we forked. The script Code Capsules used to deploy the application can be found on line 4 in the `package.json` file.
+Once the build is complete, a “Live Website” link will appear at the top of the tab. Click the link and you should see your deployed application.
+
+[Insert screenshot of deployed application]
+
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
