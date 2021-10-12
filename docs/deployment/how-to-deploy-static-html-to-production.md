@@ -7,75 +7,78 @@ description: Publish a static site using its source code on GitHub.
 
 Deploy a static HTML site and learn how to host frontend code on Code Capsules.
 
-## Set Up
+## Set up
 
-For this tutorial, you'll need:
-- A [Code Capsules](https://codecapsules.io/) account. 
-- A [GitHub](https://github.com/) account.  
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-This tutorial will focus on deploying frontend code to Code Capsules – we'll deploy a simple static HTML website and see how this process works. The HTML code has already been provided by Code Capsules. Follow this [link](https://github.com/codecapsules-io/demo-html) to view the repository.
+To demonstrate how to deploy a static HTML site with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-html).
 
-In order to deploy this repository to Code Capsules, we'll need to fork the repository by clicking "fork" at the top-right of the repository. Feel free to make any edits to the HTML code if you want to. Then, we can move on to deploying the static website.
+Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
-## Sign Up for Code Capsules
+## Create an Account with Code Capsules
 
-If you don't already have a [Code Capsules](https://codecapsules.io/) account, head to the site and click the "Sign Up" button in the top right. Enter your details to create an account, or log into an existing one. 
+If you don’t already have an account, navigate to the [Code Capsules](https://codecapsules.io/) site and click the “Sign Up” button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
 
-If you've just created an account, make sure to confirm it by checking your email for a message from Code Capsules. On your first login, you'll be directed to the _Welcome_ page. Click on the "Go To Personal Team" button. 
+If you’ve just signed up for an account, you’ll be directed to a welcome page on your first login. Click on the “Go To Personal Team” button.
 
-![welcome screen](../assets/deployment/html/welcome-screen.jpg)
+Alternatively, if you’re signing in again, click on “Spaces” in the top right corner of your screen.
 
-After clicking on the "Go To Personal Team" button, you will be redirected to the _Spaces_ tab for your Personal Team. A [Team](https://codecapsules.io/docs/FAQ/what-is-a-team/) is an environment for you to manage your Spaces and Capsules. Teams can have multiple members interacting with the projects associated with that particular Team. Code Capsules gives every account a Personal Team as the default. For this tutorial, we'll use the provided Team to host our static frontend website for free.
+Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](https://codecapsules.io/docs/FAQ/teams-spaces-capsules/).
 
-## Create a Space for Your Apps
+## Create a Space for your Apps
 
-![create a new space](../assets/deployment/html/spaces.png)
+[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space/) are an organisational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this application, or you can create a new Space. In the Spaces Tab, click the "Create A New Space For Your Apps" button. 
 
-[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space) are an organisational tool for your applications. Click the "Create A New Space For Your Apps" button and follow the prompts, naming the Space anything you'd like.
+Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.
 
 ![space name](../assets/deployment/html/space-name.png)
 
-Now that we've created a Space, we need to connect the GitHub repository we forked to our Code Capsules.
-
 ## Link to GitHub
 
-Code Capsules deploys code online by "linking" to your GitHub repositories. For Code Capsules to gain access to the forked repository containing the HTML code, we need to give it permission.
-
-We can do this by clicking the profile image at the top right of the page. Here, we'll see a "GitHub button" located under "GitHub Details".
+To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the “GitHub” button under “GitHub Details”.
 
 ![git-button](../assets/deployment/html/git-button.png)
 
-Click on the "GitHub" button. You can authorise Code Capsules to connect to the forked repository by:
+Click the “GitHub” button, select your GitHub username, and do the following in the dialog box that appears:
 
-1. Clicking your GitHub username.
-2. Selecting "Only Select Repositories".
-3. Choosing the GitHub repository we forked.
-4. Pressing "Install & Authorize".
+1. Select "Only Select Repositories".
+2. Choose the GitHub repository we forked.
+3. Press "Install & Authorize".
 
 ![Install & authorize github](../assets/deployment/html/github-integration.png)
 
-Once authorised on your GitHub account, Code Capsules will be able to access the repository and deploy the code. Now we just need to tell Code Capsules to deploy the HTML code, by adding the repository to our Personal Team and creating a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule).
+## Add Repository to Team
 
-## Add Repo to Team
+Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.
 
-On Code Capsules, click on "Team Settings" on the top navigation bar to switch to the _Team Settings_ tab. Once there, click on the "Modify" button under the _Team Repos_ section to add the repo to your Personal Team. When the "Edit Team Repos" screen slides in, select "Add" next to the repo you want to add to your Personal Team and then confirm. After this is done, all Spaces in your Team will have access to this repo. 
+Click on the "Modify" button under the Team Repos section, and an “Edit Team Repos” screen will slide in from the right. Click “Add” next to the demo repo, and then “Confirm”. All the Spaces in your Team will now have access to this repo.
 
 ![Edit Team Repos](../assets/deployment/html/team-repos.gif)
 
 ## Create the Capsule
 
-The next step is to create a [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) which provides the server for hosting our application on Code Capsules. To do this, click "Spaces" on the top navigation bar to switch to the _Spaces_ tab and open the Space you created above. Once inside the Space, click the "New Capsule" or "Create A New Capsule For Your Space" button and follow the instructions below.
+A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-1. Choose a "Frontend" Capsule.
-2. Select the "Trial – Static Site Hosting" product.
-3. Choose the GitHub repository we forked.
-4. Press next.
-5. Leave the "Build command" and "Static content folder path" blank and create the Capsule.
+Navigate to the “Spaces” tab and open the Space you’ll be using.
 
-![Create Front-end Capsule](../assets/deployment/html/creating-frontend-capsule.gif)
+Click the “Create a New Capsule for Your Space” button, and follow the instructions below:
 
-While the Capsule is building, you can view its logs under the "Build and Deploy" tab in the Capsule. 
+1. Choose “Frontend Capsule”.
+2. Under “Product”, select “Trial - Static Site Hosting”.
+3. Choose the GitHub repository you forked.
+4. Press “Next”.
+5. Leave the "Build command" and "Static content folder path" blank. 
+6. Click “Create Capsule”.
+
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking “View Build Progress” next to the “Building Capsule” message.
+
+Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section. 
 
 ![Build logs](../assets/deployment/html/frontend-capsule-build-logs.png)
 
-Once built, you can navigate to the _Overview_ tab and click on the provided URL to view the application. For a better understanding of Capsules, [read this explanation on Capsules](https://codecapsules.io/docs/FAQ/what-is-a-capsule/).
+Once the build is complete, a “Live Website” link will appear at the top of the tab. Click the link and you should see your deployed application.
+
+[Insert screenshot of deployed application]
+
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
+
