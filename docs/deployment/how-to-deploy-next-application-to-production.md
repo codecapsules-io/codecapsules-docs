@@ -78,6 +78,6 @@ Once your application is live, you can view the build log by selecting the “De
 
 Once the build is complete, a “Live Website” link will appear at the top of the tab. Click the link and you should see your deployed application.
 
-[Insert screenshot of deployed application]
+![Deployed Application](../assets/deployment/next/next-app.jpeg)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
