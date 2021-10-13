@@ -5,54 +5,83 @@ description: A guide to deploying a Django MySQL application from GitHub.
 
 # How to Deploy a Django MySQL Application to Production on Code Capsules
 
-Deploy a Django application that uses MySQL for data storage and learn how to host backend code and a database on Code Capsules.
+Deploy a Django MySQL application and learn how to host backend code on Code Capsules.
 
-## Getting Started
+## Set up
 
-This guide will walk you through the process of deploying a Django MySQL application using a data capsule and a backend capsule. The application will accept a name as input and display a list of names that were previously submitted.  
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-We will use an example application that has been provided by Code Capsules on their GitHub account. Fork [this repository]() to your own GitHub account and link it to your Code Capsules account.
+To demonstrate how to deploy a Django MySQL application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/django-demo).
 
-## Linking to GitHub
+Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination
 
-The next step is to link the forked repository to your Code Capsules account. You can do this by clicking your profile image at the top right of your screen in Code Capsules. 
+## Create an Account with Code Capsules
+
+If you don’t already have an account, navigate to the [Code Capsules](https://codecapsules.io/) site and click the “Sign Up” button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
+
+If you’ve just signed up for an account, you’ll be directed to a welcome page on your first login. Click on the “Go To Personal Team” button.
+
+Alternatively, if you’re signing in again, click on “Spaces” in the top right corner of your screen.
+
+Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](https://codecapsules.io/docs/FAQ/teams-spaces-capsules/).
+
+## Create a Space for your Apps
+
+[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space/) are an organisational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this application, or you can create a new Space. In the Spaces Tab, click the "Create A New Space For Your Apps" button. 
+
+Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.
+
+![space name](../assets/deployment/express/space-name.png)
+
+## Link to GitHub
+
+To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the “GitHub” button under “GitHub Details”.
 
 ![git-button](../assets/deployment/java/git-button.png)
 
-Once on the "Profile" tab click the "GitHub" button to start the process of linking to the repo. 
+Click the “GitHub” button, select your GitHub username, and do the following in the dialog box that appears:
 
-You now need to authorise Code Capsules to connect to the Django MySQL application by:
+1. Select "Only Select Repositories".
+2. Choose the GitHub repository we forked.
+3. Press "Install & Authorize".
 
-1. Clicking your GitHub username.
-2. Selecting "Only Select Repositories".
-3. Choosing the GitHub repository we forked.
-4. Pressing "Install & Authorize".
+![Install & authorize github](../assets/deployment/express/github-integration.png)
 
-![Install & authorize github](../assets/deployment/python/github-integration.png)
+## Add Repository to Team
 
-Code Capsules will link to the GitHub repository containing the Django MySQL application after actioning the above steps. 
+Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.
 
-## Add Repo to Team
-
-We now need to add the linked repository to our "Personal Team". Doing so gives all capsules in that team access to the repository's data. 
-
-Navigate to the "Team Settings" tab on the top navigation bar and click on the "Modify" button under the _Team Repos_ section once you get there. This should trigger the "Edit Team Repos" screen to slide in from the right. On this screen, select "Add" next to the repo you want to add to your Personal Team and then confirm.
+Click on the "Modify" button under the Team Repos section, and an “Edit Team Repos” screen will slide in from the right. Click “Add” next to the demo repo, and then “Confirm”. All the Spaces in your Team will now have access to this repo.
 
 ![Edit Team Repos](../assets/deployment/python/team-repos.gif)
 
-## Setting up the Capsules
+## Create the Capsules
 
-Create a Space to house the Backend Capsule and Data Capsule we'll need.
+A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-Next create the Data Capsule:
+Navigate to the “Spaces” tab and open the Space you’ll be using.
 
-![MySQL Database Cluster](../assets/deployment/django-mysql/mysql-database-cluster.png)
+Click the “Create a New Capsule for Your Space” button, and follow the instructions below to create a Data Capsule:
 
-Followed by the Backend Capsule:  
+1. Choose “Data Capsule”.
+2. Under “Data Type”, select “Mysql Database Cluster”.  
+3. Under “Product”, select “Standard”.
+4. Click “Create Capsule”.
 
-![Create Backend Capsule](../assets/deployment/python/creating-backend-capsule.gif)
+Navigate to the "Space" containing your recently created Data Capsule and click the "New Capsule" button. Follow the instructions below to create a Backend Capsule:
 
-Select the repository you forked earlier and leave the "Run Command" field blank. Click the "Create Capsule" button to start the build.
+1. Choose “Backend Capsule”.
+2. Under “Product”, select “Sandbox”.
+3. Choose the GitHub repository you forked.
+4. Press “Next”.
+5. Leave “Run Command” blank.
+6. Click “Create Capsule”.
+
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking “View Build Progress” next to the “Building Capsule” message.
+
+Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section.
+
+![Build logs](../assets/deployment/express/backend-capsule-build-logs.png)
 
 ## Binding the Capsules
 
@@ -62,12 +91,8 @@ After the two capsules have been successfully built, the next step is to bind th
 
 ## View Application
 
-You can now view the application after the two capsules have been binded together. To see how it looks, click on the "Live Website" link at the top of your Backend Capsule page.
+You can now view the application after the two capsules have been binded together. To see how it looks, click on the "Live Website" link at the top of your Backend Capsule tab.
 
-![Live Website Link](../assets/deployment/django-mysql/live-website-link.png)
+[Insert screenshot of deployed application]
 
-## View Application Logs
-
-Code Capsules also produces logs for your application. To view them, navigate to the "Logs" tab on your Backend Capsule page.
-
-![Application Logs](../assets/deployment/django-mysql/application-logs.png)
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
