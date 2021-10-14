@@ -93,6 +93,6 @@ After the two capsules have been successfully built, the next step is to bind th
 
 You can now view the application after the two capsules have been binded together. To see how it looks, click on the "Live Website" link at the top of your Backend Capsule tab.
 
-[Insert screenshot of deployed application]
+![Deployed App](../assets/deployment/django/cc-django-app.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
