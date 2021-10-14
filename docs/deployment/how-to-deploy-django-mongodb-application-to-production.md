@@ -1,17 +1,17 @@
 ---
-title: Deploy a Django MySQL Application
-description: A guide to deploying a Django MySQL application from GitHub.
+title: Deploy a Django MongoDB Application
+description: A guide to deploying a Django MongoDB application from GitHub.
 ---
 
-# How to Deploy a Django MySQL Application to Production on Code Capsules
+# How to Deploy a Django MongoDB Application to Production on Code Capsules
 
-Deploy a Django MySQL application and learn how to host backend code on Code Capsules.
+Deploy a Django MongoDB application and learn how to host backend code on Code Capsules.
 
 ## Set up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a Django MySQL application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/django-demo).
+To demonstrate how to deploy a Django MongoDB application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/django-demo).
 
 Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination
 
@@ -64,7 +64,7 @@ Navigate to the “Spaces” tab and open the Space you’ll be using.
 Click the “Create a New Capsule for Your Space” button, and follow the instructions below to create a Data Capsule:
 
 1. Choose “Data Capsule”.
-2. Under “Data Type”, select “Mysql Database Cluster”.  
+2. Under “Data Type”, select “MongoDB Database Cluster”.  
 3. Under “Product”, select “Standard”.
 4. Click “Create Capsule”.
 
@@ -85,9 +85,9 @@ Once your application is live, you can view the build log by selecting the “De
 
 ## Binding the Capsules
 
-After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Configure" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MySQL database. 
+After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Configure" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MongoDB database. 
 
-![Bind MERN Capsules](../assets/deployment/django-mysql/bind-capsules.png)
+![Bind MERN Capsules](../assets/deployment/django/bind-django-mongodb.png)
 
 ## View Application
 

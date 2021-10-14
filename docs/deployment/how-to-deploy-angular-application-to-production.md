@@ -67,7 +67,7 @@ Click the “Create a New Capsule for Your Space” button, and follow the instr
 2. Under “Product”, select “Trial - Static Site Hosting”.
 3. Choose the GitHub repository you forked.
 4. Press “Next”.
-5. Type `npm run build` in “Build Command” and `dist` in “Static Content Folder Path”.
+5. Type `npm run build` in “Build Command” and `dist/ng4-complete-guide` in “Static Content Folder Path”.
 6. Click “Create Capsule”.
 
 Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking “View Build Progress” next to the “Building Capsule” message. When the build is complete, a “Live Website” link will appear at the top of the tab.
@@ -78,6 +78,6 @@ Once your application is live, you can view the build log by selecting the “De
 
 Once the build is complete, a “Live Website” link will appear at the top of the tab. Click the link and you should see your deployed application.
 
-[Insert screenshot of deployed application]
+![Deployed App](../assets/deployment/angular/cc-angular-app.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).

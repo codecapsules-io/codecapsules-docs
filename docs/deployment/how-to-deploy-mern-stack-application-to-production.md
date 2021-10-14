@@ -101,6 +101,6 @@ Confirm your changes by clicking on "Update Capsule" then restart your capsule b
 
 After restarting the capsule, the application will now be ready to be viewed. Click the “Live Website” link at the top of the capsule tab and you should see your deployed application.
 
-[Insert screenshot of deployed application]
+![Deployed App](../assets/deployment/mern/cc-mern-stack.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
