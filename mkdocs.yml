@@ -39,6 +39,7 @@ nav:
     - Django: deployment/how-to-deploy-django-application-to-production.md
     - Express: deployment/how-to-deploy-express-application-to-production.md
     - Django MySQL: deployment/how-to-deploy-django-mysql-application-to-production.md
+    - Django MongoDB: deployment/how-to-deploy-django-mongodb-application-to-production.md
     - Flask: deployment/how-to-deploy-flask-application-to-production.md
     - Go: deployment/how-to-deploy-go-application-to-production.md
     - Java (Spring): deployment/how-to-deploy-java-application-to-production.md
