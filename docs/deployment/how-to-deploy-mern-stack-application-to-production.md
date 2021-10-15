@@ -104,3 +104,4 @@ After restarting the capsule, the application will now be ready to be viewed. Cl
 ![Deployed App](../assets/deployment/mern/cc-mern-stack.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
+
