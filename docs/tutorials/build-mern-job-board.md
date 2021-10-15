@@ -1,6 +1,7 @@
 ---
 title: Build a MERN job board
 description: Create a job board based on the MERN architecture by extending a boilerplate MERN project.
+image: assets/tutorials/mern-job-board/mern_job_board.jpg
 ---
 
 # Build a MERN Job Board
