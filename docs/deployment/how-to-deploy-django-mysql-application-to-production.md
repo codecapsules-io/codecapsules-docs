@@ -87,7 +87,7 @@ Once your application is live, you can view the build log by selecting the “De
 
 After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Configure" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MySQL database. 
 
-![Bind MERN Capsules](../assets/deployment/django-mysql/bind-capsules.png)
+![Bind MERN Capsules](../assets/deployment/django-mysql/bind-django-mysql.png)
 
 ## View Application
 
