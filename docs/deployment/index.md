@@ -1,6 +1,6 @@
 # Deployment guides
 
-If you're looking to deploy a specific framework, you can find guides for 
+Code Capsules supports most front and backend frameworks and libraries. Here are step-by-step deployment guides for some of the most popular ones, but many others are supported too. For backend frameworks, the underlying technology is [GCP Buildpacks](https://github.com/GoogleCloudPlatform/buildpacks#language-idiomatic-configuration-options).
 
 Frontend frameworks:
 
@@ -11,16 +11,15 @@ Frontend frameworks:
 
 Backend frameworks:
 
-- [Flask](./how-to-deploy-flask-application-to-production.md)
+- [Django](./how-to-deploy-django-application-to-production.md)
+- [Django MySQL](./how-to-deploy-django-mysql-application-to-production.md)
+- [Django MongoDB](./how-to-deploy-django-mongodb-application-to-production.md)
 - [Express](./how-to-deploy-express-application-to-production.md)
+- [Flask](./how-to-deploy-flask-application-to-production.md)
+- [Go](./how-to-deploy-go-application-to-production.md)
 - [Java (Spring)](./how-to-deploy-java-application-to-production.md)
-
-The guides for the below mentioned frameworks are coming soon:
-
-- [Django]()
-- [Golang]()
-- [Next]()
-
-Note that we already support the frameworks mentioned above should you have an application that is ready for production. It's only the guides that are coming soon to make the deployment process easier.
+- [MERN (MongoDB, Express, React)](./how-to-deploy-mern-stack-application-to-production.md)
+- [Next](./how-to-deploy-next-application-to-production.md)
+- [Next + Express](./how-to-deploy-next-express-application-to-production.md)
 
 We also support other backends and fullstack frameworks. See the full list of supported languages [here](https://github.com/GoogleCloudPlatform/buildpacks#language-idiomatic-configuration-options).
