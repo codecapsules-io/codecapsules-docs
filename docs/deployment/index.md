@@ -21,5 +21,6 @@ Backend frameworks:
 - [MERN (MongoDB, Express, React)](./how-to-deploy-mern-stack-application-to-production.md)
 - [Next](./how-to-deploy-next-application-to-production.md)
 - [Next + Express](./how-to-deploy-next-express-application-to-production.md)
+- [Next + Express + Mongo](./how-to-deploy-next-express-mongo-application-to-production.md)
 
 We also support other backends and fullstack frameworks. See the full list of supported languages [here](https://github.com/GoogleCloudPlatform/buildpacks#language-idiomatic-configuration-options).
