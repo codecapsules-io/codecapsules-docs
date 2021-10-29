@@ -1,19 +1,19 @@
 ---
-title: Deploy a Django MySQL Application
-description: A guide to deploying a Django MySQL application from GitHub.
+title: Deploy a Next.js, Express.js and Mongo Application
+description: A guide to deploying a Next.js, Express.js and Mongo application from GitHub.
 ---
 
-# How to Deploy a Django MySQL Application to Production on Code Capsules
+# How to Deploy a Next.js, Express.js and Mongo Application to Production on Code Capsules
 
-Deploy a Django MySQL application and learn how to host backend code on Code Capsules.
+Deploy a Next.js, Express.js and Mongo application and learn how to host backend code on Code Capsules.
 
 ## Set up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a Django MySQL application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/django-demo).
+To demonstrate how to deploy a Next.js, Express.js and Mongo application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-next-express-mongo).
 
-Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination
+Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
 ## Create an Account with Code Capsules
 
@@ -37,7 +37,7 @@ Follow the prompts, choosing your region and giving your Space a name, then clic
 
 To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the “GitHub” button under “GitHub Details”.
 
-![git-button](../assets/deployment/java/git-button.png)
+![GitHub button](../assets/deployment/express/git-button.png)
 
 Click the “GitHub” button, select your GitHub username, and do the following in the dialog box that appears:
 
@@ -64,7 +64,7 @@ Navigate to the “Spaces” tab and open the Space you’ll be using.
 Click the “Create a New Capsule for Your Space” button, and follow the instructions below to create a Data Capsule:
 
 1. Choose “Data Capsule”.
-2. Under “Data Type”, select “Mysql Database Cluster”.  
+2. Under “Data Type”, select “MongoDB Database Cluster”.  
 3. Under “Product”, select “Standard”.
 4. Click “Create Capsule”.
 
@@ -85,14 +85,22 @@ Once your application is live, you can view the build log by selecting the “De
 
 ## Binding the Capsules
 
-After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Configure" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MySQL database. 
+Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the MongoDB database in the Data Capsule. 
 
-![Bind MERN Capsules](../assets/deployment/django-mysql/bind-django-mysql.png)
+![Bind MERN Capsules](../assets/deployment/next-express/bind-next-express-mongo.png)
+
+## Edit `DATABASE_URL` Environment Variable
+
+Once the binding is complete, you have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Capsule parameters" section on the "Configure" tab. 
+
+![Edit DATABASE_URL Environment Variable](../assets/deployment/mern/edit-database-url.png)
+
+Confirm your changes by clicking on "Update Capsule" then restart your capsule by toggling the radio button in the top right off and on again.
 
 ## View Application
 
-You can now view the application after the two capsules have been binded together. To see how it looks, click on the "Live Website" link at the top of your Backend Capsule tab.
+After restarting the capsule, the application will now be ready to be viewed. Click the “Live Website” link at the top of the capsule tab and you should see your deployed application.
 
-![Deployed App](../assets/deployment/django/cc-django-app.png)
+![Deployed App](../assets/deployment/next-express/next-express-mongo-app.jpeg)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).

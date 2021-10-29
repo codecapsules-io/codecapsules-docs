@@ -11,7 +11,7 @@ Deploy a Django MongoDB application and learn how to host backend code on Code C
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a Django MongoDB application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/django-demo).
+To demonstrate how to deploy a Django MongoDB application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-django-mongodb).
 
 Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination
 
@@ -93,6 +93,6 @@ After the two capsules have been successfully built, the next step is to bind th
 
 You can now view the application after the two capsules have been binded together. To see how it looks, click on the "Live Website" link at the top of your Backend Capsule tab.
 
-![Deployed App](../assets/deployment/django/cc-django-app.png)
+![Deployed App](../assets/deployment/django/cc-django-mongodb-app.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
