@@ -1,17 +1,17 @@
 ---
-title: Deploy a MERN Stack Application
-description: A guide to deploying a MERN Stack application from GitHub.
+title: Deploy a Next.js, Express.js and Mongo Application
+description: A guide to deploying a Next.js, Express.js and Mongo application from GitHub.
 ---
 
-# How to Deploy a MERN Stack Application to Production on Code Capsules
+# How to Deploy a Next.js, Express.js and Mongo Application to Production on Code Capsules
 
-Deploy a MERN stack application and learn how to host backend code on Code Capsules.
+Deploy a Next.js, Express.js and Mongo application and learn how to host backend code on Code Capsules.
 
 ## Set up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a MERN stack application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/mern-stack).
+To demonstrate how to deploy a Next.js, Express.js and Mongo application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-next-express-mongo).
 
 Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
@@ -87,7 +87,7 @@ Once your application is live, you can view the build log by selecting the “De
 
 Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the MongoDB database in the Data Capsule. 
 
-![Bind MERN Capsules](../assets/deployment/mern/bind-mern-capsules.png)
+![Bind MERN Capsules](../assets/deployment/next-express/bind-next-express-mongo.png)
 
 ## Edit `DATABASE_URL` Environment Variable
 
@@ -101,7 +101,6 @@ Confirm your changes by clicking on "Update Capsule" then restart your capsule b
 
 After restarting the capsule, the application will now be ready to be viewed. Click the “Live Website” link at the top of the capsule tab and you should see your deployed application.
 
-![Deployed App](../assets/deployment/mern/cc-mern-stack.png)
+![Deployed App](../assets/deployment/next-express/next-express-mongo-app.jpeg)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
-

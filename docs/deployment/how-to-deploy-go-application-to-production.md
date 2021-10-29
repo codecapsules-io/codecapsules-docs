@@ -1,17 +1,17 @@
 ---
-title: Deploy a MERN Stack Application
-description: A guide to deploying a MERN Stack application from GitHub.
+title: Deploy a Go Application
+description: A guide to deploying a Go application from GitHub.
 ---
 
-# How to Deploy a MERN Stack Application to Production on Code Capsules
+# How to Deploy a Go Application to Production on Code Capsules
 
-Deploy a MERN stack application and learn how to host backend code on Code Capsules.
+Deploy a Go application and learn how to host backend code on Code Capsules. 
 
 ## Set up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a MERN stack application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/mern-stack).
+To demonstrate how to deploy a Go application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/go-demo).
 
 Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
@@ -31,7 +31,7 @@ Code Capsules gives every account a Personal Team by default. A Team is an envir
 
 Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.
 
-![space name](../assets/deployment/express/space-name.png)
+![space name](../assets/deployment/python/space-name.png)
 
 ## Link to GitHub
 
@@ -53,22 +53,15 @@ Select "Team Settings" in the top navigation bar to switch to the Team Settings 
 
 Click on the "Modify" button under the Team Repos section, and an “Edit Team Repos” screen will slide in from the right. Click “Add” next to the demo repo, and then “Confirm”. All the Spaces in your Team will now have access to this repo.
 
-![Edit Team Repos](../assets/deployment/python/team-repos.gif)
+![Edit Team Repos](../assets/deployment/express/team-repos.gif)
 
-## Create the Capsules
+## Create the Capsule
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
 Navigate to the “Spaces” tab and open the Space you’ll be using.
 
-Click the “Create a New Capsule for Your Space” button, and follow the instructions below to create a Data Capsule:
-
-1. Choose “Data Capsule”.
-2. Under “Data Type”, select “MongoDB Database Cluster”.  
-3. Under “Product”, select “Standard”.
-4. Click “Create Capsule”.
-
-Navigate to the "Space" containing your recently created Data Capsule and click the "New Capsule" button. Follow the instructions below to create a Backend Capsule:
+Click the “Create a New Capsule for Your Space” button, and follow the instructions below:
 
 1. Choose “Backend Capsule”.
 2. Under “Product”, select “Sandbox”.
@@ -81,27 +74,10 @@ Code Capsules will automatically build your application when you’ve finished c
 
 Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section.
 
-![Build logs](../assets/deployment/express/backend-capsule-build-logs.png)
+![Build logs](../assets/deployment/python/backend-capsule-build-logs.png)
 
-## Binding the Capsules
+Once the build is complete, a “Live Website” link will appear at the top of the tab. Click the link and you should see your deployed application.
 
-Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the MongoDB database in the Data Capsule. 
-
-![Bind MERN Capsules](../assets/deployment/mern/bind-mern-capsules.png)
-
-## Edit `DATABASE_URL` Environment Variable
-
-Once the binding is complete, you have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Capsule parameters" section on the "Configure" tab. 
-
-![Edit DATABASE_URL Environment Variable](../assets/deployment/mern/edit-database-url.png)
-
-Confirm your changes by clicking on "Update Capsule" then restart your capsule by toggling the radio button in the top right off and on again.
-
-## View Application
-
-After restarting the capsule, the application will now be ready to be viewed. Click the “Live Website” link at the top of the capsule tab and you should see your deployed application.
-
-![Deployed App](../assets/deployment/mern/cc-mern-stack.png)
+![Deployed App](../assets/deployment/go/cc-go-app.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
-
