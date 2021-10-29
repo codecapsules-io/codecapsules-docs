@@ -18,6 +18,7 @@ Backend frameworks:
 - [Flask](./how-to-deploy-flask-application-to-production.md)
 - [Go](./how-to-deploy-go-application-to-production.md)
 - [Java (Spring)](./how-to-deploy-java-application-to-production.md)
+- [MEAN (MongoDB, Express, Angular)](./how-to-deploy-mean-stack-application-to-production.md)
 - [MERN (MongoDB, Express, React)](./how-to-deploy-mern-stack-application-to-production.md)
 - [Next](./how-to-deploy-next-application-to-production.md)
 - [Next + Express](./how-to-deploy-next-express-application-to-production.md)
