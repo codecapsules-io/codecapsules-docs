@@ -87,7 +87,7 @@ Once your application is live, you can view the build log by selecting the “De
 
 Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the MongoDB database in the Data Capsule. 
 
-![Bind MERN Capsules](../assets/deployment/mern/bind-mern-capsules.png)
+![Bind MERN Capsules](../assets/deployment/mean/bind-mean-app.png)
 
 ## Edit `DATABASE_URL` Environment Variable
 
@@ -101,7 +101,7 @@ Confirm your changes by clicking on "Update Capsule" then restart your capsule b
 
 After restarting the capsule, the application will now be ready to be viewed. Click the “Live Website” link at the top of the capsule tab and you should see your deployed application.
 
-![Deployed App](../assets/deployment/mern/cc-mern-stack.png)
+![Deployed App](../assets/deployment/mean/cc-mean-app.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
 
