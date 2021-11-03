@@ -13,7 +13,7 @@ This is an opportunity to network and share your product with fellow-creators. I
 
 If you are interested in attending merely submit your name and email via the following form: https://forms.gle/NLymSw5NVsLshHDX8
 
-## Projects
+## Existing Projects
 
 - [FEDSA](https://fedsa.org/)
 - [JustSketchMe](https://justsketch.me/)
