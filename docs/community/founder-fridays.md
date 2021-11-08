@@ -17,3 +17,4 @@ If you are interested in attending merely submit your name and email via the fol
 
 - [FEDSA](https://fedsa.org/)
 - [JustSketchMe](https://justsketch.me/)
+- [Citizen Code](https://citizencode.co.za/)
