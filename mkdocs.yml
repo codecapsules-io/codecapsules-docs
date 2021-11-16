@@ -63,7 +63,8 @@ nav:
     - Slackbot with Node.js: tutorials/build-slackbot-with-node.md
     - MERN Job Board: tutorials/build-mern-job-board.md
     - Web File Store: tutorials/build-a-web-file-store.md
-    - Telegram Bot: tutorials/create-and-host-telegram-bot.md
+    - NodeJS Telegram Bot: tutorials/create-nodejs-telegram-bot.md
+    - Python Telegram Bot: tutorials/create-and-host-telegram-bot.md
     - Flask API: tutorials/creating-and-hosting-a-flask-api.md
     - Custom Domains: tutorials/customising-domain.md
     - Persistent Sleep Tracker Part 1: tutorials/develop-persistent-sleep-tracker-part-1.md

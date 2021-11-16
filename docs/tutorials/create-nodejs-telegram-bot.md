@@ -34,7 +34,7 @@ To confirm that your bot was indeed created successfully, search for the bot's u
 
 ## Set Up Development Environment
 
-Your bot's access token is sensitive data and shouldn't be written plainly in code. This is because anyone with access to it can control your bot how they please so it's important to store it where it's safe and secure.  
+Your bot's access token is sensitive data and shouldn't be written plainly in code. This is because anyone with access to it can control your bot as how they please so it's important to store it where it's safe and secure.  
 
 Environment variables are perfect for this scenario as they allow us to reference sensitive information in code using variables. Create a `.env` file in the project's root folder and add the line below to it, replacing `<YOUR_BOT_TOKEN>` with the actual access token you were issued with by the BotFather. 
 
@@ -69,26 +69,26 @@ const path = require("path")
 const port = process.env.PORT || 3000;
 expressApp.use(express.static('static'))
 expressApp.use(express.json());
+require('dotenv').config();
 
 const { Telegraf } = require('telegraf');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
-expressApp.use(bot.launch())
 
 expressApp.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-expressApp.listen(port, () => console.log(`Listening on ${port}`));
+bot.launch()
 ```
 
-The code snippet above instantiates `express`, `axios` and `telegraf` objects which we'll need to create the telegram bot. Notice how we use environment variables to reference our bot's access token in this line: `const bot = new Telegraf(process.env.BOT_TOKEN);`. Add the `.env` file to `.gitignore` so that it won't be uploaded to your remote repository when you push your changes. 
+The code snippet above instantiates `express`, `axios` and `telegraf` objects which we'll need to create the telegram bot. Notice how we use environment variables to reference our bot's access token in this line: `const bot = new Telegraf(process.env.BOT_TOKEN);`. Add `.env` to the `.gitignore` file on a new line so that it won't be uploaded to your remote repository when you push your changes. 
 
-In the line, `expressApp.use(bot.launch())` we tell express to use the `bot.launch()` command to launch our bot. Using the `bot.launch()` command isn't efficient from a bandwidth perspective as our bot continously polls the Telegram API to check if it has received any new messages. Later in the tutorial, we will look at how to use webhooks in order to be more conservative with the bandwidth our bot uses. 
+Using the `bot.launch()` command isn't efficient from a bandwidth perspective as our bot continously polls the Telegram API to check if it has received any new messages. Later in the tutorial, we will look at how to use webhooks in order to be more conservative with the bandwidth our bot uses. 
 
 ## Add Bot Commands
 
-Now it's time to add the logic for the commands which tell our bot how to respond to different messages. Add the code below to `index.js` just above the `expressApp.listen()` line. 
+Now it's time to add the logic for the commands which tell our bot how to respond to different messages. Add the code below to `index.js` just above the `bot.launch()` line. 
 
 ```js
 bot.command('start', ctx => {
@@ -111,8 +111,39 @@ bot.command('ethereum', ctx => {
 })
 ```
 
-The first command is a start message which is triggered when a user sends a `/start` message to the bot. Upon receiving this message, it will respond with a greeting that tells the user which other commands it can respond to. In this case, it is the `/ethereum` command. When a user sends an `/ethereum` message, the bot first checks for the latest price of ethereum at [coingecko](https://api.coingecko.com) and responds with it to the user. 
+The first command is a start message which is triggered when a user sends a `/start` message to the bot. Upon receiving this message, it will respond with a greeting that tells the user which other commands it can respond to. In this case, it is the `/ethereum` command. When a user sends an `/ethereum` message, the bot first checks for the latest price of ethereum at [coingecko](https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd) and responds with it to the user. 
 
 ## Run Bot Locally
 
 After adding the two commands above our bot can now respond to users if they send it `/start` or `/ethereum` messages. Run `npm start` in a terminal window while in the project's root folder to test this functionality. 
+
+Send your bot `/start` and `/ethereum` messages in Telegram and it should respond with the messages we added above.
+
+## Polling vs Webhooks
+
+Earlier on, we mentioned that the `bot.launch()` command uses polling which isn't the best practice when deploying any application to production. Using webhooks is a good alternative to polling as it ensures our bot receives commands as they are sent by Telegram users as opposed to constantly *polling or asking* the Telegram API for them.
+
+Add the lines below to add webhooks to our bot and comment out the `bot.launch()` line.
+
+```js
+
+const bot = new Telegraf(process.env.BOT_TOKEN);
+expressApp.use(bot.webhookCallback('/secret-path'))
+bot.telegram.setWebhook('<YOUR_CAPSULE_URL>/secret-path')
+
+.
+.
+.
+
+// bot.launch()
+
+expressApp.listen(port, () => console.log(`Listening on ${port}`));
+```
+
+Navigate to the capsule you deployed at the start of this tutorial and copy its domain under the "Overview" tab. In the code snippet above replace `<YOUR_CAPSULE_URL>` with the domain you just copied.
+
+## Deploying the Bot
+
+On Code Capsules, navigate to the "Configure" tab of your capsule and add a `BOT_TOKEN` environment variable giving it the value of your bot's access token. 
+
+Now head over to your local development environment and run `git push` in a terminal window while in the project's root folder to deploy your bot to production!
