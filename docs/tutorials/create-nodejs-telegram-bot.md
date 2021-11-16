@@ -32,7 +32,7 @@ The BotFather will respond with a message containing your newly created bot's ac
 
 To confirm that your bot was indeed created successfully, search for the bot's username. You should be able to see it and start a conversation with it but right now it won't respond as we haven't written the bot's logic yet. 
 
-## Create the Bot Logic
+## Set Up Development Environment
 
 Your bot's access token is sensitive data and shouldn't be written plainly in code. This is because anyone with access to it can control your bot how they please so it's important to store it where it's safe and secure.  
 
@@ -42,8 +42,77 @@ Environment variables are perfect for this scenario as they allow us to referenc
 BOT_TOKEN=<YOUR_BOT_TOKEN>
 ```
 
+## Install Required Packages
+
 Next, install the package for loading environment variables by running the command below from a terminal window in the project's root folder.
 
 ```
 npm install dotenv
 ```
+
+Also install the `axios` and `telegraf` packages by running the commands listed below from a terminal window in the project's root folder.
+
+```
+npm install axios
+npm install telegraf
+```
+
+## Create the Bot Logic
+
+Open `index.js` in the root folder and modify its contents with the code below:
+
+```js
+const express = require('express')
+const expressApp = express()
+const axios = require("axios");
+const path = require("path")
+const port = process.env.PORT || 3000;
+expressApp.use(express.static('static'))
+expressApp.use(express.json());
+
+const { Telegraf } = require('telegraf');
+
+const bot = new Telegraf(process.env.BOT_TOKEN);
+expressApp.use(bot.launch())
+
+expressApp.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname + '/index.html'));
+});
+
+expressApp.listen(port, () => console.log(`Listening on ${port}`));
+```
+
+The code snippet above instantiates `express`, `axios` and `telegraf` objects which we'll need to create the telegram bot. Notice how we use environment variables to reference our bot's access token in this line: `const bot = new Telegraf(process.env.BOT_TOKEN);`. Add the `.env` file to `.gitignore` so that it won't be uploaded to your remote repository when you push your changes. 
+
+In the line, `expressApp.use(bot.launch())` we tell express to use the `bot.launch()` command to launch our bot. Using the `bot.launch()` command isn't efficient from a bandwidth perspective as our bot continously polls the Telegram API to check if it has received any new messages. Later in the tutorial, we will look at how to use webhooks in order to be more conservative with the bandwidth our bot uses. 
+
+## Add Bot Commands
+
+Now it's time to add the logic for the commands which tell our bot how to respond to different messages. Add the code below to `index.js` just above the `expressApp.listen()` line. 
+
+```js
+bot.command('start', ctx => {
+  console.log(ctx.from)
+  bot.telegram.sendMessage(ctx.chat.id, 'Hello there! Welcome to the Code Capsules telegram bot.\nI respond to /ethereum. Please try it', {
+  })
+})
+
+bot.command('ethereum', ctx => {
+  var rate;
+  console.log(ctx.from)
+  axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd`)
+  .then(response => {
+    console.log(response.data)
+    rate = response.data.ethereum
+    const message = `Hello, today the ethereum price is ${rate.usd}USD`
+    bot.telegram.sendMessage(ctx.chat.id, message, {
+    })
+  })
+})
+```
+
+The first command is a start message which is triggered when a user sends a `/start` message to the bot. Upon receiving this message, it will respond with a greeting that tells the user which other commands it can respond to. In this case, it is the `/ethereum` command. When a user sends an `/ethereum` message, the bot first checks for the latest price of ethereum at [coingecko](https://api.coingecko.com) and responds with it to the user. 
+
+## Run Bot Locally
+
+After adding the two commands above our bot can now respond to users if they send it `/start` or `/ethereum` messages. Run `npm start` in a terminal window while in the project's root folder to test this functionality. 
