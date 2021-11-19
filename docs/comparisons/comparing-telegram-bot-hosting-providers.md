@@ -35,7 +35,7 @@ Apps in App Engine can either run in a standard environment or in a flexible env
 
 ## Google Cloud Functions
 
-- [Google Cloud Engine Telegram Bot Tutorial](https://seminar.io/2018/09/03/building-serverless-telegram-bot/) 
+- [Google Cloud Functions Telegram Bot Tutorial](https://seminar.io/2018/09/03/building-serverless-telegram-bot/) 
 
 Cloud Functions were tailor made to run individual services that have a single purpose. This means they are a good choice for event driven solutions such as a Telegram bot using webhooks to only invoke a function after it receives a message from a user. It also has a perpetual free tier which gives customers up to 2 million free invocations per month. If you exceed the 2 million quota you will be charged $0.40 for each million invocations after that. 
 
@@ -45,7 +45,7 @@ On the downside, Google Cloud Functions has a limited feature set when compared 
 
 - [Google Cloud Run Telegram Bot Tutorial](https://nullonerror.org/2021/01/08/hosting-telegram-bots-on-google-cloud-run/) 
 
-Cloud Run is a compute platform created to host applications that have high computational needs. It is therefore perfectly capable of hosting a Telegram bot but turns out to be a pricier option beyond the free tier when compared to its sibling, Cloud Functions that can do the same. This is because you’ll be using more demanding resources but shouldn’t be a concern if you aren’t building an enterprise bot since it has a generous free tier. 
+Cloud Run is a cloud compute platform created to host applications that have high computational needs. It is therefore perfectly capable of hosting a Telegram bot but turns out to be a pricier option beyond the free tier when compared to its sibling, Cloud Functions that can do the same. This is because you’ll be using more demanding resources but shouldn’t be a concern if you aren’t building an enterprise bot since it has a generous free tier. 
 
 ## Heroku 
 
