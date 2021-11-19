@@ -1,3 +1,8 @@
+---
+title: Comparing Telegram Bot Hosting Providers
+description: Compare Telegram Bot hosting providers from their ease of deployment to their cost.
+---
+
 # Comparing Telegram Bot Hosting Providers
 
 Bots are perfect for handling repetitive tasks and have been slowly but surely increasing in popularity over the course of the last decade. In this article, we take a look at the different hosting solutions users have when it's time to deploy their Telegram bots. 
