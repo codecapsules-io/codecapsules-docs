@@ -27,7 +27,14 @@ If you're looking to build cool applications that you can host on Code Capsules,
 <figure>
   <a href="./create-and-host-telegram-bot/">
     <img style="border-radius: 10px 10px 0" src="../assets/tutorials/create-and-host-telegram-bot/telegram-bot-cover.jpg" width="300" />
-    <figcaption>Creating a Telegram Bot</figcaption>
+    <figcaption>Creating a Python Telegram Bot</figcaption>
+  </a>
+</figure>
+
+<figure>
+  <a href="./create-nodejs-telegram-bot/">
+    <img style="border-radius: 10px 10px 0" src="../assets/tutorials/create-telegram-bot-nodejs/telegrambot.jpg" width="300" />
+    <figcaption>Creating a Node.js Telegram Bot</figcaption>
   </a>
 </figure>
 

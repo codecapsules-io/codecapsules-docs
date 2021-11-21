@@ -1,13 +1,16 @@
 ---
-title: Create a NodeJS Telegram Bot 
-description: Learn how to build a Telegram bot in NodeJS that messages you current ethereum prices and host it on Code Capsules
+title: Create a Node.js Telegram Bot 
+description: Learn how to build a Telegram bot in Node.js that responds with current Ethereum prices and host it on Code Capsules
+image: assets/tutorials/create-telegram-bot-nodejs/telegrambot.jpg
 ---
 
 # Create and Host a Telegram Bot with Node.js on Code Capsules
 
+![Creating a telegram bot with Node.js cover](../assets/tutorials/create-telegram-bot-nodejs/telegrambot.jpg)
+
 Social media bots allow you to automate responses and reactions to posts or messages sent to the bot.
 
-In this tutorial, we'll extend a boilerplate Express application on Code Capsules to create a Telegram bot in [Node.js](https://nodejs.org/en/about/).
+In this tutorial, we'll extend a boilerplate Express application on Code Capsules to create a Telegram bot in [Node.js](https://nodejs.org/en/about/) that tracks and responds with current Ethereum prices.
 
 ## Getting Started
 
@@ -41,6 +44,8 @@ Create a `.env` file in the project's root folder and add the line below to it, 
 ```
 BOT_TOKEN=<YOUR_BOT_TOKEN>
 ```
+
+Add `.env` to the `.gitignore` file on a new line so that the `.env` file won't be uploaded to your remote repository when you push your changes.
 
 ## Install Required Packages
 
@@ -82,7 +87,7 @@ expressApp.get("/", (req, res) => {
 bot.launch()
 ```
 
-The code snippet above instantiates `express`, `axios` and `telegraf` objects, which we'll need to create the telegram bot. Notice how we use environment variables to reference our bot's access token in this line: `const bot = new Telegraf(process.env.BOT_TOKEN);`. Add `.env` to the `.gitignore` file on a new line so that it won't be uploaded to your remote repository when you push your changes. 
+The code snippet above instantiates `express`, `axios` and `telegraf` objects, which we'll need to create the telegram bot. Notice how we use environment variables to reference our bot's access token in this line: `const bot = new Telegraf(process.env.BOT_TOKEN);`. 
 
 Using the `bot.launch()` command isn't efficient from a bandwidth perspective, as our bot continously polls the Telegram API to check if it has received any new messages. Later in the tutorial, we will look at how to use webhooks in order to be more conservative with the bandwidth our bot uses. 
 
@@ -121,15 +126,16 @@ Now that our bot can respond to users if they send it `/start` or `/ethereum` me
 
 Send your bot `/start` and `/ethereum` messages in Telegram, and it should respond with the correct messages.
 
+<img src="../../assets/tutorials/create-telegram-bot-nodejs/conversation.jpg" style="width: 400px !important" alt="Bot conversation">
+
 ## Polling vs Webhooks
 
 Earlier on, we mentioned that the `bot.launch()` command uses polling, which isn't the best practice when deploying any application to production. Using webhooks is a good alternative to polling, as it ensures our bot receives commands as they are sent by Telegram users, as opposed to constantly *polling* or asking the Telegram API for them.
 
-Add the lines below to add webhooks to our bot and comment out the `bot.launch()` line:
+Add the code below to the `index.js` file to add a webhook to our bot and comment out the `bot.launch()` line:
 
 ```js
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
 expressApp.use(bot.webhookCallback('/secret-path'))
 bot.telegram.setWebhook('<YOUR_CAPSULE_URL>/secret-path')
 
@@ -148,4 +154,6 @@ Navigate to the capsule you deployed at the start of this tutorial and copy its 
 
 On Code Capsules, navigate to the "Configure" tab of your capsule and add a `BOT_TOKEN` environment variable giving it the value of your bot's access token. 
 
-Now head over to your local development environment and run `git push` in a terminal window while in the project's root folder to deploy your bot to production!
+![Bot token environment variable](../assets/tutorials/create-telegram-bot-nodejs/env-var.png)
+
+Now head over to your local development environment and commit your changes if you haven't already. Run `git push` in a terminal window while in the project's root folder to deploy your bot to production!
