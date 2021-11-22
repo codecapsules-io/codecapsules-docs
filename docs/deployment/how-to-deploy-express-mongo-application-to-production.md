@@ -1,17 +1,17 @@
 ---
-title: Deploy a MEAN Stack Application
-description: A guide to deploying a MEAN Stack application from GitHub.
+title: Deploy an Express.js and Mongo Application
+description: A guide to deploying an Express.js and Mongo application from GitHub.
 ---
 
-# How to Deploy a MEAN Stack Application to Production on Code Capsules
+# How to Deploy an Express.js and Mongo Application to Production on Code Capsules
 
-Deploy a MEAN stack application and learn how to host backend code on Code Capsules.
+Deploy an Express.js and Mongo application and learn how to host backend code on Code Capsules.
 
 ## Set up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a MEAN stack application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/mean-stack).
+To demonstrate how to deploy [a/an framework/language] application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-express-mongodb).
 
 Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
@@ -87,21 +87,12 @@ Once your application is live, you can view the build log by selecting the “De
 
 Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the MongoDB database in the Data Capsule. 
 
-![Bind MEAN Capsules](../assets/deployment/mean/bind-mean-app.png)
-
-## Edit `DATABASE_URL` Environment Variable
-
-Once the binding is complete, you have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Capsule parameters" section on the "Configure" tab. 
-
-![Edit DATABASE_URL Environment Variable](../assets/deployment/mern/edit-database-url.png)
-
-Confirm your changes by clicking on "Update Capsule" then restart your capsule by toggling the radio button in the top right off and on again.
+![Bind MERN Capsules](../assets/deployment/express/bind-express-mongo.png)
 
 ## View Application
 
 After restarting the capsule, the application will now be ready to be viewed. Click the “Live Website” link at the top of the capsule tab and you should see your deployed application.
 
-![Deployed App](../assets/deployment/mean/cc-mean-app.png)
+![Deployed App](../assets/deployment/express/cc-express-mongo-app.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
-

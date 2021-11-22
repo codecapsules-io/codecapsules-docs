@@ -1,17 +1,17 @@
 ---
-title: Deploy a MEAN Stack Application
-description: A guide to deploying a MEAN Stack application from GitHub.
+title: Deploy a Flask MySQL Application
+description: A walkthrough on how to deploy a Flask MySQL application from GitHub.
 ---
 
-# How to Deploy a MEAN Stack Application to Production on Code Capsules
+# How to Deploy a Flask MySQL Application to Production on Code Capsules
 
-Deploy a MEAN stack application and learn how to host backend code on Code Capsules.
+Deploy a Flask MySQL application and learn how to host backend code on Code Capsules. 
 
 ## Set up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a MEAN stack application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/mean-stack).
+To demonstrate how to deploy a Flask MySQL application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-flask-mysql).
 
 Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
@@ -31,7 +31,7 @@ Code Capsules gives every account a Personal Team by default. A Team is an envir
 
 Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.
 
-![space name](../assets/deployment/express/space-name.png)
+![space name](../assets/deployment/python/space-name.png)
 
 ## Link to GitHub
 
@@ -64,7 +64,7 @@ Navigate to the “Spaces” tab and open the Space you’ll be using.
 Click the “Create a New Capsule for Your Space” button, and follow the instructions below to create a Data Capsule:
 
 1. Choose “Data Capsule”.
-2. Under “Data Type”, select “MongoDB Database Cluster”.  
+2. Under “Data Type”, select “Mysql Database Cluster”.  
 3. Under “Product”, select “Standard”.
 4. Click “Create Capsule”.
 
@@ -85,15 +85,15 @@ Once your application is live, you can view the build log by selecting the “De
 
 ## Binding the Capsules
 
-Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the MongoDB database in the Data Capsule. 
+After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Configure" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MySQL database. 
 
-![Bind MEAN Capsules](../assets/deployment/mean/bind-mean-app.png)
+![Bind MERN Capsules](../assets/deployment/flask/bind-flask-mysql.png)
 
 ## Edit `DATABASE_URL` Environment Variable
 
-Once the binding is complete, you have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Capsule parameters" section on the "Configure" tab. 
+Once the binding is complete, you have to append `+pymysql` after `mysql` in the `DATABASE_URL` value under the "Capsule parameters" section on the "Configure" tab. 
 
-![Edit DATABASE_URL Environment Variable](../assets/deployment/mern/edit-database-url.png)
+![Edit DATABASE_URL Environment Variable](../assets/deployment/flask/flask-mysql-edit-db-url.png)
 
 Confirm your changes by clicking on "Update Capsule" then restart your capsule by toggling the radio button in the top right off and on again.
 
@@ -101,7 +101,6 @@ Confirm your changes by clicking on "Update Capsule" then restart your capsule b
 
 After restarting the capsule, the application will now be ready to be viewed. Click the “Live Website” link at the top of the capsule tab and you should see your deployed application.
 
-![Deployed App](../assets/deployment/mean/cc-mean-app.png)
+![Deployed App](../assets/deployment/flask/flask-mysql-app.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
-
