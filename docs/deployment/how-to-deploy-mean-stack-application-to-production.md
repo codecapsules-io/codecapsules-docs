@@ -87,7 +87,7 @@ Once your application is live, you can view the build log by selecting the “De
 
 Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the MongoDB database in the Data Capsule. 
 
-![Bind MERN Capsules](../assets/deployment/mean/bind-mean-app.png)
+![Bind MEAN Capsules](../assets/deployment/mean/bind-mean-app.png)
 
 ## Edit `DATABASE_URL` Environment Variable
 

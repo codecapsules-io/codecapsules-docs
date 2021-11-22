@@ -2,8 +2,8 @@ site_name: Code Capsules
 site_url: https://codecapsules.io/docs
 site_description: >-
   The documentation for Code Capsules, the easiest deployment
-  platform that lets you pull your code directly from your Github repository 
-  and build it inside the correct container, ensuring security and performance. 
+  platform that lets you pull your code directly from your Github repository
+  and build it inside the correct container, ensuring security and performance.
 
 theme:
   features:
@@ -56,27 +56,28 @@ nav:
     - Next + Express + Mongo: deployment/how-to-deploy-next-express-mongo-application-to-production.md
     - React: deployment/how-to-deploy-react-application-to-production.md
     - Vue: deployment/how-to-deploy-vue-application-to-production.md
-  - Reference: 
+  - Reference:
     - Overview: reference/index.md
     - Custom Domains: reference/custom_domains.md
     - File Data Capsule: reference/set-up-file-data-capsule.md
-    - MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md 
+    - MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md
     - MySQL Data Capsule: reference/set-up-mysql-data-capsule.md
     - Procfile: reference/add-procfile-to-backend-application.md
-  - Tutorials: 
+  - Tutorials:
     - tutorials/index.md
     - Slackbot with Node.js: tutorials/build-slackbot-with-node.md
     - MERN Job Board: tutorials/build-mern-job-board.md
     - Web File Store: tutorials/build-a-web-file-store.md
-    - Telegram Bot: tutorials/create-and-host-telegram-bot.md
+    - Node.js Telegram Bot: tutorials/create-nodejs-telegram-bot.md
+    - Python Telegram Bot: tutorials/create-and-host-telegram-bot.md
     - Flask API: tutorials/creating-and-hosting-a-flask-api.md
     - Custom Domains: tutorials/customising-domain.md
     - Persistent Sleep Tracker Part 1: tutorials/develop-persistent-sleep-tracker-part-1.md
     - Persistent Sleep Tracker Part 2: tutorials/develop-persistent-sleep-tracker-part-2.md
     - Front-end Portfolio: tutorials/host-a-frontend.md
     - Stripe Checkout and Email Subscription with Flask: tutorials/stripe-checkout-and-email-with-flask.md
-    - Game Catalogue API with NodeJS and MySQL: tutorials/game-catalogue-with-nodejs-and-mysql.md
-  - FAQ: 
+    - Game Catalogue API with Node.js and MySQL: tutorials/game-catalogue-with-nodejs-and-mysql.md
+  - FAQ:
     - Teams, Spaces and Capsules: FAQ/teams-spaces-capsules.md
     - What is a Capsule?: FAQ/what-is-a-capsule.md
     - What is a Space?: FAQ/what-is-a-space.md
