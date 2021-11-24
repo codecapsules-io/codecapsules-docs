@@ -1,5 +1,5 @@
 ---
-title: Deploy an Angular Application
+title: Deploy an Angular Application to Production
 description: Publish an Angular application by linking directly to your GitHub repo.
 ---
 

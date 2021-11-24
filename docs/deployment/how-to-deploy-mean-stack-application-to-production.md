@@ -1,17 +1,17 @@
 ---
-title: Deploy a Next.js and Express.js Application to Production
-description: A walkthrough on how to deploy a Next.js and Express.js application from GitHub.
+title: Deploy a MEAN Stack Application to Production
+description: A guide to deploying a MEAN Stack application from GitHub.
 ---
 
-# How to Deploy a Next.js and Express.js Application to Production on Code Capsules
+# How to Deploy a MEAN Stack Application to Production on Code Capsules
 
-Deploy a Next.js and Express.js application and learn how to host backend code on Code Capsules.
+Deploy a MEAN stack application and learn how to host backend code on Code Capsules.
 
 ## Set up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a Next.js and Express.js application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/nextjs-expressjs-demo).
+To demonstrate how to deploy a MEAN stack application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/mean-stack).
 
 Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
@@ -55,13 +55,20 @@ Click on the "Modify" button under the Team Repos section, and an “Edit Team R
 
 ![Edit Team Repos](../assets/deployment/python/team-repos.gif)
 
-## Create the Capsule
+## Create the Capsules
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
 Navigate to the “Spaces” tab and open the Space you’ll be using.
 
-Click the “Create a New Capsule for Your Space” button, and follow the instructions below:
+Click the “Create a New Capsule for Your Space” button, and follow the instructions below to create a Data Capsule:
+
+1. Choose “Data Capsule”.
+2. Under “Data Type”, select “MongoDB Database Cluster”.  
+3. Under “Product”, select “Standard”.
+4. Click “Create Capsule”.
+
+Navigate to the "Space" containing your recently created Data Capsule and click the "New Capsule" button. Follow the instructions below to create a Backend Capsule:
 
 1. Choose “Backend Capsule”.
 2. Under “Product”, select “Sandbox”.
@@ -76,8 +83,25 @@ Once your application is live, you can view the build log by selecting the “De
 
 ![Build logs](../assets/deployment/express/backend-capsule-build-logs.png)
 
-Once the build is complete, a “Live Website” link will appear at the top of the tab. Click the link and you should see your deployed application.
+## Binding the Capsules
 
-![Deployed Application](../assets/deployment/next-express/next-express-app.jpeg)
+Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the MongoDB database in the Data Capsule. 
+
+![Bind MEAN Capsules](../assets/deployment/mean/bind-mean-app.png)
+
+## Edit `DATABASE_URL` Environment Variable
+
+Once the binding is complete, you have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Capsule parameters" section on the "Configure" tab. 
+
+![Edit DATABASE_URL Environment Variable](../assets/deployment/mern/edit-database-url.png)
+
+Confirm your changes by clicking on "Update Capsule" then restart your capsule by toggling the radio button in the top right off and on again.
+
+## View Application
+
+After restarting the capsule, the application will now be ready to be viewed. Click the “Live Website” link at the top of the capsule tab and you should see your deployed application.
+
+![Deployed App](../assets/deployment/mean/cc-mean-app.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
+

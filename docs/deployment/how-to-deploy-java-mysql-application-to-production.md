@@ -1,17 +1,17 @@
 ---
-title: Deploy a Next.js and Express.js Application to Production
-description: A walkthrough on how to deploy a Next.js and Express.js application from GitHub.
+title: Deploy a Java MySQL Application to Production
+description: A guide on how to launch a Java MySQL application from GitHub.
 ---
 
-# How to Deploy a Next.js and Express.js Application to Production on Code Capsules
+# How to Deploy a Java MySQL Application to Production on Code Capsules 
 
-Deploy a Next.js and Express.js application and learn how to host backend code on Code Capsules.
+Deploy a Java MySQL application and learn how to host backend code on Code Capsules.
 
 ## Set up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a Next.js and Express.js application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/nextjs-expressjs-demo).
+To demonstrate how to deploy a Java MySQL application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-java-mysql).
 
 Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
@@ -31,7 +31,7 @@ Code Capsules gives every account a Personal Team by default. A Team is an envir
 
 Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.
 
-![space name](../assets/deployment/express/space-name.png)
+![space name](../assets/deployment/python/space-name.png)
 
 ## Link to GitHub
 
@@ -55,13 +55,20 @@ Click on the "Modify" button under the Team Repos section, and an “Edit Team R
 
 ![Edit Team Repos](../assets/deployment/python/team-repos.gif)
 
-## Create the Capsule
+## Create the Capsules
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
 Navigate to the “Spaces” tab and open the Space you’ll be using.
 
-Click the “Create a New Capsule for Your Space” button, and follow the instructions below:
+Click the “Create a New Capsule for Your Space” button, and follow the instructions below to create a Data Capsule:
+
+1. Choose “Data Capsule”.
+2. Under “Data Type”, select “Mysql Database Cluster”.  
+3. Under “Product”, select “Standard”.
+4. Click “Create Capsule”.
+
+Navigate to the "Space" containing your recently created Data Capsule and click the "New Capsule" button. Follow the instructions below to create a Backend Capsule:
 
 1. Choose “Backend Capsule”.
 2. Under “Product”, select “Sandbox”.
@@ -76,8 +83,16 @@ Once your application is live, you can view the build log by selecting the “De
 
 ![Build logs](../assets/deployment/express/backend-capsule-build-logs.png)
 
-Once the build is complete, a “Live Website” link will appear at the top of the tab. Click the link and you should see your deployed application.
+## Binding the Capsules
 
-![Deployed Application](../assets/deployment/next-express/next-express-app.jpeg)
+After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Configure" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MySQL database. 
+
+![Bind MERN Capsules](../assets/deployment/java/bind-java-mysql.png)
+
+## View Application
+
+After restarting the capsule, the application will now be ready to be viewed. Click the “Live Website” link at the top of the capsule tab and you should see your deployed application.
+
+![Deployed App](../assets/deployment/java/java-mysql-app.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
