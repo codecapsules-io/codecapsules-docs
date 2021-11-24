@@ -1,5 +1,5 @@
 ---
-title: Deploy an HTML Site
+title: Deploy an HTML Site to Production
 description: Publish a static site using its source code on GitHub.
 ---
 

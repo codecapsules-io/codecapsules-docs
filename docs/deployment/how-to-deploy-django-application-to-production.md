@@ -1,5 +1,5 @@
 ---
-title: Deploy a Django Application
+title: Deploy a Django Application to Production
 description: A guide to deploying a Django application from GitHub.
 ---
 

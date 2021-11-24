@@ -1,5 +1,5 @@
 ---
-title: Deploy a Next Application
+title: Deploy a Next Application to Production
 description: A guide to deploying a Next application from GitHub.
 ---
 

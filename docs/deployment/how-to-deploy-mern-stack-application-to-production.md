@@ -1,5 +1,5 @@
 ---
-title: Deploy a MERN Stack Application
+title: Deploy a MERN Stack Application to Production
 description: A guide to deploying a MERN Stack application from GitHub.
 ---
 

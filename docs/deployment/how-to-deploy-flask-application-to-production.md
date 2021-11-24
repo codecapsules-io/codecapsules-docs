@@ -1,5 +1,5 @@
 ---
-title: Deploy a Flask Application
+title: Deploy a Flask Application to Production
 description: A walkthrough on how to deploy a Flask application from GitHub.
 ---
 
