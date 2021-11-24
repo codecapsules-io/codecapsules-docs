@@ -1,5 +1,5 @@
 ---
-title: Deploy a Go Application
+title: Deploy a Go Application to Production
 description: A guide to deploying a Go application from GitHub.
 ---
 

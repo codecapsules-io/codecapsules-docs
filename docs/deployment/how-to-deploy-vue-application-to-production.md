@@ -1,5 +1,5 @@
 ---
-title: Deploy a Vue Application
+title: Deploy a Vue Application to Production
 description: Host and set up auto deployments from a specified GitHub repo branch for a Vue application. 
 ---
 

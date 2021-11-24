@@ -1,5 +1,5 @@
 ---
-title: Deploy a Java Application
+title: Deploy a Java Application to Production
 description: A guide on how to launch a Java application from GitHub.
 ---
 

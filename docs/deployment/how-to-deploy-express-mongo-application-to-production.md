@@ -1,5 +1,5 @@
 ---
-title: Deploy an Express.js and Mongo Application
+title: Deploy an Express.js and Mongo Application to Production
 description: A guide to deploying an Express.js and Mongo application from GitHub.
 ---
 

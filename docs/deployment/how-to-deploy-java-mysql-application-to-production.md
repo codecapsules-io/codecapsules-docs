@@ -1,5 +1,5 @@
 ---
-title: Deploy a Java MySQL Application
+title: Deploy a Java MySQL Application to Production
 description: A guide on how to launch a Java MySQL application from GitHub.
 ---
 

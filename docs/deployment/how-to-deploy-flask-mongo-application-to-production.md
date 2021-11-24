@@ -1,5 +1,5 @@
 ---
-title: Deploy a Flask MongoDB Application
+title: Deploy a Flask MongoDB Application to Production
 description: A walkthrough on how to deploy a Flask MongoDB application from GitHub.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy a Django MongoDB Application
+title: Deploy a Django MongoDB Application to Production
 description: A guide to deploying a Django MongoDB application from GitHub.
 ---
 
