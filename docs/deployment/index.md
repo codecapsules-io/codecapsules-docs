@@ -96,7 +96,7 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
   </a>
 </figure>
 <figure>
-  <a href="./how-to-deploy-flask-mongodb-application-to-production">
+  <a href="./how-to-deploy-flask-mongo-application-to-production">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/flask-mongo.png" width="150" />
     <figcaption>Flask MongoDB</figcaption>
   </a>
