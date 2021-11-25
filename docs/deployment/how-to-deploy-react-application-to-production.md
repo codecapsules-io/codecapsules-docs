@@ -1,5 +1,5 @@
 ---
-title: Deploy a React Application
+title: Deploy a React Application to Production
 description: Link a React GitHub repo to a PaaS provider to enable auto deployments.
 ---
 

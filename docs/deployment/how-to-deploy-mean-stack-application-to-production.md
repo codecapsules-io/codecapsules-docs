@@ -1,5 +1,5 @@
 ---
-title: Deploy a MEAN Stack Application
+title: Deploy a MEAN Stack Application to Production
 description: A guide to deploying a MEAN Stack application from GitHub.
 ---
 

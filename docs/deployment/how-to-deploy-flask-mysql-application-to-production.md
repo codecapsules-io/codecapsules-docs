@@ -1,5 +1,5 @@
 ---
-title: Deploy a Flask MySQL Application
+title: Deploy a Flask MySQL Application to Production
 description: A walkthrough on how to deploy a Flask MySQL application from GitHub.
 ---
 
