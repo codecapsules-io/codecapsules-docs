@@ -32,13 +32,18 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
     <figcaption>Next</figcaption>
   </a>
 </figure>
-</div>
 
-<div style="display: flex; flex-wrap: wrap;">
 <figure>
   <a href="./how-to-deploy-static-html-to-production/">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/html.png" width="150" />
     <figcaption>Static HTML</figcaption>
+  </a>
+</figure>
+
+<figure>
+  <a href="./how-to-deploy-svelte-application-to-production/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/svelte.png" width="150" />
+    <figcaption>Svelte</figcaption>
   </a>
 </figure>
 </div>
@@ -73,9 +78,7 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
     <figcaption>Java (Spring)</figcaption>
   </a>
 </figure>
-</div>
 
-<div style="display: flex; flex-wrap: wrap;">
 <figure>
   <a href="./how-to-deploy-next-express-application-to-production">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/next-express.png" width="150" />
@@ -101,9 +104,7 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
     <figcaption>Flask and MongoDB</figcaption>
   </a>
 </figure>
-</div>
 
-<div style="display: flex; flex-wrap: wrap;">
 <figure>
   <a href="./how-to-deploy-django-mongodb-application-to-production">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/django-mongo.png" width="150" />
