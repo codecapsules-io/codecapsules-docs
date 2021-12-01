@@ -1,6 +1,6 @@
 ---
 title: Python Development with Code Capsules
-description: Modify a Python project on your local machine and deploy the changes to Code Capules from GitHub.
+description: Modify a Python project locally and deploy the changes to Code Capules from GitHub.
 ---
 
 # Python Development with Code Capsules
