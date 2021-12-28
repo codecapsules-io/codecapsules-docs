@@ -41,20 +41,6 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
 </figure>
 
 <figure>
-  <a href="./how-to-deploy-bootstrap-site-to-production/">
-    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/bootstrap.png" width="150" />
-    <figcaption>Bootstrap</figcaption>
-  </a>
-</figure>
-
-<figure>
-  <a href="./how-to-deploy-html5up-template-to-production/">
-    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/html5up.png" width="150" />
-    <figcaption>HTML5up</figcaption>
-  </a>
-</figure>
-
-<figure>
   <a href="./how-to-deploy-svelte-application-to-production/">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/svelte.png" width="150" />
     <figcaption>Svelte</figcaption>
@@ -171,6 +157,38 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
   <a href="./how-to-deploy-next-express-mongo-application-to-production">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/next-express-mongo.png" width="150" />
     <figcaption>Next, Express <br/> and MongoDB</figcaption>
+  </a>
+</figure>
+</div>
+
+## Chatbots
+
+<div style="display: flex; flex-wrap: wrap;">
+<figure>
+  <a href="./how-to-deploy-node-telegram-bot-to-production/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/node-telegram-bot.png" width="150" />
+    <figcaption>Node.js Telegram <br/> Bot (Webhooks)</figcaption>
+  </a>
+</figure>
+
+<figure>
+  <a href="./how-to-deploy-python-telegram-bot-to-production">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/py-telegram-bot.png" width="150" />
+    <figcaption>Python Telegram <br/> Bot (Webhooks)</figcaption>
+  </a>
+</figure>
+
+<figure>
+  <a href="./how-to-deploy-polling-node-telegram-bot-to-production/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/node-telegram-bot.png" width="150" />
+    <figcaption>Node.js Telegram <br/> Bot (Polling)</figcaption>
+  </a>
+</figure>
+
+<figure>
+  <a href="./how-to-deploy-polling-python-telegram-bot-to-production/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/py-telegram-bot.png" width="150" />
+    <figcaption>Python Telegram <br/> Bot (Polling)</figcaption>
   </a>
 </figure>
 </div>

@@ -36,7 +36,6 @@ nav:
   - Deployment:
     - Overview: deployment/index.md
     - Angular: deployment/how-to-deploy-angular-application-to-production.md
-    - Bootstrap: deployment/how-to-deploy-bootstrap-site-to-production.md
     - Django: deployment/how-to-deploy-django-application-to-production.md
     - Django + MySQL: deployment/how-to-deploy-django-mysql-application-to-production.md
     - Django + MongoDB: deployment/how-to-deploy-django-mongodb-application-to-production.md
@@ -47,7 +46,6 @@ nav:
     - Flask + MySQL: deployment/how-to-deploy-flask-mysql-application-to-production.md
     - Go: deployment/how-to-deploy-go-application-to-production.md
     - HTML: deployment/how-to-deploy-static-html-to-production.md
-    - HTML5up: deployment/how-to-deploy-html5up-template-to-production.md
     - Java (Spring): deployment/how-to-deploy-java-application-to-production.md
     - Java (Spring) + MySQL: deployment/how-to-deploy-java-mysql-application-to-production.md
     - MEAN (Mongo, Express, Angular): deployment/how-to-deploy-mean-stack-application-to-production.md
@@ -70,7 +68,6 @@ nav:
     - MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md
     - MySQL Data Capsule: reference/set-up-mysql-data-capsule.md
     - Procfile: reference/add-procfile-to-backend-application.md
-    - Python Development: reference/python-development-with-code-capsules.md
   - Tutorials:
     - tutorials/index.md
     - Slackbot with Node.js: tutorials/build-slackbot-with-node.md
@@ -94,7 +91,6 @@ nav:
   - Comparisons:
     - comparisons/index.md
     - PaaS Providers: comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.md
-    - Telegram Hosting Providers: comparisons/comparing-telegram-bot-hosting-providers.md
     - SaaS vs PaaS vs IaaS: comparisons/saas-paas-iaas.md
   - Community:
     - Introducing Code Capsules: community/introducing-code-capsules.md
