@@ -91,6 +91,7 @@ nav:
   - Comparisons:
     - comparisons/index.md
     - PaaS Providers: comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.md
+    - Telegram Hosting Providers: comparisons/comparing-telegram-bot-hosting-providers.md
     - SaaS vs PaaS vs IaaS: comparisons/saas-paas-iaas.md
   - Community:
     - Introducing Code Capsules: community/introducing-code-capsules.md
