@@ -41,6 +41,20 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
 </figure>
 
 <figure>
+  <a href="./how-to-deploy-bootstrap-site-to-production/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/bootstrap.png" width="150" />
+    <figcaption>Bootstrap</figcaption>
+  </a>
+</figure>
+
+<figure>
+  <a href="./how-to-deploy-html5up-template-to-production/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/html5up.png" width="150" />
+    <figcaption>HTML5up</figcaption>
+  </a>
+</figure>
+
+<figure>
   <a href="./how-to-deploy-svelte-application-to-production/">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/svelte.png" width="150" />
     <figcaption>Svelte</figcaption>
