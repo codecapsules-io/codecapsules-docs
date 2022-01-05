@@ -65,6 +65,7 @@ nav:
     - Vue: deployment/how-to-deploy-vue-application-to-production.md
   - Reference:
     - Overview: reference/index.md
+    - Capsule Billing: reference/capsule-billing.md
     - Capsule Management: reference/capsule-management.md
     - Custom Domains: reference/custom_domains.md
     - File Data Capsule: reference/set-up-file-data-capsule.md
