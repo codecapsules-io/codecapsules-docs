@@ -5,7 +5,7 @@ description: Take a look at the Code Capsules pricing packages and the available
 
 # Capsule Billing
 
-Code Capsules provides one free frontend capsule per account so you have to provide a payment method if you wish to host other types of capsules or a second frontend capsule.
+Code Capsules uses the per hour billing model which ensures you only pay for what you use. The first frontend capsule for every account is free meaning you only have to provide a payment method if you wish to host other types of capsules or a second frontend one.
 
 ## Capsule Pricing
 
