@@ -34,7 +34,7 @@ markdown_extensions:
 nav:
   - Getting Started: index.md
   - Deployment:
-    - Overview: deployment/index.md
+    - Overview: ${NAME:index.md}
     - Angular: deployment/how-to-deploy-angular-application-to-production.md
     - Bootstrap: deployment/how-to-deploy-bootstrap-site-to-production.md
     - Django: deployment/how-to-deploy-django-application-to-production.md
