@@ -1,5 +1,5 @@
 site_name: Code Capsules
-site_url: https://codecapsules.io/docs
+site_url: ${SITEURL:https://codecapsules.io/docs}
 site_description: >-
   The documentation for Code Capsules, the easiest deployment
   platform that lets you pull your code directly from your Github repository
@@ -34,7 +34,7 @@ markdown_extensions:
 nav:
   - Getting Started: index.md
   - Deployment:
-    - Overview: ${NAME:index.md}
+    - Overview: deployment/index.md
     - Angular: deployment/how-to-deploy-angular-application-to-production.md
     - Bootstrap: deployment/how-to-deploy-bootstrap-site-to-production.md
     - Django: deployment/how-to-deploy-django-application-to-production.md
@@ -105,5 +105,5 @@ extra:
   generator: false
   analytics:
     provider: google
-    property: UA-165274631-2
+    property: ${GANALYTICS:UA-165274631-2}
 
