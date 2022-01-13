@@ -205,6 +205,13 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
     <figcaption>Python Telegram <br/> Bot (Polling)</figcaption>
   </a>
 </figure>
+
+<figure>
+  <a href="./how-to-deploy-python-discord-bot-to-production/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/py-discord-bot.png" width="150" />
+    <figcaption>Python Discord <br/> Bot</figcaption>
+  </a>
+</figure>
 </div>
 
 We also support other backends and fullstack frameworks. See the full list of supported languages [here](https://github.com/GoogleCloudPlatform/buildpacks#language-idiomatic-configuration-options).
