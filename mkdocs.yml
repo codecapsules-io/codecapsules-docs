@@ -65,6 +65,7 @@ nav:
     - Slack: deployment/how-to-deploy-slack-bot-to-production.md
     - Svelte: deployment/how-to-deploy-svelte-application-to-production.md
     - Vue: deployment/how-to-deploy-vue-application-to-production.md
+    - WhatsApp: deployment/how-to-deploy-whatsapp-bot-to-production.md
   - Reference:
     - Overview: reference/index.md
     - Custom Domains: reference/custom_domains.md
