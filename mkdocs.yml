@@ -56,6 +56,7 @@ nav:
     - Next + Mongo: deployment/how-to-deploy-next-mongo-application-to-production.md
     - Next + Express: deployment/how-to-deploy-next-express-application-to-production.md
     - Next + Express + Mongo: deployment/how-to-deploy-next-express-mongo-application-to-production.md
+    - NodeJS Discord Bot: deployment/how-to-deploy-node-discord-bot-to-production.md
     - NodeJS Telegram Bot: deployment/how-to-deploy-node-telegram-bot-to-production.md
     - Python Discord Bot: deployment/how-to-deploy-python-discord-bot-to-production.md
     - Python Telegram Bot: deployment/how-to-deploy-python-telegram-bot-to-production.md
