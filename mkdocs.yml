@@ -105,7 +105,7 @@ extra:
   generator: false
   analytics:
     provider: google
-    property: ${GANALYTICS:UA-165274631-2}
+    property: !ENV [GANALYTICS, 'UA-165274631-2']
     feedback:
       title: Was this page helpful?
       ratings:
