@@ -1,5 +1,5 @@
 site_name: Code Capsules
-site_url: https://codecapsules.io/docs
+site_url: ${SITEURL:https://codecapsules.io/docs}
 site_description: >-
   The documentation for Code Capsules, the easiest deployment
   platform that lets you pull your code directly from your Github repository
@@ -105,7 +105,7 @@ extra:
   generator: false
   analytics:
     provider: google
-    property: UA-165274631-2
+    property: ${GANALYTICS:UA-165274631-2}
     feedback:
       title: Was this page helpful?
       ratings:
@@ -119,5 +119,3 @@ extra:
           data: 0
           note: >- 
             Thanks for your feedback! We'll do our best to improve.
-
-
