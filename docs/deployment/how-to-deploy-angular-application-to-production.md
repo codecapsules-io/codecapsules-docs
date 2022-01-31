@@ -5,6 +5,8 @@ description: Publish an Angular application by linking directly to your GitHub r
 
 # How to Deploy an Angular Application to Production on Code Capsules
 
+*A video for this guide can be found [here](https://www.youtube.com/watch?v=SQA4_qhwTD8&t=15s) if you prefer watching to reading.*
+
 Deploy an Angular application and learn how to host frontend code on Code Capsules. 
 
 ## Set Up

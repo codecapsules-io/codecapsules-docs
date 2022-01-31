@@ -5,6 +5,8 @@ description: Link a React GitHub repo to a PaaS provider to enable auto deployme
 
 # How to Deploy a React Application to Production on Code Capsules
 
+*A video for this guide can be found [here](https://www.youtube.com/watch?v=2u8Iuw-wtwI) if you prefer watching to reading.*
+
 Deploy a React application and learn how to host frontend code on Code Capsules.
 
 ## Set up
