@@ -81,26 +81,30 @@ Once your application is live, you can view the build log by selecting the “De
 
 ![Build logs](../assets/deployment/express/backend-capsule-build-logs.png)
 
-## Add a `BOT_TOKEN` Environment Variable
+## Add Environment Variables
 
-Once the build is complete, you have to add a `BOT_TOKEN` environment variable on the “Configure” tab under the “Capsule parameters” section. Assign it the value of the access token you were given by the BotFather when you registered the bot.
+Once the build is complete, you have to add `BOT_TOKEN` and `URL` environment variables on the “Configure” tab under the “Capsule parameters” section.
+
+### `BOT_TOKEN`
+
+Assign the `BOT_TOKEN` variable the value of the access token you were given by the BotFather when you registered the bot.
 
 ![Add a `BOT_TOKEN` Environment Variable](../assets/deployment/telegram/add-bot-token-env-var.png)
 
+### `URL`
+
+For the `URL` variable, set it to the value of your bot's domain. You can get it by clicking the "Live Website" link to the left of the capsule's toggle button and copying the url in the new tab that opens. Paste the url you copied in the value field for the `URL` environment variable. 
+
+![Add a `URL` Environment Variable](../assets/deployment/telegram/url-env-var.png)
+
 Confirm your changes by clicking on “Update Capsule”, then restart your Capsule by toggling the radio button in the top right off and on again.
 
-## Add Webhook URL
+## Setup Webhook 
 
-The next step is to add a webhook URL in the bot's logic to tell Telegram how to notify your bot when it receives a message. Clone the repository you forked in the first step of this guide to your local development environment. Open `app.py` and edit the code snippet below by replacing `<YOUR-CAPSULE-URL-HERE>` with the actual value for your Capsule's URL. To get this value, navigate to your Capsule's “Overview” tab, copy the value under the “Domains” section, and paste it in place of `<YOUR-CAPSULE-URL-HERE>` in the line below.
-
-```py
-HOOK_URL = '<YOUR-CAPSULE-URL-HERE>' + '/' + TOKEN
-```
-
-Push your changes to GitHub by running `git push` in a terminal window while in the project's root folder. Code Capsules will automatically rebuild your bot after it notices changes to the `main` branch of your forked repository.
+The next step is to setup a webhook for your bot. Do this by clicking the "Live Website" link at the top of the capsule's page. On the new tab that opens add `/setwebhook` to the url and press enter/return to visit the url. If you see `webhook setup ok` then your bot is ready to chat!
 
 ## Chat with the Bot
 
-The bot will be able to respond to messages after Code Capsules finishes building it. When this is done, search for your bot on Telegram using the username you assigned it and start a chat with it. The bot has been programmed to respond to `/start` and echo any messages you send it.
+The bot will be able to respond to messages after actioning the above steps. When this is done, search for your bot on Telegram using the username you assigned it and start a chat with it. The bot has been programmed to respond to `/start` and echo any messages you send it.
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
