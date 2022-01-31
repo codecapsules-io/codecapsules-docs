@@ -65,12 +65,15 @@ nav:
     - Vue: deployment/how-to-deploy-vue-application-to-production.md
   - Reference:
     - Overview: reference/index.md
+    - Capsule Billing: reference/capsule-billing.md
+    - Capsule Management: reference/capsule-management.md
     - Custom Domains: reference/custom_domains.md
     - File Data Capsule: reference/set-up-file-data-capsule.md
     - MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md
     - MySQL Data Capsule: reference/set-up-mysql-data-capsule.md
     - Procfile: reference/add-procfile-to-backend-application.md
     - Python Development: reference/python-development-with-code-capsules.md
+    - Team Management: reference/team-management.md
   - Tutorials:
     - tutorials/index.md
     - Slackbot with Node.js: tutorials/build-slackbot-with-node.md
