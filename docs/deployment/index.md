@@ -205,6 +205,34 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
     <figcaption>Python Telegram <br/> Bot (Polling)</figcaption>
   </a>
 </figure>
+
+<figure>
+  <a href="./how-to-deploy-python-discord-bot-to-production/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/py-discord-bot.png" width="150" />
+    <figcaption>Python Discord <br/> Bot</figcaption>
+  </a>
+</figure>
+
+<figure>
+  <a href="./how-to-deploy-node-discord-bot-to-production/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/nodejs-discord.png" width="150" />
+    <figcaption>Node.js Discord <br/> Bot</figcaption>
+  </a>
+</figure>
+
+<figure>
+  <a href="./how-to-deploy-whatsapp-bot-to-production/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/whatsapp-bot.png" width="150" />
+    <figcaption>WhatsApp Bot</figcaption>
+  </a>
+</figure>
+
+<figure>
+  <a href="./how-to-deploy-slack-bot-to-production/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/slackbot.png" width="150" />
+    <figcaption>Slack Bot</figcaption>
+  </a>
+</figure>
 </div>
 
 We also support other backends and fullstack frameworks. See the full list of supported languages [here](https://github.com/GoogleCloudPlatform/buildpacks#language-idiomatic-configuration-options).
