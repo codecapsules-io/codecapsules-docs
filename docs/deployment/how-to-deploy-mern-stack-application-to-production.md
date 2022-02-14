@@ -1,6 +1,8 @@
 ---
 title: Deploy a MERN Stack Application to Production
 description: A guide to deploying a MERN Stack application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a MERN Stack Application to Production on Code Capsules

@@ -1,6 +1,8 @@
 ---
 title: Deploy a React Application to Production
 description: Link a React GitHub repo to a PaaS provider to enable auto deployments.
+hide:
+  - navigation
 ---
 
 # How to Deploy a React Application to Production on Code Capsules

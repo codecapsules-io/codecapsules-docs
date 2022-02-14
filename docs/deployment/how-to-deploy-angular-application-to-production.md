@@ -1,13 +1,17 @@
 ---
 title: Deploy an Angular Application to Production
-description: Publish an Angular application by linking directly to your GitHub repo.
+description: Deploy a boilerplate Angular application provided by Code Capsules to production for free using a front-end capsule by linking it directly to your GitHub repo.
+hide:
+  - navigation
 ---
 
 # How to Deploy an Angular Application to Production on Code Capsules
 
-*A video for this guide can be found [here](https://www.youtube.com/watch?v=SQA4_qhwTD8&t=15s) if you prefer watching to reading.*
+<iframe width="950" height="534" src="https://www.youtube.com/embed/SQA4_qhwTD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Deploy an Angular application and learn how to host frontend code on Code Capsules. 
+Deploy an Angular application and learn how to host frontend code on Code Capsules. At the end of the guide, you would have deployed the application in the screenshot below and can adapt it to meet your unique needs. 
+
+![Deployed App](../assets/deployment/angular/cc-angular-app.png)
 
 ## Set Up
 

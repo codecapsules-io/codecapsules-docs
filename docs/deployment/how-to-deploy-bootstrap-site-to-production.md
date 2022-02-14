@@ -1,6 +1,8 @@
 ---
 title: Deploy a Bootstrap Site to Production
 description: Publish a bootstrap site using its source code on GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Bootstrap Site to Production on Code Capsules

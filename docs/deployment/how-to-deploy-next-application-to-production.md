@@ -1,6 +1,8 @@
 ---
 title: Deploy a Next Application to Production
 description: A guide to deploying a Next application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Next Application to Production on Code Capsules

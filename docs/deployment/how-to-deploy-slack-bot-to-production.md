@@ -1,6 +1,8 @@
 ---
 title: Deploy a Node.js Slack Bot
 description: A guide to deploying a Slack Bot from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Node.js Slack Bot to Production on Code Capsules

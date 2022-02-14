@@ -1,10 +1,15 @@
+---
+hide:
+  - navigation
+---
+
 # Deployment guides
 
 Code Capsules supports most front and backend frameworks and libraries. Here are step-by-step deployment guides for some of the most popular ones, but many others are supported too. For backend frameworks, the underlying technology is [GCP Buildpacks](https://github.com/GoogleCloudPlatform/buildpacks#language-idiomatic-configuration-options).
 
 ## Frontend Frameworks
 
-<div style="display: flex; flex-wrap: wrap;">
+<div style="display: flex; flex-wrap: wrap; max-width: 740px;">
 <figure>
   <a href="./how-to-deploy-angular-application-to-production/">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/angular.png" width="150" />
@@ -64,7 +69,7 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
 
 ## Backend Frameworks
 
-<div style="display: flex; flex-wrap: wrap;">
+<div style="display: flex; flex-wrap: wrap; max-width: 740px;">
 <figure>
   <a href="./how-to-deploy-django-application-to-production/">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/django.png" width="150" />
@@ -147,7 +152,7 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
 
 ## Fullstack Frameworks
 
-<div style="display: flex; flex-wrap: wrap;">
+<div style="display: flex; flex-wrap: wrap; max-width: 740px;">
 <figure>
   <a href="./how-to-deploy-mean-stack-application-to-production/">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/mean.png" width="150" />
@@ -177,7 +182,7 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
 
 ## Chatbots
 
-<div style="display: flex; flex-wrap: wrap;">
+<div style="display: flex; flex-wrap: wrap; max-width: 740px;">
 <figure>
   <a href="./how-to-deploy-node-telegram-bot-to-production/">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/node-telegram-bot.png" width="150" />
