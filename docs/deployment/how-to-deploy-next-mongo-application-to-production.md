@@ -1,6 +1,8 @@
 ---
 title: Deploy a Next.js and Mongo Application to Production
 description: A guide to deploying a Next.js and Mongo application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Next.js and Mongo Application to Production on Code Capsules

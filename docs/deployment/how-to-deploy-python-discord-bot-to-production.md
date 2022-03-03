@@ -1,6 +1,8 @@
 ---
 title: Deploy a Python Discord Bot
 description: A guide to deploying a Python Discord Bot from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Python Discord Bot to Production on Code Capsules in 5 Minutes

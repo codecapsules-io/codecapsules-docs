@@ -1,6 +1,8 @@
 ---
 title: Deploy a Next.js and Express.js Application to Production
 description: A walkthrough on how to deploy a Next.js and Express.js application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Next.js and Express.js Application to Production on Code Capsules

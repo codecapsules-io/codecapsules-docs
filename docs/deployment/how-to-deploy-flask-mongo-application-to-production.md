@@ -1,6 +1,8 @@
 ---
 title: Deploy a Flask MongoDB Application to Production
 description: A walkthrough on how to deploy a Flask MongoDB application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Flask MongoDB Application to Production on Code Capsules

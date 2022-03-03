@@ -1,6 +1,8 @@
 ---
 title: Deploy a Node.js Telegram Bot
 description: A guide to deploying a Node.js Telegram Bot from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Node.js Telegram Bot to Production on Code Capsules For Free in 5 Minutes

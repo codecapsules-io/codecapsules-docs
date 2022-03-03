@@ -1,6 +1,8 @@
 ---
 title: Deploy a MEAN Stack Application to Production
 description: A guide to deploying a MEAN Stack application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a MEAN Stack Application to Production on Code Capsules

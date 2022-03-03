@@ -1,6 +1,8 @@
 ---
 title: Deploy a Flask MySQL Application to Production
 description: A walkthrough on how to deploy a Flask MySQL application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Flask MySQL Application to Production on Code Capsules

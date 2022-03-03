@@ -1,6 +1,8 @@
 ---
 title: Deploy a Python Telegram Bot
 description: A guide to deploying a Python Telegram Bot from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Python Telegram Bot to Production on Code Capsules For Free in 5 Minutes
