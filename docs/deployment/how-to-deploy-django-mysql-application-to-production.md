@@ -1,6 +1,8 @@
 ---
 title: Deploy a Django MySQL Application to Production
 description: A guide to deploying a Django MySQL application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Django MySQL Application to Production on Code Capsules

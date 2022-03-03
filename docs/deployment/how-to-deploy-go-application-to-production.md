@@ -1,6 +1,8 @@
 ---
 title: Deploy a Go Application to Production
 description: A guide to deploying a Go application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Go Application to Production on Code Capsules

@@ -1,6 +1,8 @@
 ---
 title: Deploy an HTML5 template to production
 description: A guide on how to deploy an HTML5 template from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy an HTML5 Template to Production on Code Capsules

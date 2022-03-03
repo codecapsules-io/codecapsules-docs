@@ -1,6 +1,8 @@
 ---
 title: Deploy a Java MySQL Application to Production
 description: A guide on how to launch a Java MySQL application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Java MySQL Application to Production on Code Capsules 

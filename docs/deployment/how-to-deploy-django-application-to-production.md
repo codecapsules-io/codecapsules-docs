@@ -1,6 +1,8 @@
 ---
 title: Deploy a Django Application to Production
 description: A guide to deploying a Django application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Django Application to Production on Code Capsules

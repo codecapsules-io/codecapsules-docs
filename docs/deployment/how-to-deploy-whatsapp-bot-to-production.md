@@ -1,6 +1,8 @@
 ---
 title: Deploy a Python WhatsApp Bot
 description: A guide to deploying a WhatsApp Bot from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a WhatsApp Bot to Production on Code Capsules

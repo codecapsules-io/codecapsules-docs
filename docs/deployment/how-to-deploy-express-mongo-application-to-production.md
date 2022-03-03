@@ -1,6 +1,8 @@
 ---
 title: Deploy an Express.js and Mongo Application to Production
 description: A guide to deploying an Express.js and Mongo application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy an Express.js and Mongo Application to Production on Code Capsules

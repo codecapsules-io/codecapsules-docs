@@ -1,6 +1,8 @@
 ---
 title: Deploy a Node.js Discord Bot
 description: A guide to deploying a Node.js Discord Bot from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Node.js Discord Bot to Production on Code Capsules in 5 Minutes

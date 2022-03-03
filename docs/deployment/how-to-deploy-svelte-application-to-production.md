@@ -1,6 +1,8 @@
 ---
 title: Deploy a Svelte Application to Production
 description: Publish a Svelte application by linking directly to your GitHub repo.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Svelte Application to Production on Code Capsules

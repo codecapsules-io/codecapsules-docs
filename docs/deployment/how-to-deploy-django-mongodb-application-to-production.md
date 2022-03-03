@@ -1,6 +1,8 @@
 ---
 title: Deploy a Django MongoDB Application to Production
 description: A guide to deploying a Django MongoDB application from GitHub.
+hide:
+  - navigation
 ---
 
 # How to Deploy a Django MongoDB Application to Production on Code Capsules
