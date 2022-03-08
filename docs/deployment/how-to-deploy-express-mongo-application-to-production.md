@@ -7,6 +7,8 @@ hide:
 
 # How to Deploy an Express.js and Mongo Application to Production on Code Capsules
 
+*A video for this guide can be found [here](https://www.youtube.com/watch?v=Jt52C0xIiA8) if you prefer watching to reading.*
+
 Deploy an Express.js and Mongo application and learn how to host backend code on Code Capsules.
 
 ## Set up

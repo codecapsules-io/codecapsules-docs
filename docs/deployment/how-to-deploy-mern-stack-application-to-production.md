@@ -7,6 +7,8 @@ hide:
 
 # How to Deploy a MERN Stack Application to Production on Code Capsules
 
+*A video for this guide can be found [here](https://www.youtube.com/watch?v=iHl-pFlLWk0&t=97s) if you prefer watching to reading.*
+
 Deploy a MERN stack application and learn how to host backend code on Code Capsules.
 
 ## Set up
