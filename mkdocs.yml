@@ -43,6 +43,7 @@ nav:
     - Express: deployment/how-to-deploy-express-application-to-production.md
     - Express + Mongo: deployment/how-to-deploy-express-mongo-application-to-production.md
     - Flask: deployment/how-to-deploy-flask-application-to-production.md
+    - Flask + HTMx: deployment/how-to-deploy-flask-htmx-application-to-production.md
     - Flask + MongoDB: deployment/how-to-deploy-flask-mongo-application-to-production.md
     - Flask + MySQL: deployment/how-to-deploy-flask-mysql-application-to-production.md
     - Go: deployment/how-to-deploy-go-application-to-production.md
