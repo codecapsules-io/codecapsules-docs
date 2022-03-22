@@ -1,3 +1,8 @@
+---
+title: Building a Full Stack Flask HTMx Application
+description: Create a full stack application with Flask and HTMx to build a lightweight interactive site.
+---
+
 # Building a Full Stack Flask HTMx Application
 
 Recent trends in the modern web saw single page frameworks like React.js and Angular take over traditional multipage websites, mainly due to the lack of interactivity offered by HTML. It is worth noting however, that single page applications (SPAs) brought this interactivity at the cost of added complexity. 
