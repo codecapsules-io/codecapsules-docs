@@ -7,6 +7,8 @@ hide:
 
 # How to Deploy a MEAN Stack Application to Production on Code Capsules
 
+*A video for this guide can be found [here](https://www.youtube.com/watch?v=aVyMru2nrP4) if you prefer watching to reading.*
+
 Deploy a MEAN stack application and learn how to host backend code on Code Capsules.
 
 ## Set up

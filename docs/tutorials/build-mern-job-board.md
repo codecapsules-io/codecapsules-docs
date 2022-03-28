@@ -8,6 +8,8 @@ image: assets/tutorials/mern-job-board/mern_job_board.jpg
 
 ![Building MERN job board cover](../assets/tutorials/mern-job-board/mern_job_board.jpg)
 
+*A video for this tutorial can be found [here](https://www.youtube.com/watch?v=iHl-pFlLWk0&list=PLoEGujFfB4nYx8b4Wai0l75KsjzEruy6l&index=1&t=1s) if you prefer watching to reading.*
+
 Like other full stack applications, a MERN (MongoDB, Express, React, Node.js) stack has the advantage of needing only one capsule to host both the frontend and backend of an application.
 
 In this tutorial, we'll extend a boilerplate MERN application to make a job board where users can view and submit available jobs.
