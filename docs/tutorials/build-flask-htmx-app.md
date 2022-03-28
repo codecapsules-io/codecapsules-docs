@@ -148,16 +148,16 @@ The code in between the `<style>` tag adds CSS to our frontend to make it more v
         <tbody id="new-book" hx-target="closest tr" hx-swap="outerHTML swap:0.5s"> 
             {%for book in books%}
             <tr>
-                <td>{{book.title}}</td>
-                <td>{{book.author}}</td>
+                <td>{{book.Book.title}}</td>
+                <td>{{book.Author.name}}</td>
                 <td>
                     <button class="btn btn-primary" 
-                        hx-get="/get-edit-form/{{book.id}}">
+                        hx-get="/get-edit-form/{{book.Book.book_id}}">
                         Edit Title
                     </button>
                 </td>
                 <td>
-                    <button hx-delete="/delete/{{book.id}}" class="btn btn-primary">Delete</button>
+                    <button hx-delete="/delete/{{book.Book.book_id}}" class="btn btn-primary">Delete</button>
                 </td>
             </tr>
             {%endfor%}
