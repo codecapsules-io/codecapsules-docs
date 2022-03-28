@@ -178,6 +178,12 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
     <figcaption>Next, Express <br/> and MongoDB</figcaption>
   </a>
 </figure>
+<figure>
+  <a href="./how-to-deploy-flask-htmx-application-to-production">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/flask-htmx-cover.png" width="150" />
+    <figcaption>Flask HTMx</figcaption>
+  </a>
+</figure>
 </div>
 
 ## Chatbots
