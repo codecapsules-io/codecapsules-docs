@@ -107,6 +107,8 @@ nav:
     - Introducing Code Capsules: community/introducing-code-capsules.md
     - Hack Days and Free Tech Consulting: community/codecapsules-hack-days.md
     - Founder Fridays: community/founder-fridays.md
+  - Video Guides:
+    - videos/index.md
 
 extra:
   generator: false
