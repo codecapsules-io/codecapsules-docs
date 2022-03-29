@@ -7,7 +7,7 @@ description: Create a full stack application with Flask and HTMx to build a ligh
 
 ![cover image](../assets/tutorials/build-flask-htmx/flask-htmx-cover.png)
 
-[This tutorial explains how to build an application with Flask and HTMx. If you want to host an HTMx and Flask application on our PaaS, you can find a short deployment guide [here](/deployment/how-to-deploy-flask-htmx-application-to-production/) that uses the same project.]
+[This tutorial explains how to build an application with Flask and HTMx. If you want to host an HTMx and Flask application on our PaaS, you can find a short deployment guide [here](../../deployment/how-to-deploy-flask-htmx-application-to-production/) that uses the same project.]
 
 Recent trends in the modern web saw single page frameworks like React.js and Angular take over traditional multipage websites, mainly due to the lack of interactivity offered by HTML. It is worth noting however, that single page applications (SPAs) brought this interactivity at the cost of added complexity. 
 
