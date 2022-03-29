@@ -1,21 +1,19 @@
 ---
-title: Deploy an Express.js and Mongo Application to Production
-description: A guide to deploying an Express.js and Mongo application from GitHub.
+title: Deploy a Flask HTMx Application to Production
+description: A walkthrough on how to deploy a Flask HTMx application from GitHub.
 hide:
   - navigation
 ---
 
-# How to Deploy an Express.js and Mongo Application to Production on Code Capsules
+# How to Deploy a Flask HTMx Application to Production on Code Capsules
 
-*A video for this guide can be found [here](https://www.youtube.com/watch?v=Jt52C0xIiA8) if you prefer watching to reading.*
-
-Deploy an Express.js and Mongo application and learn how to host backend code on Code Capsules.
+Deploy a Flask HTMx application and learn how to host backend code on Code Capsules. 
 
 ## Set up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy [a/an framework/language] application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-express-mongodb).
+To demonstrate how to deploy a Flask HTMx application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-flask-htmx).
 
 Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
@@ -35,7 +33,7 @@ Code Capsules gives every account a Personal Team by default. A Team is an envir
 
 Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.
 
-![space name](../assets/deployment/express/space-name.png)
+![space name](../assets/deployment/python/space-name.png)
 
 ## Link to GitHub
 
@@ -68,8 +66,8 @@ Navigate to the “Spaces” tab and open the Space you’ll be using.
 Click the “Create a New Capsule for Your Space” button, and follow the instructions below to create a Data Capsule:
 
 1. Choose “Data Capsule”.
-2. Under “Data Type”, select “MongoDB Database Cluster”.  
-3. Under “Product”, select “Standard”.
+2. Under “Data Type”, select “A persistent storage mounted directly to your capsule.”  
+3. Under “Product”, select “Sandbox”.
 4. Click “Create Capsule”.
 
 Navigate to the "Space" containing your recently created Data Capsule and click the "New Capsule" button. Follow the instructions below to create a Backend Capsule:
@@ -89,14 +87,14 @@ Once your application is live, you can view the build log by selecting the “De
 
 ## Binding the Capsules
 
-Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the MongoDB database in the Data Capsule. 
+Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the SQLite database in the Data Capsule. 
 
-![Bind MERN Capsules](../assets/deployment/express/bind-express-mongo.png)
+![Bind MERN Capsules](../assets/deployment/flask-htmx/bind-flask-htmx-file-storage.png)
 
 ## View Application
 
 After restarting the capsule, the application will now be ready to be viewed. Click the “Live Website” link at the top of the capsule tab and you should see your deployed application.
 
-![Deployed App](../assets/deployment/express/cc-express-mongo-app.png)
+![Deployed App](../assets/deployment/flask-htmx/flask-htmx.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).

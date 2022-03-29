@@ -43,6 +43,7 @@ nav:
     - Express: deployment/how-to-deploy-express-application-to-production.md
     - Express + Mongo: deployment/how-to-deploy-express-mongo-application-to-production.md
     - Flask: deployment/how-to-deploy-flask-application-to-production.md
+    - Flask + HTMx: deployment/how-to-deploy-flask-htmx-application-to-production.md
     - Flask + MongoDB: deployment/how-to-deploy-flask-mongo-application-to-production.md
     - Flask + MySQL: deployment/how-to-deploy-flask-mysql-application-to-production.md
     - Go: deployment/how-to-deploy-go-application-to-production.md
@@ -86,6 +87,7 @@ nav:
     - Node.js Telegram Bot: tutorials/create-nodejs-telegram-bot.md
     - Python Telegram Bot: tutorials/create-and-host-telegram-bot.md
     - Flask API: tutorials/creating-and-hosting-a-flask-api.md
+    - Flask HTMx: tutorials/build-flask-htmx-app.md
     - Custom Domains: tutorials/customising-domain.md
     - Persistent Sleep Tracker Part 1: tutorials/develop-persistent-sleep-tracker-part-1.md
     - Persistent Sleep Tracker Part 2: tutorials/develop-persistent-sleep-tracker-part-2.md
@@ -107,6 +109,8 @@ nav:
     - Introducing Code Capsules: community/introducing-code-capsules.md
     - Hack Days and Free Tech Consulting: community/codecapsules-hack-days.md
     - Founder Fridays: community/founder-fridays.md
+  - Video Guides:
+    - videos/index.md
 
 extra:
   generator: false
