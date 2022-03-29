@@ -28,13 +28,24 @@ After building our application, you’ll want to deploy it to production so you 
 
 ## Setting up the Project
 
-With all the requirements in place, we can go ahead and set up our project. Let’s start by creating a virtual environment. 
+With all the requirements in place, we can go ahead and set up our project. Let’s start by creating the project folder and then we can set up a virtual environment within the project folder. 
+
+### Create Project Folder
+
+Next, let’s create a folder to house our application’s source code. Run the commands below in the terminal to create the folder and navigate into it.
+
+```
+mkdir flask-htmx
+cd flask-htmx
+```
+
+From here onwards, the `flask-htmx` directory will be referred to as the project’s root folder.
 
 ### Creating a Virtual Environment
 
 A virtual environment allows you to isolate the packages required to develop Python applications from your computer system. We recommend you use a new virtual environment for every application you develop so as to not corrupt dependencies for other applications. 
 
-Open a terminal in your desired working directory and run the following command to create a virtual environment:
+In the terminal run the following command to create a virtual environment within the project's root folder:
 
 ```
 python3 -m venv env
@@ -56,30 +67,39 @@ source env/bin/activate
 
 After activating the virtual environment, the name `env` should appear in brackets on the leftmost part of your terminal in your current line. This signals that the activation was successful. 
 
+![Virtual environmeent active](../assets/tutorials/build-flask-htmx/venvactive.png)
+
 ### Installing Dependencies
 
 We can now install our required packages to the virtual environment we activated in the previous step. Run the command below:
 
-```
+```sh
 pip3 install flask flask-sqlalchemy gunicorn
 ```
 
 You might notice there’s no dependency for HTMx in our dependency list. This is because it will be added as a script tag inside the head of our HTML templates.
 
-### Create Project Folder
-
-Next, let’s create a folder to house our application’s `src` code. Run the commands below to create the folder and navigate into it. 
-
-```
-mkdir flask-htmx
-cd flask-htmx
-```
-
-From here onwards, the `flask-htmx` directory will be referred to as the project’s root folder.
-
 ### Initialize an Empty Git Repository
 
-While in the project’s root folder, enter the command, `git init` to initialize a `git` repository. This will allow you to track changes to your app as you build it.
+While in the project’s root folder, enter the command, `git init` to initialize a `git` repository. This will allow you to track changes to your app as you build it. 
+
+Create a `.gitignore` file and within the file add the line below:
+
+``` 
+env/
+```
+
+This excludes the `env` folder from being tracked by git as we only want to track changes in our project files.
+
+### Linking to GitHub
+
+Head over to [GitHub](https://github.com/) and create a new repository. Then in your project's root folder run the command below from the terminal replacing the `username` and `repository_name` with your own values from GitHub.
+
+```sh
+git remote add origin git@github.com:username/repository_name.git
+```
+
+This will link your local repository to the one on GitHub.
 
 ## Building the HTMx Frontend
 
@@ -122,12 +142,15 @@ Next, create an `index.html` file inside the `templates` folder, and populate it
         }
     </style>
 </head>
+
+<!-- Place <body> </body> code here -->
+
 </html>
 ```
 
 There’s not much going on in the code snippet above, except for line 5 and 8, which are responsible for loading Bootstrap and HTMx into our `index.html` page. This gives you the power to build an interactive page just by including the `<script>` tag that links to HTMx, without needing to install any `npm` packages like with most SPAs. This is how HTMx allows you to build more lightweight sites compared to SPA frameworks. 
 
-The code in between the `<style>` tag adds CSS to our frontend to make it more visually appealing. Now let’s add code that will be rendered in the body tag of our page. Copy and paste the code below underneath the `</head>` tag:
+The code in between the `<style>` tag adds CSS to style our frontend to make it more visually appealing. Now let’s add code that will be rendered in the body tag of our page. Copy and paste the code below underneath the `</head>` tag:
 
 ```html
 <body>
@@ -195,7 +218,7 @@ This is the point of entry for any server wishing to run our app.
 
 ### Declare and Initialize `app` Module
 
-Create an `__init__.py` file and populate it with the code below:
+Create an `__init__.py` file in the `app` folder and populate it with the code below:
 
 ```py
 from flask import Flask
@@ -258,9 +281,9 @@ def home():
     return render_template("index.html", books=books)
 ```
 
-In the code snippet above, we’ve added the index route and binded the home method to it. The home method first queries the database to get a list of all books before returning the `index.html` template that’s populated with the list of books. 
+In the code snippet above, we’ve added the index route and bound the home function to it. The home function first queries the database to get a list of all books before returning the `index.html` template that’s populated with the list of books. 
 
-Add the code below to add the `/submit` route to our app’s views. 
+Add the code below to add the `/submit` route to our app’s `views.py` file. 
 
 ```py
 @app.route("/submit", methods=["POST"])
@@ -407,7 +430,7 @@ def update_book(id):
 
 There’s more than one view for the update logic, and we’ll see why shortly. The `/get-edit-form` route is called when a user clicks on the “Edit Title” button on the frontend, and it returns a form for updating the selected book. If the user decides to cancel this action, the `/get-book-row` route is called and it returns a table row with the unedited book entry. 
 
-If the user goes through with updating the book title, then the `/update` route is called. The `update_book` method that’s bound to the `/update` route will update the book title based on the `id` supplied to it as a query parameter. When the update is complete, the method returns an HTML table row with the updated book title.
+If the user goes through with updating the book title, then the `/update` route is called. The `update_book` function that’s bound to the `/update` route will update the book title based on the `id` supplied to it as a query parameter. When the update is complete, the method returns an HTML table row with the updated book title.
 
 ## Running our App
 
@@ -415,4 +438,13 @@ Our app is ready to be tested. Navigate to the project’s root folder in a term
 
 ![Flask HTMx Application](../assets/tutorials/build-flask-htmx/flask-htmx.png)
 
-We’ve shown you how to build a full stack Flask HTMx application from scratch and you should be able to deploy this basic version, but you may like to consider adding more functionality to enhance our app’s features. We recommend you check out [Alpine.js](https://alpinejs.dev/), a lightweight JavaScript framework that works well with `HTMx` to make sites that are more powerful yet still lightweight.
+Once you are satisfied with the app, you can commit and push your changes to GitHub with the following commands.
+
+```sh
+git add . 
+git commit -m 'commit message'
+git push origin
+```
+
+
+We’ve shown you how to build a full stack Flask HTMx application from scratch and you should be able to deploy this basic version, but you may like to consider adding more functionality to enhance our app’s features. We recommend you check out [Alpine.js](https://alpinejs.dev/), a lightweight JavaScript framework that works well with `HTMx` to make sites that are more powerful yet still lightweight. 
