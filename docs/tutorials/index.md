@@ -77,4 +77,11 @@ If you're looking to build cool applications that you can host on Code Capsules,
     <figcaption>Build a MERN Job Board</figcaption>
   </a>
 </figure>
+
+<figure>
+  <a href="./build-flask-htmx-app/">
+    <img style="border-radius: 10px 10px 0" src="../assets/tutorials/build-flask-htmx/flask-htmx-cover.png" width="300" />
+    <figcaption>Build a Flask HTMx App</figcaption>
+  </a>
+</figure>
 </div>

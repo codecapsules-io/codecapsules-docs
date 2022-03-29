@@ -87,6 +87,7 @@ nav:
     - Node.js Telegram Bot: tutorials/create-nodejs-telegram-bot.md
     - Python Telegram Bot: tutorials/create-and-host-telegram-bot.md
     - Flask API: tutorials/creating-and-hosting-a-flask-api.md
+    - Flask HTMx: tutorials/build-flask-htmx-app.md
     - Custom Domains: tutorials/customising-domain.md
     - Persistent Sleep Tracker Part 1: tutorials/develop-persistent-sleep-tracker-part-1.md
     - Persistent Sleep Tracker Part 2: tutorials/develop-persistent-sleep-tracker-part-2.md
