@@ -3,7 +3,11 @@ title: Building a Full Stack Flask HTMx Application
 description: Create a full stack application with Flask and HTMx to build a lightweight interactive site.
 ---
 
-# Building a Full Stack Flask HTMx Application
+# Building a Full Stack Application with Flask and HTMx
+
+![cover image](../assets/tutorials/build-flask-htmx/flask-htmx-cover.png)
+
+[This tutorial explains how to build an application with Flask and HTMx. If you want to host an HTMx and Flask application on our PaaS, you can find a short deployment guide [here](/deployment/how-to-deploy-flask-htmx-application-to-production/) that uses the same project.]
 
 Recent trends in the modern web saw single page frameworks like React.js and Angular take over traditional multipage websites, mainly due to the lack of interactivity offered by HTML. It is worth noting however, that single page applications (SPAs) brought this interactivity at the cost of added complexity. 
 
@@ -446,5 +450,6 @@ git commit -m 'commit message'
 git push origin
 ```
 
-
 We’ve shown you how to build a full stack Flask HTMx application from scratch and you should be able to deploy this basic version, but you may like to consider adding more functionality to enhance our app’s features. We recommend you check out [Alpine.js](https://alpinejs.dev/), a lightweight JavaScript framework that works well with `HTMx` to make sites that are more powerful yet still lightweight. 
+
+You can find the complete code shown above in [this GitHub repository](https://github.com/codecapsules-io/demo-flask-htmx).
