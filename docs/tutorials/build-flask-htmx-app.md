@@ -32,7 +32,7 @@ With all the requirements in place, we can go ahead and set up our project. Let�
 
 ### Create Project Folder
 
-Next, let’s create a folder to house our application’s `src` code. Run the commands below to create the folder and navigate into it.
+Next, let’s create a folder to house our application’s source code. Run the commands below in the terminal to create the folder and navigate into it.
 
 ```
 mkdir flask-htmx
@@ -45,7 +45,7 @@ From here onwards, the `flask-htmx` directory will be referred to as the project
 
 A virtual environment allows you to isolate the packages required to develop Python applications from your computer system. We recommend you use a new virtual environment for every application you develop so as to not corrupt dependencies for other applications. 
 
-Open a terminal in your desired working directory and run the following command to create a virtual environment:
+In the terminal run the following command to create a virtual environment within the project's root folder:
 
 ```
 python3 -m venv env
@@ -73,7 +73,7 @@ After activating the virtual environment, the name `env` should appear in bracke
 
 We can now install our required packages to the virtual environment we activated in the previous step. Run the command below:
 
-```
+```sh
 pip3 install flask flask-sqlalchemy gunicorn
 ```
 
@@ -83,13 +83,23 @@ You might notice there’s no dependency for HTMx in our dependency list. This i
 
 While in the project’s root folder, enter the command, `git init` to initialize a `git` repository. This will allow you to track changes to your app as you build it. 
 
-Create a `.gitignore` file and within file add the line below:
+Create a `.gitignore` file and within the file add the line below:
 
 ``` 
 env/
 ```
 
 This excludes the `env` folder from being tracked by git as we only want to track changes in our project files.
+
+### Linking to GitHub
+
+Head over to [GitHub](https://github.com/) and create a new repository. Then in your project's root folder run the command below from the terminal replacing the `username` and `repository_name` with your own values from GitHub.
+
+```sh
+git remote add origin git@github.com:username/repository_name.git
+```
+
+This will link your local repository to the one on GitHub.
 
 ## Building the HTMx Frontend
 
@@ -133,7 +143,7 @@ Next, create an `index.html` file inside the `templates` folder, and populate it
     </style>
 </head>
 
-<!-- To be replaced with <body> </body> code -->
+<!-- Place <body> </body> code here -->
 
 </html>
 ```
@@ -428,4 +438,13 @@ Our app is ready to be tested. Navigate to the project’s root folder in a term
 
 ![Flask HTMx Application](../assets/tutorials/build-flask-htmx/flask-htmx.png)
 
-We’ve shown you how to build a full stack Flask HTMx application from scratch and you should be able to deploy this basic version, but you may like to consider adding more functionality to enhance our app’s features. We recommend you check out [Alpine.js](https://alpinejs.dev/), a lightweight JavaScript framework that works well with `HTMx` to make sites that are more powerful yet still lightweight.
+Once you are satisfied with the app, you can commit and push your changes to GitHub with the following commands.
+
+```sh
+git add . 
+git commit -m 'commit message'
+git push origin
+```
+
+
+We’ve shown you how to build a full stack Flask HTMx application from scratch and you should be able to deploy this basic version, but you may like to consider adding more functionality to enhance our app’s features. We recommend you check out [Alpine.js](https://alpinejs.dev/), a lightweight JavaScript framework that works well with `HTMx` to make sites that are more powerful yet still lightweight. 
