@@ -2645,13 +2645,13 @@
 <p>After building our application, you’ll want to deploy it to production so you can show it to friends and family. You will therefore need the following to complete the tutorial:</p>
 <ul>
 <li>Git set up and installed, and a registered GitHub account</li>
-<li>Python3 installed </li>
+<li>Python 3 installed </li>
 <li>An IDE or text editor of your choice</li>
 </ul>
 <h2 id="setting-up-the-project">Setting up the Project</h2>
 <p>With all the requirements in place, we can go ahead and set up our project. Let’s start by creating the project folder and then we can set up a virtual environment within the project folder. </p>
 <h3 id="create-project-folder">Create Project Folder</h3>
-<p>Next, let’s create a folder to house our application’s source code. Run the commands below in the terminal to create the folder and navigate into it.</p>
+<p>Let’s create a folder to house our application’s source code. Run the commands below in the terminal to create the folder and navigate into it.</p>
 <div class="highlight"><pre><span></span><code>mkdir flask-htmx
 cd flask-htmx
 </code></pre></div>
@@ -2676,18 +2676,18 @@ cd flask-htmx
 </code></pre></div>
 <p>You might notice there’s no dependency for HTMx in our dependency list. This is because it will be added as a script tag inside the head of our HTML templates.</p>
 <h3 id="initialize-an-empty-git-repository">Initialize an Empty Git Repository</h3>
-<p>While in the project’s root folder, enter the command, <code>git init</code> to initialize a <code>git</code> repository. This will allow you to track changes to your app as you build it. </p>
-<p>Create a <code>.gitignore</code> file and within the file add the line below:</p>
+<p>While in the project’s root folder, enter the command <code>git init</code> to initialize a <code>git</code> repository. This will allow you to track changes to your app as you build it. </p>
+<p>Create a <code>.gitignore</code> file and add the line below to it:</p>
 <div class="highlight"><pre><span></span><code>env/
 </code></pre></div>
-<p>This excludes the <code>env</code> folder from being tracked by git as we only want to track changes in our project files.</p>
+<p>This excludes the <code>env</code> folder from being tracked by Git, as we only want to track changes in our project files.</p>
 <h3 id="linking-to-github">Linking to GitHub</h3>
-<p>Head over to <a href="https://github.com/">GitHub</a> and create a new repository. Then in your project's root folder run the command below from the terminal replacing the <code>username</code> and <code>repository_name</code> with your own values from GitHub.</p>
+<p>Head over to <a href="https://github.com/">GitHub</a> and create a new repository. Then, in your project's root folder, run the command below from the terminal, replacing <code>username</code> and <code>repository_name</code> with your own values from GitHub.</p>
 <div class="highlight"><pre><span></span><code>git remote add origin git@github.com:username/repository_name.git
 </code></pre></div>
 <p>This will link your local repository to the one on GitHub.</p>
 <h2 id="building-the-htmx-frontend">Building the HTMx Frontend</h2>
-<p>With the setup complete, we can now begin building our app. We will start with the HTMx frontend, and for this you need to create an <code>app/templates</code> folder inside the project’s root folder.</p>
+<p>With the set up complete, we can now begin building our app. We will start with the HTMx frontend, and for this you need to create an <code>app/templates</code> folder inside the project’s root folder.</p>
 <p>Next, create an <code>index.html</code> file inside the <code>templates</code> folder, and populate it with the code below:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
@@ -2728,7 +2728,7 @@ cd flask-htmx
 
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>There’s not much going on in the code snippet above, except for line 5 and 8, which are responsible for loading Bootstrap and HTMx into our <code>index.html</code> page. This gives you the power to build an interactive page just by including the <code>&lt;script&gt;</code> tag that links to HTMx, without needing to install any <code>npm</code> packages like with most SPAs. This is how HTMx allows you to build more lightweight sites compared to SPA frameworks. </p>
+<p>There’s not much going on in the code snippet above, except for line 5 and 8, which are responsible for loading Bootstrap and HTMx into our <code>index.html</code> page. This gives you the power to build an interactive page just by including the <code>&lt;script&gt;</code> tag that links to HTMx, without needing to install any <code>npm</code> packages like with most SPAs. This is how HTMx allows you to build sites that are more lightweight compared to SPA frameworks. </p>
 <p>The code in between the <code>&lt;style&gt;</code> tag adds CSS to style our frontend to make it more visually appealing. Now let’s add code that will be rendered in the body tag of our page. Copy and paste the code below underneath the <code>&lt;/head&gt;</code> tag:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Book Recommendations<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
@@ -2773,7 +2773,7 @@ cd flask-htmx
 <li>
 <p><strong>hx-target</strong> – This attribute accepts the <code>id</code> of the element you want to update after a successful request or when an event is triggered. Take note of the preceding <code>#</code> that’s written before the <code>id</code> value. </p>
 <ul>
-<li>You might have noticed that we didn’t use an <code>id</code> value in the table, but used a value of <code>closest tr</code> instead. This swaps the closest table row with the HTML that’ll be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered either by the “Edit Title” button or the “Delete” button. </li>
+<li>You might have noticed that we didn’t use an <code>id</code> value in the table, but used a value of <code>closest tr</code> instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the “Edit Title” button or the “Delete” button. </li>
 </ul>
 </li>
 <li>
@@ -2813,7 +2813,7 @@ cd flask-htmx
 <span class="n">db</span><span class="o">.</span><span class="n">create_all</span><span class="p">()</span> 
 </code></pre></div>
 <p>Here we declare our app object using the Flask package we installed earlier. We’ll be using a SQLite database, which we configure using the <code>app.config</code> lines. </p>
-<p>We use SQLAlchemy to declare the database object we’ll interact with, as it allows us to read and write to the database using object notation, which is more familiar than raw SQL statements. It is important to import the models only after declaring the db object so that their respective tables are included in the database when it’s created. The last two lines handle the initialization of the database and the creation of all relevant tables in the database based on the models that are imported. </p>
+<p>We use SQLAlchemy to declare the database object we’ll interact with, as it allows us to read and write to the database using object notation, which is more familiar than raw SQL statements. It is important to import the models only after declaring the database object so that their respective tables are included in the database when it’s created. The last two lines handle the initialization of the database and the creation of all relevant tables in the database based on the models that are imported. </p>
 <h3 id="register-app-models">Register App Models</h3>
 <p>The next step is to create the <code>models.py</code> module we imported earlier in the <code>__init__.py</code> file. Create a file named <code>models.py</code> inside the app folder and populate it with the code below:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">db</span>
@@ -2831,7 +2831,7 @@ cd flask-htmx
     <span class="n">author_id</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="s2">&quot;author.author_id&quot;</span><span class="p">))</span>
     <span class="n">title</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">String</span><span class="p">)</span>
 </code></pre></div>
-<p>Here we declare the two models we’re going to be saving in our database, which are <code>Author</code> and <code>Book</code>. It is worth noting the one-to-many relationship between an Author and Books, as an Author can have many Books but each Book can only have a single Author in the context of this application. We denote this relationship by using a foreign key in the <code>author_id</code> field of the Book and a <code>backref</code> in the books field of an Author.</p>
+<p>Here we declare the two models we’re going to be saving in our database, which are <code>Author</code> and <code>Book</code>. It is worth noting the one-to-many relationship between "author" and "books", as an author can have many Books but each book can only have a single author in the context of this application. We denote this relationship by using a foreign key in the <code>author_id</code> field of the book and a <code>backref</code> in the books field of an author.</p>
 <h3 id="create-views">Create Views</h3>
 <p>The last part in building the backend of our app is to create the views or routes that the frontend will be interacting with. Create a <code>views.py</code> file inside the app folder and add the code below to it:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span><span class="p">,</span> <span class="n">db</span>
@@ -2844,7 +2844,7 @@ cd flask-htmx
     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">,</span> <span class="n">books</span><span class="o">=</span><span class="n">books</span><span class="p">)</span>
 </code></pre></div>
 <p>In the code snippet above, we’ve added the index route and bound the home function to it. The home function first queries the database to get a list of all books before returning the <code>index.html</code> template that’s populated with the list of books. </p>
-<p>Add the code below to add the <code>/submit</code> route to our app’s <code>views.py</code> file. </p>
+<p>Add the code below to add the <code>/submit</code> route to our app’s <code>views.py</code> file: </p>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/submit&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">submit</span><span class="p">():</span>
     <span class="n">global_book_object</span> <span class="o">=</span> <span class="n">Book</span><span class="p">()</span>
@@ -2891,7 +2891,7 @@ cd flask-htmx
 <span class="s2">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">response</span>
 </code></pre></div>
-<p>When a person submits a new book, this is the route that’s called. The logic first checks if the author already exists in the database and if so, saves the book with the author’s <code>author_id</code>. Otherwise it creates a new author and then saves the book. As HTMx expects an HTML response, the submit method responds with an HTML table row that updates the list of books on the frontend. The new entry will be for the recently added book. </p>
+<p>When a person submits a new book, this is the route that’s called. The logic first checks if the author already exists in the database and if so, saves the book with the author’s <code>author_id</code>. Otherwise, it creates a new author and then saves the book. As HTMx expects an HTML response, the <code>submit</code> method responds with an HTML table row that updates the list of books on the frontend. The new entry will be for the recently added book. </p>
 <p>Next, let’s add the code for the <code>/delete</code> route. Copy and paste the code below:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/delete/&lt;int:id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;DELETE&quot;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">delete_book</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
