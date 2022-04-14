@@ -288,6 +288,7 @@ TOKEN = "YOUR-BOT-TOKEN-HERE"
 with the below
 
 ```python
+import os
 TOKEN = os.getenv('BOTAPIKEY')
 ```
 
