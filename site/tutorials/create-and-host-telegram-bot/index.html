@@ -2858,7 +2858,8 @@
 <div class="highlight"><pre><span></span><code><span class="n">TOKEN</span> <span class="o">=</span> <span class="s2">&quot;YOUR-BOT-TOKEN-HERE&quot;</span>
 </code></pre></div>
 <p>with the below</p>
-<div class="highlight"><pre><span></span><code><span class="n">TOKEN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;BOTAPIKEY&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">TOKEN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;BOTAPIKEY&#39;</span><span class="p">)</span>
 </code></pre></div>
 <p><code>os.getenv('BOTAPIKEY')</code> will look for an <a href="https://medium.com/chingu/an-introduction-to-environment-variables-and-how-to-use-them-f602f66d15fa">environment variable</a> with the name "BOTAPIKEY". When we host our bot on Code Capsules, we'll set this environment variable to the key we received from the BotFather.</p>
 <p>With that done, we must now create some files before we can push our code to GitHub and deploy it on Code Capsules. </p>
