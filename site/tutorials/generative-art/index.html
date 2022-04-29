@@ -1,0 +1,2365 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Create an application that generates cool graphics using Pillow, Flask and HTMx.">
+      
+      
+      
+      
+        <link rel="canonical" href="https://codecapsules.io/docs/tutorials/generative-art/">
+      
+      
+        
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.2+insiders-2.12.2">
+    
+    
+      
+        <title>Build a Generative Art Flask HTMx Application - Code Capsules</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.98acb380.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.73e53a79.min.css">
+        
+      
+      <link rel="preload" as="style" href="../../assets/stylesheets/vendor/mermaid.733f213f.min.css">
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    <script>function __md_scope(e,t,_){return new URL(_||(t===localStorage?"../..":"../.."),location).pathname+"."+e}function __md_get(e,t=localStorage,_){return JSON.parse(t.getItem(__md_scope(e,t,_)))}function __md_set(e,t,_=localStorage,o){try{_.setItem(__md_scope(e,_,o),JSON.stringify(t))}catch(e){}}</script>
+    
+      
+
+  
+
+
+  
+
+  
+
+
+  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-165274631-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="codecapsules" />
+  <meta name="twitter:creator" content="codecapsules" />
+  
+      <meta name="twitter:title" content="Build a Generative Art Flask HTMx Application" />
+      <meta name="twitter:description" content="Create an application that generates cool graphics using Pillow, Flask and HTMx." />
+  
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#build-a-generative-art-application-with-pillow-flask-and-htmx" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Code Capsules" class="md-header__button md-logo" aria-label="Code Capsules" data-md-component="logo">
+      
+  <img src="../../assets/cclogo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Code Capsules
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Build a Generative Art Flask HTMx Application
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 10a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2 2 2 0 0 1 2-2m10-3a5 5 0 0 1 5 5 5 5 0 0 1-5 5H7a5 5 0 0 1-5-5 5 5 0 0 1 5-5h10M7 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3h10a3 3 0 0 0 3-3 3 3 0 0 0-3-3H7z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Getting Started
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../deployment/" class="md-tabs__link">
+        Deployment
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../reference/" class="md-tabs__link">
+        Reference
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../FAQ/teams-spaces-capsules/" class="md-tabs__link">
+        FAQ
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../comparisons/" class="md-tabs__link">
+        Comparisons
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../community/introducing-code-capsules/" class="md-tabs__link">
+        Community
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../videos/" class="md-tabs__link">
+        Video Guides
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Code Capsules" class="md-nav__button md-logo" aria-label="Code Capsules" data-md-component="logo">
+      
+  <img src="../../assets/cclogo.svg" alt="logo">
+
+    </a>
+    Code Capsules
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../deployment/">Deployment</a>
+          <label for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Deployment" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Deployment
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-angular-application-to-production/" class="md-nav__link">
+        Angular
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-bootstrap-site-to-production/" class="md-nav__link">
+        Bootstrap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-django-application-to-production/" class="md-nav__link">
+        Django
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-django-mysql-application-to-production/" class="md-nav__link">
+        Django + MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-django-mongodb-application-to-production/" class="md-nav__link">
+        Django + MongoDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-express-application-to-production/" class="md-nav__link">
+        Express
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-express-mongo-application-to-production/" class="md-nav__link">
+        Express + Mongo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-application-to-production/" class="md-nav__link">
+        Flask
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-htmx-application-to-production/" class="md-nav__link">
+        Flask + HTMx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-mongo-application-to-production/" class="md-nav__link">
+        Flask + MongoDB
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-mysql-application-to-production/" class="md-nav__link">
+        Flask + MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-go-application-to-production/" class="md-nav__link">
+        Go
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-static-html-to-production/" class="md-nav__link">
+        HTML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-html5up-template-to-production/" class="md-nav__link">
+        HTML5up
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-java-application-to-production/" class="md-nav__link">
+        Java (Spring)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-java-mysql-application-to-production/" class="md-nav__link">
+        Java (Spring) + MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-mean-stack-application-to-production/" class="md-nav__link">
+        MEAN (Mongo, Express, Angular)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-mern-stack-application-to-production/" class="md-nav__link">
+        MERN (Mongo, Express, React)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-next-application-to-production/" class="md-nav__link">
+        Next
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-next-mongo-application-to-production/" class="md-nav__link">
+        Next + Mongo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-next-express-application-to-production/" class="md-nav__link">
+        Next + Express
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-next-express-mongo-application-to-production/" class="md-nav__link">
+        Next + Express + Mongo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-node-discord-bot-to-production/" class="md-nav__link">
+        NodeJS Discord Bot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-node-telegram-bot-to-production/" class="md-nav__link">
+        NodeJS Telegram Bot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-python-discord-bot-to-production/" class="md-nav__link">
+        Python Discord Bot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-python-telegram-bot-to-production/" class="md-nav__link">
+        Python Telegram Bot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-polling-node-telegram-bot-to-production/" class="md-nav__link">
+        Polling NodeJS Telegram Bot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-polling-python-telegram-bot-to-production/" class="md-nav__link">
+        Polling Python Telegram Bot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-react-application-to-production/" class="md-nav__link">
+        React
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-slack-bot-to-production/" class="md-nav__link">
+        Slack
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-svelte-application-to-production/" class="md-nav__link">
+        Svelte
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-vue-application-to-production/" class="md-nav__link">
+        Vue
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-whatsapp-bot-to-production/" class="md-nav__link">
+        WhatsApp
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../reference/">Reference</a>
+          <label for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/capsule-billing/" class="md-nav__link">
+        Capsule Billing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/capsule-management/" class="md-nav__link">
+        Capsule Management
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/custom_domains/" class="md-nav__link">
+        Custom Domains
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/set-up-file-data-capsule/" class="md-nav__link">
+        File Data Capsule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/set-up-mongodb-data-capsule/" class="md-nav__link">
+        MongoDB Data Capsule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/set-up-mysql-data-capsule/" class="md-nav__link">
+        MySQL Data Capsule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/add-procfile-to-backend-application/" class="md-nav__link">
+        Procfile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/python-development-with-code-capsules/" class="md-nav__link">
+        Python Development
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/team-management/" class="md-nav__link">
+        Team Management
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../">Tutorials</a>
+          <label for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-slackbot-with-node/" class="md-nav__link">
+        Slackbot with Node.js
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-mern-job-board/" class="md-nav__link">
+        MERN Job Board
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-a-web-file-store/" class="md-nav__link">
+        Web File Store
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-nodejs-telegram-bot/" class="md-nav__link">
+        Node.js Telegram Bot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-and-host-telegram-bot/" class="md-nav__link">
+        Python Telegram Bot
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-and-hosting-a-flask-api/" class="md-nav__link">
+        Flask API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-flask-htmx-app/" class="md-nav__link">
+        Flask HTMx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Generative Graphics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Generative Graphics
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-set-up" class="md-nav__link">
+    Project Set Up
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-frontend" class="md-nav__link">
+    Build the Frontend
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-backend" class="md-nav__link">
+    Build the Backend
+  </a>
+  
+    <nav class="md-nav" aria-label="Build the Backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialize-app-module" class="md-nav__link">
+    Initialize app Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-graphic-image-generation-logic" class="md-nav__link">
+    Add Graphic Image Generation Logic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-app-views" class="md-nav__link">
+    Add App Views
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-for-deployment" class="md-nav__link">
+    Prepare for Deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare for Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-procfile-and-requirementstxt" class="md-nav__link">
+    Add Procfile and requirements.txt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-virtual-environment-to-gitignore" class="md-nav__link">
+    Add Virtual Environment to .gitignore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-commit-and-push-git-changes" class="md-nav__link">
+    Add, Commit, and Push Git Changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-to-code-capsules" class="md-nav__link">
+    Deploy to Code Capsules
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customising-domain/" class="md-nav__link">
+        Custom Domains
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop-persistent-sleep-tracker-part-1/" class="md-nav__link">
+        Persistent Sleep Tracker Part 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop-persistent-sleep-tracker-part-2/" class="md-nav__link">
+        Persistent Sleep Tracker Part 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../host-a-frontend/" class="md-nav__link">
+        Front-end Portfolio
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stripe-checkout-and-email-with-flask/" class="md-nav__link">
+        Stripe Checkout and Email Subscription with Flask
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-catalogue-with-nodejs-and-mysql/" class="md-nav__link">
+        Game Catalogue API with Node.js and MySQL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/teams-spaces-capsules/" class="md-nav__link">
+        Teams, Spaces and Capsules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/what-is-a-capsule/" class="md-nav__link">
+        What is a Capsule?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/what-is-a-space/" class="md-nav__link">
+        What is a Space?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/what-is-a-team/" class="md-nav__link">
+        What is a Team?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/how-to-add-custom-domain/" class="md-nav__link">
+        How Do I Add a Custom Domain?
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../comparisons/">Comparisons</a>
+          <label for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Comparisons" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Comparisons
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules/" class="md-nav__link">
+        PaaS Providers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparisons/comparing-telegram-bot-hosting-providers/" class="md-nav__link">
+        Telegram Hosting Providers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparisons/saas-paas-iaas/" class="md-nav__link">
+        SaaS vs PaaS vs IaaS
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Community
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Community
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/introducing-code-capsules/" class="md-nav__link">
+        Introducing Code Capsules
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/codecapsules-hack-days/" class="md-nav__link">
+        Hack Days and Free Tech Consulting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/founder-fridays/" class="md-nav__link">
+        Founder Fridays
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--container ">
+          <a href="../../videos/">Video Guides</a>
+          <label for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        </div>
+      
+      <nav class="md-nav" aria-label="Video Guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Video Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-set-up" class="md-nav__link">
+    Project Set Up
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-frontend" class="md-nav__link">
+    Build the Frontend
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-backend" class="md-nav__link">
+    Build the Backend
+  </a>
+  
+    <nav class="md-nav" aria-label="Build the Backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialize-app-module" class="md-nav__link">
+    Initialize app Module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-graphic-image-generation-logic" class="md-nav__link">
+    Add Graphic Image Generation Logic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-app-views" class="md-nav__link">
+    Add App Views
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prepare-for-deployment" class="md-nav__link">
+    Prepare for Deployment
+  </a>
+  
+    <nav class="md-nav" aria-label="Prepare for Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-procfile-and-requirementstxt" class="md-nav__link">
+    Add Procfile and requirements.txt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-virtual-environment-to-gitignore" class="md-nav__link">
+    Add Virtual Environment to .gitignore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-commit-and-push-git-changes" class="md-nav__link">
+    Add, Commit, and Push Git Changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploy-to-code-capsules" class="md-nav__link">
+    Deploy to Code Capsules
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                
+                <h1 id="build-a-generative-art-application-with-pillow-flask-and-htmx">Build a Generative Art Application with Pillow, Flask and HTMx</h1>
+<p><img alt="Generative Art Cover" src="../../assets/tutorials/generative-art/generative-art-cover.png" /></p>
+<p>Python’s Pillow package provides support for image manipulation that we can leverage to create random graphic images.</p>
+<p>In this tutorial, we’ll show you how to build a web application that creates images with rectangle graphics of different colors and sizes, and makes them available for download when requested by a user.</p>
+<p>Here's an example of a graphic image that can be created by the app we'll build:</p>
+<p><img alt="Graphic Image" src="../../assets/tutorials/generative-art/graphic.png" /></p>
+<p>You can also add text to the generated images to create image covers and different marketing posts.</p>
+<h2 id="requirements">Requirements</h2>
+<p>You will need the following to complete the tutorial and host your application on Code Capsules:</p>
+<ul>
+<li>A <a href="https://codecapsules.io/">Code Capsules</a> account</li>
+<li>Git set up and installed, and a registered <a href="https://github.com/">GitHub</a> account</li>
+<li>IDE or text editor of your choice</li>
+<li>Python 3 installed</li>
+</ul>
+<h2 id="project-set-up">Project Set Up</h2>
+<p>To begin, we need to <strong>create a project folder</strong> to house all our files.</p>
+<p>In a terminal, navigate to the directory you'll be keeping the application files in. Run the commands below to create the project folder and navigate into it.</p>
+<div class="highlight"><pre><span></span><code>mkdir generate-graphics
+cd generate-graphics
+</code></pre></div>
+<p>Next we'll <strong>create a virtual environment</strong>, which will allow us to isolate the packages we need to run our application from the computer system. Run the command below from a terminal in the project root folder to create a virtual environment called <code>env</code>:</p>
+<div class="highlight"><pre><span></span><code>python -m venv env
+</code></pre></div>
+<p>To activate the virtual environment, run one of the following commands depending on your OS:</p>
+<p><strong>MacOS</strong></p>
+<div class="highlight"><pre><span></span><code>source env/bin/activate
+</code></pre></div>
+<p><strong>Windows</strong></p>
+<div class="highlight"><pre><span></span><code>.\env\Scripts\activate
+</code></pre></div>
+<p>When you’ve activated the virtual environment, the name <code>env</code> will appear on the far left of your current line. This confirms that the activation was successful.</p>
+<p><img alt="Activated virtual environment" src="../../assets/tutorials/generative-art/envactive.png" /></p>
+<p>Now we can <strong>install dependencies</strong> our app needs to the environment. Run the command below from a terminal in the project root folder to install the packages we’ll need:</p>
+<div class="highlight"><pre><span></span><code>pip install flask pillow gunicorn
+</code></pre></div>
+<p>Let's <strong>initialize a Git repository</strong> so that we can make use of version control throughout the course of this tutorial and keep track of our changes. Run the command <code>git init</code> to create a new empty repository in the project root folder.</p>
+<p>The final set up step is to <strong>link to GitHub</strong>. We'll link our newly created local <code>git</code> repository to a remote one that we can deploy to Code Capsules from. The remote repository can be thought of as a mirror image of the local one, and we'll update the remote repository when new code works as expected locally.</p>
+<p>Head over to <a href="https://github.com/">GitHub</a> and create a new repository. You’ll be presented with instructions for linking your new remote repository to a local one. Go back to your terminal in the project root folder and run the command below, taking care to replace the <code>username</code> and <code>repository_name</code> with your own values.</p>
+<div class="highlight"><pre><span></span><code>git remote add origin git@github.com:username/repository_name.git
+</code></pre></div>
+<h2 id="build-the-frontend">Build the Frontend</h2>
+<p>We can now start building our generative art app and we’ll start with the frontend using Flask templates. Create an <code>app/templates</code> folder inside the project root folder and add a file named <code>home.html</code> to it. This file will contain the code for the landing page of our app. Populate it with the code below:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Generate Art without NFTs<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span>
+      <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css&quot;</span>
+      <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span>
+      <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1&quot;</span>
+      <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span>
+    <span class="p">/&gt;</span>
+    <span class="c">&lt;!-- HTMX --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/htmx.org@1.5.0&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+      <span class="nt">body</span> <span class="p">{</span>
+        <span class="k">padding</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+        <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nt">img</span> <span class="p">{</span>
+        <span class="k">max-height</span><span class="p">:</span> <span class="mi">75</span><span class="kt">vh</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="p">.</span><span class="nc">image-frame</span> <span class="p">{</span>
+        <span class="k">border</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#213e49</span><span class="p">;</span>
+        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+        <span class="k">width</span><span class="p">:</span> <span class="mi">80</span><span class="kt">vh</span><span class="p">;</span>
+        <span class="k">margin</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+        <span class="k">margin-top</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="p">.</span><span class="nc">button-row</span> <span class="p">{</span>
+        <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+        <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">row</span><span class="p">;</span>
+        <span class="k">justify-content</span><span class="p">:</span> <span class="kc">space-around</span><span class="p">;</span>
+        <span class="k">width</span><span class="p">:</span> <span class="mi">60</span><span class="kt">%</span><span class="p">;</span>
+        <span class="k">margin</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+        <span class="k">margin-top</span><span class="p">:</span> <span class="mi">25</span><span class="kt">px</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="c">&lt;!-- Insert body code here --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>The <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> section links to Bootstrap to simplify styling for common HTML elements like forms and buttons, while the <code>&lt;style&gt;</code> tag adds any extra unique styling we might need.</p>
+<p>We’ll be using HTMx to send requests to generate a new graphic image, and we include it in the project by adding the <code>&lt;script&gt;</code> tag below the <code>&lt;link&gt;</code> tag. HTMx makes it possible to add interactivity to traditional multipage HTML sites without any of the extra complexity that’s introduced by popular single page frameworks.</p>
+<p>Next, we'll add the code for the body of the home page. Copy and paste the snippet below underneath the closing <code>&lt;/head&gt;</code> tag in <code>home.html</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Generate Art<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The art below is unique. It will never be seen again if you press &quot;I hate this art, make me another&quot;. If you like it, you can download it and keep it. No need to get blockchain or NFTs or Open Sea involved: just a few lines of Python. Read our <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://codecapsules.io/docs/tutorials/generative-art-python.html&quot;</span><span class="p">&gt;</span>tutorial on how to make your own<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+{% if image %}
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;image-frame&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;new-image&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;data:image/png;base64,{{image}}&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+{% endif %}
+
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;button-row&quot;</span><span class="p">&gt;</span>
+    {% if image %}
+    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/download&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;image&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">{{image}}</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;display: none;&quot;</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="p">&gt;</span>Download<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+    {% endif %}
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary&quot;</span>
+            <span class="na">hx-target</span><span class="o">=</span><span class="s">&quot;#new-image&quot;</span>
+            <span class="na">hx-get</span><span class="o">=</span><span class="s">&quot;/generate-another&quot;</span>
+            <span class="na">hx-swap</span><span class="o">=</span><span class="s">&quot;outerHTML&quot;</span><span class="p">&gt;</span>
+        I hate this art, make me another
+    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Our app has two main features: it allows a user to generate new graphic images and to download them. The “I hate this art, make me another” button sends a request to the <code>/generate-another</code> route, which handles the creation of a new graphic image. When the app generates an image a user likes, the user can download that image by pressing the “Download” button. This sends a request to the <code>/download</code> route which is responsible for starting the image download.</p>
+<p>The <code>&lt;img&gt;</code> tag below the page header takes in a Base64 string as input and renders the corresponding graphic image to the screen. We’ve assigned an <code>id</code> value of <code>“new-image”</code> to the tag to allow us to use HTMx to update the image when a user clicks the “I hate this art, make me another” button. You’ll notice three HTMx attributes in the button's <code>src</code> code, which is located at the bottom of the page. Let’s go over them and see what each one is responsible for:</p>
+<ul>
+<li><code>hx-target</code>: This attribute accepts an <code>id</code> value prefixed by a <code>#</code>. It lets HTMx know which element to swap on a successful request.</li>
+<li><code>hx-get</code>: The <code>hx-get</code> attribute sends a <code>GET</code> request to the specified URL. If we wanted to send a <code>POST</code> request, we would have used the <code>hx-post</code> attribute instead.</li>
+<li><code>hx-swap</code>: This attribute tells HTMx how to swap out the old with the new elements after a successful request. In our case we’ve used the value of <code>“outerHTML”</code> to specify that the entire <code>&lt;img&gt;</code> element be replaced by the response. Other accepted values include but are not limited to <code>innerHTML</code>, <code>beforeend</code>, and <code>afterend</code>.</li>
+</ul>
+<p>You can view other HTMx attributes and their functionalities <a href="https://htmx.org/reference/">in this HTMx reference guide</a>.</p>
+<h2 id="build-the-backend">Build the Backend</h2>
+<p>The backend contains the interesting bits of our app’s logic. Here, we will see the logic for the two routes that are called in the frontend.</p>
+<p>Create a file named <code>run.py</code> in the project root folder and populate it with the code below:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></div>
+<p>The code above is responsible for starting our application by calling Flask’s <code>run</code> method.</p>
+<h3 id="initialize-app-module">Initialize <code>app</code> Module</h3>
+<p>Let’s go ahead and initialize the <code>app</code> module we imported in the previous code snippet. Create an <code>__init__.py</code> file inside the <code>/app</code> folder and populate it with the code below:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">views</span>
+</code></pre></div>
+<p>In the code above, we create a Flask <code>app</code> object and import the app views we’ll add later on.</p>
+<h3 id="add-graphic-image-generation-logic">Add Graphic Image Generation Logic</h3>
+<p>The next step is to add logic for the graphic image generation. Create a file named <code>palettes.json</code> in the project root folder and populate it with the code in this <a href="https://github.com/codecapsules-io/generative-art/blob/main/palettes.json">file</a>. This is a list of 2D arrays containing random numbers that represent different color palettes. We sourced these color palettes from <a href="https://www.color-hex.com">Color-Hex</a>. Our app will pick randomly from these each time a user chooses to generate a new image.</p>
+<p>Next, let’s create the file that will make use of the palettes we defined. In the <code>/app</code> folder, add a file named <code>make_squares.py</code> and populate it with the code below:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">io</span>
+
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageDraw</span>
+
+<span class="n">BLACK</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+
+<span class="n">palettes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;palettes.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">ps</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ps</span><span class="p">:</span>
+        <span class="n">palette</span> <span class="o">=</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p</span><span class="p">]</span>
+        <span class="n">palettes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">palette</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">save_path</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+    <span class="n">num_recs</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="n">min_size</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+    <span class="n">max_size</span> <span class="o">=</span> <span class="n">min_size</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">palettes</span><span class="p">)</span>
+    <span class="n">stroke_width</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="n">xoffset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">yoffset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_recs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">rec</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_recs</span><span class="p">):</span>
+            <span class="n">topleftx</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="n">xoffset</span>
+            <span class="n">toplefty</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="n">yoffset</span>
+            <span class="n">bottomrightx</span> <span class="o">=</span> <span class="n">topleftx</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="n">min_size</span><span class="p">,</span> <span class="n">max_size</span><span class="p">)</span>
+            <span class="n">bottomrighty</span> <span class="o">=</span> <span class="n">toplefty</span> <span class="o">+</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="n">min_size</span><span class="p">,</span> <span class="n">max_size</span><span class="p">)</span>
+            <span class="n">color</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+            <span class="n">xoffset</span> <span class="o">+=</span> <span class="mi">50</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span>
+                <span class="p">[</span><span class="n">topleftx</span><span class="p">,</span> <span class="n">toplefty</span><span class="p">,</span> <span class="n">bottomrightx</span><span class="p">,</span> <span class="n">bottomrighty</span><span class="p">],</span>
+                <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+                <span class="n">outline</span><span class="o">=</span><span class="n">BLACK</span><span class="p">,</span>
+                <span class="n">width</span><span class="o">=</span><span class="n">stroke_width</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="n">yoffset</span> <span class="o">+=</span> <span class="mi">50</span>
+        <span class="n">xoffset</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+    <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="s2">&quot;PNG&quot;</span><span class="p">)</span>
+    <span class="n">image</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">img_b64</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">img_b64</span>
+</code></pre></div>
+<p>The module defined in the code snippet above leverages the Pillow package to create new random images using the palettes we defined in the <code>palettes.json</code> file. In lines 10-15, we open the <code>palettes.json</code> file and add its contents to a local array named <code>palettes</code> that we’ll use in the <code>create()</code> method.</p>
+<p>The <code>create()</code> method is responsible for generating Base64 image strings for new random images. It does so by first creating a blank canvas and adding a random number of rectangles of different sizes and colours. When the image has been created, it’s returned as a Base64 image string, which is more efficient to transfer between our app modules.</p>
+<h3 id="add-app-views">Add App Views</h3>
+<p>The last step in building our backend is to add the application views. To do this, create a file named <code>views.py</code> inside the <code>/app</code> folder and populate it with the code below:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">send_file</span><span class="p">,</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">app.make_squares</span> <span class="kn">import</span> <span class="n">create</span>
+<span class="kn">import</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">base64</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">tmp_file_path</span> <span class="o">=</span> <span class="s2">&quot;/tmp/imgnew.png&quot;</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="n">graphic_image</span> <span class="o">=</span> <span class="n">create</span><span class="p">(</span><span class="n">tmp_file_path</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;home.html&quot;</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">graphic_image</span><span class="p">)</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/generate-another&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">generate_another</span><span class="p">():</span>
+    <span class="n">graphic_image</span> <span class="o">=</span> <span class="n">create</span><span class="p">(</span><span class="n">tmp_file_path</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    &lt;img id=&quot;new-image&quot; src=&quot;data:image/png;base64,</span><span class="si">{</span><span class="n">graphic_image</span><span class="si">}</span><span class="s2">&quot; /&gt;</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">response</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/download&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">download</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">send_file</span><span class="p">(</span>
+        <span class="n">tmp_file_path</span><span class="p">,</span>
+        <span class="n">mimetype</span><span class="o">=</span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+        <span class="n">as_attachment</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">download_name</span><span class="o">=</span><span class="s2">&quot;graphic.png&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div>
+<p>At the top of the file, we import the <code>create</code> method from the <code>make_squares</code> module, since our views need to return the Base64 image string when responding.</p>
+<p>The <code>index</code> route is called when the app is first started, and it calls the <code>create()</code> method to generate a Base64 image string and returns it in the <code>home.html</code> template. The <code>/generate-another</code> route is called when a user clicks on the “I hate this art, make me another” button. It saves the new graphic image to the <code>/tmp</code> folder before returning it as part of an HTML response, since the request is triggered by HTMx. This allows our app to only refresh the image element and not the whole page, like in the case of rendering templates.</p>
+<p>The last view we have is for the download feature. When a user clicks on the “Download” button, the <code>/download</code> route is called and it gets the most recently generated graphic image from the file storage before returning a response with the file added as an attachment.</p>
+<h2 id="prepare-for-deployment">Prepare for Deployment</h2>
+<p>Our generate art app is now complete and we are only left with adding the files necessary for deployment before we can publish it.</p>
+<h3 id="add-procfile-and-requirementstxt">Add Procfile and <code>requirements.txt</code></h3>
+<p>We’ll start by creating a Procfile, which tells Code Capsules how to run our app. Create a file named <code>Procfile</code> in the project root folder and add the following code to it:</p>
+<div class="highlight"><pre><span></span><code>web: gunicorn run:app
+</code></pre></div>
+<p>We use the <code>gunicorn</code> server to run our app in production, since the built-in Flask server is less secure and only suitable to be used in a development environment.</p>
+<p>Next, we need to generate a <code>requirements.txt</code> file to tell Code Capsules which packages need to be installed first before our app can start. Run the command below from a terminal while in the project’s root folder to create a <code>requirements.txt</code> file.</p>
+<div class="highlight"><pre><span></span><code>pip freeze –local &gt; requirements.txt
+</code></pre></div>
+<h3 id="add-virtual-environment-to-gitignore">Add Virtual Environment to <code>.gitignore</code></h3>
+<p>Before we push our local changes to the remote repository, we need to stop tracking our virtual environment folder. Create a file named <code>.gitignore</code> in the project root folder and add the code below to it:</p>
+<div class="highlight"><pre><span></span><code>/env
+</code></pre></div>
+<h3 id="add-commit-and-push-git-changes">Add, Commit, and Push Git Changes</h3>
+<p>Let's add and commit all the files we created to our local repository and then push them to the remote one. Do this by running the commands listed below in a terminal while in the project’s root folder:</p>
+<div class="highlight"><pre><span></span><code>git add -A
+git commit -m &quot;Added generative graphics files&quot;
+git push -u origin main
+</code></pre></div>
+<p>Your remote repository will now be up to date with your local one. </p>
+<h2 id="deploy-to-code-capsules">Deploy to Code Capsules</h2>
+<p>The final step is to deploy our app. Log into your Code Capsules account and link your remote GitHub repository to Code Capsules. Create a Backend Capsule and deploy the app there. You can follow this <a href="https://codecapsules.io/docs/deployment/how-to-deploy-flask-application-to-production/">deployment guide</a> to see how to do this in greater detail.</p>
+<p>That’s it! Your "Generate Art" app should be live and fully functional now.</p>
+<p><img alt="Functional app" src="../../assets/tutorials/generative-art/app.png" /></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../build-flask-htmx-app/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Flask HTMx" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Flask HTMx
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../customising-domain/" class="md-footer__link md-footer__link--next" aria-label="Next: Custom Domains" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Custom Domains
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.61ac8e46.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.218b5f82.min.js"></script>
+      
+    
+  </body>
+</html>
