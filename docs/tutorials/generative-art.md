@@ -84,47 +84,76 @@ We can now start building our generative art app and we’ll start with the fron
 ```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Generate Art without NFTs</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-      crossorigin="anonymous"
-    />
-    <!-- HTMX -->
-    <script src="https://unpkg.com/htmx.org@1.5.0"></script>
-    <style>
-      body {
+<head>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Generate Art without NFTs</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <!-- HTMX -->
+  <script src="https://unpkg.com/htmx.org@1.5.0"></script>
+  <style>
+    @media (min-width: 1000px) {
+      .button-row{
+            width: 50%
+        }  
+      .image-frame {
+        width: 50%;
+        height: 50%;
+      }
+      p {
+        font-size: 20px;
+        padding: 0 180px;
+      }
+    }
+    @media (max-width: 1000px) {
+        .button-row{
+            width: 80%
+        }
+        .image-frame {
+        width: 100%;
+        height: 100%;
+      }
+      p {
+        font-size: 20px;
+        padding: 0 12px;
+      }
+      button{
+        width: 115px;
+        height: 87px;
+        margin: 0 10px;
+      }
+    }
+    body{
         padding: 20px;
         text-align: center;
-      }
-      img {
-        max-height: 75vh;
-      }
-      .image-frame {
+    }
+    img{
+        width: 75%;
+      height: 75%;
+    }
+    .image-frame{
         border: 10px solid #213e49;
         border-radius: 5px;
-        width: 80vh;
         margin: auto;
         margin-top: 20px;
-      }
-      .button-row {
+    }
+    .button-row{
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        width: 60%;
         margin: auto;
         margin-top: 25px;
-      }
-    </style>
-  </head>
+    }
+  </style>
+</head>
 
 <!-- Insert body code here -->
 </html>
 ```
 
-The `<link>` tag in the `<head>` section links to Bootstrap to simplify styling for common HTML elements like forms and buttons, while the `<style>` tag adds any extra unique styling we might need.
+The `<link>` tag in the `<head>` section links to Bootstrap to simplify styling for common HTML elements like forms and buttons, while the `<style>` tag adds any extra unique styling and responsiveness we might need.
+
+The `<meta>` tag in the `<head>` section provides the relevant metadata required to allow our `@media` queries to give our app responsiveness, making it readable on both large and smaller screens.
 
 We’ll be using HTMx to send requests to generate a new graphic image, and we include it in the project by adding the `<script>` tag below the `<link>` tag. HTMx makes it possible to add interactivity to traditional multipage HTML sites without any of the extra complexity that’s introduced by popular single page frameworks.
 
@@ -132,39 +161,34 @@ Next, we'll add the code for the body of the home page. Copy and paste the snipp
 
 ```html
 <body>
-<h1>Generate Art</h1>
-
-<p>The art below is unique. It will never be seen again if you press "I hate this art, make me another". If you like it, you can download it and keep it. No need to get blockchain or NFTs or Open Sea involved: just a few lines of Python. Read our <a href="https://codecapsules.io/docs/tutorials/generative-art-python.html">tutorial on how to make your own</a>.</p>
-{% if image %}
-<div class="image-frame">
-    <img id="new-image" src="data:image/png;base64,{{image}}" />
-</div>
-{% endif %}
-
-<div class="button-row">
-    {% if image %}
-    <form action="/download" method="post" enctype="multipart/form-data">
-        <input type="text" name="image" value={{image}} style="display: none;" />
-        <button type="submit" class="btn btn-primary">Download</button>
-    </form>
-    {% endif %}
-    <button class="btn btn-primary"
-            hx-target="#new-image"
-            hx-get="/generate-another"
-            hx-swap="outerHTML">
+  <h1>Generate Art</h1>
+  
+  <p>The art below is unique. It will never be seen again if you press "I hate this art, make me another". If you like it, you can download it and keep it. No need to get blockchain or NFTs or Open Sea involved: just a few lines of Python. Read our tutorial <a href="https://codecapsules.io/docs/tutorials/generative-art/">Build a Generative Art Application with Pillow, Flask and HTMx</a> to build your own.</p>
+  
+  <div id="image-update-div">
+    <div class="image-frame">
+      <img id="new-image" alt="Image could not be found." src="data:image/png;base64,{{image}}" />
+    </div>
+    
+    <div class="button-row">
+      <a download="art.png" href="data:image/png;base64,{{image}}">
+        <button class="btn btn-primary">Download</button></a>
+      <button class="btn btn-primary" hx-target="#image-update-div" hx-get="/generate-another" hx-swap="outerHTML">
         I hate this art, make me another
-    </button>
-</div>
+      </button>
+    </div>
+    
+  </div>
 </body>
 ```
 
-Our app has two main features: it allows a user to generate new graphic images and to download them. The “I hate this art, make me another” button sends a request to the `/generate-another` route, which handles the creation of a new graphic image. When the app generates an image a user likes, the user can download that image by pressing the “Download” button. This sends a request to the `/download` route which is responsible for starting the image download.
+Our app has two main features: it allows a user to generate new graphic images and to download them. The “I hate this art, make me another” button sends a request to the `/generate-another` route, which handles the creation of a new graphic image. When the app generates an image a user likes, the user can download that image by pressing the “Download” button. This download button has access to the newly created graphic image.
 
-The `<img>` tag below the page header takes in a Base64 string as input and renders the corresponding graphic image to the screen. We’ve assigned an `id` value of `“new-image”` to the tag to allow us to use HTMx to update the image when a user clicks the “I hate this art, make me another” button. You’ll notice three HTMx attributes in the button's `src` code, which is located at the bottom of the page. Let’s go over them and see what each one is responsible for:
+The `<img>` tag below the page header takes in a Base64 string as input and renders the corresponding graphic image to the screen. The download button also accesses this Base64 string to allow for the download of the image. We’ve assigned an `id` value of `“image-update-div”` to the div that contains both this image and download button to allow us to use HTMx to update the image when a user clicks the “I hate this art, make me another” button. You’ll notice three HTMx attributes in the button's `src` code, which is located at the bottom of the page. Let’s go over them and see what each one is responsible for:
 
 - `hx-target`: This attribute accepts an `id` value prefixed by a `#`. It lets HTMx know which element to swap on a successful request.
 - `hx-get`: The `hx-get` attribute sends a `GET` request to the specified URL. If we wanted to send a `POST` request, we would have used the `hx-post` attribute instead.
-- `hx-swap`: This attribute tells HTMx how to swap out the old with the new elements after a successful request. In our case we’ve used the value of `“outerHTML”` to specify that the entire `<img>` element be replaced by the response. Other accepted values include but are not limited to `innerHTML`, `beforeend`, and `afterend`.
+- `hx-swap`: This attribute tells HTMx how to swap out the old with the new elements after a successful request. In our case we’ve used the value of `“outerHTML”` to specify that the entire `<div>` element be replaced by the response. Other accepted values include but are not limited to `innerHTML`, `beforeend`, and `afterend`.
 
 You can view other HTMx attributes and their functionalities [in this HTMx reference guide](https://htmx.org/reference/).
 
@@ -285,26 +309,25 @@ def index():
 def generate_another():
     graphic_image = create(tmp_file_path)
     response = f"""
-    <img id="new-image" src="data:image/png;base64,{graphic_image}" />
+    <div id="image-update-div">
+      <div class="image-frame">
+      <img id="new-image" src="data:image/png;base64,{graphic_image}" />
+      </div>
+      <div class="button-row">
+        <a download="art.png" href="data:image/png;base64,{graphic_image}">
+          <button class="btn btn-primary">Download</button></a>
+        <button class="btn btn-primary" hx-target="#image-update-div" hx-get="/generate-another" hx-swap="outerHTML">
+          I hate this art, make me another
+        </button>
+      </div>
+    </div>
     """
     return response
-
-
-@app.route("/download", methods=["GET", "POST"])
-def download():
-    return send_file(
-        tmp_file_path,
-        mimetype="image/png",
-        as_attachment=True,
-        download_name="graphic.png",
-    )
 ```
 
 At the top of the file, we import the `create` method from the `make_squares` module, since our views need to return the Base64 image string when responding.
 
-The `index` route is called when the app is first started, and it calls the `create()` method to generate a Base64 image string and returns it in the `home.html` template. The `/generate-another` route is called when a user clicks on the “I hate this art, make me another” button. It saves the new graphic image to the `/tmp` folder before returning it as part of an HTML response, since the request is triggered by HTMx. This allows our app to only refresh the image element and not the whole page, like in the case of rendering templates.
-
-The last view we have is for the download feature. When a user clicks on the “Download” button, the `/download` route is called and it gets the most recently generated graphic image from the file storage before returning a response with the file added as an attachment.
+The `index` route is called when the app is first started, and it calls the `create()` method to generate a Base64 image string and returns it in the `home.html` template. The `/generate-another` route is called when a user clicks on the “I hate this art, make me another” button. It saves the new graphic image to the `/tmp` folder before returning it as part of an HTML response, since the request is triggered by HTMx. This allows our app to only refresh the image element, and download refrence, and not the whole page, like in the case of rendering templates.
 
 ## Prepare for Deployment
 
