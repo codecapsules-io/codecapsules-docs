@@ -6,4 +6,5 @@ Welcome to the Code Capsules Comparisons guide. In this section, you can find co
 
 - [PaaS Providers](./comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.md)
 - [SaaS vs PaaS vs IaaS](./saas-paas-iaas.md)
+- [Top 5 Heroku Alternatives](./top-5-heroku-alternatives.md)
 
