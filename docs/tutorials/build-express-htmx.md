@@ -5,6 +5,8 @@ description: Create a full stack application with Express, Pug and HTMx to build
 
 # Building a Full Stack Application with Express and HTMx
 
+![cover image](../assets/tutorials/build-express-htmx/express-htmx-cover.png)
+
 Single page frameworks like Angular, React and Vue have become the go to solution for frontend development in recent years. This shift from traditional multipage websites was mainly due to the lack of interactivity offered by HTML. It’s worth noting however, that single page applications (SPAs) aren’t a perfect solution as they introduce an added layer of complexity by installing a host of other dependencies which need to be linked together before deploying your site to production.
 
 This is where a new HTML extension called HTMx enters and shines. HTMx gives traditional HTML sites more interactivity while keeping things simple, as it allows you to make requests from any HTML element and not just `<a>` and `<form>` tags. But this is not HTMx’s only benefit. Other benefits include:
@@ -24,7 +26,7 @@ After building our application, you’ll want to deploy it to production so you 
 
 - Git set up and installed, and a registered GitHub account
 - A [Code Capsules](https://codecapsules.io/) account
-- Node js installed
+- Node.js installed
 - An IDE or text editor of your choice
 
 ## Setting up the Project
@@ -88,7 +90,7 @@ Next, create an `index.pug` file inside the `/views` folder, and populate it wit
 doctype html
 html(lang='en')
  head
-   title Hello, World!
+   title Book Recommandations
    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css')
    script(src='https://unpkg.com/htmx.org@1.5.0')
    style.
@@ -132,13 +134,13 @@ There are a couple of attributes here that aren’t used in traditional HTML. Le
 
 - **hx-target** – This attribute accepts the `id` of the element you want to update after a successful request or when an event is triggered. Take note of the preceding `#` that’s written before the id value.
 
-  - You might have noticed that we didn’t use an `id` value in the table, but used a value of closest `tr` instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the “Edit Book” button or the “Delete” button.
+    - You might have noticed that we didn’t use an `id` value in the table, but used a value of closest `tr` instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the “Edit Book” button or the “Delete” button.
 
 - **hx-swap** – The [hx-swap](https://htmx.org/docs/#swapping) attribute allows you to specify how you want to partially reload the page or swap elements with new ones. It updates the UI in the section specified in the `hx-target` attribute.
 
-  - In our form, we used the `beforeend` value to tell HTMx that we want to append the result of the request after the last child in the target element, which is the table with `id=new-book`.
-  - In the table however, we used the `outerHTML` value to denote that we want to swap the entire `<tr>` element with the returned content.
-  - A full list of acceptable `hx-swap` values can be viewed [here](https://htmx.org/docs/#swapping).
+    - In our form, we used the `beforeend` value to tell HTMx that we want to append the result of the request after the last child in the target element, which is the table with `id=new-book`.
+    - In the table however, we used the `outerHTML` value to denote that we want to swap the entire `<tr>` element with the returned content.
+    - A full list of acceptable `hx-swap` values can be viewed [here](https://htmx.org/docs/#swapping).
 
 ## Building the Express Backend
 
@@ -146,7 +148,7 @@ We can now dive into building the backend of our app. Start by creating an `app/
 
 ```js
 const { Sequelize } = require("sequelize");
-const persistent_path = process.env.PERSISTENT_STORAGE_DIR;
+const persistent_path = process.env.PERSISTENT_STORAGE_DIR || ".";
 
 const sequelize = new Sequelize("test-db", "user", "pass", {
   dialect: "sqlite",
@@ -156,7 +158,7 @@ const sequelize = new Sequelize("test-db", "user", "pass", {
 module.exports = sequelize;
 ```
 
-The value of the `PERSISTENT_STORAGE_DIR` environment variable contains the path to the persistent file storage capsule on Code Capsules. We will use Sequelize as our ORM to make interacting with the database easier.
+The value of the `PERSISTENT_STORAGE_DIR` environment variable will contain the path to the persistent file storage capsule on Code Capsules. We will use Sequelize as our ORM to make interacting with the database easier.
 
 ### Create a `Book` Model
 
@@ -236,19 +238,17 @@ app.get("/", async (req, res) => {
 });
 ```
 
-We use the sequelize `Book` model object we defined in the `book.js` model file to query the database for all book objects in a readable format using the `findAndCountAll()` method and not raw SQL. This is the major benefit of using an ORM to interact with a database.
+We use the sequelize `Book` model object we defined in the `book.js` file to query the database for all book objects in a readable format using the `findAndCountAll()` method and not raw SQL. This is the major benefit of using an ORM to interact with a database.
 
 Next, we’ll add a `/submit` route that will be called when a user submits a new book entry. This route will be responsible for saving and returning the `id` of the recently saved book to the database. Paste the code below into `index.js`:
 
 ```js
 app.post("/submit", async (req, res) => {
-  console.log("body - ", req.body);
   const book = {
     name: req.body.title,
     author: req.body.author,
   };
   await Book.create(book).then((x) => {
-    //console.log('id- ', x.null)
     // send id of recently created item
     return res.send(`<tr>
     <td>${req.body.title}</td>
@@ -377,6 +377,12 @@ Code Capsules automatically runs the `npm start` command to start `node` project
 
 After adding the start script Code Capsules will be able to automatically run our app when we deploy it.
 
+## Running our App
+
+Our app is ready to be tested. Navigate to the project’s root folder in a terminal and run the following command: `npm run start`. This should start up a development server on port 3005. Open your browser at `http://127.0.0.1:3005/` and you should see your app running.
+
+
+
 ## Add, Commit, and Push Git Changes
 
 Let's add and commit all the files we created to our local repository and then push them to the remote one. Do this by running the commands listed below in a terminal while in the project’s root folder:
@@ -384,6 +390,7 @@ Let's add and commit all the files we created to our local repository and then p
 ```
 git add -A
 git commit -m "Added book recommendation app files"
+git branch -M main
 git push -u origin main
 ```
 
