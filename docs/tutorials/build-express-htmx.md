@@ -5,6 +5,8 @@ description: Create a full stack application with Express, Pug and HTMx to build
 
 # Building a Full Stack Application with Express and HTMx
 
+![cover image](../assets/tutorials/build-express-htmx/express-htmx-cover.png)
+
 Single page frameworks like Angular, React and Vue have become the go to solution for frontend development in recent years. This shift from traditional multipage websites was mainly due to the lack of interactivity offered by HTML. It’s worth noting however, that single page applications (SPAs) aren’t a perfect solution as they introduce an added layer of complexity by installing a host of other dependencies which need to be linked together before deploying your site to production.
 
 This is where a new HTML extension called HTMx enters and shines. HTMx gives traditional HTML sites more interactivity while keeping things simple, as it allows you to make requests from any HTML element and not just `<a>` and `<form>` tags. But this is not HTMx’s only benefit. Other benefits include:
