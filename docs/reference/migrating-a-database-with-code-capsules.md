@@ -103,7 +103,7 @@ Here the scripts used to run up and down migrations are created in order to be r
 
 ## Step 6: Change Run Commands
 
-When you want to perform these migrations in the production environment, add the scripts created for your migrations to the “Run command” section found in your backend capsule’s “configure” section.
+When you want to perform these migrations in the production environment, add the scripts created for your migrations to the “Run command” section found in your backend capsule’s “Configure” section.
 
 ![Run Command](../assets/reference/database-migration-images/configure-tab-run-command.png)
 
