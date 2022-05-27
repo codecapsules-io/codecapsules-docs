@@ -9,7 +9,7 @@ The advantages of using a PaaS include the infrastructure (like servers and stor
 ## How to choose a PaaS
 
 We're going to help you find the right PaaS provider for the production of a web service or application by exploring the pros and cons of six alternatives to Heroku:
-- [Code capsules](https://codecapsules.io/)
+- [Code Capsules](https://codecapsules.io/)
 - [Render](https://render.com/)
 - [Fly.io](https://fly.io/)
 - [Google app engine](https://cloud.google.com/appengine)
@@ -34,7 +34,7 @@ When choosing a PaaS, you'll want to consider such things as pricing structure, 
 
 Code Capsules allows for an application to be pushed to production through a `git push` command to GitHub. Your application is run on a server, called a Capsule, which pulls the code from your GitHub repository, and builds it in a container created on the Code Capsules website. Once your application is set up in your GitHub repository, all it takes to deploy your code is a `git push` command. 
 
-Code capsules is one of the few PaaS providers that provides servers in Africa. This makes it an excellent choice for developers and companies outside of the US or EU. 
+Code Capsules is one of the few PaaS providers that provides servers in Africa. This makes it an excellent choice for developers and companies outside of the US or EU. 
 
 The organisational tools Code Capsules provides for teams collaborating on applications is another advantage of this service. You can set up Teams of users that share Spaces containing multiple Capsules running applications, an ideal organisational structure for a collaborative workflow.
 
