@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://codecapsules.io/docs/test/</loc>
+         <lastmod>2022-05-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://codecapsules.io/docs/FAQ/how-to-add-custom-domain/</loc>
          <lastmod>2022-05-27</lastmod>
          <changefreq>daily</changefreq>
