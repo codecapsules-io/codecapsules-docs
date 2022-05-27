@@ -90,7 +90,7 @@ While there is no free tier, there is a $300 free quota for new users, which you
 
 While Google App Engine allows for deployment in a great number of regions, regional deployment for Africa is not supported.
 
-Follow this [short tutorial] (https://cloud.google.com/appengine/docs/standard/nodejs/create-app) on how to deploy an application to Goolge App Engine. 
+Follow this [short tutorial](https://cloud.google.com/appengine/docs/standard/nodejs/create-app) on how to deploy an application to Goolge App Engine. 
 
 ## AWS Elastic Beanstalk 
 
