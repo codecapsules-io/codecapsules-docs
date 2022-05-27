@@ -72,10 +72,12 @@ nav:
       - Overview: reference/index.md
       - Capsule Billing: reference/capsule-billing.md
       - Capsule Management: reference/capsule-management.md
+      - State and file persistence: reference/how-state-works.md
       - Custom Domains: reference/custom_domains.md
       - File Data Capsule: reference/set-up-file-data-capsule.md
       - MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md
       - MySQL Data Capsule: reference/set-up-mysql-data-capsule.md
+      - Running database migrations: reference/migrating-a-database-with-code-capsules.md
       - Procfile: reference/add-procfile-to-backend-application.md
       - Python Development: reference/python-development-with-code-capsules.md
       - Team Management: reference/team-management.md
@@ -107,6 +109,7 @@ nav:
       - PaaS Providers: comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules.md
       - Telegram Hosting Providers: comparisons/comparing-telegram-bot-hosting-providers.md
       - SaaS vs PaaS vs IaaS: comparisons/saas-paas-iaas.md
+      - Top Six Heroku Alternatives: comparisons/6-heroku-alternatives.md
   - Community:
       - Introducing Code Capsules: community/introducing-code-capsules.md
       - Hack Days and Free Tech Consulting: community/codecapsules-hack-days.md
