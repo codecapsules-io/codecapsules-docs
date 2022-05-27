@@ -106,7 +106,7 @@ Follow this [short tutorial](https://cloud.google.com/appengine/docs/standard/no
 
 As part of AWS, you can use Elastic Beanstalk with the suite of technologies included in Amazon's infrastructure-as-a-service. Your application can connect to an external database or make use of Amazon Relational Database Service (Amazon RDS).
 
-Elastic Beanstalk is free to access, but but you'll be charged based on resource usage.
+Elastic Beanstalk is free to access, but you'll be charged based on resource usage.
 
 Elastic Beanstalk has a great number of endpoints around the world, but none in Africa.
 
