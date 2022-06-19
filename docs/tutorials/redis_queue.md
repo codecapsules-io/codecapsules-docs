@@ -47,7 +47,7 @@ source env/bin/activate
 
 After activating the virtual environment, the name we set (env) should appear in your terminal alongside your current line. This means the environment was successfully activated.
 
-![VirtualEnv](../assets/tutorials/redis_queue/virtual_env.png)
+![VirtualEnv](./assets/tutorials/redis_queue/virtual_env.png)
 
 
 ## Installing Dependencies
@@ -389,11 +389,11 @@ flask run
 ```
 You should see this output in your terminal which shows your web application is running on your local host:
 
-![FlaskLocalRun](../assets/tutorials/redis_queue/flask_local_run.png)
+![FlaskLocalRun](./assets/tutorials/redis_queue/flask_local_run.png)
 
 You can click the link to open up your homepage in your browser.
 
-![Homepage](../assets/tutorials/redis_queue/homepage.png)
+![Homepage](./assets/tutorials/redis_queue/homepage.png)
 
 Your webpage is up but we still need to start up our local Redis server and `worker.py` if we want our web page to have any functionality.
 
@@ -405,7 +405,7 @@ redis-server
 
 This will startup your local redis server and will show this output:
 
-![RedisServerOutput](../assets/tutorials/redis_queue/redis_server_output.png)
+![RedisServerOutput](./assets/tutorials/redis_queue/redis_server_output.png)
 
 Next we need to startup our worker. In a new terminal window, run the following command:
 
@@ -414,19 +414,19 @@ python worker.py
 ```
 This will start up your worker, which will begin listening to the redis server. You should see this output:
 
-![RQWorkerOutput](../assets/tutorials/redis_queue/rq_worker_output.png)
+![RQWorkerOutput](./assets/tutorials/redis_queue/rq_worker_output.png)
 
 Now we can try out the web app by inserting a URL into the form and clicking submit. 
 
 You should immediately see a loading page once the submit button is clicked. 
 
-![LoadingScreen](../assets/tutorials/redis_queue/loading_screen.png)
+![LoadingScreen](./assets/tutorials/redis_queue/loading_screen.png)
 
 This means the job is in the queue but has not been completed yet. The page will refresh every five seconds until the results from the job are returned by the task. 
 
 When the results are in the web page should show an output like this on the next refresh:
 
-![results_page](../assets/tutorials/redis_queue/results_page.png)
+![results_page](./assets/tutorials/redis_queue/results_page.png)
 
 Success! Now that our app is working we can prepare for deployment on Code Capsules. 
 
@@ -512,7 +512,7 @@ Go to the [Code Capsules website](https://codecapsules.io), create an account, a
 
 After logging in, you’ll see a page like the one below:
 
-![TeamCC](../assets/tutorials/redis_queue/team_cc.png)
+![TeamCC](./assets/tutorials/redis_queue/team_cc.png)
 
 When creating a Code Capsules account a Team called Team personal is created by default. This team allows collaborative development by allowing you to invite people to work on and view your applications. 
 
@@ -521,12 +521,12 @@ Now we need to connect our Github account to our Code Capsules account so that o
 
 Do this by clicking the profile image button on the top right of the screen and then finding and clicking the GitHub button. 
 
-![ConnectToGitHub](../assets/tutorials/redis_queue/github_connect.png)
+![ConnectToGitHub](./assets/tutorials/redis_queue/github_connect.png)
  
 
 From there you need to login to your GitHub account, select your username, press “Only select repositories” and then select the repository containing your project from the list. Finally press install and authorise.
 
-![SelectRepo](../assets/tutorials/redis_queue/select_repo.png)
+![SelectRepo](./assets/tutorials/redis_queue/select_repo.png)
 
 ## Create Redis Database Capsule
 
@@ -534,11 +534,11 @@ Next we can enter our "Personal Space" and create a Capsule. A space allows you 
 
 The first Capsule we will create is the Redis Data Capsule. Select "Data Capsule" from the list and select your GitHub repository. 
 
-![CreateCapsule](../assets/tutorials/redis_queue/create_capsule.png) 
+![CreateCapsule](./assets/tutorials/redis_queue/create_capsule.png) 
 
-![CreateDataCapsule](../assets/tutorials/redis_queue/create_data_capsule.png) 
+![CreateDataCapsule](./assets/tutorials/redis_queue/create_data_capsule.png) 
 
-![SelectDatabase](../assets/tutorials/redis_queue/select_database.png) 
+![SelectDatabase](./assets/tutorials/redis_queue/select_database.png) 
 
 ## Create Backend Capsule for the Worker
 
@@ -546,13 +546,13 @@ Next we will create the Capsule that will run our worker. Create a new Capsule a
 
 Now enter `python worker.py` in the special build command. This build command will provide special information to the Capsule on how it should be built. The command we entered tells the Capsule to run the worker as the main app rather than the Flask web application. 
 
-![SelectBackendRepo](../assets/tutorials/redis_queue/select_backend_repo.png) 
+![SelectBackendRepo](./assets/tutorials/redis_queue/select_backend_repo.png) 
 
-![BackendBuildCommand](../assets/tutorials/redis_queue/backend_build_command.png)
+![BackendBuildCommand](./assets/tutorials/redis_queue/backend_build_command.png)
 
 The next step is to bind our Capsule to our Redis Data Capsule. Do this by going to the "Config" section of your Capsule and selecting "Bind".
 
-![BindRedisCapsule](../assets/tutorials/redis_queue/bind_redis_capsule.png)
+![BindRedisCapsule](./assets/tutorials/redis_queue/bind_redis_capsule.png)
 
 ## Create Backend Capsule for the Flask Web-App
 
@@ -564,7 +564,7 @@ The next step is to bind our Capsule to our Redis Data Capsule. Do this by going
 
 Now we just wait for the web app Capsule to finish building, and then select "Go to Live Website". 
 
-![LiveWebsite](../assets/tutorials/redis_queue/live_website.png)
+![LiveWebsite](./assets/tutorials/redis_queue/live_website.png)
 
 Success! Our web application has now been deployed through Code Capsules and can be reached by anyone who has our URL.
 
