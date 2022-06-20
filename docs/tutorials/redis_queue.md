@@ -1,10 +1,15 @@
 # Building a "Reader Mode" Full Stack Application with Flask and Redis
 
-We all know that waiting for a web page to load is a frustrating and tedious event. So when developing web applications that perform time-consuming tasks, you want to make sure that the user does not get stuck, on a blank screen, waiing for a page to load while that work is done. 
+In this tutorial, we’ll show you how to use a Redis Data Capsule to hold web-scraping tasks in a queue. Those tasks will be completed in a background process, giving the user a smooth, uninterrupted web experience as the task will not slow down the web page.
 
- A much more pleasent experience would have the user served a web page immediatly after making a request, while the task is completed in the background. The user might not see the result of the tasks immediatly, but they can continue to view the web site while that work is being completed in a background process.
+Our app will create an ad-free, text-only version of a web page (for example: a [CNN.com](https://edition.cnn.com) article) that a user provides in the form of a URL. 
 
-In this tutorial we will use a Redis Database Capsule to hold tasks in a queue. After requesting a URL to be scraped, the user will instantly be directed to a new page. That page will update with the result of the task once it has been completed by a background process. The final page will display a text-only version of the web page the user provided via URL. Presenting a clutter-free reading experience to the user.
+Our app will:
+- Display a homepage that prompts the user to provide a URL.
+- After the user provides a URL, a task will be added to a Redis queue, which will scrape the contents of the URL as a background process.
+- The user will be presented a loading page immediately, demonstrating that the background process does not interfere with the loading of new web pages.
+- Once the tasks has been completed from the queue, a results page will display an ad-free, text-only version of the web page the user provided.
+  
 
 ## Overview and Requirements
 
@@ -13,6 +18,7 @@ Before building the application you’ll want to make sure you have these techno
 - A text editor, such as [VsCode](https://code.visualstudio.com/download) or [Atom](https://atom.io).
 - A registered [GitHub](https://github.com) account and [Git](https://git-scm.com) installed.
 - [Python3](https://www.python.org) installed.
+- [Redis](https://redis.io/docs/getting-started/installation/) installed on your system.
 
 ## Setting up the Project
 
@@ -56,9 +62,16 @@ We can now install packages to the virtual environment we created in the previou
 
 Run the command below:
 ```
-pip install flask bs4 redis rq lxml gunicorn hashlib
+pip install flask bs4 redis rq hashlib gunicorn
 ```
-As the tutorial progresses the use for each of these packages will be explained.
+These are the packages we install with this command:
+
+- `flask` installs the [Flask web framework](https://pythonbasics.org/what-is-flask-python/), we will use it to setup views, tasks, and web application.
+- `bs4` installs [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), which we will use BeautifulSoup to scrape and parse the HTML from the client's provided url.
+- `redis` installs [Redis](https://redis.io/docs/about/), which we will use to run a local Redis server and provide the connection to both the local server and the Redis Data Capsule.
+- `rq` installs [RQ (Redis Queue)](https://python-rq.org), which we will use to add jobs to a queue and initialise a worker to work on that queue in a background process.
+- `hashlib` installs the [Hashlib](https://docs.python.org/3.5/library/hashlib.html) library, which we will use to convert our user's HTML request into a unique ID. We will use assign this ID to the job that handles the user's HTML request.
+- `gunicorn` installs [Gunicorn](https://gunicorn.org), which will help Code Capsules set up our project.
 
 
 ## Initialise an Empty Git Repository
@@ -412,7 +425,7 @@ Next we need to startup our worker. In a new terminal window, run the following 
 ```
 python worker.py
 ```
-This will start up your worker, which will begin listening to the redis server. You should see this output:
+This will start up your worker, which will begin listening to the Redis server. You should see this output:
 
 ![RQWorkerOutput](./assets/tutorials/redis_queue/rq_worker_output.png)
 
@@ -558,7 +571,7 @@ The next step is to bind our Capsule to our Redis Data Capsule. Do this by going
 
 Now to create a Capsule for our Flask application. Create a new backend Capsule and link it to your GitHub repository. 
 
-Do not add a build command as the Procfile we created will run our Flask app for us. 
+Do not add a build command as the `Procfile` we created will run our Flask app for us. 
 
 The next step is to bind our Capsule to our Redis Data Capsule. Do this by going to the "Config" section of your Capsule and selecting "Bind".
 
@@ -584,3 +597,5 @@ Then change the `Procfile` text to the following:
 web sh codecapsules.sh
 ```
 Now create just a single Backend Capsule, link it to your GitHub and do not add a build command. Bind it to your Redis Data Capsule and once it has finished building it should deploy with the web process demonised in the background and the worker in the foreground.
+
+Voila! You just made use of background processing to handle tasks in order to improve the user experience. You could expand on this by routing the user to a more exciting page than our current load page, or have the final document emailed to the user. The choice is up to you on how you would like to further profit from this smoother user experience.
