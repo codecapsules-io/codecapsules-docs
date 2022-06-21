@@ -1,19 +1,19 @@
 # Building a "Reader Mode" Full Stack Application with Flask and Redis
 
-In this tutorial, we’ll show you how to use a Redis Data Capsule to hold web-scraping tasks in a queue. Those tasks will be completed in a background process, giving the user a smooth, uninterrupted web experience as the task will not slow down the web page.
+In this tutorial, we’ll show you how to use a Redis Data Capsule to hold web-scraping tasks in a queue. Those tasks will be completed in a background process, so the user has a smooth, uninterrupted web experience with no tasks slowing the web page down.
 
-Our app will create an ad-free, text-only version of a web page (for example: a [CNN.com](https://edition.cnn.com) article) that a user provides in the form of a URL. 
+Our app will create an ad-free, text-only version of a web page (for example, a [CNN.com](https://edition.cnn.com) article) that the user provides in the form of a URL. 
 
-Our app will:
+Our reader mode app will:
 - Display a homepage that prompts the user to provide a URL.
-- After the user provides a URL, a task will be added to a Redis queue, which will scrape the contents of the URL as a background process.
-- The user will be presented a loading page immediately, demonstrating that the background process does not interfere with the loading of new web pages.
-- Once the tasks has been completed from the queue, a results page will display an ad-free, text-only version of the web page the user provided.
+- Add a task to a Redis queue to scrape the contents of the given URL as a background process.
+- Immediately present the user with a loading page, demonstrating that the background process does not interfere with the loading of new web pages.
+- Once the task has been completed from the queue, display an ad-free, text-only version of the web page the user provided.
   
 
 ## Overview and Requirements
 
-Before building the application you’ll want to make sure you have these technologies and accounts setup and ready:
+Make sure you have these technologies and accounts setup and ready to follow this tutorial:
 
 - A text editor, such as [VsCode](https://code.visualstudio.com/download) or [Atom](https://atom.io).
 - A registered [GitHub](https://github.com) account and [Git](https://git-scm.com) installed.
@@ -29,13 +29,13 @@ mkdir redis-queue-tutorial
 cd redis-queue-tutorial
 ```
 
-From this point on in the tutorial `redis-queue-tutorial` will be referred to as the project root folder.
+From this point on, we'll refer to `redis-queue-tutorial` as the project root folder.
 
 ## Creating a Virtual Environment
 
-Creating a virtual environments will allow our Python project to use packages that are isolated from the rest of the computer system. Using a virtual environment will prevent disruption of dependencies of other projects on the system.
+Creating a virtual environment will allow our Python project to use packages in isolation, avoiding disrupting the dependencies of other projects on the system.
 
-In a terminal run the following command, within the project root folder, to create a virtual environment:
+In a terminal, run the following command in the project root folder to create a virtual environment:
 
 ```
 python3 -m venv env 
@@ -51,7 +51,7 @@ source env/bin/activate
 .\env\Scripts\activate
 ```
 
-After activating the virtual environment, the name we set (env) should appear in your terminal alongside your current line. This means the environment was successfully activated.
+After activating the virtual environment, the name we set, `env`, should appear in your terminal alongside your current line. This means the environment was successfully activated.
 
 ![VirtualEnv](./assets/tutorials/redis_queue/virtual_env.png)
 
@@ -66,19 +66,19 @@ pip install flask bs4 redis rq hashlib gunicorn
 ```
 These are the packages we install with this command:
 
-- `flask` installs the [Flask web framework](https://pythonbasics.org/what-is-flask-python/), we will use it to setup views, tasks, and web application.
-- `bs4` installs [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), which we will use BeautifulSoup to scrape and parse the HTML from the client's provided url.
-- `redis` installs [Redis](https://redis.io/docs/about/), which we will use to run a local Redis server and provide the connection to both the local server and the Redis Data Capsule.
-- `rq` installs [RQ (Redis Queue)](https://python-rq.org), which we will use to add jobs to a queue and initialise a worker to work on that queue in a background process.
-- `hashlib` installs the [Hashlib](https://docs.python.org/3.5/library/hashlib.html) library, which we will use to convert our user's HTML request into a unique ID. We will use assign this ID to the job that handles the user's HTML request.
+- `flask` installs the [Flask web framework](https://pythonbasics.org/what-is-flask-python/), which we'll use to set up views, tasks, and the web application.
+- `bs4` installs [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), which we'll use to scrape and parse the HTML from the client's provided URL.
+- `redis` installs [Redis](https://redis.io/docs/about/), which we'll use to run a local Redis server and provide the connection to both the local server and the Redis Data Capsule.
+- `rq` installs [RQ (Redis Queue)](https://python-rq.org), which we'll use to add jobs to a queue and initialise a worker to work on that queue in a background process.
+- `hashlib` installs the [hashlib](https://docs.python.org/3.5/library/hashlib.html) library, which we'll use to convert our user's HTML request into a unique ID. We will assign this ID to the job that handles the user's HTML request.
 - `gunicorn` installs [Gunicorn](https://gunicorn.org), which will help Code Capsules set up our project.
 
 
-## Initialise an Empty Git Repository
+## Initialising an Empty Git Repository
 
-From the project's root folder, enter the `git init` command into a terminal to initialise a git repository for the project. 
+From the project's root folder, enter the `git init` command in the terminal to initialise a Git repository for the project. 
 
-Setting up a Git repository allows us to track changes made to the project and will aid in pushing the app to production from a local machine.
+Setting up a Git repository allows us to track changes we make to the project and will help us push the app to production from a local machine.
 
 In the root folder, create a `.gitignore` file and add the text below to it:
 
@@ -96,7 +96,7 @@ git remote add origin git@github.com:username/repository_name.git
 ```
 Now the local repository is linked to the external GitHub repository.
 
-## Initialise a Flask App
+## Initialising a Flask App
 
 Now we can start to put our application together.
 
@@ -120,13 +120,13 @@ from queue_app import tasks
 
 The code in the `__init__.py` file initialises a Flask app, connects to a local Redis server, and creates a queue that will store our tasks later. 
 
-Right now the database we are connecting to is our local Redis server but later on we will change this to connect to the Redis Data Capsule through an environment variable.
+The database we are currently connecting to is our local Redis server, but later we will change this to connect to the Redis Data Capsule through an environment variable.
 
 This file also imports the views and tasks we will be creating later on.
 
-## Create the Homepage 
+## Creating the Homepage 
 
-Next we will create the `.html` file for our homepage. Inside the `queue_app` folder, create a new folder called `templates` and enter into it. Inside the `templates` folder, create a new file called `index.html` and paste the following code inside:
+Next we will create the `.html` file for our homepage. Inside the `queue_app` folder, create a new folder called `templates`. In the `templates` folder, create a new file called `index.html`, and paste the following code in it:
 
 
 ```html
@@ -157,9 +157,9 @@ Next we will create the `.html` file for our homepage. Inside the `queue_app` fo
 </html>
 ```
 
-This is a simple HTML page with a form, input, and button that prompts the user to submit a URL. The page also has some styling which we will address later. This page’s form will allow the user to send a request to our app with the URL attached to that request.
+This is a simple HTML page with a form, input, and button that prompts the user to submit a URL. The page also has some styling, which we will address later. This page’s form will allow the user to send a request to our app with the URL attached to that request.
 
-## Create a View for the Homepage
+## Creating a View for the Homepage
 Now let’s create the view that will render the homepage HTML and handle requests from the user. 
 
 Inside the `queue_app` folder create a new file called `views.py` and paste this code inside:
@@ -193,15 +193,15 @@ def add_task():
 Here we create a view that returns the homepage for the user. It also detects whether the user has submitted a request and if so it does a few things:
 
 - Retrieves the URL from the request.
-- Creates a unique id for the URL using the hashlib module.
+- Creates a unique ID for the URL using the hashlib module.
 - Adds a task to the queue with the URL for processing.
 - Redirects to a the final results webpage view.
 
 Next we need to create the task that will scrape the user's URL, and the final results page to display the tasks results.
 
-## Create a Task
+## Creating a Task
 
-Indie the `queue_app` folder, create a new file called `tasks.py` and add the following lines of code:
+In the `queue_app` folder, create a new file called `tasks.py` and add the following lines of code:
 
 ```python
 from urllib import request
@@ -237,16 +237,16 @@ This file creates the `scrape_url` function that takes in the user's URL as an a
 
 In this function a few things happen:
 
-- It checks if the URL can be accessed by opening the URL within a try code block.
+- It checks if the URL can be accessed by opening the URL in a `try` block.
 - It then checks if the URL is from CNN's website (CNN holds their text in divs) and provides the HTML tags and classes that contain the main news articles for those sites.
-- If it isn’t from CNN then it grabs all the paragraph tags from that site.
+- If the URL isn’t from CNN, it grabs all the paragraph tags from that site.
 - BeautifulSoup is then used to scrape the HTML from the URL, and a title and body text are extracted from the URL using the HTML tags specified.
-- The results are returned by our function in the form of a tuple.
-- If the URL failed to be scraped, the exception that rises is returned in order to be displayed to the user.
+- The results are returned in the form of a tuple.
+- If the URL failed to be scraped, the exception that arises is returned in order to be displayed to the user.
 
 
-## Create the HTML for the Results Page
-Next we will create the HTML for the results web page. Inside the `templates` folder, create a file called `results_page.html` and paste the following lines of code within:
+## Adding the HTML for the Results Page
+Next we will add the HTML for the results web page. Inside the `templates` folder, create a file called `results_page.html` and paste the following lines of code in it:
 
 ```html
 <!DOCTYPE html>
@@ -285,14 +285,14 @@ Next we will create the HTML for the results web page. Inside the `templates` fo
 </html>
 ```
 
-This page checks to see if a body text has been returned by the queued task, if not it displays some text informing the user that the result is loading as well as the number of items in the queue. If the results haven’t been returned the page will reload every five seconds until they have returned.
+This page checks to see if a body text has been returned by the queued task. If not, it displays some text informing the user that the result is loading, as well as the number of items in the queue. If the results haven’t been returned, the page will reload every five seconds until they have returned.
 
 Once the results are returned, the page displays the title and paragraphs returned from the task.
 
-## Create a View for the Results Page
+## Creating a View for the Results Page
 Now we will create the view that will render the `result_page.html` HTML. The view will also check the queue for the user's completed task and return the results once complete.
 
-Open up the `views.py` file and append these lines of cod to the end of the file:
+Open up the `views.py` file and append these lines of code to the end of the file:
 
 ```python
 @app.route("/results/<job_key>", methods=['GET'])
@@ -320,8 +320,8 @@ def get_results(job_key):
 This view takes the user's task ID as `job_id` and fetches that job from the queue. It then checks if the job is complete. If so, it returns the rendered HTML with the arguments needed to display the text. If the task is not complete yet, it returns the rendered HTML with the arguments needed to display the loading page.
 
 
-## Create the worker 
-Now we need to create the worker that will listen to our Redis server and work on the queue when tasks are added. In the project root directory create a file called worker.py and paste the following lines of code within:
+## Creating the Worker 
+Now we need to create the worker that will listen to our Redis server and work on the queue when tasks are added. In the project root directory, create a file called `worker.py` and paste the following lines of code in it:
 
 ```python
 import os
@@ -338,13 +338,13 @@ if __name__ == '__main__':
         worker.work()
 ```
 
-This worker connects to our Redis server, and when run creates a worker linked to our Redis queue. The worker will listen to the queue, and wehn jobs are added it will perform the tasks in the queue one at a time.
+This worker connects to our Redis server, and when run, creates a worker linked to our Redis queue. The worker will listen to the queue, and when jobs are added, it will perform the tasks in the queue one at a time.
 
-## Add Styling for the HTML 
+## Adding Styling for the HTML 
 
 The two HTML pages we have created so far use some Bootstrap styling that you can see linked in the head of the file.
 
-Flask requires a particular file structure for static file. In the queue_app folder create a folder called `static`. In the `static` folder, create a file called `styles.css` and paste in the following lines of code:
+Flask requires a particular file structure for static files. In the `queue_app` folder, create a folder called `static`. In the `static` folder, create a file called `styles.css` and paste in the following lines of code:
 
 ```css
 .jumbotron{
@@ -382,45 +382,45 @@ Flask requires a particular file structure for static file. In the queue_app fol
 }
 ```
 
-This CSS will format our text on the homepage and results page. It also adds some responsiveness for smaller screens and gives some animation to the loading screen we created.
+This CSS will format our text on the homepage and results page. It also adds some responsiveness for smaller screens, and gives some animation to the loading screen we created.
 
-In the head of you file you might have noticed this link to a style sheet:
+In the head of your file, you might have noticed this link to a style sheet:
 
 ```html
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 ```
 This links to the CSS file we created using the `url_for` function.
 
-## Test run locally
+## Testing Locally
  Now to test our application. To do this we will need three terminal windows. 
  
- In the first window we can run our Flask app. Enter these lines into your terminal to run the app:
+ In the first window, we can run our Flask app. Enter these lines into your terminal to run the app:
 
 ```
 export FLASK_APP=run.py
 flask run 
 ```
-You should see this output in your terminal which shows your web application is running on your local host:
+You should see this output in your terminal, which shows your web application is running on your local host:
 
 ![FlaskLocalRun](./assets/tutorials/redis_queue/flask_local_run.png)
 
-You can click the link to open up your homepage in your browser.
+You can click the link to open your homepage in your browser.
 
 ![Homepage](./assets/tutorials/redis_queue/homepage.png)
 
-Your webpage is up but we still need to start up our local Redis server and `worker.py` if we want our web page to have any functionality.
+Our webpage is up, but we still need to start up our local Redis server and `worker.py` if we want our webpage to have any functionality.
 
-In a new terminal run the following line of code:
+In a new terminal, run the following line of code:
 
 ```
 redis-server
 ```
 
-This will startup your local redis server and will show this output:
+This will start up your local Redis server and will show this output:
 
 ![RedisServerOutput](./assets/tutorials/redis_queue/redis_server_output.png)
 
-Next we need to startup our worker. In a new terminal window, run the following command:
+Next we need to start up our worker. In a new terminal window, run the following command:
 
 ```
 python worker.py
@@ -429,22 +429,22 @@ This will start up your worker, which will begin listening to the Redis server. 
 
 ![RQWorkerOutput](./assets/tutorials/redis_queue/rq_worker_output.png)
 
-Now we can try out the web app by inserting a URL into the form and clicking submit. 
+Now we can try out the web app by inserting a URL into the form and clicking "Submit". 
 
-You should immediately see a loading page once the submit button is clicked. 
+You should see a page loading. 
 
 ![LoadingScreen](./assets/tutorials/redis_queue/loading_screen.png)
 
-This means the job is in the queue but has not been completed yet. The page will refresh every five seconds until the results from the job are returned by the task. 
+This means the job is in the queue, but has not been completed yet. The page will refresh every five seconds until the results from the job are returned by the task. 
 
-When the results are in the web page should show an output like this on the next refresh:
+When the results are in, the webpage should show an output like this on the next refresh:
 
 ![results_page](./assets/tutorials/redis_queue/results_page.png)
 
-Success! Now that our app is working we can prepare for deployment on Code Capsules. 
+Now that our app is working, we can prepare for deployment on Code Capsules. 
 
 
-## Prepare for deployment
+## Preparing for Deployment
 
 First we need to change the Redis connection in the `worker.py` and `__init__.py` files to ensure that they connect to the Redis Data Capsule we will create, rather than our local Redis server. 
 
@@ -485,11 +485,11 @@ q = Queue(connection=r)
 from queue_app import views
 from queue_app import tasks
 ```
-Here we connect our app to the Redis Data Capsule we will create by accessing an environment varibale called `REDIS_URL`.
+Here we connect our app to the Redis Data Capsule we will create by accessing an environment variable called `REDIS_URL`.
 
 This environment variable will be defined by Code Capsules once we have created our Redis Data Capsule and Backend Capsules. 
 
-## Create a Procfile and requirements.txt
+## Creating a Procfile and `requirements.txt`
 
 Now we need to create a `Procfile`. This file tells Code Capsules which application to run as our web application through the `gunicorn` module. 
 
@@ -499,15 +499,15 @@ Create a file called `Procfile` in the project root directory and paste in the f
 web: gunicorn queue_app:app
 ```
 
-The next step is to create a `requirements.txt` file, which is a file that contains the information on our project's dependencies. Code Capsules will use this file to deploy our application. 
+Next, create a `requirements.txt` file, which is a file that contains the information about our project's dependencies. Code Capsules will use this file to deploy our application. 
 
-In the command line make sure you are in the project root folder and enter this command:
+In the command line, make sure you are in the project root folder and enter this command:
 
 ```
 pip freeze > requirements.text
 ```
 
-## Push files to GitHub
+## Pushing Files to GitHub
 
 Next we will push our code to our Git repository with the following commands in the terminal:
 
@@ -517,9 +517,9 @@ git commit -m “commit message”
 git push origin
 ```
 
-Finally, we will create our capsules. We need to create three capsules, our Redis Data Capsule, our worker process, and our web app.
+Finally, we will create our Capsules. We need to create three Capsules, our Redis Data Capsule, a Backend Capsule for our worker process, and another Backend Capsule for our web app.
 
-## Create account and login
+## Logging in to Code Capsules
 
 Go to the [Code Capsules website](https://codecapsules.io), create an account, and login. 
 
@@ -527,9 +527,9 @@ After logging in, you’ll see a page like the one below:
 
 ![TeamCC](./assets/tutorials/redis_queue/team_cc.png)
 
-When creating a Code Capsules account a Team called Team personal is created by default. This team allows collaborative development by allowing you to invite people to work on and view your applications. 
+When creating a Code Capsules account, a Personal Team is created by default. A Team is great for collaborative development, as you can invite people to work on and view your applications. 
 
-## Connect to GitHub
+## Connecting to GitHub
 Now we need to connect our Github account to our Code Capsules account so that our applications can be pulled from GitHub repositories. 
 
 Do this by clicking the profile image button on the top right of the screen and then finding and clicking the GitHub button. 
@@ -537,13 +537,13 @@ Do this by clicking the profile image button on the top right of the screen and 
 ![ConnectToGitHub](./assets/tutorials/redis_queue/github_connect.png)
  
 
-From there you need to login to your GitHub account, select your username, press “Only select repositories” and then select the repository containing your project from the list. Finally press install and authorise.
+Log in to your GitHub account, select your username, press “Only select repositories”, and then select the repository containing your project from the list. Finally press "Install & Authorize".
 
 ![SelectRepo](./assets/tutorials/redis_queue/select_repo.png)
 
-## Create Redis Database Capsule
+## Creating a Redis Database Capsule
 
-Next we can enter our "Personal Space" and create a Capsule. A space allows you to organise one or more Capsules together. Inside this Space create a new Capsule.
+Next we can enter our "Personal Space" and create a Capsule. A Space allows you to organise one or more Capsules together. Inside this Space, create a new Capsule.
 
 The first Capsule we will create is the Redis Data Capsule. Select "Data Capsule" from the list and select your GitHub repository. 
 
@@ -553,11 +553,11 @@ The first Capsule we will create is the Redis Data Capsule. Select "Data Capsule
 
 ![SelectDatabase](./assets/tutorials/redis_queue/select_database.png) 
 
-## Create Backend Capsule for the Worker
+## Creating a Backend Capsule for the Worker
 
-Next we will create the Capsule that will run our worker. Create a new Capsule and select backend Capsule, and link it to your GitHub code. 
+Next we will create the Capsule that will run our worker. Create a new Capsule, select "Backend Capsule", and link it to your GitHub code. 
 
-Now enter `python worker.py` in the special build command. This build command will provide special information to the Capsule on how it should be built. The command we entered tells the Capsule to run the worker as the main app rather than the Flask web application. 
+Now enter `python worker.py` in the special build command. This build command will provide special information to the Capsule about how it should be built. The command we entered tells the Capsule to run the worker as the main app rather than the Flask web application. 
 
 ![SelectBackendRepo](./assets/tutorials/redis_queue/select_backend_repo.png) 
 
@@ -567,25 +567,25 @@ The next step is to bind our Capsule to our Redis Data Capsule. Do this by going
 
 ![BindRedisCapsule](./assets/tutorials/redis_queue/bind_redis_capsule.png)
 
-## Create Backend Capsule for the Flask Web-App
+## Creating a Backend Capsule for the Flask Web App
 
-Now to create a Capsule for our Flask application. Create a new backend Capsule and link it to your GitHub repository. 
+Now to create a Capsule for our Flask application. Create a new Backend Capsule and link it to your GitHub repository. 
 
-Do not add a build command as the `Procfile` we created will run our Flask app for us. 
+Do not add a build command, as the `Procfile` we created will run our Flask app for us. 
 
 The next step is to bind our Capsule to our Redis Data Capsule. Do this by going to the "Config" section of your Capsule and selecting "Bind".
 
-Now we just wait for the web app Capsule to finish building, and then select "Go to Live Website". 
+Wait for the web app Capsule to finish building, and then select "Go to Live Website". 
 
 ![LiveWebsite](./assets/tutorials/redis_queue/live_website.png)
 
 Success! Our web application has now been deployed through Code Capsules and can be reached by anyone who has our URL.
 
-## Running both the Web and Worker Process in the Same Capsule
+## Running the Web and Worker Processes in the Same Capsule
 
-We created two Backend Capsules for this project because running two processes (the web process and worker process) on the same capsule will not scale properly in practice. If you do wish to run both processes on the same capsule, to save money on a smaller project that will not need to scale, there is a method to do this.
+We created two Backend Capsules for this project because running two processes (the web process and worker process) on the same Capsule will not scale properly in practice. If you wish to run both processes on the same Capsule, to save money on a smaller project that will not need to scale, there is a method to do this.
 
-To use one Backend Capsule to run the web app create a file called `codecapsules.sh` in your project root directory. In that file paste the following text:
+To use one Backend Capsule to run the web app, create a file called `codecapsules.sh` in your project root directory. In that file paste the following text:
 
 ```
 gunicorn queue_app:app —daemon
@@ -596,6 +596,10 @@ Then change the `Procfile` text to the following:
 ```
 web sh codecapsules.sh
 ```
-Now create just a single Backend Capsule, link it to your GitHub and do not add a build command. Bind it to your Redis Data Capsule and once it has finished building it should deploy with the web process demonised in the background and the worker in the foreground.
+Now create a single Backend Capsule, link it to your GitHub, and do not add a build command. Bind it to your Redis Data Capsule, and once it has finished building, it should deploy with the web process demonised in the background and the worker in the foreground.
 
-Voila! You just made use of background processing to handle tasks in order to improve the user experience. You could expand on this by routing the user to a more exciting page than our current load page, or even have the final document emailed to the user. The choice is up to you on how you would like to further profit from this smoother user experience.
+# Next Steps
+
+In this tutorial, we made use of background processing to handle tasks in order to improve the user's experience. You could expand on this by:
+- Routing the user to a more exciting page than our current load page.
+- Add functionality to email the final document to the user.
