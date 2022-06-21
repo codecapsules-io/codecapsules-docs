@@ -598,4 +598,4 @@ web sh codecapsules.sh
 ```
 Now create just a single Backend Capsule, link it to your GitHub and do not add a build command. Bind it to your Redis Data Capsule and once it has finished building it should deploy with the web process demonised in the background and the worker in the foreground.
 
-Voila! You just made use of background processing to handle tasks in order to improve the user experience. You could expand on this by routing the user to a more exciting page than our current load page, or have the final document emailed to the user. The choice is up to you on how you would like to further profit from this smoother user experience.
+Voila! You just made use of background processing to handle tasks in order to improve the user experience. You could expand on this by routing the user to a more exciting page than our current load page, or even have the final document emailed to the user. The choice is up to you on how you would like to further profit from this smoother user experience.
