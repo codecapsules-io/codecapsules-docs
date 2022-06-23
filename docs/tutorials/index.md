@@ -65,12 +65,14 @@ If you're looking to build cool applications that you can host on Code Capsules,
     <figcaption>Building a Web File Store</figcaption>
   </a>
 </figure>
+
 <figure>
   <a href="./game-catalogue-with-nodejs-and-mysql/">
     <img style="border-radius: 10px 10px 0" src="../assets/tutorials/game-catalogue-with-nodejs-and-mysql/game-catalogue-cover.jpg" width="300" />
     <figcaption>Build a Game Catalogue REST API</figcaption>
   </a>
 </figure>
+
 <figure>
   <a href="./build-mern-job-board/">
     <img style="border-radius: 10px 10px 0" src="../assets/tutorials/mern-job-board/mern_job_board.jpg" width="300" />
@@ -96,6 +98,13 @@ If you're looking to build cool applications that you can host on Code Capsules,
   <a href="./build-express-htmx/">
     <img style="border-radius: 10px 10px 0" src="../assets/tutorials/build-express-htmx/express-htmx-cover.png" width="300" />
     <figcaption>Build an Express HTMx App</figcaption>
+  </a>
+</figure>
+
+<figure>
+  <a href="./build-a-reader-mode-app-with-flask-and-redis/">
+    <img style="border-radius: 10px 10px 0" src="../assets/tutorials/redis_queue/news-reader.png" width="300" />
+    <figcaption>Build a News Reader app</figcaption>
   </a>
 </figure>
 </div>

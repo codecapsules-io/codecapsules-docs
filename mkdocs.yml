@@ -98,6 +98,7 @@ nav:
       - Front-end Portfolio: tutorials/host-a-frontend.md
       - Stripe Checkout and Email Subscription with Flask: tutorials/stripe-checkout-and-email-with-flask.md
       - Game Catalogue API with Node.js and MySQL: tutorials/game-catalogue-with-nodejs-and-mysql.md
+      - Reader Mode App with Flask and Redis: tutorials/build-a-reader-mode-app-with-flask-and-redis.md
   - FAQ:
       - Teams, Spaces and Capsules: FAQ/teams-spaces-capsules.md
       - What is a Capsule?: FAQ/what-is-a-capsule.md
