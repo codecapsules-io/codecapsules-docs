@@ -35,7 +35,7 @@ import redis
 
 redis_url = os.getenv('REDIS_URL')
 
-r = redis.from_url(redis_url)
+connection = redis.from_url(redis_url)
 
 # Do something here
 ```
@@ -45,16 +45,16 @@ r = redis.from_url(redis_url)
 If your Backend Capsule is a Node.js application, use the following code to connect to your Redis database:
 
 ```js
-var redis = require(‘redis’)
-var data_capsule_url = process.env.DATABASE_URL
+let redis = require('redis');
+let redis_url = process.env.DATABASE_URL
 
-const client = redis.createClient({
-  url: data_capsule_url
-})
+let connection = redis.createClient({
+  url: redis_url
+});
 
-await client.connect()
+connection.connect();
 
-// Do something here
+// Do something here 
 
-client.quit()
+connection.quit();
 ```
