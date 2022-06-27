@@ -97,7 +97,6 @@ In the root folder, create a `.gitignore` file and add the text below to it:
 
 ```
 env/
-run.py
 dump.rdb
 ```
 
@@ -406,6 +405,9 @@ In the project's root folder create a file called `run.py` and add the following
 
 ```python
 from queue_app import app 
+
+if __name__ == "__main__":
+    app.run()
 ```
 
 Now to test our application, we will need three terminal windows. 
@@ -608,12 +610,13 @@ We created two Backend Capsules for this project because running two processes (
 
 To use one Backend Capsule to run the web app, create a file called `codecapsules.sh` in your project root directory. In that file paste the following text:
 
-```
-gunicorn queue_app:app —daemon
+```bash
+gunicorn run:app --daemon
 python worker.py
 ```
 
 Then change the `Procfile` text to the following:
+
 ```
 web: sh codecapsules.sh
 ```
