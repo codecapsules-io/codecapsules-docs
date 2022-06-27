@@ -615,7 +615,7 @@ python worker.py
 
 Then change the `Procfile` text to the following:
 ```
-web sh codecapsules.sh
+web: sh codecapsules.sh
 ```
 
 Now create a single Backend Capsule, link it to your GitHub repository, and do not add a build command. Bind it to your Redis Data Capsule, and once it has finished building, it should deploy with the web process daemonised in the background and the worker in the foreground.
