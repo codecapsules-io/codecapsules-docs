@@ -77,7 +77,7 @@ nav:
       - File Data Capsule: reference/set-up-file-data-capsule.md
       - MongoDB Data Capsule: reference/set-up-mongodb-data-capsule.md
       - MySQL Data Capsule: reference/set-up-mysql-data-capsule.md
-      - Redis Data Capsule: reference/set-up-redis-data-capsule.md
+      - Redis Data Capsule: reference/set-up-a-redis-data-capsule.md
       - Running database migrations: reference/migrating-a-database-with-code-capsules.md
       - Procfile: reference/add-procfile-to-backend-application.md
       - Python Development: reference/python-development-with-code-capsules.md
