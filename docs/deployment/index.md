@@ -68,7 +68,7 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
 
 <figure>
   <a href="./how-to-deploy-caddy-docker-site-to-production/">
-    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/svelte.png" width="150" />
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/caddy-docker.png" width="150" />
     <figcaption>Caddy Docker</figcaption>
   </a>
 </figure>
@@ -158,7 +158,7 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
 
 <figure>
   <a href="./how-to-deploy-flask-docker-application-to-production">
-    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/spring-mysql.png" width="150" />
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/flask-docker.png" width="150" />
     <figcaption>Flask Docker</figcaption>
   </a>
 </figure>
