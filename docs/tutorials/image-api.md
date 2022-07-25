@@ -11,13 +11,13 @@ Creating images for social media is a common task. Often the image is a template
 
 Luckily, some programming knowledge can help us out, by automating the task and giving us free time to do things like more programming!
 
-In this tutorial, we'll build an [HTTP REST API](https://www.restapitutorial.com)to create composite images for social media. 
+In this tutorial, we'll build an [HTTP REST API](https://www.restapitutorial.com) to create composite images for social media. 
 
 ## Overview and Requirements
 
 You'll need the following services and software setup for this tutorial 
 
-- [Git](https://git-scm.com) setup and installed, and a registered [GitHub account](https://github.com).
+- [Git](https://git-scm.com) installed and setup, and a registered [GitHub account](https://github.com).
 - [Node.js](https://nodejs.org/) installed
 - A registered [Code Capsules](https://codecapsules.io) account.
 - An IDE or text editor to create the project in. This tutorial was made using [Visual Studio Code](https://code.visualstudio.com), but feel free to use any tool you like.
@@ -30,47 +30,49 @@ With our requirements in place, we can get started on setting them up to work as
 
 We need a place to store our code from which [Code Capsules](https://codecapsules.io) can deploy to a capsule.
 
-Head over to [GitHub](https://github.com), and create a new repo. We're calling it _image-api_ here, but you can call it whatever you like. You can choose a **Node** `.gitignore` file to get started. Then clone the new Github repo onto your computer and navigate to that directory in terminal (or command prompt, if you're on Windows).
+Head over to [GitHub](https://github.com), and create a new repository. We're calling it **image-api** here, but you can call it whatever you like. You can choose a **Node** `.gitignore` file to get started.
+
+![Create repository](../assets/tutorials/image-api/init-repo.png)
 
 ### Initialising the Base Project
 
-Let's get the base code set up. Start by cloning the new GitHub repo onto your local computer.
+Let's get the base code set up. Start by cloning the new GitHub repo onto your local computer and navigate to that directory in a terminal (or command prompt, if you're on Windows).
 
-Now, go into the directory of the repo you've just cloned. 
-
-We can init a new node project by typing the following at the command line / terminal:
+We can initialise a new Node project by typing the following at the command prompt / terminal:
 
 ```bash
 npm init
 ```
 
-It's fine to press _enter_ for each of questions it asks - the defaults are good to start with. 
+It's fine to press _Enter_ for each of questions it asks - the defaults are good to start with.
 
 ### Installing Packages
 
-Now that we have our project initialised, we can add the packages we will need for our bot. These are:
+Now that we have our project initialised, we can add the packages we will need for our API. These are:
 
 - [Express](http://expressjs.com). This acts as our web server and HTTP request router. We'll use this to route requests from Slack to the correct logic. 
 - [node-canvas](https://www.npmjs.com/package/canvas). This is a graphics library that mimics an HTML canvas element. Canvas elements are 2D graphics elements that can be drawn on. We'll use this to put the images together.
  
 
-Let's type in the following at the command line / terminal to install the packages:
+Let's type in the following at the terminal to install the packages:
 
 ```bash
 npm install express canvas
 ```
 
-Now lets create an `index.js` file, which will be the main file for our app. An easy way to do this is to open up your project folder in an editor, like [Visual Studio Code](visual-studio). Now you can create a new `index.js` file. 
+Now let's create an `index.js` file, which will be the main file for our app. An easy way to do this is to open up your project folder in an editor, like [Visual Studio Code](https://code.visualstudio.com/). Now you can create a new `index.js` file. 
 
 ![create index.js in visual studio](../assets/tutorials/image-api/create-indexjs.gif)
 
 Save this blank file. 
 
+We also have a font file that we'll need to add to the project. Download and copy [this font](https://fonts.google.com/specimen/Oswald?query=m#standard-styles) to your project folder.
+
 Great, it's time to push this boilerplate project up to git. We can do it with the following from the command prompt or terminal: 
 
 ```bash
 git add . 
-git commit -am 'added libraries and index.js'
+git commit -am 'added libraries, index.js and font'
 git push origin
 ```
 
@@ -93,7 +95,7 @@ When calling an API, the parameters are separated by `&` and the key-value pairs
 https://image-api.codecapsules.co.za?background=https%3A%2F%2Fexample.com%2Fbackground.png&logo=https%3A%2F%2Fexample.com%2Flogo.png&text=my%20inspirational%20message
 ```
 
-[Express](http://expressjs.com) is a popular and well established API framework for node. It is built around the concept of _middleware_ functions. Middleware functions are chained together to provide a processing pipeline for an API request. Let's take a brief look at what that means. 
+[Express](http://expressjs.com) is a popular and well established API framework for Node.js. It is built around the concept of _middleware_ functions. Middleware functions are chained together to provide a processing pipeline for an API request. Let's take a brief look at what that means. 
 
 A basic express API route looks something like this:
 
@@ -105,9 +107,9 @@ app.get("/", function (req, res) {
 
 `app` refers to an express application, which provides all the API functionality. 
 The `"/"` defines the URL endpoint. In this case, it is just the root of the API. 
-The inline function is the route handler. This takes the incoming `req`uest, and provides an object to return the API's `res`ult. 
+The inline function is the route handler. This takes the incoming request `req`, and provides an object to return the API's result `res`. 
 
-This would be enough to create the image api  - we could put all the code in the one route handler function. However, because Express enables multiple middleware functions to be chained together, we can split our code up more logically. Express allows a route to have multiple chained functions, which are run one after the other. Instead of passing the route one route handler, Express allows us to pass an array of them, like this: 
+This would be enough to create the image api as we could put all the code in the one route handler function. However, because Express enables multiple middleware functions to be chained together, we can split our code up more logically. Express allows a route to have multiple chained functions, which are run one after the other. Instead of passing the route one route handler, Express allows us to pass an array of them, like this: 
 
 ```js
 app.get("/", [function (req, res, next) {
@@ -123,7 +125,7 @@ app.get("/", [function (req, res, next) {
 ```
 Notice that the `next()` function is called after each middleware function has completed its particular function. This is how we can chain together multiple middleware functions.
 
-The functions don't have to be inline - we can use named functions. In this way, the code become very readable, and is almost just like writing down the steps we need to take. We can then implement the functions one at a time. 
+The functions don't have to be inline - we can use named functions. In this way, the code becomes very readable, and is almost just like writing down the steps we need to take. We can then implement the functions one at a time. 
 
 If we were to break down the processing that the image API needs to do, one sequence could be: 
 
@@ -132,7 +134,7 @@ If we were to break down the processing that the image API needs to do, one sequ
 - Download the background image from the given URL
 - Download the logo image from the given URL
 - Compose the two images together, along with the text
-- Send the Image back to the caller
+- Send the image back to the caller
 - Cleanup the downloaded and temporary files made. 
 
 If we write this as a series of middleware functions for the route, it would look something like this:
@@ -144,7 +146,6 @@ app.get("/", [
   createIdentifier,
   downloadBackground,
   downloadLogo,
-  renderText,
   composeImage,
   sendImage,
   cleanupFiles,
@@ -167,7 +168,6 @@ app.get("/", [
   createIdentifier,
   downloadBackground,
   downloadLogo,
-  renderText,
   composeImage,
   sendImage,
   cleanupFiles,
@@ -218,10 +218,10 @@ Next up, we need to create a unique identifier for the request. This is because 
 To create a unique identifier, we could just create a random number. This would work a lot of the time, but there is a chance that the same number could be chosen. Luckily, this problem has been solved with the very clever invention of something called a [Universally Unique Identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier), or UUID for short. They are also known as Globally Unique Identifiers, or GUIDs. UUIDs/ GUIDs are a type of randomly generated identifier that is virtually guaranteed to be unique - in the whole world, not just our project!
 
 
-Node has a built-in `crypto`graphy module that can create UUIDs. We can import the `crypto` module by adding the following `require` line to the top of the `index.js` file:
+Node has a built-in cryptography module `crypto` that can create UUIDs. We can import the `crypto` module by adding the following `require` line to the top of the `index.js` file:
 
 ```js
-const crypto = require('crypto')
+const crypto = require('crypto');
 ```
 
 Now, let's implement the `createIdentifier` middleware function. Add the following function just below the previous middleware function.
@@ -238,7 +238,7 @@ This function creates a random UUID, and stores it in the `req` object. Since th
 
 ### Download Background Image Middleware
 
-Next up is the `downloadBackground` function. We need to make a web call to the URL provided by the caller, and save the image to work with later. We'll use the built-in `https` module to make the web call, and the `fs` module to save the image to a temporary location. First, we'll need to import the `https` and `fs` modules. Add the following `require` line s to the top of the `index.js` file:
+Next up is the `downloadBackground` function. We need to make a web call to the URL provided by the caller, and save the image to work with later. We'll use the built-in `https` module to make the web call, and the `fs` module to save the image to a temporary location. First, we'll need to import the `https` and `fs` modules. Add the following `require` lines to the top of the `index.js` file:
 
 ```js
 const fs = require("fs");
@@ -269,7 +269,7 @@ First, we retrieve the URL of the image to download from the `req` object. This 
 
 Then we make the web call to the URL. We use the built-in `https` module, using its [`get()`](https://nodejs.org/dist/latest-v16.x/docs/api/https.html#httpsgeturl-options-callback) function to make the web call. The first argument to this function is the URL to download the image from. The second argument is a callback function that is called when the web call is complete. The callback function passes a web response object to the callback.
 
-We can check this web response object `webRes` to see if the web call was successful. A simple (but not totally foolproof) way of checking if the call was successful is to check the status code. By convention, web servers should return an `OK` code, which is generally a code within the [200-299 range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#successful_responses). Therefore, if the status code is less than 200 or greater than 299, we can return an error, and exit early. Note that by calling res.send early, we prevent the next middleware function from being called.
+We can check this web response object `webRes` to see if the web call was successful. A simple (but not totally foolproof) way of checking if the call was successful is to check the status code. By convention, web servers should return an `OK` code, which is generally a code within the [200-299 range](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#successful_responses). Therefore, if the status code is less than 200 or greater than 299, we can return an error, and exit early. Note that by calling `res.send` early, we prevent the next middleware function from being called.
 
 If the web call was successful, we [pipe](https://nodejs.org/en/knowledge/advanced/streams/how-to-use-stream-pipe/) the web response to the file stream. This means that the web response will be written to the file stream. When the web response is complete, the file stream is closed. We can check if the file stream is closed by listening for the [`close`](https://nodejs.org/dist/latest/docs/api/stream.html#event-close) event. When the file stream is closed, we call the `next()` function to move on to the next middleware function.
 
@@ -302,7 +302,7 @@ function downloadLogo(req, res, next) {
 Now we get to the heart of the API's function - putting the images and text together in a composition. The [`canvas`](https://www.npmjs.com/package/canvas) module can do all of this for us. First, we'll need to import the `canvas` module. Add the following `require` line to the top of the `index.js` file:
 
 ```js
-const { createCanvas, loadImage } = require("canvas");
+const { createCanvas, loadImage, registerFont } = require("canvas");
 ```
 
 This imports two functions that we'll need from the `canvas` module. The `createCanvas` function creates a canvas object that we can draw our composite image on, and the `loadImage` function loads images from the file system. Using `loadImage` we can load the images we downloaded earlier, and then draw them to the canvas to create our composite image.
@@ -316,6 +316,7 @@ async function composeImage(req, res, next) {
   const width = background.width;
   const height = background.height;
 
+  registerFont("./Oswald-Regular.ttf", { family: "Oswald" });
   const canvas = createCanvas(width, height);
   const context = canvas.getContext("2d");
  
@@ -324,14 +325,15 @@ async function composeImage(req, res, next) {
   context.drawImage(logo, width - logo.width - logoPadding, height - logo.height - logoPadding);
 
   const textPadding = 30;
-  context.font = "bold 120pt Menlo";
+  context.font = "bold 50pt Oswald";
   context.textAlign = "left";
+  context.textBaseline = "top";
 
   const textSize = context.measureText(req.query.text);
   context.fillStyle = "rgba(255, 255, 255, 0.8)"
-  context.fillRect(0, 0, textSize.width + 4*textPadding, 200);
+  context.fillRect(0, 0, textSize.width + 2*textPadding, 200);
 
-  context.fillStyle = "#444";;
+  context.fillStyle = "#444";
   context.fillText(req.query.text, textPadding, textPadding);
 
 
@@ -343,19 +345,19 @@ async function composeImage(req, res, next) {
 
 There is quite a bit of code in this function at first glance, so let's break it down. In the first 2 lines, we load up the `background` and `logo` images from file, using the `loadImage` function, along with the identifier we stored in the `req` object. 
 
-In the following 4 lines, we extract the width and height of the background image, and create a new, blank canvas object with these dimensions. A blank canvas is like opening up Paint and creating a new file. After we create the canvas, we get a reference to the context of the canvas. The context is the interface to the canvas, and is the way we draw onto the canvas. It has all the functions to add images, text, shapes, fills etc. You can think of it as equivalent to the tools palette, with all the brushes, pens, buckets etc, in Paint or Photoshop. 
+In the following 2 lines, we extract and store the width and height of the background image. Then we load up our font to use, before creating a new, blank canvas object with these dimensions. A blank canvas is like opening up Paint and creating a new file. After we create the canvas, we get a reference to the context of the canvas. The context is the interface to the canvas, and is the way we draw onto the canvas. It has all the functions to add images, text, shapes, fills etc. You can think of it as equivalent to the tools palette, with all the brushes, pens, buckets etc., in Paint or Photoshop. 
 
-Because we want the logo to be a little indented from the right and bottom of the background image, we use the `logoPadding` variable to define the amount of padding we want. Then we draw the background image to the canvas, using the [`drawImage()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage) function. The first argument to this function is the image we want to draw, and the second and third arguments are the x and y coordinates of the top left corner of where we want to place the image. The next 2 coordinates are the width and height of the image we want to draw. 
+Because we want the logo to be a little indented from the right and bottom of the background image, we use the `logoPadding` variable to define the amount of padding we want. Then we draw the background image to the canvas, using the [`drawImage()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage) function. The first argument to this function is the image we want to draw, and the second and third arguments are the `x` and `y` coordinates of the top left corner of where we want to place the image. The next 2 coordinates are the `width` and `height` of the image we want to draw. 
 
 Then we draw the logo image to the canvas, using the [`drawImage()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage) function again. This time, we place it at the bottom right corner of the canvas, adjusted by the padding amount. 
 
 Now, we need to add the text to the image. We define a padding amount for the text as well, as we'd want it offset from the sides of the image. We use the `textPadding` variable to define this amount. Then we define the font and size we want the text to be, along with the alignment when we draw it. 
 
-Text drawn straight onto an image can be difficult to read, especially if the image has colours close to the text. To solve this problem, we'll first draw a background rectangle behind the text. This will give us a nice contrast between the text and the background. To find out how wide this background should be, we use the [`measureText()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/measureText) function. This function returns an object with the dimensions in pixels that the text would take, given the set font and size. We also set the `fillStyle` to specify the colour the background should be. We're using `rgba` notation, which specifies the Red, Green, Blue and Alpha values for the colour. Alpha is the amount of transparency the fill should have, on a scale from 0(totally transparent) to 1(totally opaque). We then use the [`fillRect()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillRect) function to draw the background rectangle. The first two arguments are the x and y coordinates of the top left corner of the rectangle, and the next two arguments are the width and height of the rectangle. We pad the edges a bit of the background rectangle to make sure the text is not too close to the edges of the background. 
+Text drawn straight onto an image can be difficult to read, especially if the image has colours close to the text. To solve this problem, we'll first draw a background rectangle behind the text. This will give us a nice contrast between the text and the background. To find out how wide this background should be, we use the [`measureText()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/measureText) function. This function returns an object with the dimensions in pixels that the text would take, given the set font and size. We also set the `fillStyle` to specify the colour the background should be. We're using `rgba` notation, which specifies the Red, Green, Blue and Alpha values for the colour. Alpha is the amount of transparency the fill should have, on a scale from 0(totally transparent) to 1(totally opaque). We then use the [`fillRect()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillRect) function to draw the background rectangle. The first two arguments are the `x` and `y` coordinates of the top left corner of the rectangle, and the next two arguments are the width and height of the rectangle. We pad the edges a bit of the background rectangle to make sure the text is not too close to the edges of the background. 
 
-Now we can finally draw the text. We first change the `fillStyle` to the colour we want for the text. This time, we're using the [Hex notation](https://www.w3schools.com/htmL/html_colors_hex.asp) for the colour, in RGB order. `#444` is a dark grey. Then we use the [`fillText()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText) function to draw the text. The first argument is the text we want to draw, and the next two arguments are the x and y coordinates of the top left corner of where we want to draw the text. This is our padding offset. 
+Now we can finally draw the text. First thing is to set the font on the context, and specify the alignment. Then we change the `fillStyle` to the colour we want for the text. This time, we're using the [Hex notation](https://www.w3schools.com/htmL/html_colors_hex.asp) for the colour, in RGB order. `#444` is a dark grey. Then we use the [`fillText()`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText) function to draw the text. The first argument is the text we want to draw, and the next two arguments are the `x` and `y` coordinates of the top left corner of where we want to draw the text. This is our padding offset. 
 
-Finally, we use the [`toBuffer()`](https://github.com/Automattic/node-canvas#canvastobuffer) function to convert the canvas to a buffer, which is a binary representation of the image which we can use to write an image file. We then use the same trick we used to store the `identifier` on the `req`uest object, so that it is available to the next middleware function to use.
+Finally, we use the [`toBuffer()`](https://github.com/Automattic/node-canvas#canvastobuffer) function to convert the canvas to a buffer, which is a binary representation of the image which we can use to write an image file. We then use the same trick we used to store the `identifier` on the request object `req`, so that it is available to the next middleware function to use.
 
 
 ### Returning the Image
@@ -370,16 +372,16 @@ async function sendImage(req, res, next) {
 }
 ```
 
-This function sets the headers `Content-Type` to `image/png`, which lets the API caller know the data type to expect. Then we use the [`send`](http://expressjs.com/en/api.html#res.send) function on the `res`ult object to send the image buffer we saved onto the `req` object back the API caller. Then we call `next()` to move on to the next function in the pipeline.
+This function sets the headers `Content-Type` to `image/png`, which lets the API caller know the data type to expect. Then we use the [`send`](http://expressjs.com/en/api.html#res.send) function on the result object `res` to send the image buffer we saved onto the `req` object back the API caller. Then we call `next()` to move on to the next function in the pipeline.
 
 ### Cleanup Middleware
 
-The next step is cleanup of the downloaded files, as we don't need them once the image is created and sent back to the API caller. Add the following function after the `sendImage` function:
+The next step is cleanup of the downloaded files, as we don't need them once the image is created and sent back to the API caller. We add empty callbacks, as we don't really need the result of the operation. In a production system, you might log the result in case there is an error when deleting. Add the following function after the `sendImage` function:
 
 ```js
 async function cleanupFiles(req, res, next) {
-  fs.unlink(`./${req.identifier}-background.jpg`);
-  fs.unlink(`./${req.identifier}-logo.jpg`);
+  fs.unlink(`./${req.identifier}-background.jpg`, () => {});
+  fs.unlink(`./${req.identifier}-logo.jpg`, () => {});
   next();
 }
 ```
@@ -393,24 +395,24 @@ node index.js
 ```
 You should see the message `Image API listening on port 3000` in the terminal. Our API is now listening for requests on port 3000.
 
-Let's test it out with some example images and text. We'll use the [Code Capsules logo](https://codecapsules.io/assets/images/v2/logo-code-capsules-brand-dark.svg), and a stock image background image from [imagesource](https://www.imagesource.com/wp-content/uploads/2019/06/Rio.jpg). And of course, for the text, we'll use the classic "Hello World". 
+Let's test it out with some example images and text. We'll use the [Code Capsules logo](https://codecapsules.io/assets/images/v2/logo-code-capsules-brand-dark.svg), and a stock image background image we've [linked here](https://codecapsules.io/docs/assets/tutorials/image-api/background.png). And of course, for the text, we'll use the classic "Hello World".
 
 Combining all this into the URL to call our API looks like this:
 
 ```bash
-http://localhost:3000?background=https://www.imagesource.com/wp-content/uploads/2019/06/Rio.jpg&logo=https://codecapsules.io/assets/images/v2/logo-code-capsules-brand-dark.svg&text=Hello World
+http://localhost:3000?background=https://codecapsules.io/docs/assets/tutorials/image-api/background.png&logo=https://codecapsules.io/assets/images/v2/logo-code-capsules-brand-dark.svg&text=Hello World
 ```
 
 As we discussed earlier, before we call this, we need to URL encode the parameters. There are a few online services to do this, like [https://www.urlencoder.io](https://www.urlencoder.io). After encoding the URL, it should look like this: 
 
 ```bash
-http://localhost:3000?background=https%3A%2F%2Fwww.imagesource.com%2Fwp-content%2Fuploads%2F2019%2F06%2FRio.jpg&logo=https%3A%2F%2Fcodecapsules.io%2Fassets%2Fimages%2Fv2%2Flogo-code-capsules-brand-dark.svg&text=Hello%20World
+http://localhost:3000?background=https%3A%2F%2Fcodecapsules.io%2Fdocs%2Fassets%2Ftutorials%2Fimage-api%2Fbackground.png&logo=https%3A%2F%2Fcodecapsules.io%2Fassets%2Fimages%2Fv2%2Flogo-code-capsules-brand-dark.svg&text=Hello%20World
 ```
 
 If you have [`curl`](https://curl.se) installed, you can use the following command to test it out:
 
 ```bash
-curl -X GET "http://localhost:3000?background=https%3A%2F%2Fwww.imagesource.com%2Fwp-content%2Fuploads%2F2019%2F06%2FRio.jpg&logo=https%3A%2F%2Fcodecapsules.io%2Fassets%2Fimages%2Fv2%2Flogo-code-capsules-brand-dark.svg&text=Hello%20World" > output.png
+curl -X GET "http://localhost:3000?background=https%3A%2F%2Fcodecapsules.io%2Fdocs%2Fassets%2Ftutorials%2Fimage-api%2Fbackground.png&logo=https%3A%2F%2Fcodecapsules.io%2Fassets%2Fimages%2Fv2%2Flogo-code-capsules-brand-dark.svg&text=Hello%20World" > output.png
 ```
 This will create the image, and save it to the file `output.png`. Open it up, and you should see the following:
 
@@ -420,14 +422,15 @@ This will create the image, and save it to the file `output.png`. Open it up, an
 You can also test it out straight in the browser by visiting the following URL:
 
 ```bash
-http://localhost:3000?background=https%3A%2F%2Fwww.imagesource.com%2Fwp-content%2Fuploads%2F2019%2F06%2FRio.jpg&logo=https%3A%2F%2Fcodecapsules.io%2Fassets%2Fimages%2Fv2%2Flogo-code-capsules-brand-dark.svg&text=Hello%20World
+http://localhost:3000?background=https%3A%2F%2Fcodecapsules.io%2Fdocs%2Fassets%2Ftutorials%2Fimage-api%2Fbackground.png&logo=https%3A%2F%2Fcodecapsules.io%2Fassets%2Fimages%2Fv2%2Flogo-code-capsules-brand-dark.svg&text=Hello%20World
 ```
 
 ## Add, Commit and Push Git Changes
 
 Let's add and commit all the files we created to our local repository and then push them to the remote one. Do this by running the commands listed below in a terminal while in the project’s root folder:
 
-```git add -a
+```bash
+git add -a
 git commit -m "Added image editing files"
 git push -u origin main
 ```
@@ -436,7 +439,7 @@ Your remote repository will now be up to date with your local one.
 
 ## Deploy to Code Capsules
 
-The final step is to deploy our app. Log into your Code Capsules account and link your remote GitHub repository to Code Capsules. Create a Redis Database Capsule and a Backend Capsule and bind the two together after deploying your app. You can follow [this deployment guide](https://codecapsules.io/docs/deployment/how-to-deploy-express-application-to-production/) to see how to do so in greater detail.
+The final step is to deploy our app. Log into your Code Capsules account and link your remote GitHub repository to Code Capsules. Create a Backend Capsule to deploy your app. You can follow [this deployment guide](https://codecapsules.io/docs/deployment/how-to-deploy-express-application-to-production/) to see how to do so in greater detail.
 
 That’s it! Your "Image Editing" app should be live and fully functional now.
 
@@ -451,6 +454,14 @@ Some things you can do to improve the API, or just to experiment with it are:
 - We use the `https` module to download the images. This only supports HTTPS requests. We can use the `http` module to download the images if we want to support HTTP requests as well. Or you can try another HTTP client library like [`axios`](https://www.npmjs.com/package/axios).
 - Advanced: specify the resulting image size, and how it should resize the background.
 
+
+## Credits
+
+The background image is from [https://opengameart.org/content/background-3](https://opengameart.org/content/background-3)
+
+The font "Oswald" is from [https://fonts.google.com/specimen/Oswald?query=m#standard-styles](https://fonts.google.com/specimen/Oswald?query=m#standard-styles)
+
+The logo is from Code Capsules. 
 
 
 
