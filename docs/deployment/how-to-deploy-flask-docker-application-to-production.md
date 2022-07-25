@@ -47,7 +47,7 @@ Click the “GitHub” button, select your GitHub username, and do the following
 2. Choose the GitHub repository we forked.
 3. Press "Install & Authorize".
 
-![Install & authorize github](../assets/deployment/html/github-integration.png)
+![Install & authorize github](../assets/deployment/html/github-integration.png){ width="75%" }
 
 ## Add Repository to Team
 
@@ -73,13 +73,15 @@ Click the “Create a New Capsule for Your Space” button, and follow the instr
 6. Leave the "Docker build context" field blank.
 7. Click “Create Capsule”.
 
+![Create Docker capsule](../assets/deployment/caddy-docker/docker-guide.gif){ width="75%" }
+
 Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking “View Build Progress” next to the “Building Capsule” message.
 
 Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section.
 
-![Build logs](../assets/deployment/html/frontend-capsule-build-logs.png)
+![Build logs](../assets/deployment/html/frontend-capsule-build-logs.png){ width="80%" }
 
-Once the build is complete, navigate to the "Configure" tab and scroll down to the "Network Port" section. Enter "5000" as the port number and click on "Update Capsule". The flask application will now be live and you can click on the “Live Website” link at the top right of the tab to view it.
+Once the build is complete, navigate to the "Configure" tab and scroll down to the "Network Port" section. Enter "5000" as the port number and click on "Update Capsule". The Flask application will now be live, and you can click on the “Live Website” link at the top right of the tab to view it.
 
 ![Deployed App](../assets/deployment/flask-docker/flask-docker-application.png)
 
