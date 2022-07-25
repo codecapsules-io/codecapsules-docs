@@ -107,4 +107,11 @@ If you're looking to build cool applications that you can host on Code Capsules,
     <figcaption>Build a News Reader app</figcaption>
   </a>
 </figure>
+
+<figure>
+  <a href="./image-api/">
+    <img style="border-radius: 10px 10px 0" src="../assets/tutorials/image-api/image-api-cover.png" width="300" />
+    <figcaption>Build an Image Overlay API with Express</figcaption>
+  </a>
+</figure>
 </div>
