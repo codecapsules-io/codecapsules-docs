@@ -66,7 +66,7 @@ Now let's create an `index.js` file, which will be the main file for our app. An
 
 Save this blank file. 
 
-We also have a font file that we'll need to add to the project. Download and copy [this font](https://fonts.google.com/specimen/Oswald?query=m#standard-styles) to your project folder.
+We also have a font file that we'll need to add to the project. Download and copy [this font](https://github.com/codecapsules-io/image-overlay-api/blob/main/ShortBaby.ttf) to your project folder.
 
 Great, it's time to push this boilerplate project up to git. We can do it with the following from the command prompt or terminal: 
 
@@ -316,7 +316,7 @@ async function composeImage(req, res, next) {
   const width = background.width;
   const height = background.height;
 
-  registerFont("./Oswald-Regular.ttf", { family: "Oswald" });
+  registerFont("./ShortBaby.ttf", { family: "ShortBaby" });
   const canvas = createCanvas(width, height);
   const context = canvas.getContext("2d");
  
@@ -325,7 +325,7 @@ async function composeImage(req, res, next) {
   context.drawImage(logo, width - logo.width - logoPadding, height - logo.height - logoPadding);
 
   const textPadding = 30;
-  context.font = "bold 50pt Oswald";
+  context.font = "bold 70pt ShortBaby";
   context.textAlign = "left";
   context.textBaseline = "top";
 
@@ -459,7 +459,7 @@ Some things you can do to improve the API, or just to experiment with it are:
 
 The background image is from [https://opengameart.org/content/background-3](https://opengameart.org/content/background-3)
 
-The font "Oswald" is from [https://fonts.google.com/specimen/Oswald?query=m#standard-styles](https://fonts.google.com/specimen/Oswald?query=m#standard-styles)
+The font "ShortBaby" is from [https://www.fontspace.com/short-baby-font-f34907](https://www.fontspace.com/short-baby-font-f34907)
 
 The logo is from Code Capsules. 
 
