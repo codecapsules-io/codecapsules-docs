@@ -536,7 +536,7 @@ Next we will push our code to our Git repository with the following commands in 
 
 ```
 git add .
-git commit -m “commit message”
+git commit -m "commit message"
 git branch -M main
 git push -u origin main
 ```
@@ -560,13 +560,13 @@ Do this by clicking the profile image button on the top right of the screen and 
 
 ![Connect to GitHub](../assets/tutorials/redis_queue/github_connect.png)
  
-Log in to your GitHub account, select your username, press “Only select repositories”, and then select the repository containing your project from the list. Finally press "Install & Authorize".
+Log in to your GitHub account, select your username, press "Only select repositories", and then select the repository containing your project from the list. Finally press "Install & Authorize".
 
 ![Selecting the repository](../assets/tutorials/redis_queue/select_repo.png)
 
 ## Creating a Redis Database Capsule
 
-Next we can enter our "Personal Space" and create a capsule. A Space allows you to organise one or more capsules together. Inside this Space, create a new capsule.
+Next we can enter our "Personal Space" and create a capsule. A Space allows you to organize one or more capsules together. Inside this Space, create a new capsule.
 
 The first capsule we will create is the Redis Data Capsule. Select "Data Capsule" from the list and then select "Redis Memory Cache". 
 
