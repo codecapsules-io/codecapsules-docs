@@ -81,7 +81,11 @@ Once your application is live, you can view the build log by selecting the “De
 
 ![Build logs](../assets/deployment/html/frontend-capsule-build-logs.png){ width="80%" }
 
-Once the build is complete, navigate to the "Configure" tab and scroll down to the "Network Port" section. Enter "5000" as the port number and click on "Update Capsule". The Flask application will now be live, and you can click on the “Live Website” link at the top right of the tab to view it.
+Once the build is complete, navigate to the "Configure" tab and scroll down to the "Network Port" section. Enter "5000" as the port number and click on "Update Capsule".
+
+![Set network port](../assets/deployment/flask-docker/network-port.png)
+
+The Flask application will now be live, and you can click on the “Live Website” link at the top right of the tab to view it.
 
 ![Deployed App](../assets/deployment/flask-docker/flask-docker-application.png)
 
