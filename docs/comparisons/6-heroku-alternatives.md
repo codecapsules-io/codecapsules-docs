@@ -36,7 +36,7 @@ Code Capsules allows for an application to be pushed to production through a `gi
 
 Code Capsules is one of the few PaaS providers that provides servers in Africa. This makes it an excellent choice for developers and companies outside of the US or EU. 
 
-The organisational tools Code Capsules provides for teams collaborating on applications is another advantage of this service. You can set up Teams of users that share Spaces containing multiple Capsules running applications, an ideal organisational structure for a collaborative workflow.
+The organizational tools Code Capsules provides for teams collaborating on applications is another advantage of this service. You can set up Teams of users that share Spaces containing multiple Capsules running applications, an ideal organizational structure for a collaborative workflow.
 
 ## Render
 

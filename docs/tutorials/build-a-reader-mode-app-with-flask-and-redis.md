@@ -442,7 +442,7 @@ This will start up your local Redis server and will show this output:
 Next we need to start up our worker. In a new terminal window, run the following command:
 
 ```bash
-python worker.py
+python3 worker.py
 ```
 
 **Note** On macOS you may need to run the following command to allow multiprocessing in the worker before running the command
@@ -536,7 +536,7 @@ Next we will push our code to our Git repository with the following commands in 
 
 ```
 git add .
-git commit -m “commit message”
+git commit -m "commit message"
 git branch -M main
 git push -u origin main
 ```
@@ -560,13 +560,13 @@ Do this by clicking the profile image button on the top right of the screen and 
 
 ![Connect to GitHub](../assets/tutorials/redis_queue/github_connect.png)
  
-Log in to your GitHub account, select your username, press “Only select repositories”, and then select the repository containing your project from the list. Finally press "Install & Authorize".
+Log in to your GitHub account, select your username, press "Only select repositories", and then select the repository containing your project from the list. Finally press "Install & Authorize".
 
 ![Selecting the repository](../assets/tutorials/redis_queue/select_repo.png)
 
 ## Creating a Redis Database Capsule
 
-Next we can enter our "Personal Space" and create a capsule. A Space allows you to organise one or more capsules together. Inside this Space, create a new capsule.
+Next we can enter our "Personal Space" and create a capsule. A Space allows you to organize one or more capsules together. Inside this Space, create a new capsule.
 
 The first capsule we will create is the Redis Data Capsule. Select "Data Capsule" from the list and then select "Redis Memory Cache". 
 
@@ -580,7 +580,7 @@ The first capsule we will create is the Redis Data Capsule. Select "Data Capsule
 
 Next we will create the capsule that will run our worker. Create a new capsule, select "Backend Capsule" type, and then select your GitHub repository in the list . 
 
-Now enter `python worker.py` in the run command. This build command will provide special information to the capsule about how it should be built. The command we entered tells the capsule to run the worker as the main app rather than the Flask web application. 
+Now enter `python3 worker.py` in the run command. This build command will provide special information to the capsule about how it should be built. The command we entered tells the capsule to run the worker as the main app rather than the Flask web application. 
 
 ![Selecting the backend repository](../assets/tutorials/redis_queue/select_backend_repo.png) 
 
@@ -612,7 +612,7 @@ To use one Backend Capsule to run the web app, create a file called `codecapsule
 
 ```bash
 gunicorn run:app --daemon
-python worker.py
+python3 worker.py
 ```
 
 Then change the `Procfile` text to the following:

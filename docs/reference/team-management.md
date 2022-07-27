@@ -45,7 +45,7 @@ Select your GitHub username, and do the following in the dialog box that appears
 
 If you need to edit the Team Repos later, select "Team Settings" in the top navigation bar to switch to the "Team Settings" tab.
 
-Click on the "Modify" button in the "Team Repos" section, and an “Edit Team Repos” dialog will slide in from the right. Click “Add” next to the repo you wish to deploy from, and then “Confirm”.
+Click on the "Modify" button in the "Team Repos" section, and an "Edit Team Repos" dialog will slide in from the right. Click "Add" next to the repo you wish to deploy from, and then "Confirm".
 
 ![Edit Team Repos](../assets/deployment/angular/team-repos.gif)
 

@@ -182,13 +182,13 @@ Next, we'll add the code for the body of the home page. Copy and paste the snipp
 </body>
 ```
 
-Our app has two main features: it allows a user to generate new graphic images and to download them. The “I hate this art, make me another” button sends a request to the `/generate-another` route, which handles the creation of a new graphic image. When the app generates an image a user likes, the user can download that image by pressing the “Download” button. This download button has access to the newly created graphic image.
+Our app has two main features: it allows a user to generate new graphic images and to download them. The "I hate this art, make me another" button sends a request to the `/generate-another` route, which handles the creation of a new graphic image. When the app generates an image a user likes, the user can download that image by pressing the "Download" button. This download button has access to the newly created graphic image.
 
-The `<img>` tag below the page header takes in a Base64 string as input and renders the corresponding graphic image to the screen. The download button also accesses this Base64 string to allow for the download of the image. We’ve assigned an `id` value of `“image-update-div”` to the div that contains both this image and download button to allow us to use HTMx to update the image when a user clicks the “I hate this art, make me another” button. You’ll notice three HTMx attributes in the button's `src` code, which is located at the bottom of the page. Let’s go over them and see what each one is responsible for:
+The `<img>` tag below the page header takes in a Base64 string as input and renders the corresponding graphic image to the screen. The download button also accesses this Base64 string to allow for the download of the image. We’ve assigned an `id` value of `"image-update-div"` to the div that contains both this image and download button to allow us to use HTMx to update the image when a user clicks the "I hate this art, make me another" button. You’ll notice three HTMx attributes in the button's `src` code, which is located at the bottom of the page. Let’s go over them and see what each one is responsible for:
 
 - `hx-target`: This attribute accepts an `id` value prefixed by a `#`. It lets HTMx know which element to swap on a successful request.
 - `hx-get`: The `hx-get` attribute sends a `GET` request to the specified URL. If we wanted to send a `POST` request, we would have used the `hx-post` attribute instead.
-- `hx-swap`: This attribute tells HTMx how to swap out the old with the new elements after a successful request. In our case we’ve used the value of `“outerHTML”` to specify that the entire `<div>` element be replaced by the response. Other accepted values include but are not limited to `innerHTML`, `beforeend`, and `afterend`.
+- `hx-swap`: This attribute tells HTMx how to swap out the old with the new elements after a successful request. In our case we’ve used the value of `"outerHTML"` to specify that the entire `<div>` element be replaced by the response. Other accepted values include but are not limited to `innerHTML`, `beforeend`, and `afterend`.
 
 You can view other HTMx attributes and their functionalities [in this HTMx reference guide](https://htmx.org/reference/).
 
@@ -327,7 +327,7 @@ def generate_another():
 
 At the top of the file, we import the `create` method from the `make_squares` module, since our views need to return the Base64 image string when responding.
 
-The `index` route is called when the app is first started, and it calls the `create()` method to generate a Base64 image string and returns it in the `home.html` template. The `/generate-another` route is called when a user clicks on the “I hate this art, make me another” button. It saves the new graphic image to the `/tmp` folder before returning it as part of an HTML response, since the request is triggered by HTMx. This allows our app to only refresh the image element, and download refrence, and not the whole page, like in the case of rendering templates.
+The `index` route is called when the app is first started, and it calls the `create()` method to generate a Base64 image string and returns it in the `home.html` template. The `/generate-another` route is called when a user clicks on the "I hate this art, make me another" button. It saves the new graphic image to the `/tmp` folder before returning it as part of an HTML response, since the request is triggered by HTMx. This allows our app to only refresh the image element, and download refrence, and not the whole page, like in the case of rendering templates.
 
 ## Prepare for Deployment
 

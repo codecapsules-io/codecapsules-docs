@@ -65,6 +65,13 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
     <figcaption>Svelte</figcaption>
   </a>
 </figure>
+
+<figure>
+  <a href="./how-to-deploy-caddy-docker-site-to-production/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/caddy-docker.png" width="150" />
+    <figcaption>Caddy Docker</figcaption>
+  </a>
+</figure>
 </div>
 
 ## Backend Frameworks
@@ -146,6 +153,13 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
   <a href="./how-to-deploy-java-mysql-application-to-production">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/spring-mysql.png" width="150" />
     <figcaption>Java (Spring) <br/> and MySQL</figcaption>
+  </a>
+</figure>
+
+<figure>
+  <a href="./how-to-deploy-flask-docker-application-to-production">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/flask-docker.png" width="150" />
+    <figcaption>Flask Docker</figcaption>
   </a>
 </figure>
 </div>

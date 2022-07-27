@@ -22,7 +22,7 @@ This tutorial series is best suited for those with some Python, HTML, and Flask 
 
 ## MongoDB Data Capsule
 
-One of the most important aspects of this tutorial is using a Mongo Database (MongoDB). With this MongoDB, we can track users' login information and sleep data. MongoDB is a _NoSQL_ databases, which means we can store data easily, in variable formats, without having to first create tables, as we would have to with a traditional SQL databse. If you're unfamiliar with NoSQL databases or MongoDB in general, take a look at [this explainer](https://www.mongodb.com/nosql-explained) by the MongoDB organisation. 
+One of the most important aspects of this tutorial is using a Mongo Database (MongoDB). With this MongoDB, we can track users' login information and sleep data. MongoDB is a _NoSQL_ databases, which means we can store data easily, in variable formats, without having to first create tables, as we would have to with a traditional SQL databse. If you're unfamiliar with NoSQL databases or MongoDB in general, take a look at [this explainer](https://www.mongodb.com/nosql-explained) by the MongoDB organization. 
 
 Follow [this short tutorial](../reference/set-up-mongodb-data-capsule.md) to create a MongoDB data capsule that we'll use to store the user data for this sleep tracker application. This step is *extremely* important – without a database, our application will not function. 
 

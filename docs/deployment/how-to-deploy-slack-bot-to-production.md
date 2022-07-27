@@ -15,35 +15,35 @@ Code Capsules connects to GitHub repositories to deploy applications. To follow 
 
 To demonstrate how to deploy a Node.js Slack Bot with Code Capsules, we’ve provided an example bot which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/slackbot).
 
-Sign in to GitHub, and fork the example bot repository by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
+Sign in to GitHub, and fork the example bot repository by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.
 
 ## Create a Space for your Bot
 
-Log in to your Code Capsules account and navigate to the “Spaces” tab. Once there, click the “Create A New Space For Your Apps” button. 
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the "Create A New Space For Your Apps" button. 
 
-Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.
+Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
 ![space name](../assets/deployment/express/space-name.png)
 
 ## Link to GitHub
 
-To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the “GitHub” button under “GitHub Details”.
+To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the "GitHub" button under "GitHub Details".
 
 ![GitHub button](../assets/deployment/express/git-button.png)
 
-Click the “GitHub” button, select your GitHub username, and do the following in the dialog box that appears:
+Click the "GitHub" button, select your GitHub username, and do the following in the dialog box that appears:
 
-1. Select “Only Select Repositories”.
+1. Select "Only Select Repositories".
 2. Choose the GitHub repository we forked.
-3. Press “Install & Authorize”.
+3. Press "Install & Authorize".
 
 ![Install & authorize github](../assets/deployment/express/github-integration.png)
 
 ## Add Repository to Team
 
-Select “Team Settings” in the top navigation bar to switch to the Team Settings tab.
+Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.
 
-Click on the “Modify” button under the “Team Repos” section. An “Edit Team Repos” screen will slide in from the right. Click “Add” next to the bot repo, and then “Confirm”. All the Spaces in your Team will now have access to this repo.
+Click on the "Modify" button under the "Team Repos" section. An "Edit Team Repos" screen will slide in from the right. Click "Add" next to the bot repo, and then "Confirm". All the Spaces in your Team will now have access to this repo.
 
 ![Edit Team Repos](../assets/deployment/python/team-repos.gif)
 
@@ -51,20 +51,20 @@ Click on the “Modify” button under the “Team Repos” section. An “Edit 
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-Navigate to the “Spaces” tab and open the Space you’ll be using.
+Navigate to the "Spaces" tab and open the Space you’ll be using.
 
-Click the “Create a New Capsule for Your Space” button, and follow the instructions below:
+Click the "Create a New Capsule for Your Space" button, and follow the instructions below:
 
-1. Choose “Backend Capsule”.
-2. Under “Product”, select “Sandbox”.
+1. Choose "Backend Capsule".
+2. Under "Product", select "Sandbox".
 3. Choose the GitHub repository you forked.
-4. Press “Next”.
-5. Leave “Run Command” blank.
-6. Click “Create Capsule”.
+4. Press "Next".
+5. Leave "Run Command" blank.
+6. Click "Create Capsule".
 
-Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking “View Build Progress” next to the “Building Capsule” message.
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.
 
-Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section.
+Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
 ![Build logs](../assets/deployment/express/backend-capsule-build-logs.png)
 

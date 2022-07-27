@@ -39,13 +39,13 @@ The db-migrate package connects to a database through `database.json` file. Crea
 
 Here we also add the`"sql-file": true` information to ensure our database migrations operate through sql files that will be created in the next step.
 
-The database URL for a MySQL Data Capsule can be found in the “Configure” section of your backend capsule:
+The database URL for a MySQL Data Capsule can be found in the "Configure" section of your backend capsule:
 
 ![DATABSE_URL](../assets/reference/database-migration-images/configure-tab.png)
 
  You can also access the database URL through an environment variable like so:
 
-`"prod": {“ENV”:"DATABASE_URL"},`
+`"prod": {"ENV":"DATABASE_URL"},`
 
 
 
@@ -103,12 +103,12 @@ Here the scripts used to run up and down migrations are created in order to be r
 
 ## Step 6: Change Run Commands
 
-When you want to perform these migrations in the production environment, add the scripts created for your migrations to the “Run command” section found in your backend capsule’s “Configure” section.
+When you want to perform these migrations in the production environment, add the scripts created for your migrations to the "Run command" section found in your backend capsule’s "Configure" section.
 
 ![Run Command](../assets/reference/database-migration-images/configure-tab-run-command.png)
 
 ## Step 7: Push Changes
-Finally, commit and push your changes to your GitHub repository to update your project’s code base and perform your migrations. You should see your migrations in the “Logs” section of your Backend Capsule. It will have a similar structure to this output:
+Finally, commit and push your changes to your GitHub repository to update your project’s code base and perform your migrations. You should see your migrations in the "Logs" section of your Backend Capsule. It will have a similar structure to this output:
 
 ```
 > node node_modules/db-migrate/bin/db-migrate up -e prod

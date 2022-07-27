@@ -10,7 +10,7 @@ If you have a project idea or a project already hosted on Code Capsules that nee
 
 First, create an account with [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and log in. 
 
-Your MongoDB Atlas account consists of two organisational tools – _Organizations_ and _Projects_:
+Your MongoDB Atlas account consists of two organizational tools – _Organizations_ and _Projects_:
 
 - Projects contain all the [clusters](https://www.capitalone.com/tech/cloud/what-is-a-cluster/) that host your databases.
 - Organizations contain all of the Projects that you've created. 

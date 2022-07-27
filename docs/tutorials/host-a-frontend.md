@@ -319,7 +319,7 @@ After logging in, you'll be greeted with a page that looks like the below.
 
 Notice the "Team Personal" at the top left. Every new account starts with a "Team Personal". Code Capsules provides Teams for collaborative development – you can invite other people to your Team and Team members can view and edit your web-applications. You can create other teams - but the default "Personal" team is fine for now. 
 
-At the center, you'll see a clickable box, labeled "Personal". This is called a _Space_. Spaces act as a further layer of organisation. Spaces can contain one or many Capsules (more on Capsules shortly) and can help organise large projects. We'll take a look at this space soon, but we first need to link Code Capsules to Github.
+At the center, you'll see a clickable box, labeled "Personal". This is called a _Space_. Spaces act as a further layer of organization. Spaces can contain one or many Capsules (more on Capsules shortly) and can help organize large projects. We'll take a look at this space soon, but we first need to link Code Capsules to Github.
 
 ### Linking the repository
 

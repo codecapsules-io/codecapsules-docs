@@ -1,19 +1,19 @@
 ---
-title: Deploy a Java Application to Production
-description: A guide on how to launch a Java application from GitHub.
+title: Deploy a Flask Docker Application to Production.
+description: A walkthrough on how to deploy a Flask Docker application from GitHub.
 hide:
   - navigation
 ---
 
-# How to Deploy a Java Application to Production on Code Capsules 
+# How to Deploy a Flask Docker Application to Production on Code Capsules
 
-Deploy a Java application and learn how to host backend code on Code Capsules. 
+Deploy a Flask Docker application and learn how to host backend code on Code Capsules.
 
-## Set Up
+## Set up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a Java application with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-java).
+To demonstrate how to deploy a Bootstrap site with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/docker-flask).
 
 Sign in to GitHub, and fork the example application by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.
 
@@ -29,17 +29,17 @@ Code Capsules gives every account a Personal Team by default. A Team is an envir
 
 ## Create a Space for your Apps
 
-[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space/) are an organizational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this application, or you can create a new Space. In the Spaces Tab, click the "Create A New Space For Your Apps" button. 
+[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space/) are an organizational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this application, or you can create a new Space. In the Spaces Tab, click the "Create A New Space For Your Apps" button.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/python/space-name.png)
+![space name](../assets/deployment/html/space-name.png)
 
 ## Link to GitHub
 
 To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the "GitHub" button under "GitHub Details".
 
-![GitHub button](../assets/deployment/express/git-button.png)
+![git-button](../assets/deployment/html/git-button.png)
 
 Click the "GitHub" button, select your GitHub username, and do the following in the dialog box that appears:
 
@@ -47,7 +47,7 @@ Click the "GitHub" button, select your GitHub username, and do the following in 
 2. Choose the GitHub repository we forked.
 3. Press "Install & Authorize".
 
-![Install & authorize github](../assets/deployment/express/github-integration.png)
+![Install & authorize github](../assets/deployment/html/github-integration.png){ width="75%" }
 
 ## Add Repository to Team
 
@@ -55,7 +55,7 @@ Select "Team Settings" in the top navigation bar to switch to the Team Settings 
 
 Click on the "Modify" button under the Team Repos section, and an "Edit Team Repos" screen will slide in from the right. Click "Add" next to the demo repo, and then "Confirm". All the Spaces in your Team will now have access to this repo.
 
-![Edit Team Repos](../assets/deployment/express/team-repos.gif)
+![Edit Team Repos](../assets/deployment/html/team-repos.gif)
 
 ## Create the Capsule
 
@@ -65,21 +65,28 @@ Navigate to the "Spaces" tab and open the Space you’ll be using.
 
 Click the "Create a New Capsule for Your Space" button, and follow the instructions below:
 
-1. Choose "Backend Capsule".
+1. Choose "Docker Capsule".
 2. Under "Product", select "Sandbox".
 3. Choose the GitHub repository you forked.
 4. Press "Next".
-5. Leave "Run Command" blank.
-6. Click "Create Capsule".
+5. Enter "Dockerfile" as the input in the "Dockerfile location" field.
+6. Leave the "Docker build context" field blank.
+7. Click "Create Capsule".
+
+![Create Docker capsule](../assets/deployment/caddy-docker/docker-guide.gif){ width="75%" }
 
 Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/python/backend-capsule-build-logs.png)
+![Build logs](../assets/deployment/html/frontend-capsule-build-logs.png){ width="80%" }
 
-Once the build is complete, a "Live Website" link will appear at the top of the tab. Click the link and you should see your deployed application.
+Once the build is complete, navigate to the "Configure" tab and scroll down to the "Network Port" section. Enter "5000" as the port number and click on "Update Capsule".
 
-![Deployed App](../assets/deployment/java/cc-java-app.png)
+![Set network port](../assets/deployment/flask-docker/network-port.png)
+
+The Flask application will now be live, and you can click on the "Live Website" link at the top right of the tab to view it.
+
+![Deployed App](../assets/deployment/flask-docker/flask-docker-application.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).

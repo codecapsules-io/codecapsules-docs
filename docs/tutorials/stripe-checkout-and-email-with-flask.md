@@ -78,7 +78,7 @@ View the changes by saving the `index.html` file and re-opening it in a web brow
 
 ### Project directory restructuring
 
-To make a functional web application out of our template, Flask requires a specific directory structure, so we will need to reorganise the `project` directory. To do this:
+To make a functional web application out of our template, Flask requires a specific directory structure, so we will need to reorganize the `project` directory. To do this:
 
 1. Create a new directory named `static` in the `project` directory.
 
