@@ -442,7 +442,7 @@ This will start up your local Redis server and will show this output:
 Next we need to start up our worker. In a new terminal window, run the following command:
 
 ```bash
-python worker.py
+python3 worker.py
 ```
 
 **Note** On macOS you may need to run the following command to allow multiprocessing in the worker before running the command
@@ -580,7 +580,7 @@ The first capsule we will create is the Redis Data Capsule. Select "Data Capsule
 
 Next we will create the capsule that will run our worker. Create a new capsule, select "Backend Capsule" type, and then select your GitHub repository in the list . 
 
-Now enter `python worker.py` in the run command. This build command will provide special information to the capsule about how it should be built. The command we entered tells the capsule to run the worker as the main app rather than the Flask web application. 
+Now enter `python3 worker.py` in the run command. This build command will provide special information to the capsule about how it should be built. The command we entered tells the capsule to run the worker as the main app rather than the Flask web application. 
 
 ![Selecting the backend repository](../assets/tutorials/redis_queue/select_backend_repo.png) 
 
@@ -612,7 +612,7 @@ To use one Backend Capsule to run the web app, create a file called `codecapsule
 
 ```bash
 gunicorn run:app --daemon
-python worker.py
+python3 worker.py
 ```
 
 Then change the `Procfile` text to the following:
