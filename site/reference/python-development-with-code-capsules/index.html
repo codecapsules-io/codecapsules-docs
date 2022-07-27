@@ -246,6 +246,12 @@
     
       
     
+      
+    
+      
+    
+      
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -676,6 +682,10 @@
       
         
       
+        
+      
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -742,6 +752,25 @@
   
   <span class="md-ellipsis">
     Bootstrap
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-caddy-docker-site-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caddy Docker
   </span>
 
       </a>
@@ -856,6 +885,25 @@
   
   <span class="md-ellipsis">
     Flask
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-docker-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask + Docker
   </span>
 
       </a>
@@ -1818,6 +1866,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2150,6 +2200,25 @@
   
   <span class="md-ellipsis">
     Reader Mode App with Flask and Redis
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/image-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Overlay API with Express
   </span>
 
       </a>
@@ -2736,7 +2805,7 @@
 <h1 id="python-development-with-code-capsules">Python Development with Code Capsules</h1>
 <p>In this guide, we'll clone an existing Python repository and take a look at how to edit the project locally before pushing the changes to GitHub. The final step will be to deploy the application with the changes we made locally to Code Capsules. </p>
 <h2 id="clone-starter-project">Clone Starter Project</h2>
-<p>We'll be using an example starter project provided by Code Capsules on their <a href="https://github.com/codecapsules-io/demo-python">GitHub repository</a>. Fork this repository by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination. Clone the forked repository to your machine by clicking the green “Code” button and copying the link that appears in the pop-up. </p>
+<p>We'll be using an example starter project provided by Code Capsules on their <a href="https://github.com/codecapsules-io/demo-python">GitHub repository</a>. Fork this repository by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination. Clone the forked repository to your machine by clicking the green "Code" button and copying the link that appears in the pop-up. </p>
 <p>Open a terminal window on your machine and navigate to your preferred working directory. Run <code>git clone &lt;FORKED-REPO-URL&gt;</code>, replacing <code>&lt;FORKED-REPO-URL&gt;</code> with the link you copied from the pop-up above. </p>
 <h2 id="run-starter-project-locally">Run Starter Project Locally</h2>
 <p>Before we can run the project locally, we need to create and activate a virtual environment where we'll install the project's dependencies. Depending on your machine, run the appropriate commands from the ones listed below:</p>
@@ -2764,40 +2833,40 @@ git commit -m &quot;Added new route&quot;
 </code></pre></div>
 <p>Push the changes to your remote repository by running <code>git push</code> in the same terminal window.</p>
 <h2 id="link-to-github">Link to GitHub</h2>
-<p>To link Code Capsules to your remote GitHub repository, log in to your Code Capsules account and click your profile image at the top right of the screen. Find the “GitHub” button under “GitHub Details”.</p>
+<p>To link Code Capsules to your remote GitHub repository, log in to your Code Capsules account and click your profile image at the top right of the screen. Find the "GitHub" button under "GitHub Details".</p>
 <p><img alt="git-button" src="../../assets/deployment/html/git-button.png" /></p>
-<p>Click the “GitHub” button, select your GitHub username, and do the following in the dialog box that appears:</p>
+<p>Click the "GitHub" button, select your GitHub username, and do the following in the dialog box that appears:</p>
 <ol>
-<li>Select “Only Select Repositories”.</li>
+<li>Select "Only Select Repositories".</li>
 <li>Choose the GitHub repository you recently pushed to.</li>
-<li>Press “Install &amp; Authorize”.</li>
+<li>Press "Install &amp; Authorize".</li>
 </ol>
 <p><img alt="Install &amp; authorize github" src="../../assets/deployment/html/github-integration.png" /></p>
 <h2 id="add-repository-to-team">Add Repository to Team</h2>
-<p>Select “Team Settings” in the top navigation bar to switch to the “Team Settings” tab.</p>
-<p>Click on the “Modify” button under the Team Repos section. An “Edit Team Repos” screen will slide in from the right. Click “Add” next to the demo repo, and then “Confirm”. All the Spaces in your Team will now have access to this repo.</p>
+<p>Select "Team Settings" in the top navigation bar to switch to the "Team Settings" tab.</p>
+<p>Click on the "Modify" button under the Team Repos section. An "Edit Team Repos" screen will slide in from the right. Click "Add" next to the demo repo, and then "Confirm". All the Spaces in your Team will now have access to this repo.</p>
 <p><img alt="Edit Team Repos" src="../../assets/deployment/html/team-repos.gif" /></p>
 <h2 id="create-a-space-for-your-app">Create a Space for your App</h2>
-<p><a href="https://codecapsules.io/docs/FAQ/what-is-a-space/">Spaces</a> are an organisational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this app, or you can create a new Space. In the “Spaces” Tab, click the “Create A New Space For Your Apps” button. </p>
-<p>Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.</p>
+<p><a href="https://codecapsules.io/docs/FAQ/what-is-a-space/">Spaces</a> are an organizational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this app, or you can create a new Space. In the "Spaces" Tab, click the "Create A New Space For Your Apps" button. </p>
+<p>Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".</p>
 <p><img alt="space name" src="../../assets/deployment/html/space-name.png" /></p>
 <h2 id="create-the-capsule">Create the Capsule</h2>
 <p>A <a href="https://codecapsules.io/docs/FAQ/what-is-a-capsule/">Capsule</a> provides the server for hosting an application on Code Capsules.</p>
-<p>Navigate to the “Spaces” tab and open the Space you’ll be using.</p>
-<p>Click the “Create a New Capsule for Your Space” button, and follow the instructions below:</p>
+<p>Navigate to the "Spaces" tab and open the Space you’ll be using.</p>
+<p>Click the "Create a New Capsule for Your Space" button, and follow the instructions below:</p>
 <ol>
-<li>Choose “Backend Capsule”.</li>
-<li>Under “Product”, select “Sandbox”.</li>
+<li>Choose "Backend Capsule".</li>
+<li>Under "Product", select "Sandbox".</li>
 <li>Choose your remote GitHub repository.</li>
-<li>Press “Next”.</li>
-<li>Leave “Run Command” blank.</li>
-<li>Click “Create Capsule”.</li>
+<li>Press "Next".</li>
+<li>Leave "Run Command" blank.</li>
+<li>Click "Create Capsule".</li>
 </ol>
-<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking “View Build Progress” next to the “Building Capsule” message.</p>
+<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.</p>
 <p><img alt="Deployment page" src="../../assets/reference/deployment-page.png" /></p>
-<p>Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section.</p>
+<p>Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.</p>
 <p><img alt="Build logs" src="../../assets/reference/build-logs.png" /></p>
-<p>Once the build is complete, a “Live Website” link will appear at the top of the tab. Click the link and you should see your deployed application.</p>
+<p>Once the build is complete, a "Live Website" link will appear at the top of the tab. Click the link and you should see your deployed application.</p>
 <p><img alt="Deployed App" src="../../assets/deployment/python/cc-flask-app.png" /></p>
 <p>If you’d like to deploy another application in a different language or framework, take a look at our other <a href="/docs/deployment/">deployment guides</a>.</p>
 

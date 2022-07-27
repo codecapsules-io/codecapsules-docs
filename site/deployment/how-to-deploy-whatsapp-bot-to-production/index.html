@@ -246,6 +246,12 @@
     
       
     
+      
+    
+      
+    
+      
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -680,6 +686,10 @@
       
         
       
+        
+      
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -746,6 +756,25 @@
   
   <span class="md-ellipsis">
     Bootstrap
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-deploy-caddy-docker-site-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caddy Docker
   </span>
 
       </a>
@@ -860,6 +889,25 @@
   
   <span class="md-ellipsis">
     Flask
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-deploy-flask-docker-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask + Docker
   </span>
 
       </a>
@@ -1811,6 +1859,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2143,6 +2193,25 @@
   
   <span class="md-ellipsis">
     Reader Mode App with Flask and Redis
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/image-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Overlay API with Express
   </span>
 
       </a>
@@ -2724,39 +2793,39 @@
 <h2 id="set-up">Set up</h2>
 <p>Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a <a href="https://codecapsules.io/">Code Capsules</a> account, a <a href="https://github.com/">GitHub</a> account and a <a href="https://www.twilio.com/try-twilio">Twilio</a> account.</p>
 <p>To demonstrate how to deploy a WhatsApp Bot with Code Capsules, we’ve provided an example bot which you can find on the <a href="https://github.com/codecapsules-io/whatsapp-echobot">Code Capsules GitHub repository</a>.</p>
-<p>Sign in to GitHub, and fork the example bot repository by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.</p>
+<p>Sign in to GitHub, and fork the example bot repository by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.</p>
 <h2 id="create-a-space-for-your-bot">Create a Space for your Bot</h2>
-<p>Log in to your Code Capsules account and navigate to the “Spaces” tab. Once there, click the “Create A New Space For Your Apps” button. </p>
-<p>Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.</p>
+<p>Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the "Create A New Space For Your Apps" button. </p>
+<p>Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".</p>
 <p><img alt="space name" src="../../assets/deployment/express/space-name.png" /></p>
 <h2 id="link-to-github">Link to GitHub</h2>
-<p>To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the “GitHub” button under “GitHub Details”.</p>
+<p>To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the "GitHub" button under "GitHub Details".</p>
 <p><img alt="GitHub button" src="../../assets/deployment/express/git-button.png" /></p>
-<p>Click the “GitHub” button, select your GitHub username, and do the following in the dialog box that appears:</p>
+<p>Click the "GitHub" button, select your GitHub username, and do the following in the dialog box that appears:</p>
 <ol>
-<li>Select “Only Select Repositories”.</li>
+<li>Select "Only Select Repositories".</li>
 <li>Choose the GitHub repository we forked.</li>
-<li>Press “Install &amp; Authorize”.</li>
+<li>Press "Install &amp; Authorize".</li>
 </ol>
 <p><img alt="Install &amp; authorize github" src="../../assets/deployment/express/github-integration.png" /></p>
 <h2 id="add-repository-to-team">Add Repository to Team</h2>
-<p>Select “Team Settings” in the top navigation bar to switch to the Team Settings tab.</p>
-<p>Click on the “Modify” button under the “Team Repos” section. An “Edit Team Repos” screen will slide in from the right. Click “Add” next to the bot repo, and then “Confirm”. All the Spaces in your Team will now have access to this repo.</p>
+<p>Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.</p>
+<p>Click on the "Modify" button under the "Team Repos" section. An "Edit Team Repos" screen will slide in from the right. Click "Add" next to the bot repo, and then "Confirm". All the Spaces in your Team will now have access to this repo.</p>
 <p><img alt="Edit Team Repos" src="../../assets/deployment/python/team-repos.gif" /></p>
 <h2 id="create-the-capsule">Create the Capsule</h2>
 <p>A <a href="https://codecapsules.io/docs/FAQ/what-is-a-capsule/">Capsule</a> provides the server for hosting an application on Code Capsules.</p>
-<p>Navigate to the “Spaces” tab and open the Space you’ll be using.</p>
-<p>Click the “Create a New Capsule for Your Space” button, and follow the instructions below:</p>
+<p>Navigate to the "Spaces" tab and open the Space you’ll be using.</p>
+<p>Click the "Create a New Capsule for Your Space" button, and follow the instructions below:</p>
 <ol>
-<li>Choose “Backend Capsule”.</li>
-<li>Under “Product”, select “Sandbox”.</li>
+<li>Choose "Backend Capsule".</li>
+<li>Under "Product", select "Sandbox".</li>
 <li>Choose the GitHub repository you forked.</li>
-<li>Press “Next”.</li>
-<li>Leave “Run Command” blank.</li>
-<li>Click “Create Capsule”.</li>
+<li>Press "Next".</li>
+<li>Leave "Run Command" blank.</li>
+<li>Click "Create Capsule".</li>
 </ol>
-<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking “View Build Progress” next to the “Building Capsule” message.</p>
-<p>Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section.</p>
+<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.</p>
+<p>Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.</p>
 <p><img alt="Build logs" src="../../assets/deployment/express/backend-capsule-build-logs.png" /></p>
 <h2 id="create-a-twilio-sandbox">Create a Twilio Sandbox</h2>
 <p>The Twilio Sandbox provides a development environment to access the WhatsApp API. Sign up for a <a href="https://www.twilio.com/try-twilio">Twilio account</a> to use a sandbox that allows you to test your bot in realtime. After you've logged into your Twilio account, navigate to the <a href="https://www.twilio.com/console/sms/whatsapp/sandbox">console</a> page to configure your WhatsApp sandbox settings. </p>

@@ -246,6 +246,12 @@
     
       
     
+      
+    
+      
+    
+      
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -676,6 +682,10 @@
       
         
       
+        
+      
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -742,6 +752,25 @@
   
   <span class="md-ellipsis">
     Bootstrap
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-caddy-docker-site-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caddy Docker
   </span>
 
       </a>
@@ -856,6 +885,25 @@
   
   <span class="md-ellipsis">
     Flask
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-docker-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask + Docker
   </span>
 
       </a>
@@ -1707,6 +1755,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -2207,6 +2257,25 @@
   
   <span class="md-ellipsis">
     Reader Mode App with Flask and Redis
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Overlay API with Express
   </span>
 
       </a>
@@ -2992,7 +3061,7 @@ cd flask-htmx
 <li>
 <p><strong>hx-target</strong> – This attribute accepts the <code>id</code> of the element you want to update after a successful request or when an event is triggered. Take note of the preceding <code>#</code> that’s written before the <code>id</code> value. </p>
 <ul>
-<li>You might have noticed that we didn’t use an <code>id</code> value in the table, but used a value of <code>closest tr</code> instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the “Edit Title” button or the “Delete” button. </li>
+<li>You might have noticed that we didn’t use an <code>id</code> value in the table, but used a value of <code>closest tr</code> instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the "Edit Title" button or the "Delete" button. </li>
 </ul>
 </li>
 <li>
@@ -3120,7 +3189,7 @@ cd flask-htmx
 
     <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 </code></pre></div>
-<p>The first thing you may have noticed about this route is the <code>id</code> query parameter it accepts. This allows us to know which object to delete. After deleting the book, we return an empty string, which causes the row we deleted in the frontend to disappear, as it is swapped for “nothing”. </p>
+<p>The first thing you may have noticed about this route is the <code>id</code> query parameter it accepts. This allows us to know which object to delete. After deleting the book, we return an empty string, which causes the row we deleted in the frontend to disappear, as it is swapped for "nothing". </p>
 <p>We now have routes for creating, reading, and deleting books. It’s time to add views associated with updating book entries in order to complete our app’s CRUD functionality. Add the code below to <code>views.py</code> to add logic for updating book entries to your app:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;/get-edit-form/&lt;int:id&gt;&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">get_edit_form</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
@@ -3197,7 +3266,7 @@ cd flask-htmx
 <span class="s2">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">response</span>
 </code></pre></div>
-<p>There’s more than one view for the update logic, and we’ll see why shortly. The <code>/get-edit-form</code> route is called when a user clicks on the “Edit Title” button on the frontend, and it returns a form for updating the selected book. If the user decides to cancel this action, the <code>/get-book-row</code> route is called and it returns a table row with the unedited book entry. </p>
+<p>There’s more than one view for the update logic, and we’ll see why shortly. The <code>/get-edit-form</code> route is called when a user clicks on the "Edit Title" button on the frontend, and it returns a form for updating the selected book. If the user decides to cancel this action, the <code>/get-book-row</code> route is called and it returns a table row with the unedited book entry. </p>
 <p>If the user goes through with updating the book title, then the <code>/update</code> route is called. The <code>update_book</code> function that’s bound to the <code>/update</code> route will update the book title based on the <code>id</code> supplied to it as a query parameter. When the update is complete, the method returns an HTML table row with the updated book title.</p>
 <h2 id="running-our-app">Running our App</h2>
 <p>Our app is ready to be tested. Navigate to the project’s root folder in a terminal and run the following command: <code>python3 run.py</code>. This should start up a development server on port 5000. Open your browser at <code>http://127.0.0.1:5000/</code> and you should see your app running:</p>

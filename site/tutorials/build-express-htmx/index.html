@@ -246,6 +246,12 @@
     
       
     
+      
+    
+      
+    
+      
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -676,6 +682,10 @@
       
         
       
+        
+      
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -742,6 +752,25 @@
   
   <span class="md-ellipsis">
     Bootstrap
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-caddy-docker-site-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caddy Docker
   </span>
 
       </a>
@@ -856,6 +885,25 @@
   
   <span class="md-ellipsis">
     Flask
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-docker-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask + Docker
   </span>
 
       </a>
@@ -1707,6 +1755,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -2225,6 +2275,25 @@
   
   <span class="md-ellipsis">
     Reader Mode App with Flask and Redis
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Overlay API with Express
   </span>
 
       </a>
@@ -2976,7 +3045,7 @@ cd express-htmx
 <li>
 <p><strong>hx-target</strong> – This attribute accepts the <code>id</code> of the element you want to update after a successful request or when an event is triggered. Take note of the preceding <code>#</code> that’s written before the ID value.</p>
 <ul>
-<li>You might have noticed that we didn’t use an <code>id</code> value in the table, but used a value of closest <code>tr</code> instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the “Edit Book” button or the “Delete” button.</li>
+<li>You might have noticed that we didn’t use an <code>id</code> value in the table, but used a value of closest <code>tr</code> instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the "Edit Book" button or the "Delete" button.</li>
 </ul>
 </li>
 <li>
@@ -3104,7 +3173,7 @@ cd express-htmx
 <span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-<p>The first thing you may have noticed about this route is the <code>id</code> query parameter it accepts. This allows us to know which object to delete. After deleting the book, we return an empty string, which causes the row we deleted in the frontend to disappear, as it is swapped for “nothing”.</p>
+<p>The first thing you may have noticed about this route is the <code>id</code> query parameter it accepts. This allows us to know which object to delete. After deleting the book, we return an empty string, which causes the row we deleted in the frontend to disappear, as it is swapped for "nothing".</p>
 <p>We now have routes for creating, reading, and deleting books. It’s time to add routes associated with updating book entries in order to complete our app’s CRUD functionality. Add the code below to <code>index.js</code> to add logic for updating book entries to your app:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/get-book-row/:id&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span><span class="w"></span>
@@ -3176,7 +3245,7 @@ cd express-htmx
 <span class="w">  </span><span class="p">});</span><span class="w"></span>
 <span class="p">});</span><span class="w"></span>
 </code></pre></div>
-<p>There’s more than one route for the update logic, and we’ll see why shortly. The <code>/get-edit-form</code> route is called when a user clicks on the “Edit Book” button on the frontend, and it returns a form for updating the selected book. If the user decides to cancel this action, the <code>/get-book-row</code> route is called and it returns a table row with the unedited book entry.</p>
+<p>There’s more than one route for the update logic, and we’ll see why shortly. The <code>/get-edit-form</code> route is called when a user clicks on the "Edit Book" button on the frontend, and it returns a form for updating the selected book. If the user decides to cancel this action, the <code>/get-book-row</code> route is called and it returns a table row with the unedited book entry.</p>
 <p>If the user goes through with updating the book, then the <code>/update</code> route is called and it will update the book based on the <code>id</code> supplied to it as a query parameter. When the update is complete, the method returns an HTML table row with the updated book.</p>
 <h3 id="add-start-script">Add <code>Start</code> Script</h3>
 <p>Code Capsules automatically runs the <code>npm start</code> command to start <code>node</code> projects. Currently our project doesn’t have a <code>start</code> command, so let’s add one in <code>package.json</code>. Modify the <code>"scripts"</code> dictionary in the <code>package.json</code> file so that it looks like this:</p>

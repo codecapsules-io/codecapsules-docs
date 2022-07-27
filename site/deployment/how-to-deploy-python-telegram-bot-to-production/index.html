@@ -246,6 +246,12 @@
     
       
     
+      
+    
+      
+    
+      
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -680,6 +686,10 @@
       
         
       
+        
+      
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -746,6 +756,25 @@
   
   <span class="md-ellipsis">
     Bootstrap
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-deploy-caddy-docker-site-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caddy Docker
   </span>
 
       </a>
@@ -860,6 +889,25 @@
   
   <span class="md-ellipsis">
     Flask
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-deploy-flask-docker-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask + Docker
   </span>
 
       </a>
@@ -1853,6 +1901,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2185,6 +2235,25 @@
   
   <span class="md-ellipsis">
     Reader Mode App with Flask and Redis
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/image-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Overlay API with Express
   </span>
 
       </a>
@@ -2809,60 +2878,60 @@
 <h2 id="set-up">Set up</h2>
 <p>Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a <a href="https://codecapsules.io/">Code Capsules</a> account and a <a href="https://github.com/">GitHub</a> account.</p>
 <p>To demonstrate how to deploy a Python Telegram Bot with Code Capsules, we’ve provided an example bot which you can find on the <a href="https://github.com/codecapsules-io/python-telegram-echobot">Code Capsules GitHub repository</a>.</p>
-<p>Sign in to GitHub, and fork the example bot repository by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.</p>
+<p>Sign in to GitHub, and fork the example bot repository by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.</p>
 <h2 id="create-a-space-for-your-bot">Create a Space for your Bot</h2>
-<p>Log in to your Code Capsules account and navigate to the “Spaces” tab. Once there, click the “Create A New Space For Your Apps” button. </p>
-<p>Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.</p>
+<p>Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the "Create A New Space For Your Apps" button. </p>
+<p>Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".</p>
 <p><img alt="space name" src="../../assets/deployment/express/space-name.png" /></p>
 <h2 id="link-to-github">Link to GitHub</h2>
-<p>To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the “GitHub” button under “GitHub Details”.</p>
+<p>To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the "GitHub" button under "GitHub Details".</p>
 <p><img alt="GitHub button" src="../../assets/deployment/express/git-button.png" /></p>
-<p>Click the “GitHub” button, select your GitHub username, and do the following in the dialog box that appears:</p>
+<p>Click the "GitHub" button, select your GitHub username, and do the following in the dialog box that appears:</p>
 <ol>
-<li>Select “Only Select Repositories”.</li>
+<li>Select "Only Select Repositories".</li>
 <li>Choose the GitHub repository we forked.</li>
-<li>Press “Install &amp; Authorize”.</li>
+<li>Press "Install &amp; Authorize".</li>
 </ol>
 <p><img alt="Install &amp; authorize github" src="../../assets/deployment/express/github-integration.png" /></p>
 <h2 id="add-repository-to-team">Add Repository to Team</h2>
-<p>Select “Team Settings” in the top navigation bar to switch to the Team Settings tab.</p>
-<p>Click on the “Modify” button under the “Team Repos” section. An “Edit Team Repos” screen will slide in from the right. Click “Add” next to the demo repo, and then “Confirm”. All the Spaces in your Team will now have access to this repo.</p>
+<p>Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.</p>
+<p>Click on the "Modify" button under the "Team Repos" section. An "Edit Team Repos" screen will slide in from the right. Click "Add" next to the demo repo, and then "Confirm". All the Spaces in your Team will now have access to this repo.</p>
 <p><img alt="Edit Team Repos" src="../../assets/deployment/python/team-repos.gif" /></p>
 <h2 id="register-the-bot">Register the Bot</h2>
 <p>You'll need a Telegram user account before you can create a Telegram bot. Head over to Telegram and create an account if you don't already have one.</p>
-<p>When you've signed in to Telegram, search for “BotFather” (a bot for managing all other Telegram bots) and start a new chat with it. Follow the steps below to register a new bot with the BotFather:</p>
+<p>When you've signed in to Telegram, search for "BotFather" (a bot for managing all other Telegram bots) and start a new chat with it. Follow the steps below to register a new bot with the BotFather:</p>
 <ol>
 <li>Type <code>/start</code> and press send.</li>
 <li>Type <code>/newbot</code> and press send.</li>
 <li>Choose a name for your bot.</li>
-<li>Choose a username for your bot that ends in “bot”.</li>
+<li>Choose a username for your bot that ends in "bot".</li>
 </ol>
 <p>The BotFather will respond with a message containing an access token for your newly created bot. This access token will allow our application to access the Telegram API and tell our bot what to do when receiving different messages from users.</p>
 <p>To confirm that your bot was created successfully, search for the bot's username. You should be able to see it and start a conversation with it, although it won't respond as we haven't written the bot's logic yet.</p>
 <h2 id="create-the-capsule">Create the Capsule</h2>
 <p>A <a href="https://codecapsules.io/docs/FAQ/what-is-a-capsule/">Capsule</a> provides the server for hosting an application on Code Capsules.</p>
-<p>Navigate to the “Spaces” tab and open the Space you’ll be using.</p>
-<p>Click the “Create a New Capsule for Your Space” button, and follow the instructions below:</p>
+<p>Navigate to the "Spaces" tab and open the Space you’ll be using.</p>
+<p>Click the "Create a New Capsule for Your Space" button, and follow the instructions below:</p>
 <ol>
-<li>Choose “Backend Capsule”.</li>
-<li>Under “Product”, select “Sandbox”.</li>
+<li>Choose "Backend Capsule".</li>
+<li>Under "Product", select "Sandbox".</li>
 <li>Choose the GitHub repository you forked.</li>
-<li>Press “Next”.</li>
-<li>Leave “Run Command” blank.</li>
-<li>Click “Create Capsule”.</li>
+<li>Press "Next".</li>
+<li>Leave "Run Command" blank.</li>
+<li>Click "Create Capsule".</li>
 </ol>
-<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking “View Build Progress” next to the “Building Capsule” message.</p>
-<p>Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section.</p>
+<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.</p>
+<p>Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.</p>
 <p><img alt="Build logs" src="../../assets/deployment/express/backend-capsule-build-logs.png" /></p>
 <h2 id="add-environment-variables">Add Environment Variables</h2>
-<p>Once the build is complete, you have to add <code>BOT_TOKEN</code> and <code>URL</code> environment variables on the “Configure” tab under the “Capsule parameters” section.</p>
+<p>Once the build is complete, you have to add <code>BOT_TOKEN</code> and <code>URL</code> environment variables on the "Configure" tab under the "Capsule parameters" section.</p>
 <h3 id="bot_token"><code>BOT_TOKEN</code></h3>
 <p>Assign the <code>BOT_TOKEN</code> variable the value of the access token you were given by the BotFather when you registered the bot.</p>
 <p><img alt="Add a BOT_TOKEN Environment Variable" src="../../assets/deployment/telegram/add-bot-token-env-var.png" /></p>
 <h3 id="url"><code>URL</code></h3>
 <p>For the <code>URL</code> variable, set it to the value of your bot's domain. You can get it by clicking the "Live Website" link to the left of the capsule's toggle button and copying the url in the new tab that opens. Paste the url you copied in the value field for the <code>URL</code> environment variable. </p>
 <p><img alt="Add a URL Environment Variable" src="../../assets/deployment/telegram/url-env-var.png" /></p>
-<p>Confirm your changes by clicking on “Update Capsule”, then restart your Capsule by toggling the radio button in the top right off and on again.</p>
+<p>Confirm your changes by clicking on "Update Capsule", then restart your Capsule by toggling the radio button in the top right off and on again.</p>
 <h2 id="setup-webhook">Setup Webhook</h2>
 <p>The next step is to setup a webhook for your bot. Do this by clicking the "Live Website" link at the top of the capsule's page. On the new tab that opens add <code>/setwebhook</code> to the url and press enter/return to visit the url. If you see <code>webhook setup ok</code> then your bot is ready to chat!</p>
 <h2 id="chat-with-the-bot">Chat with the Bot</h2>

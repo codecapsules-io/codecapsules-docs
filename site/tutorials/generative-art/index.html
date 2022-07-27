@@ -246,6 +246,12 @@
     
       
     
+      
+    
+      
+    
+      
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -676,6 +682,10 @@
       
         
       
+        
+      
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -742,6 +752,25 @@
   
   <span class="md-ellipsis">
     Bootstrap
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-caddy-docker-site-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caddy Docker
   </span>
 
       </a>
@@ -856,6 +885,25 @@
   
   <span class="md-ellipsis">
     Flask
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-docker-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask + Docker
   </span>
 
       </a>
@@ -1707,6 +1755,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
@@ -2198,6 +2248,25 @@
   
   <span class="md-ellipsis">
     Reader Mode App with Flask and Redis
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Overlay API with Express
   </span>
 
       </a>
@@ -2965,12 +3034,12 @@ cd generate-graphics
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>Our app has two main features: it allows a user to generate new graphic images and to download them. The “I hate this art, make me another” button sends a request to the <code>/generate-another</code> route, which handles the creation of a new graphic image. When the app generates an image a user likes, the user can download that image by pressing the “Download” button. This download button has access to the newly created graphic image.</p>
-<p>The <code>&lt;img&gt;</code> tag below the page header takes in a Base64 string as input and renders the corresponding graphic image to the screen. The download button also accesses this Base64 string to allow for the download of the image. We’ve assigned an <code>id</code> value of <code>“image-update-div”</code> to the div that contains both this image and download button to allow us to use HTMx to update the image when a user clicks the “I hate this art, make me another” button. You’ll notice three HTMx attributes in the button's <code>src</code> code, which is located at the bottom of the page. Let’s go over them and see what each one is responsible for:</p>
+<p>Our app has two main features: it allows a user to generate new graphic images and to download them. The "I hate this art, make me another" button sends a request to the <code>/generate-another</code> route, which handles the creation of a new graphic image. When the app generates an image a user likes, the user can download that image by pressing the "Download" button. This download button has access to the newly created graphic image.</p>
+<p>The <code>&lt;img&gt;</code> tag below the page header takes in a Base64 string as input and renders the corresponding graphic image to the screen. The download button also accesses this Base64 string to allow for the download of the image. We’ve assigned an <code>id</code> value of <code>"image-update-div"</code> to the div that contains both this image and download button to allow us to use HTMx to update the image when a user clicks the "I hate this art, make me another" button. You’ll notice three HTMx attributes in the button's <code>src</code> code, which is located at the bottom of the page. Let’s go over them and see what each one is responsible for:</p>
 <ul>
 <li><code>hx-target</code>: This attribute accepts an <code>id</code> value prefixed by a <code>#</code>. It lets HTMx know which element to swap on a successful request.</li>
 <li><code>hx-get</code>: The <code>hx-get</code> attribute sends a <code>GET</code> request to the specified URL. If we wanted to send a <code>POST</code> request, we would have used the <code>hx-post</code> attribute instead.</li>
-<li><code>hx-swap</code>: This attribute tells HTMx how to swap out the old with the new elements after a successful request. In our case we’ve used the value of <code>“outerHTML”</code> to specify that the entire <code>&lt;div&gt;</code> element be replaced by the response. Other accepted values include but are not limited to <code>innerHTML</code>, <code>beforeend</code>, and <code>afterend</code>.</li>
+<li><code>hx-swap</code>: This attribute tells HTMx how to swap out the old with the new elements after a successful request. In our case we’ve used the value of <code>"outerHTML"</code> to specify that the entire <code>&lt;div&gt;</code> element be replaced by the response. Other accepted values include but are not limited to <code>innerHTML</code>, <code>beforeend</code>, and <code>afterend</code>.</li>
 </ul>
 <p>You can view other HTMx attributes and their functionalities <a href="https://htmx.org/reference/">in this HTMx reference guide</a>.</p>
 <h2 id="build-the-backend">Build the Backend</h2>
@@ -3085,7 +3154,7 @@ cd generate-graphics
     <span class="k">return</span> <span class="n">response</span>
 </code></pre></div>
 <p>At the top of the file, we import the <code>create</code> method from the <code>make_squares</code> module, since our views need to return the Base64 image string when responding.</p>
-<p>The <code>index</code> route is called when the app is first started, and it calls the <code>create()</code> method to generate a Base64 image string and returns it in the <code>home.html</code> template. The <code>/generate-another</code> route is called when a user clicks on the “I hate this art, make me another” button. It saves the new graphic image to the <code>/tmp</code> folder before returning it as part of an HTML response, since the request is triggered by HTMx. This allows our app to only refresh the image element, and download refrence, and not the whole page, like in the case of rendering templates.</p>
+<p>The <code>index</code> route is called when the app is first started, and it calls the <code>create()</code> method to generate a Base64 image string and returns it in the <code>home.html</code> template. The <code>/generate-another</code> route is called when a user clicks on the "I hate this art, make me another" button. It saves the new graphic image to the <code>/tmp</code> folder before returning it as part of an HTML response, since the request is triggered by HTMx. This allows our app to only refresh the image element, and download refrence, and not the whole page, like in the case of rendering templates.</p>
 <h2 id="prepare-for-deployment">Prepare for Deployment</h2>
 <p>Our generate art app is now complete and we are only left with adding the files necessary for deployment before we can publish it.</p>
 <h3 id="add-procfile-and-requirementstxt">Add Procfile and <code>requirements.txt</code></h3>
