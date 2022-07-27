@@ -13,7 +13,7 @@ Deploy a Caddy Docker site and learn how to host frontend code on Code Capsules.
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a Bootstrap site with Code Capsules, we’ve provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/hello-caddy).
+To demonstrate how to deploy a Bootstrap site with Code Capsules, we’ve provided an example application, which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/hello-caddy).
 
 Sign in to GitHub, and fork the example application by clicking “Fork” at the top-right of your screen and selecting your GitHub account as the destination.
 
@@ -21,7 +21,7 @@ Sign in to GitHub, and fork the example application by clicking “Fork” at th
 
 If you don’t already have an account, navigate to the [Code Capsules](https://codecapsules.io/) site and click the “Sign Up” button in the top right corner of the screen. Enter your details to create an account, or log in to an existing one.
 
-If you’ve just signed up for an account, you’ll be directed to a welcome page on your first login. Click on the “Go To Personal Team” button.
+If you’ve just signed up for an account, you’ll be directed to a welcome page on your first log in. Click on the “Go To Personal Team” button.
 
 Alternatively, if you’re signing in again, click on “Spaces” in the top right corner of your screen.
 
@@ -29,7 +29,7 @@ Code Capsules gives every account a Personal Team by default. A Team is an envir
 
 ## Create a Space for your Apps
 
-[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space/) are an organisational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this application, or you can create a new Space. In the Spaces Tab, click the "Create A New Space For Your Apps" button.
+[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space/) are an organizational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this application, or you can create a new Space. In the Spaces Tab, click the "Create A New Space For Your Apps" button.
 
 Follow the prompts, choosing your region and giving your Space a name, then click “Create Space”.
 
@@ -47,7 +47,7 @@ Click the “GitHub” button, select your GitHub username, and do the following
 2. Choose the GitHub repository we forked.
 3. Press "Install & Authorize".
 
-![Install & authorize github](../assets/deployment/html/github-integration.png)
+![Install & authorize github](../assets/deployment/html/github-integration.png){ width="75%" }
 
 ## Add Repository to Team
 
@@ -73,13 +73,15 @@ Click the “Create a New Capsule for Your Space” button, and follow the instr
 6. Leave the "Docker build context" field blank.
 7. Click “Create Capsule”.
 
+![Create Docker capsule](../assets/deployment/caddy-docker/docker-guide.gif){ width="75%" }
+
 Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking “View Build Progress” next to the “Building Capsule” message.
 
 Once your application is live, you can view the build log by selecting the “Deploy” tab and clicking the “View build log” link in the “Builds” section.
 
-![Build logs](../assets/deployment/html/frontend-capsule-build-logs.png)
+![Build logs](../assets/deployment/html/frontend-capsule-build-logs.png){ width="80%" }
 
-Once the build is complete, a “Live Website” link will appear at the top of the tab. Click the link and you should see your deployed application.
+Once the build is complete, a “Live Website” link will appear at the top of the tab. Click the link, and you should see your deployed application.
 
 ![Deployed App](../assets/deployment/caddy-docker/caddy-docker-site.png)
 
