@@ -30,6 +30,7 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
   - meta
+  - attr_list
 
 nav:
   - Getting Started: index.md
@@ -37,12 +38,14 @@ nav:
       - Overview: deployment/index.md
       - Angular: deployment/how-to-deploy-angular-application-to-production.md
       - Bootstrap: deployment/how-to-deploy-bootstrap-site-to-production.md
+      - Caddy Docker: deployment/how-to-deploy-caddy-docker-site-to-production.md
       - Django: deployment/how-to-deploy-django-application-to-production.md
       - Django + MySQL: deployment/how-to-deploy-django-mysql-application-to-production.md
       - Django + MongoDB: deployment/how-to-deploy-django-mongodb-application-to-production.md
       - Express: deployment/how-to-deploy-express-application-to-production.md
       - Express + Mongo: deployment/how-to-deploy-express-mongo-application-to-production.md
       - Flask: deployment/how-to-deploy-flask-application-to-production.md
+      - Flask + Docker: deployment/how-to-deploy-flask-docker-application-to-production.md
       - Flask + HTMx: deployment/how-to-deploy-flask-htmx-application-to-production.md
       - Flask + MongoDB: deployment/how-to-deploy-flask-mongo-application-to-production.md
       - Flask + MySQL: deployment/how-to-deploy-flask-mysql-application-to-production.md
