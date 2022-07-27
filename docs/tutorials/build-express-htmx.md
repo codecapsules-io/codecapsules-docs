@@ -134,7 +134,7 @@ There are a couple of attributes here that aren’t used in traditional HTML. Le
 
 - **hx-target** – This attribute accepts the `id` of the element you want to update after a successful request or when an event is triggered. Take note of the preceding `#` that’s written before the ID value.
 
-    - You might have noticed that we didn’t use an `id` value in the table, but used a value of closest `tr` instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the “Edit Book” button or the “Delete” button.
+    - You might have noticed that we didn’t use an `id` value in the table, but used a value of closest `tr` instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the "Edit Book" button or the "Delete" button.
 
 - **hx-swap** – The [hx-swap](https://htmx.org/docs/#swapping) attribute allows you to specify how you want to partially reload the page or swap elements with new ones. It updates the UI in the section specified in the `hx-target` attribute.
 
@@ -284,7 +284,7 @@ app.delete("/delete/:id", async (req, res) => {
 });
 ```
 
-The first thing you may have noticed about this route is the `id` query parameter it accepts. This allows us to know which object to delete. After deleting the book, we return an empty string, which causes the row we deleted in the frontend to disappear, as it is swapped for “nothing”.
+The first thing you may have noticed about this route is the `id` query parameter it accepts. This allows us to know which object to delete. After deleting the book, we return an empty string, which causes the row we deleted in the frontend to disappear, as it is swapped for "nothing".
 
 We now have routes for creating, reading, and deleting books. It’s time to add routes associated with updating book entries in order to complete our app’s CRUD functionality. Add the code below to `index.js` to add logic for updating book entries to your app:
 
@@ -360,7 +360,7 @@ app.put("/update/:id", async (req, res) => {
 });
 ```
 
-There’s more than one route for the update logic, and we’ll see why shortly. The `/get-edit-form` route is called when a user clicks on the “Edit Book” button on the frontend, and it returns a form for updating the selected book. If the user decides to cancel this action, the `/get-book-row` route is called and it returns a table row with the unedited book entry.
+There’s more than one route for the update logic, and we’ll see why shortly. The `/get-edit-form` route is called when a user clicks on the "Edit Book" button on the frontend, and it returns a form for updating the selected book. If the user decides to cancel this action, the `/get-book-row` route is called and it returns a table row with the unedited book entry.
 
 If the user goes through with updating the book, then the `/update` route is called and it will update the book based on the `id` supplied to it as a query parameter. When the update is complete, the method returns an HTML table row with the updated book.
 
