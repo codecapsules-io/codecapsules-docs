@@ -382,7 +382,7 @@ Your Capsule is now building. This process will make your portfolio visible onli
 
 ## Conclusion and Further Reading
 
-![finished_port](../assets/tutorials/host-a-frontend/finished_port.gif)
+![finished_port](../assets/tutorials/host-a-frontend/finished_port.png)
 
 We've created a portfolio, pushed it to GitHub, and made the portfolio visible to the world. In the future, we'll take a look at "Backend" capsules. These "Backend" capsules will enable us to host back-end code and provide additional functionality – like implementing the contact form we removed at the beginning of the tutorial. 
 
