@@ -108,7 +108,7 @@ Now we'll change the text that displays at the top of the portfolio. Scroll down
 
 Save the file and open it in a web browser. Our portfolio should now look something like this: 
 
-![image2](../assets/tutorials/host-a-frontend/starter_template.png)
+![image2](../assets/tutorials/host-a-frontend/starter_template.jpg)
 
 Next, we'll take a look at deleting the date entries above each portfolio piece, removing the "Generic Page" and "Elements Reference" tabs, and modifying the social media links. 
 
@@ -368,11 +368,11 @@ You'll be prompted to choose a Capsule type – our portfolio contains only fron
 4. Leave the build command blank and enter the name of the sub-directory containing the portfolio files in the "Static Content Folder Path" entry box.
 5. Press "Create Capsule". 
 
-![Add a repository](../assets/tutorials/host-a-frontend/add_repository.png)
+![Add a repository](../assets/tutorials/host-a-frontend/add_repository.jpg)
 
-![Select Capsule type](../assets/tutorials/host-a-frontend/select_capsule_type.png)
+![Select Capsule type](../assets/tutorials/host-a-frontend/select_capsule_type.jpg)
 
-![Link repository](../assets/tutorials/host-a-frontend/link_repository_to_capsule.png)
+![Link repository](../assets/tutorials/host-a-frontend/link_repository_to_capsule.jpg)
 
 ![Create Capsule](../assets/tutorials/host-a-frontend/create_capsule.png)
 
@@ -382,7 +382,7 @@ Your Capsule is now building. This process will make your portfolio visible onli
 
 ## Conclusion and Further Reading
 
-![finished_port](../assets/tutorials/host-a-frontend/finished_port.png)
+![finished_port](../assets/tutorials/host-a-frontend/finished_port.jpg)
 
 We've created a portfolio, pushed it to GitHub, and made the portfolio visible to the world. In the future, we'll take a look at "Backend" capsules. These "Backend" capsules will enable us to host back-end code and provide additional functionality – like implementing the contact form we removed at the beginning of the tutorial. 
 
