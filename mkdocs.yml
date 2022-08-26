@@ -32,8 +32,8 @@ markdown_extensions:
   - meta
   - attr_list
 
-# plugins:
-#   - social
+plugins:
+  - social
 
 nav:
   - Getting Started: index.md
