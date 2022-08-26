@@ -44,9 +44,13 @@ cd ColorApi
 
 From now on the `/ColorApi` folder will be referred to as the project root folder.
 
+### Initialize an Empty Git Repository
+
+From the project’s root folder, enter the command `git init` to initialize a git repository. This will allow you to track changes to your app as you build it.
+
 ### Linking to GitHub
 
-Every Laravel starter project comes with a git repository and we have to link it to a remote one that we can deploy on Code Capsules. Head over to [GitHub](https://github.com/) and create a new repository. Then, in your project's root folder, run the command below from the terminal, replacing username and repository_name with your own values from GitHub.
+Head over to [GitHub](https://github.com/) and create a new repository. Then, in your project's root folder, run the command below from the terminal, replacing username and repository_name with your own values from GitHub.
 
 ```
 git remote add origin git@github.com:username/repository_name.git
