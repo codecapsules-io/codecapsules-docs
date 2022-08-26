@@ -83,10 +83,10 @@ Once your application is live, you can view the build log by selecting the "Depl
 
 Once the build is complete, navigate to the "Configure" tab and scroll down to the "Network Port" section. Enter "8000" as the port number and click on "Update Capsule".
 
-![Set network port](../assets/deployment/flask-docker/network-port.png)
+![Network Port](../assets/deployment/docker-laravel/network-port.png)
 
-The laravel docker API will now be live, and you can click on the "Live Website" link at the top right of the tab to view it.
+The laravel docker API will now be live, and you can click on the "Live Website" link at the top right of the tab and navigate to the `/api` route to view it.
 
-![Deployed App](../assets/deployment/flask-docker/flask-docker-application.png)
+![Deployed App](../assets/deployment/docker-laravel/docker-laravel.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).

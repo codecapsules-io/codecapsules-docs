@@ -97,7 +97,6 @@ nav:
       - Node.js Telegram Bot: tutorials/create-nodejs-telegram-bot.md
       - Python Telegram Bot: tutorials/create-and-host-telegram-bot.md
       - Flask API: tutorials/creating-and-hosting-a-flask-api.md
-      - Hex Color Identifier: tutorials/build-hex-color-identifier.md
       - Flask HTMx: tutorials/build-flask-htmx-app.md
       - Express HTMx: tutorials/build-express-htmx.md
       - Generative Graphics: tutorials/generative-art.md
