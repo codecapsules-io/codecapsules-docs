@@ -11,7 +11,7 @@ In this tutorial we’ll be looking at how to build a Hex Colour Identifier API 
 
 Here’s an example of a response we might get after querying the API.
 
-Pic Here
+![Color API](../assets/tutorials/hex-color-identifier/color-identifier.png)
 
 ## Requirements
 
@@ -184,8 +184,6 @@ The final step is to deploy our app. Log into your Code Capsules account and lin
 
 Once the build is complete, navigate to the "Configure" tab and scroll down to the "Network Port" section. Enter "8000" as the port number and click on "Update Capsule".
 
-Pic here
+![Network Port](../assets/tutorials/hex-color-identifier/network-port.png)
 
 That’s it! Your "Hex Color Identifier" app should be live and fully functional now.
-
-Pic here
