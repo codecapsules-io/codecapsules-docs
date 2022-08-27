@@ -85,7 +85,7 @@ Once the build is complete, navigate to the "Configure" tab and scroll down to t
 
 ![Network Port](../assets/deployment/docker-laravel/network-port.png)
 
-The laravel docker API will now be live, and you can click on the "Live Website" link at the top right of the tab and navigate to the `/api` route to view it.
+The Laravel docker API will now be live, and you can click on the "Live Website" link at the top right of the tab and navigate to the `/api` route to view it.
 
 ![Deployed App](../assets/deployment/docker-laravel/docker-laravel.png)
 

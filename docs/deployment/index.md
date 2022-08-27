@@ -165,7 +165,7 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
 
 <figure>
   <a href="./how-to-deploy-docker-laravel-application-to-production">
-    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/caddy-docker.png" width="150" />
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/laravel-docker.jpg" width="150" />
     <figcaption>Laravel Docker</figcaption>
   </a>
 </figure>
