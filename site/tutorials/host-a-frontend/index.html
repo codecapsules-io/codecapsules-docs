@@ -259,7 +259,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hosting-a-front-end-building-and-deploying-your-portfolio-to-code-capsules" class="md-skip">
+        <a href="#host-your-front-end-developer-portfolio" class="md-skip">
           Skip to content
         </a>
       
@@ -2929,15 +2929,16 @@
                 
 
 
-<h1 id="hosting-a-front-end-building-and-deploying-your-portfolio-to-code-capsules">Hosting a Front-end: Building and Deploying Your Portfolio to Code Capsules</h1>
+<h1 id="host-your-front-end-developer-portfolio">Host your front-end developer portfolio</h1>
 <p><img alt="Portfolio Cover Image" src="../../assets/tutorials/host-a-frontend/portfolio-1.jpg" /></p>
-<p>Publishing your portfolio online requires a solid technical background – managing servers can be challenging. You need to choose a server's operating system, maintain and update the server, and figure out where to host the server itself. </p>
-<p>In this tutorial, we'll work with an alternative to the traditional method of hosting a front-end (content that visitors see when they load your website), called <a href="https://codecapsules.io">Code Capsules</a>. Code Capsules is a service that hosts front-end (and back-end) code online. Furthermore, Code Capsules:</p>
+<p>Static websites allow you to deliver simple content to people over the web. Setting up a static page that demonstrates your business, product, or skills doesn't have to be complex. Skip the learning curve surrounding server management and focus on getting out quality content with Code Capsules.</p>
+<p>In this tutorial, we'll create a front-end, which is content that visitors see when they load your website. Code Capsules is a service that hosts front-end (and back-end) code online, so we can use it to host a simple portfolio website for free.  </p>
+<p>With Code Capsules you can:</p>
 <ul>
-<li>Manages all of the technical details – no server management required. </li>
-<li>Integrates with GitHub to deploy your code with a single <code>git push</code>.</li>
+<li>Manage all of the technical details – no server management required. </li>
+<li>Integrate with GitHub to deploy your code with a single <code>git push</code>.</li>
 </ul>
-<p>First, we'll take a look at choosing a portfolio template and personalising it. After, we'll push the portfolio to a GitHub repository and see how Code Capsules connects to GitHub and makes your portfolio visible to the world. </p>
+<p>First, we'll take a look at choosing a portfolio template and personalising it. After, we'll push the portfolio to a GitHub repository and connect Code Capsules to GitHub to make the portfolio visible to the world. </p>
 <h2 id="requirements-prerequisite-knowledge">Requirements &amp; Prerequisite Knowledge</h2>
 <p>Hosting a portfolio on Code Capsules requires no previous knowledge about servers or front-end development. To personalise a portfolio template and deploy it to Code Capsules, we'll need:</p>
 <ul>
@@ -2947,11 +2948,11 @@
 </ul>
 <h2 id="creating-a-portfolio">Creating a Portfolio</h2>
 <p><a href="https://www.html5up.net">HTML5 UP</a> provides HTML site templates for free. We'll use the <a href="https://html5up.net/massively">Massively</a> template – an easy to modify and elegant HTML template.</p>
-<p>Follow these instructions <em>carefully</em>:</p>
+<p>To get started:</p>
 <ol>
-<li>Download the Massively template.</li>
-<li>Create a directory somewhere on your computer, then enter it.</li>
-<li><strong>Within this directory, create <em>another</em> directory, and extract the Massively template files into it</strong>.</li>
+<li>Download the <a href="https://html5up.net/massively">Massively template.</a></li>
+<li>Create a folder somewhere on your computer, then enter it.</li>
+<li>Within this folder, create another folder, and extract the Massively template files into it.</li>
 </ol>
 <p>This last step is necessary for hosting a web-page on Code Capsules. The file structure should look something like this:</p>
 <div class="highlight"><pre><span></span><code>myPortfolio  
@@ -2961,12 +2962,15 @@
         + generic.html
         + elements.html
         + index.html
+        + LICENSE.txt
+        + README.txt
 </code></pre></div>
 <p>The <code>index.html</code> file contains all of the HTML code for our portfolio – any changes to this code will result in a change to the portfolio. To view changes you make as we begin to modify the template, double click the <code>index.html</code> file to open the portfolio in a web-browser.</p>
 <h2 id="personalizing-the-template">Personalizing the Template</h2>
-<p>This tutorial will following the creation of a portfolio for Abraham Lincoln – the 16th president of the USA. We'll take a closer look at some things Abraham Lincoln wouldn't want in a portfolio – and maybe you too. The next few sections will cover how to modify the following elements of the portfolio template:</p>
+<p>This tutorial will following the creation of a portfolio for a front-end developer. We'll take a closer look at some things you wouldn't want in a portfolio. The next few sections will cover how to modify the following elements of the portfolio template:</p>
 <ul>
-<li>Any not personalized text.</li>
+<li>The title and subheading.</li>
+<li>Creating personlised text.</li>
 <li>The "Generic Page" and "Elements Reference" tabs.</li>
 <li>Pagination.</li>
 <li>The email contact form.</li>
@@ -2981,7 +2985,7 @@
     <span class="p">&lt;</span><span class="nt">noscript</span><span class="p">&gt;&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;assets/css/noscript.css&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">noscript</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>Change the text within the <code>&lt;title&gt;</code> tags to whatever you'd like, such as: "Abraham Lincoln". This is what will appear in search engines and browser tabs.</p>
+<p>Change the text within the <code>&lt;title&gt;</code> tags to whatever you'd like, such as: "My Portfolio". This is what will appear in search engines and browser tabs.</p>
 <p>Now we'll change the text that displays at the top of the portfolio. Scroll down in your text editor, until you see the following code:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">&lt;!-- Intro --&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;intro&quot;</span><span class="p">&gt;</span>
@@ -3007,20 +3011,21 @@
 <p>Change the text within the <code>&lt;p&gt;...&lt;/p&gt;</code> tags to edit the subheading of the portfolio – the <code>&lt;br /&gt;</code> tags and the <code>&lt;a&gt;...&lt;/a&gt;</code> tags are safe to delete.</p>
 </li>
 <li>
-<p>Delete the "Massively" button that appears as you scroll down the portfolio by deleting the three lines under the <code>&lt;!-- Header --&gt;</code> text wrapped in <code>&lt;header&gt;...&lt;/header&gt;</code> tags.</p>
+<p>Edit the "return-to-top" button, that appears as you scroll down the portfolio, by editing the text in the "Massively" text in the <code>&lt;!-- Header --&gt;</code> section. You can also delete this button  by deleting the three lines wrapped in <code>&lt;header&gt;...&lt;/header&gt;</code> tags.</p>
 </li>
 </ol>
 <p>Save the file and open it in a web browser. Our portfolio should now look something like this: </p>
-<p><img alt="image2" src="../../assets/tutorials/host-a-frontend/Image2.png" /></p>
+<p><img alt="image2" src="../../assets/tutorials/host-a-frontend/starter_template.jpg" /></p>
 <p>Next, we'll take a look at deleting the date entries above each portfolio piece, removing the "Generic Page" and "Elements Reference" tabs, and modifying the social media links. </p>
 <h3 id="removing-the-tabs-dates-and-links">Removing the tabs, dates, and links</h3>
-<p>The default layout for Massively is designed for a blog or news website containing articles. To look like a portfolio, we should delete the dates above each article entry. Do so by locating and deleting all lines beginning with <code>&lt;span class="date"...&gt;</code>.</p>
-<p>To make this a single-page portfolio, we can delete the "Generic Page" and "Elements Reference" tabs by finding:</p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;index.html&quot;</span><span class="p">&gt;</span>This is Massively<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;generic.html&quot;</span><span class="p">&gt;</span>Generic Page<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<p>The default layout for Massively is designed for a blog or news website containing articles. You may not need dates on a portfolio page. To delete the dates above each article entry, locate and delete all lines beginning with <code>&lt;span class="date"...&gt;</code>.</p>
+<p>To make this a single-page portfolio, we can delete the "Generic Page" and "Elements Reference" tabs by finding and deleting these lines:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;generic.html&quot;</span><span class="p">&gt;</span>Generic Page<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;elements.html&quot;</span><span class="p">&gt;</span>Elements Reference<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>and deleting the last two lines. While we're at it, alter the title of the main tab by changing the "This is Massively" text.</p>
+<p>While we're at it, alter the title of the main tab by changing the "This is Massively" text found just above those lines:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">li</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;active&quot;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;index.html&quot;</span><span class="p">&gt;</span>This is Massively<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</code></pre></div>
 <p>The code for social media accounts is located at the top and bottom of the index.html file. Starting at the top, find this block of code:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ul</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;icons&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;icon brands fa-twitter&quot;</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;label&quot;</span><span class="p">&gt;</span>Twitter<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
@@ -3029,11 +3034,11 @@
     <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;icon brands fa-github&quot;</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;label&quot;</span><span class="p">&gt;</span>GitHub<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>Delete any social media account you don't need – Abraham Lincoln doesn't have Instagram, so he would delete the following line to remove the Instagram link: </p>
+<p>Delete any social media account you don't need. Say you don't have an Instagram account, you would delete the following line to remove the Instagram link: </p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;icon brands fa-instagram&quot;</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;label&quot;</span><span class="p">&gt;</span>Instagram<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>If you'd like to link your social media accounts, enter the account link in place of the <code>#</code> in <code>href="#"</code>. For example, to link Abraham Lincoln's Twitter account, you'd edit the Twitter line like so: </p>
-<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://twitter.com/Abe_Lincoln&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;icon brands fa-twitter&quot;</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;label&quot;</span><span class="p">&gt;</span>Twitter<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<p>If you'd like to link your social media accounts, enter the account link in place of the <code>#</code> in <code>href="#"</code>. For example, to link a Twitter account, you'd edit the Twitter line like so: </p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://twitter.com/your_username&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;icon brands fa-twitter&quot;</span><span class="p">&gt;&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;label&quot;</span><span class="p">&gt;</span>Twitter<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>The social media code at the bottom of the <code>index.html</code> is nearly identical – follow this same process to edit the code at the bottom. </p>
 <h3 id="removing-unnecessary-content-and-further-personalisation">Removing unnecessary content and further personalisation</h3>
@@ -3088,7 +3093,7 @@
   <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">footer</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>3.To delete specific contact information sections (the address section is shown below), delete the <code>&lt;section&gt;</code> tag, the information you want to delete, and the corresponding <code>&lt;/section&gt;</code> tag. </p>
+<p>3.To delete specific contact information sections (the address section is shown below), delete the <code>&lt;section&gt;</code> tag, all of the information within that tag, and the corresponding <code>&lt;/section&gt;</code> tag. </p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;alt&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Address<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>1234 Somewhere Road #87257<span class="p">&lt;</span><span class="nt">br</span> <span class="p">/&gt;</span>
@@ -3103,6 +3108,7 @@
 <p><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;images/pic01.jpg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>
 </code></pre></div>
 <code>images</code> is the name of the directory where you placed your image. To change the image, replace the text "pic01.jpg" with the <strong>name and file extension</strong> of your desired image.</p>
+<p>Replace the <code>bg.png</code> image in the <code>images</code> folder to replace the background image for the website.</p>
 <p>Once we've replaced the images, we should change the text for each portfolio entry. Find code blocks wrapped in <code>&lt;article&gt;...&lt;/article&gt;</code> tags, such as: </p>
 <p><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
@@ -3120,8 +3126,9 @@ You can:</p>
 <ul>
 <li>Change the entry's title by editing the text within the <code>&lt;h2&gt;...&lt;/h2&gt;</code> tags. </li>
 <li>Personalise the entry text by editing the Latin wrapped in the <code>&lt;p&gt;...&lt;/p&gt;</code> tags.</li>
-<li>Customise buttons by finding the <code>&lt;li&gt;&lt;a href="#" class="button"&gt;Full Story&lt;/a&gt;&lt;/li&gt;</code> lines and replacing the "#" with a link to your portfolio piece.</li>
+<li>Customise buttons by finding the <code>&lt;li&gt;&lt;a href="#" class="button"&gt;Full Story&lt;/a&gt;&lt;/li&gt;</code> lines and replacing the "#" with a link to your portfolio piece. These buttons can link to more detail about your portfolio piece, say on a youtube or twitter account, by replacing the <code>"#"</code> with a link to the details.</li>
 <li>Replace "Full Story" text with something more appropriate.</li>
+<li>If you don't the button you can delete the <code>&lt;li&gt;&lt;a href="#" class="button"&gt;Full Story&lt;/a&gt;&lt;/li&gt;</code> line.</li>
 </ul>
 <p>If you would like to remove a portfolio piece, delete the <code>&lt;article&gt;...&lt;/article&gt;</code> tags and all the text wrapped in the tags.</p>
 <p>Once finished with the portfolio, we need to push it to GitHub. After, the portfolio can be deployed to Code Capsules, making the portfolio publicly viewable. </p>
@@ -3151,6 +3158,8 @@ You can:</p>
         + generic.html
         + elements.html
         + index.html
+        + LICENSE.txt
+        + README.txt
 </code></pre></div></p>
 <p>You would open the terminal in the <code>myPortfolio</code> directory. <em>Not</em> the <code>portFolder</code> directory.</p>
 <p>Enter each command in order:</p>
@@ -3168,9 +3177,10 @@ git push -u origin main
 <h2 id="deploying-to-code-capsules">Deploying to Code Capsules</h2>
 <p>To deploy the portfolio to Code Capsules, navigate to https://codecapsules.io/, create an account, and log in. </p>
 <p>After logging in, you'll be greeted with a page that looks like the below.</p>
+<p><img alt="team" src="../../assets/tutorials/host-a-frontend/welcome_page.png" /></p>
+<p>Click "Go to personal Team" to continue. Notice the "Team Personal" at the top left. Every new account starts with a "Team Personal". Code Capsules provides Teams for collaborative development – you can invite other people to your Team and Team members can view and edit your web-applications. You can create other teams - but the default "Personal" team is fine for now. </p>
 <p><img alt="team" src="../../assets/tutorials/host-a-frontend/team.png" /></p>
-<p>Notice the "Team Personal" at the top left. Every new account starts with a "Team Personal". Code Capsules provides Teams for collaborative development – you can invite other people to your Team and Team members can view and edit your web-applications. You can create other teams - but the default "Personal" team is fine for now. </p>
-<p>At the center, you'll see a clickable box, labeled "Personal". This is called a <em>Space</em>. Spaces act as a further layer of organization. Spaces can contain one or many Capsules (more on Capsules shortly) and can help organize large projects. We'll take a look at this space soon, but we first need to link Code Capsules to Github.</p>
+<p>Click on the box labeled "Personal". This is called a <em>Space</em>. Spaces act as a further layer of organization. Spaces can contain one or many Capsules (more on Capsules shortly) and can help organize large projects. We'll take a look at this space soon, but we first need to link Code Capsules to Github.</p>
 <h3 id="linking-the-repository">Linking the repository</h3>
 <p>We need to give Code Capsules access to our portfolio. Click on your profile image at the top right of the screen, then find the "GitHub" button – click on it. Code Capsules will redirect you to GitHub.</p>
 <p><img alt="GitHubButton" src="../../assets/tutorials/host-a-frontend/github_button.png" /></p>
@@ -3188,21 +3198,23 @@ git push -u origin main
 <p>Now we can deploy our portfolio. Return back to your Team, and enter the space labeled "Personal"</p>
 <h3 id="creating-capsule-and-viewing-the-portfolio">Creating Capsule, and viewing the portfolio</h3>
 <p>The last step to deploying the Portfolio is creating a <em>Capsule</em>. Capsules provide the server for your application or code – in our case, we'll create a Capsule that'll host our portfolio. Click "Create a new Capsule for your Space". </p>
+<p><img alt="team" src="../../assets/tutorials/host-a-frontend/create_capsule_button.png" /></p>
 <p>You'll be prompted to choose a Capsule type – our portfolio contains only front-end code, so choose a "Frontend" Capsule and:</p>
 <ol>
-<li>Select the "Trial" product type.</li>
-<li>Click the repository containing the portfolio.</li>
-<li>Press "Next".</li>
+<li>Add a repo to your Team.</li>
+<li>Select a front-end Capsule.</li>
+<li>Select the "Trial" product type, select the repository containing the portfolio, and press "Next".</li>
 <li>Leave the build command blank and enter the name of the sub-directory containing the portfolio files in the "Static Content Folder Path" entry box.</li>
-</ol>
-<p><img alt="Creating a capsule" src="../../assets/tutorials/host-a-frontend/new_capsule.gif" /></p>
-<ol>
 <li>Press "Create Capsule". </li>
 </ol>
+<p><img alt="Add a repository" src="../../assets/tutorials/host-a-frontend/add_repository.jpg" /></p>
+<p><img alt="Select Capsule type" src="../../assets/tutorials/host-a-frontend/select_capsule_type.jpg" /></p>
+<p><img alt="Link repository" src="../../assets/tutorials/host-a-frontend/link_repository_to_capsule.jpg" /></p>
+<p><img alt="Create Capsule" src="../../assets/tutorials/host-a-frontend/create_capsule.png" /></p>
 <p>Your Capsule is now building. This process will make your portfolio visible online. After it has deployed, click the "Overview" tab, then press the link under "Domains" to view your portfolio.</p>
 <p><img alt="image15" src="../../assets/tutorials/host-a-frontend/image15.png" /></p>
 <h2 id="conclusion-and-further-reading">Conclusion and Further Reading</h2>
-<p><img alt="finished_port" src="../../assets/tutorials/host-a-frontend/finished_port.png" /></p>
+<p><img alt="finished_port" src="../../assets/tutorials/host-a-frontend/finished_port.jpg" /></p>
 <p>We've created a portfolio, pushed it to GitHub, and made the portfolio visible to the world. In the future, we'll take a look at "Backend" capsules. These "Backend" capsules will enable us to host back-end code and provide additional functionality – like implementing the contact form we removed at the beginning of the tutorial. </p>
 <p>We'll also take a look at customising your domain, so people can view your portfolio by typing something like <code>https://www.myportfolio.co.za</code></p>
 <p>If any of the HTML code was confusing, or you'd like to learn more for further customisation, check out this <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML">tutorial</a> written by Mozilla. </p>
