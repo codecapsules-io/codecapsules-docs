@@ -114,4 +114,11 @@ If you're looking to build cool applications that you can host on Code Capsules,
     <figcaption>Build an Image Overlay API</figcaption>
   </a>
 </figure>
+
+<figure>
+  <a href="./build-hex-color-identifier/">
+    <img style="border-radius: 10px 10px 0" src="../assets/tutorials/hex-color-identifier/hex-identifier.jpg" width="300" />
+    <figcaption>Build a Hex Color Identifier API</figcaption>
+  </a>
+</figure>
 </div>
