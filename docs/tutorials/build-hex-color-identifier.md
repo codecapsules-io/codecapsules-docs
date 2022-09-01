@@ -8,9 +8,9 @@ image: assets/tutorials/hex-color-identifier/hex-identifier.jpg
 
 ![Hex Color identifier cover](../assets/tutorials/hex-color-identifier/hex-identifier.jpg)
 
-Docker provides containers to run applications in isolation. Among other benefits of this architecture, one is allowing applications on the same server to run independently reducing the likelihood of having a single point of failure in your project.
+Docker provides containers to run applications in isolation. Among other benefits of this architecture, one is allowing applications on the same server to run independently, reducing the likelihood of having a single point of failure in your project.
 
-In this tutorial we’ll be looking at how to build a Hex Colour Identifier API with PHP using the Laravel framework. After which we will containerize the application using Docker before shipping it to production on Code Capsules.
+In this tutorial, we’ll build a hex color identifier API with PHP using the Laravel framework, containerize the application using Docker, then ship it to production on Code Capsules.
 
 Here’s an example of a response we might get after querying the API.
 
@@ -38,7 +38,7 @@ cd color-identifier
 
 ### Create Laravel Project
 
-From the project folder terminal run the commands below to create a Laravel starter project called “ColorApi” and change directories into it.
+From the project folder terminal, run the commands below to create a Laravel starter project called “ColorApi” and change directories into it.
 
 ```bash
 composer create-project --prefer-dist laravel/laravel ColorApi
@@ -63,7 +63,7 @@ This will link your local repository to the one on GitHub.
 
 ### Install Dependencies
 
-Next, we have to install the dependencies we’ll need to build our application. Open the `composer.json` file in the root folder and add the following entries to the require dictionary.
+Next, we'll install the dependencies we need to build our application. Open the `composer.json` file in the root folder and add the following entries to the `"require"` dictionary:
 
 ```json
 "require": {
@@ -92,19 +92,19 @@ Next, we have to install the dependencies we’ll need to build our application.
 }
 ```
 
-After which run the command `composer update` from the terminal to install the packages.
+Now run the command `composer update` from the terminal to install the packages.
 
 ## Build Hex Color API
 
-While in the ColorApi terminal run the command below to create a controller for your API.
+While in the `ColorApi` terminal, run the command below to create a controller for your API:
 
 ```bash
 php artisan make:controller ColorController
 ```
 
-The above command will create a controller at `app/Http/Controllers/ColorController.php`. In big projects, controllers are meant to group similar request handling logic in different methods but the Hex Color API we’re building is relatively small and as such will only have one controller method.
+This command will create a controller at `app/Http/Controllers/ColorController.php`. In big projects, controllers are meant to group similar request-handling logic in different methods, but the hex color API we’re building is relatively small and will only have one controller method.
 
-Update the contents of `ColorController.php` so it looks like below:
+Update the contents of `ColorController.php` so it looks like this:
 
 ```php
 <?php
@@ -137,11 +137,11 @@ class ColorController extends Controller
 
 We require the `autoload.php` module on line 5 to automatically load the dependency we installed earlier and can now reference it on line 8.
 
-The `convert()` method is responsible for converting a hex code to a human-readable name by leveraging the ColorInterpreter package we loaded on line 8. It takes in the hex code as an argument and returns the color name.
+The `convert()` method is responsible for converting a hex code to a human-readable name by leveraging the `ColorInterpreter` package we loaded on line 8. It takes in the hex code as an argument and returns the color name.
 
 ### Create API Routes
 
-With the controller in place, we’re left with linking it to a route that other applications or users can hit. Let’s create and link to this route by editing the `routes/api.php` file so that it looks like below:
+With the controller in place, we’re left with linking it to a route that other applications or users can hit. Let’s create and link to this route by editing the `routes/api.php` file like this:
 
 ```php
 <?php
@@ -156,11 +156,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/color/{hexcode}',[ColorController::class, 'convert']);
 ```
 
-On the last line we add a route that accepts `GET` requests with a hexcode parameter on the `api/color` url. We then link that route to the ColorController class’ `convert()` method. Your application should be able to accept requests on the `api/color/{hexcode}` route now.
+On the last line, we add a route that accepts GET requests with a hexcode parameter on the `api/color` URL. We then link that route to the `ColorController` class `convert()` method. Your application should be able to accept requests on the `api/color/{hexcode}` route now.
 
 ## Dockerize API
 
-Our Laravel application can now run locally but we need to install it in a docker container for it to run on Code Capsules. To do this, add a `Dockerfile` in the `/ColorApi` folder. A dockerfile is a set of instructions on how to build an image of your application and run it inside a docker container. Populate the `Dockerfile` with the code below:
+Our Laravel application can now run locally, but we need to install it in a Docker container for it to run on Code Capsules. To do this, add a `Dockerfile` to the `/ColorApi` folder. A `Dockerfile` is a set of instructions on how to build an image of your application and run it inside a docker container. Populate the `Dockerfile` with the code below:
 
 ```dockerfile
 FROM composer:2.0 as build
@@ -188,17 +188,17 @@ CMD ["php", "artisan", "serve", "--host=0.0.0.0"]
 
 ### Naming the `Dockerfile`
 
-The Dockerfile should start with a capital letter ‘D’ and not have an extension otherwise it won’t work.
+The name `Dockerfile` should start with a capital letter ‘D’ and have no extension, otherwise it won’t work.
 
 ### Understanding the `Dockerfile`
 
-Let’s take a look at how the image is built and run in the dockerfile.
+Let’s take a look at how the image is built and run in the `Dockerfile`.
 
-In the first three lines we require `composer` as the build stage and copy the project to the `/app` folder of the container. After copying all the `src` code for our app into the container we run composer install with some optional parameters that create an efficient production build.
+In the first three lines, we require `composer` as the build stage and copy the project to the `/app` folder of the container. After copying all the `src` code for our app into the container, we run `composer install` with some optional parameters that create an efficient production build.
 
-After installing the dependencies we require php 8.1 as the production stage and set the “ServerName” variable to avoid getting a warning from the apache server. We then copy the app from the build stage into the production stage specifically into the `/var/www/html` directory.
+After installing the dependencies, we require PHP 8.1 as the production stage and set the `"ServerName"` variable to avoid getting a warning from the apache server. We then copy the app from the build stage into the production stage, specifically into the `/var/www/html` directory.
 
-The last command tells docker how to run your application after it has been built.
+The last command tells Docker how to run your application after it has been built.
 
 ## Add, Commit, and Push Git Changes
 
