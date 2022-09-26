@@ -1,7 +1,6 @@
 ---
 title: Building a Book Recommendations App with PHP, SQLite, and Docker
 description: Create a full stack app that records book recommendations from users.
-image: assets/tutorials/hex-color-identifier/hex-identifier.jpg
 ---
 
 # Building a Book Recommendations App with PHP, SQLite, and Docker
