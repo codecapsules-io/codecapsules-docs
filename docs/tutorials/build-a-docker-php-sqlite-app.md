@@ -50,7 +50,19 @@ This will link your local repository to the one on GitHub.
 Let’s begin by building our app’s index page which users will interact with. This page will have php and HTML as it’ll contain both static and dynamic content. Create a file named `index.php` in the project root folder and populate it with the code below:
 
 ```html
-<?php  include('dbconfig.php'); ?>
+<?php  include('dbconfig.php'); 
+
+	// initialize variables
+	$name = "";
+	$author = "";
+	$update = false;
+
+	if (isset($_GET['edit'])) {
+		$id = $_GET['edit'];
+		$update = true;
+		$query = "SELECT rowid, name, author FROM books WHERE rowid=$id";
+		$result = $dbh->query($query); $entry = $result->fetchArray(); $name =
+$entry['name']; $author = $entry['author']; } ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -59,9 +71,11 @@ Let’s begin by building our app’s index page which users will interact with.
   </head>
   <body>
     <?php // Makes query with rowid
-$query = "SELECT * FROM books";
+$query = "SELECT rowid, name, author FROM books";
 
 $results = $dbh->query($query); ?>
+
+    <h1>Book Recommendations</h1>
 
     <table>
       <thead>
@@ -77,12 +91,12 @@ $results = $dbh->query($query); ?>
         <td><?php echo $row['name']; ?></td>
         <td><?php echo $row['author']; ?></td>
         <td>
-          <a href="app.php?edit=<?php echo $row['id']; ?>" class="edit_btn"
+          <a href="index.php?edit=<?php echo $row['rowid']; ?>" class="edit_btn"
             >Edit</a
           >
         </td>
         <td>
-          <a href="app.php?del=<?php echo $row['id']; ?>" class="del_btn"
+          <a href="app.php?del=<?php echo $row['rowid']; ?>" class="del_btn"
             >Delete</a
           >
         </td>
@@ -91,27 +105,39 @@ $results = $dbh->query($query); ?>
     </table>
 
     <form method="post" action="app.php">
+      <input type="hidden" name="id" value="<?php echo $id; ?>" />
       <div class="input-group">
         <label>Name</label>
-        <input type="text" name="name" value="" />
+        <input type="text" name="name" value="<?php echo $name; ?>" />
       </div>
       <div class="input-group">
         <label>Author</label>
-        <input type="text" name="author" value="" />
+        <input type="text" name="author" value="<?php echo $author; ?>" />
       </div>
       <div class="input-group">
+        <?php if ($update == true): ?>
+        <button
+          class="btn"
+          type="submit"
+          name="update"
+          style="background: #556B2F;"
+        >
+          Update
+        </button>
+        <?php else: ?>
         <button class="btn" type="submit" name="save">Save</button>
+        <?php endif ?>
       </div>
     </form>
   </body>
 </html>
 ```
 
-The first line references a database configuration file we’ll create at a later stage. For now, let’s explain how the frontend is built and gets its data. After including the `dbconfig.php` file there’s standard HTML and on line 6 we link to a stylesheet named `styles.css` responsible for making our frontend more visually appealing.
+The first part of the snippet is php responsible for making the page dynamic. We do this by first referencing a database configuration file we’ll create at a later stage. This will allow us to read book entries from the database. The `if` block checks to see if there's an entry being edited and if so updates the input form to show values for the book being edited. Next, let’s look at how the frontend is built and gets its data.
 
 At the top of the `<body>` tag there is php code for getting a list of all the books from the database. To do this, we first assign the raw SQL query to a variable called `$query` and then run that query against the database and store the results in a variable called `$results`. Below this code there’s an HTML table that conditionally renders rows of book data depending on whether the `$results` variable is empty or not.
 
-The last part of the index page is the input form that users will fill in to record their book recommendations. When a user clicks “Save” the form posts the data to a script named `app.php` which we’ll add in the backend section.
+The last part of the index page is the input form that users will fill in to record their book recommendations. Depending on the value of the `$update` variable defined at the top of the file the form conditionally renders a either a "Save" or "Update" button. When a user submits the form it posts the data to a script named `app.php` which will either save a new book entry or update an existing one depending on whether the post request was triggered by the "Save" or "Update" button. We'll add the `app.php` script in the backend section.
 
 ### Add Styling
 
@@ -120,6 +146,9 @@ Create a file named `styles.css` in the project root folder and add the code bel
 ```css
 body {
   font-size: 19px;
+}
+h1 {
+  text-align: center;
 }
 table {
   width: 50%;
@@ -216,14 +245,14 @@ Create a file named `dbconfig.php` and add the following code to it:
     {
     function __construct()
     {
-        $this->open('first.db');
+        $this->open($_ENV["PERSISTENT_STORAGE_DIR"] . '/combadd.sqlite');
     }
     }
     $dbh = new MyDB();
     if(!$dbh){
     echo $dbh->lastErrorMsg();
     } else {
-        $query = "CREATE TABLE IF NOT EXISTS books (id INT PRIMARY KEY, name STRING, author STRING)";
+        $query = "CREATE TABLE IF NOT EXISTS books (name STRING, author STRING)";
         $dbh->exec($query);
     }
 ?>
@@ -237,24 +266,43 @@ Now add a file named `app.php` and populate it with the code below:
 
 ```php
 <?php include('dbconfig.php');
-    // initialize variables
-	$name = "";
-	$author = "";
+
+    if (isset($_GET['del'])) {
+        $id = $_GET['del'];
+        $query = "DELETE FROM books WHERE rowid=$id";
+		    $dbh->exec($query);
+        header('location: index.php');
+    }
+
+	if (isset($_POST['update'])) {
+		$id = $_POST['id'];
+		$name = $_POST['name'];
+		$author = $_POST['author'];
+
+		$query = "UPDATE books SET name='$name', author='$author' WHERE rowid=$id";
+		$dbh->exec($query);
+		header('location: index.php');
+	}
 
 	if (isset($_POST['save'])) {
 		$name = $_POST['name'];
 		$author = $_POST['author'];
 
-        // Makes query with post data
-        $query = "INSERT INTO books (name, author) VALUES ('$name', '$author')";
-        $dbh->exec($query);
-        $_SESSION['message'] = "Book saved";
-        // header('location: index.php');
+    // Makes query with post data
+    $query = "INSERT INTO books (name, author) VALUES ('$name', '$author')";
+    $dbh->exec($query);
+    header('location: index.php');
 	}
 ?>
 ```
 
-In the first line we include the `dbconfig.php` file so that we can access the database variable. The `if` statement checks to see if a `POST` request was made and if so, the code responsible for saving book information in that block executes. This is done by extracting the book name and author from the request and adding these variables to a raw SQL Insert statement. We then run the SQL statement against our database in order to save the book entry.
+In the first line we include the `dbconfig.php` file so that we can access the database variable. There are three `if` blocks each responsible for either deleting, updating or saving a book entry. Let's go over each of them:
+
+The first `if` statement executes if a delete request was sent from the frontend. In that case, the code block gets the unique `id` of the book to be deleted from the request and uses it in a `DELETE` SQL query to specify which book should be deleted.
+
+In the event that a user is updating a book entry the second `if` statement executes. The book entry is updated by first getting the new values and `id` so the code knows which book is being updated. After which, the new values are injected in a `UPDATE` SQL query which is then run on the database in order to update the book entry.
+
+Finally, the last `if` statement checks to see if a save request was made and if so, the new book entry is saved. This is done by extracting the book name and author from the request and adding these variables to a raw SQL `INSERT` statement. We then run the SQL statement against our database in order to save the book entry. Afterwards we redirect the app to the index page by setting the location header tag.
 
 ## Dockerize App
 
@@ -297,6 +345,12 @@ Once the build is complete, navigate to the "Configure" tab and scroll down to t
 
 ![Network Port](../assets/tutorials/docker-php-sqlite/network-port.png)
 
-That’s it! Your "Book recommendations" app should be live and fully functional now. You should now be able to visit the index route.
+### Create a Data Capsule
+
+Our Book Recommendations app needs a Data Capsule in order to persistently store book entries. Create a persistent storage Data Capsule in the same Space where you have your Docker Capsule and bind the two capsules together. You can reference this [guide](https://codecapsules.io/docs/reference/set-up-file-data-capsule/) to see how to do so in more detail.
+
+### View App
+
+That’s it! Your "Book Recommendations" app should be live and fully functional now. To visit the index route, click the "Live Website" link at the top right of your Docker Capsule.
 
 ![Book Recommendation App](../assets/tutorials/docker-php-sqlite/app.png)
