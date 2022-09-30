@@ -54,23 +54,26 @@ Let’s begin by building our app’s index page. This page will use PHP and HTM
 // Establish database connection
 include "database/db_connect.php"; ?>
 ```
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Recommendations</title>
 
-<head>
-	
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Book Recommendations</title>
-	
-	<link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
+    />
+  </head>
 
-</head>
-
-<body>
+  <body></body>
+</html>
 ```
+
 ```php
 	<?php
 	// initialize variables
@@ -104,53 +107,56 @@ include "database/db_connect.php"; ?>
 	$results = $db->query($query);
 	?>
 ```
-```html
-	<!-- Page header -->
-	<header>
-		<h1>Book Recommendations CRUD demo</h1>
-	</header>
 
-	<!-- Section: List book recommendations -->
-	<section>
-		<table>
-			<thead>
-				<tr>
-					<th>Book Title</th>
-					<th>Author</th>
-					<th colspan="2">Action</th>
-				</tr>
-			</thead>
+```html
+<!-- Page header -->
+<header>
+  <h1>Book Recommendations CRUD demo</h1>
+</header>
+
+<!-- Section: List book recommendations -->
+<section>
+  <table>
+    <thead>
+      <tr>
+        <th>Book Title</th>
+        <th>Author</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+  </table>
+</section>
 ```
+
 ```php
 			<?php while ($row = $results->fetchArray()) : ?>
 ```
+
 ```html
-				<tr>
-					<td><?php echo $row['book_title']; ?></td>
-					<td><?php echo $row['author']; ?></td>
-					<td>
-
-						<form method="POST">
-							<input type="hidden" name="book_id" value="<?php echo $row['id'] ?>">
-							<input type="hidden" name="rest_action" value="edit">
-							<button>Edit</button>
-						</form>
-
-					</td>
-					<td>
-
-						<form action="app.php" method="POST">
-							<input type="hidden" name="book_id" value="<?php echo $row['id'] ?>">
-							<input type="hidden" name="rest_action" value="delete">
-							<button>Delete</button>
-						</form>
-
-					</td>
-				</tr>
+<tr>
+  <td><?php echo $row['book_title']; ?></td>
+  <td><?php echo $row['author']; ?></td>
+  <td>
+    <form method="POST">
+      <input type="hidden" name="book_id" value="<?php echo $row['id'] ?>" />
+      <input type="hidden" name="rest_action" value="edit" />
+      <button>Edit</button>
+    </form>
+  </td>
+  <td>
+    <form action="app.php" method="POST">
+      <input type="hidden" name="book_id" value="<?php echo $row['id'] ?>" />
+      <input type="hidden" name="rest_action" value="delete" />
+      <button>Delete</button>
+    </form>
+  </td>
+</tr>
 ```
+
 ```php
 			<?php endwhile; ?>
 ```
+
 ```html
 		</table>
 	</section>
@@ -193,13 +199,14 @@ include "database/db_connect.php"; ?>
 
 </html>
 ```
+
 At the very top of the snippet is PHP code responsible for making the page dynamic. We do this by first referencing a database configuration file we’ll create later.
 
 Then, directly after the opening `<body>` tag, we initialize PHP variables and check to see if a POST request has been sent. If a POST request has been sent, we check for the edit instruction and retrieve the book entry to be edited.
 
-~~~
+```
 NOTE: For security purposes, we have made use of parameterization (prepared statements). This guards against possible SQL injection attacks.
-~~~
+```
 
 Next, there is PHP code for getting a list of all the books from the database. To do this, we first assign the raw SQL query to a variable called `$query` and then run that query against the database and store the results in a variable called `$results`. Below this code is an HTML table that dynamically renders rows of book data from the `$results` variable.
 
@@ -212,11 +219,12 @@ We have made use of new.css, which is a classless CSS framework to provide boile
 You may have noticed the following `<link>` tags inside the `<head>` tag:
 
 ```html
-<link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
-
+<link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
+/>
 ```
-
 
 ## Building the backend
 
@@ -224,63 +232,98 @@ Next, we’ll build the backend for our app which will consist of the `db_connec
 
 ### Configuring SQLite
 
-Create a file named `dbconfig.php` and add the following code to it:
+Create a file named `db_connect.php` and add the following code to it. We recommend putting this file inside a folder called 'database'. This is good practice to keep things organized. The database that this script creates will also be stored inside this 'database' folder:
 
 ```php
 <?php
-    class MyDB extends SQLite3
-    {
-    function __construct()
-    {
-        $this->open($_ENV["PERSISTENT_STORAGE_DIR"] . '/combadd.sqlite');
-    }
-    }
-    $dbh = new MyDB();
-    if(!$dbh){
-    echo $dbh->lastErrorMsg();
-    } else {
-        $query = "CREATE TABLE IF NOT EXISTS books (name STRING, author STRING)";
-        $dbh->exec($query);
-    }
-?>
+
+// Database name
+$database_name = getcwd()."/database/my_db.db";
+
+// Database Connection
+$db = new SQLite3($database_name);
+
+// Create Table "books" in Database (if doesn't exist)
+$query = "CREATE TABLE IF NOT EXISTS books (id INTEGER PRIMARY KEY, book_title STRING, author STRING)";
+
+$db->exec($query);
 ```
 
 The code above connects to a SQLite database when the app is launched and creates a table called “books” if it doesn't already exist in the database.
+
+```
+NOTE: SQLite3 needs to be enabled in your php.ini config file. 
+```
 
 ### Adding app logic
 
 Now add a file named `app.php` and populate it with the code below:
 
 ```php
-<?php include('dbconfig.php');
 
-	if (isset($_GET['del'])) {
-		$id = $_GET['del'];
-		$query = "DELETE FROM books WHERE rowid=$id";
-		$dbh->exec($query);
+<?php 
+// Establish database connection
+include "database/db_connect.php";
+
+// Check for POST and redirect to home if empty
+if ($_POST) {
+
+	// Check for rest_action:delete
+	if ($_POST["rest_action"] == "delete") {
+
+		// Get variables from POST request
+		$id = $_POST['book_id'];
+
+		// Delete Book by ID (parameterized)
+		$stmt = $db->prepare('DELETE FROM books WHERE id=:id');
+		$stmt->bindValue(':id',$id,SQLITE3_INTEGER);
+		$stmt->execute();
+
+		// Redirect to home page
 		header('location: index.php');
 	}
 
-	if (isset($_POST['update'])) {
-		$id = $_POST['id'];
-		$name = $_POST['name'];
+	// Check for rest_action:update
+	if ($_POST["rest_action"] == "update") {
+
+		// Get variables from POST request
+		$id = $_POST['book_id'];
+		$book_title = $_POST['book_title'];
 		$author = $_POST['author'];
 
-		$query = "UPDATE books SET name='$name', author='$author' WHERE rowid=$id";
-		$dbh->exec($query);
+		// Update book record (parametized)
+		$stmt = $db->prepare("UPDATE books SET book_title=:book_title, author=:author WHERE id=:id");
+		$stmt->bindValue(':book_title',$book_title,SQLITE3_TEXT);
+		$stmt->bindValue(':author',$author,SQLITE3_TEXT);
+		$stmt->bindValue(':id',$id,SQLITE3_INTEGER);
+		
+		$stmt->execute();
+
+		// Redirect to home page
 		header('location: index.php');
 	}
 
-	if (isset($_POST['save'])) {
-		$name = $_POST['name'];
+	// Check for rest_action:store
+	if ($_POST["rest_action"] == "store") {
+
+		// Get variables from POST request
+		$book_title = $_POST['book_title'];
 		$author = $_POST['author'];
 
-    		// Makes query with post data
-    		$query = "INSERT INTO books (name, author) VALUES ('$name', '$author')";
-    		$dbh->exec($query);
-    		header('location: index.php');
+		// Insert a new book record into database (parametized)
+		$stmt = $db->prepare("INSERT INTO books (book_title, author) VALUES (:book_title, :author)");
+		$stmt->bindValue(':book_title',$book_title,SQLITE3_TEXT);
+		$stmt->bindValue(':author',$author,SQLITE3_TEXT);
+		$stmt->execute();
+
+		// Redirect to home page
+		header('location: index.php');
 	}
-?>
+} else {
+	// Redirect to home page
+	header('location: index.php');
+}
+
 ```
 
 In the first line we include the `dbconfig.php` file so that we can access the database variable.
