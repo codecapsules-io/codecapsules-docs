@@ -193,8 +193,9 @@ include "database/db_connect.php"; ?>
 
 </html>
 ```
+At the very top of the snippet is PHP code responsible for making the page dynamic. We do this by first referencing a database configuration file we’ll create later.
 
-The first part, directly after the opening `<body>` tag, we initialize PHP variables and check to see if a POST request has been sent. If a POST request has been sent, we check for the edit instruction and retrieve the book entry to be edited.
+Then, directly after the opening `<body>` tag, we initialize PHP variables and check to see if a POST request has been sent. If a POST request has been sent, we check for the edit instruction and retrieve the book entry to be edited.
 
 ~~~
 NOTE: For security purposes, we have made use of parameterization (prepared statements). This guards against possible SQL injection attacks.
@@ -219,7 +220,7 @@ You may have noticed the following `<link>` tags inside the `<head>` tag:
 
 ## Building the backend
 
-Next, we’ll build the backend for our app which will consist of the `dbconfig.php` and `app.php` files mentioned earlier.
+Next, we’ll build the backend for our app which will consist of the `db_connect.php` and `app.php` files mentioned earlier.
 
 ### Configuring SQLite
 
