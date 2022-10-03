@@ -83,10 +83,10 @@ Once your application is live, you can view the build log by selecting the "Depl
 
 Once the build is complete, navigate to the "Configure" tab and scroll down to the "Network Port" section. Enter "80" as the port number and click on "Update Capsule".
 
-![Network Port](../assets/deployment/docker-laravel/network-port.png)
+![Network Port](../assets/deployment/docker-php/network-port.png)
 
 The PHP Docker application will now be live, and you can click on the "Live Website" link at the top right of the tab and navigate to the `/api` route to view it.
 
-![Deployed App](../assets/deployment/docker-laravel/docker-php.png)
+![Deployed App](../assets/deployment/docker-php/docker-php.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
