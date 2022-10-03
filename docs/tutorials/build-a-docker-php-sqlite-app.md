@@ -53,9 +53,7 @@ Let’s begin by building our app’s index page. This page will use PHP and HTM
 <?php
 // Establish database connection
 include "database/db_connect.php"; ?>
-```
 
-```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -72,10 +70,8 @@ include "database/db_connect.php"; ?>
 
   <body></body>
 </html>
-```
-
-```php
-	<?php
+	
+    <?php
 	// initialize variables
 	$book_title = "";
 	$author = "";
@@ -106,9 +102,7 @@ include "database/db_connect.php"; ?>
 	$query = "SELECT * FROM books";
 	$results = $db->query($query);
 	?>
-```
 
-```html
 <!-- Page header -->
 <header>
   <h1>Book Recommendations CRUD demo</h1>
@@ -126,13 +120,9 @@ include "database/db_connect.php"; ?>
     </thead>
   </table>
 </section>
-```
 
-```php
 			<?php while ($row = $results->fetchArray()) : ?>
-```
 
-```html
 <tr>
   <td><?php echo $row['book_title']; ?></td>
   <td><?php echo $row['author']; ?></td>
@@ -151,13 +141,8 @@ include "database/db_connect.php"; ?>
     </form>
   </td>
 </tr>
-```
-
-```php
 			<?php endwhile; ?>
-```
 
-```html
 		</table>
 	</section>
 
@@ -198,7 +183,6 @@ include "database/db_connect.php"; ?>
 </body>
 
 </html>
-```
 
 At the very top of the snippet is PHP code responsible for making the page dynamic. We do this by first referencing a database configuration file we’ll create later.
 
