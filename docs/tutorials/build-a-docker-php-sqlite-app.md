@@ -326,13 +326,19 @@ if ($_POST) {
 
 ```
 
-In the first line we include the `dbconfig.php` file so that we can access the database variable.
+In the first line we include the `dbconfig.php` file so that we can access the database object.
 
-The first `if` statement executes if a delete request was sent from the frontend. In that case, the code block gets the unique `id` of the book to be deleted from the request and uses it in a `DELETE` SQL query to specify which book should be deleted.
+Next, we have an `if` statement checking for any POST request. If there is no POST request, the user is redirected to the home page, without any action.
 
-In the event that a user is updating a book entry the second `if` statement executes. The book entry is updated by first getting the new values and `id` so the code knows which book is being updated. After this, the new values are injected in an `UPDATE` SQL query.
+The first, nested, `if` statement executes if a delete request was sent from the frontend. In that case, the code block gets the unique `id` of the book to be deleted from the request and uses it in a `DELETE` SQL query to specify which book should be deleted.
 
-Finally, the last `if` statement checks to see if a save request was made and if so, the new book entry is saved. This is done by extracting the book name and author from the request and adding these variables to a raw SQL `INSERT` statement. Afterwards we redirect the app to the index page by setting the location header tag.
+In the event that a user is updating a book entry the second `if` statement executes. The book entry is updated by first getting the new values and `id` so the code knows which book is being updated. After this, the new values are inserted in an `UPDATE` SQL query.
+
+Finally, the last `if` statement checks to see if a store request was made and if so, the new book entry is saved. This is done by extracting the book name and author from the request and adding these variables to a raw SQL `INSERT` statement. Afterwards we redirect the app to the index page by setting the location header tag.
+
+```
+NOTE: Please note, here again, we make use of parameterization to protect against SQL injection attacks.
+```
 
 ## Dockerizing the app
 
