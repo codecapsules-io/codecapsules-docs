@@ -49,268 +49,296 @@ This will link your local repository to the one on GitHub.
 
 Let’s begin by building our app’s index page. This page will use PHP and HTML as it will contain both static and dynamic content. Create a file named `index.php` in the project root folder and populate it with the code below:
 
+```php
+<?php
+// Establish database connection
+include "database/db_connect.php"; ?>
+```
+
 ```html
-<?php  include('dbconfig.php'); 
-
-	// initialize variables
-	$name = "";
-	$author = "";
-	$update = false;
-
-	if (isset($_GET['edit'])) {
-		$id = $_GET['edit'];
-		$update = true;
-		$query = "SELECT rowid, name, author FROM books WHERE rowid=$id";
-		$result = $dbh->query($query); $entry = $result->fetchArray(); $name =
-$entry['name']; $author = $entry['author']; } ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>PHP SQLite</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Recommendations</title>
+
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
+    />
   </head>
-  <body>
-    <?php // Makes query with rowid
-$query = "SELECT rowid, name, author FROM books";
 
-$results = $dbh->query($query); ?>
-
-    <h1>Book Recommendations</h1>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Author</th>
-          <th colspan="2">Action</th>
-        </tr>
-      </thead>
-
-      <?php while ($row = $results->fetchArray()) { ?>
-      <tr>
-        <td><?php echo $row['name']; ?></td>
-        <td><?php echo $row['author']; ?></td>
-        <td>
-          <a href="index.php?edit=<?php echo $row['rowid']; ?>" class="edit_btn"
-            >Edit</a
-          >
-        </td>
-        <td>
-          <a href="app.php?del=<?php echo $row['rowid']; ?>" class="del_btn"
-            >Delete</a
-          >
-        </td>
-      </tr>
-      <?php } ?>
-    </table>
-
-    <form method="post" action="app.php">
-      <input type="hidden" name="id" value="<?php echo $id; ?>" />
-      <div class="input-group">
-        <label>Name</label>
-        <input type="text" name="name" value="<?php echo $name; ?>" />
-      </div>
-      <div class="input-group">
-        <label>Author</label>
-        <input type="text" name="author" value="<?php echo $author; ?>" />
-      </div>
-      <div class="input-group">
-        <?php if ($update == true): ?>
-        <button
-          class="btn"
-          type="submit"
-          name="update"
-          style="background: #556B2F;"
-        >
-          Update
-        </button>
-        <?php else: ?>
-        <button class="btn" type="submit" name="save">Save</button>
-        <?php endif ?>
-      </div>
-    </form>
-  </body>
+  <body></body>
 </html>
 ```
 
-The first part of the snippet is PHP code responsible for making the page dynamic. We do this by first referencing a database configuration file we’ll create later. This will allow us to read book entries from the database. The `if` block checks if there’s an entry being edited and if so updates the input form to show values for the book being edited. Next, let’s look at how the frontend is built and gets its data.
+```php
+	<?php
+	// initialize variables
+	$book_title = "";
+	$author = "";
+	$update = false;
 
-At the top of the `<body>` tag there is PHP code for getting a list of all the books from the database. To do this, we first assign the raw SQL query to a variable called `$query` and then run that query against the database and store the results in a variable called `$results`. Below this code is an HTML table that dynamically renders rows of book data from the `$results` variable.
+	// Check for rest action
+	if ($_POST) {
+
+		// Check if Edit has been called
+		if ($_POST["rest_action"] == "edit") {
+
+			// Get book by ID
+			$id = $_POST['book_id'];
+			$update = true;
+
+			// Get Book to edit (parameterized)
+			$stmt = $db->prepare('SELECT * FROM books WHERE id=:id');
+			$stmt->bindValue(':id',$id,SQLITE3_INTEGER);
+
+			$result = $stmt->execute();
+			$book = $result->fetchArray();
+		}
+	}
+	?>
+
+	<?php
+	// Get all books from database
+	$query = "SELECT * FROM books";
+	$results = $db->query($query);
+	?>
+```
+
+```html
+<!-- Page header -->
+<header>
+  <h1>Book Recommendations CRUD demo</h1>
+</header>
+
+<!-- Section: List book recommendations -->
+<section>
+  <table>
+    <thead>
+      <tr>
+        <th>Book Title</th>
+        <th>Author</th>
+        <th colspan="2">Action</th>
+      </tr>
+    </thead>
+  </table>
+</section>
+```
+
+```php
+			<?php while ($row = $results->fetchArray()) : ?>
+```
+
+```html
+<tr>
+  <td><?php echo $row['book_title']; ?></td>
+  <td><?php echo $row['author']; ?></td>
+  <td>
+    <form method="POST">
+      <input type="hidden" name="book_id" value="<?php echo $row['id'] ?>" />
+      <input type="hidden" name="rest_action" value="edit" />
+      <button>Edit</button>
+    </form>
+  </td>
+  <td>
+    <form action="app.php" method="POST">
+      <input type="hidden" name="book_id" value="<?php echo $row['id'] ?>" />
+      <input type="hidden" name="rest_action" value="delete" />
+      <button>Delete</button>
+    </form>
+  </td>
+</tr>
+```
+
+```php
+			<?php endwhile; ?>
+```
+
+```html
+		</table>
+	</section>
+
+	<!-- Section: Form -->
+	<section>
+		<form method="post" action="app.php">
+
+			<p>
+				<label for="book_title">Book Title</label> <br>
+				<input type="text" name="book_title" value="<?php echo $book["book_title"] ?? '' ?>">
+			</p>
+
+			<p>
+				<label for="author">Author</label> <br>
+				<input type="text" name="author" value="<?php echo $book["author"] ?? '' ?>">
+			</p>
+
+			<p>
+
+				<?php if ($update == true) : ?>
+
+					<input type="hidden" name="book_id" value="<?php echo $id; ?>">
+					<input type="hidden" name="rest_action" value="update">
+					<button type="submit" name="update">Update</button>
+
+				<?php else : ?>
+
+					<input type="hidden" name="rest_action" value="store">
+					<button type="submit" name="save">Save</button>
+
+				<?php endif ?>
+
+			</p>
+
+		</form>
+	</section>
+
+</body>
+
+</html>
+```
+
+At the very top of the snippet is PHP code responsible for making the page dynamic. We do this by first referencing a database configuration file we’ll create later.
+
+Then, directly after the opening `<body>` tag, we initialize PHP variables and check to see if a POST request has been sent. If a POST request has been sent, we check for the edit instruction and retrieve the book entry to be edited.
+
+```
+NOTE: For security purposes, we have made use of parameterization (prepared statements). This guards against possible SQL injection attacks.
+```
+
+Next, there is PHP code for getting a list of all the books from the database. To do this, we first assign the raw SQL query to a variable called `$query` and then run that query against the database and store the results in a variable called `$results`. Below this code is an HTML table that dynamically renders rows of book data from the `$results` variable.
 
 The last part of the index page is the input form that users will fill in to record their book recommendations. Depending on the value of the `$update` variable defined at the top of the file the form renders either a "Save" or an "Update" button. When a user submits the form, it posts the data to a script named `app.php` which will either save a new book entry or update an existing one. We’ll add the `app.php` script in the backend section.
 
 ### Adding styling
 
-Create a file named `styles.css` in the project root folder and add the code below:
+We have made use of new.css, which is a classless CSS framework to provide boilerplate CSS styling.
 
-```css
-body {
-  font-size: 19px;
-}
+You may have noticed the following `<link>` tags inside the `<head>` tag:
 
-h1 {
-  text-align: center;
-}
-
-table {
-  width: 50%;
-  margin: 30px auto;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-tr {
-  border-bottom: 1px solid #cbcbcb;
-}
-
-th,
-td {
-  border: none;
-  height: 30px;
-  padding: 2px;
-}
-
-tr:hover {
-  background: #f5f5f5;
-}
-
-form {
-  width: 45%;
-  margin: 50px auto;
-  text-align: left;
-  padding: 20px;
-  border: 1px solid #bbbbbb;
-  border-radius: 5px;
-}
-
-.input-group {
-  margin: 10px 0px 10px 0px;
-}
-
-.input-group label {
-  display: block;
-  text-align: left;
-  margin: 3px;
-}
-
-.input-group input {
-  height: 30px;
-  width: 93%;
-  padding: 5px 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid gray;
-}
-
-.btn {
-  padding: 10px;
-  font-size: 15px;
-  color: white;
-  background: #5f9ea0;
-  border: none;
-  border-radius: 5px;
-}
-
-.edit_btn {
-  text-decoration: none;
-  padding: 2px 5px;
-  background: #2e8b57;
-  color: white;
-  border-radius: 3px;
-}
-
-.del_btn {
-  text-decoration: none;
-  padding: 2px 5px;
-  color: white;
-  border-radius: 3px;
-  background: #800000;
-}
-
-.msg {
-  margin: 30px auto;
-  padding: 10px;
-  border-radius: 5px;
-  color: #3c763d;
-  background: #dff0d8;
-  border: 1px solid #3c763d;
-  width: 50%;
-  text-align: center;
-}
+```html
+<link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
+/>
 ```
 
 ## Building the backend
 
-Next, we’ll build the backend for our app which will consist of the `dbconfig.php` and `app.php` files mentioned earlier.
+Next, we’ll build the backend for our app which will consist of the `db_connect.php` and `app.php` files mentioned earlier.
 
 ### Configuring SQLite
 
-Create a file named `dbconfig.php` and add the following code to it:
+Create a file named `db_connect.php` and add the following code to it. We recommend putting this file inside a folder called 'database'. This is good practice to keep things organized. The database that this script creates will also be stored inside this 'database' folder:
 
 ```php
 <?php
-    class MyDB extends SQLite3
-    {
-    function __construct()
-    {
-        $this->open($_ENV["PERSISTENT_STORAGE_DIR"] . '/combadd.sqlite');
-    }
-    }
-    $dbh = new MyDB();
-    if(!$dbh){
-    echo $dbh->lastErrorMsg();
-    } else {
-        $query = "CREATE TABLE IF NOT EXISTS books (name STRING, author STRING)";
-        $dbh->exec($query);
-    }
-?>
+
+// Database name
+$database_name = getcwd()."/database/my_db.db";
+
+// Database Connection
+$db = new SQLite3($database_name);
+
+// Create Table "books" in Database (if doesn't exist)
+$query = "CREATE TABLE IF NOT EXISTS books (id INTEGER PRIMARY KEY, book_title STRING, author STRING)";
+
+$db->exec($query);
 ```
 
 The code above connects to a SQLite database when the app is launched and creates a table called “books” if it doesn't already exist in the database.
+
+```
+NOTE: SQLite3 needs to be enabled in your php.ini config file. 
+```
 
 ### Adding app logic
 
 Now add a file named `app.php` and populate it with the code below:
 
 ```php
-<?php include('dbconfig.php');
-	
-	if (isset($_GET['del'])) {
-		$id = $_GET['del'];
-		$query = "DELETE FROM books WHERE rowid=$id";
-		$dbh->exec($query);
+
+<?php 
+// Establish database connection
+include "database/db_connect.php";
+
+// Check for POST and redirect to home if empty
+if ($_POST) {
+
+	// Check for rest_action:delete
+	if ($_POST["rest_action"] == "delete") {
+
+		// Get variables from POST request
+		$id = $_POST['book_id'];
+
+		// Delete Book by ID (parameterized)
+		$stmt = $db->prepare('DELETE FROM books WHERE id=:id');
+		$stmt->bindValue(':id',$id,SQLITE3_INTEGER);
+		$stmt->execute();
+
+		// Redirect to home page
 		header('location: index.php');
 	}
 
-	if (isset($_POST['update'])) {
-		$id = $_POST['id'];
-		$name = $_POST['name'];
+	// Check for rest_action:update
+	if ($_POST["rest_action"] == "update") {
+
+		// Get variables from POST request
+		$id = $_POST['book_id'];
+		$book_title = $_POST['book_title'];
 		$author = $_POST['author'];
 
-		$query = "UPDATE books SET name='$name', author='$author' WHERE rowid=$id";
-		$dbh->exec($query);
+		// Update book record (parametized)
+		$stmt = $db->prepare("UPDATE books SET book_title=:book_title, author=:author WHERE id=:id");
+		$stmt->bindValue(':book_title',$book_title,SQLITE3_TEXT);
+		$stmt->bindValue(':author',$author,SQLITE3_TEXT);
+		$stmt->bindValue(':id',$id,SQLITE3_INTEGER);
+		
+		$stmt->execute();
+
+		// Redirect to home page
 		header('location: index.php');
 	}
 
-	if (isset($_POST['save'])) {
-		$name = $_POST['name'];
+	// Check for rest_action:store
+	if ($_POST["rest_action"] == "store") {
+
+		// Get variables from POST request
+		$book_title = $_POST['book_title'];
 		$author = $_POST['author'];
 
-    		// Makes query with post data
-    		$query = "INSERT INTO books (name, author) VALUES ('$name', '$author')";
-    		$dbh->exec($query);
-    		header('location: index.php');
+		// Insert a new book record into database (parametized)
+		$stmt = $db->prepare("INSERT INTO books (book_title, author) VALUES (:book_title, :author)");
+		$stmt->bindValue(':book_title',$book_title,SQLITE3_TEXT);
+		$stmt->bindValue(':author',$author,SQLITE3_TEXT);
+		$stmt->execute();
+
+		// Redirect to home page
+		header('location: index.php');
 	}
-?>
+} else {
+	// Redirect to home page
+	header('location: index.php');
+}
+
 ```
 
-In the first line we include the `dbconfig.php` file so that we can access the database variable.
+In the first line we include the `dbconfig.php` file so that we can access the database object.
 
-The first `if` statement executes if a delete request was sent from the frontend. In that case, the code block gets the unique `id` of the book to be deleted from the request and uses it in a `DELETE` SQL query to specify which book should be deleted.
+Next, we have an `if` statement checking for any POST request. If there is no POST request, the user is redirected to the home page, without any action.
 
-In the event that a user is updating a book entry the second `if` statement executes. The book entry is updated by first getting the new values and `id` so the code knows which book is being updated. After this, the new values are injected in an `UPDATE` SQL query.
+The first, nested, `if` statement executes if a delete request was sent from the frontend. In that case, the code block gets the unique `id` of the book to be deleted from the request and uses it in a `DELETE` SQL query to specify which book should be deleted.
 
-Finally, the last `if` statement checks to see if a save request was made and if so, the new book entry is saved. This is done by extracting the book name and author from the request and adding these variables to a raw SQL `INSERT` statement. Afterwards we redirect the app to the index page by setting the location header tag.
+In the event that a user is updating a book entry the second `if` statement executes. The book entry is updated by first getting the new values and `id` so the code knows which book is being updated. After this, the new values are inserted in an `UPDATE` SQL query.
+
+Finally, the last `if` statement checks to see if a store request was made and if so, the new book entry is saved. This is done by extracting the book name and author from the request and adding these variables to a raw SQL `INSERT` statement. Afterwards we redirect the app to the index page by setting the location header tag.
+
+```
+NOTE: Please note, here again, we make use of parameterization to protect against SQL injection attacks.
+```
 
 ## Dockerizing the app
 
