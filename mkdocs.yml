@@ -98,6 +98,7 @@ nav:
       - Python Telegram Bot: tutorials/create-and-host-telegram-bot.md
       - Flask API: tutorials/creating-and-hosting-a-flask-api.md
       - Hex Color Identifier API: tutorials/build-hex-color-identifier.md
+      - Book Recommendations: tutorials/build-a-docker-php-sqlite-app.md
       - Flask HTMx: tutorials/build-flask-htmx-app.md
       - Express HTMx: tutorials/build-express-htmx.md
       - Generative Graphics: tutorials/generative-art.md
