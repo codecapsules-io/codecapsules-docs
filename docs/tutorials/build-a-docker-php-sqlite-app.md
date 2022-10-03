@@ -1,6 +1,7 @@
 ---
 title: Building a book recommendations app with PHP, SQLite, and Docker
-description: Create a full-stack app that records book recommendations from users.
+description: Create a PHP CRUD application with Docker and SQLite on Code Capsules.
+image: assets/tutorials/creating-and-hosting-a-flask-api/docker-php-cover.png
 ---
 
 # Building a book recommendations app with PHP, SQLite, and Docker
