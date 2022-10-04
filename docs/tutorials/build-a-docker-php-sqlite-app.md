@@ -6,6 +6,8 @@ image: assets/tutorials/creating-and-hosting-a-flask-api/docker-php-cover.png
 
 # Building a book recommendations app with PHP, SQLite, and Docker
 
+![Docker PHP CRUD app cover](../assets/tutorials/docker-php-sqlite/docker-php-cover.png)
+
 PHP is one of the first technologies that made dynamic web applications possible and is still widely used today. In this tutorial, we’ll look at how to build a CRUD application with PHP and SQLite. We'll build a basic book recommendation application where we can **C**reate new entries or **R**ead, **U**pdate, or **D**elete existing ones. Nearly all applications rely on these four CRUD operations, so you'll be able to extend this application to do anything else you want.
 
 Here’s what the final app will look like:
@@ -16,15 +18,16 @@ Here’s what the final app will look like:
 
 You will need the following to complete the tutorial:
 
-- Docker installed locally
-- (Optional) a local PHP developer environment
+- Docker installed locally.
+- IDE or text editor of your choice.
+- (Optional) a local PHP developer environment.
 
 You can do all the development using the Docker environment that we'll create as part of the tutorial, but it can be easier to run and debug code locally so if you haven't used PHP before and don't want to do the set up, you can rely only on Docker.
 
 To deploy the application to Code Capsules, you'll also need
 
-- A GitHub account and Git installed locally
-- A Code Capsules account
+- A [GitHub](https://github.com/) account and Git installed locally.
+- A [Code Capsules](https://codecapsules.io/) account.
 
 ## Project setup
 
@@ -32,7 +35,7 @@ Let’s start by creating a project folder that will house all our files.
 
 In a terminal, navigate to the directory you’ll be keeping the application files in. Run the commands below to create the project folder and navigate into it.
 
-```
+```bash
 mkdir book-recommendations
 cd book-recommendations
 ```
@@ -95,7 +98,7 @@ Now run the following command in your terminal.
 docker build . -t book-app && docker run -p 8000:80 book-app
 ```
 
-This builds the `Dockerfile` in the current directory and gives it `book-app` as a tag. The second command (after `&&`) runs the container, and maps our local port 8000 to the Docker port 80. Once it's running, you can visit `http://localhost:8000` in your web browser to see the application.
+This builds a Docker image from the `Dockerfile` in the current directory and gives it `book-app` as a tag. The second command (after `&&`) runs the container, and maps our local port 8000 to the Docker port 80. Once it's running, you can visit `http://localhost:8000` in your web browser to see the application.
 
 ![Running frontend](../assets/tutorials/docker-php-sqlite/frontend.png)
 
@@ -161,7 +164,7 @@ This code also creates a table for our books if it doesn't already exist. The `i
 
 To use this code from the main `index.php` file, add the following lines to the top.
 
-```
+```php
 <?php
 include "app.php";
 ?>
@@ -311,16 +314,20 @@ This now handles the update and delete forms we built, calling `UPDATE` or `DELE
 
 ## Deploying the application
 
-The application should now run fine on your local machine, but let's deploy it to the internet so others can use it too. We'll
+The application should now run fine on your local machine, but let's deploy it to the internet so others can use it too. We'll:
 
-* Create a GitHub repository and push the code to GitHub
-* Create a Backend and Data capsule on Code Capsules and link them together
-* Deploy the code to Code Capsules
+* Create a GitHub repository and push the code to GitHub.
+* Create a Docker and Data capsule on Code Capsules and bind them together.
+* Deploy the code to Code Capsules.
 
-```
+Head over to [GitHub](https://github.com/) and create a new repository. Then, in your project's root folder, run the commands below from the terminal, replacing "username" and "repository_name" with your own values from GitHub.
+
+```bash
+git init
 git add -A
 git commit -m "Added book recommendation app files"
 git branch -M main
+git remote add origin git@github.com:username/repository_name.git
 git push -u origin main
 ```
 
@@ -336,11 +343,11 @@ Change the line where you connect to the database in the `app.php` file to match
 $database_name = $_ENV["PERSISTENT_STORAGE_DIR"] ."/books.db";
 ```
 
-In Code Capsules, the `PERSISTENT_STORAGE_DIR` environment variable will point to the data capsule.
+In Code Capsules, the `PERSISTENT_STORAGE_DIR` environment variable will point to the data capsule once the two capsules are bound together.
 
-Push all of your code up to a GitHub repository and ensure that Code Capsules is authorized to read that repository.
+Push all of your code changes up to your GitHub repository and ensure that Code Capsules is authorized to read that repository. You can reference this [deployment guide](https://codecapsules.io/docs/deployment/how-to-deploy-flask-docker-application-to-production/#link-to-github) to see how to do so in greater detail.
 
-Now create a new Docker Capsule and a Data Capsule in a single Space in Code Capsules. For the Data capsule choose "persistent storage".
+Now create a new Data Capsule and a Docker Capsule in a single Space in Code Capsules. For the Data capsule choose "A persistent storage mounted directly to your capsule".
 
 For the Docker capsule, choose your GitHub repository and enter `Dockerfile` for the Dockerfile location. In the configuration tab, set the Network port to "80" to match what Apache is running on, and bind the Docker capsule to the Data capsule.
 
