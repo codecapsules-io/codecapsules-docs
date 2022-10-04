@@ -71,7 +71,7 @@ Let’s begin by building our app’s index page. This page will use PHP and HTM
 </html>
 ```
 
-This builds out a basic HTML page. We add links in the header to [xz/fonts](https://fonts.xz.style), a CDN to get open-source fonts and [New CSS](https://newcss.net), a classless CSS framework that makes HTML look better out the box without having to add specific class names like you would with a framework like Bootstrap or Tailwind.
+This builds out a basic HTML page. We add links in the header to [xz/fonts](https://fonts.xz.style), a CDN to get open-source fonts and [New CSS](https://newcss.net), a classless CSS framework that makes HTML look better out of the box without having to add specific class names like you would with a framework like Bootstrap or Tailwind.
 
 It then sets up a table structure that we'll use PHP to populate later.
 
@@ -95,7 +95,7 @@ Now run the following command in your terminal.
 docker build . -t book-app && docker run -p 8000:80 book-app
 ```
 
-This builds the `Dockerfile` in the current directory and gives it `book-app` as a tag. The second command (after `&&`) runs the the container, and maps our local port 8000 to the Docker port 80. Once it's running, you can visit `http://localhost:8000` in your web browser to see the application.
+This builds the `Dockerfile` in the current directory and gives it `book-app` as a tag. The second command (after `&&`) runs the container, and maps our local port 8000 to the Docker port 80. Once it's running, you can visit `http://localhost:8000` in your web browser to see the application.
 
 ![Running frontend](../assets/tutorials/docker-php-sqlite/frontend.png)
 
@@ -153,11 +153,11 @@ if ($_POST) {
 ?>
 ```
 
-The code above connects to a [SQLite](https://www.sqlite.org/index.html) database when the app is launched. SQLite is lightweight alternative to full database systems such as PostgreSQL or MySQL. It stores all data in a simple file. It also automatically creates a database if you give it a file that doesn't exist, so in our case it will create the `books.db` file the first time we run this code.
+The code above connects to a [SQLite](https://www.sqlite.org/index.html) database when the app is launched. SQLite is a lightweight alternative to full database systems such as PostgreSQL or MySQL. It stores all data in a simple file. It also automatically creates a database if you give it a file that doesn't exist, so in our case it will create the `books.db` file the first time we run this code.
 
-Note that we use a database directly in the `/tmp` folder of the Docker container. This means you'll lose all data every time you restart you application. We'll fix this towards the end of the tutorial when we deploy the application and set up persistent storage.
+Note that we use a database directly in the `/tmp` folder of the Docker container. This means you'll lose all data every time you restart your application. We'll fix this towards the end of the tutorial when we deploy the application and set up persistent storage.
 
-This code also creates a table for our books if it doesn't already exist. The `if` statement checks if there's any data in `$_POST`, which will be populated from the form we defined in `index.php`, and then inserts this data into the database. Note that we use [parameterized queries](https://www.php.net/manual/en/sqlite3.prepare.php) instead of basic string concatenation to include the dynamic user input in the `INSERT INTO` statement. This is to prevent [SQL injection](https://owasp.org/www-community/attacks/SQL_Injection), which is a common vulnerability where a malicious user hacks your database by modifying the database inputs.
+This code also creates a table for our books if it doesn't already exist. The `if` statement checks if there's any data in `$_POST`, which will be populated from the form we defined in `index.php`, and then we insert this data into the database. Note that we use [parameterized queries](https://www.php.net/manual/en/sqlite3.prepare.php) instead of basic string concatenation to include the dynamic user input in the `INSERT INTO` statement. This is to prevent [SQL injection](https://owasp.org/www-community/attacks/SQL_Injection), which is a common vulnerability where a malicious user hacks your database by modifying the database inputs.
 
 To use this code from the main `index.php` file, add the following lines to the top.
 
@@ -223,7 +223,7 @@ This retrieves the books from the database and returns an array containing all o
         </table>
 ```
 
-Here we use our `getBooks` function to retrieve all the books and then a `while` loop to iterate through each one. We add each book as a new table row, displaying the titel and the author in their own columns. We also add more columns with an "Edit" and "Delete" button for each book. The buttons call JavaScript functions (that we haven't written yet), passing in the ID, title, and author of the book that the user wants to edit or delete.
+Here we use our `getBooks` function to retrieve all the books and then a `while` loop to iterate through each one. We add each book as a new table row, displaying the title and the author in their own columns. We also add more columns with an "Edit" and "Delete" button for each book. The buttons call JavaScript functions (that we haven't written yet), passing in the ID, title, and author of the book that the user wants to edit or delete.
 
 If you run the app again, you'll see that now any books that you add automatically show up in the table. The Edit and Delete buttons don't work yet though, so let's fix that.
 
@@ -272,7 +272,7 @@ We need matching JavaScript functions to use these forms, so add the following c
         </script>
 ```
 
-We pass variables for the ID, title, and author to both functions. Although the existing title and ID are not striclty necessary, it's nice to show them to the user for reference when they are entering the new information or as a confirmation for the delete function. The update function prompts the user for a new title and author and then submits the update form, while the delete function confirms if the user really wants to delete that entry and then submits the delete form.
+We pass variables for the ID, title, and author to both functions. Although the existing title and ID are not strictly necessary, it's nice to show them to the user for reference when they are entering the new information or as a confirmation for the delete function. The update function prompts the user for a new title and author and then submits the update form, while the delete function confirms if the user really wants to delete that entry and then submits the delete form.
 
 Finally, to make these work on the backend, update the if statement in the `app.php` file to look as follows.
 
@@ -307,7 +307,7 @@ if ($_POST) {
 }
 ```
 
-This now handles the udpate and delete forms we built, calling `UPDATE` or `DELETE` statements on our database as required. Note that we are still using prepared statements to protect against SQL injection.
+This now handles the update and delete forms we built, calling `UPDATE` or `DELETE` statements on our database as required. Note that we are still using prepared statements to protect against SQL injection.
 
 ## Deploying the application
 
@@ -328,7 +328,7 @@ Your remote repository will now be up to date with your local one.
 
 ## Deploying to Code Capsules
 
-The final step is to deploy our app to Code Capsules. We'll use two capsules for this: a Docker capsules for the application and a persistent storage data capsule for the database, so that our data doesn't disappear each time the application is restarted.
+The final step is to deploy our app to Code Capsules. We'll use two capsules for this: a Docker capsule for the application and a persistent storage data capsule for the database, so that our data doesn't disappear each time the application is restarted.
 
 Change the line where you connect to the database in the `app.php` file to match the following.
 
@@ -338,7 +338,7 @@ $database_name = $_ENV["PERSISTENT_STORAGE_DIR"] ."/books.db";
 
 In Code Capsules, the `PERSISTENT_STORAGE_DIR` environment variable will point to the data capsule.
 
-Push all of your code up to a GitHub repository and ensure that Code Capsules it authorized to read that repository.
+Push all of your code up to a GitHub repository and ensure that Code Capsules is authorized to read that repository.
 
 Now create a new Docker Capsule and a Data Capsule in a single Space in Code Capsules. For the Data capsule choose "persistent storage".
 
