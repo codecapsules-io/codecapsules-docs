@@ -10,7 +10,7 @@ PHP is one of the first technologies that made dynamic web applications possible
 
 Here’s what the final app will look like:
 
-![Book Recommendation App](../assets/tutorials/docker-php-sqlite/app.png)
+![Book Recommendation App](../assets/tutorials/docker-php-sqlite/final-app.png)
 
 ## Requirements
 
