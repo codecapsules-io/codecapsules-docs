@@ -6,7 +6,7 @@ image: assets/tutorials/creating-and-hosting-a-flask-api/docker-php-cover.png
 
 # Building a book recommendations app with PHP, SQLite, and Docker
 
-PHP is one of the first technologies that made dynamic web applications possible and is still widely used today. In this tutorial, we’ll look at how to build a Docker container that contains a full-stack book recommendations app built with PHP and SQLite.
+PHP is one of the first technologies that made dynamic web applications possible and is still widely used today. In this tutorial, we’ll look at how to build a CRUD application with PHP and SQLite. We'll build a basic book recommendation application where we can **C**reate new entries or **R**ead, **U**pdate, or **D**elete existing ones. Nearly all applications rely on these four CRUD operations, so you'll be able to extend this application to do anything else you want.
 
 Here’s what the final app will look like:
 
@@ -14,12 +14,17 @@ Here’s what the final app will look like:
 
 ## Requirements
 
-You will need the following to complete the tutorial and host your application on Code Capsules:
+You will need the following to complete the tutorial:
 
-- A [Code Capsules](https://codecapsules.io/) account.
-- Git set up and installed, and a registered [GitHub](https://github.com/) account.
-- IDE or text editor of your choice.
-- PHP installed.
+- Docker installed locally
+- (Optional) a local PHP developer environment
+
+You can do all the development using the Docker environment that we'll create as part of the tutorial, but it can be easier to run and debug code locally so if you haven't used PHP before and don't want to do the set up, you can rely only on Docker.
+
+To deploy the application to Code Capsules, you'll also need
+
+- A GitHub account and Git installed locally
+- A Code Capsules account
 
 ## Project setup
 
@@ -32,304 +37,49 @@ mkdir book-recommendations
 cd book-recommendations
 ```
 
-### Initializing an empty git repository
-
-From the project’s root folder, enter the command `git init` to initialize a git repository. This will allow you to track changes to your app as you build it.
-
-### Linking to GitHub
-
-Create a new repository in [GitHub](https://github.com/). Then, in your project's root folder, run the command below from the terminal, replacing "username" and "repository_name" with your own values from GitHub.
-
-```bash
-git remote add origin git@github.com:username/repository_name.git
-```
-
-This will link your local repository to the one on GitHub.
-
 ## Building the frontend
 
 Let’s begin by building our app’s index page. This page will use PHP and HTML as it will contain both static and dynamic content. Create a file named `index.php` in the project root folder and populate it with the code below:
 
-```php
-<?php
-// Establish database connection
-include "database/db_connect.php"; ?>
-
+```html
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Recommendations</title>
-
-    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-  </head>
-
-  <body></body>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Book Recommendations</title>
+      <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
+      <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
+         />
+   </head>
+   <body>
+   <header>
+      <h1>Book Recommendations CRUD demo</h1>
+   </header>
+      <table>
+         <thead>
+            <tr>
+               <th>Book Title</th>
+               <th>Author</th>
+               <th colspan="2">Action</th>
+            </tr>
+         </thead>
+      </table>
+   </body>
 </html>
-	
-    <?php
-	// initialize variables
-	$book_title = "";
-	$author = "";
-	$update = false;
-
-	// Check for rest action
-	if ($_POST) {
-
-		// Check if Edit has been called
-		if ($_POST["rest_action"] == "edit") {
-
-			// Get book by ID
-			$id = $_POST['book_id'];
-			$update = true;
-
-			// Get Book to edit (parameterized)
-			$stmt = $db->prepare('SELECT * FROM books WHERE id=:id');
-			$stmt->bindValue(':id',$id,SQLITE3_INTEGER);
-
-			$result = $stmt->execute();
-			$book = $result->fetchArray();
-		}
-	}
-	?>
-
-	<?php
-	// Get all books from database
-	$query = "SELECT * FROM books";
-	$results = $db->query($query);
-	?>
-
-<!-- Page header -->
-<header>
-  <h1>Book Recommendations CRUD demo</h1>
-</header>
-
-<!-- Section: List book recommendations -->
-<section>
-  <table>
-    <thead>
-      <tr>
-        <th>Book Title</th>
-        <th>Author</th>
-        <th colspan="2">Action</th>
-      </tr>
-    </thead>
-  </table>
-</section>
-
-			<?php while ($row = $results->fetchArray()) : ?>
-
-<tr>
-  <td><?php echo $row['book_title']; ?></td>
-  <td><?php echo $row['author']; ?></td>
-  <td>
-    <form method="POST">
-      <input type="hidden" name="book_id" value="<?php echo $row['id'] ?>" />
-      <input type="hidden" name="rest_action" value="edit" />
-      <button>Edit</button>
-    </form>
-  </td>
-  <td>
-    <form action="app.php" method="POST">
-      <input type="hidden" name="book_id" value="<?php echo $row['id'] ?>" />
-      <input type="hidden" name="rest_action" value="delete" />
-      <button>Delete</button>
-    </form>
-  </td>
-</tr>
-			<?php endwhile; ?>
-
-		</table>
-	</section>
-
-	<!-- Section: Form -->
-	<section>
-		<form method="post" action="app.php">
-
-			<p>
-				<label for="book_title">Book Title</label> <br>
-				<input type="text" name="book_title" value="<?php echo $book["book_title"] ?? '' ?>">
-			</p>
-
-			<p>
-				<label for="author">Author</label> <br>
-				<input type="text" name="author" value="<?php echo $book["author"] ?? '' ?>">
-			</p>
-
-			<p>
-
-				<?php if ($update == true) : ?>
-
-					<input type="hidden" name="book_id" value="<?php echo $id; ?>">
-					<input type="hidden" name="rest_action" value="update">
-					<button type="submit" name="update">Update</button>
-
-				<?php else : ?>
-
-					<input type="hidden" name="rest_action" value="store">
-					<button type="submit" name="save">Save</button>
-
-				<?php endif ?>
-
-			</p>
-
-		</form>
-	</section>
-
-</body>
-
-</html>
-
-At the very top of the snippet is PHP code responsible for making the page dynamic. We do this by first referencing a database configuration file we’ll create later.
-
-Then, directly after the opening `<body>` tag, we initialize PHP variables and check to see if a POST request has been sent. If a POST request has been sent, we check for the edit instruction and retrieve the book entry to be edited.
-
-```
-NOTE: For security purposes, we have made use of parameterization (prepared statements). This guards against possible SQL injection attacks.
 ```
 
-Next, there is PHP code for getting a list of all the books from the database. To do this, we first assign the raw SQL query to a variable called `$query` and then run that query against the database and store the results in a variable called `$results`. Below this code is an HTML table that dynamically renders rows of book data from the `$results` variable.
+This builds out a basic HTML page. We add links in the header to [xz/fonts](https://fonts.xz.style), a CDN to get open-source fonts and [New CSS](https://newcss.net), a classless CSS framework that makes HTML look better out the box without having to add specific class names like you would with a framework like Bootstrap or Tailwind.
 
-The last part of the index page is the input form that users will fill in to record their book recommendations. Depending on the value of the `$update` variable defined at the top of the file the form renders either a "Save" or an "Update" button. When a user submits the form, it posts the data to a script named `app.php` which will either save a new book entry or update an existing one. We’ll add the `app.php` script in the backend section.
+It then sets up a table structure that we'll use PHP to populate later.
 
-### Adding styling
+## Adding a Docker file and running our app
 
-We have made use of new.css, which is a classless CSS framework to provide boilerplate CSS styling.
+Even though our app doesn't do anything yet, let's run it to see our progress so far. We'll use Docker for this. In the same project directory, create a file called exactly `Dockerfile` (note the capital D and no file extension), and add the following code.
 
-You may have noticed the following `<link>` tags inside the `<head>` tag:
-
-```html
-<link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-/>
-```
-
-## Building the backend
-
-Next, we’ll build the backend for our app which will consist of the `db_connect.php` and `app.php` files mentioned earlier.
-
-### Configuring SQLite
-
-Create a file named `db_connect.php` and add the following code to it. We recommend putting this file inside a folder called 'database'. This is good practice to keep things organized. The database that this script creates will also be stored inside this 'database' folder:
-
-```php
-<?php
-
-// Database name
-$database_name = getcwd()."/database/my_db.db";
-
-// Database Connection
-$db = new SQLite3($database_name);
-
-// Create Table "books" in Database (if doesn't exist)
-$query = "CREATE TABLE IF NOT EXISTS books (id INTEGER PRIMARY KEY, book_title STRING, author STRING)";
-
-$db->exec($query);
-```
-
-The code above connects to a SQLite database when the app is launched and creates a table called “books” if it doesn't already exist in the database.
-
-```
-NOTE: SQLite3 needs to be enabled in your php.ini config file. 
-```
-
-### Adding app logic
-
-Now add a file named `app.php` and populate it with the code below:
-
-```php
-
-<?php 
-// Establish database connection
-include "database/db_connect.php";
-
-// Check for POST and redirect to home if empty
-if ($_POST) {
-
-	// Check for rest_action:delete
-	if ($_POST["rest_action"] == "delete") {
-
-		// Get variables from POST request
-		$id = $_POST['book_id'];
-
-		// Delete Book by ID (parameterized)
-		$stmt = $db->prepare('DELETE FROM books WHERE id=:id');
-		$stmt->bindValue(':id',$id,SQLITE3_INTEGER);
-		$stmt->execute();
-
-		// Redirect to home page
-		header('location: index.php');
-	}
-
-	// Check for rest_action:update
-	if ($_POST["rest_action"] == "update") {
-
-		// Get variables from POST request
-		$id = $_POST['book_id'];
-		$book_title = $_POST['book_title'];
-		$author = $_POST['author'];
-
-		// Update book record (parametized)
-		$stmt = $db->prepare("UPDATE books SET book_title=:book_title, author=:author WHERE id=:id");
-		$stmt->bindValue(':book_title',$book_title,SQLITE3_TEXT);
-		$stmt->bindValue(':author',$author,SQLITE3_TEXT);
-		$stmt->bindValue(':id',$id,SQLITE3_INTEGER);
-		
-		$stmt->execute();
-
-		// Redirect to home page
-		header('location: index.php');
-	}
-
-	// Check for rest_action:store
-	if ($_POST["rest_action"] == "store") {
-
-		// Get variables from POST request
-		$book_title = $_POST['book_title'];
-		$author = $_POST['author'];
-
-		// Insert a new book record into database (parametized)
-		$stmt = $db->prepare("INSERT INTO books (book_title, author) VALUES (:book_title, :author)");
-		$stmt->bindValue(':book_title',$book_title,SQLITE3_TEXT);
-		$stmt->bindValue(':author',$author,SQLITE3_TEXT);
-		$stmt->execute();
-
-		// Redirect to home page
-		header('location: index.php');
-	}
-} else {
-	// Redirect to home page
-	header('location: index.php');
-}
-
-```
-
-In the first line we include the `dbconfig.php` file so that we can access the database object.
-
-Next, we have an `if` statement checking for any POST request. If there is no POST request, the user is redirected to the home page, without any action.
-
-The first, nested, `if` statement executes if a delete request was sent from the frontend. In that case, the code block gets the unique `id` of the book to be deleted from the request and uses it in a `DELETE` SQL query to specify which book should be deleted.
-
-In the event that a user is updating a book entry the second `if` statement executes. The book entry is updated by first getting the new values and `id` so the code knows which book is being updated. After this, the new values are inserted in an `UPDATE` SQL query.
-
-Finally, the last `if` statement checks to see if a store request was made and if so, the new book entry is saved. This is done by extracting the book name and author from the request and adding these variables to a raw SQL `INSERT` statement. Afterwards we redirect the app to the index page by setting the location header tag.
-
-```
-NOTE: Please note, here again, we make use of parameterization to protect against SQL injection attacks.
-```
-
-## Dockerizing the app
-
-Our book recommendation app is now complete. We’re only left with containerizing it with Docker and then it’ll be ready to be shipped to Code Capsules. Let’s do this by adding a `Dockerfile` to the project root folder. A `Dockerfile` is a set of instructions on how to build an image of your application and run it inside a docker container. Populate the `Dockerfile` with the code below:
-
-```dockerfile
+```Docker
 FROM php:8.0-apache
 WORKDIR /var/www/html
 
@@ -337,17 +87,235 @@ COPY . .
 EXPOSE 80
 ```
 
-In the first line we import the PHP 8 Apache image which is what our image will be based on. Then we set `/var/www/html` as the working directory for the image which will be built shortly.
+This pulls an official Docker container which already has the PHP language installed and integrated with Apache, a web server. It copies all files from the local directory (in our case, just index.php for now), and exposes port 80, which is the port that Apache is set to serve files on.
 
-The third line copies everything in the project root folder into the working directory of the image. Lastly we expose the app in the image on port 80.
+Now run the following command in your terminal.
 
-### Naming the `Dockerfile`
+```bash
+docker build . -t book-app && docker run -p 8000:80 book-app
+```
 
-The name `Dockerfile` should start with a capital letter ‘D’ and have no extension.
+This builds the `Dockerfile` in the current directory and gives it `book-app` as a tag. The second command (after `&&`) runs the the container, and maps our local port 8000 to the Docker port 80. Once it's running, you can visit `http://localhost:8000` in your web browser to see the application.
 
-## Adding, commiting, and pushing git changes
+![Running frontend](../assets/tutorials/docker-php-sqlite/frontend.png)
 
-The application is now ready for deployment. Let’s add and commit all the files we created to our local repository and then push them to the remote one. Do this by running the commands below in a terminal while in the project’s root folder:
+Hit `Ctrl + C` in the terminal window running Docker to stop the server.
+
+## Adding books
+
+To allow the user to add new books, we'll need a form with an input. Let's build that now.
+
+Add the following code to your `index.php` file, above the existing table definition.
+
+```html
+      <h2>Add Book</h2>
+      <form method="POST">
+         <label for="title">Book Title</label> <br>
+         <input type="text" name="title"><br>
+         <label for="author">Author</label> <br>
+         <input type="text" name="author"><br>
+         <input type="hidden" name="action" value="create"><br>
+         <button type="submit" name="save">Save</button><br>
+      </form>
+      <h2>Books</h2>
+```
+
+This sets up a form with inputs and a submit button. Note the hidden field with a value of "create", which we'll be using later to differentiate between different actions, such as creating, updating, or deleting books.
+
+If you run the app again, you'll see something like the following.
+
+![frontend with form](../assets/tutorials/docker-php-sqlite/frontend-with-form.png)
+
+Now you can type in a book and author name and press the "save" button, but then the app will crash as we haven't built the backend yet. Let's do that next.
+
+
+## Building the backend
+
+Next we'll create an `app.php` file to handle the backend logic and database connection for our application. Create this file and add the following code.
+
+```php
+<?php
+$database_name = "/tmp/"."books.db";
+$db = new SQLite3($database_name);
+$query = "CREATE TABLE IF NOT EXISTS books (id INTEGER PRIMARY KEY, title STRING, author STRING)";
+$db->exec($query);
+
+if ($_POST) {
+    if ($_POST["action"] == "create") {
+        $title = $_POST["title"];
+        $author = $_POST["author"];
+        $stmt = $db->prepare("INSERT INTO books (title, author) VALUES (:title, :author)");
+        $stmt->bindValue(":title", $title, SQLITE3_TEXT);
+        $stmt->bindValue(":author", $author, SQLITE3_TEXT);
+        $stmt->execute();
+    }
+}
+?>
+```
+
+The code above connects to a [SQLite](https://www.sqlite.org/index.html) database when the app is launched. SQLite is lightweight alternative to full database systems such as PostgreSQL or MySQL. It stores all data in a simple file. It also automatically creates a database if you give it a file that doesn't exist, so in our case it will create the `books.db` file the first time we run this code.
+
+Note that we use a database directly in the `/tmp` folder of the Docker container. This means you'll lose all data every time you restart you application. We'll fix this towards the end of the tutorial when we deploy the application and set up persistent storage.
+
+This code also creates a table for our books if it doesn't already exist. The `if` statement checks if there's any data in `$_POST`, which will be populated from the form we defined in `index.php`, and then inserts this data into the database. Note that we use [parameterized queries](https://www.php.net/manual/en/sqlite3.prepare.php) instead of basic string concatenation to include the dynamic user input in the `INSERT INTO` statement. This is to prevent [SQL injection](https://owasp.org/www-community/attacks/SQL_Injection), which is a common vulnerability where a malicious user hacks your database by modifying the database inputs.
+
+To use this code from the main `index.php` file, add the following lines to the top.
+
+```
+<?php
+include "app.php";
+?>
+```
+
+This imports all the code into `index.php`, as if you had written in that file. We keep most of the PHP code in a separate file to make our codebase better organized.
+
+You can run the application again now and you'll see that you're able to insert books using the form. However, we aren't ever reading the books from the database again, so they'll just disappear. Let's add some more logic to retrieve any saved books from the database and display them to the user.
+
+## Retrieving the books from the database
+
+We'll display our books to the user by grabbing them all from the database, looping through them, and adding a table row for each entry.
+
+In the `app.php` file, add the following function to the top of the file
+
+```php
+function getBooks($db) {
+    $query = "SELECT * FROM books";
+    $results = $db->query($query);
+    return $results;
+}
+```
+
+This retrieves the books from the database and returns an array containing all of them. Update the **Books** section of the `index.php` file with the following code.
+
+```php
+        <h2>Books</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Author</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+            <?php
+            $results = getBooks($db);
+            while ($row = $results->fetchArray()):
+            ?>
+            <tr>
+                <td><?php echo $row["title"]; ?></td>
+                <td><?php echo $row["author"]; ?></td>
+                <td>
+                    <button onclick="update_book(
+                        <?php echo $row["id"] ?>,
+                        '<?php echo $row["title"]?>',
+                        '<?php echo $row["author"]?>'
+                    )">Edit</button>
+                </td>
+                <td>
+                    <button onclick="delete_book(
+                        <?php echo $row["id"] ?>,
+                        '<?php echo $row["title"]?>',
+                        '<?php echo $row["author"]?>'
+                    )">Delete</button>
+                </td>
+            </tr>
+            <?php endwhile; ?>
+        </table>
+```
+
+Here we use our `getBooks` function to retrieve all the books and then a `while` loop to iterate through each one. We add each book as a new table row, displaying the titel and the author in their own columns. We also add more columns with an "Edit" and "Delete" button for each book. The buttons call JavaScript functions (that we haven't written yet), passing in the ID, title, and author of the book that the user wants to edit or delete.
+
+If you run the app again, you'll see that now any books that you add automatically show up in the table. The Edit and Delete buttons don't work yet though, so let's fix that.
+
+## Adding Edit and Delete functionality
+
+To avoid our table getting too messy, we'll use some basic JavaScript to edit and delete books, along with some hidden forms at the top of our page. Right after the opening `<body>` tag in `index.php`, add the following forms.
+
+```html
+        <form id="updateForm" method="POST">
+            <input type="hidden" name="update_id" id="update_id">
+            <input type="hidden" name="new_title" id="new_title">
+            <input type="hidden" name="new_author" id="new_author">
+            <input type="hidden" name="action" value="update">
+        </form>
+
+        <form id="deleteForm" method="POST">
+            <input type="hidden" name="action" value="delete">
+            <input type="hidden" name="delete_id" id="delete_id">
+        </form>
+```
+
+These are two forms consisting only of hidden input fields, so they won't be visible to the user. We'll populate the values and submit them using JavaScript. The first form has values for `new_title` and `new_author` so we can update the database with new values supplied by the user. The "delete" form only has the book ID, as that's all we need to remove it from the database.
+
+We need matching JavaScript functions to use these forms, so add the following code to the `<head>` section of your `index.php` file.
+
+```javascript
+        <script>
+        function update_book(id, title, author) {
+            let new_title = prompt("Please enter new title:", title);
+            if (new_title == null || new_title  == "") { return; }
+            let new_author = prompt("Please enter new author:", author);
+            if (new_author == null || new_author  == "") { return; }
+            document.getElementById("new_title").value = new_title;
+            document.getElementById("new_author").value = new_author;
+            document.getElementById("update_id").value = id;
+            document.getElementById("updateForm").submit();
+        }
+
+        function delete_book(id, title, author) {
+            let is_sure = "Deleting book '" + title + "' by '" + author + "'. Are you sure?";
+            if (confirm(is_sure) == true) {
+                document.getElementById("delete_id").value = id;
+                document.getElementById("deleteForm").submit();
+            }
+        }
+        </script>
+```
+
+We pass variables for the ID, title, and author to both functions. Although the existing title and ID are not striclty necessary, it's nice to show them to the user for reference when they are entering the new information or as a confirmation for the delete function. The update function prompts the user for a new title and author and then submits the update form, while the delete function confirms if the user really wants to delete that entry and then submits the delete form.
+
+Finally, to make these work on the backend, update the if statement in the `app.php` file to look as follows.
+
+```php
+if ($_POST) {
+    if ($_POST["action"] == "create") {
+        // Insert new book
+        $title = $_POST["title"];
+        $author = $_POST["author"];
+        $stmt = $db->prepare("INSERT INTO books (title, author) VALUES (:title, :author)");
+        $stmt->bindValue(":title", $title, SQLITE3_TEXT);
+        $stmt->bindValue(":author", $author, SQLITE3_TEXT);
+        $stmt->execute();
+    }
+    elseif ($_POST["action"] == "update") {
+        $id = $_POST['update_id'];
+        $title = $_POST['new_title'];
+        $author = $_POST['new_author'];
+        $stmt = $db->prepare("UPDATE books SET title=:title, author=:author WHERE id=:id");
+        $stmt->bindValue(':title',$title,SQLITE3_TEXT);
+        $stmt->bindValue(':author',$author,SQLITE3_TEXT);
+        $stmt->bindValue(':id',$id,SQLITE3_INTEGER);
+        $stmt->execute();
+    }
+
+    elseif ($_POST["action"] == "delete") {
+        $id = $_POST['delete_id'];
+        $stmt = $db->prepare('DELETE FROM books WHERE id=:id');
+        $stmt->bindValue(':id',$id,SQLITE3_INTEGER);
+        $stmt->execute();
+    }
+}
+```
+
+This now handles the udpate and delete forms we built, calling `UPDATE` or `DELETE` statements on our database as required. Note that we are still using prepared statements to protect against SQL injection.
+
+## Deploying the application
+
+The application should now run fine on your local machine, but let's deploy it to the internet so others can use it too. We'll
+
+* Create a GitHub repository and push the code to GitHub
+* Create a Backend and Data capsule on Code Capsules and link them together
+* Deploy the code to Code Capsules
 
 ```
 git add -A
@@ -360,18 +328,27 @@ Your remote repository will now be up to date with your local one.
 
 ## Deploying to Code Capsules
 
-The final step is to deploy our app. Log into your Code Capsules account and link your remote GitHub repository to Code Capsules. Create a Docker Capsule and deploy the app there. You can reference this [deployment guide](https://codecapsules.io/docs/deployment/how-to-deploy-flask-docker-application-to-production/#create-the-capsule) to see how to do so in greater detail.
+The final step is to deploy our app to Code Capsules. We'll use two capsules for this: a Docker capsules for the application and a persistent storage data capsule for the database, so that our data doesn't disappear each time the application is restarted.
 
-Once the build is complete, navigate to the "Configure" tab and scroll down to the "Network Port" section. Enter "80" as the port number and click on "Update Capsule".
+Change the line where you connect to the database in the `app.php` file to match the following.
 
-![Network Port](../assets/tutorials/docker-php-sqlite/network-port.png)
+```php
+$database_name = $_ENV["PERSISTENT_STORAGE_DIR"] ."/books.db";
+```
 
-### Creating a data Capsule
+In Code Capsules, the `PERSISTENT_STORAGE_DIR` environment variable will point to the data capsule.
 
-Our book recommendations app needs a Data Capsule in order to persistently store book entries. Create a persistent storage Data Capsule in the same Space where you have your Docker Capsule and bind the two capsules together. You can reference this [guide](https://codecapsules.io/docs/reference/set-up-file-data-capsule/) to see how to do so in more detail.
+Push all of your code up to a GitHub repository and ensure that Code Capsules it authorized to read that repository.
 
-### Viewing the App
+Now create a new Docker Capsule and a Data Capsule in a single Space in Code Capsules. For the Data capsule choose "persistent storage".
 
-That’s it! Your "Book Recommendations" app should be live and fully functional now. To visit the index route, click the "Live Website" link at the top right of your Docker Capsule.
+For the Docker capsule, choose your GitHub repository and enter `Dockerfile` for the Dockerfile location. In the configuration tab, set the Network port to "80" to match what Apache is running on, and bind the Docker capsule to the Data capsule.
 
-![Book Recommendation App](../assets/tutorials/docker-php-sqlite/app.png)
+![Configuration](../assets/tutorials/docker-php-sqlite/configuration.png)
+
+Deploy and build the application and you should see it running on a custom URL that you can share with the world.
+
+
+
+
+
