@@ -124,7 +124,7 @@ If you're looking to build cool applications that you can host on Code Capsules,
 
 <figure>
   <a href="./build-a-docker-php-sqlite-app/">
-    <img style="border-radius: 10px 10px 0" src="../assets/tutorials/hex-color-identifier/hex-identifier.jpg" width="300" />
+    <img style="border-radius: 10px 10px 0" src="../assets/tutorials/docker-php-sqlite/docker-php-cover.png" width="300" />
     <figcaption>Book Recommendations App</figcaption>
   </a>
 </figure>
