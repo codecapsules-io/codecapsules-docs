@@ -169,13 +169,6 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
     <figcaption>Laravel Docker</figcaption>
   </a>
 </figure>
-
-<figure>
-  <a href="./how-to-deploy-docker-php-application-to-production">
-    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/php-docker.png" width="150" />
-    <figcaption>PHP Docker</figcaption>
-  </a>
-</figure>
 </div>
 
 ## Fullstack Frameworks
