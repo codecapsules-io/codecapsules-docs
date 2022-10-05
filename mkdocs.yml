@@ -57,6 +57,7 @@ nav:
       - HTML5up: deployment/how-to-deploy-html5up-template-to-production.md
       - Java (Spring): deployment/how-to-deploy-java-application-to-production.md
       - Java (Spring) + MySQL: deployment/how-to-deploy-java-mysql-application-to-production.md
+      - PHP Docker: deployment/how-to-deploy-docker-php-application-to-production.md
       - Laravel Docker: deployment/how-to-deploy-docker-laravel-application-to-production.md
       - MEAN (Mongo, Express, Angular): deployment/how-to-deploy-mean-stack-application-to-production.md
       - MERN (Mongo, Express, React): deployment/how-to-deploy-mern-stack-application-to-production.md
@@ -98,6 +99,7 @@ nav:
       - Python Telegram Bot: tutorials/create-and-host-telegram-bot.md
       - Flask API: tutorials/creating-and-hosting-a-flask-api.md
       - Hex Color Identifier API: tutorials/build-hex-color-identifier.md
+      - CRUD with PHP and Docker: tutorials/build-a-docker-php-sqlite-app.md
       - Flask HTMx: tutorials/build-flask-htmx-app.md
       - Express HTMx: tutorials/build-express-htmx.md
       - Generative Graphics: tutorials/generative-art.md

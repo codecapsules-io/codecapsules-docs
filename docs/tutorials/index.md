@@ -121,4 +121,11 @@ If you're looking to build cool applications that you can host on Code Capsules,
     <figcaption>Build a Hex Color Identifier API</figcaption>
   </a>
 </figure>
+
+<figure>
+  <a href="./build-a-docker-php-sqlite-app/">
+    <img style="border-radius: 10px 10px 0" src="../assets/tutorials/docker-php-sqlite/docker-php-cover.png" width="300" />
+    <figcaption>Book Recommendations App</figcaption>
+  </a>
+</figure>
 </div>
