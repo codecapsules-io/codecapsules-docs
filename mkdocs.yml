@@ -34,6 +34,7 @@ markdown_extensions:
 
 plugins:
   - social
+  - search
 
 nav:
   - Getting Started: index.md
