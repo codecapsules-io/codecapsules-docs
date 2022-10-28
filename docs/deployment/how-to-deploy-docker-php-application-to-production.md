@@ -7,7 +7,7 @@ hide:
 
 # How to Deploy a PHP Docker Application to Production on Code Capsules
 
-This guide will show you how to deploy your application build with PHP and Docker to Code Capsules. By the end of this guide, you'll have an application that looks like the one below which runs on the public internet, and you'll get a URL to share with your users.
+This guide will show you how to deploy your application built with PHP and Docker to Code Capsules. By the end of this guide, you'll have an application that looks like the one below which runs on the public internet, and you'll get a URL to share with your users.
 
 ## Set up
 
