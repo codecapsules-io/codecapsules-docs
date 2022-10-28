@@ -65,11 +65,22 @@ Code Capsules supports most front and backend frameworks and libraries. Here are
     <figcaption>Svelte</figcaption>
   </a>
 </figure>
+</div>
 
+## Static sites and files
+
+<div style="display: flex; flex-wrap: wrap; max-width: 740px;">
 <figure>
   <a href="./how-to-deploy-caddy-docker-site-to-production/">
     <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/caddy-docker.png" width="150" />
-    <figcaption>Caddy Docker</figcaption>
+    <figcaption>Caddy Docker Website</figcaption>
+  </a>
+</figure>
+
+<figure>
+  <a href="./how-to-deploy-static-file-share-flask-caddy/">
+    <img style="border-radius: 10px 10px 0" src="../assets/deployment/index/caddy-docker.png" width="150" />
+    <figcaption>Caddy Docker File Server</figcaption>
   </a>
 </figure>
 </div>
