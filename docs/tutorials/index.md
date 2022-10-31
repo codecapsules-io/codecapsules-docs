@@ -128,4 +128,10 @@ If you're looking to build cool applications that you can host on Code Capsules,
     <figcaption>Book Recommendations App</figcaption>
   </a>
 </figure>
+<figure>
+  <a href="./build-imgur-clone-uppy-caddy/">
+    <img style="border-radius: 10px 10px 0" src="../assets/tutorials/build-imgur-clone-uppy-caddy/cover.png" width="300" />
+    <figcaption>Build an Imgur clone</figcaption>
+  </a>
+</figure>
 </div>
