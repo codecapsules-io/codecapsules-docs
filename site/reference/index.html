@@ -283,6 +283,10 @@
     
       
     
+      
+    
+      
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -721,6 +725,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -805,7 +811,26 @@
         
   
   <span class="md-ellipsis">
-    Caddy Docker
+    Caddy Docker Website
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/how-to-deploy-static-file-share-flask-caddy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caddy Docker File Server
   </span>
 
       </a>
@@ -1834,6 +1859,8 @@
       
         
       
+        
+      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2223,6 +2250,25 @@
   
   <span class="md-ellipsis">
     Image Overlay API with Express
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/build-imgur-clone-uppy-caddy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build an Imgur Clone with Uppy
   </span>
 
       </a>
@@ -2723,7 +2769,7 @@
         <li class="md-nav__item">
   <a href="#general-information" class="md-nav__link">
     <span class="md-ellipsis">
-      General information
+      General Information
     </span>
   </a>
   
@@ -2732,26 +2778,26 @@
         <li class="md-nav__item">
   <a href="#deploying-data-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploying data capsules
+      Deploying Data Capsules
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Deploying data capsules">
+    <nav class="md-nav" aria-label="Deploying Data Capsules">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#deploying-a-mysql-data-capsule" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploying a MySQL data capsule
+      Deploying a MySQL Data Capsule
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deploying-a-mongodb-data-capsules" class="md-nav__link">
+  <a href="#deploying-a-mongodb-data-capsule" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploying a MongoDB data capsules
+      Deploying a MongoDB Data Capsule
     </span>
   </a>
   
@@ -2760,7 +2806,7 @@
           <li class="md-nav__item">
   <a href="#deploying-a-redis-data-capsule" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploying a Redis data capsule
+      Deploying a Redis Data Capsule
     </span>
   </a>
   
@@ -2769,7 +2815,7 @@
           <li class="md-nav__item">
   <a href="#set-up-a-persistent-storage-capsule" class="md-nav__link">
     <span class="md-ellipsis">
-      Set up a Persistent Storage capsule
+      Set up a Persistent Storage Capsule
     </span>
   </a>
   
@@ -2783,7 +2829,7 @@
         <li class="md-nav__item">
   <a href="#managing-your-code-capsules-account" class="md-nav__link">
     <span class="md-ellipsis">
-      Managing your Code Capsules account
+      Managing your Code Capsules Account
     </span>
   </a>
   
@@ -2803,22 +2849,22 @@
                 
 
 
-<h1 id="reference-documentation">Reference documentation</h1>
+<h1 id="reference-documentation">Reference Documentation</h1>
 <p>Looking to do something specific? You should find it here. If not, join <a href="https://codecapsules.io/slack">our Slack community</a> to let us know and we'll get on it!</p>
-<h2 id="general-information">General information</h2>
-<p>Take a look at how to <a href="./custom_domains/">add a custom domain</a>, how to <a href="./add-procfile-to-backend-application/">use a Procfile</a> and how to <a href="./migrating-a-database-with-code-capsules/">run database migrations</a></p>
-<h2 id="deploying-data-capsules">Deploying data capsules</h2>
-<p>Your capsules do not persist data by default as you might be used to from a VPS or your local machine. Every time they are restarted for any reason, they will pull a completely fresh copy of your code from GitHub. You can read more about persistence <a href="./how-state-works/">here</a>. If you want your application to persist data that is not in your repository, you should use one of our data capsules. You can find guides to set up different data capsules below.</p>
-<h3 id="deploying-a-mysql-data-capsule">Deploying a MySQL data capsule</h3>
-<p>Follow our <a href="./set-up-mysql-data-capsule/">MySQL data capsule set up guide</a> to set up a MySQL database for your Capsule.</p>
-<h3 id="deploying-a-mongodb-data-capsules">Deploying a MongoDB data capsules</h3>
-<p>Follow our <a href="./set-up-mongodb-data-capsule/">Mongo data capsule set up guide</a> to set up a MongoDB database for your Capsule.</p>
-<h3 id="deploying-a-redis-data-capsule">Deploying a Redis data capsule</h3>
-<p>Follow our <a href="./set-up-a-redis-data-capsule/">Redis data capsule set up guide</a> to set up Redis as a memory cache, queue, or anything else.</p>
-<h3 id="set-up-a-persistent-storage-capsule">Set up a Persistent Storage capsule</h3>
-<p>Follow our <a href="./set-up-file-data-capsule/">File Data capsule set up guide</a> to set up a persistent storage capsule that behaves just like a local file system.</p>
-<h2 id="managing-your-code-capsules-account">Managing your Code Capsules account</h2>
-<p>You can find out more about <a href="./capsule-billing/">billing</a>, <a href="./capsule-management/">managing your capsules</a>, or <a href="./team-management/">managing your team</a>.</p>
+<h2 id="general-information">General Information</h2>
+<p>Take a look at how to <a href="./custom_domains/">add a custom domain</a>, how to <a href="./add-procfile-to-backend-application/">use a Procfile</a>, and how to <a href="./migrating-a-database-with-code-capsules/">run database migrations</a></p>
+<h2 id="deploying-data-capsules">Deploying Data Capsules</h2>
+<p>Your Capsules do not persist data by default as you might be used to from a VPS or your local machine. Every time they are restarted for any reason, they will pull a completely fresh copy of your code from GitHub. You can read more about persistence <a href="./how-state-works/">here</a>. If you want your application to persist data that is not in your repository, you should use one of our Data Capsules. You can find guides to set up different Data Capsules below.</p>
+<h3 id="deploying-a-mysql-data-capsule">Deploying a MySQL Data Capsule</h3>
+<p>Follow our <a href="./set-up-mysql-data-capsule/">MySQL Data Capsule set up guide</a> to set up a MySQL database for your Capsule.</p>
+<h3 id="deploying-a-mongodb-data-capsule">Deploying a MongoDB Data Capsule</h3>
+<p>Follow our <a href="./set-up-mongodb-data-capsule/">MongoDB Data Capsule set up guide</a> to set up a MongoDB database for your Capsule.</p>
+<h3 id="deploying-a-redis-data-capsule">Deploying a Redis Data Capsule</h3>
+<p>Follow our <a href="./set-up-a-redis-data-capsule/">Redis Data Capsule set up guide</a> to set up Redis as a memory cache, queue, or anything else.</p>
+<h3 id="set-up-a-persistent-storage-capsule">Set up a Persistent Storage Capsule</h3>
+<p>Follow our <a href="./set-up-file-data-capsule/">File Data Capsule set up guide</a> to set up a persistent storage Capsule that behaves just like a local file system.</p>
+<h2 id="managing-your-code-capsules-account">Managing your Code Capsules Account</h2>
+<p>You can find out more about <a href="./capsule-billing/">billing</a>, <a href="./capsule-management/">managing your Capsules</a>, or <a href="./team-management/">managing your Team</a>.</p>
 
   
   
