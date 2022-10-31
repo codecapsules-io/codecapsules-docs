@@ -1,0 +1,3418 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Create an Imgur clone to easily upload images and get a shareable link with Uppy and Caddy.">
+      
+      
+      
+        <link rel="canonical" href="https://codecapsules.io/docs/tutorials/build-imgur-clone-uppy-caddy/">
+      
+      
+        
+      
+      <link rel="icon" href="../../assets/cclogo.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8+insiders-4.19.1">
+    
+    
+      
+        <title>Build an Imgur clone with Uppy and Caddy - Code Capsules</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.485cfce5.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-165274631-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){if(document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document.forms.feedback){var e,a=document.forms.feedback;for(e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Build an Imgur clone with Uppy and Caddy - Code Capsules" >
+      
+        <meta  property="og:description"  content="Create an Imgur clone to easily upload images and get a shareable link with Uppy and Caddy." >
+      
+        <meta  property="og:image"  content="https://codecapsules.io/docs/assets/images/social/tutorials/build-imgur-clone-uppy-caddy.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://codecapsules.io/docs/tutorials/build-imgur-clone-uppy-caddy/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Build an Imgur clone with Uppy and Caddy - Code Capsules" >
+      
+        <meta  name="twitter:description"  content="Create an Imgur clone to easily upload images and get a shareable link with Uppy and Caddy." >
+      
+        <meta  name="twitter:image"  content="https://codecapsules.io/docs/assets/images/social/tutorials/build-imgur-clone-uppy-caddy.png" >
+      
+    
+    
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="codecapsules" />
+  <meta name="twitter:creator" content="codecapsules" />
+  
+      <meta name="twitter:title" content="Build an Imgur clone with Uppy and Caddy" />
+      <meta name="twitter:description" content="Create an Imgur clone to easily upload images and get a shareable link with Uppy and Caddy." />
+      <meta name="twitter:image" content="https://codecapsules.io/docs/assets/tutorials/build-imgur-clone-uppy-caddy/cover.png" />
+  
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#build-an-imgur-clone-with-uppy-and-caddy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Code Capsules" class="md-header__button md-logo" aria-label="Code Capsules" data-md-component="logo">
+      
+  <img src="../../assets/cclogo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Code Capsules
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Build an Imgur clone with Uppy and Caddy
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+
+
+
+
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+
+
+
+
+  
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../deployment/" class="md-tabs__link">
+          
+  
+    
+  
+  Deployment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+
+
+
+
+  
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/" class="md-tabs__link">
+          
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+
+  
+
+
+
+
+  
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../" class="md-tabs__link md-tabs__link--active">
+          
+  
+    
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+
+
+
+
+  
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../FAQ/teams-spaces-capsules/" class="md-tabs__link">
+          
+  
+  FAQ
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+
+
+
+
+  
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../comparisons/" class="md-tabs__link">
+          
+  
+    
+  
+  Comparisons
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+
+
+
+
+  
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../community/introducing-code-capsules/" class="md-tabs__link">
+          
+  
+  Community
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+
+
+
+
+  
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../videos/" class="md-tabs__link">
+          
+  
+    
+  
+  Video Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Code Capsules" class="md-nav__button md-logo" aria-label="Code Capsules" data-md-component="logo">
+      
+  <img src="../../assets/cclogo.svg" alt="logo">
+
+    </a>
+    Code Capsules
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+
+
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../deployment/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Deployment
+  </span>
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" aria-label="Deployment" data-md-level="1">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-angular-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Angular
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-bootstrap-site-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bootstrap
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-caddy-docker-site-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caddy Docker Website
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-static-file-share-flask-caddy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Caddy Docker File Server
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-django-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Django
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-django-mysql-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Django + MySQL
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-django-mongodb-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Django + MongoDB
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-express-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Express
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-express-mongo-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Express + Mongo
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-docker-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask + Docker
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-htmx-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask + HTMx
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-mongo-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask + MongoDB
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-flask-mysql-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask + MySQL
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-go-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-static-html-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTML
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-html5up-template-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTML5up
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-java-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java (Spring)
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-java-mysql-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java (Spring) + MySQL
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-docker-php-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PHP Docker
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-docker-laravel-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Laravel Docker
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-mean-stack-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MEAN (Mongo, Express, Angular)
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-mern-stack-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MERN (Mongo, Express, React)
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-next-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Next
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-next-mongo-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Next + Mongo
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-next-express-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Next + Express
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-next-express-mongo-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Next + Express + Mongo
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-node-discord-bot-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NodeJS Discord Bot
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-node-telegram-bot-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NodeJS Telegram Bot
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-python-discord-bot-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python Discord Bot
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-python-telegram-bot-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python Telegram Bot
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-polling-node-telegram-bot-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polling NodeJS Telegram Bot
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-polling-python-telegram-bot-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Polling Python Telegram Bot
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-react-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    React
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-slack-bot-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Slack
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-svelte-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Svelte
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-vue-application-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vue
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/how-to-deploy-whatsapp-bot-to-production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    WhatsApp
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+
+
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Reference
+  </span>
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" aria-label="Reference" data-md-level="1">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/capsule-billing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Capsule Billing
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/capsule-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Capsule Management
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/how-state-works/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State and file persistence
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/custom_domains/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Domains
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/set-up-file-data-capsule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Data Capsule
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/set-up-mongodb-data-capsule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MongoDB Data Capsule
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/set-up-mysql-data-capsule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MySQL Data Capsule
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/set-up-a-redis-data-capsule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redis Data Capsule
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/migrating-a-database-with-code-capsules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Running database migrations
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/add-procfile-to-backend-application/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Procfile
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/python-development-with-code-capsules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python Development
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/team-management/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Team Management
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+
+
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-slackbot-with-node/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Slackbot with Node.js
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-mern-job-board/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MERN Job Board
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-a-web-file-store/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web File Store
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-nodejs-telegram-bot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node.js Telegram Bot
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-and-host-telegram-bot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python Telegram Bot
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-and-hosting-a-flask-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask API
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-hex-color-identifier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hex Color Identifier API
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-a-docker-php-sqlite-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CRUD with PHP and Docker
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-flask-htmx-app/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Flask HTMx
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-express-htmx/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Express HTMx
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generative-art/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generative Graphics
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customising-domain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Domains
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop-persistent-sleep-tracker-part-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Persistent Sleep Tracker Part 1
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop-persistent-sleep-tracker-part-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Persistent Sleep Tracker Part 2
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../host-a-frontend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Front-end Portfolio
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stripe-checkout-and-email-with-flask/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stripe Checkout and Email Subscription with Flask
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../game-catalogue-with-nodejs-and-mysql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Game Catalogue API with Node.js and MySQL
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build-a-reader-mode-app-with-flask-and-redis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Reader Mode App with Flask and Redis
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Image Overlay API with Express
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Build an Imgur Clone with Uppy
+  </span>
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Build an Imgur Clone with Uppy
+  </span>
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-and-creating-the-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up and creating the frontend
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up and creating the frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-the-indexhtml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building the index.html file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-the-appjs-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building the app.js file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-the-serverjs-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building the server.js file
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the application
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-file-uploads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling file uploads
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#returning-the-link-to-the-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returning the link to the user
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serving-files-with-caddy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serving files with Caddy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-production-version-of-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building a production version of the application
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-the-application-to-code-capsules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying the application to Code Capsules
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying the application to Code Capsules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-capsules-and-setting-the-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Capsules and setting the environment variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+
+
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        
+        
+          <label class="md-nav__link" for="__nav_5">
+            
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/teams-spaces-capsules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Teams, Spaces and Capsules
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/what-is-a-capsule/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What is a Capsule?
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/what-is-a-space/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What is a Space?
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/what-is-a-team/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What is a Team?
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FAQ/how-to-add-custom-domain/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How Do I Add a Custom Domain?
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+
+
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+        
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../comparisons/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Comparisons
+  </span>
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_6">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" aria-label="Comparisons" data-md-level="1">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Comparisons
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparisons/comparing-paas-providers-heroku-vs-digitalocean-vs-code-capsules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PaaS Providers
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparisons/comparing-telegram-bot-hosting-providers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Telegram Hosting Providers
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparisons/saas-paas-iaas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SaaS vs PaaS vs IaaS
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../comparisons/6-heroku-alternatives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Top Six Heroku Alternatives
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+
+
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+        
+        
+          <label class="md-nav__link" for="__nav_7">
+            
+  
+  <span class="md-ellipsis">
+    Community
+  </span>
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" aria-label="Community" data-md-level="1">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Community
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/introducing-code-capsules/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducing Code Capsules
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/codecapsules-hack-days/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hack Days and Free Tech Consulting
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/founder-fridays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Founder Fridays
+  </span>
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+
+
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+        
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../videos/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Video Guides
+  </span>
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" aria-label="Video Guides" data-md-level="1">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Video Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-and-creating-the-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up and creating the frontend
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up and creating the frontend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-the-indexhtml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building the index.html file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-the-appjs-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building the app.js file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building-the-serverjs-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building the server.js file
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the application
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-file-uploads" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handling file uploads
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#returning-the-link-to-the-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returning the link to the user
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serving-files-with-caddy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serving files with Caddy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-a-production-version-of-the-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building a production version of the application
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-the-application-to-code-capsules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying the application to Code Capsules
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying the application to Code Capsules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-the-capsules-and-setting-the-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating the Capsules and setting the environment variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="build-an-imgur-clone-with-uppy-and-caddy">Build an Imgur clone with Uppy and Caddy</h1>
+<p><img alt="Cover artwork" src="../../assets/tutorials/build-imgur-clone-uppy-caddy/cover.png" /></p>
+<p>You have an image or other file locally or in your clipboard that you want to easily publish to the internet and get a shareable URL to send to someone or to link to from a blog post.</p>
+<p>You can do this for free on sites like <a href="https://imgur.com">Imgur</a>, but they also display a lot of adverts and you ultimately lose control of what you upload: It's hard to delete a file later if you uploaded it as an anonymous user.</p>
+<p>In this tutorial, we'll build a basic image-uploading site similar to Imgur that lets users upload files and instantly get a public URL, without requiring an account or anything else. You can even host it on a custom domain, so you can share URLs like <code>i.mycompany.com/123456778.png</code> instead of <code>i.imgur.com/epzw0Sc.png</code>.</p>
+<p>To build our site we'll use: </p>
+<ul>
+<li><a href="https://nodejs.org">Node.js</a> and <a href="https://expressjs.com">Express</a> for the web application that handles uploads and saving the files on a server.</li>
+<li><a href="https://uppy.io">Uppy</a> as a frontend file-upload plugin.</li>
+<li><a href="https://parceljs.org">Parcel</a> as a build tool for our JavaScript application.</li>
+<li><a href="https://caddyserver.com">Caddy</a> as a web server to efficiently serve the uploaded files.</li>
+<li><a href="https://www.docker.com">Docker</a> as a container for Caddy to make development and deployment easier.</li>
+</ul>
+<p>The final app will look like this.</p>
+<p><img alt="Final application" src="../../assets/tutorials/build-imgur-clone-uppy-caddy/final-app.gif" /></p>
+<p>To follow along, you should have some basic Node.js and Docker knowledge and have Node.js and Docker installed locally. You'll need to install some packages from Node.js and run Parcel and Docker to build the application.</p>
+<h2 id="setting-up-and-creating-the-frontend">Setting up and creating the frontend</h2>
+<p>We'll split our application into a few different files with the following structure:</p>
+<div class="highlight"><pre><span></span><code>image-sharing-app/
+    src/
+        app.js
+        index.html
+    server.js
+    package.json
+    Caddyfile
+    Dockerfile
+</code></pre></div>
+<p>Create these files and directories by running the following:</p>
+<div class="highlight"><pre><span></span><code>mkdir image-sharing-app
+cd image-sharing-app
+mkdir src
+touch src/app.js src/index.html server.js package.json Dockerfile Caddyfile
+</code></pre></div>
+<p>Now we can install the packages we need. Add the following to the <code>package.json</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;@uppy/core&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^3.0.4&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;@uppy/dashboard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^3.1.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;@uppy/xhr-upload&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^3.0.3&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;cors&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^2.8.5&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;express&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^4.18.2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;multer&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^1.4.5-lts.1&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Now run <code>npm i</code> to install the dependencies. Next, run:</p>
+<div class="highlight"><pre><span></span><code>npm install parcel -g
+</code></pre></div>
+<p>This installs Parcel globally, so we can call it from the command line. We'll use Parcel because Uppy is a big package and we'll only be using small parts of it. Parcel lets us use syntax like <code>import Uppy from '@uppy/core';</code> in a vanilla JavaScript file, instead of having to pull in the entire Uppy package from a CDN using syntax like <code>&lt;script src="https://releases.transloadit.com/uppy/v3.2.2/uppy.min.js"&gt;&lt;/script&gt;</code> which would include all of Uppy's plugins and make our app a lot slower to load.</p>
+<p>You'll modify files in the <code>src</code> folder (<code>index.html</code> and <code>app.js</code>), and Parcel will hot-copy any changes over to the <code>dist</code> folder whenever you save the <code>src</code> files. The <code>server.js</code> file will return the (now static) files in <code>dist</code> so you can test and use the application. This is shown in the image below.</p>
+<p><img alt="Parcel copies source files into dist automatically" src="../../assets/tutorials/build-imgur-clone-uppy-caddy/parcel-architecture.png" /></p>
+<h3 id="building-the-indexhtml-file">Building the <code>index.html</code> file</h3>
+<p>In <code>src/index.html</code>, add the following code.</p>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Image Uploader<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span>
+                <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://releases.transloadit.com/uppy/v3.2.1/uppy.min.css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">/&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Easy Image Uploader<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;drag-drop-area&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;links&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;app.js&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;module&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>This is a very minimalistic HTML page that pulls in the CSS needed to style our Uppy upload widget and creates a blank div (<code>"drag-drop-area"</code>) that we'll use in our JavaScript file to populate the upload panel.</p>
+<h3 id="building-the-appjs-file">Building the <code>app.js</code> file</h3>
+<p>In <code>src/app.js</code>, add the following code:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">Uppy</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@uppy/core&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">XHRUpload</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@uppy/xhr-upload&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Dashboard</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@uppy/dashboard&#39;</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">uploadUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">HOST_URL</span><span class="si">}</span><span class="sb">/image`</span><span class="p">;</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">uppy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Uppy</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">Dashboard</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">inline</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#drag-drop-area&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">XHRUpload</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nx">endpoint</span><span class="o">:</span><span class="w"> </span><span class="nx">uploadUrl</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">fieldName</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;userFile&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nx">formData</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">})</span><span class="w"></span>
+</code></pre></div>
+<p>This imports the Uppy dependencies, including Uppy Core (which is the main part of Uppy) and Uppy Dashboard (which lets you display the nice drag-and-drop widget for users to upload files). We also get <code>xhr-upload</code>, which is a plugin to allow users to upload a file and submit it to the server without leaving or reloading the main page. Uppy uses a plugin-based architecture, so if you want to get files from other sources, you can grab the <a href="https://uppy.io/docs/providers/">plugin for that provider</a>. </p>
+<p>We then define an <code>uploadUrl</code> using an environment variable that we haven't set yet. We do this so we can upload to <code>localhost:3000</code> for testing, but to a real URL once we are running the app in production.</p>
+<p>Finally, we create an Uppy instance that uses the Dashboard and XHRUpload plugins we imported earlier.</p>
+<p>Note that this is just a plain JavaScript file, but we are using <code>import ... from ...</code> syntax that isn't supported in JavaScript. Parcel will convert this file to vanilla JavaScript and save it in the <code>dist</code> folder for us.</p>
+<h3 id="building-the-serverjs-file">Building the <code>server.js</code> file</h3>
+<p>Now let's build a basic Express app. At first, it'll just return the frontend <code>index.html</code> file we wrote above, but later it will also save the files that the user uploads.</p>
+<p>Add the following code to <code>server.js</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">cors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;cors&#39;</span><span class="p">);</span><span class="w"> </span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;path&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">multer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;multer&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="k">static</span><span class="p">(</span><span class="s1">&#39;dist&#39;</span><span class="p">));</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">cors</span><span class="p">());</span><span class="w"></span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;/dist/index.html&quot;</span><span class="p">));</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">3000</span><span class="p">;</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;listening on port &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">port</span><span class="p">);</span><span class="w"> </span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<p>This code creates a simple Express app and returns the HTML file in <code>dist/index.html</code> that Parcel will create for us in the next step.</p>
+<h2 id="running-the-application">Running the application</h2>
+<p>The application can't actually save uploaded files yet, but let's test it out to see what it can do so far. In one terminal, run <code>parcel src/index.html</code> and you should see output similar to the following:</p>
+<div class="highlight"><pre><span></span><code>image-sharing-app$ parcel src/index.html
+Server running at http://localhost:1234
+✨ Built in 234ms
+</code></pre></div>
+<p>Parcel has created the <code>dist</code> folder for you and copied over the source files. If you look in the folder, you'll see that each file has a unique number so that changes can happen in real-time without being affected by browser caching. Your <code>dist</code> folder will have files similar to the following (but with different numbers):</p>
+<div class="highlight"><pre><span></span><code>index.0641b553.js
+index.html
+index.0641b553.js.map
+</code></pre></div>
+<p>If you look in each file, you'll see that they are optimized for serving and not meant to be edited by a developer. While the Parcel server is running, you can make changes in the <code>src</code> folder and Parcel will take care of copying them over to <code>dist</code> for the <code>server.js</code> file to serve to the user.</p>
+<p>In another terminal window, run <code>node server.js</code> to serve the backend Express application. Now you can visit <code>http://localhost:3000</code> in your browser and see the upload interface, but if you try to upload a file it will fail as we haven't written any functionality to handle file uploads yet.</p>
+<p><img alt="Uploads fail" src="../../assets/tutorials/build-imgur-clone-uppy-caddy/failed-upload.png" /></p>
+<h2 id="handling-file-uploads">Handling file uploads</h2>
+<p>To handle file uploads, we need to add some code to <code>server.js</code> to write the files somewhere safe after a user uploads them.</p>
+<p>Add the following code to <code>server.js</code>, after the <code>app.get("/"...</code> definition:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">storage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">multer</span><span class="p">.</span><span class="nx">diskStorage</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">destination</span><span class="o">:</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PERSISTENT_STORAGE_DIR</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">,</span><span class="w"> </span><span class="nx">cb</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">fileName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="si">}${</span><span class="nx">path</span><span class="p">.</span><span class="nx">extname</span><span class="p">(</span><span class="nx">file</span><span class="p">.</span><span class="nx">originalname</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">cb</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">fileName</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">uploadImage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">multer</span><span class="p">({</span><span class="w"></span>
+<span class="w">    </span><span class="nx">storage</span><span class="w"></span>
+<span class="p">}).</span><span class="nx">single</span><span class="p">(</span><span class="s1">&#39;userFile&#39;</span><span class="p">);</span><span class="w"></span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/image&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">uploadImage</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">file</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span><span class="w"></span>
+<span class="w">            </span><span class="nx">msg</span><span class="o">:</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">filename</span><span class="w"></span>
+<span class="w">        </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;Error uploading file&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<p>This creates a <code>diskStorage</code> object using <code>multer</code>, a Node.js module for handling form uploads. We use another environment variable <code>PERSISTENT_STORAGE_DIR</code> to decide where to save the file and then name the file with the current time to prevent any problems with users uploading files that have the same name. </p>
+<p>We then define an <code>/image</code> endpoint (where Uppy is sending the files from the frontend) and use this <code>diskStorage</code> plugin to save the file to a file system. We also return the file name, which we'll display to the user later so that they can retrieve the file again.</p>
+<p>To test the code again, stop the process in the terminal window running Parcel with <code>Ctrl + C</code>, set the environment variables our frontend uses, and start Parcel again. You can do this by running the following commands:</p>
+<div class="highlight"><pre><span></span><code>export HOST_URL=&#39;http://localhost:3000&#39;
+parcel src/index.html
+</code></pre></div>
+<p>Do the same in the terminal window serving the Express application and set the PERSISTENT_STORAGE_DIR environment variable:</p>
+<div class="highlight"><pre><span></span><code>export HOST_URL=&#39;http://localhost:3000&#39;
+export PERSISTENT_STORAGE_DIR=&#39;/tmp&#39;
+node server.js
+</code></pre></div>
+<p>Now if you visit the app in your browser, you'll be able to upload files and see that they are saved in your <code>/tmp</code> directory.</p>
+<h2 id="returning-the-link-to-the-user">Returning the link to the user</h2>
+<p>Of course, our user can't guess the exact time stamp that we are using to save the files, so they have no way of getting their files back again. To fix this, let's have our frontend get the file name of the application and tell the user where the file can be found.</p>
+<p>In <code>src/app.js</code>, add the following code to the end of the file:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">uppy</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;complete&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">successful</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">STATIC_HOST_URL</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">file</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">msg</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nx">link</span><span class="p">.</span><span class="nx">href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">url</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="nx">link</span><span class="p">.</span><span class="nx">innerHTML</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">url</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">li</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nx">li</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">link</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;links&#39;</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">li</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">});</span><span class="w"></span>
+</code></pre></div>
+<p>This tells Uppy what to do once a file has been uploaded by the user ("on complete"). Uppy lets users upload multiple files at once, so we loop through all the files that were successfully uploaded, and create a new list element (<code>li</code>) on the page with a link to the uploaded file.</p>
+<p>Note that we use a different environment variable here: <code>STATIC_HOST_URL</code>. This is because, in the final version of the application, we will serve our files from a different server than the one that handles uploads. </p>
+<p>Stop the frontend and backend servers again and add the <code>STATIC_HOST_URL</code> environment variable to each by running the following command. Then start both servers again.</p>
+<div class="highlight"><pre><span></span><code>export STATIC_HOST_URL=&#39;http://localhost:3001&#39;
+</code></pre></div>
+<p>Now when you upload files, you'll see a list of links displayed below the upload dashboard showing the user where they can download the files again.</p>
+<p>Note that these links won't work yet, as we don't have anything serving these files. We could serve files directly from the Express application, but we'll instead use Caddy as a static file server. It serves files more efficiently and means that we detach file uploads from file downloads, so we can add more servers of either type to add either more uploading or downloading capacity.</p>
+<p><img alt="The app with download links showing" src="../../assets/tutorials/build-imgur-clone-uppy-caddy/download-links.png" /></p>
+<h2 id="serving-files-with-caddy">Serving files with Caddy</h2>
+<p>To serve the files back to the user, we'll use Caddy and Docker. In the main project directory, create a file called <code>Caddyfile</code> with the following contents:</p>
+<div class="highlight"><pre><span></span><code>:3000
+encode zstd gzip
+root * {env.PERSISTENT_STORAGE_DIR}
+header Access-Control-Allow-Methods &quot;GET, OPTIONS&quot;
+header Access-Control-Allow-Headers &quot;*&quot;
+header Access-Control-Allow-Origin &quot;*&quot;
+file_server browse
+</code></pre></div>
+<p>And a file called <code>Dockerfile</code> that contains the following:</p>
+<div class="highlight"><pre><span></span><code>FROM caddy/caddy:alpine
+COPY Caddyfile /etc/caddy/Caddyfile
+</code></pre></div>
+<p>The first file configures Caddy to serve everything in <code>PERSISTENT_STORAGE_DIR</code>. It also allows users to list files by visiting a directory. </p>
+<p>The second file is to set up a Docker container with the official Caddy image and copy across our <code>Caddyfile</code> to configure it.</p>
+<p>In a new terminal window, run the following Docker command:</p>
+<div class="highlight"><pre><span></span><code>docker build . -t caddy-file-server  &amp;&amp; docker run -p 3001:3000  --mount type=bind,source=/tmp,target=/tmp  --env PERSISTENT_STORAGE_DIR=/tmp caddy-file-server
+</code></pre></div>
+<p>This builds the Dockerfile to an image called <code>caddy-file-server</code> and then runs that in a container. Because we are already using port 3000 to run our web app locally, we'll run Caddy on port 3001 but map it to port 3000 in the Docker container as that's what we configured our Caddyfile to listen on. We also mount our local <code>/tmp</code> folder to <code>/tmp</code> in the Docker container and pass in <code>/tmp</code> as <code>PERSISTENT_STORAGE_DIR</code> so that Caddy serves files from there. </p>
+<p>Now you can upload images and the links displayed in the frontend will work and let you download the files again. You can also visit <code>http://localhost:3001</code> directly to browse all uploaded files (and anything else in your <code>/tmp</code> directory).</p>
+<h2 id="building-a-production-version-of-the-application">Building a production version of the application</h2>
+<p>Now that everything is working, we can create an optimized build to deploy to production. Add the following <code>scripts</code> section to your <code>package.json</code> file:</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="s2">&quot;scripts&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;serve&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;node server.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="s2">&quot;build&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;parcel build --dist-dir dist src/index.html&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Now we can build the application by running <code>npm run build</code> and serve it using <code>npm run serve</code>. You can test these commands locally, but we mainly need them to easily run the production application on Code Capsules as described in the next section.</p>
+<h2 id="deploying-the-application-to-code-capsules">Deploying the application to Code Capsules</h2>
+<p>To deploy the application to Code Capsules, we'll create three Capsules:</p>
+<ul>
+<li>A Backend Capsule to run the Express application and handle file uploads.</li>
+<li>A Docker Capsule to run the Caddy server and handle serving files to users.</li>
+<li>A persistent storage Data Capsule to store the uploads.</li>
+</ul>
+<p>Because of how we set up the three components using environment variables, all we need to do is set these appropriately for each Capsule and everything else will work automatically.</p>
+<h3 id="creating-the-capsules-and-setting-the-environment-variables">Creating the Capsules and setting the environment variables</h3>
+<p>Push the entire project up to GitHub. Although our Caddy server and application server are different projects, we'll just keep everything in a single repository for convenience.</p>
+<p>Create a new Space for this project and create three Capsules in the space as follows:</p>
+<p><strong>Data Capsule</strong></p>
+<ul>
+<li>Choose the "persistent storage" option.</li>
+</ul>
+<p><strong>Docker Capsule</strong></p>
+<ul>
+<li>Configure the Dockerfile path to <code>/Dockerfile</code>.</li>
+<li>Bind the Docker Capsule to the Data Capsule.</li>
+</ul>
+<p><strong>Backend Capsule</strong></p>
+<ul>
+<li>Set the build command to <code>npm run build &amp;&amp; npm run serve</code>.</li>
+<li>Bind the Backend Capsule to the Data Capsule.</li>
+<li>Set <code>HOST_URL</code> to the URL for this Backend Capsule.</li>
+<li>Set <code>STATIC_HOST_URL</code> to the public URL of the Docker Capsule.</li>
+</ul>
+<p>Now you should be able to upload files by visiting the URL of the Backend Capsule and immediately get the public link as before. You can also visit the Docker Capsule URL to browse all files uploaded by any user.</p>
+
+  
+  
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              
+                Thanks for your feedback!
+              
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              
+                Thanks for your feedback! We'll do our best to improve.
+              
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+              
+            </article>
+            
+<script>var input,hash=location.hash.slice(1);hash.startsWith("__tabbed_")&&((input=document.getElementById(hash)).checked=!0)</script>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../image-api/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Image Overlay API with Express" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Image Overlay API with Express
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../FAQ/teams-spaces-capsules/" class="md-footer__link md-footer__link--next" aria-label="Next: Teams, Spaces and Capsules" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Teams, Spaces and Capsules
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.720157f5.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.2131bdac.min.js"></script>
+      
+    
+  </body>
+</html>
