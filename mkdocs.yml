@@ -43,7 +43,8 @@ nav:
       - Overview: deployment/index.md
       - Angular: deployment/how-to-deploy-angular-application-to-production.md
       - Bootstrap: deployment/how-to-deploy-bootstrap-site-to-production.md
-      - Caddy Docker: deployment/how-to-deploy-caddy-docker-site-to-production.md
+      - Caddy Docker Website: deployment/how-to-deploy-caddy-docker-site-to-production.md
+      - Caddy Docker File Server: deployment/how-to-deploy-static-file-share-flask-caddy.md
       - Django: deployment/how-to-deploy-django-application-to-production.md
       - Django + MySQL: deployment/how-to-deploy-django-mysql-application-to-production.md
       - Django + MongoDB: deployment/how-to-deploy-django-mongodb-application-to-production.md
@@ -113,6 +114,7 @@ nav:
       - Game Catalogue API with Node.js and MySQL: tutorials/game-catalogue-with-nodejs-and-mysql.md
       - Reader Mode App with Flask and Redis: tutorials/build-a-reader-mode-app-with-flask-and-redis.md
       - Image Overlay API with Express: tutorials/image-api.md
+      - Build an Imgur Clone with Uppy: tutorials/build-imgur-clone-uppy-caddy.md
   - FAQ:
       - Teams, Spaces and Capsules: FAQ/teams-spaces-capsules.md
       - What is a Capsule?: FAQ/what-is-a-capsule.md
