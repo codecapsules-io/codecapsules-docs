@@ -78,7 +78,7 @@ Now you need to bind the two capsules together. Navigate to the "Config" tab of 
 
 ## View Application
 
-After restarting the capsule, the application will now be ready to be viewed. Click the "Live Website" link at the top of the capsule tab and you should see your deployed application.
+After restarting the capsule, the application will now be ready to be viewed. Click the "URL" link in the "Config" tab and you should see your deployed application.
 
 ![Deployed App](../assets/deployment/flask-htmx/flask-htmx.png)
 
