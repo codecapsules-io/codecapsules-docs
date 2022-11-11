@@ -7,7 +7,6 @@ hide:
 
 # How to Deploy an Angular Application to Production on Code Capsules
 
-<iframe width="950" height="534" src="https://www.youtube.com/embed/9UYugPpxlMQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Deploy an Angular application and learn how to host frontend code on Code Capsules. At the end of the guide, you would have deployed the application in the screenshot below and can adapt it to meet your unique needs. 
 
