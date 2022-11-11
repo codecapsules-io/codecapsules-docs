@@ -37,13 +37,13 @@ A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the se
 
 To create a new Capsule for your space follow the instructions below:
 
-1. Choose "Backend Capsule", your Team and Space.
+1. Choose "Frontend Capsule", your Team and Space.
 2. Choose your payment plan.
 3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
 4. Choose the GitHub repository you forked.
 5. Press "Next".
-6. Leave "Run Command" blank.
-7. Click "Create Capsule".
+5. Type `npm run build` in "Build Command" and `build` in "Static Content Folder Path".
+6. Click "Create Capsule".
 
 Code Capsules will automatically build your application when you’ve finished creating the Capsule. 
 
