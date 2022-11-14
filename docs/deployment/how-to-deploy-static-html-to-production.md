@@ -42,7 +42,7 @@ To create a new Capsule for your space follow the instructions below:
 3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
 4. Choose the GitHub repository you forked.
 5. Press "Next".
-6. Type `npm run build` in "Build Command"  and leave the "Static content folder path" blank.
+6. Leave "Build Command" and the "Static content folder path" blank.
 7. Click "Create Capsule".
 
 Code Capsules will automatically build your application when you’ve finished creating the Capsule. 
