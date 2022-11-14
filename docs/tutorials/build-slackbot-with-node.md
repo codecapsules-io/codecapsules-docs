@@ -83,12 +83,13 @@ git push origin
 We'll need a place to host our app.
 
 1. Log in to [Code Capsules](https://codecapsules.io), and create a Team and Space as necessary.
-2. Link Code Capsules to the GitHub repository you created earlier. You can do this by clicking your username at the top right, and choosing "Edit Profile". Now click the "GitHub" button to link to a repo.
-3. Create a new Capsule, selecting the "Backend" capsule type.
-4. Select the GitHub repository you created above. If you are only using the repo for this project, you can leave the "Repo Subpath" field empty. You may need to add your repo to the team repo if you haven't already. Click the "Modify Team Repos" to do so. 
-5. Click "Next", then on the following page, click "Create Capsule". 
-
-![create capsule](../assets/tutorials/build-slackbot-with-node/create-capsule.gif)
+2. Create a "Backend Capsule", your Team and Space.
+3. Choose your payment plan.
+4. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
+5. Choose the GitHub repository you forked.
+6. Press "Next".
+7. Leave "Run Command" blank.
+8. Click "Create Capsule".
 
 ### Register an app on Slack
 
@@ -113,7 +114,7 @@ Our second requirement can be configured by setting up a _slash command_. Click 
 
 Then click "Create a new Command". We'll give the command the name _/stats_. For the _Request URL_, copy the _Domain_ name from your Code Capsules Overview page. 
 
-![code capsules domain](../assets/tutorials/build-slackbot-with-node/capsule-domain.png)
+![code capsules domain](../assets/deployment/shared/capsule-domain.png)
 
 Paste your domain into the _Request URL_ box on Slack, and add `/slack/command/stats` to the end of it. We can fill in a description as well, something like 'Returns key stats from the app'.
 
