@@ -6,18 +6,18 @@ You can find everything relating to your Capsule's domains (including your defau
 
 ## How to Add a Custom Domain
 
-To add a custom domain to your application on Code Capsules, click on the "Overview" tab in the Capsule hosting your application. Under Domains, you'll see all of the domains associated with your Capsule; including the default domain provided by Code Capsules.
+To add a custom domain to your application on Code Capsules, click on the "Domains" tab in the Capsule hosting your application. Under "Domain Details", you'll see all of the domains associated with your Capsule; including the default domain provided by Code Capsules.
 
-There is also an "Add a Custom Domain" button at the bottom of the page.
+There is also a yellow `+` button at the top right of the page for if you would like to add a new domain.
 
-![images](../assets/documentation/overviewtab.png)
+![images](../assets/documentation/add-domain.png)
 
 **Before adding a custom domain**, consider:
 - Your capsule may route to only **one** root domain. You may not add multiple root domains to your Capsule.
 
 To add a custom domain:
 
-1. Click the "Add a Custom Domain" button.
+1. Click the yellow `+` button  button.
 2. **Save** the IP address provided under "A Record Route" (this will be used shortly).
 3. Enter the custom domain you've purchased from a domain registrar under "Domain Name".
     - Make sure that you've entered a _root domain_ only - do not include a
