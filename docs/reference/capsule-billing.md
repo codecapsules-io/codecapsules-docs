@@ -13,10 +13,10 @@ Pricing for capsules starts at $5 per month and can go up to $50 per month for B
 
 ## Adding a Payment Method
 
-Code Capsules accepts Visa and Mastercard as payment methods. To add a card to your account, click on "Team Settings" on the top navigation bar. On the "Team Settings" page, navigate to the "Payment Methods" tab where you should see a button for adding a payment method.
+Code Capsules accepts Visa and Mastercard as payment methods. To add a card to your account, click on the "Billing" tab on the top navigation bar, then click "Add".
 
 ![Add Payment Method](../assets/reference/capsule-billing/payment-methods.png)
 
-Click on the "Add Payment Method" button and a screen should slide in from the right asking you to enter your card details. When you're done, click on "Confirm Payment Method". 
+You will see a screen asking you to enter your card details. When you're done, click on "Confirm Payment Method". 
 
 ![Enter Card Details](../assets/reference/capsule-billing/card-details.png)

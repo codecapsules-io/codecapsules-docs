@@ -19,54 +19,37 @@ Sign in to GitHub, and fork the example bot repository by clicking "Fork" at the
 
 ## Create a Space for your Bot
 
-Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the "Create A New Space For Your Apps" button. 
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/express/space-name.png)
+![space name](../assets/deployment/shared/space-name.png)
 
-## Link to GitHub
-
-To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the "GitHub" button under "GitHub Details".
-
-![GitHub button](../assets/deployment/express/git-button.png)
-
-Click the "GitHub" button, select your GitHub username, and do the following in the dialog box that appears:
-
-1. Select "Only Select Repositories".
-2. Choose the GitHub repository we forked.
-3. Press "Install & Authorize".
-
-![Install & authorize github](../assets/deployment/express/github-integration.png)
-
-## Add Repository to Team
-
-Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.
-
-Click on the "Modify" button under the "Team Repos" section. An "Edit Team Repos" screen will slide in from the right. Click "Add" next to the bot repo, and then "Confirm". All the Spaces in your Team will now have access to this repo.
-
-![Edit Team Repos](../assets/deployment/python/team-repos.gif)
+Example instructions to go with numbered annotations
+1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
+2. This should remind you of the project, for example “customer-api” or “notetaking-app”
+3. Choose a country close to where most of your users will be
+4. If you’re already using a specific cloud, you can choose that here, otherwise pick any one.
 
 ## Create the Capsule
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-Navigate to the "Spaces" tab and open the Space you’ll be using.
+To create a new Capsule for your space follow the instructions below:
 
-Click the "Create a New Capsule for Your Space" button, and follow the instructions below:
+1. Choose "Backend Capsule", your Team and Space.
+2. Choose your payment plan.
+3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
+4. Choose the GitHub repository you forked.
+5. Press "Next".
+6. Leave "Run Command" blank.
+7. Click "Create Capsule".
 
-1. Choose "Backend Capsule".
-2. Under "Product", select "Sandbox".
-3. Choose the GitHub repository you forked.
-4. Press "Next".
-5. Leave "Run Command" blank.
-6. Click "Create Capsule".
-
-Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. 
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/express/backend-capsule-build-logs.png)
+![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
 
 ## Register the Bot
 
@@ -79,9 +62,9 @@ You'll need a Slack user account and to log into a workspace before you can crea
 4. Click on the "Slash Commands" menu item on the left, under Features then click "Create a new Command".
 ![slash command menu](../assets/tutorials/build-slackbot-with-node/choose-slash-command.png)
 5. Give the command the name `/stats`.
-6. For the Request URL, head over to your Capsule Overview page on Code Capsules and copy the Domain name under the *Domains* section.
-![code capsules domain](../assets/tutorials/build-slackbot-with-node/capsule-domain.png)
-7. Paste your domain into the Request URL box on Slack, and add `/slack/command/stats` to the end of it.
+6. For the Request URL, head over to your Capsule "Details" tab on Code Capsules and copy the URL under the "URL" section.
+![code capsules domain](../assets/deployment/shared/capsule-domain.png)
+7. Paste your URL into the Request URL box on Slack, and add `/slack/command/stats` to the end of it.
 8. Fill in the description with 'Returns key stats from the app'.
 ![create new command settings](../assets/tutorials/build-slackbot-with-node/create-command.png)
 9. Click "Save". 
@@ -97,7 +80,7 @@ For the first environment variable, `SLACK_BOT_TOKEN`:
 3. Actioning the preceeding 2 steps should reveal a newly generated "Bot User OAuth Token". Copy this token. 
 4. On your capsule's "Configure" tab, add a new environment variable with the name `SLACK_BOT_TOKEN` and set its value to the token you copied in the previous step. 
 ![add token environment variable](../assets/tutorials/build-slackbot-with-node/token-env-variable.png)
-5. Click the "Update Capsule" button to save your changes.
+5. Confirm your changes by clicking on "Save".
 
 For the second environment variable, `SLACK_CHANNEL_ID`:
 
@@ -108,7 +91,7 @@ For the second environment variable, `SLACK_CHANNEL_ID`:
 4. The link should follow the format, `https://<workspace-name>.slack.com/archives/C01SZ6Z3TCY`. The last part of that URL is the channel ID; in this example case, `C01SZ6Z3TCY`.
 5. Add the channel ID to the environment variables with the name `SLACK_CHANNEL_ID`.
 ![add slack channel ID environment variable](../assets/tutorials/build-slackbot-with-node/channel-env-variable.png)
-6. Click the "Update Capsule" button to save your changes.
+6. Confirm your changes by clicking on "Save".
 
 For the third environment variable, `SLACK_SIGNING_SECRET`:
 
@@ -117,7 +100,7 @@ For the third environment variable, `SLACK_SIGNING_SECRET`:
 ![copying signing secret from slack](../assets/tutorials/build-slackbot-with-node/slack-signing-secret.png)
 3. Add a new environment variable with the name `SLACK_SIGNING_SECRET` on your capsule's "Configure" tab and set its value to the secret you copied in the previous step.
 ![setting signing env variable on Code Capsules](../assets/tutorials/build-slackbot-with-node/signing-env-variable.png)
-4. Click the "Update Capsule" button to save your changes.
+4. Confirm your changes by clicking on "Save", then restart your Capsule by toggling the radio button in the top right off and on again.
 
 ## Invite Bot to Channel
 

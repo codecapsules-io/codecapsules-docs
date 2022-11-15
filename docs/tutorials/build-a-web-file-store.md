@@ -58,35 +58,40 @@ git push origin
 
 ### Creating a New Backend Capsule 
 
-Now we need a place to host our app. 
+A Capsule provides the server for hosting an application on Code Capsules.
 
-1. Log in to [Code Capsules](https://codecapsules.io), and create a Team and Space for this project.
-2. Link [Code Capsules](https://codecapsules.io) to the [GitHub](https://github.com) repository created above. You can do this by clicking your username at the top right, and choosing _Edit Profile_. Now you can click the _Github_ button to link to a repo. 
-3. Create a new Capsule, selecting the "Backend" capsule type.
-4. Select the GitHub repository we created and linked to. If you're only using the repo for this project, you can leave the _Repo Subpath_ field empty. You may need to add your repo to the team repo if you haven't already. Click the _Modify Team Repos_ to do so. 
-5. Click _Next_, then on the following page, click _Create Capsule_.
+Navigate to the "Capsules" tab. Once there, click the yellow + icon on the top right of the screen to add a new Capsule. Follow the instructions below to create a Backend Capsule:
 
-![Create backend capsule](../assets/tutorials/build-a-web-file-store/create-backend-capsule.gif)
+1. Log in to [Code Capsules](https://codecapsules.io), and create a Team and Space for this project. 
+2. Choose "Backend Capsule", your Team and Space.
+3. Choose your payment plan.
+4. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
+5. Choose the GitHub repository you forked.
+6. Press "Next".
+7. Leave "Run Command" blank.
+8. Click "Create Capsule".
 
 ### Creating a New Data Capsule 
 
 We'll need some data storage to store the files uploaded to the web drive. 
 
-1. Create a new Capsule, selecting the "Data Capsule" type.
-2. Select "A persistent storage mounted directly to your capsule" as the Data Type. Choose a product size, and give the capsule a name.
-3. Click "Create Capsule".
+Navigate to the "Capsules" tab. Once there, click the yellow + icon on the top right of the screen to add a new Capsule.
 
-![Create data capsule](../assets/tutorials/build-a-web-file-store/create-data-capsule.gif)
+To create a new Data Capsule for your Space follow the instructions below:
+
+1. Choose "Persistent Storage", your Team and Space.
+2. Choose your payment plan.
+3. Click "Create Capsule".
 
 ### Linking the Capsules
 
-To use the Data Capsule with the Backend Capsule, we need to link the two. Head over to the backend capsule you created earlier, and click on the "Configure" tab. Scroll down to "Bind Data Capsule", and click "Bind" under the name of the data capsule you created. 
+To use the Data Capsule with the Backend Capsule, we need to link the two. Head over to the backend capsule you created earlier, and click on the "Config" tab. Scroll down to "Bind Data Capsule", and click "Bind" under the name of the data capsule you created. 
 
-![Bind data capsule](../assets/tutorials/build-a-web-file-store/bind-capsule.png)
+![Bind data capsule](../assets/deployment/shared/bind-persistent.png)
 
 After binding the capsules, scroll up to the section "Capsule Parameters". You'll notice that an environment variable, `PERSISTENT_STORAGE_DIR`, is automatically added with the mount point. We'll use this environment variable in the code to access the storage drive.
 
-![Storage path environment variable](../assets/tutorials/build-a-web-file-store/storageenv.png)
+![Storage path environment variable](../assets/deployment/shared/env-variables-persistent-storage.png)
 
 ## Writing the Web Files Code
 
@@ -427,7 +432,7 @@ Passport's local strategy uses a simple username and password, checked on the lo
 
 Our function checks the username and password against what is stored in our environment variables. If the credentials to be checked match the credentials in our environment variables, we authenticate the user. 
 
-Head over to the "Configure" tab on your backend Code Capsule, and add 2 new environment variables : `USERNAME` and `PASSWORD`. Supply values of your own to set your username and password, then click the "Update Capsule" button to save the changes.
+Head over to the "Config" tab on your backend Code Capsule, and add 2 new environment variables : `USERNAME` and `PASSWORD`. Supply values of your own to set your username and password, then click the "Save button to save the changes.
 
 ![Username and password environment variables](../assets/tutorials/build-a-web-file-store/username-env.png)
 

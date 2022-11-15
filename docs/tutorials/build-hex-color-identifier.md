@@ -219,7 +219,7 @@ The final step is to deploy our app. Log into your Code Capsules account and lin
 
 Once the build is complete, navigate to the "Configure" tab and scroll down to the "Network Port" section. Enter "8000" as the port number and click on "Update Capsule".
 
-![Network Port](../assets/tutorials/hex-color-identifier/network-port.png)
+![Network Port](../assets/deployment/shared/network-port-8000.png)
 
 That’s it! Your "Hex Color Identifier" app should be live and fully functional now. You should now be able to query the `/api/color` route.
 

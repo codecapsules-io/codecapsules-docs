@@ -9,43 +9,6 @@ hide:
 
 Deploy a Node.js Telegram Bot and learn how to host backend code on Code Capsules for free.
 
-## Set up
-
-Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
-
-To demonstrate how to deploy a Node.js Telegram Bot with Code Capsules, we’ve provided an example bot which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/nodejs-telegram-echobot).
-
-Sign in to GitHub, and fork the example bot repository by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.
-
-## Create a Space for your Bot
-
-Log into your Code Capsules account and navigate to the "Spaces" tab. Once there, click the "Create A New Space For Your Apps" button. 
-
-Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
-
-![space name](../assets/deployment/express/space-name.png)
-
-## Link to GitHub
-
-To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the "GitHub" button under "GitHub Details".
-
-![GitHub button](../assets/deployment/express/git-button.png)
-
-Click the "GitHub" button, select your GitHub username, and do the following in the dialog box that appears:
-
-1. Select "Only Select Repositories".
-2. Choose the GitHub repository we forked.
-3. Press "Install & Authorize".
-
-![Install & authorize github](../assets/deployment/express/github-integration.png)
-
-## Add Repository to Team
-
-Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.
-
-Click on the "Modify" button under the "Team Repos" section. An "Edit Team Repos" screen will slide in from the right. Click "Add" next to the demo repo, and then "Confirm". All the Spaces in your Team will now have access to this repo.
-
-![Edit Team Repos](../assets/deployment/python/team-repos.gif)
 
 ## Register the Bot
 
@@ -62,49 +25,66 @@ The BotFather will respond with a message containing an access token for your ne
 
 To confirm that your bot was created successfully, search for the bot's username. You should be able to see it and start a conversation with it, although it won't respond as we haven't written the bot's logic yet.
 
+## Set up
+
+Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
+
+To demonstrate how to deploy a Node.js Telegram Bot with Code Capsules, we’ve provided an example bot which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/nodejs-telegram-echobot).
+
+Sign in to GitHub, and fork the example bot repository by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.
+
+## Create a Space for your Bot
+
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
+
+Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
+
+![space name](../assets/deployment/shared/space-name.png)
+
+Example instructions to go with numbered annotations
+1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
+2. This should remind you of the project, for example “customer-api” or “notetaking-app”
+3. Choose a country close to where most of your users will be
+4. If you’re already using a specific cloud, you can choose that here, otherwise pick any one.
+
 ## Create the Capsule
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-Navigate to the "Spaces" tab and open the Space you’ll be using.
+To create a new Capsule for your space follow the instructions below:
 
-Click the "Create a New Capsule for Your Space" button, and follow the instructions below:
+1. Choose "Backend Capsule", your Team and Space.
+2. Choose your payment plan.
+3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
+4. Choose the GitHub repository you forked.
+5. Press "Next".
+6. Leave "Run Command" blank.
+7. Click "Create Capsule".
 
-1. Choose "Backend Capsule".
-2. Under "Product", select "Sandbox".
-3. Choose the GitHub repository you forked.
-4. Press "Next".
-5. Leave "Run Command" blank.
-6. Click "Create Capsule".
-
-Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.
+Code Capsules will automatically build your application when you’ve finished creating the Capsule. 
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/express/backend-capsule-build-logs.png)
+![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
 
-## Add a `BOT_TOKEN` Environment Variable
 
-Once the build is complete, you have to add a `BOT_TOKEN` environment variable on the "Configure" tab under the "Capsule parameters" section. Assign it the value of the access token you were given by the BotFather when you registered the bot.
+## Add Environment Variables
+
+Once the build is complete, you have to add `BOT_TOKEN` and `URL` environment variables on the "Config" tab under the "Environment Variables" section.
+
+### `BOT_TOKEN`
+
+Assign the `BOT_TOKEN` variable the value of the access token you were given by the BotFather when you registered the bot.
 
 ![Add a `BOT_TOKEN` Environment Variable](../assets/deployment/telegram/add-bot-token-env-var.png)
 
-Confirm your changes by clicking on "Update Capsule", then restart your Capsule by toggling the radio button in the top right off and on again.
+### `URL`
 
-## Add Webhook URL
+For the `URL` variable, set it to the value of your bot's domain. You can get it by clicking the "Live Website" link to the left of the capsule's toggle button and copying the url in the new tab that opens. Paste the url you copied in the value field for the `URL` environment variable (make sure the url ends with a `/` or the webhook will not be valid). 
 
-The next step is to add a webhook URL in the bot's logic to tell Telegram how to notify your bot when it receives a message. Clone the repository you forked in the first step of this guide to your local development environment. Open `index.js` and edit the code snippet below by replacing `<YOUR-CAPSULE-URL-HERE>` with the actual value for your Capsule's URL. To get this value, navigate to your Capsule's "Overview" tab. Copy the value under the "Domains" section and paste it in place of `<YOUR-CAPSULE-URL-HERE>` in the code snippet below.
+![Add a `URL` Environment Variable](../assets/deployment/telegram/url-env-var.png)
 
-```js
-bot.launch({
-    webhook: {
-      domain: '<YOUR-CAPSULE-URL-HERE>',
-      port: process.env.PORT
-    }
-})
-```
-
-Push your changes to GitHub by running `git push` in a terminal window while in the project's root folder. Code Capsules will automatically rebuild your bot after it notices changes to the `main` branch of your forked repository.
+Confirm your changes by clicking on "Save", then restart your Capsule by toggling the radio button in the top right off and on again.
 
 ## Chat with the Bot
 

@@ -25,85 +25,70 @@ If you don’t already have an account, navigate to the [Code Capsules](https://
 
 If you’ve just signed up for an account, you’ll be directed to a welcome page on your first login. Click on the "Go To Personal Team" button.
 
-Alternatively, if you’re signing in again, click on "Spaces" in the top right corner of your screen.
+Alternatively, if you’re signing in again, click on the "Spaces" tab.
 
 Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](https://codecapsules.io/docs/FAQ/teams-spaces-capsules/).
 
-## Create a Space for your Apps
+## Create a Space for your App
 
-[Spaces](https://codecapsules.io/docs/FAQ/what-is-a-space/) are an organizational tool for your applications. You can select the Personal Space that you find in your default Personal Team to host this application, or you can create a new Space. In the Spaces Tab, click the "Create A New Space For Your Apps" button. 
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/express/space-name.png)
+![space name](../assets/deployment/shared/space-name.png)
 
-## Link to GitHub
+Example instructions to go with numbered annotations
+1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
+2. This should remind you of the project, for example “customer-api” or “notetaking-app”
+3. Choose a country close to where most of your users will be
+4. If you’re already using a specific cloud, you can choose that here, otherwise pick any one.
 
-To link to GitHub, click your profile image at the top right of the Code Capsules screen and find the "GitHub" button under "GitHub Details".
-
-![GitHub button](../assets/deployment/express/git-button.png)
-
-Click the "GitHub" button, select your GitHub username, and do the following in the dialog box that appears:
-
-1. Select "Only Select Repositories".
-2. Choose the GitHub repository we forked.
-3. Press "Install & Authorize".
-
-![Install & authorize github](../assets/deployment/express/github-integration.png)
-
-## Add Repository to Team
-
-Select "Team Settings" in the top navigation bar to switch to the Team Settings tab.
-
-Click on the "Modify" button under the Team Repos section, and an "Edit Team Repos" screen will slide in from the right. Click "Add" next to the demo repo, and then "Confirm". All the Spaces in your Team will now have access to this repo.
-
-![Edit Team Repos](../assets/deployment/python/team-repos.gif)
-
-## Create the Capsules
+## Create the Capsule
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-Navigate to the "Spaces" tab and open the Space you’ll be using.
+Navigate to the "Capsules" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Capsule.
 
-Click the "Create a New Capsule for Your Space" button, and follow the instructions below to create a Data Capsule:
+To create a new Data Capsule for your Space follow the instructions below:
 
-1. Choose "Data Capsule".
-2. Under "Data Type", select "MongoDB Database Cluster".  
-3. Under "Product", select "Standard".
-4. Click "Create Capsule".
+1. Choose "MongoDB", your Team and Space.
+2. Choose your payment plan.
+3. Click "Create Capsule".
 
-Navigate to the "Space" containing your recently created Data Capsule and click the "New Capsule" button. Follow the instructions below to create a Backend Capsule:
+Navigate to the "Space" containing your recently created Data Capsule and click the yellow `+` icon on the top right of the screen. Follow the instructions below to create a Backend Capsule:
 
-1. Choose "Backend Capsule".
-2. Under "Product", select "Sandbox".
-3. Choose the GitHub repository you forked.
-4. Press "Next".
-5. Leave "Run Command" blank.
-6. Click "Create Capsule".
+1. Choose "Backend Capsule", your Team and Space.
+2. Choose your payment plan.
+3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
+4. Choose the GitHub repository you forked.
+5. Press "Next".
+6. Leave "Run Command" blank.
+7. Click "Create Capsule".
+
 
 Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/express/backend-capsule-build-logs.png)
+![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
 
 ## Binding the Capsules
 
-Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the MongoDB database in the Data Capsule. 
+Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind". This enables the capsule to use the MongoDB database in the Data Capsule. 
 
-![Bind MEAN Capsules](../assets/deployment/mean/bind-mean-app.png)
+![Bind MEAN Capsules](../assets/deployment/shared/bind-mongodb.png)
 
 ## Edit `DATABASE_URL` Environment Variable
 
-Once the binding is complete, you have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Capsule parameters" section on the "Configure" tab. 
+Once the binding is complete, you have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Environment Variables" section on the "Config" tab. 
 
 ![Edit DATABASE_URL Environment Variable](../assets/deployment/mern/edit-database-url.png)
 
-Confirm your changes by clicking on "Update Capsule" then restart your capsule by toggling the radio button in the top right off and on again.
+Confirm your changes by clicking on "Save" then restart your capsule by toggling the radio button in the top right off and on again.
 
 ## View Application
 
-After restarting the capsule, the application will now be ready to be viewed. Click the "Live Website" link at the top of the capsule tab and you should see your deployed application.
+After restarting the capsule, the application will now be ready to be viewed. Click the "URL" link in the "Details" tab and you should see your deployed application.
 
 ![Deployed App](../assets/deployment/mean/cc-mean-app.png)
 
