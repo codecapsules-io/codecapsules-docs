@@ -20,7 +20,7 @@ This is where a new HTML extension called HTMx enters and shines. HTMx gives tra
 
 In this tutorial, we’ll explore the benefits of HTMx by building a full stack application using Flask and HTMx. Our application will be a book recommendation app that supports CRUD functionality. The final app will look a bit like this:
 
-![Flask HTMx Application](../assets/tutorials/build-flask-htmx/flask-htmx.png)
+![Flask HTMx Application](../assets/deployment/flask-htmx/flask-htmx.png)
 
 ## Overview and Requirements
 
@@ -440,7 +440,7 @@ If the user goes through with updating the book title, then the `/update` route 
 
 Our app is ready to be tested. Navigate to the project’s root folder in a terminal and run the following command: `python3 run.py`. This should start up a development server on port 5000. Open your browser at `http://127.0.0.1:5000/` and you should see your app running:
 
-![Flask HTMx Application](../assets/tutorials/build-flask-htmx/flask-htmx.png)
+![Flask HTMx Application](../assets/deployment/flask-htmx/flask-htmx.png)
 
 Once you are satisfied with the app, you can commit and push your changes to GitHub with the following commands.
 

@@ -114,7 +114,7 @@ Let's modify the default A record to route to your web-application:
 
 1. On [Code Capsules](https://codecapsules.io), navigate to the Capsule you wish to route to your new domain.
 
-2. Click **Overview** then **Add A Custom Domain**.
+2. Click **Domains** then the yellow `+` button.
 
 3. Copy the supplied IP address and type in the name of the web-address purchased.
 
@@ -132,7 +132,7 @@ Notice that if you type `https://www.yourdomainhere.tld`, you'll receive a 404 e
 
 To allow users to enter in "www." before your domain name:
 
-1. Return to Code Capsules and press the **Add A Custom Domain** button again.
+1. Return to the **Domains** tab and press the yellow `+` button again.
 
 2. Under domain name, enter `www.yourdomainname.tld`, replacing your name and TLD appropriately.
 

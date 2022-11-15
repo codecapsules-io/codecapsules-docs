@@ -31,8 +31,8 @@ Each Capsule tracks its usage data and you can view this information by opening 
 
 ## Delete a Capsule
 
-When you no longer wish to host your application on Code Capsules, delete your Capsule by navigating to the "Configure" tab of the Capsule page and scrolling to the bottom. 
+When you no longer wish to host your application on Code Capsules, delete your Capsule by navigating to the "Details" tab of the Capsule page and scrolling to the bottom. 
 
 ![Delete Capsule](../assets/reference/capsule-management/delete-capsule.png)
 
-Click on the delete icon under the "Delete Capsule" section on the bottom right. A dialog will slide in from the right asking you whether you're sure about deleting the Capsule since this action isn't reversible. If you're sure, enter the Capsule's name to activate the delete button and click "Delete" to confirm your changes. 
+Click on the "Delete Capsule" button. A dialog will pop up asking you whether you're sure about deleting the Capsule since this action isn't reversible. If you're sure, enter the Capsule's name to activate the delete button and click "Delete" to confirm your changes. 
