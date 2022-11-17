@@ -45,14 +45,6 @@ Example instructions to go with numbered annotations
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-Navigate to the "Capsules" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Capsule.
-
-To create a new Data Capsule for your Space follow the instructions below:
-
-1. Choose "Persistent Storage", your Team and Space.
-2. Choose your payment plan.
-3. Click "Create Capsule".
-
 Navigate to the "Space" containing your recently created Data Capsule and click the yellow `+` icon on the top right of the screen. Follow the instructions below to create a Backend Capsule:
 
 1. Choose "Backend Capsule", your Team and Space.
@@ -74,7 +66,7 @@ Once your application is live, you can view the build log by selecting the "Depl
 
 Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind". This enables the capsule to use the Persistent database in the Data Capsule. 
 
-![Bind MEAN Capsules](../assets/deployment/shared/bind-persistent.png)
+![Bind Capsules](../assets/deployment/shared/bind-persistent.png)
 
 ## View Application
 
