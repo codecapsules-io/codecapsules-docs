@@ -74,7 +74,7 @@ Once your application is live, you can view the build log by selecting the "Depl
 
 Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind". This enables the capsule to use the Persistent database in the Data Capsule. 
 
-![Bind MEAN Capsules](../assets/deployment/shared/bind-persistent.png)
+![Bind Capsules](../assets/deployment/shared/bind-persistent.png)
 
 ## View Application
 
