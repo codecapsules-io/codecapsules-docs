@@ -27,13 +27,12 @@ Click the "Create a New Capsule for Your Space" button, and follow the instructi
 
 1. Choose "Data Capsule".
 2. Under "Data Type", select "MongoDB Database Cluster".  
-3. Under "Product", select "Standard".
-4. Click "Create Capsule".
+3. Click "Create Capsule".
 
 Navigate to the "Space" containing your recently created Data Capsule and click the "New Capsule" button. Follow the instructions below to create a Backend Capsule:
 
-1. Choose "Backend Capsule".
-2. Under "Product", select "Sandbox".
+1. Choose "Backend Capsule", your Team and Space.
+2. Choose a payment plan.
 3. Choose the GitHub repository you forked.
 4. Press "Next".
 5. Leave "Run Command" blank.
@@ -47,7 +46,7 @@ Once your application is live, you can view the build log by selecting the "Depl
 
 ## Binding the Capsules
 
-After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Configure" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MongoDB database. 
+After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Config" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MongoDB database. 
 
 ![Bind MERN Capsules](../assets/deployment/shared/bind-mongodb.png)
 
