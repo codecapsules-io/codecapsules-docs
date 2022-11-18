@@ -53,7 +53,7 @@ After the two capsules have been successfully built, the next step is to bind th
 
 ## View Application
 
-You can now view the application after the two capsules have been binded together. To see how it looks, click on the "Live Website" link at the top of your Backend Capsule tab.
+You can now view the application after the two capsules have been binded together. To see how it looks, click on the URL in the "Details" tab.
 
 ![Deployed App](../assets/deployment/flask/cc-flask-mongo-app.png)
 
