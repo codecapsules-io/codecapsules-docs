@@ -48,7 +48,7 @@ Once your application is live, you can view the build log by selecting the "Depl
 
 After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Config" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MongoDB database. 
 
-![Bind MERN Capsules](../assets/deployment/shared/bind-mongodb.png)
+![Bind Capsules](../assets/deployment/shared/bind-mongodb.png)
 
 ## View Application
 
