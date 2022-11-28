@@ -2,7 +2,7 @@ site_name: Code Capsules
 site_url: !ENV [SITEURL, "https://codecapsules.io/docs"]
 site_description: >-
   The documentation for Code Capsules, the easiest deployment
-  platform that lets you pull your code directly from your Github repository
+  platform that lets you pull your code directly from your GitHub repository
   and build it inside the correct container, ensuring security and performance.
 
 theme:
