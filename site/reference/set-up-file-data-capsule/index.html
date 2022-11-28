@@ -2909,16 +2909,15 @@
 <h1 id="how-to-set-up-a-persistent-file-data-capsule">How to Set Up a Persistent File Data Capsule</h1>
 <p>You need persistent storage to develop your application that solves a real-world problem, but you don't want a full-blown database. In this tutorial, we'll show you how to create a persistent file Data Capsule that you can use with your backend applications running on Code Capsules. </p>
 <h2 id="create-a-file-data-capsule">Create a File Data Capsule</h2>
-<p>Log in to your Code Capsules account and navigate to the Space your file data capsule will be contained in. Click "New Capsule" and select the "Data Capsule" option from the "Create New Capsule" dialog that slides in from the right. </p>
-<p><img alt="Create Data Capsule" src="../../assets/reference/create-data-capsule.png" /></p>
-<p>In the "New Data Capsule" dialog, choose "A persistent storage mounted directly to your capsule." as your data type, then click the "Create Capsule" button. </p>
-<p><img alt="Persistent File Storage" src="../../assets/reference/set-up-file-data-capsule/persistent-file-storage.png" /></p>
+<p>Log in to your Code Capsules account and navigate to the Space your file data capsule will be contained in. Click yellow <code>+</code> button on the top right of the screen and select the "Persistent storage" option from the "Create New Capsule" screen. </p>
+<p><img alt="Create Data Capsule" src="../../assets/deployment/shared/create-persistent-capsule.png" /></p>
+<p>Choose your payment option, then click the "Create Capsule" button. </p>
 <h2 id="binding-a-data-capsule-to-a-backend-capsule">Binding a Data Capsule to a Backend Capsule</h2>
 <p>You need to bind the Data Capsule to a Backend Capsule hosted on Code Capsules before you can connect to it and use it.</p>
-<p>Navigate to the Backend Capsule and click "Configure" to open the capsule's config tab. Scroll down to the "Bind Data capsule" section where your recently created data capsule will show.</p>
-<p><img alt="Bind Data Capsule" src="../../assets/reference/set-up-file-data-capsule/bind-file-data-capsule.png" /></p>
+<p>Navigate to the Backend Capsule and click "Config" to open the capsule's config tab. Scroll down to the "Bind Data capsule" section where your recently created data capsule will show.</p>
+<p><img alt="Bind Data Capsule" src="../../assets/deployment/shared/bind-persistent.png" /></p>
 <p>Click "Bind" to bind your Data and Backend Capsules. During the bind process, Code Capsules creates a <code>PERSISTENT_STORAGE_DIR</code> environment variable to let your Backend Capsule know where your Data Capsule resides in order to access its features. Once the two capsules have been bound, you can scroll to the top of the Configure tab to find the value of this variable. </p>
-<p><img alt="PERSISTENT STORAGE DIR Environment Variable" src="../../assets/reference/set-up-file-data-capsule/file-data-environment-variables.png" /></p>
+<p><img alt="PERSISTENT STORAGE DIR Environment Variable" src="../../assets/deployment/shared/env-variables-persistent-storage.png" /></p>
 <p>The next step is to use this environment variable in code in order to read and write to our Data Capsule. Copy the value of the <code>PERSISTENT_STORAGE_DIR</code> variable and paste it in your code as the value of the <code>db_directory</code> variable. Alternatively, reference it directly in your code using <code>os.getenv</code> for Python or <code>process.env</code> for Node.js. </p>
 <h3 id="connecting-to-a-file-data-capsule-from-a-python-application">Connecting to a File Data Capsule From a Python Application</h3>
 <p>If your backend capsule is a Python application, use the following code to connect to your file data capsule:</p>

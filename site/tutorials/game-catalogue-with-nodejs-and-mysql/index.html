@@ -2291,35 +2291,26 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#creating-a-new-backend-capsule" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a New Backend Capsule
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-new-data-capsule" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a New Data Capsule
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#link-the-capsules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Link the Capsules
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-capsules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create the Capsules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binding-the-capsules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binding the Capsules
+    </span>
+  </a>
   
 </li>
       
@@ -2993,35 +2984,26 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#creating-a-new-backend-capsule" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a New Backend Capsule
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-new-data-capsule" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a New Data Capsule
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#link-the-capsules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Link the Capsules
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-the-capsules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create the Capsules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binding-the-capsules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binding the Capsules
+    </span>
+  </a>
   
 </li>
       
@@ -3148,29 +3130,32 @@ npm install
 git commit -am <span class="s1">&#39;added base files for project&#39;</span>
 git push origin
 </code></pre></div>
-<h3 id="creating-a-new-backend-capsule">Creating a New Backend Capsule</h3>
-<p>We'll need a place to host our app. </p>
+<h2 id="create-the-capsules">Create the Capsules</h2>
+<p>A <a href="https://codecapsules.io/docs/FAQ/what-is-a-capsule/">Capsule</a> provides the server for hosting an application on Code Capsules.</p>
+<p>Navigate to the "Spaces" tab and open the Space you’ll be using.</p>
+<p>Click the "Create a New Capsule for Your Space" button, and follow the instructions below to create a Data Capsule:</p>
 <ol>
-<li>Log in to <a href="https://codecapsules.io">Code Capsules</a>, and create a Team and Space as necessary.</li>
-<li>Link <a href="https://codecapsules.io">Code Capsules</a> to the <a href="https://github.com">GitHub</a> repository you created above. You can do this by clicking your username at the top right in Code Capsules, and choosing <em>Edit Profile</em>. Now you can click the <em>GitHub</em> button to link to a repo. </li>
-<li>Create a new Capsule, selecting the "Backend" capsule type.</li>
-<li>Select the GitHub repository. If you are only using the repo for this project, you can leave the <em>Repo Subpath</em> field empty. You may need to add your repo to the team repo if you haven't already. Click the <em>Modify Team Repos</em> to do so. </li>
-<li>Click <em>Next</em>, then on the following page, click <em>Create Capsule</em>. </li>
-<li>You can follow <a href="https://codecapsules.io/docs/deployment/how-to-deploy-express-application-to-production/">this in-depth guide</a> if you'd like more information on linking to GitHub and creating an express.js Backend Capsule.</li>
+<li>Choose "Data Capsule".</li>
+<li>Under "Data Type", select "MySQL Database Cluster".  </li>
+<li>Under "Product", select "Standard".</li>
+<li>Click "Create Capsule".</li>
 </ol>
-<h3 id="creating-a-new-data-capsule">Creating a New Data Capsule</h3>
-<p>We'll need some data storage to store the files that are uploaded to the web drive. </p>
+<p>Navigate to the "Space" containing your recently created Data Capsule and click the "New Capsule" button. Follow the instructions below to create a Backend Capsule:</p>
 <ol>
-<li>Create a new Capsule, selecting the "Data Capsule" type. </li>
-<li>Select "MySQL" as the Data Type. Choose a product size, and give it a name. </li>
-<li>Click "Create Capsule". </li>
-<li>You can follow the <a href="https://codecapsules.io/docs/reference/set-up-mysql-data-capsule/">in-depth creation guide</a> if you'd like more information on creating a Data Capsule. </li>
+<li>Choose "Backend Capsule".</li>
+<li>Under "Product", select "Sandbox".</li>
+<li>Choose the GitHub repository you forked.</li>
+<li>Press "Next".</li>
+<li>Leave "Run Command" blank.</li>
+<li>Click "Create Capsule".</li>
 </ol>
-<h3 id="link-the-capsules">Link the Capsules</h3>
-<p>To use the Data Capsule with the Backend Capsule, we need to link them. Head over to the Backend Capsule you created above, and click on the "Configure" tab. Then scroll down to "Bind Data Capsule", and click "Bind" under the name of the data capsule you created. </p>
-<p><img alt="Bind data capsule" src="../../assets/tutorials/game-catalogue-with-nodejs-and-mysql/bind-capsule.png" /></p>
+<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.</p>
+<p>Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.</p>
+<p><img alt="Build logs" src="../../assets/deployment/shared/backend-capsule-build-logs.png" /></p>
+<h2 id="binding-the-capsules">Binding the Capsules</h2>
+<p>After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Configure" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MySQL database. </p>
+<p><img alt="Bind Capsules" src="../../assets/deployment/shared/sql-bind-env.png" /></p>
 <p>After binding the Capsules, scroll up to the section "Capsule Parameters". You'll notice that an environment variable, <code>DATABASE_URL</code>, is automatically added containing the connection string to the MySQL database. We'll use this environment variable in the code to access the MySQL database. </p>
-<p><img alt="MySQL connection string" src="../../assets/tutorials/game-catalogue-with-nodejs-and-mysql/database-url.png" /></p>
 <h2 id="writing-the-api-code">Writing the API Code</h2>
 <p>Now that we have all our systems set up, we can get onto the coding part. </p>
 <h3 id="creating-the-database-tables">Creating the Database Tables</h3>
@@ -3248,8 +3233,8 @@ This code imports the <code>mysql2</code> driver package. We write a boot messag
 <p>We'll need to let our Backend Capsule know to run this script. Navigate to the "Configure" tab on the Backend Capsule, and scroll down to the "Run Command" section. Change this to:</p>
 <p><div class="highlight"><pre><span></span><code>npm run setup
 </code></pre></div>
-Click "Update Capsule" to save this new setting. </p>
-<p><img alt="Setup run command" src="../../assets/tutorials/game-catalogue-with-nodejs-and-mysql/run-command.png" /></p>
+Click "Save" to save this new setting. </p>
+<p><img alt="Setup run command" src="../../assets/deployment/shared/run-command-setup.png" /></p>
 <p>Let's commit the above code to the repo, and push it up so that Code Capsules can run it. Commit and push using the following commands in the terminal: </p>
 <div class="highlight"><pre><span></span><code>git add . 
 git commit -am <span class="s1">&#39;added database setup script&#39;</span>
@@ -3437,7 +3422,7 @@ git push origin
 </code></pre></div>
 <p>We'll need a place to store the user credentials, so we can check them against the credentials the client supplies. We can store them in the environment settings, as they'll be stored in plain text, i.e. unencrypted. In a production application, you would store them in the database, with the password hashed and salted. We'll leave that option as something for you to explore :). </p>
 <p>Head over to the "Config" page on your Backend Capsule, and add 2 new environment variables : <code>USERNAME</code> and <code>PASSWORD</code>. Supply values of your own to set your username and password, and click <code>Update Capsule</code> when you are done.  </p>
-<p><img alt="Adding username and password" src="../../assets/tutorials/game-catalogue-with-nodejs-and-mysql/auth-variables.png" /></p>
+<p><img alt="Adding username and password" src="../../assets/deployment/shared/env-user-password.png" /></p>
 <p>Now we can add the Passport code to check incoming credentials against these stored credentials. Add this code just above the <code>var gamesRouter = require('./routes/games');</code> line in <code>app.js</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">BasicStrategy</span><span class="p">(</span><span class="w"></span>
 <span class="w">  </span><span class="kd">function</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>

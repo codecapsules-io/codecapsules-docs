@@ -2906,15 +2906,13 @@
 <h1 id="how-to-set-up-a-mysql-data-capsule">How to Set Up a MySQL Data Capsule</h1>
 <p>In this tutorial, we'll create a MySQL Data Capsule to provide persistent storage for your applications hosted on Code Capsules.</p>
 <h2 id="create-a-mysql-data-capsule">Create a MySQL Data Capsule</h2>
-<p>Log in to your <a href="https://codecapsules.io">Code Capsules</a> account and navigate to the Space your MySQL Data Capsule will be contained in. Click "New Capsule" and select the "Data Capsule" option from the Create New Capsule dialog that slides in from the right. </p>
-<p><img alt="Create Data Capsule" src="../../assets/reference/create-data-capsule.png" /></p>
-<p>In the New Data Capsule dialog, choose "Mysql Database Cluster" as your data type, then click the "Create Capsule" button. </p>
-<p><img alt="MySQL Database Cluster" src="../../assets/reference/set-up-mysql/mysql-database-cluster.png" />  </p>
+<p>Log in to your <a href="https://codecapsules.io">Code Capsules</a> account and navigate to the Space your MySQL Data Capsule will be contained in. Click the yellow <code>+</code> button and select the "MySQL Data Capsule" option from the Create New Capsule dialog. </p>
+<p><img alt="Create Data Capsule" src="../../assets/deployment/shared/create-sql-capsule.png" /></p>
+<p>Choose your payement option, then click the "Create Capsule" button. </p>
 <h2 id="binding-a-data-capsule-to-a-backend-capsule">Binding a Data Capsule to a Backend Capsule</h2>
-<p>To use the Data Capsule with your Backend Capsule, you'll need to link the two. Navigate to the Backend Capsule and click "Configure" to open the Capsule's configuration tab. Scroll down to the "Bind Data capsule" section and you'll see your recently created data capsule.</p>
-<p><img alt="Bind Data Capsule" src="../../assets/reference/set-up-mysql/bind-mysql-data-capsule.png" /></p>
+<p>To use the Data Capsule with your Backend Capsule, you'll need to link the two. Navigate to the Backend Capsule and click "Config" to open the Capsule's configuration tab. Scroll down to the "Bind Data capsule" section and you'll see your recently created data capsule.</p>
+<p><img alt="Bind Data Capsule" src="../../assets/deployment/shared/sql-bind-env.png" /></p>
 <p>Click "Bind" to bind your Data and Backend Capsules. During the bind process, Code Capsules creates a <code>DATABASE_URL</code> environmental variable to let your Backend Capsule know how to access your Data Capsule's services and features. Once the two capsules have been bound, you can scroll to the top of the "Configure" tab to find the value of this variable under the "Capsule parameters" section. </p>
-<p><img alt="Database url environment variable" src="../../assets/reference/set-up-mysql/mysql-environment-variable.png" /></p>
 <p>We can use this database variable in code to read and write to our Data Capsule. Copy the value of the <code>DATABASE_URL</code> variable and append <code>/your_db_name</code> to it as a query parameter. Make sure to replace <code>your_db_name</code> with the actual name of your database. This tells the Data Capsule to read and write to the specified database. If a database named <code>your_db_name</code> doesn't exist, the Data Capsule will create it. This allows you to have multiple databases in one Data Capsule. Take note if you copy the <code>DATABASE_URL</code> value from the capsule it will already include the name of the default database you used whilst creating the data capsule as part of the string.</p>
 <h3 id="connecting-to-a-mysql-data-capsule-from-a-python-application">Connecting to a MySQL Data Capsule from a Python Application</h3>
 <p>If your Backend Capsule is a Python application, use the following code to connect to your MySQL Data Capsule:</p>

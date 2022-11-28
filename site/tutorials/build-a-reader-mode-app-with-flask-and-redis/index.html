@@ -2436,45 +2436,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#logging-in-to-code-capsules" class="md-nav__link">
+  <a href="#create-the-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Logging in to Code Capsules
+      Create the Capsules
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#connecting-to-github" class="md-nav__link">
+  <a href="#view-application" class="md-nav__link">
     <span class="md-ellipsis">
-      Connecting to GitHub
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-redis-database-capsule" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a Redis Database Capsule
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-backend-capsule-for-the-worker" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a Backend Capsule for the worker
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-backend-capsule-for-the-flask-web-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a Backend Capsule for the Flask Web App
+      View Application
     </span>
   </a>
   
@@ -3188,45 +3161,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#logging-in-to-code-capsules" class="md-nav__link">
+  <a href="#create-the-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Logging in to Code Capsules
+      Create the Capsules
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#connecting-to-github" class="md-nav__link">
+  <a href="#view-application" class="md-nav__link">
     <span class="md-ellipsis">
-      Connecting to GitHub
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-redis-database-capsule" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a Redis Database Capsule
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-backend-capsule-for-the-worker" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a Backend Capsule for the worker
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creating-a-backend-capsule-for-the-flask-web-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating a Backend Capsule for the Flask Web App
+      View Application
     </span>
   </a>
   
@@ -3643,37 +3589,33 @@ git branch -M main
 git push -u origin main
 </code></pre></div>
 <p>Finally, we will create our capsules. We need to create three capsules, our Redis Data Capsule, a Backend Capsule for our worker process, and another Backend Capsule for our web app.</p>
-<h2 id="logging-in-to-code-capsules">Logging in to Code Capsules</h2>
-<p>Go to the <a href="https://codecapsules.io">Code Capsules website</a>, create an account, and login. </p>
-<p>After logging in, you’ll see a page like the one below:</p>
-<p><img alt="Code Capsule team settings" src="../../assets/tutorials/redis_queue/team_cc.png" /></p>
-<p>When creating a Code Capsules account, a Personal Team is created by default. A Team is great for collaborative development, as you can invite people to work on and view your applications. </p>
-<h2 id="connecting-to-github">Connecting to GitHub</h2>
-<p>Now we need to connect our GitHub account to our Code Capsules account so that our applications can be pulled from GitHub repositories. </p>
-<p>Do this by clicking the profile image button on the top right of the screen and then finding and clicking the GitHub button. </p>
-<p><img alt="Connect to GitHub" src="../../assets/tutorials/redis_queue/github_connect.png" /></p>
-<p>Log in to your GitHub account, select your username, press "Only select repositories", and then select the repository containing your project from the list. Finally press "Install &amp; Authorize".</p>
-<p><img alt="Selecting the repository" src="../../assets/tutorials/redis_queue/select_repo.png" /></p>
-<h2 id="creating-a-redis-database-capsule">Creating a Redis Database Capsule</h2>
-<p>Next we can enter our "Personal Space" and create a capsule. A Space allows you to organize one or more capsules together. Inside this Space, create a new capsule.</p>
-<p>The first capsule we will create is the Redis Data Capsule. Select "Data Capsule" from the list and then select "Redis Memory Cache". </p>
-<p><img alt="Creating a capsule" src="../../assets/tutorials/redis_queue/create_capsule.png" /> </p>
-<p><img alt="Creating a data capsule" src="../../assets/tutorials/redis_queue/create_data_capsule.png" /> </p>
-<p><img alt="Selecting a database" src="../../assets/tutorials/redis_queue/select_database.png" /> </p>
-<h2 id="creating-a-backend-capsule-for-the-worker">Creating a Backend Capsule for the worker</h2>
-<p>Next we will create the capsule that will run our worker. Create a new capsule, select "Backend Capsule" type, and then select your GitHub repository in the list . </p>
-<p>Now enter <code>python3 worker.py</code> in the run command. This build command will provide special information to the capsule about how it should be built. The command we entered tells the capsule to run the worker as the main app rather than the Flask web application. </p>
-<p><img alt="Selecting the backend repository" src="../../assets/tutorials/redis_queue/select_backend_repo.png" /> </p>
-<p><img alt="Adding the build command" src="../../assets/tutorials/redis_queue/backend_build_command.png" /></p>
-<p>The next step is to bind our capsule to our Redis Data Capsule. Do this by going to the "Configure" tab of your Backend Capsule and then scroll to the "Bind Data capsule" section. Click on the "Bind" button to bind the capsules.</p>
-<p><img alt="Binding the Redis capsule" src="../../assets/tutorials/redis_queue/bind_redis_capsule.png" /></p>
-<h2 id="creating-a-backend-capsule-for-the-flask-web-app">Creating a Backend Capsule for the Flask Web App</h2>
+<h2 id="create-the-capsules">Create the Capsules</h2>
+<p>A <a href="https://codecapsules.io/docs/FAQ/what-is-a-capsule/">Capsule</a> provides the server for hosting an application on Code Capsules.</p>
+<p>Click the yellow<code>+</code> button, and follow the instructions below to create a Data Capsule:</p>
+<ol>
+<li>Choose "Data Capsule".</li>
+<li>Under "Data Type", select "Redis".  </li>
+<li>Click "Create Capsule".</li>
+</ol>
 <p>Now to create a capsule for our Flask application. Create a new Backend Capsule and link it to your GitHub repository. </p>
-<p>Do not add a build command, as the <code>Procfile</code> we created will run our Flask app for us. </p>
-<p>The next step is to bind our capsule to our Redis Data Capsule. Do this by going to the "Configure" tab of your new Backend Capsule and selecting "Bind" in the "Bind Data capsule" section.</p>
-<p>Wait for the web app capsule to finish building, and then select "Live Website" to see the live app. </p>
-<p><img alt="Viewing the live website" src="../../assets/tutorials/redis_queue/live_website.png" /></p>
-<p>Our web application has now been deployed through Code Capsules and can be reached by anyone who has our URL.</p>
+<ol>
+<li>Choose "Backend Capsule", your Team and Space.</li>
+<li>Choose your payment plan.</li>
+<li>Click the GitHub button and give access to the repository you forked at the start of the tutorial.</li>
+<li>Choose the GitHub repository you forked.</li>
+<li>Press "Next".</li>
+<li>Do not add a build command, as the <code>Procfile</code> we created will run our Flask app for us. </li>
+<li>Click "Create Capsule".</li>
+</ol>
+<p>Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the Redis database in the Data Capsule. </p>
+<p><img alt="Bind Capsules" src="../../assets/deployment/shared/redis-bind-env.png" /></p>
+<p>Finally we will create the capsule that will run our worker. Create a new capsule, select "Backend Capsule" type, and then select your GitHub repository in the list. </p>
+<p>Now enter <code>python3 worker.py</code> in the run command. This build command will provide special information to the capsule about how it should be built. The command we entered tells the capsule to run the worker as the main app rather than the Flask web application. </p>
+<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. </p>
+<p>Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.</p>
+<p><img alt="Build logs" src="../../assets/deployment/shared/backend-capsule-build-logs.png" /></p>
+<h2 id="view-application">View Application</h2>
+<p>Once the build is complete, a URL link will appear in the URL section in the "Details" tab in our Flask web app Capsule. Click the link and you should see your deployed application.</p>
 <h2 id="running-the-web-and-worker-processes-in-the-same-capsule">Running the Web and Worker processes in the same capsule</h2>
 <p>We created two Backend Capsules for this project because running two processes (the web process and worker process) on the same capsule will not scale properly in practice. If you wish to run both processes on the same capsule, to save money on a smaller project that will not need to scale, there is a method to do this.</p>
 <p>To use one Backend Capsule to run the web app, create a file called <code>codecapsules.sh</code> in your project root directory. In that file paste the following text:</p>

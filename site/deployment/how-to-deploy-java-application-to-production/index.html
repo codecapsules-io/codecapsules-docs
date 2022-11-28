@@ -1179,6 +1179,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#binding-the-capsules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binding the Capsules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#view-application" class="md-nav__link">
     <span class="md-ellipsis">
       View Application
@@ -2894,6 +2903,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#binding-the-capsules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binding the Capsules
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#view-application" class="md-nav__link">
     <span class="md-ellipsis">
       View Application
@@ -2938,13 +2956,6 @@
 4. If you’re already using a specific cloud, you can choose that here, otherwise pick any one.</p>
 <h2 id="create-the-capsule">Create the Capsule</h2>
 <p>A <a href="https://codecapsules.io/docs/FAQ/what-is-a-capsule/">Capsule</a> provides the server for hosting an application on Code Capsules.</p>
-<p>Navigate to the "Capsules" tab. Once there, click the yellow <code>+</code> icon on the top right of the screen to add a new Capsule.</p>
-<p>To create a new Data Capsule for your Space follow the instructions below:</p>
-<ol>
-<li>Choose "Persistent Storage", your Team and Space.</li>
-<li>Choose your payment plan.</li>
-<li>Click "Create Capsule".</li>
-</ol>
 <p>Navigate to the "Space" containing your recently created Data Capsule and click the yellow <code>+</code> icon on the top right of the screen. Follow the instructions below to create a Backend Capsule:</p>
 <ol>
 <li>Choose "Backend Capsule", your Team and Space.</li>
@@ -2958,8 +2969,12 @@
 <p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.</p>
 <p>Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.</p>
 <p><img alt="Build logs" src="../../assets/deployment/shared/backend-capsule-build-logs.png" /></p>
+<h2 id="binding-the-capsules">Binding the Capsules</h2>
+<p>Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind". This enables the capsule to use the Persistent database in the Data Capsule. </p>
+<p><img alt="Bind MEAN Capsules" src="../../assets/deployment/shared/bind-persistent.png" /></p>
 <h2 id="view-application">View Application</h2>
-<p>Once the build is complete, click the "URL" link in the "Config" tab and you should see your deployed application.</p>
+<p>Restart your capsule by toggling the radio button in the top right off and on again.</p>
+<p>Once the build is complete, click the "URL" link in the "Details" tab and you should see your deployed application.</p>
 <p><img alt="Deployed App" src="../../assets/deployment/java/cc-java-app.png" /></p>
 <p>If you’d like to deploy another application in a different language or framework, take a look at our other <a href="/docs/deployment/">deployment guides</a>.</p>
 

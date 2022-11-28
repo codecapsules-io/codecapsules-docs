@@ -2316,29 +2316,14 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Deploying to Code Capsules">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linking-the-repository" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-application" class="md-nav__link">
     <span class="md-ellipsis">
-      Linking the repository
+      View Application
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-capsule-and-viewing-the-portfolio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating Capsule, and viewing the portfolio
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3044,29 +3029,14 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Deploying to Code Capsules">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linking-the-repository" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-application" class="md-nav__link">
     <span class="md-ellipsis">
-      Linking the repository
+      View Application
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-capsule-and-viewing-the-portfolio" class="md-nav__link">
-    <span class="md-ellipsis">
-      Creating Capsule, and viewing the portfolio
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3179,7 +3149,7 @@
 </li>
 </ol>
 <p>Save the file and open it in a web browser. Our portfolio should now look something like this: </p>
-<p><img alt="image2" src="../../assets/tutorials/host-a-frontend/starter_template.jpg" /></p>
+<p><img alt="image2" src="../../assets/tutorials/host-a-frontend/starter_template.png" /></p>
 <p>Next, we'll take a look at deleting the date entries above each portfolio piece, removing the "Generic Page" and "Elements Reference" tabs, and modifying the social media links. </p>
 <h3 id="removing-the-tabs-dates-and-links">Removing the tabs, dates, and links</h3>
 <p>The default layout for Massively is designed for a blog or news website containing articles. You may not need dates on a portfolio page. To delete the dates above each article entry, locate and delete all lines beginning with <code>&lt;span class="date"...&gt;</code>.</p>
@@ -3339,46 +3309,25 @@ git push -u origin main
 <p><img alt="image11" src="../../assets/tutorials/host-a-frontend/image11.png" /></p>
 <p>Now Code Capsules can host the portfolio. </p>
 <h2 id="deploying-to-code-capsules">Deploying to Code Capsules</h2>
-<p>To deploy the portfolio to Code Capsules, navigate to https://codecapsules.io/, create an account, and log in. </p>
-<p>After logging in, you'll be greeted with a page that looks like the below.</p>
-<p><img alt="team" src="../../assets/tutorials/host-a-frontend/welcome_page.png" /></p>
-<p>Click "Go to personal Team" to continue. Notice the "Team Personal" at the top left. Every new account starts with a "Team Personal". Code Capsules provides Teams for collaborative development – you can invite other people to your Team and Team members can view and edit your web-applications. You can create other teams - but the default "Personal" team is fine for now. </p>
-<p><img alt="team" src="../../assets/tutorials/host-a-frontend/team.png" /></p>
-<p>Click on the box labeled "Personal". This is called a <em>Space</em>. Spaces act as a further layer of organization. Spaces can contain one or many Capsules (more on Capsules shortly) and can help organize large projects. We'll take a look at this space soon, but we first need to link Code Capsules to Github.</p>
-<h3 id="linking-the-repository">Linking the repository</h3>
-<p>We need to give Code Capsules access to our portfolio. Click on your profile image at the top right of the screen, then find the "GitHub" button – click on it. Code Capsules will redirect you to GitHub.</p>
-<p><img alt="GitHubButton" src="../../assets/tutorials/host-a-frontend/github_button.png" /></p>
-<p>Then: </p>
+<p>A <a href="https://codecapsules.io/docs/FAQ/what-is-a-capsule/">Capsule</a> provides the server for hosting an application on Code Capsules.</p>
+<p>Click the yellow<code>+</code> button, and follow the instructions below to create a Frontend Capsule:</p>
+<p>To create a new Capsule for your space follow the instructions below:</p>
 <ol>
-<li>Log in to GitHub.</li>
-<li>Click your username.</li>
-<li>Press "Only select repositories".</li>
-<li>From the drop-down menu, type the repository's name containing your portfolio and select it.</li>
-<li>
-<p>Press "Install &amp; Authorize".</p>
-<p><img alt="permissions_git" src="../../assets/tutorials/host-a-frontend/permissions_git.png" /></p>
-</li>
+<li>Choose "Frontend Capsule", your Team and Space.</li>
+<li>Choose your payment plan.</li>
+<li>Click the GitHub button and give access to the repository you forked at the start of the tutorial.</li>
+<li>Choose the GitHub repository you forked.</li>
+<li>Press "Next".</li>
+<li>Leave the run command blank and enter the name of the sub-directory containing the portfolio files in the "Static Content Folder Path" entry box.</li>
+<li>Click "Create Capsule".</li>
 </ol>
-<p>Now we can deploy our portfolio. Return back to your Team, and enter the space labeled "Personal"</p>
-<h3 id="creating-capsule-and-viewing-the-portfolio">Creating Capsule, and viewing the portfolio</h3>
-<p>The last step to deploying the Portfolio is creating a <em>Capsule</em>. Capsules provide the server for your application or code – in our case, we'll create a Capsule that'll host our portfolio. Click "Create a new Capsule for your Space". </p>
-<p><img alt="team" src="../../assets/tutorials/host-a-frontend/create_capsule_button.png" /></p>
-<p>You'll be prompted to choose a Capsule type – our portfolio contains only front-end code, so choose a "Frontend" Capsule and:</p>
-<ol>
-<li>Add a repo to your Team.</li>
-<li>Select a front-end Capsule.</li>
-<li>Select the "Trial" product type, select the repository containing the portfolio, and press "Next".</li>
-<li>Leave the build command blank and enter the name of the sub-directory containing the portfolio files in the "Static Content Folder Path" entry box.</li>
-<li>Press "Create Capsule". </li>
-</ol>
-<p><img alt="Add a repository" src="../../assets/tutorials/host-a-frontend/add_repository.jpg" /></p>
-<p><img alt="Select Capsule type" src="../../assets/tutorials/host-a-frontend/select_capsule_type.jpg" /></p>
-<p><img alt="Link repository" src="../../assets/tutorials/host-a-frontend/link_repository_to_capsule.jpg" /></p>
-<p><img alt="Create Capsule" src="../../assets/tutorials/host-a-frontend/create_capsule.png" /></p>
-<p>Your Capsule is now building. This process will make your portfolio visible online. After it has deployed, click the "Overview" tab, then press the link under "Domains" to view your portfolio.</p>
-<p><img alt="image15" src="../../assets/tutorials/host-a-frontend/image15.png" /></p>
+<p>Code Capsules will automatically build your application when you’ve finished creating the Capsule. </p>
+<p>Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.</p>
+<p><img alt="Build logs" src="../../assets/deployment/shared/backend-capsule-build-logs.png" /></p>
+<h2 id="view-application">View Application</h2>
+<p>Once the build is complete, a URL link will appear in the URL section in the "Details" tab. Click the link and you should see your deployed application.</p>
 <h2 id="conclusion-and-further-reading">Conclusion and Further Reading</h2>
-<p><img alt="finished_port" src="../../assets/tutorials/host-a-frontend/finished_port.jpg" /></p>
+<p><img alt="finished_port" src="../../assets/tutorials/host-a-frontend/finished_port.png" /></p>
 <p>We've created a portfolio, pushed it to GitHub, and made the portfolio visible to the world. In the future, we'll take a look at "Backend" capsules. These "Backend" capsules will enable us to host back-end code and provide additional functionality – like implementing the contact form we removed at the beginning of the tutorial. </p>
 <p>We'll also take a look at customising your domain, so people can view your portfolio by typing something like <code>https://www.myportfolio.co.za</code></p>
 <p>If any of the HTML code was confusing, or you'd like to learn more for further customisation, check out this <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML">tutorial</a> written by Mozilla. </p>
