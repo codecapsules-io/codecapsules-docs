@@ -70,9 +70,17 @@ Once your application is live, you can view the build log by selecting the "Depl
 
 ![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
 
+## Binding the Capsules
+
+Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind". This enables the capsule to use the Persistent database in the Data Capsule. 
+
+![Bind Capsules](../assets/deployment/shared/bind-persistent.png)
+
 ## View Application
 
-Once the build is complete, click the "URL" link in the "Config" tab and you should see your deployed application.
+Restart your capsule by toggling the radio button in the top right off and on again.
+
+Once the build is complete, click the "URL" link in the "Details" tab and you should see your deployed application.
 
 ![Deployed App](../assets/deployment/django/cc-django-app.png)
 

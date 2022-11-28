@@ -45,14 +45,6 @@ Example instructions to go with numbered annotations
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
 
-Navigate to the "Capsules" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Capsule.
-
-To create a new Data Capsule for your Space follow the instructions below:
-
-1. Choose "Persistent Storage", your Team and Space.
-2. Choose your payment plan.
-3. Click "Create Capsule".
-
 Navigate to the "Space" containing your recently created Data Capsule and click the yellow `+` icon on the top right of the screen. Follow the instructions below to create a Backend Capsule:
 
 1. Choose "Backend Capsule", your Team and Space.
@@ -70,9 +62,10 @@ Once your application is live, you can view the build log by selecting the "Depl
 
 ![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
 
+
 ## View Application
 
-Once the build is complete, click the "URL" link in the "Config" tab and you should see your deployed application.
+Once the build is complete, click the "URL" link in the "Details" tab and you should see your deployed application.
 
 ![Deployed Application](../assets/deployment/next-express/next-express-app.png)
 

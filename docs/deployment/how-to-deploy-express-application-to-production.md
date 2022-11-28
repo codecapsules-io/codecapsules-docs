@@ -7,7 +7,6 @@ hide:
 
 # How to Deploy an Express.js Application to Production on Code Capsules
 
-*A video for this guide can be found [here](https://www.youtube.com/watch?v=P42D4IBtTVY) if you prefer watching to reading.*
 
 Deploy an Express.js application and learn how to host backend code on Code Capsules.
 

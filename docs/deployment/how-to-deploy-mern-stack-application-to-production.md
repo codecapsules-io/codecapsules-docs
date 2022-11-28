@@ -88,7 +88,7 @@ Confirm your changes by clicking on "Save" then restart your capsule by toggling
 
 ## View Application
 
-After restarting the capsule, the application will now be ready to be viewed. Click the "Live Website" link at the top of the capsule tab and you should see your deployed application.
+After restarting the capsule, the application will now be ready to be viewed. Click the URL link in the "Details" tab of the capsule tab and you should see your deployed application.
 
 ![Deployed App](../assets/deployment/mern/cc-mern-stack.png)
 
