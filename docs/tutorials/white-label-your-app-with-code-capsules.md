@@ -1,6 +1,11 @@
+---
+title: White-Label Your App with Code Capsules
+description: White-Label Your App with Code Capsules.
+---
+
+
 # White-Label Your App with Code Capsules
 
-![White Label App Cover](../assets/tutorials/white-label-app/white-label-cover.png)
 
 A white-label app is a prebuilt program that offers customers the freedom to customize the application without the hassle of developing the core functionality.
 
@@ -352,4 +357,4 @@ Stylistic changes can be made by changing colors, font types, text, and logos, b
 
 In this tutorial, two very different-looking applications were deployed from the same codebase simply by changing a couple of variables in the Code Capsules UI. This is a powerful way to get your app solution to more people, more quickly, and at a lower price.
 
-Getting some new app ideas after reading this? Test your application out or deploy it to production by signing up with Code Capsules.
+Getting some new app ideas after reading this? Test your application out or deploy it to production by signing up with [Code Capsules](https://codecapsules.io/).
