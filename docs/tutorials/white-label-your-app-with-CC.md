@@ -56,7 +56,6 @@ To get started, initialize a local git repository, and clone the [starter code](
 
 ```
 git init
-
 git clone https://github.com/jamesdanielwhitford/demo-express-htmx.git
 ```
 
