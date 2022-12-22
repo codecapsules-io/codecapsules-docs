@@ -52,21 +52,20 @@ We will be editing, configuring and deploying both versions of our application. 
 
 ## Getting started
 
-To get started, initialize a local git repository, and clone the [starter code](https://github.com/jamesdanielwhitford/demo-express-htmx), onto your local machine from your terminal with the following command:
+To get started, initialize a local git repository, and clone the [starter code](https://github.com/ritza-co/demo-htmx-express-white-label), onto your local machine from your terminal with the following command:
 
-```
-git init
-git clone https://github.com/jamesdanielwhitford/demo-express-htmx.git
+```bash
+git clone https://github.com/ritza-co/demo-htmx-express-white-label.git
 ```
 
 This repo hosts an HTMX and Express app that works as a UI for a data store. To see the application run the following commands from your terminal:
 
-```
-npm i express pug sequelize sqlite3
+```bash
+npm install
 npm run start
 ```
 
-Then go to `[http://localhost:3005/](http://localhost:3005/)` to see the app.
+Then go to [`http://localhost:3005/`](http://localhost:3005/) to see the app.
 
 ![Initial app](../assets/tutorials/white-label-app/initial-app.png)
 
@@ -195,48 +194,48 @@ Replace the `app.get('/',` function with the following:
 
 ```js
 app.get('/', async (req, res) => {
-  const items = await Item.findAndCountAll();
-  var display = '';
-  if (process.env.navbar == 'true') {
-    display = '';
-  } else {
-    display = 'none';
-  }
-  var font = `font-family: ${process.env.font}`;
-  var navTheme = `navbar navbar-expand-lg navbar-${process.env.navTheme}`;
-  var navStyle = `background-color: ${process.env.navColor}; display: ${display}`;
-  var buttonColor = `background-color: ${process.env.buttonColor}; color: ${process.env.buttonTextColor}`;
-  return res.render('index', {
-    items: items.rows,
-    title: process.env.title,
-    heading: process.env.heading,
-    logo: process.env.logo,
-    font: font,
-    tableHeading1: process.env.tableHeading1,
-    tableHeading2: process.env.tableHeading2,
-    navTheme: navTheme,
-    navStyle: navStyle,
-    buttonColor: buttonColor,
-  });
+    const items = await Item.findAndCountAll();
+    let display = '';
+    if (process.env.navbar === 'true') {
+        display = '';
+    } else {
+        display = 'none';
+    }
+    const font = `font-family: ${process.env.font}`;
+    const navTheme = `navbar navbar-expand-lg navbar-${process.env.navTheme}`;
+    const navStyle = `background-color: ${process.env.navColor}; display: ${display}`;
+    const buttonColor = `background-color: ${process.env.buttonColor}; color: ${process.env.buttonTextColor}`;
+    return res.render('index', {
+        items: items.rows,
+        title: process.env.title,
+        heading: process.env.heading,
+        logo: process.env.logo,
+        font: font,
+        tableHeading1: process.env.tableHeading1,
+        tableHeading2: process.env.tableHeading2,
+        navTheme: navTheme,
+        navStyle: navStyle,
+        buttonColor: buttonColor,
+    });
 });
 ```
 
 Here we either pass the environment variable directly into the context dictionary, like so:
 
 ```js
-title: process.env.title,
+title: process.env.title
 ```
 
 Or we edit the environment variable where necessary. The code below checks if the user wants a navigation bar, if not it will define a string to set the display property of the navbar’s styling to `none`.
 
 ```js
-var display = '';
-if (process.env.navbar == 'true') {
+let display = '';
+if (process.env.navbar === 'true') {
   display = '';
 } else {
   display = 'none';
 }
-var navStyle = `background-color: ${process.env.navColor}; display: ${display}`;
+const navStyle = `background-color: ${process.env.navColor}; display: ${display}`;
 ```
 
 If you run the code now you will see the app has a branded look:
@@ -331,7 +330,7 @@ buttonTextColor= white
 
 ### View Application
 
-After saving these new variables the Capsule will restart, and the application will now be ready to be viewed. Click the "URL" link in the "Config" tab and you should see your deployed application.
+After saving these new variables the Capsule will restart, and the application will now be ready to be viewed. Click the "URL" link in the "Details" tab and you should see your deployed application.
 
 The pizza company’s application has a red theme, a modern sans-serif font,custom headings, and their own logo.
 
