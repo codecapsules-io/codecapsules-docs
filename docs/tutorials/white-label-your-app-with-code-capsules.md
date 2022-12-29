@@ -1,6 +1,11 @@
+---
+title: White-Label Your App with Code Capsules
+description: White-Label Your App with Code Capsules.
+---
+
+
 # White-Label Your App with Code Capsules
 
-![White Label App Cover](../assets/tutorials/white-label-app/white-label-cover.png)
 
 A white-label app is a prebuilt program that offers customers the freedom to customize the application without the hassle of developing the core functionality.
 
@@ -52,21 +57,20 @@ To edit, configure, and deploy both versions of our application, you will need t
 
 ## Getting Started
 
-To start, initialize a local Git repository and clone the [starter code](https://github.com/jamesdanielwhitford/demo-express-htmx) onto your local machine from your terminal with the following command:
+To start, initialize a local Git repository and clone the [starter code](https://github.com/ritza-co/demo-htmx-express-white-label) onto your local machine from your terminal with the following command:
 
-```
-git init
-git clone https://github.com/jamesdanielwhitford/demo-express-htmx.git
+```bash
+git clone https://github.com/ritza-co/demo-htmx-express-white-label.git
 ```
 
 This repo hosts an HTMX and Express app that works as a UI for a data store. To see the application, run the following commands from your terminal:
 
-```
-npm i express pug sequelize sqlite3
+```bash
+npm install
 npm run start
 ```
 
-Then go to `[http://localhost:3005/](http://localhost:3005/)` to see the app.
+Then go to [`http://localhost:3005/`](http://localhost:3005/) to see the app.
 
 ![Initial app](../assets/tutorials/white-label-app/initial-app.png)
 
@@ -195,48 +199,48 @@ Replace the `app.get('/',` function with the following:
 
 ```js
 app.get('/', async (req, res) => {
-  const items = await Item.findAndCountAll();
-  var display = '';
-  if (process.env.navbar == 'true') {
-    display = '';
-  } else {
-    display = 'none';
-  }
-  var font = `font-family: ${process.env.font}`;
-  var navTheme = `navbar navbar-expand-lg navbar-${process.env.navTheme}`;
-  var navStyle = `background-color: ${process.env.navColor}; display: ${display}`;
-  var buttonColor = `background-color: ${process.env.buttonColor}; color: ${process.env.buttonTextColor}`;
-  return res.render('index', {
-    items: items.rows,
-    title: process.env.title,
-    heading: process.env.heading,
-    logo: process.env.logo,
-    font: font,
-    tableHeading1: process.env.tableHeading1,
-    tableHeading2: process.env.tableHeading2,
-    navTheme: navTheme,
-    navStyle: navStyle,
-    buttonColor: buttonColor,
-  });
+    const items = await Item.findAndCountAll();
+    let display = '';
+    if (process.env.navbar === 'true') {
+        display = '';
+    } else {
+        display = 'none';
+    }
+    const font = `font-family: ${process.env.font}`;
+    const navTheme = `navbar navbar-expand-lg navbar-${process.env.navTheme}`;
+    const navStyle = `background-color: ${process.env.navColor}; display: ${display}`;
+    const buttonColor = `background-color: ${process.env.buttonColor}; color: ${process.env.buttonTextColor}`;
+    return res.render('index', {
+        items: items.rows,
+        title: process.env.title,
+        heading: process.env.heading,
+        logo: process.env.logo,
+        font: font,
+        tableHeading1: process.env.tableHeading1,
+        tableHeading2: process.env.tableHeading2,
+        navTheme: navTheme,
+        navStyle: navStyle,
+        buttonColor: buttonColor,
+    });
 });
 ```
 
 Now we can pass the environment variable directly into the context dictionary, like so:
 
 ```js
-title: process.env.title,
+title: process.env.title
 ```
 
 Or we can edit the environment variable where necessary. The code below checks if the user wants a navigation bar and if not, it will define a string to set the display property of the navbar styling to `none`.
 
 ```js
-var display = '';
-if (process.env.navbar == 'true') {
+let display = '';
+if (process.env.navbar === 'true') {
   display = '';
 } else {
   display = 'none';
 }
-var navStyle = `background-color: ${process.env.navColor}; display: ${display}`;
+const navStyle = `background-color: ${process.env.navColor}; display: ${display}`;
 ```
 
 If you run the code now, you will see the app has a branded look:
@@ -333,7 +337,7 @@ buttonTextColor= white
 
 ### View Application
 
-After saving these new variables, the Capsule will restart and the application will now be ready to view. Click the "URL" link in the "Config" tab and you should see your deployed application.
+After saving these new variables the Capsule will restart, and the application will now be ready to be viewed. Click the "URL" link in the "Details" tab and you should see your deployed application.
 
 The pizza company’s application has a red theme, a modern sans-serif font, custom headings, and its logo.
 
@@ -353,4 +357,4 @@ Stylistic changes can be made by changing colors, font types, text, and logos, b
 
 In this tutorial, two very different-looking applications were deployed from the same codebase simply by changing a couple of variables in the Code Capsules UI. This is a powerful way to get your app solution to more people, more quickly, and at a lower price.
 
-Getting some new app ideas after reading this? Test your application out or deploy it to production by signing up with Code Capsules.
+Getting some new app ideas after reading this? Test your application out or deploy it to production by signing up with [Code Capsules](https://codecapsules.io/).
