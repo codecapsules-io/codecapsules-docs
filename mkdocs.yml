@@ -115,6 +115,7 @@ nav:
       - Reader Mode App with Flask and Redis: tutorials/build-a-reader-mode-app-with-flask-and-redis.md
       - Image Overlay API with Express: tutorials/image-api.md
       - Build an Imgur Clone with Uppy: tutorials/build-imgur-clone-uppy-caddy.md
+      - White-label Your App: tutorials/white-label-your-app-with-code-capsules.md
   - FAQ:
       - Teams, Spaces and Capsules: FAQ/teams-spaces-capsules.md
       - What is a Capsule?: FAQ/what-is-a-capsule.md
