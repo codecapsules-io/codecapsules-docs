@@ -227,7 +227,6 @@ Create an `__init__.py` file in the `app` folder and populate it with the code b
 ```py
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from app import create_db
 import os
 
 persistent_path = os.getenv("PERSISTENT_STORAGE_DIR", os.path.dirname(os.path.realpath(__file__)))
