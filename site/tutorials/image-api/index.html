@@ -13,10 +13,17 @@
         <link rel="canonical" href="https://codecapsules.io/docs/tutorials/image-api/">
       
       
+        <link rel="prev" href="../build-a-reader-mode-app-with-flask-and-redis/">
+      
+      
+        <link rel="next" href="../build-imgur-clone-uppy-caddy/">
+      
+      
         
       
+      
       <link rel="icon" href="../../assets/cclogo.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8+insiders-4.19.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13+insiders-4.32.0">
     
     
       
@@ -24,11 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.485cfce5.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e95b5de1.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.6932e648.min.css">
       
       
 
@@ -50,12 +56,13 @@
   
 
 
-  
-  
-
-
-  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-165274631-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){if(document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document.forms.feedback){var e,a=document.forms.feedback;for(e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXT5DSF');</script>
+<!-- End Google Tag Manager -->
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -110,188 +117,6 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="">
   
     
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -340,7 +165,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
@@ -348,7 +172,6 @@
             </label>
           
         
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
@@ -390,7 +213,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -407,19 +230,20 @@
       
         
           
-            <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
-
-
-
-
+  
+  
   
     <li class="md-tabs__item">
       <a href="../.." class="md-tabs__link">
         
+  
+    
   
   Getting Started
 
@@ -429,12 +253,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -452,12 +273,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -475,14 +293,11 @@
 
       
         
-
   
-
-
-
-
   
     
+  
+  
     
     
       <li class="md-tabs__item">
@@ -500,12 +315,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -521,12 +333,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -544,12 +353,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -565,12 +371,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -603,6 +406,7 @@
                   <div class="md-sidebar__inner">
                     
 
+
   
 
 
@@ -620,10 +424,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -632,8 +432,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Getting Started
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -642,10 +449,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -738,8 +541,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           
@@ -748,8 +552,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Deployment
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -759,10 +570,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Deployment" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Deployment
+            
+  
+    Deployment
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -778,8 +593,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Angular
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -797,8 +619,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Bootstrap
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -816,8 +645,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Caddy Docker Website
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -835,8 +671,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Caddy Docker File Server
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -854,8 +697,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -873,8 +723,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -892,8 +749,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django + MongoDB
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -911,8 +775,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -930,8 +801,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -949,8 +827,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -968,8 +853,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -987,8 +879,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1006,8 +905,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + MongoDB
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1025,8 +931,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1044,8 +957,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Go
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1063,8 +983,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     HTML
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1082,8 +1009,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     HTML5up
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1101,8 +1035,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Java (Spring)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1120,8 +1061,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Java (Spring) + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1139,8 +1087,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     PHP Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1158,8 +1113,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Laravel Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1177,8 +1139,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MEAN (Mongo, Express, Angular)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1196,8 +1165,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MERN (Mongo, Express, React)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1215,8 +1191,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1234,8 +1217,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1253,8 +1243,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1272,8 +1269,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Express + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1291,8 +1295,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     NodeJS Discord Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1310,8 +1321,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     NodeJS Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1329,8 +1347,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Discord Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1348,8 +1373,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1367,8 +1399,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Polling NodeJS Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1386,8 +1425,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Polling Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1405,8 +1451,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     React
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1424,8 +1477,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Slack
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1443,8 +1503,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Svelte
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1462,8 +1529,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Vue
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1481,8 +1555,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     WhatsApp
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1499,10 +1580,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -1543,8 +1620,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
@@ -1553,8 +1631,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Reference
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -1564,10 +1649,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Reference
+            
+  
+    Reference
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1583,8 +1672,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Capsule Billing
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1602,8 +1698,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Capsule Management
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1621,8 +1724,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     State and file persistence
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1640,8 +1750,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Custom Domains
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1659,8 +1776,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     File Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1678,8 +1802,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MongoDB Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1697,8 +1828,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MySQL Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1716,8 +1854,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Redis Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1735,8 +1880,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Running database migrations
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1754,8 +1906,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Procfile
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1773,8 +1932,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Development
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1792,8 +1958,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Team Management
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1810,10 +1983,6 @@
     
       
       
-      
-
-
-
   
   
     
@@ -1874,8 +2043,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           
@@ -1884,8 +2054,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Tutorials
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -1895,10 +2072,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Tutorials
+            
+  
+    Tutorials
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1914,8 +2095,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Slackbot with Node.js
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1933,8 +2121,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MERN Job Board
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1952,8 +2147,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Web File Store
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1971,8 +2173,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Node.js Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1990,8 +2199,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2009,8 +2225,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask API
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2028,8 +2251,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Hex Color Identifier API
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2047,8 +2277,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     CRUD with PHP and Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2066,8 +2303,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2085,8 +2329,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2104,8 +2355,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Generative Graphics
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2123,8 +2381,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Custom Domains
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2142,8 +2407,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Persistent Sleep Tracker Part 1
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2161,8 +2433,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Persistent Sleep Tracker Part 2
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2180,8 +2459,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Front-end Portfolio
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2199,8 +2485,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Stripe Checkout and Email Subscription with Flask
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2218,8 +2511,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Game Catalogue API with Node.js and MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2237,8 +2537,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Reader Mode App with Flask and Redis
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2255,7 +2562,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
@@ -2265,8 +2572,15 @@
           
   
   <span class="md-ellipsis">
+    
+  
     Image Overlay API with Express
+  
+
+    
   </span>
+  
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -2275,8 +2589,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Image Overlay API with Express
+  
+
+    
   </span>
+  
+  
 
       </a>
       
@@ -2298,7 +2619,9 @@
         <li class="md-nav__item">
   <a href="#overview-and-requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview and Requirements
+      
+        Overview and Requirements
+      
     </span>
   </a>
   
@@ -2307,7 +2630,9 @@
         <li class="md-nav__item">
   <a href="#setting-up-the-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting up the Project
+      
+        Setting up the Project
+      
     </span>
   </a>
   
@@ -2317,7 +2642,9 @@
           <li class="md-nav__item">
   <a href="#creating-a-new-repo" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a New Repo
+      
+        Creating a New Repo
+      
     </span>
   </a>
   
@@ -2326,7 +2653,9 @@
           <li class="md-nav__item">
   <a href="#initializing-the-base-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Initializing the Base Project
+      
+        Initializing the Base Project
+      
     </span>
   </a>
   
@@ -2335,7 +2664,9 @@
           <li class="md-nav__item">
   <a href="#installing-packages" class="md-nav__link">
     <span class="md-ellipsis">
-      Installing Packages
+      
+        Installing Packages
+      
     </span>
   </a>
   
@@ -2349,7 +2680,9 @@
         <li class="md-nav__item">
   <a href="#getting-started-with-express" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started with Express
+      
+        Getting Started with Express
+      
     </span>
   </a>
   
@@ -2358,7 +2691,9 @@
         <li class="md-nav__item">
   <a href="#writing-the-middleware-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Writing the Middleware Functions
+      
+        Writing the Middleware Functions
+      
     </span>
   </a>
   
@@ -2368,7 +2703,9 @@
           <li class="md-nav__item">
   <a href="#validation-middleware" class="md-nav__link">
     <span class="md-ellipsis">
-      Validation Middleware
+      
+        Validation Middleware
+      
     </span>
   </a>
   
@@ -2377,7 +2714,9 @@
           <li class="md-nav__item">
   <a href="#create-identifier-middleware" class="md-nav__link">
     <span class="md-ellipsis">
-      Create Identifier Middleware
+      
+        Create Identifier Middleware
+      
     </span>
   </a>
   
@@ -2386,7 +2725,9 @@
           <li class="md-nav__item">
   <a href="#download-background-image-middleware" class="md-nav__link">
     <span class="md-ellipsis">
-      Download Background Image Middleware
+      
+        Download Background Image Middleware
+      
     </span>
   </a>
   
@@ -2395,7 +2736,9 @@
           <li class="md-nav__item">
   <a href="#download-logo-image-middleware" class="md-nav__link">
     <span class="md-ellipsis">
-      Download Logo Image Middleware
+      
+        Download Logo Image Middleware
+      
     </span>
   </a>
   
@@ -2404,7 +2747,9 @@
           <li class="md-nav__item">
   <a href="#compose-image-middleware" class="md-nav__link">
     <span class="md-ellipsis">
-      Compose Image Middleware
+      
+        Compose Image Middleware
+      
     </span>
   </a>
   
@@ -2413,7 +2758,9 @@
           <li class="md-nav__item">
   <a href="#returning-the-image" class="md-nav__link">
     <span class="md-ellipsis">
-      Returning the Image
+      
+        Returning the Image
+      
     </span>
   </a>
   
@@ -2422,7 +2769,9 @@
           <li class="md-nav__item">
   <a href="#clean-up-middleware" class="md-nav__link">
     <span class="md-ellipsis">
-      Clean up Middleware
+      
+        Clean up Middleware
+      
     </span>
   </a>
   
@@ -2436,7 +2785,9 @@
         <li class="md-nav__item">
   <a href="#testing-the-api-out" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing the API out
+      
+        Testing the API out
+      
     </span>
   </a>
   
@@ -2445,7 +2796,9 @@
         <li class="md-nav__item">
   <a href="#add-commit-and-push-git-changes" class="md-nav__link">
     <span class="md-ellipsis">
-      Add, Commit, and Push Git Changes
+      
+        Add, Commit, and Push Git Changes
+      
     </span>
   </a>
   
@@ -2454,7 +2807,9 @@
         <li class="md-nav__item">
   <a href="#deploy-to-code-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploy to Code Capsules
+      
+        Deploy to Code Capsules
+      
     </span>
   </a>
   
@@ -2463,7 +2818,9 @@
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Next Steps
+      
+        Next Steps
+      
     </span>
   </a>
   
@@ -2472,7 +2829,9 @@
         <li class="md-nav__item">
   <a href="#credits" class="md-nav__link">
     <span class="md-ellipsis">
-      Credits
+      
+        Credits
+      
     </span>
   </a>
   
@@ -2497,8 +2856,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Build an Imgur Clone with Uppy
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2516,8 +2882,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     White-label Your App
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2534,10 +2907,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2560,23 +2929,35 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
         
         
-          <label class="md-nav__link" for="__nav_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
+    
+  
     FAQ
+  
+
+    
   </span>
+  
+  
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            FAQ
+            
+  
+    FAQ
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2590,8 +2971,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Teams, Spaces and Capsules
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2609,8 +2997,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Capsule?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2628,8 +3023,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Space?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2647,8 +3049,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Team?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2666,8 +3075,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     How Do I Add a Custom Domain?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2684,10 +3100,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2712,8 +3124,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           
@@ -2722,8 +3135,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Comparisons
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -2733,10 +3153,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Comparisons" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Comparisons
+            
+  
+    Comparisons
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2752,8 +3176,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     PaaS Providers
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2771,8 +3202,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Telegram Hosting Providers
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2790,8 +3228,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     SaaS vs PaaS vs IaaS
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2809,8 +3254,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Top Six Heroku Alternatives
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2827,10 +3279,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2849,23 +3297,35 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
         
         
-          <label class="md-nav__link" for="__nav_7">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
+    
+  
     Community
+  
+
+    
   </span>
+  
+  
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Community
+            
+  
+    Community
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2879,8 +3339,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Introducing Code Capsules
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2898,8 +3365,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Hack Days and Free Tech Consulting
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2917,8 +3391,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Founder Fridays
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2935,10 +3416,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2955,8 +3432,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           
@@ -2965,17 +3443,28 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Video Guides
+  
+
+    
   </span>
+  
+  
 
             </a>
             
           </div>
         
-        <nav class="md-nav" aria-label="Video Guides" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Video Guides
+            
+  
+    Video Guides
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3017,7 +3506,9 @@
         <li class="md-nav__item">
   <a href="#overview-and-requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview and Requirements
+      
+        Overview and Requirements
+      
     </span>
   </a>
   
@@ -3026,7 +3517,9 @@
         <li class="md-nav__item">
   <a href="#setting-up-the-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting up the Project
+      
+        Setting up the Project
+      
     </span>
   </a>
   
@@ -3036,7 +3529,9 @@
           <li class="md-nav__item">
   <a href="#creating-a-new-repo" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a New Repo
+      
+        Creating a New Repo
+      
     </span>
   </a>
   
@@ -3045,7 +3540,9 @@
           <li class="md-nav__item">
   <a href="#initializing-the-base-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Initializing the Base Project
+      
+        Initializing the Base Project
+      
     </span>
   </a>
   
@@ -3054,7 +3551,9 @@
           <li class="md-nav__item">
   <a href="#installing-packages" class="md-nav__link">
     <span class="md-ellipsis">
-      Installing Packages
+      
+        Installing Packages
+      
     </span>
   </a>
   
@@ -3068,7 +3567,9 @@
         <li class="md-nav__item">
   <a href="#getting-started-with-express" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started with Express
+      
+        Getting Started with Express
+      
     </span>
   </a>
   
@@ -3077,7 +3578,9 @@
         <li class="md-nav__item">
   <a href="#writing-the-middleware-functions" class="md-nav__link">
     <span class="md-ellipsis">
-      Writing the Middleware Functions
+      
+        Writing the Middleware Functions
+      
     </span>
   </a>
   
@@ -3087,7 +3590,9 @@
           <li class="md-nav__item">
   <a href="#validation-middleware" class="md-nav__link">
     <span class="md-ellipsis">
-      Validation Middleware
+      
+        Validation Middleware
+      
     </span>
   </a>
   
@@ -3096,7 +3601,9 @@
           <li class="md-nav__item">
   <a href="#create-identifier-middleware" class="md-nav__link">
     <span class="md-ellipsis">
-      Create Identifier Middleware
+      
+        Create Identifier Middleware
+      
     </span>
   </a>
   
@@ -3105,7 +3612,9 @@
           <li class="md-nav__item">
   <a href="#download-background-image-middleware" class="md-nav__link">
     <span class="md-ellipsis">
-      Download Background Image Middleware
+      
+        Download Background Image Middleware
+      
     </span>
   </a>
   
@@ -3114,7 +3623,9 @@
           <li class="md-nav__item">
   <a href="#download-logo-image-middleware" class="md-nav__link">
     <span class="md-ellipsis">
-      Download Logo Image Middleware
+      
+        Download Logo Image Middleware
+      
     </span>
   </a>
   
@@ -3123,7 +3634,9 @@
           <li class="md-nav__item">
   <a href="#compose-image-middleware" class="md-nav__link">
     <span class="md-ellipsis">
-      Compose Image Middleware
+      
+        Compose Image Middleware
+      
     </span>
   </a>
   
@@ -3132,7 +3645,9 @@
           <li class="md-nav__item">
   <a href="#returning-the-image" class="md-nav__link">
     <span class="md-ellipsis">
-      Returning the Image
+      
+        Returning the Image
+      
     </span>
   </a>
   
@@ -3141,7 +3656,9 @@
           <li class="md-nav__item">
   <a href="#clean-up-middleware" class="md-nav__link">
     <span class="md-ellipsis">
-      Clean up Middleware
+      
+        Clean up Middleware
+      
     </span>
   </a>
   
@@ -3155,7 +3672,9 @@
         <li class="md-nav__item">
   <a href="#testing-the-api-out" class="md-nav__link">
     <span class="md-ellipsis">
-      Testing the API out
+      
+        Testing the API out
+      
     </span>
   </a>
   
@@ -3164,7 +3683,9 @@
         <li class="md-nav__item">
   <a href="#add-commit-and-push-git-changes" class="md-nav__link">
     <span class="md-ellipsis">
-      Add, Commit, and Push Git Changes
+      
+        Add, Commit, and Push Git Changes
+      
     </span>
   </a>
   
@@ -3173,7 +3694,9 @@
         <li class="md-nav__item">
   <a href="#deploy-to-code-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploy to Code Capsules
+      
+        Deploy to Code Capsules
+      
     </span>
   </a>
   
@@ -3182,7 +3705,9 @@
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Next Steps
+      
+        Next Steps
+      
     </span>
   </a>
   
@@ -3191,7 +3716,9 @@
         <li class="md-nav__item">
   <a href="#credits" class="md-nav__link">
     <span class="md-ellipsis">
-      Credits
+      
+        Credits
+      
     </span>
   </a>
   
@@ -3205,10 +3732,12 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
+          
+            <div class="md-content" data-md-component="content">
               
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="building-an-image-overlay-api-with-express">Building an Image Overlay API with Express</h1>
@@ -3233,7 +3762,7 @@
 <h3 id="initializing-the-base-project">Initializing the Base Project</h3>
 <p>Let's get the base code set up. Start by cloning the new GitHub repo onto your local computer and navigate to that directory in a terminal (or command prompt, if you're on Windows).</p>
 <p>We can initialize a new Node.js project by typing the following in the terminal:</p>
-<div class="highlight"><pre><span></span><code>npm init
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>init
 </code></pre></div>
 <p>You'll be asked a bunch of questions – it's fine to press enter for each of the questions, the defaults are good to start with.</p>
 <h3 id="installing-packages">Installing Packages</h3>
@@ -3243,16 +3772,16 @@
 <li><a href="https://www.npmjs.com/package/canvas">node-canvas</a>, to put the images together. node-canvas is a graphics library that mimics an HTML canvas element. Canvas elements are 2D graphics elements that can be drawn on.</li>
 </ul>
 <p>Type the following in the terminal to install the packages:</p>
-<div class="highlight"><pre><span></span><code>npm install express canvas
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>express<span class="w"> </span>canvas
 </code></pre></div>
 <p>Now let's create an <code>index.js</code> file, which will be the main file for our app. An easy way to do this is to open up your project folder in an editor like <a href="https://code.visualstudio.com/">Visual Studio Code</a>. Now you can create a new <code>index.js</code> file. </p>
 <p><img alt="create index.js in visual studio" src="../../assets/tutorials/image-api/create-indexjs.gif" /></p>
 <p>Save this blank file. </p>
 <p>We also have a font file that we'll need to add to the project. Download and copy <a href="https://github.com/codecapsules-io/image-overlay-api/blob/main/ShortBaby.ttf">this font</a> to your project folder.</p>
 <p>Great, it's time to push this boilerplate project up to Git. We can do it with the following from the command prompt or terminal: </p>
-<div class="highlight"><pre><span></span><code>git add . 
-git commit -am <span class="s1">&#39;added libraries, index.js and font&#39;</span>
-git push origin
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span>
+git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s1">&#39;added libraries, index.js and font&#39;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin
 </code></pre></div>
 <h2 id="getting-started-with-express">Getting Started with Express</h2>
 <p>Let's define the inputs and interface of the API to build. We need the user to provide three elements:</p>
@@ -3262,29 +3791,29 @@ git push origin
 <li>A URL to a <code>logo</code> to use in the image.</li>
 </ul>
 <p>A call to the API should look similar to this: </p>
-<p><div class="highlight"><pre><span></span><code>https://image-api.codecapsules.co.za?background<span class="o">=</span>https://example.com/background.png<span class="p">&amp;</span><span class="nv">logo</span><span class="o">=</span>https://example.com/logo.png<span class="p">&amp;</span><span class="nv">text</span><span class="o">=</span>my inspirational message
+<p><div class="highlight"><pre><span></span><code>https://image-api.codecapsules.co.za?background<span class="o">=</span>https://example.com/background.png<span class="p">&amp;</span><span class="nv">logo</span><span class="o">=</span>https://example.com/logo.png<span class="p">&amp;</span><span class="nv">text</span><span class="o">=</span>my<span class="w"> </span>inspirational<span class="w"> </span>message
 </code></pre></div>
 When calling an API, the parameters are separated by <code>&amp;</code> and the key-value pairs are separated by <code>=</code>. The values are also typically URL encoded to ensure they are not misinterpreted. The above call URL encoded would be:</p>
 <div class="highlight"><pre><span></span><code>https://image-api.codecapsules.co.za?background<span class="o">=</span>https%3A%2F%2Fexample.com%2Fbackground.png<span class="p">&amp;</span><span class="nv">logo</span><span class="o">=</span>https%3A%2F%2Fexample.com%2Flogo.png<span class="p">&amp;</span><span class="nv">text</span><span class="o">=</span>my%20inspirational%20message
 </code></pre></div>
 <p><a href="http://expressjs.com">Express</a> is a popular and well established API framework for Node.js. It is built around the concept of <em>middleware</em> functions. Middleware functions are chained together to provide a processing pipeline for an API request. Let's take a brief look at what that means. </p>
 <p>A basic Express API route looks something like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre></div>
 <p>In this example, <code>app</code> refers to an Express application, which provides all the API functionality. The <code>"/"</code> defines the URL endpoint. In this case, it is just the root of the API. The inline function is the route handler, which takes the incoming request <code>req</code>, and provides an object to return the API's result <code>res</code>. </p>
 <p>This would be enough to create the image API, as we could put all the code in the one route handler function. However, because Express enables multiple middleware functions to be chained together, we can split our code up more logically. Express allows a route to have multiple chained functions, which are run one after the other. Instead of passing the route one route handler, Express allows us to pass an array of them, like this: </p>
-<p><div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// do something</span><span class="w"></span>
-<span class="w">  </span><span class="nx">next</span><span class="p">();</span><span class="w"></span>
-<span class="p">},</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// do something else</span><span class="w"></span>
-<span class="w">  </span><span class="nx">next</span><span class="p">();</span><span class="w"></span>
-<span class="p">},</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="c1">// send the response</span><span class="w"></span>
-<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}]);</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// do something</span>
+<span class="w">  </span><span class="nx">next</span><span class="p">();</span>
+<span class="p">},</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// do something else</span>
+<span class="w">  </span><span class="nx">next</span><span class="p">();</span>
+<span class="p">},</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// send the response</span>
+<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span>
+<span class="p">}]);</span>
 </code></pre></div>
 Notice that the <code>next()</code> function is called after each middleware function has completed its particular function. This is how we can chain together multiple middleware functions.</p>
 <p>The functions don't have to be inline – we can use named functions. This makes the code very readable, and it's like writing down the steps we need to take. We can then implement the functions one at a time. </p>
@@ -3299,38 +3828,38 @@ Notice that the <code>next()</code> function is called after each middleware fun
 <li>Clean up the downloaded and temporary files made. </li>
 </ul>
 <p>If we write this as a series of middleware functions for the route, it would look something like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">  </span><span class="nx">validateRequest</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">createIdentifier</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">downloadBackground</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">downloadLogo</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">composeImage</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">sendImage</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">cleanupFiles</span><span class="p">,</span><span class="w"></span>
-<span class="p">]);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nx">validateRequest</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">createIdentifier</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">downloadBackground</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">downloadLogo</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">composeImage</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">sendImage</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">cleanupFiles</span><span class="p">,</span>
+<span class="p">]);</span>
 </code></pre></div>
 <p>This is a very readable way to write the code. It becomes clear to others what steps the API route takes, and the order that it takes them. We can implement each of the steps one at a time.</p>
 <p>Let's start by adding the above code to the <code>index.js</code> file. We'll also need to import the Express library and set up the Express app. Put together, we can add the following code to the <code>index.js</code> file:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;express&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;express&quot;</span><span class="p">);</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;3000&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;3000&#39;</span><span class="p">;</span>
 
-<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">  </span><span class="nx">validateRequest</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">createIdentifier</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">downloadBackground</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">downloadLogo</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">composeImage</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">sendImage</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">cleanupFiles</span><span class="p">,</span><span class="w"></span>
-<span class="p">]);</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="nx">validateRequest</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">createIdentifier</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">downloadBackground</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">downloadLogo</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">composeImage</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">sendImage</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">cleanupFiles</span><span class="p">,</span>
+<span class="p">]);</span>
 
-<span class="c1">// Add the middleware function implementations below this line</span><span class="w"></span>
+<span class="c1">// Add the middleware function implementations below this line</span>
 
-<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Image API listening on port </span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">!`</span><span class="p">);</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Image API listening on port </span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">!`</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre></div>
 <ul>
 <li>The first line imports the Express library. </li>
@@ -3343,55 +3872,55 @@ Notice that the <code>next()</code> function is called after each middleware fun
 <p>Now that we have the outline of the API and a list of all the middleware we need to write, we can implement each step. </p>
 <h3 id="validation-middleware">Validation Middleware</h3>
 <p>To validate the request, we'll need to check that the request contains the required parameters. Express provides a <code>req</code> object that contains all the information about the request. The <code>req</code> object has a <code>query</code> property that contains the query parameters. We can use this to check that the request contains the required parameters. If it doesn't, we can return an HTTP <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"><code>400</code></a> error, which means that the there was something wrong with the request from the caller. We'll also provide a helpful message to the caller, so they are not left guessing what they did wrong. Add the following function just below the <code>Add the middleware functions below this line</code> comment.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">validateRequest</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">background</span><span class="p">){</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;missing background&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">logo</span><span class="p">){</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;missing logo&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">text</span><span class="p">){</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;missing text&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="nx">next</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">validateRequest</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">background</span><span class="p">){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;missing background&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">logo</span><span class="p">){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;missing logo&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">text</span><span class="p">){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;missing text&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="nx">next</span><span class="p">();</span>
+<span class="p">}</span>
 </code></pre></div>
 <h3 id="create-identifier-middleware">Create Identifier Middleware</h3>
 <p>Next up, we need to create a unique identifier for the request. This is because we'll be downloading the images from the request URLs, and we'll be creating an output composite image. We'll want to create a unique name, so that it's easy to refer to the images, and so that we can handle multiple requests in parallel. If we just called the downloaded images <code>background</code> and <code>logo</code> for example, as one request is being served, the files might get overwritten by another incoming request. We'd get the images crossed, and probably end up with some very strange end results. </p>
 <p>To create a unique identifier, we could just create a random number. This would work a lot of the time, but there is a chance that the same number could be chosen. Luckily, this problem has been solved with the very clever invention of something called a <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally Unique Identifier</a>, or UUID for short. They are also known as Globally Unique Identifiers, or GUIDs. UUIDs / GUIDs are a type of randomly generated identifier that is virtually guaranteed to be unique - in the whole world, not just our project!</p>
 <p>Node has a built-in cryptography module <code>crypto</code> that can create UUIDs. We can import the <code>crypto</code> module by adding the following <code>require</code> line to the top of the <code>index.js</code> file:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">crypto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">crypto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>Now let's implement the <code>createIdentifier</code> middleware function. Add the following function just below the previous middleware function:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">createIdentifier</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">identifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">crypto</span><span class="p">.</span><span class="nx">randomUUID</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">identifier</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="nx">next</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">createIdentifier</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">identifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">crypto</span><span class="p">.</span><span class="nx">randomUUID</span><span class="p">();</span>
+<span class="w">  </span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">identifier</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">next</span><span class="p">();</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>This function creates a random UUID and stores it in the <code>req</code> object. Since the <code>req</code> object is passed to each of the following middleware functions, we can access this identifier in all of the subsequent functions. You can store all kinds of information on the <code>req</code> object - it's sort of like a backpack that you can put stuff in and carry through all the middleware functions.</p>
 <h3 id="download-background-image-middleware">Download Background Image Middleware</h3>
 <p>Next up is the <code>downloadBackground</code> function. We need to make a web call to the URL provided by the caller, and save the image to work with later. We'll use the built-in <code>https</code> module to make the web call, and the <code>fs</code> module to save the image to a temporary location.</p>
 <p>First, we'll need to import the <code>https</code> and <code>fs</code> modules. Add the following <code>require</code> lines to the top of the <code>index.js</code> file:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;https&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;https&quot;</span><span class="p">);</span>
 </code></pre></div>
 <p>Now let's use these imports in the <code>downloadBackground</code> function. Add the following function just below the previous middleware function.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">downloadBackground</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">background</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="si">}</span><span class="sb">-background.jpg`</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">downloadBackground</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">background</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="si">}</span><span class="sb">-background.jpg`</span><span class="p">);</span>
 
-<span class="w">  </span><span class="nx">client</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">webRes</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">webRes</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">webRes</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">299</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="sb">`Got status code </span><span class="si">${</span><span class="nx">webRes</span><span class="p">.</span><span class="nx">statusCode</span><span class="si">}</span><span class="sb"> while downloading background`</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="nx">webRes</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">file</span><span class="p">).</span><span class="nx">once</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nx">next</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
-<span class="w">  </span><span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,(</span><span class="nx">err</span><span class="p">)=&gt;{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;error downloading background&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">client</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">webRes</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">webRes</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">webRes</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">299</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="sb">`Got status code </span><span class="si">${</span><span class="nx">webRes</span><span class="p">.</span><span class="nx">statusCode</span><span class="si">}</span><span class="sb"> while downloading background`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">webRes</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">file</span><span class="p">).</span><span class="nx">once</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">next</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,(</span><span class="nx">err</span><span class="p">)=&gt;{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;error downloading background&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Here we retrieve the URL of the image to download from the <code>req</code> object. This is stored in the <code>req.query.background</code> property. Then we create a file stream to write the image to. We'll use the <code>fs</code> module to create the file stream, using the <a href="https://nodejs.org/dist/latest-v16.x/docs/api/fs.html#filehandlecreatewritestreamoptions"><code>createWriteStream()</code></a> function. The argument to this function is the path to the file we want to write to. Notice that we combine the <code>identifier</code> we added to the <code>req</code>, along with the word <code>background</code> to make a unique filename.</p>
 <p>Then we make the web call to the URL. We use the built-in <code>https</code> module, using its <a href="https://nodejs.org/dist/latest-v16.x/docs/api/https.html#httpsgeturl-options-callback"><code>get()</code></a> function to make the web call. The first argument to this function is the URL to download the image from. The second argument is a callback function that is called when the web call is complete. The callback function passes a web response object to the callback.</p>
@@ -3400,60 +3929,60 @@ Notice that the <code>next()</code> function is called after each middleware fun
 <p>The <code>https</code> client also has an <code>error</code> event that we can listen for. Should any other errors occur, such as network errors, we return an error and exit early.</p>
 <h3 id="download-logo-image-middleware">Download Logo Image Middleware</h3>
 <p>To download the logo, we'll need to do the same thing as we did for the background image. Add the following function under the <code>downloadBackground</code> function.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">downloadLogo</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">logo</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="si">}</span><span class="sb">-logo.jpg`</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">downloadLogo</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">logo</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="si">}</span><span class="sb">-logo.jpg`</span><span class="p">);</span>
 
-<span class="w">  </span><span class="nx">client</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">webRes</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">webRes</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">webRes</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">299</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="sb">`Got status code </span><span class="si">${</span><span class="nx">webRes</span><span class="p">.</span><span class="nx">statusCode</span><span class="si">}</span><span class="sb"> while downloading logo`</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="nx">webRes</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">file</span><span class="p">).</span><span class="nx">once</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="nx">next</span><span class="p">();</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
-<span class="w">  </span><span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,(</span><span class="nx">err</span><span class="p">)=&gt;{</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;error downloading logo&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">});</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nx">client</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">webRes</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">webRes</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">webRes</span><span class="p">.</span><span class="nx">statusCode</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">299</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="sb">`Got status code </span><span class="si">${</span><span class="nx">webRes</span><span class="p">.</span><span class="nx">statusCode</span><span class="si">}</span><span class="sb"> while downloading logo`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">webRes</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">file</span><span class="p">).</span><span class="nx">once</span><span class="p">(</span><span class="s2">&quot;close&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">next</span><span class="p">();</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,(</span><span class="nx">err</span><span class="p">)=&gt;{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;error downloading logo&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
 </code></pre></div>
 <h3 id="compose-image-middleware">Compose Image Middleware</h3>
 <p>Now we get to the heart of the API's function: putting the images and text together in a composition. The <a href="https://www.npmjs.com/package/canvas"><code>canvas</code></a> module can do all of this for us. First, we'll need to import the <code>canvas</code> module. Add the following <code>require</code> line to the top of the <code>index.js</code> file:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">,</span><span class="w"> </span><span class="nx">loadImage</span><span class="p">,</span><span class="w"> </span><span class="nx">registerFont</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;canvas&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">,</span><span class="w"> </span><span class="nx">loadImage</span><span class="p">,</span><span class="w"> </span><span class="nx">registerFont</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;canvas&quot;</span><span class="p">);</span>
 </code></pre></div>
 <p>This imports two functions that we'll need from the <code>canvas</code> module. The <code>createCanvas</code> function creates a canvas object that we can draw our composite image on, and the <code>loadImage</code> function loads images from the file system. Using <code>loadImage</code> we can load the images we downloaded earlier, and then draw them to the canvas to create our composite image.</p>
-<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">composeImage</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">composeImage</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">background</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">loadImage</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="si">}</span><span class="sb">-background.jpg`</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">logo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">loadImage</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="si">}</span><span class="sb">-logo.jpg`</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">background</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">loadImage</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="si">}</span><span class="sb">-background.jpg`</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">logo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">loadImage</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="si">}</span><span class="sb">-logo.jpg`</span><span class="p">);</span>
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">background</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">background</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">background</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">background</span><span class="p">.</span><span class="nx">height</span><span class="p">;</span>
 
-<span class="w">  </span><span class="nx">registerFont</span><span class="p">(</span><span class="s2">&quot;./ShortBaby.ttf&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">family</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ShortBaby&quot;</span><span class="w"> </span><span class="p">});</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nx">registerFont</span><span class="p">(</span><span class="s2">&quot;./ShortBaby.ttf&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">family</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ShortBaby&quot;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">canvas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createCanvas</span><span class="p">(</span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;2d&quot;</span><span class="p">);</span>
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">logoPadding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">20</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">background</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">logo</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">logo</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">logoPadding</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">logo</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">logoPadding</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">logoPadding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">20</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">background</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">logo</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">logo</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">logoPadding</span><span class="p">,</span><span class="w"> </span><span class="nx">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">logo</span><span class="p">.</span><span class="nx">height</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">logoPadding</span><span class="p">);</span>
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">textPadding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">30</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bold 70pt ShortBaby&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">textAlign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;left&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">textBaseline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;top&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">textPadding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">30</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">font</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bold 70pt ShortBaby&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">textAlign</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;left&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">textBaseline</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;top&quot;</span><span class="p">;</span>
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">textSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">measureText</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rgba(255, 255, 255, 0.8)&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">textSize</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2</span><span class="o">*</span><span class="nx">textPadding</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">textSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">measureText</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rgba(255, 255, 255, 0.8)&quot;</span>
+<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">fillRect</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">textSize</span><span class="p">.</span><span class="nx">width</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">2</span><span class="o">*</span><span class="nx">textPadding</span><span class="p">,</span><span class="w"> </span><span class="mf">200</span><span class="p">);</span>
 
-<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;#444&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">textPadding</span><span class="p">,</span><span class="w"> </span><span class="nx">textPadding</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;#444&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">text</span><span class="p">,</span><span class="w"> </span><span class="nx">textPadding</span><span class="p">,</span><span class="w"> </span><span class="nx">textPadding</span><span class="p">);</span>
 
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">toBuffer</span><span class="p">(</span><span class="s2">&quot;image/png&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nx">req</span><span class="p">.</span><span class="nx">compositeImageBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">buffer</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="nx">next</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">canvas</span><span class="p">.</span><span class="nx">toBuffer</span><span class="p">(</span><span class="s2">&quot;image/png&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">req</span><span class="p">.</span><span class="nx">compositeImageBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">buffer</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">next</span><span class="p">();</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>There is quite a bit of code in this function, so let's break it down. In the first two lines, we load up the <code>background</code> and <code>logo</code> images from file using the <code>loadImage</code> function, along with the identifier we stored in the <code>req</code> object. </p>
 <p>In the following two lines, we extract and store the width and height of the background image. Then we load up our font to use, before creating a new, blank canvas object with these dimensions. A blank canvas is like opening up Paint and creating a new file. After we create the canvas, we get a reference to the context of the canvas. The context is the interface to the canvas, and it's the way we draw onto the canvas. It has all the functions to add images, text, shapes, fills, etc. to your canvas. You can think of it as equivalent to the tools palette in Paint or Photoshop, with all the brushes, pens, buckets, etc. </p>
@@ -3465,35 +3994,35 @@ Notice that the <code>next()</code> function is called after each middleware fun
 <p>Finally, we use the <a href="https://github.com/Automattic/node-canvas#canvastobuffer"><code>toBuffer()</code></a> function to convert the canvas to a buffer, which is a binary representation of the image that we can use to write an image file. We then use the same trick we used to store the <code>identifier</code> on the request object <code>req</code>, so that it is available to the next middleware function to use.</p>
 <h3 id="returning-the-image">Returning the Image</h3>
 <p>Now we need to send the image back to the API caller. Add the following function after the <code>composeImage</code> function:</p>
-<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">sendImage</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;image/png&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">compositeImageBuffer</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">sendImage</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;image/png&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">compositeImageBuffer</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">next</span><span class="p">();</span><span class="w"> </span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </code></pre></div>
 <p>This function sets the header's <code>Content-Type</code> to <code>image/png</code>, which lets the API caller know the data type to expect. Then we use the <a href="http://expressjs.com/en/api.html#res.send"><code>send</code></a> function on the result object <code>res</code> to send the image buffer we saved onto the <code>req</code> object back to the API caller. Then we call <code>next()</code> to move on to the next function in the pipeline.</p>
 <h3 id="clean-up-middleware">Clean up Middleware</h3>
 <p>The next step is to clean up the downloaded files, as we don't need them once the image has been created and sent back to the API caller. We add empty callbacks, as we don't really need the result of the operation. In a production system, you might log the result in case there is an error when deleting. Add the following function after the <code>sendImage</code> function:</p>
-<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">cleanupFiles</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">fs</span><span class="p">.</span><span class="nx">unlink</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="si">}</span><span class="sb">-background.jpg`</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{});</span><span class="w"></span>
-<span class="w">  </span><span class="nx">fs</span><span class="p">.</span><span class="nx">unlink</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="si">}</span><span class="sb">-logo.jpg`</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{});</span><span class="w"></span>
-<span class="w">  </span><span class="nx">next</span><span class="p">();</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">cleanupFiles</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">fs</span><span class="p">.</span><span class="nx">unlink</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="si">}</span><span class="sb">-background.jpg`</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{});</span>
+<span class="w">  </span><span class="nx">fs</span><span class="p">.</span><span class="nx">unlink</span><span class="p">(</span><span class="sb">`./</span><span class="si">${</span><span class="nx">req</span><span class="p">.</span><span class="nx">identifier</span><span class="si">}</span><span class="sb">-logo.jpg`</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{});</span>
+<span class="w">  </span><span class="nx">next</span><span class="p">();</span>
+<span class="p">}</span>
 </code></pre></div>
 <h2 id="testing-the-api-out">Testing the API out</h2>
 <p>Now that the API is complete, we can test it out. First we need to start the API. From a terminal, run the following command:</p>
-<p><div class="highlight"><pre><span></span><code>node index.js
+<p><div class="highlight"><pre><span></span><code>node<span class="w"> </span>index.js
 </code></pre></div>
 You should see the message <code>Image API listening on port 3000</code> in the terminal. Our API is now listening for requests on port 3000.</p>
 <p>Let's test our API out with some example images and text. We'll use the <a href="https://codecapsules.io/assets/images/v2/logo-code-capsules-brand-dark.svg">Code Capsules logo</a>, and a stock image background image we've <a href="https://codecapsules.io/docs/assets/tutorials/image-api/background.png">linked here</a>. And of course, for the text, we'll use the classic "Hello World".</p>
 <p>Combining all this into the URL to call our API looks like this:</p>
-<div class="highlight"><pre><span></span><code>http://localhost:3000?background<span class="o">=</span>https://codecapsules.io/docs/assets/tutorials/image-api/background.png<span class="p">&amp;</span><span class="nv">logo</span><span class="o">=</span>https://codecapsules.io/assets/images/v2/logo-code-capsules-brand-dark.svg<span class="p">&amp;</span><span class="nv">text</span><span class="o">=</span>Hello World
+<div class="highlight"><pre><span></span><code>http://localhost:3000?background<span class="o">=</span>https://codecapsules.io/docs/assets/tutorials/image-api/background.png<span class="p">&amp;</span><span class="nv">logo</span><span class="o">=</span>https://codecapsules.io/assets/images/v2/logo-code-capsules-brand-dark.svg<span class="p">&amp;</span><span class="nv">text</span><span class="o">=</span>Hello<span class="w"> </span>World
 </code></pre></div>
 <p>As we discussed earlier, before we call this, we need to URL encode the parameters. There are a few online services to do this, like <a href="https://www.urlencoder.io">https://www.urlencoder.io</a>. After encoding the URL, it should look like this: </p>
 <div class="highlight"><pre><span></span><code>http://localhost:3000?background<span class="o">=</span>https%3A%2F%2Fcodecapsules.io%2Fdocs%2Fassets%2Ftutorials%2Fimage-api%2Fbackground.png<span class="p">&amp;</span><span class="nv">logo</span><span class="o">=</span>https%3A%2F%2Fcodecapsules.io%2Fassets%2Fimages%2Fv2%2Flogo-code-capsules-brand-dark.svg<span class="p">&amp;</span><span class="nv">text</span><span class="o">=</span>Hello%20World
 </code></pre></div>
 <p>If you have <a href="https://curl.se"><code>curl</code></a> installed, you can use the following command to test it out:</p>
-<p><div class="highlight"><pre><span></span><code>curl -X GET <span class="s2">&quot;http://localhost:3000?background=https%3A%2F%2Fcodecapsules.io%2Fdocs%2Fassets%2Ftutorials%2Fimage-api%2Fbackground.png&amp;logo=https%3A%2F%2Fcodecapsules.io%2Fassets%2Fimages%2Fv2%2Flogo-code-capsules-brand-dark.svg&amp;text=Hello%20World&quot;</span> &gt; output.png
+<p><div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span><span class="s2">&quot;http://localhost:3000?background=https%3A%2F%2Fcodecapsules.io%2Fdocs%2Fassets%2Ftutorials%2Fimage-api%2Fbackground.png&amp;logo=https%3A%2F%2Fcodecapsules.io%2Fassets%2Fimages%2Fv2%2Flogo-code-capsules-brand-dark.svg&amp;text=Hello%20World&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>output.png
 </code></pre></div>
 This will create the image, and save it to the file <code>output.png</code>. Open it up, and you should see the following:</p>
 <p><img alt="composite image from the api" src="../../assets/tutorials/image-api/output.png" /></p>
@@ -3502,9 +4031,9 @@ This will create the image, and save it to the file <code>output.png</code>. Ope
 </code></pre></div>
 <h2 id="add-commit-and-push-git-changes">Add, Commit, and Push Git Changes</h2>
 <p>Let's add and commit all the files we created to our local repository and then push them to the remote one. Do this by running the commands listed below in a terminal while in the project’s root folder:</p>
-<div class="highlight"><pre><span></span><code>git add -a
-git commit -m <span class="s2">&quot;Added image editing files&quot;</span>
-git push -u origin main
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>-a
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Added image editing files&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
 </code></pre></div>
 <p>Your remote repository will now be up to date with your local one.</p>
 <h2 id="deploy-to-code-capsules">Deploy to Code Capsules</h2>
@@ -3557,9 +4086,7 @@ git push -u origin main
               
                 
               
-              
-                Thanks for your feedback!
-              
+              Thanks for your feedback!
             </div>
           
             <div data-md-value="0" hidden>
@@ -3567,9 +4094,7 @@ git push -u origin main
               
                 
               
-              
-                Thanks for your feedback! We'll do our best to improve.
-              
+              Thanks for your feedback! We'll do our best to improve.
             </div>
           
         </div>
@@ -3577,52 +4102,18 @@ git push -u origin main
     </fieldset>
   </form>
 
-              
-            </article>
-            
-<script>var input,hash=location.hash.slice(1);hash.startsWith("__tabbed_")&&((input=document.getElementById(hash)).checked=!0)</script>
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../build-a-reader-mode-app-with-flask-and-redis/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Reader Mode App with Flask and Redis" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Reader Mode App with Flask and Redis
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../build-imgur-clone-uppy-caddy/" class="md-footer__link md-footer__link--next" aria-label="Next: Build an Imgur Clone with Uppy" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Build an Imgur Clone with Uppy
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3640,11 +4131,17 @@ git push -u origin main
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.720157f5.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2131bdac.min.js"></script>
+
+      <script src="../../assets/javascripts/bundle.b7178837.min.js"></script>
       
     
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXT5DSF"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
   </body>
 </html>
