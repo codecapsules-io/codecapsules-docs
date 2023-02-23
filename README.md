@@ -14,10 +14,10 @@ TODO: Insert how to setup on a fresh machine, like mac and windows (assume no py
 
 # Running
 
-docker run -p 5555:5555 -d eu.gcr.io/appstrax/code-capsules-docs:1.0.45
+docker run -p 5555:5555 -d eu.gcr.io/appstrax/code-capsules-docs:1.0.46
 
 # Building and Deploying
 
-docker build -t eu.gcr.io/appstrax/code-capsules-docs:1.0.45 .
+docker build -t eu.gcr.io/appstrax/code-capsules-docs:1.0.46 .
 
-docker push eu.gcr.io/appstrax/code-capsules-docs:1.0.45
+docker push eu.gcr.io/appstrax/code-capsules-docs:1.0.46
