@@ -13,10 +13,17 @@
         <link rel="canonical" href="https://codecapsules.io/docs/tutorials/build-a-docker-php-sqlite-app/">
       
       
+        <link rel="prev" href="../build-hex-color-identifier/">
+      
+      
+        <link rel="next" href="../build-flask-htmx-app/">
+      
+      
         
       
+      
       <link rel="icon" href="../../assets/cclogo.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8+insiders-4.19.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13+insiders-4.32.0">
     
     
       
@@ -24,11 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.485cfce5.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e95b5de1.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.6932e648.min.css">
       
       
 
@@ -50,12 +56,13 @@
   
 
 
-  
-  
-
-
-  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-165274631-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){if(document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document.forms.feedback){var e,a=document.forms.feedback;for(e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXT5DSF');</script>
+<!-- End Google Tag Manager -->
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -111,188 +118,6 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="">
   
     
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -341,7 +166,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
@@ -349,7 +173,6 @@
             </label>
           
         
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
@@ -391,7 +214,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -408,19 +231,20 @@
       
         
           
-            <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
-
-
-
-
+  
+  
   
     <li class="md-tabs__item">
       <a href="../.." class="md-tabs__link">
         
+  
+    
   
   Getting Started
 
@@ -430,12 +254,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -453,12 +274,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -476,14 +294,11 @@
 
       
         
-
   
-
-
-
-
   
     
+  
+  
     
     
       <li class="md-tabs__item">
@@ -501,12 +316,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -522,12 +334,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -545,12 +354,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -566,12 +372,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -604,6 +407,7 @@
                   <div class="md-sidebar__inner">
                     
 
+
   
 
 
@@ -621,10 +425,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -633,8 +433,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Getting Started
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -643,10 +450,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -739,8 +542,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           
@@ -749,8 +553,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Deployment
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -760,10 +571,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Deployment" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Deployment
+            
+  
+    Deployment
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -779,8 +594,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Angular
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -798,8 +620,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Bootstrap
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -817,8 +646,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Caddy Docker Website
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -836,8 +672,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Caddy Docker File Server
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -855,8 +698,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -874,8 +724,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -893,8 +750,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django + MongoDB
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -912,8 +776,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -931,8 +802,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -950,8 +828,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -969,8 +854,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -988,8 +880,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1007,8 +906,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + MongoDB
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1026,8 +932,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1045,8 +958,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Go
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1064,8 +984,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     HTML
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1083,8 +1010,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     HTML5up
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1102,8 +1036,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Java (Spring)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1121,8 +1062,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Java (Spring) + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1140,8 +1088,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     PHP Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1159,8 +1114,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Laravel Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1178,8 +1140,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MEAN (Mongo, Express, Angular)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1197,8 +1166,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MERN (Mongo, Express, React)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1216,8 +1192,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1235,8 +1218,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1254,8 +1244,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1273,8 +1270,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Express + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1292,8 +1296,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     NodeJS Discord Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1311,8 +1322,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     NodeJS Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1330,8 +1348,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Discord Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1349,8 +1374,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1368,8 +1400,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Polling NodeJS Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1387,8 +1426,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Polling Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1406,8 +1452,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     React
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1425,8 +1478,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Slack
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1444,8 +1504,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Svelte
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1463,8 +1530,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Vue
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1482,8 +1556,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     WhatsApp
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1500,10 +1581,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -1544,8 +1621,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
@@ -1554,8 +1632,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Reference
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -1565,10 +1650,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Reference
+            
+  
+    Reference
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1584,8 +1673,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Capsule Billing
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1603,8 +1699,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Capsule Management
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1622,8 +1725,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     State and file persistence
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1641,8 +1751,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Custom Domains
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1660,8 +1777,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     File Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1679,8 +1803,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MongoDB Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1698,8 +1829,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MySQL Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1717,8 +1855,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Redis Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1736,8 +1881,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Running database migrations
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1755,8 +1907,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Procfile
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1774,8 +1933,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Development
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1793,8 +1959,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Team Management
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1811,10 +1984,6 @@
     
       
       
-      
-
-
-
   
   
     
@@ -1875,8 +2044,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           
@@ -1885,8 +2055,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Tutorials
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -1896,10 +2073,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Tutorials
+            
+  
+    Tutorials
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1915,8 +2096,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Slackbot with Node.js
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1934,8 +2122,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MERN Job Board
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1953,8 +2148,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Web File Store
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1972,8 +2174,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Node.js Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1991,8 +2200,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2010,8 +2226,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask API
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2029,8 +2252,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Hex Color Identifier API
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2047,7 +2277,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
@@ -2057,8 +2287,15 @@
           
   
   <span class="md-ellipsis">
+    
+  
     CRUD with PHP and Docker
+  
+
+    
   </span>
+  
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -2067,8 +2304,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     CRUD with PHP and Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
       
@@ -2090,7 +2334,9 @@
         <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Requirements
+      
+        Requirements
+      
     </span>
   </a>
   
@@ -2099,7 +2345,9 @@
         <li class="md-nav__item">
   <a href="#project-set-up" class="md-nav__link">
     <span class="md-ellipsis">
-      Project Set Up
+      
+        Project Set Up
+      
     </span>
   </a>
   
@@ -2108,7 +2356,9 @@
         <li class="md-nav__item">
   <a href="#building-the-frontend" class="md-nav__link">
     <span class="md-ellipsis">
-      Building the Frontend
+      
+        Building the Frontend
+      
     </span>
   </a>
   
@@ -2117,7 +2367,9 @@
         <li class="md-nav__item">
   <a href="#adding-a-docker-file-and-running-our-app" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding a Docker File and Running our App
+      
+        Adding a Docker File and Running our App
+      
     </span>
   </a>
   
@@ -2126,7 +2378,9 @@
         <li class="md-nav__item">
   <a href="#adding-books" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Books
+      
+        Adding Books
+      
     </span>
   </a>
   
@@ -2135,7 +2389,9 @@
         <li class="md-nav__item">
   <a href="#building-the-backend" class="md-nav__link">
     <span class="md-ellipsis">
-      Building the Backend
+      
+        Building the Backend
+      
     </span>
   </a>
   
@@ -2144,7 +2400,9 @@
         <li class="md-nav__item">
   <a href="#retrieving-the-books-from-the-database" class="md-nav__link">
     <span class="md-ellipsis">
-      Retrieving the Books from the Database
+      
+        Retrieving the Books from the Database
+      
     </span>
   </a>
   
@@ -2153,7 +2411,9 @@
         <li class="md-nav__item">
   <a href="#adding-edit-and-delete-functionality" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Edit and Delete Functionality
+      
+        Adding Edit and Delete Functionality
+      
     </span>
   </a>
   
@@ -2162,7 +2422,9 @@
         <li class="md-nav__item">
   <a href="#deploying-the-application" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploying the Application
+      
+        Deploying the Application
+      
     </span>
   </a>
   
@@ -2171,7 +2433,9 @@
         <li class="md-nav__item">
   <a href="#deploying-to-code-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploying to Code Capsules
+      
+        Deploying to Code Capsules
+      
     </span>
   </a>
   
@@ -2196,8 +2460,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2215,8 +2486,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2234,8 +2512,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Generative Graphics
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2253,8 +2538,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Custom Domains
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2272,8 +2564,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Persistent Sleep Tracker Part 1
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2291,8 +2590,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Persistent Sleep Tracker Part 2
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2310,8 +2616,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Front-end Portfolio
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2329,8 +2642,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Stripe Checkout and Email Subscription with Flask
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2348,8 +2668,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Game Catalogue API with Node.js and MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2367,8 +2694,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Reader Mode App with Flask and Redis
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2386,8 +2720,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Image Overlay API with Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2405,8 +2746,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Build an Imgur Clone with Uppy
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2424,8 +2772,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     White-label Your App
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2442,10 +2797,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2468,23 +2819,35 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
         
         
-          <label class="md-nav__link" for="__nav_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
+    
+  
     FAQ
+  
+
+    
   </span>
+  
+  
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            FAQ
+            
+  
+    FAQ
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2498,8 +2861,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Teams, Spaces and Capsules
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2517,8 +2887,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Capsule?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2536,8 +2913,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Space?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2555,8 +2939,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Team?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2574,8 +2965,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     How Do I Add a Custom Domain?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2592,10 +2990,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2620,8 +3014,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           
@@ -2630,8 +3025,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Comparisons
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -2641,10 +3043,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Comparisons" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Comparisons
+            
+  
+    Comparisons
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2660,8 +3066,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     PaaS Providers
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2679,8 +3092,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Telegram Hosting Providers
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2698,8 +3118,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     SaaS vs PaaS vs IaaS
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2717,8 +3144,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Top Six Heroku Alternatives
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2735,10 +3169,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2757,23 +3187,35 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
         
         
-          <label class="md-nav__link" for="__nav_7">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
+    
+  
     Community
+  
+
+    
   </span>
+  
+  
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Community
+            
+  
+    Community
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2787,8 +3229,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Introducing Code Capsules
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2806,8 +3255,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Hack Days and Free Tech Consulting
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2825,8 +3281,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Founder Fridays
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2843,10 +3306,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2863,8 +3322,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           
@@ -2873,17 +3333,28 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Video Guides
+  
+
+    
   </span>
+  
+  
 
             </a>
             
           </div>
         
-        <nav class="md-nav" aria-label="Video Guides" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Video Guides
+            
+  
+    Video Guides
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2925,7 +3396,9 @@
         <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Requirements
+      
+        Requirements
+      
     </span>
   </a>
   
@@ -2934,7 +3407,9 @@
         <li class="md-nav__item">
   <a href="#project-set-up" class="md-nav__link">
     <span class="md-ellipsis">
-      Project Set Up
+      
+        Project Set Up
+      
     </span>
   </a>
   
@@ -2943,7 +3418,9 @@
         <li class="md-nav__item">
   <a href="#building-the-frontend" class="md-nav__link">
     <span class="md-ellipsis">
-      Building the Frontend
+      
+        Building the Frontend
+      
     </span>
   </a>
   
@@ -2952,7 +3429,9 @@
         <li class="md-nav__item">
   <a href="#adding-a-docker-file-and-running-our-app" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding a Docker File and Running our App
+      
+        Adding a Docker File and Running our App
+      
     </span>
   </a>
   
@@ -2961,7 +3440,9 @@
         <li class="md-nav__item">
   <a href="#adding-books" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Books
+      
+        Adding Books
+      
     </span>
   </a>
   
@@ -2970,7 +3451,9 @@
         <li class="md-nav__item">
   <a href="#building-the-backend" class="md-nav__link">
     <span class="md-ellipsis">
-      Building the Backend
+      
+        Building the Backend
+      
     </span>
   </a>
   
@@ -2979,7 +3462,9 @@
         <li class="md-nav__item">
   <a href="#retrieving-the-books-from-the-database" class="md-nav__link">
     <span class="md-ellipsis">
-      Retrieving the Books from the Database
+      
+        Retrieving the Books from the Database
+      
     </span>
   </a>
   
@@ -2988,7 +3473,9 @@
         <li class="md-nav__item">
   <a href="#adding-edit-and-delete-functionality" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Edit and Delete Functionality
+      
+        Adding Edit and Delete Functionality
+      
     </span>
   </a>
   
@@ -2997,7 +3484,9 @@
         <li class="md-nav__item">
   <a href="#deploying-the-application" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploying the Application
+      
+        Deploying the Application
+      
     </span>
   </a>
   
@@ -3006,7 +3495,9 @@
         <li class="md-nav__item">
   <a href="#deploying-to-code-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploying to Code Capsules
+      
+        Deploying to Code Capsules
+      
     </span>
   </a>
   
@@ -3020,10 +3511,12 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
+          
+            <div class="md-content" data-md-component="content">
               
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="building-a-book-recommendations-app-with-php-sqlite-and-docker">Building a Book Recommendations App with PHP, SQLite, and Docker</h1>
@@ -3047,8 +3540,8 @@
 <h2 id="project-set-up">Project Set Up</h2>
 <p>Let’s start by creating a project folder that will house all our files.</p>
 <p>In a terminal, navigate to the directory you’ll be keeping the application files in. Run the commands below to create the project folder and navigate into it.</p>
-<div class="highlight"><pre><span></span><code>mkdir book-recommendations
-<span class="nb">cd</span> book-recommendations
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>book-recommendations
+<span class="nb">cd</span><span class="w"> </span>book-recommendations
 </code></pre></div>
 <h2 id="building-the-frontend">Building the Frontend</h2>
 <p>Let’s begin by building our app’s index page. This page will use PHP and HTML as it will contain both static and dynamic content. Create a file named <code>index.php</code> in the project root folder and populate it with the code below:</p>
@@ -3087,12 +3580,12 @@
 <div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">php:8.0-apache</span>
 <span class="k">WORKDIR</span><span class="w"> </span><span class="s">/var/www/html</span>
 
-<span class="k">COPY</span><span class="w"> </span>. .
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
 <span class="k">EXPOSE</span><span class="w"> </span><span class="s">80</span>
 </code></pre></div>
 <p>This pulls an official Docker container which already has the PHP language installed and integrated with Apache, a web server. It copies all files from the local directory (in our case, just <code>index.php</code> for now), and exposes port 80, which is the port that Apache is set to serve files on.</p>
 <p>Now run the following command in your terminal.</p>
-<div class="highlight"><pre><span></span><code>docker build . -t book-app <span class="o">&amp;&amp;</span> docker run -p <span class="m">8000</span>:80 book-app
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>.<span class="w"> </span>-t<span class="w"> </span>book-app<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:80<span class="w"> </span>book-app
 </code></pre></div>
 <p>This builds a Docker image from the <code>Dockerfile</code> in the current directory and gives it <code>book-app</code> as a tag. The second command (after <code>&amp;&amp;</code>) runs the container, and maps our local port 8000 to the Docker port 80. Once it's running, you can visit <code>http://localhost:8000</code> in your web browser to see the application.</p>
 <p><img alt="Running frontend" src="../../assets/tutorials/docker-php-sqlite/frontend.png" /></p>
@@ -3133,7 +3626,7 @@
         <span class="nv">$stmt</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">();</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 </code></pre></div>
 <p>The code above connects to a <a href="https://www.sqlite.org/index.html">SQLite</a> database when the app is launched. SQLite is a lightweight alternative to full database systems such as PostgreSQL or MySQL. It stores all data in a simple file. It also automatically creates a database if you give it a file that doesn't exist, so in our case it will create the <code>books.db</code> file the first time we run this code.</p>
 <p>Note that we use a database directly in the <code>/tmp</code> folder of the Docker container. This means you'll lose all data every time you restart your application. We'll fix this towards the end of the tutorial when we deploy the application and set up persistent storage.</p>
@@ -3141,7 +3634,7 @@
 <p>To use this code from the main <code>index.php</code> file, add the following lines to the top.</p>
 <div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
 <span class="k">include</span> <span class="s2">&quot;app.php&quot;</span><span class="p">;</span>
-<span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span>
 </code></pre></div>
 <p>This imports all the code into <code>index.php</code>, as if you had written in that file. We keep most of the PHP code in a separate file to make our codebase better organized.</p>
 <p>You can run the application again now and you'll see that you're able to insert books using the form. However, we aren't ever reading the books from the database again, so they'll just disappear. Let's add some more logic to retrieve any saved books from the database and display them to the user.</p>
@@ -3167,7 +3660,7 @@
 <span class="x">            </span><span class="cp">&lt;?php</span>
             <span class="nv">$results</span> <span class="o">=</span> <span class="nx">getBooks</span><span class="p">(</span><span class="nv">$db</span><span class="p">);</span>
             <span class="k">while</span> <span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nv">$results</span><span class="o">-&gt;</span><span class="na">fetchArray</span><span class="p">())</span><span class="o">:</span>
-            <span class="cp">?&gt;</span><span class="x"></span>
+            <span class="cp">?&gt;</span>
 <span class="x">            &lt;tr&gt;</span>
 <span class="x">                &lt;td&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x">&lt;/td&gt;</span>
 <span class="x">                &lt;td&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s2">&quot;author&quot;</span><span class="p">];</span> <span class="cp">?&gt;</span><span class="x">&lt;/td&gt;</span>
@@ -3186,7 +3679,7 @@
 <span class="x">                    )&quot;&gt;Delete&lt;/button&gt;</span>
 <span class="x">                &lt;/td&gt;</span>
 <span class="x">            &lt;/tr&gt;</span>
-<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">endwhile</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">            </span><span class="cp">&lt;?php</span> <span class="k">endwhile</span><span class="p">;</span> <span class="cp">?&gt;</span>
 <span class="x">        &lt;/table&gt;</span>
 </code></pre></div>
 <p>Here we use our <code>getBooks</code> function to retrieve all the books and then a <code>while</code> loop to iterate through each one. We add each book as a new table row, displaying the title and the author in their own columns. We also add more columns with an "Edit" and "Delete" button for each book. The buttons call JavaScript functions (that we haven't written yet), passing in the ID, title, and author of the book that the user wants to edit or delete.</p>
@@ -3207,26 +3700,26 @@
 </code></pre></div>
 <p>These are two forms consisting only of hidden input fields, so they won't be visible to the user. We'll populate the values and submit them using JavaScript. The first form has values for <code>new_title</code> and <code>new_author</code> so we can update the database with new values supplied by the user. The "delete" form only has the book ID, as that's all we need to remove it from the database.</p>
 <p>We need matching JavaScript functions to use these forms, so add the following code to the <code>&lt;head&gt;</code> section of your <code>index.php</code> file.</p>
-<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="kd">function</span><span class="w"> </span><span class="nx">update_book</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">new_title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&quot;Please enter new title:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">new_title</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">new_title</span><span class="w">  </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">new_author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&quot;Please enter new author:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">new_author</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">new_author</span><span class="w">  </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;new_title&quot;</span><span class="p">).</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">new_title</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;new_author&quot;</span><span class="p">).</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">new_author</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;update_id&quot;</span><span class="p">).</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">id</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;updateForm&quot;</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="w">        </span><span class="kd">function</span><span class="w"> </span><span class="nx">update_book</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">new_title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&quot;Please enter new title:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">new_title</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">new_title</span><span class="w">  </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">new_author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&quot;Please enter new author:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">new_author</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">new_author</span><span class="w">  </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">            </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;new_title&quot;</span><span class="p">).</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">new_title</span><span class="p">;</span>
+<span class="w">            </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;new_author&quot;</span><span class="p">).</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">new_author</span><span class="p">;</span>
+<span class="w">            </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;update_id&quot;</span><span class="p">).</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">id</span><span class="p">;</span>
+<span class="w">            </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;updateForm&quot;</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="kd">function</span><span class="w"> </span><span class="nx">delete_book</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">is_sure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Deleting book &#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;&#39; by &#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">author</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;&#39;. Are you sure?&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">confirm</span><span class="p">(</span><span class="nx">is_sure</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;delete_id&quot;</span><span class="p">).</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">id</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;deleteForm&quot;</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="err">/script&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="kd">function</span><span class="w"> </span><span class="nx">delete_book</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span><span class="w"> </span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">author</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">is_sure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Deleting book &#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;&#39; by &#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">author</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;&#39;. Are you sure?&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">confirm</span><span class="p">(</span><span class="nx">is_sure</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;delete_id&quot;</span><span class="p">).</span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">id</span><span class="p">;</span>
+<span class="w">                </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;deleteForm&quot;</span><span class="p">).</span><span class="nx">submit</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/script&gt;</span>
 </code></pre></div>
 <p>We pass variables for the ID, title, and author to both functions. Although the existing title and ID are not strictly necessary, it's nice to show them to the user for reference when they are entering the new information or as a confirmation for the delete function. The update function prompts the user for a new title and author and then submits the update form, while the delete function confirms if the user really wants to delete that entry and then submits the delete form.</p>
 <p>Finally, to make these work on the backend, update the if statement in the <code>app.php</code> file to look as follows.</p>
@@ -3268,12 +3761,12 @@
 <li>Deploy the code to Code Capsules.</li>
 </ul>
 <p>Head over to <a href="https://github.com/">GitHub</a> and create a new repository. Then, in your project's root folder, run the commands below from the terminal, replacing "username" and "repository_name" with your own values from GitHub.</p>
-<div class="highlight"><pre><span></span><code>git init
-git add -A
-git commit -m <span class="s2">&quot;Added book recommendation app files&quot;</span>
-git branch -M main
-git remote add origin git@github.com:username/repository_name.git
-git push -u origin main
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>init
+git<span class="w"> </span>add<span class="w"> </span>-A
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Added book recommendation app files&quot;</span>
+git<span class="w"> </span>branch<span class="w"> </span>-M<span class="w"> </span>main
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>git@github.com:username/repository_name.git
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main
 </code></pre></div>
 <p>Your remote repository will now be up to date with your local one.</p>
 <h2 id="deploying-to-code-capsules">Deploying to Code Capsules</h2>
@@ -3321,9 +3814,7 @@ git push -u origin main
               
                 
               
-              
-                Thanks for your feedback!
-              
+              Thanks for your feedback!
             </div>
           
             <div data-md-value="0" hidden>
@@ -3331,9 +3822,7 @@ git push -u origin main
               
                 
               
-              
-                Thanks for your feedback! We'll do our best to improve.
-              
+              Thanks for your feedback! We'll do our best to improve.
             </div>
           
         </div>
@@ -3341,52 +3830,18 @@ git push -u origin main
     </fieldset>
   </form>
 
-              
-            </article>
-            
-<script>var input,hash=location.hash.slice(1);hash.startsWith("__tabbed_")&&((input=document.getElementById(hash)).checked=!0)</script>
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../build-hex-color-identifier/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Hex Color Identifier API" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Hex Color Identifier API
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../build-flask-htmx-app/" class="md-footer__link md-footer__link--next" aria-label="Next: Flask HTMx" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Flask HTMx
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3404,11 +3859,17 @@ git push -u origin main
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.720157f5.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2131bdac.min.js"></script>
+
+      <script src="../../assets/javascripts/bundle.b7178837.min.js"></script>
       
     
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXT5DSF"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
   </body>
 </html>

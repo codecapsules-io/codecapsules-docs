@@ -13,10 +13,17 @@
         <link rel="canonical" href="https://codecapsules.io/docs/tutorials/build-slackbot-with-node/">
       
       
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../build-mern-job-board/">
+      
+      
         
       
+      
       <link rel="icon" href="../../assets/cclogo.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8+insiders-4.19.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13+insiders-4.32.0">
     
     
       
@@ -24,11 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.485cfce5.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e95b5de1.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.6932e648.min.css">
       
       
 
@@ -50,12 +56,13 @@
   
 
 
-  
-  
-
-
-  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-165274631-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){if(document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document.forms.feedback){var e,a=document.forms.feedback;for(e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXT5DSF');</script>
+<!-- End Google Tag Manager -->
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -111,188 +118,6 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="">
   
     
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -341,7 +166,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
@@ -349,7 +173,6 @@
             </label>
           
         
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
@@ -391,7 +214,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -408,19 +231,20 @@
       
         
           
-            <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
-
-
-
-
+  
+  
   
     <li class="md-tabs__item">
       <a href="../.." class="md-tabs__link">
         
+  
+    
   
   Getting Started
 
@@ -430,12 +254,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -453,12 +274,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -476,14 +294,11 @@
 
       
         
-
   
-
-
-
-
   
     
+  
+  
     
     
       <li class="md-tabs__item">
@@ -501,12 +316,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -522,12 +334,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -545,12 +354,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -566,12 +372,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -604,6 +407,7 @@
                   <div class="md-sidebar__inner">
                     
 
+
   
 
 
@@ -621,10 +425,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -633,8 +433,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Getting Started
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -643,10 +450,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -739,8 +542,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           
@@ -749,8 +553,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Deployment
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -760,10 +571,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Deployment" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Deployment
+            
+  
+    Deployment
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -779,8 +594,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Angular
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -798,8 +620,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Bootstrap
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -817,8 +646,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Caddy Docker Website
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -836,8 +672,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Caddy Docker File Server
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -855,8 +698,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -874,8 +724,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -893,8 +750,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django + MongoDB
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -912,8 +776,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -931,8 +802,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -950,8 +828,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -969,8 +854,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -988,8 +880,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1007,8 +906,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + MongoDB
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1026,8 +932,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1045,8 +958,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Go
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1064,8 +984,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     HTML
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1083,8 +1010,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     HTML5up
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1102,8 +1036,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Java (Spring)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1121,8 +1062,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Java (Spring) + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1140,8 +1088,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     PHP Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1159,8 +1114,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Laravel Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1178,8 +1140,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MEAN (Mongo, Express, Angular)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1197,8 +1166,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MERN (Mongo, Express, React)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1216,8 +1192,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1235,8 +1218,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1254,8 +1244,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1273,8 +1270,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Express + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1292,8 +1296,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     NodeJS Discord Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1311,8 +1322,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     NodeJS Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1330,8 +1348,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Discord Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1349,8 +1374,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1368,8 +1400,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Polling NodeJS Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1387,8 +1426,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Polling Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1406,8 +1452,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     React
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1425,8 +1478,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Slack
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1444,8 +1504,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Svelte
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1463,8 +1530,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Vue
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1482,8 +1556,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     WhatsApp
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1500,10 +1581,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -1544,8 +1621,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
@@ -1554,8 +1632,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Reference
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -1565,10 +1650,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Reference
+            
+  
+    Reference
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1584,8 +1673,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Capsule Billing
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1603,8 +1699,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Capsule Management
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1622,8 +1725,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     State and file persistence
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1641,8 +1751,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Custom Domains
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1660,8 +1777,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     File Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1679,8 +1803,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MongoDB Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1698,8 +1829,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MySQL Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1717,8 +1855,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Redis Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1736,8 +1881,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Running database migrations
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1755,8 +1907,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Procfile
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1774,8 +1933,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Development
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1793,8 +1959,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Team Management
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1811,10 +1984,6 @@
     
       
       
-      
-
-
-
   
   
     
@@ -1875,8 +2044,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           
@@ -1885,8 +2055,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Tutorials
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -1896,10 +2073,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Tutorials
+            
+  
+    Tutorials
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1914,7 +2095,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
@@ -1924,8 +2105,15 @@
           
   
   <span class="md-ellipsis">
+    
+  
     Slackbot with Node.js
+  
+
+    
   </span>
+  
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1934,8 +2122,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Slackbot with Node.js
+  
+
+    
   </span>
+  
+  
 
       </a>
       
@@ -1957,7 +2152,9 @@
         <li class="md-nav__item">
   <a href="#overview-and-requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview and Requirements
+      
+        Overview and Requirements
+      
     </span>
   </a>
   
@@ -1966,7 +2163,9 @@
         <li class="md-nav__item">
   <a href="#setting-up-the-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting Up the Project
+      
+        Setting Up the Project
+      
     </span>
   </a>
   
@@ -1976,7 +2175,9 @@
           <li class="md-nav__item">
   <a href="#create-a-new-repo-on-github" class="md-nav__link">
     <span class="md-ellipsis">
-      Create a new repo on GitHub
+      
+        Create a new repo on GitHub
+      
     </span>
   </a>
   
@@ -1985,7 +2186,9 @@
           <li class="md-nav__item">
   <a href="#initialise-the-base-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Initialise the base project
+      
+        Initialise the base project
+      
     </span>
   </a>
   
@@ -1994,7 +2197,9 @@
           <li class="md-nav__item">
   <a href="#install-our-packages" class="md-nav__link">
     <span class="md-ellipsis">
-      Install our packages
+      
+        Install our packages
+      
     </span>
   </a>
   
@@ -2003,7 +2208,9 @@
           <li class="md-nav__item">
   <a href="#create-a-new-code-capsule" class="md-nav__link">
     <span class="md-ellipsis">
-      Create a new Code Capsule
+      
+        Create a new Code Capsule
+      
     </span>
   </a>
   
@@ -2012,7 +2219,9 @@
           <li class="md-nav__item">
   <a href="#register-an-app-on-slack" class="md-nav__link">
     <span class="md-ellipsis">
-      Register an app on Slack
+      
+        Register an app on Slack
+      
     </span>
   </a>
   
@@ -2026,7 +2235,9 @@
         <li class="md-nav__item">
   <a href="#writing-the-slackbot-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Writing the Slackbot Code
+      
+        Writing the Slackbot Code
+      
     </span>
   </a>
   
@@ -2036,7 +2247,9 @@
           <li class="md-nav__item">
   <a href="#adding-the-base-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding the base code
+      
+        Adding the base code
+      
     </span>
   </a>
   
@@ -2045,7 +2258,9 @@
           <li class="md-nav__item">
   <a href="#sending-a-startup-message-to-slack" class="md-nav__link">
     <span class="md-ellipsis">
-      Sending a startup message to Slack
+      
+        Sending a startup message to Slack
+      
     </span>
   </a>
   
@@ -2054,7 +2269,9 @@
           <li class="md-nav__item">
   <a href="#deploying-to-code-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploying to Code Capsules
+      
+        Deploying to Code Capsules
+      
     </span>
   </a>
   
@@ -2063,7 +2280,9 @@
           <li class="md-nav__item">
   <a href="#adding-a-slash-command" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding a slash command
+      
+        Adding a slash command
+      
     </span>
   </a>
   
@@ -2072,7 +2291,9 @@
           <li class="md-nav__item">
   <a href="#adding-verification" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding verification
+      
+        Adding verification
+      
     </span>
   </a>
   
@@ -2086,7 +2307,9 @@
         <li class="md-nav__item">
   <a href="#things-to-try-next" class="md-nav__link">
     <span class="md-ellipsis">
-      Things to Try Next
+      
+        Things to Try Next
+      
     </span>
   </a>
   
@@ -2111,8 +2334,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MERN Job Board
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2130,8 +2360,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Web File Store
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2149,8 +2386,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Node.js Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2168,8 +2412,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2187,8 +2438,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask API
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2206,8 +2464,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Hex Color Identifier API
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2225,8 +2490,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     CRUD with PHP and Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2244,8 +2516,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2263,8 +2542,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2282,8 +2568,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Generative Graphics
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2301,8 +2594,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Custom Domains
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2320,8 +2620,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Persistent Sleep Tracker Part 1
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2339,8 +2646,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Persistent Sleep Tracker Part 2
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2358,8 +2672,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Front-end Portfolio
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2377,8 +2698,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Stripe Checkout and Email Subscription with Flask
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2396,8 +2724,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Game Catalogue API with Node.js and MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2415,8 +2750,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Reader Mode App with Flask and Redis
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2434,8 +2776,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Image Overlay API with Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2453,8 +2802,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Build an Imgur Clone with Uppy
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2472,8 +2828,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     White-label Your App
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2490,10 +2853,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2516,23 +2875,35 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
         
         
-          <label class="md-nav__link" for="__nav_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
+    
+  
     FAQ
+  
+
+    
   </span>
+  
+  
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            FAQ
+            
+  
+    FAQ
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2546,8 +2917,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Teams, Spaces and Capsules
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2565,8 +2943,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Capsule?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2584,8 +2969,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Space?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2603,8 +2995,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Team?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2622,8 +3021,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     How Do I Add a Custom Domain?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2640,10 +3046,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2668,8 +3070,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           
@@ -2678,8 +3081,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Comparisons
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -2689,10 +3099,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Comparisons" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Comparisons
+            
+  
+    Comparisons
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2708,8 +3122,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     PaaS Providers
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2727,8 +3148,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Telegram Hosting Providers
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2746,8 +3174,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     SaaS vs PaaS vs IaaS
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2765,8 +3200,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Top Six Heroku Alternatives
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2783,10 +3225,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2805,23 +3243,35 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
         
         
-          <label class="md-nav__link" for="__nav_7">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
+    
+  
     Community
+  
+
+    
   </span>
+  
+  
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Community
+            
+  
+    Community
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2835,8 +3285,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Introducing Code Capsules
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2854,8 +3311,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Hack Days and Free Tech Consulting
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2873,8 +3337,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Founder Fridays
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2891,10 +3362,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2911,8 +3378,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           
@@ -2921,17 +3389,28 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Video Guides
+  
+
+    
   </span>
+  
+  
 
             </a>
             
           </div>
         
-        <nav class="md-nav" aria-label="Video Guides" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Video Guides
+            
+  
+    Video Guides
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2973,7 +3452,9 @@
         <li class="md-nav__item">
   <a href="#overview-and-requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview and Requirements
+      
+        Overview and Requirements
+      
     </span>
   </a>
   
@@ -2982,7 +3463,9 @@
         <li class="md-nav__item">
   <a href="#setting-up-the-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting Up the Project
+      
+        Setting Up the Project
+      
     </span>
   </a>
   
@@ -2992,7 +3475,9 @@
           <li class="md-nav__item">
   <a href="#create-a-new-repo-on-github" class="md-nav__link">
     <span class="md-ellipsis">
-      Create a new repo on GitHub
+      
+        Create a new repo on GitHub
+      
     </span>
   </a>
   
@@ -3001,7 +3486,9 @@
           <li class="md-nav__item">
   <a href="#initialise-the-base-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Initialise the base project
+      
+        Initialise the base project
+      
     </span>
   </a>
   
@@ -3010,7 +3497,9 @@
           <li class="md-nav__item">
   <a href="#install-our-packages" class="md-nav__link">
     <span class="md-ellipsis">
-      Install our packages
+      
+        Install our packages
+      
     </span>
   </a>
   
@@ -3019,7 +3508,9 @@
           <li class="md-nav__item">
   <a href="#create-a-new-code-capsule" class="md-nav__link">
     <span class="md-ellipsis">
-      Create a new Code Capsule
+      
+        Create a new Code Capsule
+      
     </span>
   </a>
   
@@ -3028,7 +3519,9 @@
           <li class="md-nav__item">
   <a href="#register-an-app-on-slack" class="md-nav__link">
     <span class="md-ellipsis">
-      Register an app on Slack
+      
+        Register an app on Slack
+      
     </span>
   </a>
   
@@ -3042,7 +3535,9 @@
         <li class="md-nav__item">
   <a href="#writing-the-slackbot-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Writing the Slackbot Code
+      
+        Writing the Slackbot Code
+      
     </span>
   </a>
   
@@ -3052,7 +3547,9 @@
           <li class="md-nav__item">
   <a href="#adding-the-base-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding the base code
+      
+        Adding the base code
+      
     </span>
   </a>
   
@@ -3061,7 +3558,9 @@
           <li class="md-nav__item">
   <a href="#sending-a-startup-message-to-slack" class="md-nav__link">
     <span class="md-ellipsis">
-      Sending a startup message to Slack
+      
+        Sending a startup message to Slack
+      
     </span>
   </a>
   
@@ -3070,7 +3569,9 @@
           <li class="md-nav__item">
   <a href="#deploying-to-code-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Deploying to Code Capsules
+      
+        Deploying to Code Capsules
+      
     </span>
   </a>
   
@@ -3079,7 +3580,9 @@
           <li class="md-nav__item">
   <a href="#adding-a-slash-command" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding a slash command
+      
+        Adding a slash command
+      
     </span>
   </a>
   
@@ -3088,7 +3591,9 @@
           <li class="md-nav__item">
   <a href="#adding-verification" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding verification
+      
+        Adding verification
+      
     </span>
   </a>
   
@@ -3102,7 +3607,9 @@
         <li class="md-nav__item">
   <a href="#things-to-try-next" class="md-nav__link">
     <span class="md-ellipsis">
-      Things to Try Next
+      
+        Things to Try Next
+      
     </span>
   </a>
   
@@ -3116,10 +3623,12 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
+          
+            <div class="md-content" data-md-component="content">
               
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="build-a-slackbot-with-nodejs-to-monitor-your-applications">Build a Slackbot with Node.js to Monitor your Applications</h1>
@@ -3146,7 +3655,7 @@
 <p>Now we can get some base code set up. Let's start by cloning the new GitHub repo onto our local computer.</p>
 <p>Now, go into the directory of the repo you've just cloned. </p>
 <p>We can initialise a new Node.js project by typing the following at the terminal (or command prompt, if you're on Windows):</p>
-<div class="highlight"><pre><span></span><code>npm init
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>init
 </code></pre></div>
 <p>We can just press <em>enter</em> for each of the questions it asks; the defaults are good to start with. </p>
 <h3 id="install-our-packages">Install our packages</h3>
@@ -3157,15 +3666,15 @@
 <li><a href="https://www.npmjs.com/package/superagent">superagent</a>: This package allows us to make outgoing HTTP requests. We'll need this to send a message to Slack. </li>
 </ul>
 <p>Let's type in the following at the terminal to install the packages:</p>
-<div class="highlight"><pre><span></span><code>npm install express body-parser superagent 
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>express<span class="w"> </span>body-parser<span class="w"> </span>superagent<span class="w"> </span>
 </code></pre></div>
 <p>Now let's create an <code>index.js</code> file, which will be the main file for our app. A simple way to do this is to open up your project folder in an editor, like <a href="https://code.visualstudio.com">Visual Studio Code</a>. Now you can create a new <code>index.js</code> file. </p>
 <p><img alt="create indexjs in visual studio" src="../../assets/tutorials/build-slackbot-with-node/create-indexjs.gif" /></p>
 <p>Save this blank file. </p>
 <p>Great, it's time to push this boilerplate project up to Git. We can do it from the terminal with the following: </p>
-<div class="highlight"><pre><span></span><code>git add . 
-git commit -am <span class="s1">&#39;added base files for project&#39;</span>
-git push origin
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span>
+git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s1">&#39;added base files for project&#39;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin
 </code></pre></div>
 <h3 id="create-a-new-code-capsule">Create a new Code Capsule</h3>
 <p>We'll need a place to host our app.</p>
@@ -3203,12 +3712,12 @@ git push origin
 <p>Let's add the boilerplate code to startup a new Express server. Open up the <code>index.js</code> file and add the following:  </p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span><span class="w"> </span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span>
 
-<span class="kd">let</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">3000</span><span class="p">;</span><span class="w"></span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span><span class="w"> </span><span class="p">()=&gt;{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`App listening on port </span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">3000</span><span class="p">;</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span><span class="w"> </span><span class="p">()=&gt;{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`App listening on port </span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">});</span>
 </code></pre></div>
 <h3 id="sending-a-startup-message-to-slack">Sending a startup message to Slack</h3>
 <p>Ok, cool, we've got the base code to create an Express app, and start it up to begin listening for requests. Now we can add some code to send a message to Slack when it boots up, not just locally to the console. If we look at the <a href="https://api.slack.com/messaging/sending">docs on Slack</a>, we see that we can POST to the endpoint <code>https://slack.com/api/chat.postMessage</code> to send a message. In their example, they specify that we need:
@@ -3227,101 +3736,101 @@ git push origin
 <p>We also need to invite our bot to the chosen channel, so that it will be able to post there. Go to the channel, and @ mention the name you gave the bot to add it. Click "Invite Them" when Slack prompts you. </p>
 <p><img alt="invite bot to channel" src="../../assets/tutorials/build-slackbot-with-node/invite-bot.png" /></p>
 <p>Now let's add the code to call Slack on startup, and write a message to our channel. We can modify our boilerplate code above to make the HTTP POST to the endpoint https://slack.com/api/chat.postMessage. We'll use <a href="https://www.npmjs.com/package/superagent">Superagent</a> to make the call. </p>
-<p><div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">superagent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;superagent&#39;</span><span class="p">);</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">superagent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;superagent&#39;</span><span class="p">);</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span>
 
-<span class="kd">let</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">3000</span><span class="p">;</span><span class="w"></span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span><span class="w"> </span><span class="p">()=&gt;{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`App listening on port </span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span><span class="w"></span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="mf">3000</span><span class="p">;</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span><span class="w"> </span><span class="p">()=&gt;{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`App listening on port </span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
 <span class="w">  </span><span class="nx">sendStartupMessageToSlack</span><span class="p">();</span><span class="w"> </span>
-<span class="p">});</span><span class="w"></span>
+<span class="p">});</span>
 
-<span class="kd">function</span><span class="w"> </span><span class="nx">sendStartupMessageToSlack</span><span class="p">(){</span><span class="w"></span>
-<span class="w">    </span><span class="nx">superagent</span><span class="w"></span>
-<span class="w">      </span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;https://slack.com/api/chat.postMessage&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">sendStartupMessageToSlack</span><span class="p">(){</span>
+<span class="w">    </span><span class="nx">superagent</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;https://slack.com/api/chat.postMessage&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">send</span><span class="p">({</span>
 <span class="w">        </span><span class="nx">channel</span><span class="o">:</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SLACK_CHANNEL_ID</span><span class="p">,</span><span class="w"> </span>
-<span class="w">        </span><span class="nx">text</span><span class="o">:</span><span class="s2">&quot;I&#39;m alive and running&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="p">})</span><span class="w"></span>
-<span class="w">      </span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;accept&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;json&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Authorization&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bearer &#39;</span><span class="o">+</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SLACK_BOT_TOKEN</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="p">.</span><span class="nx">end</span><span class="p">((</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="p">});</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="nx">text</span><span class="o">:</span><span class="s2">&quot;I&#39;m alive and running&quot;</span>
+<span class="w">      </span><span class="p">})</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;accept&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;json&#39;</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;Authorization&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bearer &#39;</span><span class="o">+</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SLACK_BOT_TOKEN</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">end</span><span class="p">((</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">result</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="p">});</span>
+<span class="p">}</span>
 </code></pre></div>
 We've added in a function <code>sendStartupMessageToSlack</code> which makes the call out to Slack. Notice that we send the auth token in a header, using <code>.set('Authorization', 'Bearer '+ process.env.SLACK_BOT_TOKEN)</code>. The <code>Authorization</code> header is a standard HTTP header. </p>
 <p>The channel and the message are sent in the body. Feel free to modify the startup message from <em>I'm alive and running</em> to whatever you'd like. </p>
 <h3 id="deploying-to-code-capsules">Deploying to Code Capsules</h3>
 <p>This seems like a great time to test out our app on Code Capsules. But before we do that, there is one thing we have to do to make it work. We need to tell Code Capsules how to run our app. By default, Code Capsules will call <code>npm start</code> after deploying the code. Therefore, we just need to add a <code>start</code> script to our <code>package.json</code> file in order for our code to be run on Code Capsules. </p>
 <p>Open the <code>package.json</code> file. Under the <code>scripts</code> section, add the line <code>"start": "node index.js"</code>. The <code>package.json</code> file should look like this now: </p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;slackbot&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;test&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node index.js&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ISC&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;body-parser&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^1.19.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;express&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^4.17.1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;superagent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^6.1.0&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;slackbot&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;test&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;node index.js&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ISC&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;body-parser&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^1.19.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;express&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^4.17.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;superagent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^6.1.0&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Ok, let's save all the files we've created, add and commit, and then push to our repo. When Code Capsules sees that there is a new commit, it will automatically deploy our code. </p>
-<div class="highlight"><pre><span></span><code>git add . 
-git commit -am <span class="s1">&#39;added code to call Slack on startup&#39;</span>
-git push origin
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span>
+git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s1">&#39;added code to call Slack on startup&#39;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin
 </code></pre></div>
 <p>If all goes well, in a few minutes you should get a message on your Slack channel from your code!</p>
 <p><img alt="startup message" src="../../assets/tutorials/build-slackbot-with-node/startup-message.png" /></p>
 <h3 id="adding-a-slash-command">Adding a slash command</h3>
 <p>Now that our app can send us messages, can we send messages back to it? Let's implement the slash command, which will allow us to ask our app for some of its important stats and info. This time, Slack will send an HTTP POST to our app. If we take a look at the <a href="https://api.slack.com/interactivity/slash-commands#app_command_handling">Slack docs again</a>, we notice that Slack will send the slash command instruction to the URL we specified in the command set up earlier. We can also see that the POST payload is in the format <a href="https://www.w3schools.com/html/html_urlencode.asp"><code>application/x-www-form-urlencoded</code></a>. We can set up a <a href="https://github.com/expressjs/body-parser/tree/1.19.0#bodyparserurlencodedoptions"><code>body-parser</code></a> to interpret this data.</p>
 <p>Let's extend our code with the snippet below to implement the slash command receiver as specified in the Slack docs. First add a require statement for <code>body-parser</code> at the top.</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">bodyParser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;body-parser&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">bodyParser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;body-parser&quot;</span><span class="p">);</span>
 </code></pre></div>
 <p>Then add the code below: </p>
-<p><div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">());</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">());</span>
 
-<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/slack/command/stats&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">slackReqObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">packageJson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./package.json&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/slack/command/stats&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">slackReqObj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">packageJson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./package.json&#39;</span><span class="p">);</span>
 
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">current_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">();</span><span class="w"> </span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">stats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">packageJson</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="nx">packageJson</span><span class="p">.</span><span class="nx">version</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">environment</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">platform</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">platform</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">architecture</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">arch</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">node_version</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">version</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">pid</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">pid</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">current_server_time</span><span class="o">:</span><span class="w"> </span><span class="nx">current_time</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span><span class="w"></span>
-<span class="w">    </span><span class="nx">uptime</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">uptime</span><span class="p">(),</span><span class="w"></span>
-<span class="w">    </span><span class="nx">memory_usage</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">memoryUsage</span><span class="p">()</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">stats</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="nx">packageJson</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">version</span><span class="o">:</span><span class="w"> </span><span class="nx">packageJson</span><span class="p">.</span><span class="nx">version</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">environment</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">platform</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">platform</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">architecture</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">arch</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">node_version</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">version</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">pid</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">pid</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">current_server_time</span><span class="o">:</span><span class="w"> </span><span class="nx">current_time</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">uptime</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">uptime</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">memory_usage</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">memoryUsage</span><span class="p">()</span>
+<span class="w">  </span><span class="p">};</span>
 
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">response_type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;in_channel&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">channel</span><span class="o">:</span><span class="w"> </span><span class="nx">slackReqObj</span><span class="p">.</span><span class="nx">channel_id</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">stats</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;\t&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">response_type</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;in_channel&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">channel</span><span class="o">:</span><span class="w"> </span><span class="nx">slackReqObj</span><span class="p">.</span><span class="nx">channel_id</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">stats</span><span class="p">,</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;\t&#39;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">};</span>
 
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span><span class="w"> </span>
-<span class="p">}]);</span><span class="w"></span>
+<span class="p">}]);</span>
 </code></pre></div>
 This code listens for incoming POST calls on the line <code>app.post('/slack/command/stats', [function(req,res){</code>. If we receive one, we build up a return object, consisting of various interesting stats and info. This includes the current time on the server (in case it is in a different time zone to us), the name and version of our app as set in the <code>package.json</code> file, and various environment and process info.</p>
 <p>Then it replies to the request in the format specified by Slack in their docs. We use the line <code>text: JSON.stringify(stats, null, '\t')</code> to turn our info and stats object into a nicely formatted text string, in the style of a JSON object. </p>
 <p>Then, in the line <code>return res.json(response);</code>, we return all the info back to Slack to display as the response to a matching slash command. </p>
 <p>Great, now we can commit and push this code. </p>
-<div class="highlight"><pre><span></span><code>git commit -am <span class="s1">&#39;added handler for slash command&#39;</span>
-git push origin 
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s1">&#39;added handler for slash command&#39;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>
 </code></pre></div>
 <p>After the code has finished deploying on Code Capsules (it should send a startup message again when it's ready), we can test the slash command. </p>
 <p>Type <code>/stats</code> in the channel we chose earlier. After a second or two, the app should respond with its current vital stats and information. </p>
@@ -3340,45 +3849,45 @@ git push origin
 </blockquote>
 <p>We can also check the timestamp to ensure that it is not a <a href="https://en.wikipedia.org/wiki/Replay_attack">replay attack</a> of a message from long ago. </p>
 <p>Ok, let's implement this in our project. First, we somehow need to access the raw body of the request, before it has been parsed by <code>body-parser</code>. This is to ensure that the signing hash we calculate is using the same data that Slack did. After parsing, there could be extra characters and formatting etc. Luckily, the <a href="https://github.com/expressjs/body-parser#verify-3">body parser package has a verify option</a>, which passes a binary buffer of the raw body request to a user defined function. Let's make a function that conforms to the specs given by <code>body-parser</code>. Add this code to your <code>index.js</code> file: </p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">rawBodySaver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">buf</span><span class="p">,</span><span class="w"> </span><span class="nx">encoding</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">buf</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">buf</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">rawBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">buf</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="nx">encoding</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;utf8&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">rawBodySaver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">buf</span><span class="p">,</span><span class="w"> </span><span class="nx">encoding</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">buf</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">buf</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">rawBody</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">buf</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="nx">encoding</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;utf8&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>In this function, we grab the bit stream buffer <code>buf</code>, and check that it is not null and that it is not empty (by checking that it has a length). Then we tack it onto the request <code>req</code> as a new property <code>rawBody</code>. We also convert the buffer to a string, using the encoding supplied, or fall back to <code>utf8</code> as a default. Now that the <code>rawBody</code> is added to the request, it will be available for use by subsequent middleware. We can add it to the body parser by modifying the code where we add the body parser to the app. </p>
-<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span><span class="w"> </span><span class="nx">verify</span><span class="o">:</span><span class="w"> </span><span class="nx">rawBodySaver</span><span class="p">}));</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span><span class="w"> </span><span class="nx">verify</span><span class="o">:</span><span class="w"> </span><span class="nx">rawBodySaver</span><span class="p">}));</span>
 </code></pre></div>
 <p>In the code above, we added options to our body parser initialisation. We set the <code>verify</code> option to the method we added above. </p>
 <p>Now, let's make a new <a href="http://expressjs.com/en/guide/writing-middleware.html">middleware function</a> to calculate the signature and compare it. We'll be able to call this middleware before our current code for responding to our Slack slash command. Making it a middleware function will also allow us to easily re-use it on other routes, if we want to add more slash commands, or other commands from Slack in the future. We'll make a new file to hold this code. We'll call it <code>signing.js</code>. </p>
 <p>In the new file, let's add this code:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">crypto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">crypto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">);</span>
 
-<span class="kd">function</span><span class="w"> </span><span class="nx">checkSlackMessageSignature</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">){</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">checkSlackMessageSignature</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">){</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">timestamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;x-slack-request-timestamp&#39;</span><span class="p">];</span><span class="w"> </span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fiveMinutesAgo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">fiveMinutesAgo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="mf">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">5</span><span class="p">);</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">timestamp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">fiveMinutesAgo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">sendFail</span><span class="p">(</span><span class="mf">401</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mismatched timestamp&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">timestamp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">fiveMinutesAgo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">sendFail</span><span class="p">(</span><span class="mf">401</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mismatched timestamp&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">signing_secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SLACK_SIGNING_SECRET</span><span class="p">;</span><span class="w"> </span>
 
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">slack_signature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;x-slack-signature&#39;</span><span class="p">];</span><span class="w"> </span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">version</span><span class="p">,</span><span class="w"> </span><span class="nx">slack_hash</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">slack_signature</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">version</span><span class="p">,</span><span class="w"> </span><span class="nx">slack_hash</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">slack_signature</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">);</span>
 
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">sig_basestring</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">version</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">timestamp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">rawBody</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">sig_basestring</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">version</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">timestamp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">rawBody</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">hmac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">crypto</span><span class="p">.</span><span class="nx">createHmac</span><span class="p">(</span><span class="s1">&#39;sha256&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">signing_secret</span><span class="p">);</span><span class="w"> </span>
 <span class="w">    </span><span class="nx">hmac</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">sig_basestring</span><span class="p">);</span><span class="w"> </span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">our_hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">hmac</span><span class="p">.</span><span class="nx">digest</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span><span class="w">    </span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">crypto</span><span class="p">.</span><span class="nx">timingSafeEqual</span><span class="p">(</span><span class="nx">Buffer</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">slack_hash</span><span class="p">),</span><span class="w"> </span><span class="nx">Buffer</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">our_hash</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">crypto</span><span class="p">.</span><span class="nx">timingSafeEqual</span><span class="p">(</span><span class="nx">Buffer</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">slack_hash</span><span class="p">),</span><span class="w"> </span><span class="nx">Buffer</span><span class="p">.</span><span class="kr">from</span><span class="p">(</span><span class="nx">our_hash</span><span class="p">)))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">next</span><span class="p">();</span><span class="w"> </span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="mf">401</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Invalid request signature&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="mf">401</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Invalid request signature&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">checkSlackMessageSignature</span><span class="p">;</span><span class="w"> </span>
 </code></pre></div>
@@ -3405,12 +3914,12 @@ git push origin
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">checkSlackMessageSignature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./signing&#39;</span><span class="p">);</span><span class="w"> </span>
 </code></pre></div>
 <p>Now, we can navigate to our slack command handler, which started like this: <code>app.post('/slack/command/stats'</code>. Modify that to include a call to the message signature check before the actual handler, like this: </p>
-<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/slack/command/stats&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">checkSlackMessageSignature</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/slack/command/stats&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">checkSlackMessageSignature</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span>
 </code></pre></div>
 <p>Fantastic, now our app is secure. You can commit all the changes, and push it up to Git, which will kick off our final deploy to Code Capsules: </p>
-<div class="highlight"><pre><span></span><code>git add . 
-git commit -am <span class="s1">&#39;added message signature checking&#39;</span>
-git push origin
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span>
+git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s1">&#39;added message signature checking&#39;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin
 </code></pre></div>
 <p>Once the code is up and running on Code Capsules, test it out to see that it still responds to the Slack slash command. Then you can try again from Postman or other similar apps, and see that it will not send any info without a valid signature (you can use <code>v0=a2114d57b48eac39b9ad189dd8316235a7b4a8d21a10bd27519666489c69b503</code> as an example <code>x-slack-signature</code> parameter): </p>
 <p><img alt="returning 401 for invalid signature" src="../../assets/tutorials/build-slackbot-with-node/401-auth.png" /></p>
@@ -3455,9 +3964,7 @@ git push origin
               
                 
               
-              
-                Thanks for your feedback!
-              
+              Thanks for your feedback!
             </div>
           
             <div data-md-value="0" hidden>
@@ -3465,9 +3972,7 @@ git push origin
               
                 
               
-              
-                Thanks for your feedback! We'll do our best to improve.
-              
+              Thanks for your feedback! We'll do our best to improve.
             </div>
           
         </div>
@@ -3475,52 +3980,18 @@ git push origin
     </fieldset>
   </form>
 
-              
-            </article>
-            
-<script>var input,hash=location.hash.slice(1);hash.startsWith("__tabbed_")&&((input=document.getElementById(hash)).checked=!0)</script>
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tutorial Guides" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Tutorial Guides
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../build-mern-job-board/" class="md-footer__link md-footer__link--next" aria-label="Next: MERN Job Board" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              MERN Job Board
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3538,11 +4009,17 @@ git push origin
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.720157f5.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2131bdac.min.js"></script>
+
+      <script src="../../assets/javascripts/bundle.b7178837.min.js"></script>
       
     
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXT5DSF"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
   </body>
 </html>

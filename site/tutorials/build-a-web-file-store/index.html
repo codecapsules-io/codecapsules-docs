@@ -13,10 +13,17 @@
         <link rel="canonical" href="https://codecapsules.io/docs/tutorials/build-a-web-file-store/">
       
       
+        <link rel="prev" href="../build-mern-job-board/">
+      
+      
+        <link rel="next" href="../create-nodejs-telegram-bot/">
+      
+      
         
       
+      
       <link rel="icon" href="../../assets/cclogo.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8+insiders-4.19.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13+insiders-4.32.0">
     
     
       
@@ -24,11 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.485cfce5.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e95b5de1.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.6932e648.min.css">
       
       
 
@@ -50,12 +56,13 @@
   
 
 
-  
-  
-
-
-  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-165274631-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){if(document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document.forms.feedback){var e,a=document.forms.feedback;for(e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXT5DSF');</script>
+<!-- End Google Tag Manager -->
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -111,188 +118,6 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="">
   
     
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -341,7 +166,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
@@ -349,7 +173,6 @@
             </label>
           
         
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
@@ -391,7 +214,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -408,19 +231,20 @@
       
         
           
-            <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
-
-
-
-
+  
+  
   
     <li class="md-tabs__item">
       <a href="../.." class="md-tabs__link">
         
+  
+    
   
   Getting Started
 
@@ -430,12 +254,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -453,12 +274,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -476,14 +294,11 @@
 
       
         
-
   
-
-
-
-
   
     
+  
+  
     
     
       <li class="md-tabs__item">
@@ -501,12 +316,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -522,12 +334,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -545,12 +354,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -566,12 +372,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -604,6 +407,7 @@
                   <div class="md-sidebar__inner">
                     
 
+
   
 
 
@@ -621,10 +425,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -633,8 +433,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Getting Started
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -643,10 +450,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -739,8 +542,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           
@@ -749,8 +553,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Deployment
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -760,10 +571,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Deployment" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Deployment
+            
+  
+    Deployment
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -779,8 +594,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Angular
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -798,8 +620,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Bootstrap
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -817,8 +646,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Caddy Docker Website
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -836,8 +672,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Caddy Docker File Server
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -855,8 +698,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -874,8 +724,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -893,8 +750,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django + MongoDB
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -912,8 +776,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -931,8 +802,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -950,8 +828,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -969,8 +854,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -988,8 +880,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1007,8 +906,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + MongoDB
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1026,8 +932,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1045,8 +958,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Go
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1064,8 +984,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     HTML
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1083,8 +1010,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     HTML5up
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1102,8 +1036,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Java (Spring)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1121,8 +1062,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Java (Spring) + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1140,8 +1088,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     PHP Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1159,8 +1114,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Laravel Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1178,8 +1140,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MEAN (Mongo, Express, Angular)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1197,8 +1166,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MERN (Mongo, Express, React)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1216,8 +1192,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1235,8 +1218,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1254,8 +1244,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1273,8 +1270,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Express + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1292,8 +1296,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     NodeJS Discord Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1311,8 +1322,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     NodeJS Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1330,8 +1348,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Discord Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1349,8 +1374,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1368,8 +1400,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Polling NodeJS Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1387,8 +1426,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Polling Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1406,8 +1452,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     React
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1425,8 +1478,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Slack
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1444,8 +1504,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Svelte
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1463,8 +1530,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Vue
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1482,8 +1556,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     WhatsApp
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1500,10 +1581,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -1544,8 +1621,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
@@ -1554,8 +1632,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Reference
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -1565,10 +1650,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Reference
+            
+  
+    Reference
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1584,8 +1673,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Capsule Billing
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1603,8 +1699,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Capsule Management
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1622,8 +1725,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     State and file persistence
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1641,8 +1751,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Custom Domains
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1660,8 +1777,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     File Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1679,8 +1803,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MongoDB Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1698,8 +1829,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MySQL Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1717,8 +1855,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Redis Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1736,8 +1881,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Running database migrations
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1755,8 +1907,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Procfile
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1774,8 +1933,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Development
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1793,8 +1959,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Team Management
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1811,10 +1984,6 @@
     
       
       
-      
-
-
-
   
   
     
@@ -1875,8 +2044,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           
@@ -1885,8 +2055,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Tutorials
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -1896,10 +2073,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Tutorials
+            
+  
+    Tutorials
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1915,8 +2096,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Slackbot with Node.js
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1934,8 +2122,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MERN Job Board
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1952,7 +2147,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
@@ -1962,8 +2157,15 @@
           
   
   <span class="md-ellipsis">
+    
+  
     Web File Store
+  
+
+    
   </span>
+  
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -1972,8 +2174,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Web File Store
+  
+
+    
   </span>
+  
+  
 
       </a>
       
@@ -1995,7 +2204,9 @@
         <li class="md-nav__item">
   <a href="#overview-and-requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview and Requirements
+      
+        Overview and Requirements
+      
     </span>
   </a>
   
@@ -2004,7 +2215,9 @@
         <li class="md-nav__item">
   <a href="#setting-up-the-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting Up The Project
+      
+        Setting Up The Project
+      
     </span>
   </a>
   
@@ -2014,7 +2227,9 @@
           <li class="md-nav__item">
   <a href="#creating-a-new-repo" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a New Repo
+      
+        Creating a New Repo
+      
     </span>
   </a>
   
@@ -2023,7 +2238,9 @@
           <li class="md-nav__item">
   <a href="#initializing-the-base-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Initializing the Base Project
+      
+        Initializing the Base Project
+      
     </span>
   </a>
   
@@ -2032,7 +2249,9 @@
           <li class="md-nav__item">
   <a href="#creating-a-new-backend-capsule" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a New Backend Capsule
+      
+        Creating a New Backend Capsule
+      
     </span>
   </a>
   
@@ -2041,7 +2260,9 @@
           <li class="md-nav__item">
   <a href="#creating-a-new-data-capsule" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a New Data Capsule
+      
+        Creating a New Data Capsule
+      
     </span>
   </a>
   
@@ -2050,7 +2271,9 @@
           <li class="md-nav__item">
   <a href="#linking-the-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Linking the Capsules
+      
+        Linking the Capsules
+      
     </span>
   </a>
   
@@ -2064,7 +2287,9 @@
         <li class="md-nav__item">
   <a href="#writing-the-web-files-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Writing the Web Files Code
+      
+        Writing the Web Files Code
+      
     </span>
   </a>
   
@@ -2074,7 +2299,9 @@
           <li class="md-nav__item">
   <a href="#getting-the-file-list" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting the File List
+      
+        Getting the File List
+      
     </span>
   </a>
   
@@ -2083,7 +2310,9 @@
           <li class="md-nav__item">
   <a href="#rendering-the-file-list" class="md-nav__link">
     <span class="md-ellipsis">
-      Rendering the File List
+      
+        Rendering the File List
+      
     </span>
   </a>
   
@@ -2092,7 +2321,9 @@
           <li class="md-nav__item">
   <a href="#adding-the-file-upload-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding the File Upload Route
+      
+        Adding the File Upload Route
+      
     </span>
   </a>
   
@@ -2101,7 +2332,9 @@
           <li class="md-nav__item">
   <a href="#downloading-a-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Downloading a File
+      
+        Downloading a File
+      
     </span>
   </a>
   
@@ -2110,7 +2343,9 @@
           <li class="md-nav__item">
   <a href="#deleting-a-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Deleting a File
+      
+        Deleting a File
+      
     </span>
   </a>
   
@@ -2119,7 +2354,9 @@
           <li class="md-nav__item">
   <a href="#adding-authentication" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Authentication
+      
+        Adding Authentication
+      
     </span>
   </a>
   
@@ -2133,7 +2370,9 @@
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Next Steps
+      
+        Next Steps
+      
     </span>
   </a>
   
@@ -2158,8 +2397,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Node.js Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2177,8 +2423,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2196,8 +2449,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask API
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2215,8 +2475,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Hex Color Identifier API
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2234,8 +2501,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     CRUD with PHP and Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2253,8 +2527,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2272,8 +2553,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2291,8 +2579,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Generative Graphics
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2310,8 +2605,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Custom Domains
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2329,8 +2631,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Persistent Sleep Tracker Part 1
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2348,8 +2657,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Persistent Sleep Tracker Part 2
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2367,8 +2683,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Front-end Portfolio
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2386,8 +2709,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Stripe Checkout and Email Subscription with Flask
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2405,8 +2735,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Game Catalogue API with Node.js and MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2424,8 +2761,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Reader Mode App with Flask and Redis
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2443,8 +2787,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Image Overlay API with Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2462,8 +2813,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Build an Imgur Clone with Uppy
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2481,8 +2839,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     White-label Your App
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2499,10 +2864,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2525,23 +2886,35 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
         
         
-          <label class="md-nav__link" for="__nav_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
+    
+  
     FAQ
+  
+
+    
   </span>
+  
+  
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            FAQ
+            
+  
+    FAQ
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2555,8 +2928,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Teams, Spaces and Capsules
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2574,8 +2954,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Capsule?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2593,8 +2980,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Space?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2612,8 +3006,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Team?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2631,8 +3032,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     How Do I Add a Custom Domain?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2649,10 +3057,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2677,8 +3081,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           
@@ -2687,8 +3092,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Comparisons
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -2698,10 +3110,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Comparisons" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Comparisons
+            
+  
+    Comparisons
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2717,8 +3133,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     PaaS Providers
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2736,8 +3159,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Telegram Hosting Providers
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2755,8 +3185,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     SaaS vs PaaS vs IaaS
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2774,8 +3211,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Top Six Heroku Alternatives
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2792,10 +3236,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2814,23 +3254,35 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
         
         
-          <label class="md-nav__link" for="__nav_7">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
+    
+  
     Community
+  
+
+    
   </span>
+  
+  
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Community
+            
+  
+    Community
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2844,8 +3296,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Introducing Code Capsules
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2863,8 +3322,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Hack Days and Free Tech Consulting
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2882,8 +3348,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Founder Fridays
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2900,10 +3373,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2920,8 +3389,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           
@@ -2930,17 +3400,28 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Video Guides
+  
+
+    
   </span>
+  
+  
 
             </a>
             
           </div>
         
-        <nav class="md-nav" aria-label="Video Guides" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Video Guides
+            
+  
+    Video Guides
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2982,7 +3463,9 @@
         <li class="md-nav__item">
   <a href="#overview-and-requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview and Requirements
+      
+        Overview and Requirements
+      
     </span>
   </a>
   
@@ -2991,7 +3474,9 @@
         <li class="md-nav__item">
   <a href="#setting-up-the-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting Up The Project
+      
+        Setting Up The Project
+      
     </span>
   </a>
   
@@ -3001,7 +3486,9 @@
           <li class="md-nav__item">
   <a href="#creating-a-new-repo" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a New Repo
+      
+        Creating a New Repo
+      
     </span>
   </a>
   
@@ -3010,7 +3497,9 @@
           <li class="md-nav__item">
   <a href="#initializing-the-base-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Initializing the Base Project
+      
+        Initializing the Base Project
+      
     </span>
   </a>
   
@@ -3019,7 +3508,9 @@
           <li class="md-nav__item">
   <a href="#creating-a-new-backend-capsule" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a New Backend Capsule
+      
+        Creating a New Backend Capsule
+      
     </span>
   </a>
   
@@ -3028,7 +3519,9 @@
           <li class="md-nav__item">
   <a href="#creating-a-new-data-capsule" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a New Data Capsule
+      
+        Creating a New Data Capsule
+      
     </span>
   </a>
   
@@ -3037,7 +3530,9 @@
           <li class="md-nav__item">
   <a href="#linking-the-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Linking the Capsules
+      
+        Linking the Capsules
+      
     </span>
   </a>
   
@@ -3051,7 +3546,9 @@
         <li class="md-nav__item">
   <a href="#writing-the-web-files-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Writing the Web Files Code
+      
+        Writing the Web Files Code
+      
     </span>
   </a>
   
@@ -3061,7 +3558,9 @@
           <li class="md-nav__item">
   <a href="#getting-the-file-list" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting the File List
+      
+        Getting the File List
+      
     </span>
   </a>
   
@@ -3070,7 +3569,9 @@
           <li class="md-nav__item">
   <a href="#rendering-the-file-list" class="md-nav__link">
     <span class="md-ellipsis">
-      Rendering the File List
+      
+        Rendering the File List
+      
     </span>
   </a>
   
@@ -3079,7 +3580,9 @@
           <li class="md-nav__item">
   <a href="#adding-the-file-upload-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding the File Upload Route
+      
+        Adding the File Upload Route
+      
     </span>
   </a>
   
@@ -3088,7 +3591,9 @@
           <li class="md-nav__item">
   <a href="#downloading-a-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Downloading a File
+      
+        Downloading a File
+      
     </span>
   </a>
   
@@ -3097,7 +3602,9 @@
           <li class="md-nav__item">
   <a href="#deleting-a-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Deleting a File
+      
+        Deleting a File
+      
     </span>
   </a>
   
@@ -3106,7 +3613,9 @@
           <li class="md-nav__item">
   <a href="#adding-authentication" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Authentication
+      
+        Adding Authentication
+      
     </span>
   </a>
   
@@ -3120,7 +3629,9 @@
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Next Steps
+      
+        Next Steps
+      
     </span>
   </a>
   
@@ -3134,10 +3645,12 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
+          
+            <div class="md-content" data-md-component="content">
               
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="building-a-web-file-store">Building a Web File Store</h1>
@@ -3161,15 +3674,15 @@
 <p>Head over to <a href="https://github.com">GitHub</a> and create a new repo. We're calling it <em>filedrop</em> here, but you can call it whatever you like. You can choose a <strong>Node</strong> <code>.gitignore</code> file to get started. Clone the new GitHub repo onto your computer and navigate to that directory in terminal (or command prompt, if you're on Windows).</p>
 <h3 id="initializing-the-base-project">Initializing the Base Project</h3>
 <p>We'll use the <a href="http://expressjs.com/en/starter/generator.html">Express.js application generator</a> to create the project base. Type in the following: </p>
-<div class="highlight"><pre><span></span><code>npx express-generator --hbs 
-npm install
+<div class="highlight"><pre><span></span><code>npx<span class="w"> </span>express-generator<span class="w"> </span>--hbs<span class="w"> </span>
+npm<span class="w"> </span>install
 </code></pre></div>
 <p>Here we've created a few files and folders that we can edit. The <code>--hbs</code> option tells the generator to use <a href="https://handlebarsjs.com">Handlebars</a> as the HTML template language. We're using Handlebars as it's close to plain HTML, making it easier to pick up quickly.</p>
 <p>The command <code>npm install</code> downloads and installs all the dependencies and packages required by the base project. Open the folder with <a href="https://code.visualstudio.com">Visual Studio Code</a> or your chosen editor, and browse through the files to get familiar with them. The <code>app.js</code> file in the project root is the main entry point for the app. </p>
 <p>It's time to push this boilerplate project up to Git. Type the following into command prompt or terminal: </p>
-<div class="highlight"><pre><span></span><code>git add . 
-git commit -am <span class="s1">&#39;added base files for project&#39;</span>
-git push origin
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span>
+git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s1">&#39;added base files for project&#39;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin
 </code></pre></div>
 <h3 id="creating-a-new-backend-capsule">Creating a New Backend Capsule</h3>
 <p>A Capsule provides the server for hosting an application on Code Capsules.</p>
@@ -3203,16 +3716,16 @@ git push origin
 <h3 id="getting-the-file-list">Getting the File List</h3>
 <p>Open the file <code>index.js</code> in the <code>routes</code> folder of our project. This is the server code file for the default route <code>/</code> in the application. We'll use this route to show the file listing. </p>
 <p>To interact with the storage capsule and the files on it, we'll use the built-in <a href="https://nodejs.org/api/fs.html#fs_file_system"><code>fs</code></a>, or file system, module included in Node.js. Add a reference to this module at the top of the file:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>Then, modify the default <code>get</code> route to use the <code>fs</code> module to get the file listing on the storage drive: </p>
-<div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readdir</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PERSISTENT_STORAGE_DIR</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">){</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readdir</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PERSISTENT_STORAGE_DIR</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="p">){</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">sendStatus</span><span class="p">(</span><span class="mf">500</span><span class="p">);</span><span class="w"> </span>
 <span class="w">    </span><span class="nx">files</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span><span class="w"> </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;File Drop&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">files</span><span class="o">:</span><span class="w"> </span><span class="nx">files</span><span class="p">});</span><span class="w"> </span>
 <span class="w">  </span><span class="p">});</span><span class="w"> </span>
-<span class="p">});</span><span class="w"></span>
+<span class="p">});</span>
 </code></pre></div>
 <p>This code uses the <a href="https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback"><code>readdir</code></a> function to get an array of all the files in the storage drive. Note that we use the environment variable that was automatically setup when we bound the capsules to specify the path to the storage drive. Environment variables are accessible through the <a href="https://nodejs.org/api/process.html#process_process_env"><code>process.env</code></a> object in Node.js.</p>
 <p>The <a href="https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback"><code>readdir</code></a> function calls a callback function once it has the file list. The callback has 2 arguments: <code>err</code>, which will contain an error object if the folder could not be read, and <code>files</code>, which is a string array of all the filenames in the folder, if the call was successful. </p>
@@ -3260,36 +3773,36 @@ git push origin
 </code></pre></div>
 This code adds in a new HTML form, which makes a <code>POST</code> request to the root <code>/</code> (our index page) on submit. We've given the form 2 inputs: a file upload field specified by the <code>type="file"</code> attribute, and the submit button. Note the <code>name</code> given to the file input - we'll need to remember this when processing the upload on the server side. </p>
 <p>Now that we have a way for the user to select a file to upload and send to the server, we need to create a route to process the submitted file. In the <code>index.js</code> file in the  <code>routes</code> folder, we'll add a new HTTP route. This one will be a <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">POST</a> route, as we are using it to upload a new file (or resource) onto the server. Add this stub for the route in the <code>index.js</code> file: </p>
-<p><div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">){</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">){</span>
 
 <span class="p">});</span><span class="w"> </span>
 </code></pre></div>
 To handle file uploads with Express, we'll use a package that takes care of all the encoding and streaming concerns of file uploads. Open up the terminal and install the <a href="https://www.npmjs.com/package/express-fileupload"><code>express-fileupload</code></a> package using npm: </p>
-<p><div class="highlight"><pre><span></span><code>npm install express-fileupload
+<p><div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>express-fileupload
 </code></pre></div>
 To use this package, we need to add it into the <a href="http://expressjs.com/en/guide/using-middleware.html">middleware</a> of our Express server. Open up the <code>app.js</code> file in the root folder of the project, and import the package by adding the following <code>require</code> statement at the top of the file:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">fileUpload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express-fileupload&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">fileUpload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express-fileupload&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>Now insert the package into the Express middleware pipeline by adding the following line just under the <code>var app = express();</code> statement:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">fileUpload</span><span class="p">());</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">fileUpload</span><span class="p">());</span>
 </code></pre></div>
 <p>The <code>express-fileupload</code> module adds a <code>files</code> attribute to our <code>req</code> object. Through the <code>files</code> attribute we can access any uploads as their own objects, which are named the same as the HTML form <code>inputs</code>. </p>
 <p>Now we can expand on the route stub. In the <code>index.js</code> file, complete the <code>POST</code> route as follows:</p>
-<p><div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">){</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">){</span>
 
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">).</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No files were uploaded.&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">).</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;No files were uploaded.&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">newFile</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">uploadPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PERSISTENT_STORAGE_DIR</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">newFile</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">newFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">newFile</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">uploadPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PERSISTENT_STORAGE_DIR</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">newFile</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
 
-<span class="w">    </span><span class="nx">newFile</span><span class="p">.</span><span class="nx">mv</span><span class="p">(</span><span class="nx">uploadPath</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">});</span><span class="w"></span>
+<span class="w">    </span><span class="nx">newFile</span><span class="p">.</span><span class="nx">mv</span><span class="p">(</span><span class="nx">uploadPath</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">send</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
 
-<span class="p">});</span><span class="w"></span>
+<span class="p">});</span>
 </code></pre></div>
 First, we check whether the <code>files</code> object exists on the route, and if it does exist, we check whether it has sub-objects on the list (no sub-objects means no form <code>input</code> fields were populated). If no <code>files</code> objects or sub-objects exist on the route, there is no file for the code to process, so we return early with an <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#4xx_client_errors">HTTP status <code>400</code></a> code and a message to the user. Status code <code>400</code> means there is an input error from the user side. </p>
 <p>Otherwise, having established that a file has been uploaded, we get the file object by referencing the same name we gave to our HTML input field (<code>newFile</code>) on the <code>files</code> object that the <code>express-fileupload</code> package added to the <code>req</code> object. Now that we have the file object, we can construct a path to the data capsule's location to save the file. We use the environment variable for the data capsule mount point (located in the Backend Capsule's "Capsule Parameters"), along with the path separator <code>/</code> and the name of the uploaded file. You can see all the properties available on the file object at the <a href="https://www.npmjs.com/package/express-fileupload"><code>express-fileupload</code> npm page</a>. </p>
@@ -3301,7 +3814,7 @@ First, we check whether the <code>files</code> object exists on the route, and i
 <p>We've got the functionality to upload files, and to list what files are on the server. Now let's add functionality to download files. </p>
 <p>We'll add a route with the format <code>/filename</code> to get the requested file. We'll make use of the <a href="http://expressjs.com/en/5x/api.html#res.download"><code>download</code></a> functionality built into Express to send the file back to the browser. </p>
 <p>Add this route to the <code>index.js</code> file.</p>
-<p><div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/:filename&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">){</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/:filename&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">){</span>
 <span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">filepath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PERSISTENT_STORAGE_DIR</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">filename</span><span class="p">;</span><span class="w"> </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">download</span><span class="p">(</span><span class="nx">filepath</span><span class="p">);</span><span class="w"> </span>
 <span class="p">});</span><span class="w"> </span>
@@ -3330,10 +3843,10 @@ This sets up a <code>GET</code> route, with the requested filename as a paramete
 <h3 id="deleting-a-file">Deleting a File</h3>
 <p>Now that we can upload and download files, we'll probably also need to remove files. We can use the <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">HTTP <code>DELETE</code> verb</a> on a route for this. </p>
 <p>Since the data capsule appears just like a regular file system to our code, we can use the built-in Node.js <a href="https://nodejs.org/api/fs.html#fs_file_system"><code>fs</code></a> module here again. It has a method called <a href="https://nodejs.org/api/fs.html#fs_fs_unlinksync_path"><code>unlink</code></a> which deletes a file from a file system. We supply it with a path to the file, and a callback function to let us know the result of the delete file request. If we get an error, we'll send an <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_server_errors">HTTP code <code>500</code></a> status back to the browser, to let the browser know that an error occurred. If the delete action is successful, we'll send a status code <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_success"><code>200</code></a>, which lets the browser know that the operation was a success. Add this code to the <code>index.js</code> file to implement the <code>DELETE</code> route: </p>
-<div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s1">&#39;/:filename&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">){</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s1">&#39;/:filename&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">){</span>
 <span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">filepath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PERSISTENT_STORAGE_DIR</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">filename</span><span class="p">;</span><span class="w"> </span>
 
-<span class="w">  </span><span class="nx">fs</span><span class="p">.</span><span class="nx">unlink</span><span class="p">(</span><span class="nx">filepath</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nx">fs</span><span class="p">.</span><span class="nx">unlink</span><span class="p">(</span><span class="nx">filepath</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">sendStatus</span><span class="p">(</span><span class="mf">500</span><span class="p">);</span><span class="w"> </span>
 <span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">sendStatus</span><span class="p">(</span><span class="mf">200</span><span class="p">);</span><span class="w"> </span>
 <span class="w">  </span><span class="p">});</span><span class="w"> </span>
@@ -3362,17 +3875,17 @@ This sets up a <code>GET</code> route, with the requested filename as a paramete
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Next we'll create some front-end JavaScript code for the button to call when clicked. We'll use the browser-side <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"><code>fetch</code></a> function to call the <code>DELETE</code> file route. Add this script block at the bottom of the <code>index.hbs</code> file: </p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">deleteFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">){</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">deleteFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">){</span>
 
 <span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">confirmation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">confirm</span><span class="p">(</span><span class="s1">&#39;Do you really want to delete the file &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">filename</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39;?&#39;</span><span class="p">);</span><span class="w"> </span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">confirmation</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="p">){</span><span class="w"></span>
-<span class="w">      </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">filename</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;DELETE&#39;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
-<span class="w">      </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">())</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">confirmation</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">true</span><span class="p">){</span>
+<span class="w">      </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">filename</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;DELETE&#39;</span><span class="w"> </span><span class="p">})</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">())</span>
 <span class="w">      </span><span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Error deleting the file! &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">error</span><span class="p">));</span><span class="w"> </span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
 </code></pre></div>
 <p>This adds a new function <code>deleteFile</code> to the front-end index page. It has one argument: the name of the file to delete. First, we make use of the built-in <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/confirm"><code>confirm</code></a> function which exists in all browsers. This brings up a dialog box with the message <em>Do you really want to delete the file?</em>, just to make sure the user didn't click the delete button accidentally. If the user clicks "Yes", the dialog box returns a <code>true</code> value. Then we call our <code>DELETE</code> route using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"><code>fetch</code></a>. We need to pass in the route to call, and we also send an <a href="https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#parameters">init</a> object which specifies that the <code>DELETE</code> HTTP verb must be used to call this route.</p>
 <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API"><code>fetch</code></a> function returns a <code>promise</code>. This is an alternative to callbacks. If the call was successful, the code in the <code>.then()</code> handler is called. This reloads the page, so that the file listing is updated to show that the file is now deleted. If the call fails, the code in the <code>catch</code> handler is called. This uses another standard browser dialog, an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/alert"><code>alert</code></a>, to let the user know that something went wrong. </p>
@@ -3387,45 +3900,45 @@ This sets up a <code>GET</code> route, with the requested filename as a paramete
 <p>Our basic access control scheme is a username and password combination, entered on an HTML form that is posted to a <code>login</code> route. A <a href="https://en.wikipedia.org/wiki/HTTP_cookie">session cookie</a> will remember the logged-in user while they use the site, and we'll use the package <a href="https://www.npmjs.com/package/express-session"><code>express-session</code></a> to manage the session. </p>
 <p>Passport's <a href="https://www.npmjs.com/package/passport-local">local strategy</a> plugin will enable our username and password scheme.  </p>
 <p>Let's start by installing all these packages and plugins. Type the following in the terminal:</p>
-<div class="highlight"><pre><span></span><code>npm install passport passport-local express-session
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>passport<span class="w"> </span>passport-local<span class="w"> </span>express-session
 </code></pre></div>
 <p>Now add references to these packages to the top section of the <code>app.js</code> file. A good place to add them is after the <code>var logger = require('morgan');</code> line. Here's the code you'll need:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">passport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport&#39;</span><span class="p">);</span><span class="w"> </span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">LocalStrategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-local&#39;</span><span class="p">).</span><span class="nx">Strategy</span><span class="p">;</span><span class="w"></span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;express-session&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">LocalStrategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport-local&#39;</span><span class="p">).</span><span class="nx">Strategy</span><span class="p">;</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;express-session&quot;</span><span class="p">);</span>
 </code></pre></div>
 <p>The first thing to add to the app is the session middleware, then the Passport authentication middleware. Add the following after the <code>app.use(express.static(path.join(__dirname, 'public')));</code> line: </p>
 <p><div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">session</span><span class="p">({</span><span class="nx">secret</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;&lt;YOUR_SECRET&gt;&quot;</span><span class="p">}));</span><span class="w"> </span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">initialize</span><span class="p">());</span><span class="w"></span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">session</span><span class="p">());</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">initialize</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">passport</span><span class="p">.</span><span class="nx">session</span><span class="p">());</span>
 </code></pre></div>
 This inserts the <code>session</code> middleware into the app pipeline, to read and write persistent sessions to the app cookie. Replace the <code>&lt;YOUR_SECRET&gt;</code> parameter with a string of your choosing. This secret is used to sign the session information in the cookie. Normally, this is kept very secret, as anyone who has access to the secret could construct a session cookie that looks legitimate to the server and give them access to any account on the server. You can also add an environment variable to store this secret, rather than store it in the code repo. </p>
 <p>Next, we initialize Passport into the middleware pipeline, and add in the code for Passport to use sessions to check and record authentication. </p>
 <p>When using sessions with Passport, we need to implement serialisation and deserialisation of user objects from session information, so that Passport can add the user object to the <code>req</code> object in the app pipeline. Add these functions to the bottom of the <code>app.js</code> file: </p>
-<p><div class="highlight"><pre><span></span><code><span class="nx">passport</span><span class="p">.</span><span class="nx">serializeUser</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nx">process</span><span class="p">.</span><span class="nx">nextTick</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="w"></span>
-<span class="w">    </span><span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="p">);</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="nx">passport</span><span class="p">.</span><span class="nx">serializeUser</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">process</span><span class="p">.</span><span class="nx">nextTick</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="w">    </span><span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="p">);</span>
 <span class="w">  </span><span class="p">});</span><span class="w"> </span>
-<span class="p">});</span><span class="w"></span>
+<span class="p">});</span>
 
 <span class="nx">passport</span><span class="p">.</span><span class="nx">deserializeUser</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-<span class="w">  </span><span class="nx">process</span><span class="p">.</span><span class="nx">nextTick</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="w"></span>
-<span class="w">    </span><span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nx">process</span><span class="p">.</span><span class="nx">nextTick</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="w">    </span><span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="p">);</span>
 <span class="w">  </span><span class="p">});</span><span class="w"> </span>
-<span class="p">});</span><span class="w"></span>
+<span class="p">});</span>
 </code></pre></div>
 In our case, since we are implementing a super-simple authentication scheme with just one user, we don't need to call out to a database or other store to get user information. In fact, since there is no real user information that is of use to our app at the moment, we just return the <code>user</code> object that Passport sends to us straight back, as we don't really have a use for it. Even though we are doing nothing with the information, we need to register these functions with Passport, as it calls them regardless. </p>
 <p>Now we can set up the rest of the logic for Passport. Add this code just above the serialisation code: </p>
-<div class="highlight"><pre><span></span><code><span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">LocalStrategy</span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="kd">function</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">username</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">USERNAME</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PASSWORD</span><span class="p">){</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">LocalStrategy</span><span class="p">(</span>
+<span class="w">  </span><span class="kd">function</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">username</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">USERNAME</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PASSWORD</span><span class="p">){</span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">username</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">USERNAME</span><span class="w"> </span><span class="p">});</span><span class="w"> </span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">});</span><span class="w"> </span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">})</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">);</span>
 </code></pre></div>
 <p>This plugs in and registers the local authentication strategy module into Passport.</p>
 <p>Passport's local strategy uses a simple username and password, checked on the local server, so we'll need a function to accept a username and password for validation. The function checks if entered credentials are valid, and sends back a user object if they are, using the <code>done</code> callback. If the credentials don't checkout, the user gets an error message.</p>
@@ -3436,23 +3949,23 @@ In our case, since we are implementing a super-simple authentication scheme with
 <p>Passport offers many other <a href="http://www.passportjs.org/packages/">authentication strategies</a>, from OAuth 2.0 strategies allowing authentication through Facebook, Google, Twitter and other OAuth 2.0 providers, to API authentication strategies such as Bearer Tokens.</p>
 <p>Now that we have set the username and password for our app, we can add the login page routes to render the login page and send the form <code>POST</code> with user credentials to Passport. </p>
 <p>Add these 2 routes just above the index routes (<code>app.use('/', indexRouter);</code>) in <code>app.js</code>: </p>
-<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">)</span>
 <span class="p">});</span><span class="w"> </span>
-<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">successRedirect</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">failureRedirect</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/login&#39;</span><span class="w"> </span><span class="p">}));</span><span class="w"></span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">passport</span><span class="p">.</span><span class="nx">authenticate</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">successRedirect</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">failureRedirect</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;/login&#39;</span><span class="w"> </span><span class="p">}));</span>
 </code></pre></div>
 <p>The first <code>GET</code> route adds a <code>/login</code> url to our app. The route handler function calls the <a href="http://expressjs.com/en/4x/api.html#res.render"><code>res.render</code></a> Express method to serve up the login template, which we'll add shortly. The second <code>POST</code> route handles a form submission from the <code>/login</code> route, and passes it through to Passport. We supply a parameter to tell Passport to use our <code>local</code> strategy to process this authentication request. We also supply the redirects: to the main file list if authentication is successful, or back to the login page if not.</p>
 <p>There's one more bit of code to include before we add the front-end login form. We need to check if a user is successfully authenticated before they can access the file list and other functionality. To do this, we'll insert a call to an authentication check function in our app middleware. Add this code just above the <code>app.use('/', indexRouter);</code> line, so it's called before the routes above are served: </p>
 <div class="highlight"><pre><span></span><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">isAuthenticated</span><span class="p">);</span><span class="w"> </span>
 </code></pre></div>
 <p>Now, let's implement the reference <code>isAuthenticated</code> middleware. Add this function to the bottom of the <code>app.js</code> file: </p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">isAuthenticated</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">())</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">next</span><span class="p">();</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">isAuthenticated</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">isAuthenticated</span><span class="p">())</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">next</span><span class="p">();</span>
 <span class="w">  </span><span class="k">else</span><span class="w"> </span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>If a user is successfully authenticated, the <code>isAuthenticated()</code> method, which is added by Passport to the <code>req</code> object, will return <code>true</code>. In that case, we can safely let the pipeline proceed to the next middleware function (in this case, one of the protected routes). If the authentication check comes back <code>false</code>, we redirect back to the login page, away from our protected pages. </p>
 <p>Now we have all the back-end pieces for authentication in place, let's add the login page and form. Add a new file called <code>login.hbs</code> in the <code>views</code> folder. Place this code into the new file: </p>
@@ -3517,9 +4030,7 @@ Here we're adding a very simple form to make a <code>POST</code> request back to
               
                 
               
-              
-                Thanks for your feedback!
-              
+              Thanks for your feedback!
             </div>
           
             <div data-md-value="0" hidden>
@@ -3527,9 +4038,7 @@ Here we're adding a very simple form to make a <code>POST</code> request back to
               
                 
               
-              
-                Thanks for your feedback! We'll do our best to improve.
-              
+              Thanks for your feedback! We'll do our best to improve.
             </div>
           
         </div>
@@ -3537,52 +4046,18 @@ Here we're adding a very simple form to make a <code>POST</code> request back to
     </fieldset>
   </form>
 
-              
-            </article>
-            
-<script>var input,hash=location.hash.slice(1);hash.startsWith("__tabbed_")&&((input=document.getElementById(hash)).checked=!0)</script>
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../build-mern-job-board/" class="md-footer__link md-footer__link--prev" aria-label="Previous: MERN Job Board" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              MERN Job Board
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../create-nodejs-telegram-bot/" class="md-footer__link md-footer__link--next" aria-label="Next: Node.js Telegram Bot" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Node.js Telegram Bot
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3600,11 +4075,17 @@ Here we're adding a very simple form to make a <code>POST</code> request back to
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.720157f5.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2131bdac.min.js"></script>
+
+      <script src="../../assets/javascripts/bundle.b7178837.min.js"></script>
       
     
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXT5DSF"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
   </body>
 </html>

@@ -13,10 +13,17 @@
         <link rel="canonical" href="https://codecapsules.io/docs/tutorials/game-catalogue-with-nodejs-and-mysql/">
       
       
+        <link rel="prev" href="../stripe-checkout-and-email-with-flask/">
+      
+      
+        <link rel="next" href="../build-a-reader-mode-app-with-flask-and-redis/">
+      
+      
         
       
+      
       <link rel="icon" href="../../assets/cclogo.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8+insiders-4.19.1">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13+insiders-4.32.0">
     
     
       
@@ -24,11 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.485cfce5.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e95b5de1.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.6932e648.min.css">
       
       
 
@@ -50,12 +56,13 @@
   
 
 
-  
-  
-
-
-  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-165274631-2","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){if(document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document.forms.feedback){var e,a=document.forms.feedback;for(e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
-
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NXT5DSF');</script>
+<!-- End Google Tag Manager -->
   
     <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
   
@@ -111,188 +118,6 @@
     <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="">
   
     
-    
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -341,7 +166,6 @@
       <form class="md-header__option" data-md-component="palette">
         
           
-          
           <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
@@ -349,7 +173,6 @@
             </label>
           
         
-          
           
           <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
@@ -391,7 +214,7 @@
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -408,19 +231,20 @@
       
         
           
-            <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
-
-
-
-
+  
+  
   
     <li class="md-tabs__item">
       <a href="../.." class="md-tabs__link">
         
+  
+    
   
   Getting Started
 
@@ -430,12 +254,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -453,12 +274,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -476,14 +294,11 @@
 
       
         
-
   
-
-
-
-
   
     
+  
+  
     
     
       <li class="md-tabs__item">
@@ -501,12 +316,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -522,12 +334,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -545,12 +354,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -566,12 +372,9 @@
 
       
         
-
-
-
-
   
-    
+  
+  
     
     
       <li class="md-tabs__item">
@@ -604,6 +407,7 @@
                   <div class="md-sidebar__inner">
                     
 
+
   
 
 
@@ -621,10 +425,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -633,8 +433,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Getting Started
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -643,10 +450,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -739,8 +542,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           
@@ -749,8 +553,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Deployment
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -760,10 +571,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Deployment" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Deployment
+            
+  
+    Deployment
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -779,8 +594,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Angular
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -798,8 +620,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Bootstrap
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -817,8 +646,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Caddy Docker Website
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -836,8 +672,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Caddy Docker File Server
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -855,8 +698,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -874,8 +724,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -893,8 +750,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Django + MongoDB
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -912,8 +776,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -931,8 +802,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -950,8 +828,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -969,8 +854,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -988,8 +880,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1007,8 +906,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + MongoDB
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1026,8 +932,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1045,8 +958,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Go
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1064,8 +984,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     HTML
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1083,8 +1010,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     HTML5up
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1102,8 +1036,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Java (Spring)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1121,8 +1062,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Java (Spring) + MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1140,8 +1088,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     PHP Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1159,8 +1114,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Laravel Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1178,8 +1140,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MEAN (Mongo, Express, Angular)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1197,8 +1166,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MERN (Mongo, Express, React)
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1216,8 +1192,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1235,8 +1218,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1254,8 +1244,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1273,8 +1270,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Next + Express + Mongo
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1292,8 +1296,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     NodeJS Discord Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1311,8 +1322,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     NodeJS Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1330,8 +1348,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Discord Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1349,8 +1374,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1368,8 +1400,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Polling NodeJS Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1387,8 +1426,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Polling Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1406,8 +1452,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     React
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1425,8 +1478,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Slack
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1444,8 +1504,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Svelte
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1463,8 +1530,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Vue
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1482,8 +1556,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     WhatsApp
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1500,10 +1581,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -1544,8 +1621,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
@@ -1554,8 +1632,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Reference
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -1565,10 +1650,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Reference
+            
+  
+    Reference
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1584,8 +1673,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Capsule Billing
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1603,8 +1699,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Capsule Management
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1622,8 +1725,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     State and file persistence
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1641,8 +1751,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Custom Domains
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1660,8 +1777,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     File Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1679,8 +1803,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MongoDB Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1698,8 +1829,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MySQL Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1717,8 +1855,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Redis Data Capsule
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1736,8 +1881,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Running database migrations
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1755,8 +1907,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Procfile
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1774,8 +1933,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Development
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1793,8 +1959,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Team Management
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1811,10 +1984,6 @@
     
       
       
-      
-
-
-
   
   
     
@@ -1875,8 +2044,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           
@@ -1885,8 +2055,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Tutorials
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -1896,10 +2073,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Tutorials
+            
+  
+    Tutorials
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1915,8 +2096,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Slackbot with Node.js
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1934,8 +2122,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     MERN Job Board
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1953,8 +2148,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Web File Store
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1972,8 +2174,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Node.js Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -1991,8 +2200,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Python Telegram Bot
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2010,8 +2226,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask API
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2029,8 +2252,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Hex Color Identifier API
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2048,8 +2278,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     CRUD with PHP and Docker
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2067,8 +2304,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Flask HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2086,8 +2330,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Express HTMx
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2105,8 +2356,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Generative Graphics
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2124,8 +2382,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Custom Domains
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2143,8 +2408,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Persistent Sleep Tracker Part 1
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2162,8 +2434,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Persistent Sleep Tracker Part 2
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2181,8 +2460,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Front-end Portfolio
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2200,8 +2486,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Stripe Checkout and Email Subscription with Flask
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2218,7 +2511,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
@@ -2228,8 +2521,15 @@
           
   
   <span class="md-ellipsis">
+    
+  
     Game Catalogue API with Node.js and MySQL
+  
+
+    
   </span>
+  
+  
 
           <span class="md-nav__icon md-icon"></span>
         </label>
@@ -2238,8 +2538,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Game Catalogue API with Node.js and MySQL
+  
+
+    
   </span>
+  
+  
 
       </a>
       
@@ -2261,7 +2568,9 @@
         <li class="md-nav__item">
   <a href="#overview-and-requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview and Requirements
+      
+        Overview and Requirements
+      
     </span>
   </a>
   
@@ -2270,7 +2579,9 @@
         <li class="md-nav__item">
   <a href="#setting-up-the-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting up the Project
+      
+        Setting up the Project
+      
     </span>
   </a>
   
@@ -2280,7 +2591,9 @@
           <li class="md-nav__item">
   <a href="#creating-a-new-repo" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a New Repo
+      
+        Creating a New Repo
+      
     </span>
   </a>
   
@@ -2289,7 +2602,9 @@
           <li class="md-nav__item">
   <a href="#initialising-the-base-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Initialising the Base Project
+      
+        Initialising the Base Project
+      
     </span>
   </a>
   
@@ -2303,7 +2618,9 @@
         <li class="md-nav__item">
   <a href="#create-the-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Create the Capsules
+      
+        Create the Capsules
+      
     </span>
   </a>
   
@@ -2312,7 +2629,9 @@
         <li class="md-nav__item">
   <a href="#binding-the-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Binding the Capsules
+      
+        Binding the Capsules
+      
     </span>
   </a>
   
@@ -2321,7 +2640,9 @@
         <li class="md-nav__item">
   <a href="#writing-the-api-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Writing the API Code
+      
+        Writing the API Code
+      
     </span>
   </a>
   
@@ -2331,7 +2652,9 @@
           <li class="md-nav__item">
   <a href="#creating-the-database-tables" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating the Database Tables
+      
+        Creating the Database Tables
+      
     </span>
   </a>
   
@@ -2340,7 +2663,9 @@
           <li class="md-nav__item">
   <a href="#adding-a-read-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding a Read Route
+      
+        Adding a Read Route
+      
     </span>
   </a>
   
@@ -2349,7 +2674,9 @@
           <li class="md-nav__item">
   <a href="#adding-a-create-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding a Create Route
+      
+        Adding a Create Route
+      
     </span>
   </a>
   
@@ -2358,7 +2685,9 @@
           <li class="md-nav__item">
   <a href="#adding-an-update-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding an Update Route
+      
+        Adding an Update Route
+      
     </span>
   </a>
   
@@ -2367,7 +2696,9 @@
           <li class="md-nav__item">
   <a href="#adding-a-delete-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding a Delete Route
+      
+        Adding a Delete Route
+      
     </span>
   </a>
   
@@ -2376,7 +2707,9 @@
           <li class="md-nav__item">
   <a href="#adding-authentication" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Authentication
+      
+        Adding Authentication
+      
     </span>
   </a>
   
@@ -2390,7 +2723,9 @@
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Next Steps
+      
+        Next Steps
+      
     </span>
   </a>
   
@@ -2415,8 +2750,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Reader Mode App with Flask and Redis
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2434,8 +2776,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Image Overlay API with Express
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2453,8 +2802,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Build an Imgur Clone with Uppy
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2472,8 +2828,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     White-label Your App
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2490,10 +2853,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2516,23 +2875,35 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
         
         
-          <label class="md-nav__link" for="__nav_5">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
+    
+  
     FAQ
+  
+
+    
   </span>
+  
+  
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            FAQ
+            
+  
+    FAQ
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2546,8 +2917,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Teams, Spaces and Capsules
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2565,8 +2943,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Capsule?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2584,8 +2969,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Space?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2603,8 +2995,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     What is a Team?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2622,8 +3021,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     How Do I Add a Custom Domain?
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2640,10 +3046,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2668,8 +3070,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           
@@ -2678,8 +3081,15 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Comparisons
+  
+
+    
   </span>
+  
+  
 
             </a>
             
@@ -2689,10 +3099,14 @@
             
           </div>
         
-        <nav class="md-nav" aria-label="Comparisons" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            Comparisons
+            
+  
+    Comparisons
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2708,8 +3122,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     PaaS Providers
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2727,8 +3148,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Telegram Hosting Providers
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2746,8 +3174,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     SaaS vs PaaS vs IaaS
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2765,8 +3200,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Top Six Heroku Alternatives
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2783,10 +3225,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2805,23 +3243,35 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
         
         
-          <label class="md-nav__link" for="__nav_7">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
+    
+  
     Community
+  
+
+    
   </span>
+  
+  
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            Community
+            
+  
+    Community
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2835,8 +3285,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Introducing Code Capsules
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2854,8 +3311,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Hack Days and Free Tech Consulting
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2873,8 +3337,15 @@
         
   
   <span class="md-ellipsis">
+    
+  
     Founder Fridays
+  
+
+    
   </span>
+  
+  
 
       </a>
     </li>
@@ -2891,10 +3362,6 @@
     
       
       
-      
-
-
-
   
   
   
@@ -2911,8 +3378,9 @@
       
         
         
-          <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
           
@@ -2921,17 +3389,28 @@
               
   
   <span class="md-ellipsis">
+    
+  
     Video Guides
+  
+
+    
   </span>
+  
+  
 
             </a>
             
           </div>
         
-        <nav class="md-nav" aria-label="Video Guides" data-md-level="1">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            Video Guides
+            
+  
+    Video Guides
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2973,7 +3452,9 @@
         <li class="md-nav__item">
   <a href="#overview-and-requirements" class="md-nav__link">
     <span class="md-ellipsis">
-      Overview and Requirements
+      
+        Overview and Requirements
+      
     </span>
   </a>
   
@@ -2982,7 +3463,9 @@
         <li class="md-nav__item">
   <a href="#setting-up-the-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting up the Project
+      
+        Setting up the Project
+      
     </span>
   </a>
   
@@ -2992,7 +3475,9 @@
           <li class="md-nav__item">
   <a href="#creating-a-new-repo" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating a New Repo
+      
+        Creating a New Repo
+      
     </span>
   </a>
   
@@ -3001,7 +3486,9 @@
           <li class="md-nav__item">
   <a href="#initialising-the-base-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Initialising the Base Project
+      
+        Initialising the Base Project
+      
     </span>
   </a>
   
@@ -3015,7 +3502,9 @@
         <li class="md-nav__item">
   <a href="#create-the-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Create the Capsules
+      
+        Create the Capsules
+      
     </span>
   </a>
   
@@ -3024,7 +3513,9 @@
         <li class="md-nav__item">
   <a href="#binding-the-capsules" class="md-nav__link">
     <span class="md-ellipsis">
-      Binding the Capsules
+      
+        Binding the Capsules
+      
     </span>
   </a>
   
@@ -3033,7 +3524,9 @@
         <li class="md-nav__item">
   <a href="#writing-the-api-code" class="md-nav__link">
     <span class="md-ellipsis">
-      Writing the API Code
+      
+        Writing the API Code
+      
     </span>
   </a>
   
@@ -3043,7 +3536,9 @@
           <li class="md-nav__item">
   <a href="#creating-the-database-tables" class="md-nav__link">
     <span class="md-ellipsis">
-      Creating the Database Tables
+      
+        Creating the Database Tables
+      
     </span>
   </a>
   
@@ -3052,7 +3547,9 @@
           <li class="md-nav__item">
   <a href="#adding-a-read-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding a Read Route
+      
+        Adding a Read Route
+      
     </span>
   </a>
   
@@ -3061,7 +3558,9 @@
           <li class="md-nav__item">
   <a href="#adding-a-create-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding a Create Route
+      
+        Adding a Create Route
+      
     </span>
   </a>
   
@@ -3070,7 +3569,9 @@
           <li class="md-nav__item">
   <a href="#adding-an-update-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding an Update Route
+      
+        Adding an Update Route
+      
     </span>
   </a>
   
@@ -3079,7 +3580,9 @@
           <li class="md-nav__item">
   <a href="#adding-a-delete-route" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding a Delete Route
+      
+        Adding a Delete Route
+      
     </span>
   </a>
   
@@ -3088,7 +3591,9 @@
           <li class="md-nav__item">
   <a href="#adding-authentication" class="md-nav__link">
     <span class="md-ellipsis">
-      Adding Authentication
+      
+        Adding Authentication
+      
     </span>
   </a>
   
@@ -3102,7 +3607,9 @@
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Next Steps
+      
+        Next Steps
+      
     </span>
   </a>
   
@@ -3116,10 +3623,12 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
+          
+            <div class="md-content" data-md-component="content">
               
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="building-a-game-catalogue-api">Building a Game Catalogue API</h1>
@@ -3143,15 +3652,15 @@
 <p>Head over to <a href="https://github.com">GitHub</a> and create a new repo. We're calling it <em>game-api</em> here, but you can give it any name. Choose a <strong>Node</strong> <code>.gitignore</code> file to get started. Then clone the new GitHub repo onto your computer and navigate to that directory in a terminal (or command prompt, if you're on Windows).</p>
 <h3 id="initialising-the-base-project">Initialising the Base Project</h3>
 <p>We'll use the <a href="http://expressjs.com/en/starter/generator.html">Express</a> generator to create the project base. <a href="http://expressjs.com">Express</a> is a lightweight web framework for Node.js. To create the base project, type in the following: </p>
-<div class="highlight"><pre><span></span><code>npx express-generator --no-view
-npm install
+<div class="highlight"><pre><span></span><code>npx<span class="w"> </span>express-generator<span class="w"> </span>--no-view
+npm<span class="w"> </span>install
 </code></pre></div>
 <p>This creates a few files and folders that we can edit. The <code>--no-view</code> option tells the generator to skip adding an HTML view engine. This is because we don't need any views for an API. </p>
 <p>The command <code>npm install</code> downloads and installs all the dependencies and packages required by the base project. Open the folder with <a href="https://code.visualstudio.com">Visual Studio Code</a> or an editor of your choice, and browse through the files to get familiar with them. The <code>app.js</code> file in the project root is the main entry point for the app. </p>
 <p>Great, it's time to push this boilerplate project up to Git. We can do it with the following commands, from the command prompt or terminal: </p>
-<div class="highlight"><pre><span></span><code>git add . 
-git commit -am <span class="s1">&#39;added base files for project&#39;</span>
-git push origin
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span>
+git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s1">&#39;added base files for project&#39;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin
 </code></pre></div>
 <h2 id="create-the-capsules">Create the Capsules</h2>
 <p>A <a href="https://codecapsules.io/docs/FAQ/what-is-a-capsule/">Capsule</a> provides the server for hosting an application on Code Capsules.</p>
@@ -3203,16 +3712,16 @@ git push origin
 </table>
 <p>We don't have direct access to the Data Capsule and the MySQL database it's running. We can only access the Data Capsule from our Backend Capsule. So, to make a new table, we'll create a setup script which we can direct the Backend Capsule to run. </p>
 <p>Create a new file called <code>setup.js</code> in the root of your project. Now we need to install a package that will allow us connect to MySQL and send commands. We'll use <a href="https://www.npmjs.com/package/mysql2">MySQL2</a>. Use <code>npm</code> from the terminal to install this package:</p>
-<div class="highlight"><pre><span></span><code>npm install mysql2
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>mysql2
 </code></pre></div>
 <p>Now we can add the code to create the table. In the new <code>setup.js</code> file, add the following code: </p>
-<p><div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">mysql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mysql2&#39;</span><span class="p">);</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">mysql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mysql2&#39;</span><span class="p">);</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Setting up Database....&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Setting up Database....&#39;</span><span class="p">);</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mysql</span><span class="p">.</span><span class="nx">createConnection</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DATABASE_URL</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mysql</span><span class="p">.</span><span class="nx">createConnection</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DATABASE_URL</span><span class="p">);</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Creating tables...&#39;</span><span class="p">);</span><span class="w"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Creating tables...&#39;</span><span class="p">);</span>
 <span class="nx">connection</span><span class="p">.</span><span class="nx">execute</span><span class="p">(</span><span class="sb">`</span>
 <span class="sb">    create table games</span>
 <span class="sb">      (</span>
@@ -3224,80 +3733,80 @@ git push origin
 <span class="sb">          primary key (id)</span>
 <span class="sb">      );</span>
 <span class="sb">    `</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">fields</span><span class="p">){</span><span class="w"></span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">fields</span><span class="p">){</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
 <span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">results</span><span class="p">);</span><span class="w"> </span>
 <span class="p">});</span><span class="w"> </span>
 </code></pre></div>
 This code imports the <code>mysql2</code> driver package. We write a boot message to the console, just so we can see when the code runs in the logs. Then we can create a new connection to the database, using the connection string that was automatically added to the <code>DATABASE_URL</code> environment variable when we bound the capsules. Then we use the <code>execute</code> function to send a SQL command to the database. The SQL command creates a new table with the columns defined above. It has a callback to let us know if the operation is a success or if it has an error. In both cases, we write the output to the console, so we'll be able to see what happened when we read the logs. </p>
 <p>Now, we need a way for the Backend Capsule to run this setup script. We can use the <code>package.json</code> file to register a new command that <code>npm</code> will be able to run. Open the <code>package.json</code> file and add in the following line to the <code>scripts</code> object:</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="s2">&quot;setup&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;node setup.js&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="s2">&quot;setup&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;node setup.js&quot;</span>
 </code></pre></div>
 <p>The complete <code>package.json</code> file should look like this now: </p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;game-api&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0.0.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;private&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;scripts&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;start&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;node ./bin/www&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;setup&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;node setup.js&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="s2">&quot;dependencies&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;cookie-parser&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;~1.4.4&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;debug&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;~2.6.9&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;express&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;~4.16.1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;morgan&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;~1.9.1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;mysql2&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^2.3.0&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;game-api&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;version&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0.0.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;private&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;scripts&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;start&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;node ./bin/www&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;setup&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;node setup.js&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s2">&quot;dependencies&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;cookie-parser&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;~1.4.4&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;debug&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;~2.6.9&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;express&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;~4.16.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;morgan&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;~1.9.1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;mysql2&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;^2.3.0&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>We'll need to let our Backend Capsule know to run this script. Navigate to the "Configure" tab on the Backend Capsule, and scroll down to the "Run Command" section. Change this to:</p>
-<p><div class="highlight"><pre><span></span><code>npm run setup
+<p><div class="highlight"><pre><span></span><code>npm<span class="w"> </span>run<span class="w"> </span>setup
 </code></pre></div>
 Click "Save" to save this new setting. </p>
 <p><img alt="Setup run command" src="../../assets/deployment/shared/run-command-setup.png" /></p>
 <p>Let's commit the above code to the repo, and push it up so that Code Capsules can run it. Commit and push using the following commands in the terminal: </p>
-<div class="highlight"><pre><span></span><code>git add . 
-git commit -am <span class="s1">&#39;added database setup script&#39;</span>
-git push origin
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span>
+git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s1">&#39;added database setup script&#39;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin
 </code></pre></div>
 <p>If you navigate to the "Logs" tab on the Backend Capsule, you should see the script booting up and the result of the <code>CREATE TABLE</code> command. </p>
 <p><img alt="setup database logs" src="../../assets/tutorials/game-catalogue-with-nodejs-and-mysql/setup-logs.png" /></p>
 <p>Once this is done, you can change the "Run Command" under the "Configure" tab back to:</p>
-<div class="highlight"><pre><span></span><code>npm run start
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>run<span class="w"> </span>start
 </code></pre></div>
 <p>Remember to click "Update Capsule" to save this. </p>
 <h3 id="adding-a-read-route">Adding a Read Route</h3>
 <p>Our database is set up with a new table. Let's add some code to create an API route to read from this table. </p>
 <p>To keep the solution neater, we'll add a new file to contain the API route code. Add a new file called <code>games.js</code> in the <code>routes</code> folder in your project, with the following code:</p>
-<p><div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span><span class="w"></span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">mysql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mysql2&#39;</span><span class="p">);</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;express&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">mysql</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;mysql2&#39;</span><span class="p">);</span>
 
-<span class="kd">var</span><span class="w"> </span><span class="nx">router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">.</span><span class="nx">Router</span><span class="p">();</span><span class="w"></span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">router</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">.</span><span class="nx">Router</span><span class="p">();</span>
 
-<span class="kd">const</span><span class="w"> </span><span class="nx">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mysql</span><span class="p">.</span><span class="nx">createConnection</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DATABASE_URL</span><span class="p">);</span><span class="w"></span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">connection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">mysql</span><span class="p">.</span><span class="nx">createConnection</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">DATABASE_URL</span><span class="p">);</span>
 
-<span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">){</span><span class="w"></span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">){</span>
 
-<span class="w">  </span><span class="nx">connection</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="w"></span>
-<span class="w">    </span><span class="sb">`SELECT * FROM games`</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">queryResults</span><span class="w"></span>
+<span class="w">  </span><span class="nx">connection</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span>
+<span class="w">    </span><span class="sb">`SELECT * FROM games`</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">queryResults</span>
 <span class="w">  </span><span class="p">);</span><span class="w"> </span>
 
-<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">queryResults</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">fields</span><span class="p">){</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">queryResults</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">fields</span><span class="p">){</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">next</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span><span class="w"> </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">results</span><span class="p">);</span><span class="w"> </span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
 
-<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">router</span><span class="p">;</span><span class="w"></span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">router</span><span class="p">;</span>
 </code></pre></div>
 This code imports the Express module so that we can construct a <code>router</code>, and the <code>mysql2</code> module so that we can connect to the database. </p>
 <p>We create a <a href="http://expressjs.com/en/5x/api.html#router"><code>router</code></a>, which is an object that allows us to group routes and middleware together logically. We'll add all our CRUD routes to this router object. Then we create a new database connection, as we did in our setup script. </p>
 <p>Express routers allow us to add routes using the following structure:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">METHOD</span><span class="p">(</span><span class="nx">PATH</span><span class="p">,</span><span class="w"> </span><span class="nx">HANDLER</span><span class="p">)</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">METHOD</span><span class="p">(</span><span class="nx">PATH</span><span class="p">,</span><span class="w"> </span><span class="nx">HANDLER</span><span class="p">)</span>
 </code></pre></div>
 <p><code>METHOD</code> is one of the standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP request methods</a> to use. <code>PATH</code> is the relative part of the server URL to get to the route, and <code>HANDLER</code> is a function that we want run when the route is accessed. </p>
 <p>To create the read route, we use the HTTP <code>GET</code> verb, which can be configured using the <code>get</code> method on the router. Since we need no parameters, we set the path to <code>/</code>. Then we add our handler function. The function accepts 3 arguments from the Express router: </p>
@@ -3310,7 +3819,7 @@ This code imports the Express module so that we can construct a <code>router</co
 <p>In the callback, we check if the <code>err</code>, or error, parameter is set. If it is, we use the <code>next</code> function along with the error to exit the route early. This will send an error message to the client. </p>
 <p>If there is no error, we send the results of the SQL query back, formatted as <a href="https://en.wikipedia.org/wiki/JSON">JSON</a>. </p>
 <p>Now that we have the router set up and our first route created, we can hook them up to the main Express app. Open the <code>app.js</code> file in the route folder and add the following code above the line <code>var app = express();</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">gamesRouter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/games&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">gamesRouter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./routes/games&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>This adds a reference to the router we defined in the <code>game.js</code> file. </p>
 <p>Now, let's use this reference to add the router to the Express app. Add the following line just above the <code>module.exports = app;</code>: </p>
@@ -3318,9 +3827,9 @@ This code imports the Express module so that we can construct a <code>router</co
 </code></pre></div>
 <p>This mounts the route at the path <code>/games</code> on our server. </p>
 <p>Let's test all of this by committing and pushing these changes:</p>
-<div class="highlight"><pre><span></span><code>git add . 
-git commit -am <span class="s1">&#39;added get route for games&#39;</span>
-git push origin
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span>
+git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s1">&#39;added get route for games&#39;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin
 </code></pre></div>
 <p>If you visit the Code Capsules dashboard for the Backend Capsule, you should see a note that it's building. Once it's finished building, head over to your site in a browser and navigate to the <code>/games</code> route. You should see it return an empty array:</p>
 <p><img alt="empty get route" src="../../assets/tutorials/game-catalogue-with-nodejs-and-mysql/get-results.png" /></p>
@@ -3329,60 +3838,60 @@ git push origin
 <p>We'll use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP POST</a> method as the verb for creating a new game in the catalogue. </p>
 <p>For the create route, it would be nice to return the newly created entry, along with the id automatically created by MySQL for the entry. To do this, we'll first need to <code>INSERT</code> the new data into the database, and then run a <code>SELECT</code> command to retrieve the fully created database object. We can use the concept of <a href="http://expressjs.com/en/guide/using-middleware.html#using-middleware">"middleware"</a> in Express to achieve this. </p>
 <p>Each route allows us to chain multiple handlers to it, with each handler running one after the other. This is the core concept of middleware. So to implement our create route with its two distinct operations, we can chain 2 handlers, like this: </p>
-<div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">functionOne</span><span class="p">,</span><span class="w"> </span><span class="nx">functionTwo</span><span class="p">])</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">functionOne</span><span class="p">,</span><span class="w"> </span><span class="nx">functionTwo</span><span class="p">])</span>
 </code></pre></div>
 <p>Here, <code>functionOne</code> can pass control to <code>functionTwo</code> by calling the <code>next()</code> parameter, which is passed into each handler by Express. We can also pass custom information from one handler to another by adding it onto the <code>req</code> object, which is also passed to each handler by Express.</p>
 <p>Ok, enough theory, let's add this code in <code>games.js</code> above the line <code>module.exports = router;</code> using what we know from above:</p>
 <div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">addNewGame</span><span class="p">,</span><span class="w"> </span><span class="nx">returnGameById</span><span class="p">]);</span><span class="w">  </span>
 
 
-<span class="kd">function</span><span class="w"> </span><span class="nx">addNewGame</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">){</span><span class="w"></span>
-<span class="w">  </span><span class="nx">connection</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">addNewGame</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">){</span>
+<span class="w">  </span><span class="nx">connection</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span>
 <span class="w">    </span><span class="sb">`INSERT INTO games</span>
 <span class="sb">      (title, platform, year)</span>
 <span class="sb">      VALUES (?, ?, ?)`</span><span class="p">,</span><span class="w"> </span>
-<span class="w">      </span><span class="p">[</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">platform</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">year</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">queryResults</span><span class="w"></span>
-<span class="w">  </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">platform</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">year</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">queryResults</span>
+<span class="w">  </span><span class="p">);</span>
 
-<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">queryResults</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">fields</span><span class="p">){</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">queryResults</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">fields</span><span class="p">){</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">next</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span><span class="w"> </span>
-<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">results</span><span class="p">.</span><span class="nx">insertId</span><span class="w"></span>
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">results</span><span class="p">.</span><span class="nx">insertId</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">next</span><span class="p">();</span><span class="w"> </span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 
-<span class="kd">function</span><span class="w"> </span><span class="nx">returnGameById</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="p">){</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">returnGameById</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="p">){</span>
 <span class="w">  </span><span class="nx">connection</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="sb">`</span>
 <span class="sb">    SELECT * FROM games</span>
 <span class="sb">    WHERE id = ?</span>
-<span class="sb">    `</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="p">[</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">queryResults</span><span class="w"></span>
+<span class="sb">    `</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">queryResults</span>
 <span class="w">  </span><span class="p">);</span><span class="w"> </span>
 
-<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">queryResults</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">fields</span><span class="p">){</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">queryResults</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">fields</span><span class="p">){</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">next</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span><span class="w"> </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">results</span><span class="p">);</span><span class="w"> </span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>We've implemented each of the handlers as separate, named functions. You could implement both as inline functions, but again, it's a stylistic choice to improve readability. Also, by writing each handler as a named function, the list of the functions passed to the router is almost self-documenting, telling us the steps the route takes. Lastly, we can also re-use each of the handlers in other routes if we need to. </p>
 <p>The first handler, <code>addNewGame</code>, uses a SQL <code>INSERT</code> query to create a new database row. Note the <code>?</code> placeholders in the query. This feature of the <a href="https://www.npmjs.com/package/mysql2">MySQL2</a> package allows us to pass in arguments to the query, instead of concating the query with our incoming values. The values passed in from the client can be found on the <code>req.body</code> object, neatly parsed into JSON by Express. We can pass these values in an array as an argument to the query function. The function will substitute each <code>?</code> for a value, in the order that they are passed in the array. We use a function <code>queryResults</code> as we did for the <code>get</code> route, as our callback. Note here that the <code>results</code> parameter on this occasion will have an object of stats and information on the <code>INSERT</code> operation. One of the fields is <code>insertId</code>, which is the automatically assigned <code>id</code> of the new record in the database. We add this to the <code>req.body</code> object, and then call <code>next()</code> to pass control to the next handler, <code>returnGameById</code>. </p>
 <p>The handler <code>returnGameById</code> queries the database for the newly created object, using the <code>id</code> field we added to the <code>req.body</code> object in the first handler. In the callback for the query, <code>queryResults</code>, we return the database row as a JSON object, using the <a href="http://expressjs.com/en/5x/api.html#res.json"><code>res.json</code></a> method. </p>
 <p>To test this, commit and push the code up again to Code Capsules.</p>
-<div class="highlight"><pre><span></span><code>git add . 
-git commit -am <span class="s1">&#39;added post route for games&#39;</span>
-git push origin
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span>
+git<span class="w"> </span>commit<span class="w"> </span>-am<span class="w"> </span><span class="s1">&#39;added post route for games&#39;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin
 </code></pre></div>
 <p>Once it has successfully built and deployed on Code Capsules, we can try this new route out. To do this, download <a href="https://www.postman.com">Postman</a>, which is a tool that makes it easier to interact with APIs. </p>
 <p>Create a new query in Postman, with the HTTP method set to "POST". Set the URL to the URL of your Backend Capsule, along with the <code>/games</code> path. Then click the "Body" tab, select "raw" as the mime type, and select "JSON" from the dropdown as the content type. </p>
 <p>Add the following JSON payload to the body:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="s2">&quot;title&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Super Mario Brothers&quot;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="s2">&quot;platform&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NES&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="s2">&quot;year&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1985</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;platform&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;NES&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;year&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mf">1985</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>Click "Send", and your API should send back the newly inserted game, along with its <code>id</code>:</p>
 <p><img alt="Post new game" src="../../assets/tutorials/game-catalogue-with-nodejs-and-mysql/post-game.png" /></p>
@@ -3390,23 +3899,23 @@ git push origin
 <p>Now that we can add a game, and read back the catalogue, we might need to update an entry if we find an entry has a mistake. This is usually expressed as the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods">HTTP PUT method</a>. As a convention, the <code>id</code> of the document to update is passed in the URL path, and the updated document values are sent in the body. </p>
 <p>We'll use the same pattern as we did for the <code>post</code> route, and re-use the <code>returnGameById</code> function to retrieve the newly updated row from the database. </p>
 <p>Add this code to add the update route: </p>
-<div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;/:id&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">updateGame</span><span class="p">,</span><span class="w"> </span><span class="nx">returnGameById</span><span class="p">]);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="s1">&#39;/:id&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">updateGame</span><span class="p">,</span><span class="w"> </span><span class="nx">returnGameById</span><span class="p">]);</span>
 
-<span class="kd">function</span><span class="w"> </span><span class="nx">updateGame</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">){</span><span class="w"></span>
-<span class="w">  </span><span class="nx">connection</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="w"></span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">updateGame</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">){</span>
+<span class="w">  </span><span class="nx">connection</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span>
 <span class="w">    </span><span class="sb">`UPDATE games</span>
 <span class="sb">      SET title = ?, platform = ?, year = ?</span>
 <span class="sb">      WHERE id = ?`</span><span class="p">,</span><span class="w"> </span>
 <span class="w">    </span><span class="p">[</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">platform</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">],</span><span class="w"> </span>
-<span class="w">    </span><span class="nx">queryResults</span><span class="w"></span>
+<span class="w">    </span><span class="nx">queryResults</span>
 <span class="w">  </span><span class="p">);</span><span class="w"> </span>
 
-<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">queryResults</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">fields</span><span class="p">){</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">queryResults</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">fields</span><span class="p">){</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">next</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span><span class="w"> </span>
-<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="w"></span>
+<span class="w">    </span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">next</span><span class="p">();</span><span class="w"> </span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
 <p>This code is very similar to the <code>post</code> route. The major difference being that we use the SQL <code>UPDATE</code> statement to update an existing row. Note that we get the <code>id</code> of the row to update from the <code>req.params</code> object. This object contains all the parameters passed and defined in the path. </p>
 <p>In the <code>queryResults</code> callback, we set the <code>req.body.id</code> field to the <code>id</code> from the <code>params</code>. This is so the <code>next()</code> handler can access the <code>id</code> of the updated record and retrieve the latest version from the database. </p>
@@ -3415,19 +3924,19 @@ git push origin
 <h3 id="adding-a-delete-route">Adding a Delete Route</h3>
 <p>The last route we need to add is a delete route to remove a game entry. Luckily, HTTP has a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods"><code>DELETE</code> method</a> as part of its standard. </p>
 <p>The delete route will work similarly to our other routes. However, since we are removing a record, we don't need to return any data. We can just return the usual status code to signal everything worked OK. </p>
-<div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s1">&#39;/:id&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">){</span><span class="w"></span>
-<span class="w">  </span><span class="nx">connection</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">router</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="s1">&#39;/:id&#39;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">next</span><span class="p">){</span>
+<span class="w">  </span><span class="nx">connection</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span>
 <span class="w">    </span><span class="sb">`DELETE FROM games</span>
 <span class="sb">      WHERE id = ?`</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="p">[</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nx">queryResults</span><span class="w"></span>
-<span class="w">  </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">.</span><span class="nx">id</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">queryResults</span>
+<span class="w">  </span><span class="p">)</span>
 
-<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">queryResults</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">fields</span><span class="p">){</span><span class="w"></span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">queryResults</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="w"> </span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">fields</span><span class="p">){</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">next</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span><span class="w"> </span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">.</span><span class="nx">sendStatus</span><span class="p">(</span><span class="mf">200</span><span class="p">);</span><span class="w">  </span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">});</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
 </code></pre></div>
 <p>As in the update route, we expect the <code>id</code> of the record to delete to be provided by the client in the URL path. Then we run the SQL <code>DELETE</code> command, with the <code>id</code> from the path in <code>req.params.id</code> passed in to replace the single <code>?</code> placeholder. </p>
 <p>Because we don't have any record to return (we deleted it!), we just return a <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#2xx_success">status code <code>200</code></a>, which means everything worked OK. </p>
@@ -3437,7 +3946,7 @@ git push origin
 <p>We've built a basic CRUD API, and we can do all the usual operations on it. However, anyone can access it. Let's add some authentication to take care of that issue. </p>
 <p>For this tutorial, we'll implement a very simple access control system, that only allows access to one pre-defined user. We'll use the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication">HTTP Basic authentication</a> scheme for this, implemented with the <a href="http://www.passportjs.org/docs/basic-digest/">Passport</a> package. </p>
 <p>Let's start by installing the two packages required. The first is the base Passport package, and the second is a package with the HTTP Basic authentication strategy. </p>
-<div class="highlight"><pre><span></span><code>npm install passport passport-http
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>passport<span class="w"> </span>passport-http
 </code></pre></div>
 <p>Now we add this as middleware, to check credentials before our <code>games</code> routes are called. In the <code>app.js</code> file, add the following near the top of the file, just under the other package <code>require</code> statements: </p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">passport</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;passport&#39;</span><span class="p">);</span><span class="w">  </span>
@@ -3447,16 +3956,16 @@ git push origin
 <p>Head over to the "Config" page on your Backend Capsule, and add 2 new environment variables : <code>USERNAME</code> and <code>PASSWORD</code>. Supply values of your own to set your username and password, and click <code>Update Capsule</code> when you are done.  </p>
 <p><img alt="Adding username and password" src="../../assets/deployment/shared/env-user-password.png" /></p>
 <p>Now we can add the Passport code to check incoming credentials against these stored credentials. Add this code just above the <code>var gamesRouter = require('./routes/games');</code> line in <code>app.js</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">BasicStrategy</span><span class="p">(</span><span class="w"></span>
-<span class="w">  </span><span class="kd">function</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">username</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">USERNAME</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PASSWORD</span><span class="p">){</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">passport</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">BasicStrategy</span><span class="p">(</span>
+<span class="w">  </span><span class="kd">function</span><span class="p">(</span><span class="nx">username</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">,</span><span class="w"> </span><span class="nx">done</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">username</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">USERNAME</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">password</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PASSWORD</span><span class="p">){</span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">username</span><span class="o">:</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">USERNAME</span><span class="w"> </span><span class="p">});</span><span class="w"> </span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="nx">done</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span><span class="w"> </span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="w">  </span><span class="p">})</span><span class="w"></span>
-<span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="p">);</span>
 </code></pre></div>
 <p>This sets up Passport to use the "basic" strategy for authentication. We supply a callback function which checks the incoming credentials against the credentials in the environment variables. If they match, we call the Passport <code>done()</code> function, with the a simple user object containing the user name. If there is no match, we call the <code>done()</code> function with <code>false</code> to signal that we found no match for the user. </p>
 <p>The final part is to add the Passport authenticate middleware to the routes we want to protect. We'll add it to all our game routes. </p>
@@ -3514,9 +4023,7 @@ git push origin
               
                 
               
-              
-                Thanks for your feedback!
-              
+              Thanks for your feedback!
             </div>
           
             <div data-md-value="0" hidden>
@@ -3524,9 +4031,7 @@ git push origin
               
                 
               
-              
-                Thanks for your feedback! We'll do our best to improve.
-              
+              Thanks for your feedback! We'll do our best to improve.
             </div>
           
         </div>
@@ -3534,52 +4039,18 @@ git push origin
     </fieldset>
   </form>
 
-              
-            </article>
-            
-<script>var input,hash=location.hash.slice(1);hash.startsWith("__tabbed_")&&((input=document.getElementById(hash)).checked=!0)</script>
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../stripe-checkout-and-email-with-flask/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Stripe Checkout and Email Subscription with Flask" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Stripe Checkout and Email Subscription with Flask
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../build-a-reader-mode-app-with-flask-and-redis/" class="md-footer__link md-footer__link--next" aria-label="Next: Reader Mode App with Flask and Redis" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Reader Mode App with Flask and Redis
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3597,11 +4068,17 @@ git push origin
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.720157f5.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.indexes", "navigation.tabs", "navigation.sections"], "search": "../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.2131bdac.min.js"></script>
+
+      <script src="../../assets/javascripts/bundle.b7178837.min.js"></script>
       
     
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXT5DSF"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
   </body>
 </html>
