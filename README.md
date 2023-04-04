@@ -25,7 +25,7 @@ This will watch the `docs/` folder for changes and preview the docs site on loca
 
 ## Building the static site and pushing to git
 
-We commit both the source (markdown) versions and the built (html) version of the site to this repo. The build version lives in "site". This is 
+We commit both the source (markdown) versions and the built (html) version of the site to this repo. The built version lives in "site". This is 
 automatically handled by the mkdocs Docker builder.
 
 Once you're happy with the changes in your local preview, build the site with
@@ -38,8 +38,16 @@ Check with `git diff` or similar that the files modified are what you expect and
 
 ```
 git add site
-git commit -m "my changes"
+git commit -m "static build"
 git push origin main
+```
+
+You should also push any changes to the markdown version. We usually use a descriptive commit message for the markdown changes but just "static build" to push the built version.
+
+```
+git add docs
+git commit -m "added a new tutorial about foobar
+git push origin main # or be cool and use branches
 ```
 
 ## Testing and deploying 
