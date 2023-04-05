@@ -5,7 +5,7 @@ hide:
   - navigation
 ---
 
-# How to Deploy a Python Telegram Bot to Production on Code Capsules For Free in 5 Minutes
+# How to Deploy a Python Telegram Bot to Production on Code Capsules in 5 Minutes
 
 *This guide uses polling, which is easier to deploy but not recommended. See [this guide](./how-to-deploy-python-telegram-bot-to-production.md) for how to implement the same bot using webhooks.*
 

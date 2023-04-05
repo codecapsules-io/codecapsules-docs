@@ -55,15 +55,15 @@ git push origin main # or be cool and use branches
 Test the final container (including Caddy etc) with:
 
 ```
-docker run -p 5555:5555 -d eu.gcr.io/appstrax/code-capsules-docs:1.0.46
+docker run -p 5555:5555 -d eu.gcr.io/appstrax/code-capsules-docs:1.0.51
 ```
 
 and deploy with
 
 ```
-docker build -t eu.gcr.io/appstrax/code-capsules-docs:1.0.46 .
+docker build -t eu.gcr.io/appstrax/code-capsules-docs:1.0.51 .
 ```
 
 ```
-docker push eu.gcr.io/appstrax/code-capsules-docs:1.0.46
+docker push eu.gcr.io/appstrax/code-capsules-docs:1.0.51
 ```
