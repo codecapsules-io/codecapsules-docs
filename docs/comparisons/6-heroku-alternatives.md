@@ -25,12 +25,12 @@ When choosing a PaaS, you'll want to consider such things as pricing structure, 
 ## Code Capsules 
 
 ### Pros:
- - Free tier for both static and dynamic web applications
+ - Allows both static and dynamic web applications
  - Deployment from GitHub
  - Endpoints in Africa
  - Frontend and backend application hosting with database server support
 
-[Code Capsules](https://codecapsules.io/) is a full platform-as-a-service provider that allows for the deployment of both frontend and backend applications. You can sign up for the free tier to use a Frontend Capsule and a Backend Capsule, allowing you to deploy a full-stack web application to test out the Code Capsules workflow free of charge. 
+[Code Capsules](https://codecapsules.io/) is a full platform-as-a-service provider that allows for the deployment of both frontend and backend applications.
 
 Code Capsules allows for an application to be pushed to production through a `git push` command to GitHub. Your application is run on a server, called a Capsule, which pulls the code from your GitHub repository, and builds it in a container created on the Code Capsules website. Once your application is set up in your GitHub repository, all it takes to deploy your code is a `git push` command. 
 
@@ -48,7 +48,7 @@ The organizational tools Code Capsules provides for teams collaborating on appli
 ### Cons:
  - No endpoints in Africa or Asia.
 
-[Render](https://render.com) has a simple set up, support for full-stack applications, and a free tier account option for static sites, web services, and databases. You can take a look at [how Render compares to Heroku](https://render.com/render-vs-heroku-comparison) on their website.
+[Render](https://render.com) has a simple set up, support for full-stack applications, and an option for static sites, web services, and databases. You can take a look at [how Render compares to Heroku](https://render.com/render-vs-heroku-comparison) on their website.
 
 With Render, you can build and update your web service or site through a `git push` command – a great plus for developer experience. Additionally, the Render dashboard's auto-suggest helps you build and start your application.
 

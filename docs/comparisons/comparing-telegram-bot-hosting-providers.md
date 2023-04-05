@@ -61,7 +61,7 @@ The platform also has a free tier that allows you to host a Telegram bot, and is
 
 - [Code Capsules Telegram Bot Tutorial](https://codecapsules.io/docs/tutorials/create-and-host-telegram-bot/) 
 
-Code Capsules offers different types of capsules or servers to meet your hosting needs, from frontend and backend applications to databases. A Telegram bot can be hosted by a Backend Capsule with minimal hassle, as the platform is relatively easy to use and navigate. Code Capsules only has a free tier for Frontend Capsules, meaning you will have to pay to make use of its Backend Capsules. 
+Code Capsules offers different types of capsules or servers to meet your hosting needs, from frontend and backend applications to databases. A Telegram bot can be hosted by a Backend Capsule with minimal hassle, as the platform is relatively easy to use and navigate.
 
 Code Capsules also supports a wide variety of languages, ensuring you have plenty of options to choose from when deciding on the tech stack for your bot.
 

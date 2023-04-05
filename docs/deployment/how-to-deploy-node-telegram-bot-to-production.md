@@ -7,7 +7,7 @@ hide:
 
 # How to Deploy a Node.js Telegram Bot to Production on Code Capsules For Free in 5 Minutes
 
-Deploy a Node.js Telegram Bot and learn how to host backend code on Code Capsules for free.
+Deploy a Node.js Telegram Bot and learn how to host backend code on Code Capsules.
 
 
 ## Register the Bot

@@ -9,7 +9,7 @@ hide:
 
 *This guide uses polling, which is easier to deploy but not recommended. See [this guide](./how-to-deploy-python-telegram-bot-to-production.md) for how to implement the same bot using webhooks.*
 
-Deploy a Python Telegram Bot and learn how to host backend code on Code Capsules for free.
+Deploy a Python Telegram Bot and learn how to host backend code on Code Capsules.
 
 ## Register the Bot
 

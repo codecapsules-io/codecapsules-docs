@@ -9,7 +9,7 @@ hide:
 
 *A video for this guide can be found [here](https://www.youtube.com/watch?v=z-K9rVfhd5c&list=PLoEGujFfB4nakOY7ifjldejFZBREfn3Zd&index=1) if you prefer watching to reading.*
 
-Deploy a Python Telegram Bot and learn how to host backend code on Code Capsules for free.
+Deploy a Python Telegram Bot and learn how to host backend code on Code Capsules.
 
 ## Register the Bot
 

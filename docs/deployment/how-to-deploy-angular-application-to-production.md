@@ -1,6 +1,6 @@
 ---
 title: Deploy an Angular Application to Production
-description: Deploy a boilerplate Angular application provided by Code Capsules to production for free using a front-end capsule by linking it directly to your GitHub repo.
+description: Deploy a boilerplate Angular application provided by Code Capsules to production using a front-end capsule by linking it directly to your GitHub repo.
 hide:
   - navigation
 ---

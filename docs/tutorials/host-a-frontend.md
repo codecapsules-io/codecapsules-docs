@@ -10,7 +10,7 @@ image: assets/tutorials/host-a-frontend/portfolio-1.jpg
 
 Static websites allow you to deliver simple content to people over the web. Setting up a static page that demonstrates your business, product, or skills doesn't have to be complex. Skip the learning curve surrounding server management and focus on getting out quality content with Code Capsules.
 
-In this tutorial, we'll create a front-end, which is content that visitors see when they load your website. Code Capsules is a service that hosts front-end (and back-end) code online, so we can use it to host a simple portfolio website for free.  
+In this tutorial, we'll create a front-end, which is content that visitors see when they load your website. Code Capsules is a service that hosts front-end (and back-end) code online, so we can use it to host a simple portfolio website.  
 
 With Code Capsules you can:
 
