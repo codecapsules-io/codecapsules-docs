@@ -5,11 +5,11 @@ description: Explore the Team Management options you have with Code Capsules.
 
 # Team Management
 
-A [Team](../../FAQ/what-is-a-team/) is a group of developers who share access to the same [Spaces](../../FAQ/what-is-a-space/) and [Capsules](../../FAQ/what-is-a-capsule/) in order to make collaborative development easier. This guide explores the team management options available to you with Code Capsules.
+A [Team](../FAQ/what-is-a-team.md) is a group of developers who share access to the same [Spaces](../FAQ/what-is-a-space.md), and [Capsules](../FAQ/what-is-a-capsule.md) in order to make collaborative development easier. This guide explores the team management options available to you with Code Capsules.
 
 ## Creating Teams
 
-You can create as many teams as you need on Code Capsules. To create a new Team, click on the yellow `+` button arrow on the bottom left. 
+You can create as many teams as you need on Code Capsules. To create a new Team, click on the yellow `+` button on the bottom left of the screen.
 
 ![Create a Team](../assets/deployment/shared/new-team.png)
 
@@ -17,11 +17,15 @@ Click on the "New Team" option, and fill in your Team name in the screen that sl
 
 ![Enter Team Details](../assets/deployment/shared/create-team.png)
 
+## Creating Spaces
+
+<figure><img src="../../.gitbook/assets/backend-capsule-build-logs.png" alt=""><figcaption></figcaption></figure>
+
 ## Adding Team Repos
 
 Code Capsules connects to GitHub to deploy applications on its platform. Before you can deploy an application, you need to give Code Capsules permission to read the repository on your GitHub account you want to deploy from.
 
-### Adding a Repository to a Team 
+### Adding a Repository to a Team
 
 If you've already linked your Code Capsules account to GitHub, you'll be asked which repos to add to your Team. Click "Add" next to the repos you wish to add to your Team, then click "Confirm".
 
@@ -29,7 +33,7 @@ If you've already linked your Code Capsules account to GitHub, you'll be asked w
 
 ### Linking to GitHub
 
-If you haven't yet linked GitHub to your Code Capsules account, you'll be asked to do so now. 
+If you haven't yet linked GitHub to your Code Capsules account, you'll be asked to do so now.
 
 Select your GitHub username, and do the following in the dialog box that appears:
 
@@ -39,10 +43,9 @@ Select your GitHub username, and do the following in the dialog box that appears
 
 ![Install & authorize github](../assets/deployment/angular/github-integration.png)
 
+## Team Billing
 
-## Team Billing 
-
-Next you'll be asked to enter your Team billing information. You can do so now, or skip this step if you wish to do it later.
+Next, you'll be asked to enter your Team billing information. You can do so now, or skip this step if you wish to do it later.
 
 ![Enter Card Details](../assets/reference/capsule-billing/card-details.png)
 
@@ -53,12 +56,3 @@ The final step in creating a Team is to invite members to it. Enter your prospec
 ![Invite Team Members](../assets/deployment/shared/add-team-member.png)
 
 Your Team is now ready to begin collaborating.
-
-
-
- 
-
-
-
-
-
