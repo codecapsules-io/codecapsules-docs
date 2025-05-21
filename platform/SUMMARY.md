@@ -6,10 +6,8 @@
 
 ## Account
 
-***
-
-* [How Do I Reset My Password?](how-do-i-reset-my-password.md)
-* [How Do I Enable 2FA?](how-do-i-enable-2fa.md)
+* [How Do I Reset My Password?](accounts/how-do-i-reset-my-password.md)
+* [How Do I Enable 2FA?](accounts/how-do-i-enable-2fa.md)
 
 ## Billing
 
@@ -25,10 +23,7 @@
 ## Spaces
 
 * [What Is a Space?](spaces/what-is-a-space.md)
-
-***
-
-* [How Do I Add/Remove a Space?](how-do-i-add-remove-a-space.md)
+* [How Do I Add/Remove a Space?](spaces/how-do-i-add-remove-a-space.md)
 
 ## Regions
 
