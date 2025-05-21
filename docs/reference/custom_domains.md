@@ -10,7 +10,7 @@ To add a custom domain to your application on Code Capsules, click on the "Domai
 
 There is also a yellow `+` button at the top right of the page for if you would like to add a new domain.
 
-![images](../assets/documentation/add-domain.png)
+![images](../assets/reference//custom-domain/add-domain.png)
 
 **Before adding a custom domain**, consider:
 - Your capsule may route to only **one** root domain. You may not add multiple root domains to your Capsule.
