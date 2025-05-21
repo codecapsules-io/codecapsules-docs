@@ -1,6 +1,6 @@
 ---
 title: Capsules Management
-description: Learn the different ways you can manage your capsule.
+description: Learn the different ways you can manage your Capsule.
 ---
 
 # Capsule Management

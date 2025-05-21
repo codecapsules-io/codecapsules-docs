@@ -13,7 +13,7 @@ There is also a yellow `+` button at the top right of the page for if you would 
 ![images](../assets/reference//custom-domain/add-domain.png)
 
 **Before adding a custom domain**, consider:
-- Your capsule may route to only **one** root domain. You may not add multiple root domains to your Capsule.
+- Your Capsule may route to only **one** root domain. You may not add multiple root domains to your Capsule.
 
 To add a custom domain:
 
