@@ -19,7 +19,11 @@ Click on the "New Team" option, and fill in your Team name in the screen that sl
 
 ## Creating Spaces
 
-![Create a Space](../assets/reference/team-management/create-space.png)
+To create a new Space, click the yellow `+` icon on the bottom left of the screen, and select "New Space".
+
+Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
+
+![space name](../../.gitbook/assets/space-name.png)
 
 ## Adding Team Repos
 
@@ -27,15 +31,19 @@ Code Capsules connects to GitHub to deploy applications on its platform. Before 
 
 ### Adding a Repository to a Team
 
-If you've already linked your Code Capsules account to GitHub, you'll be asked which repos to add to your Team. Click "Add" next to the repos you wish to add to your Team, then click "Confirm".
+If you've already linked your Code Capsules account to GitHub, you'll be asked which repos to add to your Team. Click "Share repositories with Team" and toggle on the repos you wish to add to your Team, then click "Share Repos".
 
 ![Edit Team Repos](../assets/reference/team-management/add-repo.png)
 
-### Linking to GitHub
+### Linking to a Git Provider
 
-If you haven't yet linked GitHub to your Code Capsules account, you'll be asked to do so now.
+If you haven't yet linked to your version control provider to your Code Capsules account, you can do so by navigating to the "Repos" in your Code Capsules dashboard.
 
-Select your GitHub username, and do the following in the dialog box that appears:
+Click "Install" next to your preferred provider.
+
+![Version Control Providers](../assets/reference/team-management/choose-version-control-providers.png)
+
+Then follow the prompts to connect your repos to Conde Capsules. For example, when choosing GitHub, you will select your GitHub username and do the following in the dialog box that appears:
 
 1. Select "Only Select Repositories".
 2. Choose the GitHub repository you want to deploy from.
@@ -47,7 +55,7 @@ Select your GitHub username, and do the following in the dialog box that appears
 
 Next, you'll be asked to enter your Team billing information. You can do so now, or skip this step if you wish to do it later.
 
-![Enter Card Details](../assets/reference/capsule-billing/card-details.png)
+![Enter Card Details](../assets/reference/team-management/card-details.png)
 
 ## Inviting Team Members
 
