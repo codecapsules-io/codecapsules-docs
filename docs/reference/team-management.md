@@ -11,15 +11,15 @@ A [Team](../FAQ/what-is-a-team.md) is a group of developers who share access to 
 
 You can create as many teams as you need on Code Capsules. To create a new Team, click on the yellow `+` button on the bottom left of the screen.
 
-![Create a Team](../assets/deployment/shared/new-team.png)
+![Create a Team](../assets/reference/team-management/new-team.png)
 
 Click on the "New Team" option, and fill in your Team name in the screen that slides in from the right. Confirm your changes by clicking "I Like It".
 
-![Enter Team Details](../assets/deployment/shared/create-team.png)
+![Enter Team Details](../assets/reference/team-management/create-team.png)
 
 ## Creating Spaces
 
-<figure><img src="../../.gitbook/assets/backend-capsule-build-logs.png" alt=""><figcaption></figcaption></figure>
+![Create a Space](../assets/reference/team-management/create-space.png)
 
 ## Adding Team Repos
 
@@ -29,7 +29,7 @@ Code Capsules connects to GitHub to deploy applications on its platform. Before 
 
 If you've already linked your Code Capsules account to GitHub, you'll be asked which repos to add to your Team. Click "Add" next to the repos you wish to add to your Team, then click "Confirm".
 
-![Edit Team Repos](../assets/deployment/shared/add-repo.png)
+![Edit Team Repos](../assets/reference/team-management/add-repo.png)
 
 ### Linking to GitHub
 
@@ -41,7 +41,7 @@ Select your GitHub username, and do the following in the dialog box that appears
 2. Choose the GitHub repository you want to deploy from.
 3. Press "Install & Authorize".
 
-![Install & authorize github](../assets/deployment/angular/github-integration.png)
+![Install & authorize github](../assets/reference/team-management/github-integration.png)
 
 ## Team Billing
 
@@ -53,6 +53,6 @@ Next, you'll be asked to enter your Team billing information. You can do so now,
 
 The final step in creating a Team is to invite members to it. Enter your prospective team members' email addresses in the text field and click "Invite Team Members" to send your invitation.
 
-![Invite Team Members](../assets/deployment/shared/add-team-member.png)
+![Invite Team Members](../assets/reference/team-management/add-team-member.png)
 
 Your Team is now ready to begin collaborating.
