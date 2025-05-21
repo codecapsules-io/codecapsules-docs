@@ -19,7 +19,11 @@ Click on the "New Team" option, and fill in your Team name in the screen that sl
 
 ## Creating Spaces
 
-![Create a Space](../assets/reference/team-management/create-space.png)
+To create a new Space, click the yellow `+` icon on the bottom left of the screen, and select "New Space".
+
+Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
+
+![space name](../../.gitbook/assets/space-name.png)
 
 ## Adding Team Repos
 
@@ -47,7 +51,7 @@ Select your GitHub username, and do the following in the dialog box that appears
 
 Next, you'll be asked to enter your Team billing information. You can do so now, or skip this step if you wish to do it later.
 
-![Enter Card Details](../assets/reference/capsule-billing/card-details.png)
+![Enter Card Details](../assets/reference/team-management/card-details.png)
 
 ## Inviting Team Members
 
