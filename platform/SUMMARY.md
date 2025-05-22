@@ -6,8 +6,10 @@
 
 ## Account
 
-* [How Do I Reset My Password?](accounts/how-do-i-reset-my-password.md)
-* [How Do I Enable 2FA?](accounts/how-do-i-enable-2fa.md)
+* [How Do I Add a Payment Method](account/how-do-i-add-a-payment-method.md)
+* [How Do I Reset My Password?](account/how-do-i-reset-my-password.md)
+* [How Do I Enable 2FA?](account/how-do-i-enable-2fa.md)
+* [How Do I Connect Version Control](account/connect-version-control.md)
 
 ## Billing
 
