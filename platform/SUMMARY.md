@@ -19,6 +19,8 @@
 
 * [What Is a Team?](teams/what-is-a-team.md)
 * [How Do I Add/Remove Teams?](teams/how-do-i-add-remove-teams.md)
+* [How Do I Add Team Members](teams/how-do-i-add-team-members.md)
+* [How Do I Share a Repo with a Team?](teams/share-a-repo-with-a-team.md)
 
 ## Spaces
 
