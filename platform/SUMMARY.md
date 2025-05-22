@@ -25,7 +25,13 @@
 ## Spaces
 
 * [What Is a Space?](spaces/what-is-a-space.md)
-* [How Do I Add/Remove a Space?](spaces/how-do-i-add-remove-a-space.md)
+* [How Do I Add/Remove Spaces?](spaces/how-do-i-add-remove-a-space.md)
+
+## Capsules
+
+* [What Is a Capsule](capsules/what-is-a-capsule.md)
+* [How Do I Add, Remove, or Turn Off Capsules](capsules/how-do-i-add-remove-stop-capsules.md)
+* [How Do I Add a Custom Domain?](capsules/how-to-add-a-custom-domain.md)
 
 ## Regions
 
