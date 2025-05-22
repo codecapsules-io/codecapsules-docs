@@ -12,6 +12,6 @@ Click on the "New Team" option, and fill in your Team name in the screen that sl
 
 ## Removing Teams
 
-To remove a Team, go to the "Details" tab in your Team dashboard and select "Remove Team." Note that all Spaces within the Team must be removed before you can remove the Team itself.
+To remove a Team, go to the "Details" tab in your Team dashboard and select "Remove Team". You must [remove Spaces](../spaces/how-do-i-add-remove-a-space.md) from the Team before you can remove the Team itself.
 
 ![Remove a Team](../.gitbook/assets/platform/teams/remove-team.png)
