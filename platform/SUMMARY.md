@@ -19,11 +19,19 @@
 
 * [What Is a Team?](teams/what-is-a-team.md)
 * [How Do I Add/Remove Teams?](teams/how-do-i-add-remove-teams.md)
+* [How Do I Add Team Members](teams/how-do-i-add-team-members.md)
+* [How Do I Share a Repo with a Team?](teams/share-a-repo-with-a-team.md)
 
 ## Spaces
 
 * [What Is a Space?](spaces/what-is-a-space.md)
-* [How Do I Add/Remove a Space?](spaces/how-do-i-add-remove-a-space.md)
+* [How Do I Add/Remove Spaces?](spaces/how-do-i-add-remove-a-space.md)
+
+## Capsules
+
+* [What Is a Capsule](capsules/what-is-a-capsule.md)
+* [How Do I Add, Remove, or Turn Off Capsules](capsules/how-do-i-add-remove-stop-capsules.md)
+* [How Do I Add a Custom Domain?](capsules/how-to-add-a-custom-domain.md)
 
 ## Regions
 
