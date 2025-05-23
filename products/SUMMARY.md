@@ -18,6 +18,7 @@
   * [MySQL](database-capsule/overview/mysql.md)
   * [Mongo](database-capsule/overview/mongo.md)
   * [Postgres](database-capsule/overview/postgres.md)
+  * [Redis](database-capsule/overview/redis.md)
 
 ***
 
