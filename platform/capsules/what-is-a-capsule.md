@@ -1,6 +1,6 @@
 # What is a Capsule?
 
-![Teams contain Spaces and Spaces contain Capsules](..//.gitbook/assets/platform/shared/teamspacecapsule.png)
+![Teams contain Spaces and Spaces contain Capsules](../.gitbook/assets/platform/shared/teamspacecapsule.png)
 
 [Teams](../teams/what-is-a-team.md), [Spaces](../spaces/what-is-a-space.md), and Capsules are the foundation of [Code Capsules](https://codecapsules.io).
 
