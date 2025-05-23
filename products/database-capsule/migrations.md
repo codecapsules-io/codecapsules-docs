@@ -2,7 +2,7 @@
 
 This guide will walk you through performing database migrations using an Express app and a MySQL Data Capsule.
 
-You might find our [guide to setting up a MySQL Data Capsule](https://codecapsules.io/docs/reference/set-up-mysql-data-capsule/) and our [creating an Express application with Code Capsules](https://codecapsules.io/docs/tutorials/game-catalogue-with-nodejs-and-mysql/) tutorial helpful.
+You might find our [guide to setting up a MySQL Data Capsule](overview/mysql.md) and our [creating an Express application with Code Capsules]() tutorial helpful.
 
 ## Step 1: Clone from your GitHub Repository
 
@@ -10,7 +10,7 @@ To install db-migrate to your code, first clone your GitHub repository with the 
 
 `git clone https://github.com/git_username/repository_name.git`
 
-## Step 2: Install db-migrate
+## Step 2: Install `db-migrate`
 
 To make use of migration commands, install `db-migrate` as well as the `db-migrate-mysql` packages with the following commands:
 
