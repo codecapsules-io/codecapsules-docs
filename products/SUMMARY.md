@@ -11,6 +11,7 @@
 * [Monitor](backend-capsule/monitor.md)
 * [Logs](backend-capsule/logs.md)
 * [Alerting](backend-capsule/alerting.md)
+* [Add a Procfile to a Backend Application](backend-capsule/add-procfile.md)
 
 ## Database Capsule
 
