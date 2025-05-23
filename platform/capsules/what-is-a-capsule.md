@@ -1,10 +1,10 @@
 # What is a Capsule?
 
-A Capsule provides the actual server for running your applications. Code Capsules offers two distinct Capsule types: Frontend Capsules and Backend Capsules.
+![Teams contain Spaces and Spaces contain Capsules](../.gitbook/assets/platform/shared/teamspacecapsule.png)
 
-- Frontend Capsules deploy Angular, React, Vue, or static content from the GitHub repository housing your application.
+[Teams](../teams/what-is-a-team.md), [Spaces](../spaces/what-is-a-space.md), and Capsules are the foundation of [Code Capsules](https://codecapsules.io).
 
-- Backend Capsules deploy Node.js, Java, or Python applications from the GitHub repository containing your code.
+**Capsules** provide the actual computational power for running your applications. While Teams and Spaces are organizational tools, Capsules connect to GitHub repositories containing your applications and hosts them on a server. Capsules can run both frontend and backend applications.
 
 Capsules automatically build and deploy upon creation. One can monitor the build process by navigating to the "Logs" tab, or by pressing "View build log" under the "Build and Deploy" tab.
 
