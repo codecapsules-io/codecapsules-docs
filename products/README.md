@@ -8,8 +8,4 @@ coverY: 0
 
 # Products
 
-TODO: Overview diagrams
 
-
-
-### A heading with spaces
