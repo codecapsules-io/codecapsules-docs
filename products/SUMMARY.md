@@ -6,15 +6,11 @@
 
 * [Overview](backend-capsule/overview.md)
 * [Build & Deploy](backend-capsule/build-and-deploy.md)
-
-***
-
-* [Configure](configure.md)
-* [Scale](scale.md)
-* [Monitor](monitor.md)
-* [Logs](logs.md)
-* [Alerting](alerting.md)
-* [Custom Domains](custom-domains.md)
+* [Configure](backend-capsule/configure.md)
+* [Scale](backend-capsule/scale.md)
+* [Monitor](backend-capsule/monitor.md)
+* [Logs](backend-capsule/logs.md)
+* [Alerting](backend-capsule/alerting.md)
 
 ## Database Capsule
 
@@ -25,13 +21,14 @@
 
 ***
 
-* [Deploy](deploy.md)
-* [Configure](configure-1.md)
-* [Scale](scale-1.md)
-* [Backups](backups.md)
-* [Monitor](monitor-1.md)
-* [Logs](logs-1.md)
-* [Alerting](alerting-1.md)
+* [Deploy](database-capsule/deploy.md)
+* [Configure](database-capsule/configure.md)
+* [Scale](database-capsule/scale.md)
+* [Backups](database-capsule/backups.md)
+* [Monitor](database-capsule/monitor.md)
+* [Logs](database-capsule/logs.md)
+* [Alerting](database-capsule/alerting.md)
+* [Migrations](database-capsule/migrations.md)
 
 ## Frontend capsule
 
@@ -39,13 +36,13 @@
 
 ***
 
-* [Build & Deploy](build-and-deploy.md)
-* [Configure](configure-2.md)
-* [Scale](scale-2.md)
-* [Monitor](monitor-2.md)
-* [Logs](logs-2.md)
-* [Alerting](alerting-2.md)
-* [Custom Domains](custom-domains-1.md)
+* [Build & Deploy](frontend-capsule/build-and-deploy.md)
+* [Configure](frontend-capsule/configure.md)
+* [Scale](frontend-capsule/scale.md)
+* [Monitor](frontend-capsule/monitor.md)
+* [Logs](frontend-capsule/logs.md)
+* [Alerting](frontend-capsule/alerting.md)
+* [Custom Domains](frontend-capsule/custom-domains.md)
 
 ## Storage Capsule
 
@@ -53,12 +50,12 @@
 
 ***
 
-* [Deploy](deploy-1.md)
-* [Configure](configure-3.md)
-* [Scale](scale-3.md)
-* [Monitor](monitor-3.md)
-* [Logs](logs-3.md)
-* [Alerting](alerting-3.md)
+* [Deploy](storage-capsule/deploy.md)
+* [Configure](storage-capsule/configure.md)
+* [Scale](storage-capsule/scale.md)
+* [Monitor](storage-capsule/monitor.md)
+* [Logs](storage-capsule/logs.md)
+* [Alerting](storage-capsule/alerting.md)
 
 ## Memory Capsule
 
@@ -66,12 +63,12 @@
 
 ***
 
-* [Deploy](deploy-2.md)
-* [Configure](configure-4.md)
-* [Scale](scale-4.md)
-* [Monitor](monitor-4.md)
-* [Logs](logs-4.md)
-* [Alerting](alerting-4.md)
+* [Deploy](memory-capsule/deploy.md)
+* [Configure](memory-capsule/configure.md)
+* [Scale](memory-capsule/scale.md)
+* [Monitor](memory-capsule/monitor.md)
+* [Logs](memory-capsule/logs.md)
+* [Alerting](memory-capsule/alerting.md)
 
 ## Wordpress Capsule
 
@@ -79,12 +76,12 @@
 
 ***
 
-* [Deploy](deploy-3.md)
-* [Configure](configure-5.md)
-* [Scale](scale-5.md)
-* [Monitor](monitor-5.md)
-* [Logs](logs-5.md)
-* [Alerting](alerting-5.md)
+* [Deploy](wordpress-capsule/deploy.md)
+* [Configure](wordpress-capsule/configure.md)
+* [Scale](wordpress-capsule/scale.md)
+* [Monitor](wordpress-capsule/monitor.md)
+* [Logs](wordpress-capsule/logs.md)
+* [Alerting](wordpress-capsule/alerting.md)
 
 ## Enterprise Clusters
 

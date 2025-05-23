@@ -6,7 +6,7 @@ In this tutorial, we'll create a MySQL Data Capsule to provide persistent storag
 
 Log in to your [Code Capsules](https://codecapsules.io) account and navigate to the Space your MySQL Data Capsule will be contained in. Click the yellow `+` button and select the "MySQL Data Capsule" option from the dropdown.
 
-![Create Data Capsule](../../.gitbook/assets/create-sql-capsule.png)
+![Create Data Capsule](../../products/.gitbook/assets/database-capsule/mysql/create-sql-capsule.png)
 
 Choose your payment option, then click the "Create Capsule" button.
 
@@ -14,7 +14,7 @@ Choose your payment option, then click the "Create Capsule" button.
 
 To use the Data Capsule with your Backend Capsule, you'll need to link the two. Navigate to the Backend Capsule and click "Config" to open the Capsule's configuration tab. Scroll down to the "Data capsules" section and you'll see your recently created Data Capsule.
 
-![Bind Data Capsule](../../.gitbook/assets/sql-bind-env.png)
+![Bind Data Capsule](../../products/.gitbook/assets/database-capsule/mysql/sql-bind-env.png)
 
 Click "View" to view the environment variables from the Data Capsule. Click the `+` next to the `Connection string`  variable to create a `DATABASE_URL` environmental variable in your Backend Capsule, which gives access to services and features of your Data Capsule.
 
