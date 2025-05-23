@@ -6,17 +6,7 @@ coverY: 0
 
 # Platform
 
-## Most Viewed Platform Docs
-
-1. This is a most used platform doc
-2. This is a most used platform doc
-3. This is a most used platform doc
-4. This is a most used platform doc
-5. This is a most used platform doc
-
-
-
-***
+Here you can find everything you need to manage and understand how your Code Capsules environment works.
 
 ## Account
 

@@ -94,7 +94,7 @@ Note, removing a custom domain or subdomain does not affect your domain's DNS re
 Here is a list of defined terms and concepts used throughout this article. Divided into three sections, here you'll find definitions for: structures related to URLs, DNS records, and information related to HTTP. 
 
 ### Makeup of a URL
-![images](../assets/documentation/url-makeup.png)
+![images](../.gitbook/assets/platform/capsules/url-makeup.png)
 
 - **Uniform Resource Locator (URL)**: In the above image, `www.example.com` is the URL. A URL is a combination of three different aspects of a domain: A subdomain, a second-level domain, and a top-level domain.
 
