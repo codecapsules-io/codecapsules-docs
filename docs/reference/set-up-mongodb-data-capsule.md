@@ -6,7 +6,7 @@ MongoDB provides reliable NoSQL persistent storage for your applications. In thi
 
 Log in to your Code Capsules account and navigate to the Space your MongoDB Data Capsule will be contained in. Click the yellow `+` button in the bottom left of the screen, select "New Capsule", then select the "MongoDB" option from the dropdown.
 
-![Create Data Capsule](../../.gitbook/assets/create-mongodb-capsule.png)
+![Create Data Capsule](../../products/.gitbook/assets/database-capsule/mongo/create-mongodb-capsule.png)
 
 In the New Data Capsule dialog, choose "MongoDB Database Cluster" as your data type, then click the "Create Capsule" button.
 
@@ -16,7 +16,7 @@ To connect a Data Capsule to a Backend Capsule hosted on Code Capsules, you need
 
 Navigate to the Backend Capsule and click "Config" to open the Capsule's config tab. Scroll down to the "Data capsules" section, where your recently created Data Capsule will show.
 
-![Bind Data Capsule](<../../.gitbook/assets/bind-mongodb-capsule-env (1).png>)
+![Bind Data Capsule](../../products/.gitbook/assets/database-capsule/mongo/bind-mongodb-capsule-env.png)
 
 Click "View" to view the environment variables from the Data Capsule. Click the `+` next to the `Connection string`  variable to create a `DATABASE_URL` environmental variable in your Backend Capsule, which gives access to the services and features of your Data Capsule.
 
@@ -64,7 +64,7 @@ MongoClient.connect(database_one_url, function(err, db) {
 
 If you're not hosting your backend application on Code Capsules you can still connect your Data Capsule to it. The first step is to allow public access to your Data Capsule. Make sure this option is turned on in the "Details" tab of your Data Capsule's details screen.
 
-![Get Connection String](../../.gitbook/assets/connection-string.png)
+![Get Connection String](../../products/.gitbook/assets/database-capsule/mongo/connection-string.png)
 
 If public access to your Data Capsule is enabled, a connection string is visible below the "Public Access" switch, as shown in the above picture. Copy this connection string and append `&authSource=admin` to it so that its format is similar to `mongodb://92d79d9b-64f2-0:240e1937-a9fe-4@data-capsule-kykgmd.codecapsules.co.za:27017/app?ssl=true&authSource=admin`.
 

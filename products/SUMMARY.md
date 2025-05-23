@@ -28,6 +28,7 @@
 * [Monitor](database-capsule/monitor.md)
 * [Logs](database-capsule/logs.md)
 * [Alerting](database-capsule/alerting.md)
+* [Migrations](database-capsule/migrations.md)
 
 ## Frontend capsule
 

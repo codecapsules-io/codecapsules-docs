@@ -1,4 +1,4 @@
-# How to Set Up a Redis Data Capsule
+# Redis
 
 In this tutorial, we’ll create a Redis Data Capsule to provide low-latency, in-memory data storage for your application hosted on Code Capsules.
 
@@ -6,7 +6,7 @@ In this tutorial, we’ll create a Redis Data Capsule to provide low-latency, in
 
 Log in to your [Code Capsules account](https://codecapsules.io/) and navigate to the Space your Redis Capsule will be contained in. Click the yellow `+` button in the bottom left of the screen, select "New Capsule", then select "Redis" from the dropdown.
 
-![CreateDataCapsule](../../.gitbook/assets/create-redis-capsule.png)
+![CreateDataCapsule](../../.gitbook/assets/database-capsule/redis/create-redis-capsule.png)
 
 Choose a payment option, and click "Create Capsule".
 
@@ -18,7 +18,7 @@ Navigate to your Backend Capsule and click on the "Configure" tab. Scroll down t
 
 We'll use this environment variable in our app to connect to the Redis database.&#x20;
 
-![RedisUrl](../../products/.gitbook/assets/database-capsule/redis/redis-bind-env.png)
+![RedisUrl](../../.gitbook/assets/database-capsule/redis/redis-bind-env.png)
 
 ## Connecting to a Redis Data Capsule from a Python application
 
