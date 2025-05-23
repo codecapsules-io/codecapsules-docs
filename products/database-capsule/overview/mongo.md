@@ -12,7 +12,7 @@ In the New Data Capsule dialog, choose "MongoDB Database Cluster" as your data t
 
 ## Connecting a Data Capsule to a Backend Capsule
 
-To connect a Data Capsule to a Backend Capsule hosted on Code Capsules, you need to provide a database connection string from your Database Capsule to your Backend Capsule. If you're not hosting your backend application on Code Capsules, you can jump to [this section](set-up-mongodb-data-capsule.md#connecting-to-a-mongodb-data-capsule-from-outside-code-capsules), as this step is not applicable in that use case.
+To connect a Data Capsule to a Backend Capsule hosted on Code Capsules, you need to provide a database connection string from your Database Capsule to your Backend Capsule. If you're not hosting your backend application on Code Capsules, you can jump to [this section](mongo.md#connecting-to-a-mongodb-data-capsule-from-outside-code-capsules), as this step is not applicable in that use case.
 
 Navigate to the Backend Capsule and click "Config" to open the Capsule's config tab. Scroll down to the "Data capsules" section, where your recently created Data Capsule will show.
 
