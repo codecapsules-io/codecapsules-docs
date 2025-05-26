@@ -49,10 +49,6 @@
 
 ## Storage Capsule
 
-* [Overview](storage-capsule/overview.md)
-
-***
-
 * [Deploy](storage-capsule/deploy.md)
 * [Configure](storage-capsule/configure.md)
 * [Scale](storage-capsule/scale.md)
@@ -62,10 +58,6 @@
 * [How State Works](storage-capsule/how-state-works.md)
 
 ## Wordpress Capsule
-
-* [Overview](wordpress-capsule/overview.md)
-
-***
 
 * [Deploy](wordpress-capsule/deploy.md)
 * [Configure](wordpress-capsule/configure.md)
