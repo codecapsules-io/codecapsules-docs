@@ -92,6 +92,10 @@ This doesn't mean your files are indexed on the internet - it exposes them over 
 5. Enter the username and password when prompted
 6. The WebDAV server will now appear as a mounted drive in Finder
 
+Here you can see the files inside a Wordpress Capsule accessed in the Mac Finder locally.
+
+![See Your Files Locally](../.gitbook/assets/storage-capsule/deploy/see-your-files.png)
+
 #### Windows
 1. Open File Explorer
 2. Right click on "This PC" in the sidebar
