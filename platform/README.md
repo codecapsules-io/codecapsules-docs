@@ -10,7 +10,7 @@ Here you can find everything you need to manage and understand how your Code Cap
 
 ## Account
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>How Do I Reset My Password?</strong></td><td>How to reset your Code Capsules account password through the dashboard.</td><td><a href="how-do-i-reset-my-password.md">how-do-i-reset-my-password.md</a></td></tr><tr><td><strong>How Do I Enable 2FA?</strong></td><td>How to enable two-factor authentication on your Code Capsules account.</td><td><a href="how-do-i-enable-2fa.md">how-do-i-enable-2fa.md</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>How Do I Reset My Password?</strong></td><td>How to reset your Code Capsules account password through the dashboard.</td><td><a href="account/how-do-i-reset-my-password.md">how-do-i-reset-my-password.md</a></td></tr><tr><td><strong>How Do I Enable 2FA?</strong></td><td>How to enable two-factor authentication on your Code Capsules account.</td><td><a href="account/how-do-i-enable-2fa.md">how-do-i-enable-2fa.md</a></td></tr></tbody></table>
 
 ***
 
