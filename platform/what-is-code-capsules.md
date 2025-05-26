@@ -1,15 +1,44 @@
 # What is Code Capsules?
 
-![Teams contain Spaces and Spaces contain Capsules](.gitbook/assets/platform/shared/teamspacecapsule.png)
+Code Capsules is a comprehensive Platform-as-a-Service (PaaS) designed to streamline the software development process, particularly for developers working with the MEAN (MongoDB, Express.js, Angular, Node.js) stack, as well as other popular stacks like MERN and MEVN.
 
-[Teams](./teams/what-is-a-team.md), [Spaces](./spaces/what-is-a-space.md), and [Capsules](./capsules/what-is-a-capsule.md) are the foundation of [Code Capsules](https://codecapsules.io).
+It consolidates various development needs into a single platform, eliminating the necessity for multiple services like Heroku, Netlify, and Atlas.
 
-**Teams** are to organize people. Multiple people can join your Team, and each member of the Team can interact with the Spaces and Capsules that the Team contains. Furthermore, Teams are associated with a payment method – you add a credit card to a Team, and Code Capsules bills this credit card when a charge incurs.
+This integration simplifies the development workflow and reduces complexity​​.
 
-**Spaces** are the second layer of organization. Spaces can contain any amount of Capsules and are excellent tools for larger projects. If your project involves complicated frontend and backend code, splitting your code into multiple Capsules – each within the same space – may help with organization.
+## Key Features of Code Capsules
 
-**Capsules** provide the actual computational power for running your applications. While Teams and Spaces are organizational tools, Capsules connect to GitHub repositories containing your applications and hosts them on a server. Capsules can run both frontend and backend applications.
+### All-in-One Platform
+Code Capsules offers an all-in-one solution that allows you to manage your frontend, backend, and database from a single platform.
 
-For a single, simple project, you would have exactly one team, containing one space, containing one capsule. If you wanted to set up a frontend only project (e.g. a React app) backed by a REST API, you would have two capsules in your space: a frontend Capsule for the React application and a backend Capsule for the REST API.
+This consolidation simplifies the setup and maintenance of applications​.
 
-![simple-and-complex-projects](./.gitbook/assets/platform/shared/simple-and-complex-projects.png)
+### Ease of Use
+
+The platform is designed with ease of use in mind, enabling developers to push their code to GitHub and have it running in a cloud production environment quickly.
+
+This reduces deployment time and complexity significantly​​.
+
+### Collaboration and Project Management
+
+It provides robust tools for project management, task assignment, and real-time communication, ensuring that development teams can coordinate efforts and maintain transparency throughout the development process​​.
+
+### Automation and CI/CD
+
+Code Capsules supports continuous integration and continuous deployment (CI/CD), automating many repetitive tasks and making it easier to iterate and deploy updates without worrying about downtime​.
+
+### Scalability and Data Management
+
+The platform is scalable and includes tools for managing large amounts of data, making it suitable for both small projects and larger enterprise applications.
+
+It also supports a wide range of programming languages and frameworks, providing flexibility in development​​.
+
+### Cost Efficiency
+
+It offers affordable pricing, with a free version available and premium packages starting at $5 per month.
+
+This makes it an attractive option for startups and small businesses looking to minimize costs without sacrificing functionality​​.
+
+### Security and Reliability
+
+Code Capsules includes features for application performance management, security, and real-time problem identification, ensuring that applications run smoothly and securely​
