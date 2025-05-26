@@ -42,3 +42,5 @@
 * [What Regions Does Code Capsules Support?](regions/what-regions-does-code-capsules-support.md)
 
 ## Security
+
+* [HTTP Basic Authentication](security/basic-auth.md)
