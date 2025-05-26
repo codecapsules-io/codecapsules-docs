@@ -59,19 +59,7 @@
 * [Monitor](storage-capsule/monitor.md)
 * [Logs](storage-capsule/logs.md)
 * [Alerting](storage-capsule/alerting.md)
-
-## Memory Capsule
-
-* [Overview](memory-capsule/overview.md)
-
-***
-
-* [Deploy](memory-capsule/deploy.md)
-* [Configure](memory-capsule/configure.md)
-* [Scale](memory-capsule/scale.md)
-* [Monitor](memory-capsule/monitor.md)
-* [Logs](memory-capsule/logs.md)
-* [Alerting](memory-capsule/alerting.md)
+* [How State Works](storage-capsule/how-state-works.md)
 
 ## Wordpress Capsule
 
