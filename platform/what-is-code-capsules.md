@@ -18,7 +18,7 @@ Push your code to GitHub and quickly have it running in a cloud production envir
 
 ### Project Collaboration and Management
 
-Robust tools for project management, task assignment, and real-time communication help development teams coordinate efforts and maintain transparency throughout the development process​​.
+Real-time collaboration and team management tools make it easy to coordinate efforts and maintain transparency throughout the development process.
 
 ### CI/CD and Automation
 
