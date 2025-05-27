@@ -65,13 +65,13 @@ Code Capsules will automatically build your application when you’ve finished c
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../../.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
+![Build logs](../../../.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
 
 ## Binding the Capsules
 
 Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind". This enables the capsule to use the Persistent database in the Data Capsule. 
 
-![Bind Capsules](../../.gitbook/assets/backend-capsule/overview/bind-persistent.png)
+![Bind Capsules](../../../.gitbook/assets/backend-capsule/overview/bind-persistent.png)
 
 ## View Application
 
@@ -79,4 +79,4 @@ Restart your capsule by toggling the radio button in the top right off and on ag
 
 Once the build is complete, click the "URL" link in the "Details" tab and you should see your deployed application.
 
-![Deployed App](../../.gitbook/assets/backend-capsule/overview/cc-django-app.png)
+![Deployed App](../../../.gitbook/assets/backend-capsule/overview/cc-django-app.png)
