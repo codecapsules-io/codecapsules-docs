@@ -7,7 +7,7 @@
 
 ## Backend Capsule
 
-* [Overview](backend-capsule/README.md)
+* [Build and Deploy](backend-capsule/README.md)
   * [Python](backend-capsule/deploy/python/README.md)
     * [Python](backend-capsule/overview/python/python.md)
     * [Django](backend-capsule/overview/python/django.md)
@@ -28,7 +28,6 @@
     * [Go Application](backend-capsule/overview/go/how-to-deploy-go-application-to-production.md)
   * [Java](backend-capsule/overview/java/README.md)
     * [Java Application](backend-capsule/overview/java/how-to-deploy-java-application-to-production.md)
-* [Build & Deploy](backend-capsule/build-and-deploy.md)
 * [Configure](backend-capsule/configure.md)
 * [Scale](backend-capsule/scale.md)
 * [Monitor](backend-capsule/monitor.md)
@@ -57,8 +56,7 @@
 
 ## Frontend capsule
 
-* [Overview](frontend-capsule/overview.md)
-* [Deploy](frontend-capsule/build-and-deploy.md)
+* [Deploy](frontend-capsule/deploy/README.md)
   * [React](frontend-capsule/deploy/react/README.md)
     * [React Application](frontend-capsule/deploy/react/how-to-deploy-react-application-to-production.md)
   * [Vue](frontend-capsule/deploy/vue/README.md)
