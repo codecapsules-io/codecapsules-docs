@@ -22,7 +22,7 @@ If you’ve just signed up for an account, you’ll be directed to a welcome pag
 
 Alternatively, if you’re signing in again, click on the "Spaces" tab.
 
-Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](../../../platform/platform.md).
+Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](../../../../platform/platform.md).
 
 ## Create a Space for your App
 
@@ -30,7 +30,7 @@ Log in to your Code Capsules account and navigate to the "Spaces" tab. Once ther
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../../../platform/.gitbook/assets/platform/spaces/space-name.png)
+![space name](../../../../platform/.gitbook/assets/platform/spaces/space-name.png)
 
 Example instructions to go with numbered annotations
 1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
