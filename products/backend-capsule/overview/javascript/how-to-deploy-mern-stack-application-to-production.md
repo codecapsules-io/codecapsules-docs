@@ -32,7 +32,7 @@ Log in to your Code Capsules account and navigate to the "Spaces" tab. Once ther
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../../.gitbook/assets/shared/space-name.png)
+![space name](../../../.gitbook/assets/shared/space-name.png)
 
 Example instructions to go with numbered annotations
 1. Choose a team — you can use a default "personal" team if you're the only person working on this project, or a named team if you're collaborating with others
@@ -67,19 +67,19 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../../.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
+![Build logs](../../../.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
 
 ## Binding the Capsules
 
 Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind". This enables the capsule to use the MongoDB database in the Data Capsule. 
 
-![Bind MEAN Capsules](../../.gitbook/assets/shared/bind-mongodb.png)
+![Bind MEAN Capsules](../../../.gitbook/assets/shared/bind-mongodb.png)
 
 ## Edit `DATABASE_URL` Environment Variable
 
 Once the binding is complete, you have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Environment Variables" section on the "Config" tab. 
 
-![Edit DATABASE_URL Environment Variable](../../.gitbook/assets/backend-capsule/deploy/edit-database-url.png)
+![Edit DATABASE_URL Environment Variable](../../../.gitbook/assets/backend-capsule/deploy/edit-database-url.png)
 
 Confirm your changes by clicking on "Save" then restart your capsule by toggling the radio button in the top right off and on again.
 
@@ -87,4 +87,4 @@ Confirm your changes by clicking on "Save" then restart your capsule by toggling
 
 After restarting the capsule, the application will now be ready to be viewed. Click the URL link in the "Details" tab of the capsule tab and you should see your deployed application.
 
-![Deployed App](../../.gitbook/assets/backend-capsule/deploy/cc-mern-stack.png)
+![Deployed App](../../../.gitbook/assets/backend-capsule/deploy/cc-mern-stack.png)

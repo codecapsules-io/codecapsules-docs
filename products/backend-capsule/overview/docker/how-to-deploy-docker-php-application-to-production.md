@@ -30,7 +30,7 @@ Log in to your Code Capsules account and navigate to the "Spaces" tab. Once ther
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../../.gitbook/assets/shared/space-name.png)
+![space name](../../../.gitbook/assets/shared/space-name.png)
 
 Example instructions to go with numbered annotations
 1. Choose a team — you can use a default "personal" team if you're the only person working on this project, or a named team if you're collaborating with others
@@ -54,11 +54,11 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../../.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
+![Build logs](../../../.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
 
 Once the build is complete, navigate to the "Config" tab and edit the "Capsule parameters" section. Enter "80" as the port number and click on "Save".
 
-![Network Port](../../.gitbook/assets/shared/network-port-80.png)
+![Network Port](../../../.gitbook/assets/shared/network-port-80.png)
 
 
 ## View Application
@@ -67,4 +67,4 @@ Restart your capsule by toggling the radio button in the top right off and on ag
 
 Once the build is complete, click the "URL" link in the "Details" tab and you should see your deployed application, navigate to the `/api` route to view it.
 
-![Deployed App](../../.gitbook/assets/backend-capsule/deploy/docker-php.png)
+![Deployed App](../../../.gitbook/assets/backend-capsule/deploy/docker-php.png)

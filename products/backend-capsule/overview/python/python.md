@@ -59,7 +59,7 @@ To create a new Space, log in to your Code Capsules account, click the yellow `+
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../../.gitbook/assets/backend-capsule/space-name.png)
+![space name](../../../.gitbook/assets/backend-capsule/space-name.png)
 
 ## Create the Capsule
 
@@ -79,10 +79,10 @@ Code Capsules will automatically build your application when you’ve finished c
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../../.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
+![Build logs](../../../.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
 
 Once the build is complete, a URL link will appear in the URL section in the "Details" tab. Click the link, and you should see your deployed application.
 
-![Deployed App](../../.gitbook/assets/backend-capsule/cc-flask-app.png)
+![Deployed App](../../../.gitbook/assets/backend-capsule/cc-flask-app.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](../../README.md).
