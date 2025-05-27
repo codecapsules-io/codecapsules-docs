@@ -1,3 +1,6 @@
+# products/SUMMARY.md
+<!-- File: products/SUMMARY.md -->
+
 # Table of contents
 
 * [Products](README.md)
@@ -5,7 +8,26 @@
 ## Backend Capsule
 
 * [Overview](backend-capsule/README.md)
-  * [Python](backend-capsule/overview/python.md)
+  * [Python](backend-capsule/deploy/python/README.md)
+    * [Python](backend-capsule/overview/python/python.md)
+    * [Django](backend-capsule/overview/python/django.md)
+  * [Flask](backend-capsule/overview/flask/README.md)
+    * [Flask Application](backend-capsule/overview/flask/how-to-deploy-flask-application-to-production.md)
+    * [Flask HTMX Application](backend-capsule/overview/flask/how-to-deploy-flask-htmx-application-to-production.md)
+  * [JavaScript](backend-capsule/overview/javascript/README.md)
+    * [Express Application](backend-capsule/overview/javascript/how-to-deploy-express-application-to-production.md)
+    * [MEAN Stack Application](backend-capsule/overview/javascript/how-to-deploy-mean-stack-application-to-production.md)
+    * [MERN Stack Application](backend-capsule/overview/javascript/how-to-deploy-mern-stack-application-to-production.md)
+    * [Next Express Application](backend-capsule/overview/javascript/how-to-deploy-next-express-application-to-production.md)
+  * [Docker](backend-capsule/overview/docker/README.md)
+    * [Caddy Docker Site](backend-capsule/overview/docker/how-to-deploy-caddy-docker-site-to-production.md)
+    * [Docker Laravel Application](backend-capsule/overview/docker/how-to-deploy-docker-laravel-application-to-production.md)
+    * [Docker PHP Application](backend-capsule/overview/docker/how-to-deploy-docker-php-application-to-production.md)
+    * [Flask Docker Application](backend-capsule/overview/docker/how-to-deploy-flask-docker-application-to-production.md)
+  * [Go](backend-capsule/overview/go/README.md)
+    * [Go Application](backend-capsule/overview/go/how-to-deploy-go-application-to-production.md)
+  * [Java](backend-capsule/overview/java/README.md)
+    * [Java Application](backend-capsule/overview/java/how-to-deploy-java-application-to-production.md)
 * [Build & Deploy](backend-capsule/build-and-deploy.md)
 * [Configure](backend-capsule/configure.md)
 * [Scale](backend-capsule/scale.md)
@@ -36,10 +58,22 @@
 ## Frontend capsule
 
 * [Overview](frontend-capsule/overview.md)
+* [Deploy](frontend-capsule/build-and-deploy.md)
+  * [React](frontend-capsule/deploy/react/README.md)
+    * [React Application](frontend-capsule/deploy/react/how-to-deploy-react-application-to-production.md)
+  * [Vue](frontend-capsule/deploy/vue/README.md)
+    * [Vue Application](frontend-capsule/deploy/vue/how-to-deploy-vue-application-to-production.md)
+  * [Next.js](frontend-capsule/deploy/nextjs/README.md)
+    * [Next Application](frontend-capsule/deploy/nextjs/how-to-deploy-next-application-to-production.md)
+  * [Svelte](frontend-capsule/deploy/svelte/README.md)
+    * [Svelte Application](frontend-capsule/deploy/svelte/how-to-deploy-svelte-application-to-production.md)
+  * [Static Sites](frontend-capsule/deploy/static/README.md)
+    * [Static HTML](frontend-capsule/deploy/static/how-to-deploy-static-html-to-production.md)
+    * [HTML5UP Template](frontend-capsule/deploy/static/how-to-deploy-html5up-template-to-production.md)
+    * [Bootstrap](frontend-capsule/deploy/static/bootstrap.md)
 
 ***
 
-* [Build & Deploy](frontend-capsule/build-and-deploy.md)
 * [Configure](frontend-capsule/configure.md)
 * [Scale](frontend-capsule/scale.md)
 * [Monitor](frontend-capsule/monitor.md)
