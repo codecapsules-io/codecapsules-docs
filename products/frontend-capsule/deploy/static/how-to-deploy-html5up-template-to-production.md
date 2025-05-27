@@ -37,7 +37,7 @@ Log in to your Code Capsules account and navigate to the "Spaces" tab. Once ther
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../../.gitbook/assets/shared/space-name.png)
+![space name](../../../.gitbook/assets/shared/space-name.png)
 
 Example instructions to go with numbered annotations
 1. Choose a team — you can use a default "personal" team if you're the only person working on this project, or a named team if you're collaborating with others
@@ -63,8 +63,8 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../../.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
+![Build logs](../../../.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
 
 Once the build is complete, a URL link will appear in the URL section in the "Details" tab. Click the link and you should see your deployed application.
 
-![Deployed App](../../.gitbook/assets/frontend-capsule/deploy/html5up-site.png)
+![Deployed App](../../../.gitbook/assets/frontend-capsule/deploy/html5up-site.png)
