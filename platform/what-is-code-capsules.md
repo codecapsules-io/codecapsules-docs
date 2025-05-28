@@ -1,4 +1,4 @@
-# What is Code Capsules?
+# What Is Code Capsules?
 
 Code Capsules is a comprehensive platform-as-a-service (PaaS) that streamlines software development.
 
