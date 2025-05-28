@@ -8,10 +8,10 @@
 
 ## Account
 
-* [How Do I Add a Payment Method](account/how-do-i-add-a-payment-method.md)
+* [How Do I Add a Payment Method?](account/how-do-i-add-a-payment-method.md)
 * [How Do I Reset My Password?](account/how-do-i-reset-my-password.md)
 * [How Do I Enable 2FA?](account/how-do-i-enable-2fa.md)
-* [How Do I Connect Version Control](account/connect-version-control.md)
+* [How Do I Connect Version Control?](account/connect-version-control.md)
 
 ## Billing
 
@@ -23,7 +23,7 @@
 
 * [What Is a Team?](teams/what-is-a-team.md)
 * [How Do I Add/Remove Teams?](teams/how-do-i-add-remove-teams.md)
-* [How Do I Add Team Members](teams/how-do-i-add-team-members.md)
+* [How Do I Add Team Members?](teams/how-do-i-add-team-members.md)
 * [How Do I Share a Repo with a Team?](teams/share-a-repo-with-a-team.md)
 
 ## Spaces
@@ -33,8 +33,8 @@
 
 ## Capsules
 
-* [What Is a Capsule](capsules/what-is-a-capsule.md)
-* [How Do I Add, Remove, or Turn Off Capsules](capsules/how-do-i-add-remove-stop-capsules.md)
+* [What Is a Capsule?](capsules/what-is-a-capsule.md)
+* [How Do I Add, Remove, or Turn Off Capsules?](capsules/how-do-i-add-remove-stop-capsules.md)
 * [How Do I Add a Custom Domain?](capsules/how-to-add-a-custom-domain.md)
 
 ## Regions
