@@ -1,6 +1,6 @@
 # How Do I View My Invoices?
 
-To view your invoices, navigate to the "Invoices" tab in your Code Capsules dashboard. There you will see all of your invoices listed.
+To view your invoices, go to the **Invoices** tab in the Code Capsules dashboard. 
 
 ![View Invoices](../.gitbook/assets/platform/billing/view-invoices.png)
 
