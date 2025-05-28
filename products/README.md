@@ -1,24 +1,24 @@
 ---
-description: Everything you need to know about configuring and deploying your apps to Code Capsules.
+description: Everything you need to know about configuring and deploying apps with Code Capsules.
 cover: .gitbook/assets/CC Docs Banner.png
 coverY: 0
 ---
 
 # Products
 
-Here you can find everything you need to deploy, configure, and manage applications using different Capsule types on Code Capsules.
+This section contains all the information you need to deploy, configure, and manage applications using different Capsule types on Code Capsules.
 
 ## Deployment Guides
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody>
 <tr>
   <td><strong>Python Application</strong></td>
-  <td>Step-by-step guide to deploying a Python (Flask/Django) app.</td>
+  <td>Step-by-step guide to deploying a Python app using Flask or Django.</td>
   <td><a href="backend-capsule/overview/python.md">backend-capsule/overview/python.md</a></td>
 </tr>
 <tr>
   <td><strong>WordPress Site</strong></td>
-  <td>Quickstart for running WordPress on a dedicated Capsule.</td>
+  <td>Quickstart guide to running WordPress on a dedicated Capsule.</td>
   <td><a href="wordpress-capsule/overview.md">wordpress-capsule/overview.md</a></td>
 </tr>
 <tr>
