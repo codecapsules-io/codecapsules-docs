@@ -17,7 +17,7 @@
 
 * [How Do I Change My Billing Details?](billing/how-do-i-change-my-billing-details.md)
 * [How Do I View My Invoices?](billing/how-do-i-view-my-invoices.md)
-* [How Does the Pricing Work?](billing/how-does-the-pricing-work.md)
+* [How Does Pricing Work?](billing/how-does-the-pricing-work.md)
 
 ## Teams
 
