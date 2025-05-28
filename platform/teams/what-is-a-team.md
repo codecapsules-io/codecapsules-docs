@@ -2,8 +2,8 @@
 
 ![Teams contain Spaces and Spaces contain Capsules](../.gitbook/assets/platform/shared/teamspacecapsule.png)
 
-Teams, [Spaces](../spaces/what-is-a-space.md), and [Capsules](../capsules/what-is-a-capsule.md) are the foundation of [Code Capsules](https://codecapsules.io).
+Teams, [Spaces](../spaces/what-is-a-space.md), and [Capsules](../capsules/what-is-a-capsule.md) form the foundation of [Code Capsules](https://codecapsules.io).
 
-A **Team** is a group of developers who share access to the same [Spaces](../spaces/what-is-a-space.md), and [Capsules](../capsules/what-is-a-capsule.md) in order to make collaborative development easier.
+A **Team** is a group of developers who share access to the same [Spaces](../spaces/what-is-a-space.md) and [Capsules](../capsules/what-is-a-capsule.md) for easy collaboration.
 
-Furthermore, Teams are associated with a payment method – you add a credit card to a Team, and Code Capsules bills this credit card when a charge incurs.
+Each Team is linked to a payment method, and the associated credit card is billed when charges are incurred.
