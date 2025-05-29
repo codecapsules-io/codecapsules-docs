@@ -1,4 +1,4 @@
-# How Do I Enable 2FA?
+# Enable 2FA
 
 To set up two-factor authentication (2FA) for your Code Capsules account:
 
