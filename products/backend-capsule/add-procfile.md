@@ -1,34 +1,34 @@
 # Add a Procfile to a Backend Application
 
-Procfiles communicate to the Backend Capsule what processes it needs to run and in what order to execute them for your application to be successfully deployed. On Code Capsules, Procfiles aren't a strict requirement, but can be provided if you want to.
+A Procfile tells the Backend Capsule which processes to run and how to start them. While Procfiles aren't required on Code Capsules, you can provide one to define custom startup behavior for your application.
 
-The alternative to using a Procfile is using the Code Capsules UI to specify which commands to run during the build phase of your application. Below is a screenshot showing a command that may be entered as input in the UI for a `Node.js` application.
+Instead of using a Procfile, you can specify build and run commands directly in the Code Capsules UI. For example, the screenshot below shows how to enter a run command for a Node.js application.
 
 ![Run command for Node application](../.gitbook/assets/database-capsule/procfile/run-command.png) 
 
 ## Procfile Naming and Location
 
-A Procfile is a simple text file. It should be named `Procfile` exactly and should not have any extensions, like `.txt` or `.py`. Note that naming the file `procfile` will not work either, as it is case sensitive.
+A Procfile is a plain text file. It must be named exactly `Procfile`, with no extensions (like `.txt` or `.py`) and with an uppercase **P**. The name is case-sensitive, so `procfile` will not work.
 
-Locate your Procfile in the root folder of your project. It won't work in any other location.
+The Procfile must be placed in the root directory of your project. It won't work in any other location.
 
 ## Procfile Processes
 
-The `Procfile` outlines the type of processes a Backend Capsule needs to run before deploying a backend application. Common processes include, but are not limited to `web`, `worker`, and `clock` processes. When declaring a process type, you should also write the command to run for that particular process.
+The Procfile defines the processes that a Backend Capsule must run before deploying a backend application. Common process types include `web`, `worker`, and `clock`. 
 
-A process type command allows you to specify the port you'd like the process to run on, as well as other options that are process-specific.
+Each process type must be paired with the command that should be used to run it. You can use the command to specify the port the process must run on and other process-specific options.
 
 ## Procfile Format
 
-The Procfile's format is a key-value listing of process types and their commands on each line, as shown below:
+The Procfile uses a key-value format, with each line defining a process type and its corresponding command, as shown below:
 
 ```
 <process type>: <command>
 ```
 
-## Example Procfile for Python's Flask
+## Example Procfile for Flask
 
-Code Capsules only requires a Procfile for Python applications. Here is an example of what a Procfile for a Flask application might look:
+Code Capsules only requires a Procfile for Python applications. Here is an example of how a Procfile for a Flask application might look:
 
 ```
 web: python3 -m flask run --host=0.0.0.0 --port=$PORT
@@ -36,4 +36,4 @@ web: python3 -m flask run --host=0.0.0.0 --port=$PORT
 
 ## Procfiles for Other Languages
 
-Express and Java applications don't need a Procfile to be deployed. The Backend Capsule can detect these applications and run the processes relevant to the application being deployed.
+Express and Java applications don't need a Procfile to be deployed. The Backend Capsule automatically detects the application type and runs the appropriate processes.
