@@ -1,4 +1,4 @@
-# How Do I Change My Billing Details?
+# Change Billing Details
 
 Change your billing details in the **Billing** tab in the Code Capsules dashboard. 
 

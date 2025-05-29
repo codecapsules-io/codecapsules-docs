@@ -1,4 +1,4 @@
-# How Do I Connect to a Version Control Provider?
+# Connect to a Version Control Provider
 
 To deploy applications on Code Capsules, you need to connect to a version control provider and give Code Capsules permission to read the relevant repository.
 

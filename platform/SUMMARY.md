@@ -37,6 +37,7 @@
 * [Add, Remove, and Turn Off Capsules](capsules/how-do-i-add-remove-stop-capsules.md)
 * [Add and Remove Custom Domains and Subdomains](capsules/how-to-add-a-custom-domain.md)
 
+
 ## Regions
 
 * [Available Deployment Locations](regions/what-regions-does-code-capsules-support.md)

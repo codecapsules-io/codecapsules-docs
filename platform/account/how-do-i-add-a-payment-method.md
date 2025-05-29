@@ -1,4 +1,4 @@
-# How Do I Add a Payment Method?
+# Add Payment Method
 
 Code Capsules accepts Visa and Mastercard. 
 
