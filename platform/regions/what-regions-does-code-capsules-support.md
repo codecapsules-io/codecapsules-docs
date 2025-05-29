@@ -1,8 +1,8 @@
-# What Regions Does Code Capsules Support?
+# Available Deployment Locations
 
-When creating a Space, you’ll be prompted to choose the location where the Capsules in that Space will be deployed.
+When creating a Space, you’ll be prompted to choose a deployment location. All Capsules in that Space will be deployed to the selected location.
 
-We have a few physical cloud data centers for you to choose from. We recommend one closest to your target users.
+Code Capsules offers several physical cloud data centers. We recommend selecting the location closest to your target users:
 
  - South Africa (Cape Town)
  - Europe (North)
