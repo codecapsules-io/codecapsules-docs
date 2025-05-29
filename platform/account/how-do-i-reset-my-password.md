@@ -1,4 +1,4 @@
-# How Do I Reset My Password?
+# Reset Password
 
 To reset the password for your Code Capsules account:
 
