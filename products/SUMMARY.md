@@ -14,11 +14,7 @@
 
 ## Database Capsule
 
-* [Deploy](database-capsule/overview/README.md)
-  * [MySQL](database-capsule/overview/mysql.md)
-  * [Mongo](database-capsule/overview/mongo.md)
-  * [Postgres](database-capsule/overview/postgres.md)
-  * [Redis](database-capsule/overview/redis.md)
+* [Deploy](database-capsule/overview.md)
 
 ***
 
