@@ -1,12 +1,12 @@
 ---
-description: A guide to deploying a Python Telegram Bot from GitHub.
+description: A guide to deploying a Node.js Telegram Bot from GitHub.
 ---
 
-# How to Deploy a Python Telegram Bot to Production on Code Capsules in 5 Minutes
+# How to Deploy a Node.js Telegram Bot to Production on Code Capsules in 5 Minutes
 
-*This guide uses polling, which is easier to deploy but not recommended. See [this guide](./how-to-deploy-python-telegram-bot-to-production.md) for how to implement the same bot using webhooks.*
+*This guide uses polling, which is easier to deploy but not recommended. See [this guide](./how-to-deploy-node-telegram-bot-to-production.md) for how to implement the same bot using webhooks.*
 
-Deploy a Python Telegram Bot and learn how to host backend code on Code Capsules.
+Deploy a Node.js Telegram Bot and learn how to host backend code on Code Capsules.
 
 ## Register the Bot
 
@@ -27,7 +27,7 @@ To confirm that your bot was created successfully, search for the bot's username
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a Python Telegram Bot with Code Capsules, we've provided an example bot which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/polling-py-telegram-echobot).
+To demonstrate how to deploy a Node.js Telegram Bot with Code Capsules, we've provided an example bot which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/polling-nodejs-telegram-echobot).
 
 Sign in to GitHub, and fork the example bot repository by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.
 

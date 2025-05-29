@@ -111,6 +111,7 @@
 * [Node.js Telegram Bot](chatbots/how-to-deploy-node-telegram-bot-to-production.md)
 * [Python Telegram Bot](chatbots/how-to-deploy-python-telegram-bot-to-production.md)
 * [Polling Python Telegram Bot](chatbots/how-to-deploy-polling-python-telegram-bot-to-production.md)
+* [Polling Node Telegram Bot](chatbots/how-to-deploy-polling-node-telegram-bot-to-production.md)
 
 ## Platform Integrations
 
