@@ -8,15 +8,15 @@
 
 ## Account
 
-* [How Do I Add a Payment Method?](account/how-do-i-add-a-payment-method.md)
-* [How Do I Reset My Password?](account/how-do-i-reset-my-password.md)
-* [How Do I Enable 2FA?](account/how-do-i-enable-2fa.md)
-* [How Do I Connect Version Control?](account/connect-version-control.md)
+* [Add Payment Method](account/how-do-i-add-a-payment-method.md)
+* [Reset Password](account/how-do-i-reset-my-password.md)
+* [Enable 2FA](account/how-do-i-enable-2fa.md)
+* [Connect Version Control](account/connect-version-control.md)
 
 ## Billing
 
-* [How Do I Change My Billing Details?](billing/how-do-i-change-my-billing-details.md)
-* [How Do I View My Invoices?](billing/how-do-i-view-my-invoices.md)
+* [Change Billing Details](billing/how-do-i-change-my-billing-details.md)
+* [View Invoices](billing/how-do-i-view-my-invoices.md)
 * [How Does Pricing Work?](billing/how-does-the-pricing-work.md)
 
 ## Teams
@@ -35,7 +35,8 @@
 
 * [What Is a Capsule?](capsules/what-is-a-capsule.md)
 * [Add, Remove, and Turn Off Capsules](capsules/how-do-i-add-remove-stop-capsules.md)
-* [How Do I Add a Custom Domain?](capsules/how-to-add-a-custom-domain.md)
+* [Add and Remove Custom Domains and Subdomains](capsules/how-to-add-a-custom-domain.md)
+
 
 ## Regions
 
