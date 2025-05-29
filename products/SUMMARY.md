@@ -4,24 +4,7 @@
 
 ## Backend Capsule
 
-* [Build and Deploy](backend-capsule/README.md)
-  * [Python](backend-capsule/backend-capsule/python/README.md)
-    * [Python](backend-capsule/overview/python/python.md)
-    * [Django](backend-capsule/overview/python/django.md)
-    * [Flask](backend-capsule/backend-capsule/python/how-to-deploy-flask-application-to-production.md)
-    * [Flask with HTMX](backend-capsule/backend-capsule/python/how-to-deploy-flask-htmx-application-to-production.md)
-  * [JavaScript](backend-capsule/overview/javascript/README.md)
-    * [Express.js](backend-capsule/overview/javascript/how-to-deploy-express-application-to-production.md)
-    * [MEAN Stack](backend-capsule/overview/javascript/how-to-deploy-mean-stack-application-to-production.md)
-    * [MERN Stack](backend-capsule/overview/javascript/how-to-deploy-mern-stack-application-to-production.md)
-    * [Next.js with Express.js](backend-capsule/overview/javascript/how-to-deploy-next-express-application-to-production.md)
-  * [Docker](backend-capsule/overview/docker/README.md)
-    * [Caddy Docker Site](backend-capsule/overview/docker/how-to-deploy-caddy-docker-site-to-production.md)
-    * [Docker Laravel Application](backend-capsule/overview/docker/how-to-deploy-docker-laravel-application-to-production.md)
-    * [Docker PHP Application](backend-capsule/overview/docker/how-to-deploy-docker-php-application-to-production.md)
-    * [Flask Docker Application](backend-capsule/overview/docker/how-to-deploy-flask-docker-application-to-production.md)
-  * [Go](backend-capsule/backend-capsule/how-to-deploy-go-application-to-production.md)
-  * [Java](backend-capsule/backend-capsule/how-to-deploy-java-application-to-production.md)
+* [Build and Deploy](backend-capsule/backend-capsule.md)
 * [Configure](backend-capsule/configure.md)
 * [Scale](backend-capsule/scale.md)
 * [Monitor](backend-capsule/monitor.md)
@@ -49,15 +32,7 @@
 
 ## Frontend capsule
 
-* [Deploy](frontend-capsule/deploy/README.md)
-  * [Static Sites](frontend-capsule/deploy/static/README.md)
-    * [Static HTML](frontend-capsule/deploy/static/how-to-deploy-static-html-to-production.md)
-    * [HTML5UP Template](frontend-capsule/deploy/static/how-to-deploy-html5up-template-to-production.md)
-    * [Bootstrap](frontend-capsule/deploy/static/bootstrap.md)
-  * [React](frontend-capsule/deploy/how-to-deploy-react-application-to-production.md)
-  * [Vue](frontend-capsule/deploy/how-to-deploy-vue-application-to-production.md)
-  * [Next Application](frontend-capsule/deploy/how-to-deploy-next-application-to-production.md)
-  * [Svelte Application](frontend-capsule/deploy/how-to-deploy-svelte-application-to-production.md)
+* [Deploy](frontend-capsule/deploy.md)
 
 ***
 
@@ -90,34 +65,3 @@
 ## Enterprise Clusters
 
 * [Overview](enterprise-clusters/overview.md)
-
-## Database Integration
-
-* [Django MongoDB Application](chatbots/how-to-deploy-django-mongodb-application-to-production.md)
-* [Django MySQL Application](chatbots/how-to-deploy-django-mysql-application-to-production.md)
-* [Express MongoDB Application](chatbots/how-to-deploy-express-mongo-application-to-production.md)
-* [Flask MongoDB Application](chatbots/how-to-deploy-flask-mongo-application-to-production.md)
-* [Flask MySQL Application](chatbots/how-to-deploy-flask-mysql-application-to-production.md)
-* [Java MySQL Application](chatbots/how-to-deploy-java-mysql-application-to-production.md)
-* [Next.js MongoDB Application](chatbots/how-to-deploy-next-mongo-application-to-production.md)
-
-## Discord Bots
-
-* [Node.js Discord Bot](chatbots/how-to-deploy-node-discord-bot-to-production.md)
-* [Python Discord Bot](chatbots/how-to-deploy-python-discord-bot-to-production.md)
-
-## Telegram Bots
-
-* [Node.js Telegram Bot](chatbots/how-to-deploy-node-telegram-bot-to-production.md)
-* [Python Telegram Bot](chatbots/how-to-deploy-python-telegram-bot-to-production.md)
-* [Polling Python Telegram Bot](chatbots/how-to-deploy-polling-python-telegram-bot-to-production.md)
-* [Polling Node Telegram Bot](chatbots/how-to-deploy-polling-node-telegram-bot-to-production.md)
-
-## Platform Integrations
-
-* [Slack Bot](chatbots/how-to-deploy-slack-bot-to-production.md)
-* [WhatsApp Bot](chatbots/how-to-deploy-whatsapp-bot-to-production.md)
-
-## Utilities
-
-* [Static File Share with Flask and Caddy](chatbots/how-to-deploy-static-file-share-flask-caddy.md)
