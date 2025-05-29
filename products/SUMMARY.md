@@ -54,7 +54,6 @@
     * [Static HTML](frontend-capsule/deploy/static/how-to-deploy-static-html-to-production.md)
     * [HTML5UP Template](frontend-capsule/deploy/static/how-to-deploy-html5up-template-to-production.md)
     * [Bootstrap](frontend-capsule/deploy/static/bootstrap.md)
-  * [Angular](frontend-capsule/deploy/angular.md)
   * [React](frontend-capsule/deploy/how-to-deploy-react-application-to-production.md)
   * [Vue](frontend-capsule/deploy/how-to-deploy-vue-application-to-production.md)
   * [Next Application](frontend-capsule/deploy/how-to-deploy-next-application-to-production.md)
