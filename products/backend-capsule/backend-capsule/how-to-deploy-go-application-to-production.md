@@ -1,16 +1,16 @@
 ---
-description: A guide on how to launch a Java application from GitHub.
+description: A guide to deploying a Go application from GitHub.
 ---
 
-# How to Deploy a Java Application to Production on Code Capsules 
+# Go
 
-Deploy a Java application and learn how to host backend code on Code Capsules. 
+Deploy a Go application and learn how to host backend code on Code Capsules.
 
-## Set Up
+## Set up
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
-To demonstrate how to deploy a Java application with Code Capsules, we've provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/demo-java).
+To demonstrate how to deploy a Go application with Code Capsules, we've provided an example application which you can find on the [Code Capsules GitHub repository](https://github.com/codecapsules-io/go-demo).
 
 Sign in to GitHub, and fork the example application by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.
 
@@ -22,17 +22,18 @@ If you've just signed up for an account, you'll be directed to a welcome page on
 
 Alternatively, if you're signing in again, click on the "Spaces" tab.
 
-Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](../../../../platform/platform.md).
+Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](../../../platform/platform.md).
 
 ## Create a Space for your App
 
-Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../../../.gitbook/assets/shared/space-name.png)
+![space name](../../.gitbook/assets/shared/space-name.png)
 
 Example instructions to go with numbered annotations
+
 1. Choose a team — you can use a default "personal" team if you're the only person working on this project, or a named team if you're collaborating with others
 2. This should remind you of the project, for example "customer-api" or "notetaking-app"
 3. Choose a country close to where most of your users will be
@@ -52,18 +53,17 @@ Navigate to the "Space" containing your recently created Data Capsule and click 
 6. Leave "Run Command" blank.
 7. Click "Create Capsule".
 
-
 Code Capsules will automatically build your application when you've finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../../../.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
+![Build logs](../../.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
 
 ## Binding the Capsules
 
-Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind". This enables the capsule to use the Persistent database in the Data Capsule. 
+Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind". This enables the capsule to use the Persistent database in the Data Capsule.
 
-![Bind MEAN Capsules](../../../.gitbook/assets/backend-capsule/overview/bind-persistent.png)
+![Bind Capsules](../../.gitbook/assets/backend-capsule/overview/bind-persistent.png)
 
 ## View Application
 
@@ -71,4 +71,4 @@ Restart your capsule by toggling the radio button in the top right off and on ag
 
 Once the build is complete, click the "URL" link in the "Details" tab and you should see your deployed application.
 
-![Deployed App](../../../.gitbook/assets/backend-capsule/deploy/cc-java-app.png)
+![Deployed App](../../.gitbook/assets/backend-capsule/deploy/cc-go-app.png)
