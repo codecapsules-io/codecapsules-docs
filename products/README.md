@@ -47,35 +47,4 @@ This section contains all the information you need to deploy, configure, and man
 
 ## Capsule Types
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody>
-<tr>
-  <td><strong>Backend Capsule</strong></td>
-  <td>Host and scale server-side applications and APIs.</td>
-  <td><a href="backend-capsule/build-and-deploy.md">backend-capsule/overview/python.md</a></td>
-</tr>
-<tr>
-  <td><strong>Frontend Capsule</strong></td>
-  <td>Serve static and single-page web apps with CDN support.</td>
-  <td><a href="frontend-capsule/overview.md">frontend-capsule/overview.md</a></td>
-</tr>
-<tr>
-  <td><strong>Database Capsule</strong></td>
-  <td>Managed database instances: MySQL, PostgreSQL, MongoDB, Redis.</td>
-  <td><a href="database-capsule/overview/README.md">database-capsule/overview/README.md</a></td>
-</tr>
-<tr>
-  <td><strong>Memory Capsule</strong></td>
-  <td>Fast in-memory data stores for caching and real-time workloads.</td>
-  <td><a href="memory-capsule/overview.md">memory-capsule/overview.md</a></td>
-</tr>
-<tr>
-  <td><strong>Storage Capsule</strong></td>
-  <td>Object storage for files, assets, and backups.</td>
-  <td><a href="storage-capsule/overview.md">storage-capsule/overview.md</a></td>
-</tr>
-<tr>
-  <td><strong>WordPress Capsule</strong></td>
-  <td>Optimized environment for WordPress sites.</td>
-  <td><a href="wordpress-capsule/overview.md">wordpress-capsule/overview.md</a></td>
-</tr>
-</tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Backend Capsule</strong></td><td>Host and scale server-side applications and APIs.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Frontend Capsule</strong></td><td>Serve static and single-page web apps with CDN support.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Database Capsule</strong></td><td>Managed database instances: MySQL, PostgreSQL, MongoDB, Redis.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Memory Capsule</strong></td><td>Fast in-memory data stores for caching and real-time workloads.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Storage Capsule</strong></td><td>Object storage for files, assets, and backups.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>WordPress Capsule</strong></td><td>Optimized environment for WordPress sites.</td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
