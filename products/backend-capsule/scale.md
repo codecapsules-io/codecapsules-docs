@@ -1,9 +1,11 @@
 # Scale
 
-It is possible to allocate more resources to your Capsule depending on how much traffic your application will be getting and its computational needs. To view the different scaling options available for your Capsule, navigate to the "Scale" tab while on your Capsule's dashboard, and click the "Edit" button in the "Capsule Capacity" section.
+You can allocate more resources to a Capsule as your application's traffic and computational needs change.
+
+View the scaling options available for your Capsule in the **Scale** tab of the Capsule dashboard. To adjust the allocated resources, click **Edit** in the **Capsule Capacity** section.
 
 ![Scale a Capsule](../.gitbook/assets/backend-capsule/scale/backend-scale-edit.png)
 
-Change the allocated resource for the Capsule with the sliders. Click "Save" when done.
+Use the sliders to configure the Capsule's resources, then click **Save**.
 
 ![Configure Capsule Capacity](../.gitbook/assets/backend-capsule/scale/backend-scale-custom.png)

@@ -1,13 +1,18 @@
-# What is a Capsule?
+# What Is a Capsule?
 
 ![Teams contain Spaces and Spaces contain Capsules](../.gitbook/assets/platform/shared/teamspacecapsule.png)
 
-[Teams](../teams/what-is-a-team.md), [Spaces](../spaces/what-is-a-space.md), and Capsules are the foundation of [Code Capsules](https://codecapsules.io).
+[Teams](../teams/what-is-a-team.md), [Spaces](../spaces/what-is-a-space.md), and Capsules form the foundation of [Code Capsules](https://codecapsules.io).
 
-**Capsules** provide the actual computational power for running your applications. While Teams and Spaces are organizational tools, Capsules connect to GitHub repositories containing your applications and hosts them on a server. Capsules can run both frontend and backend applications.
+**Capsules** provide the computational power to run your applications. 
 
-Capsules automatically build and deploy upon creation. One can monitor the build process by navigating to the "Logs" tab, or by pressing "View build log" under the "Build and Deploy" tab.
+While Teams and Spaces are organizational tools, Capsules are where the actual build and deployment happen. They connect to your GitHub repositories and host your applications. Capsules can run both frontend and backend applications.
 
-Upon deployment, an HTTPS subdomain is generated for the Capsule. The subdomain assigned to the app is available in the "Config" tab. Clicking on the subdomain will open the link in a new tab.
+When a Capsule is created, it automatically builds and deploys. You can monitor the build process by:
 
-You can turn Capsules off by toggling the switch at the top right of the Capsule view (next to "Live Website").
+- Navigating to the **Logs** tab, or
+- Clicking **View build log** under the **Build and Deploy** tab
+
+When a Capsule is deployed, an HTTPS subdomain is generated for it. Find the subdomain in the **Config** tab. Click the subdomain to open the link in a new tab.
+
+Turn off a Capsule by toggling the switch at the top right of the **Capsule Details** view (next to **Live Website**).

@@ -1,18 +1,47 @@
 ---
-description: >-
-  Everything you need to know about configuring and deploying your apps to Code
-  Capsules.
+description: Everything you need to know about configuring and deploying apps with Code Capsules.
 cover: .gitbook/assets/CC Docs Banner.png
 coverY: 0
 ---
 
 # Products
 
-Here you can find everything you need to deploy, configure, and manage applications using different Capsule types on Code Capsules.
+This section contains all the information you need to deploy, configure, and manage applications using different Capsule types on Code Capsules.
 
 ## Deployment Guides
 
-<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Python Application</strong></td><td>Step-by-step guide to deploying a Python (Flask/Django) app.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>WordPress Site</strong></td><td>Quickstart for running WordPress on a dedicated Capsule.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Redis Database</strong></td><td>Configure and deploy a Redis instance.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>PostgreSQL Database</strong></td><td>Set up and manage a PostgreSQL Capsule.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>MySQL Database</strong></td><td>Deploy and configure MySQL on Code Capsules.</td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>MongoDB Database</strong></td><td>Guide to running MongoDB in a Database Capsule.</td><td><a href="broken-reference">Broken link</a></td></tr></tbody></table>
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody>
+<tr>
+  <td><strong>Python Application</strong></td>
+  <td>Step-by-step guide to deploying a Python app using Flask or Django.</td>
+  <td><a href="backend-capsule/overview/python.md">backend-capsule/overview/python.md</a></td>
+</tr>
+<tr>
+  <td><strong>WordPress Site</strong></td>
+  <td>Quickstart guide to running WordPress on a dedicated Capsule.</td>
+  <td><a href="wordpress-capsule/overview.md">wordpress-capsule/overview.md</a></td>
+</tr>
+<tr>
+  <td><strong>Redis Database</strong></td>
+  <td>Configure and deploy a Redis instance.</td>
+  <td><a href="database-capsule/overview/redis.md">database-capsule/overview/redis.md</a></td>
+</tr>
+<tr>
+  <td><strong>PostgreSQL Database</strong></td>
+  <td>Set up and manage a PostgreSQL Capsule.</td>
+  <td><a href="database-capsule/overview/postgres.md">database-capsule/overview/postgres.md</a></td>
+</tr>
+<tr>
+  <td><strong>MySQL Database</strong></td>
+  <td>Deploy and configure MySQL on Code Capsules.</td>
+  <td><a href="database-capsule/overview/mysql.md">database-capsule/overview/mysql.md</a></td>
+</tr>
+<tr>
+  <td><strong>MongoDB Database</strong></td>
+  <td>Guide to running MongoDB in a Database Capsule.</td>
+  <td><a href="database-capsule/overview/mongo.md">database-capsule/overview/mongo.md</a></td>
+</tr>
+</tbody></table>
 
 ***
 
