@@ -8,7 +8,7 @@ To add a new Team, click the yellow **+** button in the bottom-left corner of th
 
 ![Create a Team](../.gitbook/assets/platform/teams/new-team.png)
 
-Give your Team a name and click **I Like It** to confirm.
+Give your Team a name and click **I Like It!** to confirm.
 
 ![Enter Team Details](../.gitbook/assets/platform/teams/create-team.png)
 
