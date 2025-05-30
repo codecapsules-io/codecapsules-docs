@@ -1,14 +1,14 @@
 # Configure
 
-To configure your Database Capsules, navigate to the "Details" tab in your Capsule dashboard.
+Configure a Database Capsule in the **Details** tab of the Capsule dashboard.
 
 ## View Connection Details
 
-All Database Capsules provide connection details in the "Details" tab.
+The **Details** tab provides connection details for a Database Capsule.
 
 ![Database Connection Details](../.gitbook/assets/database-capsule/config/mysql-details.png)
 
-Click "show" in the "Connection Details" section to view your database credentials:
+Click **show** in the **Connection Details** section to view database credentials:
 
 - Host
 - Port
@@ -19,29 +19,36 @@ Click "show" in the "Connection Details" section to view your database credentia
 
 ## Edit Capsule Name
 
-Click "Edit" next to the Capsule name in the "Capsule Details" tab to change the name.
+To change the name of the Capsule, click **Edit** next to the Capsule name in the **Capsule Details** section.
 
 ## Enable Public Access
 
-**Available for: MongoDB**
+{% hint style="info" %}
+The **Public Access** feature is currently available for **MongoDB** Capsules.
+{% endhint %}
 
-In the "Capsule Details" section you can toggle "Public Access" to allow public access to this database from outside your Space. To connect, use the public connection string that is generated when this setting is toggled on.
+Toggle on **Public Access** to allow access to the database from outside your Space.
+
+When **Public Access** is toggled on, Code Capsules generates a public connection string that you can use to connect to the database.
 
 ![MongoDB Public Access](../.gitbook/assets/database-capsule/config/mongo-details.png)
 
 ## Configure MySQL Settings
 
-**Available for: MySQL only**
+{% hint style="info" %}
+These settings are only available for **MySQL** Capsules.
+{% endhint %}
 
-MySQL Data Capsules have additional configuration options in the "Config" tab.
+Additional MySQL configuration is available in the **Config** tab of MySQL Capsules.
 
 ![MySQL Configuration](../.gitbook/assets/database-capsule/config/mysql-config.png)
 
 ### Set SQL Modes
 
-Click "Edit" in the "MySQL Configuration" section to select SQL modes for your MySQL server.
+In the **MySQL Configuration** section, click **Edit** to select SQL modes for your MySQL server.
 
-SQL modes affect how MySQL handles queries and data validation. Common modes include:
-- `STRICT_TRANS_TABLES` - Enable strict mode for transactional tables
-- `NO_ZERO_DATE` - Reject invalid date values
-- `ONLY_FULL_GROUP_BY` - Require GROUP BY to list all selected columns
+SQL modes determine how MySQL handles queries and data validation. Common options include:
+
+- `STRICT_TRANS_TABLES` - Enables strict mode for transactional tables
+- `NO_ZERO_DATE` - Prevents the use of invalid date values
+- `ONLY_FULL_GROUP_BY` - Requires `GROUP BY` to list all selected columns
