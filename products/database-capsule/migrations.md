@@ -1,24 +1,26 @@
 # Migrations
 
-This guide will walk you through performing database migrations using an Express app and a MySQL Data Capsule.
+This guide walks you through migrating a database using an Express app and a MySQL Capsule.
 
-You might find our [guide to setting up a MySQL Data Capsule](https://app.gitbook.com/s/xjp0G5hHSJs8nyv5Z5g7/database/mysql) and our [creating an Express application with Code Capsules](https://app.gitbook.com/s/xjp0G5hHSJs8nyv5Z5g7/backend/node.js/express.js) tutorial helpful.
+You might find our [guide to setting up a MySQL Data Capsule](https://app.gitbook.com/s/xjp0G5hHSJs8nyv5Z5g7/database/mysql) and our [creating an Express application with Code Capsules tutorial](https://app.gitbook.com/s/xjp0G5hHSJs8nyv5Z5g7/backend/node.js/express.js) helpful.
 
-## Step 1: Clone from your GitHub Repository
+## Step 1: Clone From Your GitHub Repository
 
-To install db-migrate to your code, first clone your GitHub repository with the following command (make sure to replace the username and repository name with your own):
+To install `db-migrate`, first clone your GitHub repository with the following command (make sure to replace the username and repository name with your own):
 
 `git clone https://github.com/git_username/repository_name.git`
 
 ## Step 2: Install `db-migrate`
 
-To make use of migration commands, install `db-migrate` as well as the `db-migrate-mysql` packages with the following commands:
+To use migration commands, install both `db-migrate` and `db-migrate-mysql` with the following commands:
 
 `npm install -g db-migratenpm i db-migrate-mysql`
 
-## Step 3: Connect to the Database with `database.json`
+## Step 3: Connect to the Database With `database.json`
 
-The db-migrate package connects to a database through `database.json` file. Create a file called `database.json` in your root directory and populate it with your database information. Below we have an example of a connection to both a local database called `"dev"`, and a MySQL Data Capsule called `"prod"` (be sure to replace the database information with your own):
+The `db-migrate` package connects to a database through a `database.json` file. 
+
+Create a file called `database.json` in your root directory and populate it with your database information. The example below shows how to connect to both a local database called `"dev"` and a MySQL Data Capsule called `"prod"` (be sure to replace the database information with your own):
 
 ```{
   "dev": {
@@ -32,19 +34,19 @@ The db-migrate package connects to a database through `database.json` file. Crea
 }
 ```
 
-Here we also add the`"sql-file": true` information to ensure our database migrations operate through SQL files that will be created in the next step.
+Here we also add`"sql-file": true` to ensure that database migrations run using SQL files, which we'll create in the next step.
 
-The database URL for a MySQL Data Capsule can be found in the "Config" section of your Backend Capsule:
+Find the database URL for a MySQL Data Capsule in the **Config** tab of a Backend Capsule:
 
 ![DATABASE URL](../.gitbook/assets/database-capsule/mysql/configure-tab.png)
 
-You can also access the database URL through an environment variable like so:
+You can also access the database URL using an environment variable as follows:
 
 `"prod": {"ENV":"DATABASE_URL"},`
 
 ## Step 4: Create and Populate SQL Files
 
-Run the command above to create a folder to store migrations:
+Run the following command to create a folder to store migrations:
 
 `db-migrate create insert_unique_name --sql-file`
 
@@ -52,31 +54,31 @@ The folder should contain three files:
 
 ![SQL files](../.gitbook/assets/database-capsule/mysql/sql-files.png)
 
-The two SQL files are named with an `up` and `down` suffix to hold your MySQL queries. The migrations that are performed look for MySQL queries in these files.
+MySQL queries are stored in the two generated SQL files: One named with an `up` suffix and the other with a `down` suffix. 
 
-#### Down-migration query
+#### Down-Migration Query
 
-Insert the following SQL query into the SQL file with the `down` suffix, to drop a row from the database:
+Insert the following SQL query into the `down` file to remove a row from the database:
 
 ```
 ALTER TABLE table_name 
 DROP COLUMN drop_column_name; 
 ```
 
-#### Up-migration query
+#### Up-Migration Query
 
-Insert the following SQL query into the SQL file with the `up` suffix, to insert a row into the database:
+Insert the following SQL query into the `up` file to insert a row into the database:
 
 ```
 ALTER TABLE table_name
 ADD new_row_name datatype;
 ```
 
-Insert your own MySQL queries into these SQL files to create your unique database migrations.
+Add your own MySQL queries to these SQL files to define custom database migrations.
 
 ## Step 5: Update Scripts
 
-Next update the `"scripts"` section in the `package.json` file in the root directory of the project to look something like this:
+In the root directory of the project, update the `"scripts"` section in the `package.json` file as follows:
 
 ```
 "scripts": {
@@ -87,19 +89,23 @@ Next update the `"scripts"` section in the `package.json` file in the root direc
   }
 ```
 
-Adjust these scripts to match your use of your developer and production environments.
+Modify these scripts to suit your developer and production environments.
 
-Here, the scripts used to run up and down migrations are created to be run on Code Capsules or within a developer environment.
+The migration scripts shown here are designed to be used on Code Capsules or in a developer environment.
 
-## Step 6: Change Run Commands
+## Step 6: Edit the Run Command
 
-When you want to perform these migrations in the production environment, add the scripts created for your migrations to the "Run Command" section found in your Backend Capsule’s "Config" section.
+To run these migrations in a production environment, update the Capsule's **Run Command** to execute the migration scripts.
+
+Edit the **Run Command** in the **Config** tab of the Backend Capsule.
 
 ![Run Command](../.gitbook/assets/database-capsule/mysql/configure-tab-run-command.png)
 
-## Step 7: Push Changes
+## Step 7: Push the Changes
 
-Finally, commit and push your changes to your GitHub repository to update your project’s code base and perform your migrations. You should see your migrations in the "Logs" section of your Backend Capsule. It will have a similar structure to this output:
+Finally, commit and push your changes to your GitHub repository to update the codebase and trigger the migrations. 
+
+View migration activity in the Backend Capsule's **Logs** tab. The output will look similar to this:
 
 ```
 > node node_modules/db-migrate/bin/db-migrate up -e prod
