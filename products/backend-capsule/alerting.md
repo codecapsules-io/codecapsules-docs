@@ -1,7 +1,7 @@
 ---
 description: >-
-  Manage your notification preferences to stay informed about your Capsule's
-  health and performance.
+  Manage your notification preferences to stay informed about the
+  health and performance of your Capsules.
 ---
 
 # Notifications (Coming Soon)
@@ -20,11 +20,13 @@ Set up email alerts to receive notifications outside the platform. You can enabl
 
 Available notification types include:
 
-* **Capsule Not Running** - Alert when your capsule crashes or stops
-* **Killed by OOM** - Notify when your capsule runs out of memory
-* **High CPU Usage** - Alert when CPU usage exceeds 80%
-* **High Memory Usage** - Notify when memory usage exceeds 80%
-* **High Data Usage** - Alert when data usage exceeds 80%
-* **CPU Throttle** - Notify when CPU is being throttled
+* **Capsule Not Running:** When a Capsule crashes or stops running.
+* **Killed by OOM:** When a Capsule runs out of memory.
+* **High CPU Usage:** When CPU usage exceeds 80%.
+* **High Memory Usage:** When memory usage exceeds 80%.
+* **High Data Usage:** When data usage exceeds 80%.
+* **CPU Throttle:** When CPU is being throttled.
 
-Use "Enable All" or "Disable All" buttons to quickly configure all notifications, then click "Save Preferences" to apply your changes.
+Use the **Enable All** or **Disable All** buttons to quickly configure all notifications.
+
+Click **Save Preferences** to apply your changes.
