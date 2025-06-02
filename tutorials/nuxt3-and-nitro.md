@@ -1,5 +1,5 @@
 ---
-cover: ../.gitbook/assets/tutorial common hero.png
+cover: .gitbook/assets/tutorial common hero.png
 coverY: 0
 ---
 

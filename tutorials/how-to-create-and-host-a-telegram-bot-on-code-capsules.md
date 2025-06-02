@@ -34,12 +34,12 @@ Let's get started!
 
 To create a Telegram bot, we'll need:
 
-* [Python](https://www.python.org/) 3.6+ installed.
+* [Python](https://www.python.org/) 3.9+ installed.
 * A [GitHub account](https://github.com/) and [Git](https://git-scm.com/) installed.
 * [Virtualenv](https://pypi.org/project/virtualenv/) installed.
 * A [Telegram](https://telegram.org/) account.
 * A [Code Capsules](https://codecapsules.io/) account.
-* An API on Code Capsules, created using [the Personal API tutorial](https://codecapsules.io/docs/creating-and-hosting-a-personal-api-with-flask-and-code-capsules/).
+* An API on Code Capsules, created using [the Personal API tutorial](creating-and-hosting-an-api-with-flask/).
 
 ### About Telegram Bots
 
@@ -60,9 +60,9 @@ Once you have a Telegram account, you can register a new bot by sending a messag
 3. Choose a name for your bot.
 4. Choose a username for your bot (must end in "bot").
 
-Once you've chosen a username, the BotFather will reply with an _authorisation token_. This is a string that enables your bot to send requests to the Telegram Bot API, similar to the authorisation tokens we used to retrieve weather and exchange rate data in the personal API tutorial. Make sure to save this token somewhere safe and private.
+Once you've chosen a username, the BotFather will reply with an _authorization token_. This is a string that enables your bot to send requests to the Telegram Bot API, similar to the authorisation tokens we used to retrieve weather and exchange rate data in the personal API tutorial. Make sure to save this token somewhere safe and private.
 
-To see if your bot was successfully created, search for the bot's username. You should see the bot and be able to start a conversation with it. Right now, our bot won't reply to anything you send it, as it doesnt have any backend code yet. Let's change that.
+To see if your bot was successfully created, search for the bot's username. You should see the bot and be able to start a conversation with it. Right now, our bot won't reply to anything you send it, as it doesn't have any backend code yet. Let's change that.
 
 ### Planning and Setup
 
@@ -177,7 +177,7 @@ At the top of our new `main` method, which will be called when this file is run,
 
 Next, we create three different `CommandHandler` classes, one for each command that can be sent to our bot: `/start`, `/weather` and `/currency`. We pass two arguments into each instantiation: the command text (without the preceding `/`), and a function to call. For example, when a user enters the command `/weather`, the `weather()` function will be called.
 
-Let's define that function, and the other two. Just above `def main()`, enter the following three function definitions.
+Let's define that function and the other two. Just above `def main()`, enter the following three function definitions.
 
 ```python
 def weather(update, context):
@@ -250,7 +250,7 @@ if __name__ == '__main__':
 
 Below is a conversation with a bot created using this program. Run `bot.py` and try it out yourself.
 
-<figure><img src=".gitbook/assets/conversation.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/CleanShot 2025-06-02 at 15.09.05@2x.png" alt=""><figcaption><p>Telegram Bot Conversation</p></figcaption></figure>
 
 We won't be able to send messages to our bot if this program isn't running, so hosting it on Code Capsules will allow us to interact with the bot without having to keep this code permanently running on our development PC.
 

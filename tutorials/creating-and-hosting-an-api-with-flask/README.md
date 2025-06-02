@@ -122,7 +122,7 @@ To request data from an API, we need an endpoint for the type of data we want. A
 
 In the code below, the EXCHANGE\_URL variable contains the OpenExchangeRates endpoint for retrieving the latest exchange rates. Enter it in your app.py file now, replacing YOUR-API-KEY-HERE with the OpenExchangeRates API key you saved earlier.
 
-```
+```python
 import requests
 
 EXCHANGE_URL = 'https://openexchangerates.org/api/latest.json?app_id=YOUR-API-KEY-HERE'
@@ -144,7 +144,7 @@ OpenExchangeRates has many other endpoints, each of which provides a different s
 
 Now let’s print the data using the .json() method. This method converts the data from raw text into JSON (JavaScript Object Notation), which we can work with like a Python dictionary.
 
-```
+```python
 print(exchange_data.json())
 ```
 
@@ -152,7 +152,7 @@ When running the program, you will see a lot of output. This is because we are c
 
 Add the following lines below EXCHANGE\_URL:
 
-```
+```python
 EXCHANGE_PARAMS =  {'symbols':'ZAR,EUR,CAD'}
 
 exchange_data = requests.get(EXCHANGE_URL, EXCHANGE_PARAMS)
@@ -160,7 +160,7 @@ exchange_data = requests.get(EXCHANGE_URL, EXCHANGE_PARAMS)
 
 Then change your print statement as follows:
 
-```
+```python
 print(exchange_data.json()['rates']) # Print only exchange rates
 ```
 
@@ -188,11 +188,11 @@ Here we retrieve the temperature for Cape Town, South Africa. You can replace �
 
 Now we’ll get to create the API with Flask. Our API will package the weatherstack and OpenExchangeRates data together in a single endpoint.
 
-This means we can build other applications later which will be able to retrieve all the data above by calling requests.get(MY\_CODE\_CAPSULES\_URL).
+This means we can build other applications later, which will be able to retrieve all the data above by calling `requests.get(MY_CODE_CAPSULES_URL)`.
 
 ### Beginning steps with Flask
 
-First, we can remove all the print statements in our app.py file. Afterward, edit the file accordingly:
+First, we can remove all the print statements in our `app.py` file. Afterward, edit the file accordingly:
 
 ```python
 import requests
@@ -214,7 +214,7 @@ if __name__ == '__main__':
     app.run() # Run the application
 ```
 
-After instantiating a Flask object, we add @app.route(‘/’). The @ symbol is known as a Python decorator – their use isn’t essential for our application. Just understand that the below creates the homepage for your API:
+After instantiating a Flask object, we add `@app.route(‘/’)`. The `@` symbol is known as a Python decorator – its use isn’t essential for our application. Just understand that the below creates the homepage for your API:
 
 ```python
 @app.route(`/`)
@@ -224,7 +224,7 @@ def index():
 
 Once the API is hosted on Code Capsules, you’ll see “Welcome to my API!” when you visit the app’s URL, which you can find under the domains section of the capsule.
 
-Next, we’ll implement the ability to “get” (using requests.get()) our data from the API when it’s hosted.
+Next, we’ll implement the ability to “get” (using `requests.get()`) our data from the API when it’s hosted.
 
 ### Combining the APIs
 
@@ -242,7 +242,7 @@ def get():
     })
 ```
 
-@app.route(‘/get’, methods=\[‘GET’]) adds an endpoint, /get, allowing us to retrieve data from the API. When Code Capsules gives us a URL for our API, we’ll be able to use this URL plus the endpoint /get to retrieve data from our API, combining the inputs from the two APIs we are calling out to in turn.
+`@app.route(‘/get’, methods=[‘GET’])` adds an endpoint, `/get`, allowing us to retrieve data from the API. When Code Capsules gives us a URL for our API, we’ll be able to use this URL plus the endpoint `/get` to retrieve data from our API, combining the inputs from the two APIs we are calling out to in turn.
 
 Next, the statement below returns our data in JSON:
 
@@ -253,17 +253,17 @@ return jsonify({
     })
 ```
 
-Here, the exchange rate data is stored under ‘usd\_rates’ and the temperature data under curr\_temp. This means that if we request our data and store it in a variable like my\_data, we’ll be able to print out the exchange rates by executing print(my\_data\[‘usd\_rates’]), and print the temperature by executing print(my\_data\[‘curr\_temp’]).
+Here, the exchange rate data is stored under `usd_rates` and the temperature data under `curr_temp`. This means that if we request our data and store it in a variable like `my_data`, we’ll be able to print out the exchange rates by executing `print(my_data[‘usd_rates’])`, and print the temperature by executing `print(my_data[‘curr_temp’])`.
 
 The API is complete – only a few steps left before hosting it on Code Capsules.
 
 ## Freezing Requirements and Creating the Procfile <a href="#freezing-requirements-and-creating-the-procfile" id="freezing-requirements-and-creating-the-procfile"></a>
 
-Before sending our API to GitHub (so Code Capsules can host it), we need the requirements.txt file, and a Procfile.
+Before sending our API to GitHub (so Code Capsules can host it), we need the `requirements.txt` file, and a Procfile.
 
-The requirements.txt file contains information about the libraries we’ve used to make our API, which will allow Code Capsules to install those same libraries when we deploy it. To create this file, first ensure your terminal is still in the virtual environment. Then, in the same directory as the app.py file, enter pip3 freeze > requirements.txt in your terminal.
+The `requirements.txt` file contains information about the libraries we’ve used to make our API, which will allow Code Capsules to install those same libraries when we deploy it. To create this file, first ensure your terminal is still in the virtual environment. Then, in the same directory as the app.py file, enter `pip3 freeze > requirements.txt` in your terminal.
 
-Next, create a new file named Procfile in the same directory. Open the Procfile and enter:
+Next, create a new file named `Procfile` in the same directory. Open the `Procfile` and enter:
 
 ```
 web: gunicorn app:app
@@ -276,7 +276,7 @@ This tells Code Capsules to use the Gunicorn WSGI server to serve the HTTP data 
 The API is now ready to host on Code Capsules. Follow these steps to get it online:
 
 1. Create a remote repository on GitHub.
-2. Push the Procfile, requirements.txt, and app.py files to the repository.
+2. Push the `Procfile`, `requirements.txt`, and `app.py` files to the repository.
 3. Link the repository to your Code Capsules account following this guide.
 4. Create a new Team and Space (as necessary).
 
@@ -284,8 +284,8 @@ With the repository linked to Code Capsules, we just need to store the API on a 
 
 1. Create a new Capsule.
 2. Choose Backend Capsule and continue.
-3. Select your product type and GitHub repository, click next.
-4. Leave the “Run Command” field blank (our Procfile handles this step).
+3. Select your GitHub repository and branch, then click **Next**.
+4. Leave the **Run Command** field blank (our `Procfile` handles this step).
 5. Create the Capsule.
 
 Once the Capsule has built, the API is hosted! Let’s take a brief look at how to interact with it.
@@ -294,7 +294,7 @@ Once the Capsule has built, the API is hosted! Let’s take a brief look at how 
 
 Once the Capsule has been built, Code Capsules will provide you with a URL (found in the “Overview” tab). Enter the URL in your browser, and you’ll be greeted with “Welcome to my API!”. To view the API data, add /get to the end of the URL.
 
-Now try interacting with the API through code. In a new file, enter the following, replacing the URL with your Code Capsules URL (ensure /get is at the end of the URL):
+Now, try interacting with the API through code. In a new file, enter the following, replacing the URL with your Code Capsules URL (ensure /get is at the end of the URL):
 
 ```json
 import requests

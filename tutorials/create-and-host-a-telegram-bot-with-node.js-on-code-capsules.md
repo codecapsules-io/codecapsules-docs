@@ -28,9 +28,9 @@ In this tutorial, we'll extend a boilerplate Express application on Code Capsule
 
 Navigate to the Express.js deployment guide and follow the instructions outlined there to deploy the boilerplate application. You will need to clone the forked repository to your local development environment to extend the functionality of the boilerplate application and make a Telegram bot.
 
-We need to install the `node_modules` for the boilerplate application before we can run it locally. Navigate to the project's root folder in a terminal or command prompt window and run `npm install` there.
+We need to install the `node_modules` for the boilerplate application, before we can run it locally. Navigate to the project's root folder in a terminal or command prompt window and run `npm install` there.
 
-Now you can run `npm start` in the project's root folder to see how the application looks.
+Now you can run `npm start` in the project from its root folder to see how the application looks.
 
 ### Register a Bot Account
 
@@ -51,7 +51,7 @@ To confirm that your bot was created successfully, search for the bot's username
 
 Your bot's access token is sensitive data and shouldn't be written in the code because anyone with access to your token can control your bot, so it's important to store it where it's safe and secure. The solution is to use environment variables to reference sensitive information in code.
 
-Create a `.env` file in the project's root folder and add the line below to it, replacing `<YOUR_BOT_TOKEN>` with the actual access token you were issued with by the BotFather:
+Create a `.env` file in the project's root folder and add the line below to it, replacing `<YOUR_BOT_TOKEN>` with the actual access token you were issued by the BotFather:
 
 ```
 BOT_TOKEN=<YOUR_BOT_TOKEN>
@@ -101,11 +101,11 @@ bot.launch()
 
 The code snippet above instantiates `express`, `axios` and `telegraf` objects, which we'll need to create the telegram bot. Notice how we use environment variables to reference our bot's access token in this line: `const bot = new Telegraf(process.env.BOT_TOKEN);`.
 
-Using the `bot.launch()` command isn't efficient from a bandwidth perspective, as our bot continously polls the Telegram API to check if it has received any new messages. Later in the tutorial, we will look at how to use webhooks in order to be more conservative with the bandwidth our bot uses.
+Using the `bot.launch()` command isn't efficient from a bandwidth perspective, as our bot continuously polls the Telegram API to check if it has received any new messages. Later in the tutorial, we will look at how to use webhooks in order to be more conservative with the bandwidth our bot uses.
 
 ### Add Bot Commands
 
-Now it's time to add the logic for the commands which tell our bot how to respond to different messages. Add the code below to `index.js` just above the `bot.launch()` line:
+Now it's time to add the logic for the commands that tell our bot how to respond to different messages. Add the code below to `index.js` just above the `bot.launch()` line:
 
 ```js
 bot.command('start', ctx => {
@@ -164,6 +164,6 @@ Navigate to the capsule you deployed at the start of this tutorial and copy its 
 
 On Code Capsules, navigate to the "Configure" tab of your capsule and add a `BOT_TOKEN` environment variable giving it the value of your bot's access token.
 
-<figure><img src=".gitbook/assets/env-var.png" alt=""><figcaption></figcaption></figure>
+![Add a BOT\_TOKEN Environment Variable](.gitbook/assets/bot-token-env-variable.png)
 
 Now head over to your local development environment and commit your changes if you haven't already. Run `git push` in a terminal window while in the project's root folder to deploy your bot to production!

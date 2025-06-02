@@ -4,19 +4,33 @@ description: >-
   status changes via Slack.
 cover: .gitbook/assets/CodeCapsules_SlackBot.jpg
 coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Build a Slackbot with Node.js to Monitor your Applications
 
 Slack is a really useful communication tool when working in teams. Many developers find themselves using it almost constantly when working on projects.
 
-One of the stand out features of Slack is the rich API it exposes, to allow developers to integrate with it.
+One of the standout features of Slack is the rich API it exposes, to allow developers to integrate with it.
 
-In this tutorial, we'll use the Slack API to give our apps a voice. We'll be able to talk to our apps running on Code Capsules, to ask their status and see if they are up and running. They will also be able to alert us when they boot up, so we know if they have been successfully deployed or restarted.
+In this tutorial, we'll use the Slack API to give our apps a voice. We'll be able to talk to our apps running on Code Capsules, to ask about their status and see if they are up and running. They will also be able to alert us when they boot up, so we know if they have been successfully deployed or restarted.
 
 ### Overview and Requirements
 
-As we're building a Slackbot, you'll need to sign up for an account on [Slack](https://slack.com), if you haven't already got one. Ideally, for this tutorial you should use a Slack workspace that you can safely send many test messages to while we are creating this bot, without disturbing people.
+As we're building a Slackbot, you'll need to sign up for an account on [Slack](https://slack.com) if you haven't already got one. Ideally, for this tutorial, you should use a Slack workspace that you can safely send many test messages to while we are creating this bot, without disturbing people.
 
 We'll also need the following:
 
@@ -33,7 +47,7 @@ With our requirements in place, we can get started on setting them up to work as
 
 We need a place to store our code from which Code Capsules can deploy to a capsule. A repository on GitHub is just what we need.
 
-Head over to GitHub, and create a new repo. We're calling it _slackbot_ here, but you can call it whatever you like.
+Head over to GitHub and create a new repo. We're calling it _slackbot_ here, but you can call it whatever you like.
 
 Note: You can also add this code to an existing backend project if you would like to monitor it; perhaps something you built in an earlier tutorial.
 
@@ -49,7 +63,7 @@ We can initialise a new Node.js project by typing the following at the terminal 
 npm init
 ```
 
-We can just press _enter_ for each of the questions it asks; the defaults are good to start with.
+We can just press **Enter** for each of the questions it asks; the defaults are good to start with.
 
 #### Install our packages
 
@@ -94,9 +108,9 @@ We'll need a place to host our app.
 
 #### Register an app on Slack
 
-After you've created a workspace on Slack, or logged into an existing one, head over to [https://api.slack.com](https://api.slack.com) and click on "Create a custom app".
+After you've created a workspace on Slack or logged into an existing one, head over to [https://api.slack.com](https://api.slack.com) and click on "Create a custom app".
 
-On the dialog that comes up, we can give our app a name, and choose which workspace we want to add it to. You can choose any name you wish – we've used _Serverbot_ here. Now we can click "Create App".
+On the dialog that comes up, we can give our app a name and choose which workspace we want to add it to. You can choose any name you wish – we've used _Serverbot_ here. Now we can click "Create App".
 
 Great! We've created our app. Now we can configure it.
 
@@ -105,21 +119,21 @@ For this tutorial, we would like the following two functions:
 1. Our Code Capsules app should automatically send us a notification whenever it starts up. This allows us to easily know when a new deployment is successful. It can also alert us to any potential crashes and restarts.
 2. We want to query our Code Capsules app from Slack at any time to see how it's doing.
 
-Our first requirement can be configured on the Slack side by clicking "OAuth & Permissions" on the left panel. Scroll down to the _Scopes_ section, and click "Add an OAuth Scope" under the _Bot Token Scopes_ section, and choose "Chat:Write" from the options list. This now allows our bot to initiate and post messages to us when it starts up.
+Our first requirement can be configured on the Slack side by clicking "OAuth & Permissions" on the left panel. Scroll down to the _Scopes_ section, click "Add an OAuth Scope" under the _Bot Token Scopes_ section, and choose "Chat:Write" from the options list. This now allows our bot to initiate and post messages to us when it starts up.
 
-<figure><img src=".gitbook/assets/slack-scopes.png" alt=""><figcaption><p>Select Scopes Slack</p></figcaption></figure>
+<figure><img src=".gitbook/assets/slack-scopes (1).png" alt=""><figcaption><p>Select Scopes Slack</p></figcaption></figure>
 
 Our second requirement can be configured by setting up a _slash command_. Click on the "Slash Commands" menu item on the left, under _Features_.
 
-<figure><img src=".gitbook/assets/choose-slash-command.png" alt=""><figcaption><p>Slash Command Menu</p></figcaption></figure>
+<figure><img src=".gitbook/assets/choose-slash-command (1).png" alt=""><figcaption><p>Slash Command Menu</p></figcaption></figure>
 
 Then click "Create a new Command". We'll give the command the name _/stats_. For the _Request URL_, copy the _Domain_ name from your Code Capsules Overview page.
 
-<figure><img src=".gitbook/assets/capsule-domain (1).png" alt=""><figcaption><p>Code Capsules Domain</p></figcaption></figure>
+<figure><img src=".gitbook/assets/backend-url.png" alt=""><figcaption></figcaption></figure>
 
 Paste your domain into the _Request URL_ box on Slack, and add `/slack/command/stats` to the end of it. We can fill in a description as well, something like 'Returns key stats from the app'.
 
-<figure><img src=".gitbook/assets/create-command.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/create-command (1).png" alt=""><figcaption></figcaption></figure>
 
 Great, now we can click "Save" at the bottom of the page to finish setting up our slash command.
 
@@ -129,7 +143,7 @@ Now that we have all our systems set up, we can get onto the coding part.
 
 #### Adding the base code
 
-Let's add the boilerplate code to startup a new Express server. Open up the `index.js` file and add the following:
+Let's add the boilerplate code to start a new Express server. Open up the `index.js` file and add the following:
 
 ```javascript
 const express = require('express'); 
@@ -150,29 +164,29 @@ Ok, cool, we've got the base code to create an Express app, and start it up to b
 2. The channel ID of the channel to post the message to.
 3. The message we want to post as the requirements.
 
-To get the access token, head over to your app dashboard on Slack, and click on the "OAuth & Permissions" menu item on the left-hand side. Then click the "Install to Workspace" button, and then the "Allow" button. After this, you should see a newly generated "Bot User OAuth Token". Copy this token – this is our access token.
+To get the access token, head over to your app dashboard on Slack and click on the "OAuth & Permissions" menu item on the left-hand side. Then click the "Install to Workspace" button, and then the "Allow" button. After this, you should see a newly generated "Bot User OAuth Token". Copy this token – this is our access token.
 
 We could just put this token in our code. However, this is not really considered best practice for sensitive secrets and credentials. Rather, let's add this secret as an **Environment Variable**, and access it from the Node.js [process object, on the `.env` property](https://nodejs.org/api/process.html#process_process_env).
 
-To add the access token to the environment in Code Capsules, head over to the capsule we created earlier, and click on the "Config" tab. Now we can fill in our environment variable for the access token. Add a new environment variable with name `SLACK_BOT_TOKEN` and set the value to the token copied from Slack.
+To add the access token to the environment in Code Capsules, head over to the capsule we created earlier and click on the "Config" tab. Now we can fill in our environment variable for the access token. Add a new environment variable with the name `SLACK_BOT_TOKEN` and set the value to the token copied from Slack.
 
-<figure><img src=".gitbook/assets/token-env-variable.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/slack-bot-token.png" alt=""><figcaption></figcaption></figure>
 
 Now that we've added our access token, we need to find the ID of the channel we want to post to. Find a channel on your Slack workspace that you want to send to, or create a new channel. Now we can get the channel ID by right-clicking on the channel name to bring up a context menu. Now, we can choose "Copy Link" from that menu:
 
-<figure><img src=".gitbook/assets/copy-channel-link.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/copy-channel-link (1).png" alt=""><figcaption></figcaption></figure>
 
 If we paste that link, we get something like `https://<workspace-name>.slack.com/archives/C01SZ6Z3TCY`. The last part of that URL is the channel ID; in this example case, `C01SZ6Z3TCY`.
 
 Let's add this to our environment variables as well, as it keeps all the configurations in one place. Head back over to your Capsule, and add in an environment variable with the name `SLACK_CHANNEL_ID` and set the value to the channel ID we extracted above. Click the "Update & Start Build" button to save the changes to the environment variables.
 
-<figure><img src=".gitbook/assets/channel-env-variable.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/slack-channel-id.png" alt=""><figcaption></figcaption></figure>
 
 We also need to invite our bot to the chosen channel, so that it will be able to post there. Go to the channel, and @ mention the name you gave the bot to add it. Click "Invite Them" when Slack prompts you.
 
-<figure><img src=".gitbook/assets/invite-bot.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/invite-bot (1).png" alt=""><figcaption></figcaption></figure>
 
-Now let's add the code to call Slack on startup, and write a message to our channel. We can modify our boilerplate code above to make the HTTP POST to the endpoint https://slack.com/api/chat.postMessage. We'll use [Superagent](https://www.npmjs.com/package/superagent) to make the call.
+Now let's add the code to call Slack on startup, and write a message to our channel. We can modify our boilerplate code above to make an HTTP POST to the endpoint `https://slack.com/api/chat.postMessage`. We'll use [Superagent](https://www.npmjs.com/package/superagent) to make the call.
 
 ```javascript
 const express = require('express');
@@ -200,7 +214,7 @@ function sendStartupMessageToSlack(){
 }
 ```
 
-We've added in a function `sendStartupMessageToSlack` which makes the call out to Slack. Notice that we send the auth token in a header, using `.set('Authorization', 'Bearer '+ process.env.SLACK_BOT_TOKEN)`. The `Authorization` header is a standard HTTP header.
+We've added a function `sendStartupMessageToSlack` which makes the call out to Slack. Notice that we send the auth token in a header, using `.set('Authorization', 'Bearer '+ process.env.SLACK_BOT_TOKEN)`. The `Authorization` header is a standard HTTP header.
 
 The channel and the message are sent in the body. Feel free to modify the startup message from _I'm alive and running_ to whatever you'd like.
 
@@ -244,9 +258,9 @@ If all goes well, in a few minutes you should get a message on your Slack channe
 
 #### Adding a slash command
 
-Now that our app can send us messages, can we send messages back to it? Let's implement the slash command, which will allow us to ask our app for some of its important stats and info. This time, Slack will send an HTTP POST to our app. If we take a look at the [Slack docs again](https://api.slack.com/interactivity/slash-commands#app_command_handling), we notice that Slack will send the slash command instruction to the URL we specified in the command set up earlier. We can also see that the POST payload is in the format [`application/x-www-form-urlencoded`](https://www.w3schools.com/html/html_urlencode.asp). We can set up a [`body-parser`](https://github.com/expressjs/body-parser/tree/1.19.0#bodyparserurlencodedoptions) to interpret this data.
+Now that our app can send us messages, can we send messages back to it? Let's implement the slash command, which will allow us to ask our app for some of its important stats and info. This time, Slack will send an HTTP POST to our app. If we take a look at the [Slack docs again](https://api.slack.com/interactivity/slash-commands#app_command_handling), we notice that Slack will send the slash command instruction to the URL we specified in the command setup earlier. We can also see that the POST payload is in the format [`application/x-www-form-urlencoded`](https://www.w3schools.com/html/html_urlencode.asp). We can set up a [`body-parser`](https://github.com/expressjs/body-parser/tree/1.19.0#bodyparserurlencodedoptions) to interpret this data.
 
-Let's extend our code with the snippet below to implement the slash command receiver as specified in the Slack docs. First add a require statement for `body-parser` at the top.
+Let's extend our code with the snippet below to implement the slash command receiver as specified in the Slack docs. First, add a require statement for `body-parser` at the top.
 
 ```javascript
 const bodyParser = require("body-parser");
@@ -307,11 +321,11 @@ Type `/stats` in the channel we chose earlier. After a second or two, the app sh
 
 #### Adding verification
 
-We can ask our app via Slack (which we use constantly!) how it's doing; pretty cool, huh? There is a problem though. If we call our slash command endpoint from anywhere else, for instance if we just call it using [Postman](https://www.postman.com), it also returns all the information and stats! This would not be good for a production system, as sensitive information will be easily found by attackers.
+We can ask our app via Slack (which we use constantly!) how it's doing; pretty cool, huh? There is a problem, though. If we call our slash command endpoint from anywhere else, for instance, if we just call it using [Postman](https://www.postman.com), it also returns all the information and stats! This would not be good for a production system, as sensitive information will be easily found by attackers.
 
 <figure><img src=".gitbook/assets/postman-slash-command.png" alt=""><figcaption></figcaption></figure>
 
-So how can we ensure that the request comes from our Slack workspace? Luckily, Slack has thought about this, and sends a [message signature with its requests](https://api.slack.com/authentication/verifying-requests-from-slack). From the [guide in Slack's docs](https://api.slack.com/authentication/verifying-requests-from-slack#verifying-requests-from-slack-using-signing-secrets__a-recipe-for-security__step-by-step-walk-through-for-validating-a-request), we can put together some code to check that the request is legitimately from Slack. The main parts of the check, copied from the docs, looks like this:
+So, how can we ensure that the request comes from our Slack workspace? Luckily, Slack has thought about this and sends a [message signature with its requests](https://api.slack.com/authentication/verifying-requests-from-slack). From the [guide in Slack's docs](https://api.slack.com/authentication/verifying-requests-from-slack#verifying-requests-from-slack-using-signing-secrets__a-recipe-for-security__step-by-step-walk-through-for-validating-a-request), we can put together some code to check that the request is legitimately from Slack. The main parts of the check, copied from the docs, look like this:
 
 > * Retrieve the X-Slack-Request-Timestamp header on the HTTP request, and the body of the request.
 > * Concatenate the version number, the timestamp, and the body of the request to form a basestring. Use a colon as the delimiter between the three elements. For example, v0:123456789:command=/weather\&text=94070. The version number right now is always v0.
@@ -336,7 +350,7 @@ In this function, we grab the bit stream buffer `buf`, and check that it is not 
 app.use(bodyParser.urlencoded({ verify: rawBodySaver}));
 ```
 
-In the code above, we added options to our body parser initialisation. We set the `verify` option to the method we added above.
+In the code above, we added options to our body parser initialization. We set the `verify` option to the method we added above.
 
 Now, let's make a new [middleware function](http://expressjs.com/en/guide/writing-middleware.html) to calculate the signature and compare it. We'll be able to call this middleware before our current code for responding to our Slack slash command. Making it a middleware function will also allow us to easily re-use it on other routes, if we want to add more slash commands, or other commands from Slack in the future. We'll make a new file to hold this code. We'll call it `signing.js`.
 
@@ -377,23 +391,25 @@ module.exports = checkSlackMessageSignature;
 
 Let's take a look at this code. Firstly, we import the [crypto (cryptography) library](https://nodejs.org/api/crypto.html#crypto_crypto). We don't need to install this as a package, as it is built into Node.js. This library will allow us to perform the [hash](https://en.wikipedia.org/wiki/Secure_Hash_Algorithms) of the basestring to compare with the signature.
 
-Next, we create a function, with the [standard Express middleware parameters](http://expressjs.com/en/guide/writing-middleware.html):
+Next, we create a function with the [standard Express middleware parameters](http://expressjs.com/en/guide/writing-middleware.html):
 
 * `req`, representing the request data.
-* `res`, representing an output object that we return results to the user via.
+* `res`, representing an output object which we return results to the user.
 * `next`, representing a function to call if we want to hand control to the next middleware function in the chain. It can also be used to pass an error object back up if something goes wrong processing the request.
 
 Then, on the first few lines of the function, we get the timestamp Slack sends from the request headers, and check that it is within the last few minutes. Note the name of the header is all in lowercase, even though Slack specifies that the header is capitalised. This is because Express converts all header keys to lowercase when serving a request.
 
 After that, we retrieve the Slack Signing Secret from our environment variables. Let's get our Signing Secret from Slack and add it to the Code Capsules environment now. Head over to your Slack app dashboard, and click on "Basic Information" in the left-hand sidebar. Then scroll down to _App Credentials_, and look for the _Signing Secret_. Click "Show", and copy the secret.
 
-<figure><img src=".gitbook/assets/slack-signing-secret.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/slack-signing-secret (2).png" alt=""><figcaption></figcaption></figure>
 
-Now head over to your Capsule on Code Capsules, and click on the _Config_ tab. Add a new environment variable with _Name_ `SLACK_SIGNING_SECRET` and paste in the value of the _Signing Secret_ we copied above. Click "Update & Start Build" to save the changes.
+Now, head over to your Capsule on Code Capsules and click on the _Config_ tab. Add a new environment variable with _Name_ `SLACK_SIGNING_SECRET` and paste in the value of the _Signing Secret_ we copied above. Click "Update & Start Build" to save the changes.
 
-<figure><img src=".gitbook/assets/signing-env-variable.png" alt=""><figcaption></figcaption></figure>
 
-Ok, back to the function. After we retrieve the signing secret from the environment variables, we read out the hash calculated and sent by Slack from the headers using `const slack_signature = req.headers['x-slack-signature']`. This will be a string that looks something like `v0=xxxxxxxxxxxxxxxxxxxxxxx`, where the `xxxx` represents the actual hash value. We need to split the version identifier `v0` from the beginning of the string though, as this is not part of the hash value. We do this in the next line, `const [version, slack_hash] = slack_signature.split('=')`. Now we have both the version, and the hash string in variables that we can access.
+
+<figure><img src=".gitbook/assets/slack-signing-secret (1).png" alt=""><figcaption></figcaption></figure>
+
+Ok, back to the function. After we retrieve the signing secret from the environment variables, we read out the hash calculated and sent by Slack from the headers using `const slack_signature = req.headers['x-slack-signature']`. This will be a string that looks something like `v0=xxxxxxxxxxxxxxxxxxxxxxx`, where the `xxxx` represents the actual hash value. We need to split the version identifier `v0` from the beginning of the string, though, as this is not part of the hash value. We do this in the next line, `const [version, slack_hash] = slack_signature.split('=')`. Now we have both the version and the hash string in variables that we can access.
 
 After this, we construct our basestring, made from the version we extracted above, the timestamp of the request, and the `rawBody` (which we extracted in our body parser `verify` function earlier).
 
@@ -401,9 +417,9 @@ The next two lines are where we actually calculate the hash. First, we set up th
 
 Now that the crypto HMAC is primed with all the info it needs, we can call the `digest` function to actually calculate the hash. We pass in as a parameter `hex` to indicate that we want the result back in [hexadecimal format](https://en.wikipedia.org/wiki/Hexadecimal), as this is the same format that Slack sends their calculated hash value in.
 
-Great, so now we have Slack's signature hash, and our hash. We need to check that they are the same, which will prove that the message was legitimately sent by Slack. We could just use a normal string compare, i.e. `if (slack_hash === our_hash)`, but there is a slight security issue with this, known as a [timing attack](https://codahale.com/a-lesson-in-timing-attacks/). This type of attack is based on the knowledge that a normal string compare function takes a different amount of time to compare two strings, depending on how close the strings are to each other. An attacker can take advantage of this timing difference to repeatedly send messages and, based on the time for our server to respond, can guess at how close their hash is to what we are expecting. With much patience and many thousands of messages, an attacker could eventually guess our Signing Secret, compromising all our checks.
+Great, so now we have Slack's signature hash and our hash. We need to check that they are the same, which will prove that the message was legitimately sent by Slack. We could just use a normal string compare, i.e. `if (slack_hash === our_hash)`, but there is a slight security issue with this, known as a [timing attack](https://codahale.com/a-lesson-in-timing-attacks/). This type of attack is based on the knowledge that a normal string comparison function takes a different amount of time to compare two strings, depending on how close the strings are to each other. An attacker can take advantage of this timing difference to repeatedly send messages and, based on the time for our server to respond, can guess at how close their hash is to what we are expecting. With much patience and many thousands of messages, an attacker could eventually guess our Signing Secret, compromising all our checks.
 
-Luckily, there is a simple way to protect from this, and it's built right into the `crypto` library. This is where we call `crypto.timingSafeEqual`. This compare always returns in the same amount of time, regardless of how close the hashes are to each other. Therefore, we don't give any extra information away to would-be attackers.
+comparisonLuckily, there is a simple way to protect from this, and it's built right into the `crypto` library. This is where we call `crypto.timingSafeEqual`. This comparison always returns in the same amount of time, regardless of how close the hashes are to each other. Therefore, we don't give any extra information away to would-be attackers.
 
 Now, if the hashes are equal, from our `timingSafeEqual` test, we just call `return next()` which exits our function and passes control to the next middleware function (which will be our slash command handler).
 
@@ -417,13 +433,13 @@ Ok, now that we've got this middleware created, let's link it to our slash comma
 const checkSlackMessageSignature = require('./signing'); 
 ```
 
-Now, we can navigate to our slack command handler, which started like this: `app.post('/slack/command/stats'`. Modify that to include a call to the message signature check before the actual handler, like this:
+Now, we can navigate to our Slack command handler, which started like this: `app.post('/slack/command/stats'`. Modify that to include a call to the message signature check before the actual handler, like this:
 
 ```javascript
 app.post('/slack/command/stats', [checkSlackMessageSignature, function(req,res){
 ```
 
-Fantastic, now our app is secure. You can commit all the changes, and push it up to Git, which will kick off our final deploy to Code Capsules:
+Fantastic, now our app is secure. You can commit all the changes and push them up to Git, which will kick off our final deploy to Code Capsules:
 
 ```bash
 git add . 
@@ -440,5 +456,5 @@ Once the code is up and running on Code Capsules, test it out to see that it sti
 What else can we do? It's almost endless!
 
 * Add this code to an existing app you have built to get easy info straight from Slack!
-* Add in more slash commands for more info – for example, you could get current user count on your app, number of database records etc. Basically, any information you could need for [dev ops](https://en.wikipedia.org/wiki/DevOps).
-* Look at some of the other functionality Slack offers for integration; for example, using [modals](https://api.slack.com/surfaces/modals), or listening in for [keywords in messages](https://api.slack.com/messaging/managing).
+* Add in more slash commands for more info – for example, you could get the current user count on your app, a number of database records, etc. Basically, any information you could need for [DevOps](https://en.wikipedia.org/wiki/DevOps).
+* Look at some of the other functionality Slack offers for integration; for example, using [modals](https://api.slack.com/surfaces/modals) or listening in for [keywords in messages](https://api.slack.com/messaging/managing).
