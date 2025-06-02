@@ -1,36 +1,48 @@
-# Set Up Persistent File Data Storage
+# Deploy
 
-You need persistent storage to develop your application that solves a real-world problem, but you don't want a full-blown database. In this tutorial, we'll show you how to create a persistent storage Data Capsule that you can use with your backend applications running on Code Capsules.
+You need persistent storage for your application, but you don't want a full-blown database. 
+
+This guide will show you how to create a persistent storage Data Capsule that you can use with backend applications running on Code Capsules.
 
 ## What is a Persistent Storage Capsule?
 
-A Persistent Storage Capsule is like a virtual cloud hard drive. The key benefit is that you can attach multiple backend or docker capsules (workloads) to read/write to the same persistent storage capsule, allowing for horizontal and vertical scaling of your backend/docker capsules/workloads.
+A Persistent Storage Capsule works like a virtual hard drive in the cloud. The key benefit is that you can attach multiple Backend or Docker Capsules to the same Persistent Storage Capsule, enabling them to share data and scale horizontally or vertically.
 
-## Create a File Data Capsule
+## How To Set Up Persistent File Storage
 
-Log in to your Code Capsules account and navigate to the Space your Data Capsule will be contained in. Click the yellow `+` button on the bottom left of the screen, select "New Capsule", then select "Persistent Storage" option from the dropdown.
+To set up persistent file storage, you'll first create a Persistent Storage Capsule, then bind it to a Backend Capsule.
+
+### Create a File Storage Capsule
+
+Log in to your Code Capsules account and navigate to the Space where you want to create a Data Capsule. 
+
+Click the yellow **+** button on the bottom-left corner of the dashboard. Select **New Capsule** and then **Persistent Storage** from the dropdown.
 
 ![Create Data Capsule](../../.gitbook/assets/create-persistent-capsule.png)
 
-Choose your payment option, then click the "Create Capsule" button.
+Select your payment method, then click **Create Capsule**.
 
-## Binding a Data Capsule to a Backend Capsule
+### Bind the Storage Capsule to a Backend Capsule
 
-You need to bind the Data Capsule to a Backend Capsule hosted on Code Capsules before you can connect to it and use it.
+You need to bind the Storage Capsule to a Backend Capsule hosted on Code Capsules before you can connect to and use it.
 
-Navigate to the Backend Capsule and click "Config" to open the Capsule's config tab. Scroll down to the "Bind Data Capsule" section, where your recently created Data Capsule will show.
+Navigate to the Backend Capsule and open the **Config** tab. Scroll down to the **Bind Data Capsule** section, where your recently created Storage Capsule is listed.
 
 ![Bind Data Capsule](../../.gitbook/assets/bind-persistent.png)
 
-Click "Bind" to bind your Data and Backend Capsules. During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable to let your Backend Capsule know where your Data Capsule resides in order to access its features. Once the two Capsules have been bound, you can scroll to the top of the Configure tab to find the value of this variable.
+Click **Bind** to bind the Capsules. 
+
+During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable that your Backend Capsule will use to access the Storage Capsule. 
+
+When the two Capsules are bound, scroll to the top of the **Config** tab to view the value of the variable.
 
 ![PERSISTENT STORAGE DIR Environment Variable](../../.gitbook/assets/env-variables-persistent-storage.png)
 
-The next step is to use this environment variable in code in order to read and write to our Data Capsule. Copy the value of the `PERSISTENT_STORAGE_DIR` variable and paste it in your code as the value of the `db_directory` variable. Alternatively, reference it directly in your code using `os.getenv` for Python or `process.env` for Node.js.
+Now you can use this environment variable in your code to read and write to the Storage Capsule. Copy the value of the `PERSISTENT_STORAGE_DIR` variable and assign it to the `db_directory` variable. Alternatively, reference it directly using `os.getenv` in Python or `process.env` in Node.js.
 
-### Connecting to a File Data Capsule From a Python Application
+#### Connect to a Storage Capsule From a Python Application
 
-If your Backend Capsule is a Python application, use the following code to connect to your Data Capsule:
+If you're using Python in your Backend Capsule, use the following code to connect to the Storage Capsule:
 
 ```python
 import os
@@ -46,9 +58,9 @@ file1.close()
 
 ```
 
-### Connecting to a File Data Capsule From a Node.js Application
+#### Connect to a File Data Capsule From a Node.js Application
 
-If your Backend Capsule is a Node.js application, use the following code to connect to your Data Capsule:
+If you're using Node.js in your Backend Capsule, use the following code to connect to the Storage Capsule:
 
 ```js
 
@@ -68,48 +80,55 @@ fs.writeFile(db_directory + '/test.txt', content, err => {
 })
 
 ```
-## Access Your Files via WebDAV
+
+## Access Files Using WebDAV
 
 By default, you can't browse files and folders in your Persistent Storage Capsule without building your own file browser. To solve this, Code Capsules provides native WebDAV access.
 
 To enable file browsing:
 
 1. Navigate to your Persistent Storage Capsule
-2. Go to the "Details" tab
-3. Toggle "Public Access" to "Enabled"
+2. Go to the **Details** tab
+3. Toggle **Public Access** to **Enabled**
 
 ![Toggle Storage to Public Acess Enabled](../.gitbook/assets/storage-capsule/deploy/toggle-public-access.png)
 
-This doesn't mean your files are indexed on the internet - it exposes them over WebDAV protocol with authentication credentials.
+Enabling this setting doesn't make your files publicly accessible on the internet. They are served over the WebDAV protocol and require authentication credentials to access.
 
-### Connecting to the WebDAV Server
+### Connect to the WebDAV Server
 
-#### Mac
-1. Open Finder
-2. Click on "Go" in the menu bar and select "Connect to Server"
+#### macOS
+
+1. Open **Finder**
+2. Click on **Go** in the menu bar and select **Connect to Server**
 3. Enter the WebDAV server URL in the following format: `https://server-address`
-4. Click "Connect"
+4. Click **Connect**
 5. Enter the username and password when prompted
-6. The WebDAV server will now appear as a mounted drive in Finder
 
-Here you can see the files inside a Wordpress Capsule accessed in the Mac Finder locally.
+The WebDAV server will now appear as a mounted drive in **Finder**.
+
+Here you can see the files inside a WordPress Capsule accessed locally through **Finder** in macOS.
 
 ![See Your Files Locally](../.gitbook/assets/storage-capsule/deploy/see-your-files.png)
 
 #### Windows
-1. Open File Explorer
-2. Right click on "This PC" in the sidebar
-3. Click on "Add a network location"
-4. Click "Next" in the wizard until prompted to enter the "Internet or network address"
+
+1. Open **File Explorer**
+2. Right click on **This PC** in the sidebar
+3. Click **Add a network location**
+4. Click **Next** in the wizard until prompted to enter the **Internet or network address**
 5. Enter the WebDAV server URL in the following format: `https://server-address`
 6. Enter the username and password when prompted
 7. Complete the setup wizard
-8. The WebDAV server will now appear as a mapped drive in File Explorer
+
+The WebDAV server will now appear as a mapped drive in **File Explorer**.
 
 #### Linux
-1. Open your file manager (e.g., Nautilus, Dolphin, Thunar)
-2. In your address bar enter the WebDAV server URL in the following format:
+
+1. Open your file manager (for example, Nautilus, Dolphin, or Thunar)
+2. In your address bar, enter the WebDAV server URL in the following format:
    - `davs://server-address` for Nautilus and Thunar
    - `webdavs://@server-address` for Dolphin
 3. Enter the username and password when prompted
-4. The WebDAV server will now appear as a drive in your file manager
+
+The WebDAV server will now appear as a drive in your file manager.
