@@ -133,10 +133,10 @@ Try it out! Run the program to ensure everything works, then continue.
 Now we can get to creating the actual bot. At the top of the `bot.py` file, add this line:
 
 ```python
-from telegram.ext import Updater, CommandHandler
+from telegram.ext import Application, CommandHandler
 ```
 
-From the `python-telegram-bot` library, we import two classes: `Updater` and `CommandHandler`. We'll talk about these classes soon.
+From the `python-telegram-bot` library, we import two classes: `Application` and `CommandHandler`. We'll talk about these classes soon.
 
 We don't need to print our data anymore – instead, we'll return a string to our bot, so the bot can display it on Telegram. Replace `def return_weather()` and `def return_rates()` with the following:
 
@@ -155,55 +155,54 @@ Now, replace the `return_weather()` and `return_rates()` function calls with the
 ```python
 def main():
     TOKEN = "YOUR-BOT-TOKEN-HERE"
-    updater = Updater(token=TOKEN, use_context=True)
-    dispatcher = updater.dispatcher
+    application = Application.builder().token(TOKEN).build()
 
     weather_handler = CommandHandler("weather", weather)
     currency_handler = CommandHandler("currency", currency)
     start_handler = CommandHandler("start", start)
 
-    dispatcher.add_handler(weather_handler)
-    dispatcher.add_handler(currency_handler)
-    dispatcher.add_handler(start_handler)
+    application.add_handler(weather_handler)
+    application.add_handler(currency_handler)
+    application.add_handler(start_handler)
 
-    updater.start_polling()
+    application.run_polling()
 
 if __name__ == '__main__':
     main()
 
 ```
 
-At the top of our new `main` method, which will be called when this file is run, we instantiate `updater`, an instance of the Telegram library's [`Updater`](https://python-telegram-bot.readthedocs.io/en/latest/telegram.ext.updater.html#telegram.ext.updater.Updater) class. This object will retrieve commands sent to our bot and pass them to an instance of the [`Dispatcher`](https://python-telegram-bot.readthedocs.io/en/latest/telegram.ext.dispatcher.html#telegram.ext.Dispatcher) class. We've assigned this `Dispatcher` instance to the variable `dispatcher` for further use.
+At the top of our new `main` method, which will be called when this file is run, we instantiate `application`, an instance of the Telegram library's [`Application`](https://docs.python-telegram-bot.org/en/stable/telegram.ext.application.html) class. This object will retrieve commands sent to our bot and handle them using the appropriate handlers we define.
 
 Next, we create three different `CommandHandler` classes, one for each command that can be sent to our bot: `/start`, `/weather` and `/currency`. We pass two arguments into each instantiation: the command text (without the preceding `/`), and a function to call. For example, when a user enters the command `/weather`, the `weather()` function will be called.
 
-Let's define that function and the other two. Just above `def main()`, enter the following three function definitions.
+Let's define that function and the other two. Just above `def main()`, enter the following three function definitions:
 
 ```python
-def weather(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text=return_weather())
+async def weather(update, context):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=return_weather())
 
-def currency(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text=return_rates())
+async def currency(update, context):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=return_rates())
 
-def start(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text="Hi! I respond to /weather and /currency. Try them!")
+async def start(update, context):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text="Hi! I respond to /weather and /currency. Try them!")
 ```
 
-Each of these functions calls the `python-telegram-bot` function `send_message()` with the ID of the current chat and the appropriate text, either returned from one of our other functions or specified as a string. The `update` and `context` arguments are supplied automatically by the dispatcher.
+Each of these functions calls the `python-telegram-bot` function `send_message()` with the ID of the current chat and the appropriate text, either returned from one of our other functions or specified as a string. Note that these functions are now `async` and use `await` when calling bot methods - this is required in the newer version of the library. The `update` and `context` arguments are supplied automatically by the application.
 
-Back in our `main()` function, we use `dispatch.add_handler` to add all three handlers to our dispatcher.
+Back in our `main()` function, we use `application.add_handler` to add all three handlers to our application.
 
-Finally, `updater.start_polling()` will begin [_polling_](https://en.wikipedia.org/wiki/Polling_\(computer_science\)) for updates from Telegram. This means our code will regularly ask Telegram's servers if any commands have been sent to it. Upon receiving commands, the appropriate handler will be invoked. In the next section, we'll discuss the pitfalls of polling and consider an alternative.
+Finally, `application.run_polling()` will begin [_polling_](https://en.wikipedia.org/wiki/Polling_\(computer_science\)) for updates from Telegram. This means our code will regularly ask Telegram's servers if any commands have been sent to it. Upon receiving commands, the appropriate handler will be invoked.
 
 The code `bot.py` file should now look like the code below. Once again, make sure to replace `YOUR-URL-HERE` with the URL of the API you created in the API tutorial.
 
 ```python
-from telegram.ext import Updater, CommandHandler
+from telegram.ext import Application, CommandHandler
 import requests
 
 
-url = 'YOUR-URL-HERE/GET'
+url = 'YOUR-URL-HERE/get'
 data = requests.get(url) # requests data from API
 data = data.json() # converts return data to json
 
@@ -220,29 +219,28 @@ def return_weather():
 def return_rates():
     return "Hello. Today, USD conversion rates are as follows: USD->CAD = "+str(cad_rate)+ ", USD->EUR = "+str(eur_rate)+", USD->ZAR = "+str(zar_rate)
 
-def weather(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text=return_weather())
+async def weather(update, context):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=return_weather())
 
-def currency(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text=return_rates())
+async def currency(update, context):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text=return_rates())
 
-def start(update, context):
-    context.bot.send_message(chat_id=update.effective_chat.id, text='Hi! I respond to /weather and /currency. Try these!')
+async def start(update, context):
+    await context.bot.send_message(chat_id=update.effective_chat.id, text='Hi! I respond to /weather and /currency. Try these!')
 
 def main():
     TOKEN = "YOUR-BOT-TOKEN-HERE"
-    updater = Updater(token=TOKEN, use_context=True)
-    dispatcher = updater.dispatcher
+    application = Application.builder().token(TOKEN).build()
     
     weather_handler = CommandHandler('weather', weather)
     currency_handler = CommandHandler('currency',currency)
     start_handler = CommandHandler('start',start)
     
-    dispatcher.add_handler(weather_handler)
-    dispatcher.add_handler(currency_handler)
-    dispatcher.add_handler(start_handler)
+    application.add_handler(weather_handler)
+    application.add_handler(currency_handler)
+    application.add_handler(start_handler)
     
-    updater.start_polling()
+    application.run_polling()
 
 if __name__ == '__main__':
     main()
@@ -262,18 +260,28 @@ There are two ways for our `bot.py` file to receive commands sent to it on Teleg
 
 Instead of polling Telegram for changes, we can create a [_webhook_](https://en.wikipedia.org/wiki/Webhook). This will allow us to receive commands as they are sent by Telegram users, without having to continuously ask Telegram servers for them.
 
-We'll set up a webhook by telling Telegram to send commands sent to our bot account to our bot's Code Capsules URL. Our dispatcher will then process the command using the appropriate handler and send back the requested information.
+We'll set up a webhook by telling Telegram to send commands sent to our bot account to our bot's Code Capsules URL. Our application will then process the command using the appropriate handler and send back the requested information.
 
 #### Creating a webhook
 
-To set up the webhook, replace the line `updater.start_polling()` in the `main` function with the code below:
+To set up the webhook, replace the line `application.run_polling()` in the `main` function with the code below:
 
 ```python
     PORT = int(os.environ.get('PORT', '443'))
     HOOK_URL = 'YOUR-CODECAPSULES-URL-HERE' + '/' + TOKEN
-    updater.start_webhook(listen='0.0.0.0', port=PORT, url_path=TOKEN, webhook_url=HOOK_URL)
-    updater.idle()
+    application.run_webhook(listen='0.0.0.0', port=PORT, url_path=TOKEN, webhook_url=HOOK_URL)
+```
 
+Make sure to add this line to the top of the file:
+
+```python
+import os
+```
+
+And install Telegram webhooks:
+
+```
+pip install "python-telegram-bot[webhooks]"
 ```
 
 Here we start a webhook that will listen on our Code Capsules URL at TCP port 443 and with the path of our token. Thus, Telegram will relay commands sent to our bot to the following URL:
