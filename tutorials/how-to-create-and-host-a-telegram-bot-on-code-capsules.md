@@ -348,11 +348,11 @@ We haven't supplied our webhook a URL yet, and we still need to create an enviro
 2. Click the "Config" tab.
 3. Add an environment variable with the name "BOTAPIKEY" and give it your bot's API key as a value. Make sure to hit the "Update Capsule" button after adding the variable.
 
-<figure><img src=".gitbook/assets/env_var.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/bot-api-key-env.png" alt=""><figcaption><p>Bot API Key Environment Variable</p></figcaption></figure>
 
 Next, let's supply our webhook with the correct domain.
 
-1. Navigate to the "Overview" tab.
+1. Navigate to the "Details" tab.
 2. Copy the domain found under "Domains".
 3. Open the `bot.py` file and find the line `HOOK_URL = 'YOUR-CODECAPSULES-URL-HERE' + '/' + TOKEN`.
 4. Replace "YOUR-CODECAPSULES\_URL" with the domain just copied.
