@@ -83,7 +83,11 @@ Now let's create an `index.js` file, which will be the main file for our app. A 
 
 <figure><img src=".gitbook/assets/create-indexjs.gif" alt=""><figcaption><p>Create Index.js in Visual Studio</p></figcaption></figure>
 
-Save this blank file.
+Save this blank file. Now add another file named `.gitignore` and add this lines to it, and save:
+
+```
+node_modules
+```
 
 Great, it's time to push this boilerplate project up to Git. We can do it from the terminal with the following:
 
@@ -108,7 +112,7 @@ We'll need a place to host our app.
 
 #### Register an app on Slack
 
-After you've created a workspace on Slack or logged into an existing one, head over to [https://api.slack.com](https://api.slack.com) and click on "Create a custom app".
+After you've created a workspace on Slack or logged into an existing one, head over to [https://api.slack.com](https://api.slack.com/apps) and click on "Create an app", then "From Scratch".
 
 On the dialog that comes up, we can give our app a name and choose which workspace we want to add it to. You can choose any name you wish – we've used _Serverbot_ here. Now we can click "Create App".
 
@@ -127,7 +131,7 @@ Our second requirement can be configured by setting up a _slash command_. Click 
 
 <figure><img src=".gitbook/assets/choose-slash-command (1).png" alt=""><figcaption><p>Slash Command Menu</p></figcaption></figure>
 
-Then click "Create a new Command". We'll give the command the name _/stats_. For the _Request URL_, copy the _Domain_ name from your Code Capsules Overview page.
+Then click "Create a new Command". We'll give the command the name _/stats_. For the _Request URL_, copy the _Domain_ name from your Code Capsules Details page.
 
 <figure><img src=".gitbook/assets/backend-url.png" alt=""><figcaption></figcaption></figure>
 
@@ -174,7 +178,7 @@ To add the access token to the environment in Code Capsules, head over to the ca
 
 Now that we've added our access token, we need to find the ID of the channel we want to post to. Find a channel on your Slack workspace that you want to send to, or create a new channel. Now we can get the channel ID by right-clicking on the channel name to bring up a context menu. Now, we can choose "Copy Link" from that menu:
 
-<figure><img src=".gitbook/assets/copy-channel-link (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/CleanShot 2025-06-02 at 16.31.45@2x.png" alt=""><figcaption><p>Slack Channel ID</p></figcaption></figure>
 
 If we paste that link, we get something like `https://<workspace-name>.slack.com/archives/C01SZ6Z3TCY`. The last part of that URL is the channel ID; in this example case, `C01SZ6Z3TCY`.
 
