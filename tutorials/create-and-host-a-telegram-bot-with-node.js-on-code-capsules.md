@@ -26,7 +26,7 @@ In this tutorial, we'll extend a boilerplate Express application on Code Capsule
 
 ### Getting Started
 
-Navigate to the Express.js deployment guide and follow the instructions outlined there to deploy the boilerplate application. You will need to clone the forked repository to your local development environment to extend the functionality of the boilerplate application and make a Telegram bot.
+Navigate to the [Express.js deployment guide](https://app.gitbook.com/s/xjp0G5hHSJs8nyv5Z5g7/backend/node.js/express.js) and follow the instructions outlined there to deploy the boilerplate application. You will need to clone the forked repository to your local development environment to extend the functionality of the boilerplate application and make a Telegram bot.
 
 We need to install the `node_modules` for the boilerplate application, before we can run it locally. Navigate to the project's root folder in a terminal or command prompt window and run `npm install` there.
 
@@ -130,7 +130,7 @@ bot.command('ethereum', ctx => {
 
 The first command is a startup message, which is triggered when a user sends a `/start` message to the bot. The startup message contains a greeting that tells the user which other commands the bot can respond to, in this case, the `/ethereum` command.
 
-When a user sends an `/ethereum` message, the bot first checks for the latest price of ethereum at [CoinGecko](https://api.coingecko.com/api/v3/simple/price?ids=ethereum\&vs_currencies=usd) then send it to the user.
+When a user sends an `/ethereum` message, the bot first checks for the latest price of ethereum at [CoinGecko](https://api.coingecko.com/api/v3/simple/price?ids=ethereum\&vs_currencies=usd), then send it to the user.
 
 ### Run Bot Locally
 
@@ -149,21 +149,17 @@ Add the code below to the `index.js` file to add a webhook to our bot and commen
 expressApp.use(bot.webhookCallback('/secret-path'))
 bot.telegram.setWebhook('<YOUR_CAPSULE_URL>/secret-path')
 
-.
-.
-.
-
 // bot.launch()
 
 expressApp.listen(port, () => console.log(`Listening on ${port}`));
 ```
 
-Navigate to the capsule you deployed at the start of this tutorial and copy its domain from the "Overview" tab. In the code snippet above replace `<YOUR_CAPSULE_URL>` with the domain you just copied.
+Navigate to the capsule you deployed at the start of this tutorial and copy its domain from the "Details" tab. In the code snippet above, replace `<YOUR_CAPSULE_URL>` with the domain you just copied.
 
 ### Deploying the Bot
 
-On Code Capsules, navigate to the "Configure" tab of your capsule and add a `BOT_TOKEN` environment variable giving it the value of your bot's access token.
+On Code Capsules, navigate to the "Config" tab of your capsule and add a `BOT_TOKEN` environment variable giving it the value of your bot's access token.
 
 ![Add a BOT\_TOKEN Environment Variable](.gitbook/assets/bot-token-env-variable.png)
 
-Now head over to your local development environment and commit your changes if you haven't already. Run `git push` in a terminal window while in the project's root folder to deploy your bot to production!
+Now, head over to your local development environment and commit your changes if you haven't already. Run `git push` in a terminal window while in the project's root folder, to deploy your bot to production!
