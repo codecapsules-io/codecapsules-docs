@@ -1,9 +1,6 @@
 # Table of contents
 
 * [Tutorials Overview](README.md)
-
-## Tutorials
-
 * [How to Deploy a React Token dApp to Code Capsules](how-to-deploy-a-react-token-dapp-to-code-capsules.md)
 * [Nuxt3 and Nitro](nuxt3-and-nitro.md)
 * [Optimizing Performance in MERN Stack: Tips and Techniques](optimizing-performance-in-mern-stack-tips-and-techniques.md)
