@@ -169,7 +169,7 @@ Next, create an `index.html` file inside the `templates` folder, and populate it
 
 There’s not much going on in the code snippet above, except for line 5 and 8, which are responsible for loading Bootstrap and HTMx into our `index.html` page. This gives you the power to build an interactive page just by including the `<script>` tag that links to HTMx, without needing to install any `npm` packages like with most SPAs. This is how HTMx allows you to build sites that are more lightweight compared to SPA frameworks.
 
-The code in between the `<style>` tag adds CSS to style our frontend to make it more visually appealing. Now let’s add code that will be rendered in the body tag of our page. Copy and paste the code below underneath the `</head>` tag:
+The code in between the `<style>` tag adds CSS to style our frontend to make it more visually appealing. Now let's add code that will be rendered in the body tag of our page. Copy and paste the code below underneath the \</head> tag:
 
 ```html
 <body>
@@ -188,8 +188,8 @@ The code in between the `<style>` tag adds CSS to style our frontend to make it 
           </tr>
         </thead>
         <tbody id="new-book" hx-target="closest tr" hx-swap="outerHTML swap:0.5s"> 
-            <div data-gb-custom-block data-tag="for">
-
+            {% raw %}
+{% for book in books %}
             <tr>
                 <td>{{book.Book.title}}</td>
                 <td>{{book.Author.name}}</td>
@@ -203,23 +203,29 @@ The code in between the `<style>` tag adds CSS to style our frontend to make it 
                     <button hx-delete="/delete/{{book.Book.book_id}}" class="btn btn-primary">Delete</button>
                 </td>
             </tr>
-            
-
-</div>
+            {% endfor %}
+{% endraw %}
         </tbody>
     </table>
 </body>
 ```
 
-There are a couple of attributes here that aren’t used in traditional HTML. Let’s go over them one by one:
+There are a couple of attributes here that aren't used in traditional HTML. Let's go over them one by one:
 
-* **hx-\[http method]** – Examples of this attribute include **`hx-post`**, **`hx-get`**, **`hx-put`** and **`hx-delete`**. This is the HTMx way of denoting what type of request should be sent on form submission or when a request firing event is triggered. These attributes accept the request route as an argument. In the case of our form, we use the `/submit` route, while the table buttons send requests to the `/delete` and `/get-edit-form` routes.
-* **hx-target** – This attribute accepts the `id` of the element you want to update after a successful request or when an event is triggered. Take note of the preceding `#` that’s written before the `id` value.
-  * You might have noticed that we didn’t use an `id` value in the table, but used a value of `closest tr` instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the "Edit Title" button or the "Delete" button.
-* **hx-swap** – The [hx-swap](https://htmx.org/docs/#swapping) attribute allows you to specify how you want to partially reload the page or swap elements with new ones. It updates the UI in the section specified in the `hx-target` attribute.
-  * In our form, we used the `beforeend` value to tell HTMx that we want to append the result of the request after the last child in the target element, which is the table with `id=new-book`.
-  * In the table however, we used the `outerHTML` value to denote that we want to swap the entire `<tr>` element with the returned content.
-  * A full list of acceptable `hx-swap` values can be viewed [here](https://htmx.org/docs/#swapping).
+* **hx-\[http method]** – Examples of this attribute include `hx-post`, `hx-get`, `hx-put` and `hx-delete`. This is the HTMx way of denoting what type of request should be sent on form submission or when a request firing event is triggered. These attributes accept the request route as an argument. In the case of our form, we use the `/submit` route, while the table buttons send requests to the `/delete` and `/get-edit-form` routes.
+* **hx-target** – This attribute accepts the `id` of the element you want to update after a successful request or when an event is triggered. Take note of the preceding # that's written before the id value.
+
+You might have noticed that we didn't use an `id` value in the table, but used a value of closest `tr` instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the "Edit Title" button or the "Delete" button.
+
+* **hx-swap** – The [hx-swap attribute](https://htmx.org/docs/#swapping) allows you to specify how you want to partially reload the page or swap elements with new ones. It updates the UI in the section specified in the hx-target attribute.
+
+In our form, we used the beforeend value to tell HTMx that we want to append the result of the request after the last child in the target element, which is the table with id=new-book.
+
+In the table, however, we used the outerHTML value to denote that we want to swap the entire `<tr>` element with the returned content.
+
+The table rows are dynamically generated using Jinja2's `{% for book in books %}` loop syntax, which iterates through each book in the books list passed from our Flask backend.&#x20;
+
+A full list of acceptable hx-swap values can be viewed [here](https://htmx.org/docs/#swapping).
 
 ### Building the Flask Backend
 
@@ -270,7 +276,7 @@ We use SQLAlchemy to declare the database object we’ll interact with, as it al
 
 #### Register App Models
 
-The next step is to create the `models.py` module we imported earlier in the `__init__.py` file. Create a file named `models.py` inside the app folder and populate it with the code below:
+The next step is to create the `models.py` module we imported earlier in the `__init__.py` file. Create a file named `models.py` inside the `app` folder and populate it with the code below:
 
 ```py
 from app import db
@@ -293,7 +299,7 @@ Here we declare the two models we’re going to be saving in our database, which
 
 #### Create Views
 
-The last part in building the backend of our app is to create the views or routes that the frontend will be interacting with. Create a `views.py` file inside the app folder and add the code below to it:
+The last part in building the backend of our app is to create the views or routes that the frontend will be interacting with. Create a `views.py` file inside the `app` folder and add the code below to it:
 
 ```py
 from app import app, db
@@ -471,6 +477,6 @@ git commit -m 'commit message'
 git push origin
 ```
 
-We’ve shown you how to build a full stack Flask HTMx application from scratch and you should be able to deploy this basic version, but you may like to consider adding more functionality to enhance our app’s features. We recommend you check out [Alpine.js](https://alpinejs.dev/), a lightweight JavaScript framework that works well with `HTMx` to make sites that are more powerful yet still lightweight.
+We’ve shown you how to build a full-stack Flask HTMx application from scratch, and you should be able to deploy this basic version, but you may like to consider adding more functionality to enhance our app’s features. We recommend you check out [Alpine.js](https://alpinejs.dev/), a lightweight JavaScript framework that works well with `HTMx` to make sites that are more powerful yet still lightweight.
 
 You can find the complete code shown above in [this GitHub repository](https://github.com/codecapsules-io/demo-flask-htmx).
