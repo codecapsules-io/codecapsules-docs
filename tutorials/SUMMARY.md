@@ -4,12 +4,9 @@
 
 ## Tutorials
 
-* [How to Deploy a React Token dApp to Code Capsules](tutorials/how-to-deploy-a-react-token-dapp-to-code-capsules.md)
-* [Nuxt3 and Nitro](tutorials/nuxt3-and-nitro.md)
-* [Optimizing Performance in MERN Stack: Tips and Techniques](tutorials/optimizing-performance-in-mern-stack-tips-and-techniques.md)
-
-***
-
+* [How to Deploy a React Token dApp to Code Capsules](how-to-deploy-a-react-token-dapp-to-code-capsules.md)
+* [Nuxt3 and Nitro](nuxt3-and-nitro.md)
+* [Optimizing Performance in MERN Stack: Tips and Techniques](optimizing-performance-in-mern-stack-tips-and-techniques.md)
 * [Creating and Hosting an API With Flask](creating-and-hosting-an-api-with-flask/README.md)
   * [API Reference \[Sample\]](creating-and-hosting-an-api-with-flask/api-reference-sample.md)
 * [Building a Full Stack Application with Flask and HTMx](building-a-full-stack-application-with-flask-and-htmx.md)
