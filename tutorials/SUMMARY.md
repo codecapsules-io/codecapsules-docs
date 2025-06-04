@@ -18,3 +18,4 @@
 * [Build a MERN Job Board](build-a-mern-job-board.md)
 * [Build a Generative Art Application With Pillow, Flask and HTMx](build-a-generative-art-application-with-pillow-flask-and-htmx.md)
 * [White-Label Your App With Code Capsules](white-label-your-app-with-code-capsules.md)
+* [Building a Game Catalogue API](building-a-game-catalogue-api.md)
