@@ -11,3 +11,4 @@
 * [Create and Host a Telegram Bot with Node.js on Code Capsules](create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md)
 * [Build a Slackbot with Node.js to Monitor your Applications](build-a-slackbot-with-node.js-to-monitor-your-applications.md)
 * [Video Guides](video-guides.md)
+* [Building a Full Stack Application With Express and HTMx](building-a-full-stack-application-with-express-and-htmx.md)
