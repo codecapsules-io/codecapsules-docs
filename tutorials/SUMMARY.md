@@ -17,3 +17,4 @@
 * [Building a Book Recommendations App With PHP, SQLite, and Docker](building-a-book-recommendations-app-with-php-sqlite-and-docker.md)
 * [Build a MERN Job Board](build-a-mern-job-board.md)
 * [Build a Generative Art Application With Pillow, Flask and HTMx](build-a-generative-art-application-with-pillow-flask-and-htmx.md)
+* [White-Label Your App With Code Capsules](white-label-your-app-with-code-capsules.md)
