@@ -14,3 +14,4 @@
 * [Building a Full Stack Application With Express and HTMx](building-a-full-stack-application-with-express-and-htmx.md)
 * [Getting Started With MEAN Stack: A Step-by-Step Tutorial](getting-started-with-mean-stack-a-step-by-step-tutorial.md)
 * [Building a Web File Store](building-a-web-file-store.md)
+* [Building a Book Recommendations App With PHP, SQLite, and Docker](building-a-book-recommendations-app-with-php-sqlite-and-docker.md)
