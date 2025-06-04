@@ -12,3 +12,4 @@
 * [Build a Slackbot with Node.js to Monitor your Applications](build-a-slackbot-with-node.js-to-monitor-your-applications.md)
 * [Video Guides](video-guides.md)
 * [Building a Full Stack Application With Express and HTMx](building-a-full-stack-application-with-express-and-htmx.md)
+* [Getting Started With MEAN Stack: A Step-by-Step Tutorial](getting-started-with-mean-stack-a-step-by-step-tutorial.md)
