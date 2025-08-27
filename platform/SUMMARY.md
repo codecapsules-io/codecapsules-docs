@@ -1,10 +1,10 @@
 # Table of contents
 
-* [Platform](README.md)
+* [Release notes](README.md)
+* [Platform](<README (1).md>)
 * [What Is Code Capsules?](what-is-code-capsules.md)
 * [Get To Know the Code Capsules Platform](platform.md)
-* [Release Notes](release-notes.md)
-
+* [Release Notes](release-notes-1.md)
 
 ## Account
 
@@ -36,7 +36,6 @@
 * [What Is a Capsule?](capsules/what-is-a-capsule.md)
 * [Add, Remove, and Turn Off Capsules](capsules/how-do-i-add-remove-stop-capsules.md)
 * [Add and Remove Custom Domains and Subdomains](capsules/how-to-add-a-custom-domain.md)
-
 
 ## Regions
 
