@@ -1,6 +1,21 @@
 # Release notes
 
-### 22 August 2025
+### November 2025
+
+* Our new CLI has been released, check it out here: [https://docs.codecapsules.io/cli](https://docs.codecapsules.io/cli)&#x20;
+* Ability to proxy and connect to your deployed workloads via the cli, allowing you to debug services or access your databases from your local machine
+
+### October 2025
+
+* New and improved alerting, check it out here: [https://docs.codecapsules.io/products/backend-capsule/alerting](https://docs.codecapsules.io/products/backend-capsule/alerting)
+* Ability to get email notifications for any workload alerts like OOM, too much CPU being used or unexpected app crashes etc
+
+### September 2025
+
+* Performance improvements
+* Bug fixes
+
+### August 2025
 
 ***
 
