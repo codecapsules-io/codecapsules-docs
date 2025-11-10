@@ -4,6 +4,8 @@
 
 * Our new CLI has been released, check it out here: [https://docs.codecapsules.io/cli](https://docs.codecapsules.io/cli)&#x20;
 * Ability to proxy and connect to your deployed workloads via the cli, allowing you to debug services or access your databases from your local machine
+* Fixed a bug when trying to scale storage down (this is not possible)
+* Fixed a bug when trying to scale databases horizontally, the correct replicas are created without any issues
 
 ### October 2025
 
