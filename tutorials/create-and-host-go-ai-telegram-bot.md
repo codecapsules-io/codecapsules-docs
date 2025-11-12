@@ -1,7 +1,22 @@
 ---
-title: Create a Go Telegram Bot 
-description: Learn how to build a Telegram bot that messages you with AI backed responses.
-image: assets/tutorials/create-and-host-go-ai-telegram-bot/telegram-bot-cover.jpg
+description: >-
+  Build a Telegram bot that uses AI to respond to users with a custom personality.
+cover: .gitbook/assets/telegrambot.jpg
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 ![Creating Telegram Bot Cover](../assets/tutorials/create-and-host-go-ai-telegram-bot/telegram-bot-cover.jpg)
@@ -417,7 +432,7 @@ Make sure your code is committed and pushed to your GitHub repository. Then In t
 
 We can then run the same tests as we ran locally (ensure the local instance is stopped) and ensure that our bot is still working as intended.
 
-### Polling Versus Webhooks for a Telegram bot using Go
+## Polling Versus Webhooks for a Telegram Bot Using Go
 
 The polling approach we used above works well for development and small bots, but it can be inefficient.
 
