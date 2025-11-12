@@ -19,7 +19,7 @@ layout:
     visible: true
 ---
 
-![Creating Telegram Bot Cover](../assets/tutorials/create-and-host-go-ai-telegram-bot/telegram-bot-cover.jpg)
+![Creating Telegram Bot Cover](.gitbook/assets/telegram-bot-cover.jpg)
 
 *This guide uses Go. You can find the NodeJS version [here](./create-nodejs-telegram-bot.md), or the Python version [here](./create-and-host-telegram-bot.md)*
 
@@ -411,7 +411,7 @@ Now open Telegram, find your bot by username, and test the commands:
 - Send `/askGoku What is your favorite food?` to get a response from Goku
 - Send any other text to see the welcome message
 
-![Working Telegram Bot](../assets/tutorials/create-and-host-go-ai-telegram-bot/working-telegram-bot.png)
+![Working Telegram Bot](.gitbook/assets/working-telegram-bot.png)
 
 Check your terminal for any error logs if something doesn't work. Once you've verified all commands work as expected, you're ready to deploy.
 
@@ -424,11 +424,11 @@ Follow [this quick guide](https://docs.codecapsules.io/backend/go) to set up you
 Once it is up and running, navigate to the "Config" tab of our capsule and add a `BOT_TOKEN` environment variable giving it the value of your bot's access token.
 Similarly, add your `WEATHER_API_KEY` and `GEMINI_API_KEY`
 
-![Add Environment Variables](../assets/tutorials/create-and-host-go-ai-telegram-bot/add-environment-variables.png)
+![Add Environment Variables](.gitbook/assets/add-environment-variables.png)
 
 Make sure your code is committed and pushed to your GitHub repository. Then In the Deploy tab, find "Capsule Branch" and press "Edit". Select your new repository from the drop down (if it doesn't show up press "Configure Git for Code Capsules" and follow the steps) and press "save". This will trigger a new build of the project and the Bot will go live.
 
-![Add Environment Variables](../assets/tutorials/create-and-host-go-ai-telegram-bot/update-git-branch.png)
+![Add Environment Variables](.gitbook/assets/update-git-branch.png)
 
 We can then run the same tests as we ran locally (ensure the local instance is stopped) and ensure that our bot is still working as intended.
 
