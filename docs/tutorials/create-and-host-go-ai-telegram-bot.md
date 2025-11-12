@@ -8,7 +8,7 @@ image: assets/tutorials/create-and-host-go-ai-telegram-bot/telegram-bot-cover.jp
 
 *This guide uses Go. You can find the NodeJS version [here](./create-nodejs-telegram-bot.md), or the Python version [here](./create-and-host-telegram-bot.md)*
 
-# How to Create and Host an AI backed Telegram Bot on Code Capsules
+# How to Create and Host an AI-Backed Telegram Bot on Code Capsules
 
 In this tutorial we'll cover creating a [Telegram bot]() from scratch using [Go]() and hosting it in a [New Capsule](https://app.codecapsules.io/new/capsule?capsuleType=backend). We will give it the basic functionality of checking the current air temperature of a specified city. Then we will extend to provide AI functionality using Google AI Studio.
 
