@@ -35,7 +35,7 @@ Log in to your Code Capsules account and navigate to the "Spaces" tab. Once ther
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-<figure><img src="../.gitbook/assets/space-name (3).png" alt=""><figcaption><p>Create a New Space</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/space-name (1).png" alt=""><figcaption><p>Create a New Space</p></figcaption></figure>
 
 Example instructions to go with numbered annotations
 
@@ -70,4 +70,3 @@ Once the build is complete, click the "URL" link in the "Details" tab, and you s
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](https://app.gitbook.com/o/zJVrvoPm6oe6islWnPll/s/xjp0G5hHSJs8nyv5Z5g7/).
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Video Guides</td><td>If you prefer watching videos to reading text, find videos…</td><td><a href="../.gitbook/assets/Video Guides Angular.png">Video Guides Angular.png</a></td></tr></tbody></table>
-
