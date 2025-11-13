@@ -1,17 +1,17 @@
 # What Is a Capsule?
 
-![Teams contain Spaces and Spaces contain Capsules](../.gitbook/assets/platform/shared/teamspacecapsule.png)
+![Teams contain Spaces and Spaces contain Capsules](../../docs/assets/faq/teamspacecapsule.png)
 
 [Teams](../teams/what-is-a-team.md), [Spaces](../spaces/what-is-a-space.md), and Capsules form the foundation of [Code Capsules](https://codecapsules.io).
 
-**Capsules** provide the computational power to run your applications. 
+**Capsules** provide the computational power to run your applications.
 
 While Teams and Spaces are organizational tools, Capsules are where the actual build and deployment happen. They connect to your GitHub repositories and host your applications. Capsules can run both frontend and backend applications.
 
 When a Capsule is created, it automatically builds and deploys. You can monitor the build process by:
 
-- Navigating to the **Logs** tab, or
-- Clicking **View build log** under the **Build and Deploy** tab
+* Navigating to the **Logs** tab, or
+* Clicking **View build log** under the **Build and Deploy** tab
 
 When a Capsule is deployed, an HTTPS subdomain is generated for it. Find the subdomain in the **Config** tab. Click the subdomain to open the link in a new tab.
 

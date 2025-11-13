@@ -1,72 +1,20 @@
-# Release notes
+---
+description: Everything you need to know about Code Capsules.
+cover: ../tutorials/.gitbook/assets/CC Docs Banner.png
+coverY: 0
+---
 
-### November 2025
+# Platform
 
-* Our new CLI has been released. Check it out [here](https://docs.codecapsules.io/cli).
-* Ability to proxy and connect to your deployed workloads via the cli, allowing you to debug services or access your databases from your local machine
-* Fixed a bug when trying to scale storage down (this is not possible)
-* Fixed a bug when trying to scale databases horizontally, the correct replicas are created without any issues
+This section contains all the information you need to understand and manage your Code Capsules environment.
 
-### October 2025
+## Account
 
-* New and improved alerting. Check it out [here](https://docs.codecapsules.io/products/backend-capsule/alerting).
-* Ability to get email notifications for any workload alerts like OOM, too much CPU being used, unexpected app crashes, etc.
-
-### September 2025
-
-* Performance improvements
-* Bug fixes
-
-### August 2025
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>How Do I Reset My Password?</strong></td><td>How to reset your Code Capsules account password using the dashboard.</td><td><a href="account/how-do-i-reset-my-password.md">how-do-i-reset-my-password.md</a></td></tr><tr><td><strong>How Do I Enable 2FA?</strong></td><td>How to enable two-factor authentication on your Code Capsules account.</td><td><a href="account/how-do-i-enable-2fa.md">how-do-i-enable-2fa.md</a></td></tr></tbody></table>
 
 ***
 
-We’ve rolled out some big updates across logging, storage, monitoring, and scaling.&#x20;
+## Billing
 
-Here’s what’s new:
+<table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>How Do I Change My Billing Details?</strong></td><td>How to update your billing information using the Code Capsules dashboard.</td><td><a href="billing/how-do-i-change-my-billing-details.md">how-do-i-change-my-billing-details.md</a></td></tr><tr><td><strong>How Do I View My Invoices?</strong></td><td>Accessing and viewing your invoices.</td><td><a href="billing/how-do-i-view-my-invoices.md">how-do-i-view-my-invoices.md</a></td></tr><tr><td><strong>How Does the Pricing Work?</strong></td><td>Overview of the Code Capsules billing model and pricing structure.</td><td><a href="billing/how-does-the-pricing-work.md">how-does-the-pricing-work.md</a></td></tr></tbody></table>
 
-**Logging Overhaul: Logging just got a whole lot smoother**
-
-* Brand new logging UI with a cleaner experience.
-* Filter logs by replica/instance for horizontally scaled workloads.
-* Blazing fast querying & searching.
-* Real-time logs via websockets (no more delayed polling).
-* Date/time filters with improved performance for historical digging.
-* Download logs in JSON, text, or CSV.
-* Full-screen mode for easier reading.
-* Beta: Log retention by time and size.
-
-_For Internal Developer Platform (IDP) customers:_
-
-* Improved backend performance & stability → lowers infra costs while boosting performance.
-* Updated dependencies and security patches across the logging stack.
-
-#### Storage Management (IDP only)
-
-* Smarter handling of storage and database workloads.
-* Automatic self-healing for horizontally scaled workloads during restarts.
-* Helps right-size infrastructure for lower costs and better performance.
-
-#### State Management Foundation
-
-* Laying the groundwork for websocket-based capsule state management.
-* Coming soon: real-time capsule status updates (starting, running, scaling, shutting down, OOM, etc).
-
-#### Monitoring (IDP only)
-
-* Enhanced monitoring stack with advanced alerting and integrations.
-* Custom dashboards & reporting across infra, platform, and applications.
-* Support for custom metrics scraping/importing.
-
-#### &#x20;Database Backup Improvements
-
-* Flexible backup schedules: daily, weekly, or monthly.
-* Supported across Storage, MySQL, Postgres, and Mongo.
-
-#### Workload Scaling (IDP only)
-
-*   Scale CPU and RAM independently to fine-tune workload requirements.
-
-    (e.g. high CPU + low RAM or the other way around).
-
-That’s it for now, with these updates, you’ll see faster insights, better reliability, and more flexibility across your workloads.
