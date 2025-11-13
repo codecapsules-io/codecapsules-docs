@@ -332,7 +332,7 @@ $database_name = $_ENV["PERSISTENT_STORAGE_DIR"] ."/books.db";
 
 In Code Capsules, the `PERSISTENT_STORAGE_DIR` environment variable will point to the Data Capsule once the two capsules are bound together.
 
-Push all of your code changes up to your GitHub repository and ensure that Code Capsules is authorized to read that repository. You can reference this [deployment guide](https://codecapsules.io/doc/how-to-deploy-a-flask-docker-application-to-production-on-code-capsules/) to see how to do so in greater detail.
+Push all of your code changes up to your GitHub repository and ensure that Code Capsules is authorized to read that repository. You can reference this [deployment guide](https://app.gitbook.com/s/xjp0G5hHSJs8nyv5Z5g7/backend/docker/flask-docker-app) to see how to do so in greater detail.
 
 Now create a new Data Capsule and a Docker Capsule in a single Space in Code Capsules. For the Data capsule, choose “A persistent storage mounted directly to your capsule”.
 

@@ -49,7 +49,7 @@ git push origin
 
 ### Create the Capsules <a href="#create-the-capsules" id="create-the-capsules"></a>
 
-A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
+A [Capsule](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/capsules/what-is-a-capsule) provides the server for hosting an application on Code Capsules.
 
 Navigate to the “Spaces” tab and open the Space you’ll be using.
 

@@ -6,7 +6,7 @@ Code Capsules’s File System Data Capsule mounts as a standard file system to a
 
 In this tutorial, we’ll build a basic web interface to upload, download and delete files, secured with a simple, single-user authentication scheme.
 
-We’ll use a [Backend Capsule](https://codecapsules.io/) with a file store Data Capsule, [Node.js](https://nodejs.org/) as the programming language, and [Express](http://expressjs.com/) as the web framework.
+We’ll use a [Backend Capsule](https://app.gitbook.com/s/oyCI3rJYfUxA3cJhHZbu/backend-capsule) with a file store Data Capsule, [Node.js](https://nodejs.org/) as the programming language, and [Express](http://expressjs.com/) as the web framework.
 
 ### Overview and Requirements <a href="#overview-and-requirements" id="overview-and-requirements"></a>
 
@@ -79,8 +79,7 @@ To create a new Data Capsule for your Space follow the instructions below:
 
 To use the Data Capsule with the Backend Capsule, we need to link the two. Head over to the backend capsule you created earlier, and click on the “Config” tab. Scroll down to “Bind Data Capsule”, and click “Bind” under the name of the data capsule you created.\
 \
-After binding the capsules, scroll up to the section “Capsule Parameters”. You’ll notice that an environment variable, `PERSISTENT_STORAGE_DIR`, is automatically added with the mount point. We’ll use this environment variable in the code to access the storage drive.\
-
+After binding the capsules, scroll up to the section “Capsule Parameters”. You’ll notice that an environment variable, `PERSISTENT_STORAGE_DIR`, is automatically added with the mount point. We’ll use this environment variable in the code to access the storage drive.\\
 
 <figure><img src="https://codecapsules.io/wp-content/uploads/2023/07/env-variables-persistent-storage.png" alt=""><figcaption></figcaption></figure>
 
@@ -276,8 +275,7 @@ Now we need a way to call this route from the front end. Open the `index.hbs` fi
 </div>
 ```
 
-Commit these changes, and wait for Code Capsules to redeploy the site. If you navigate to the site now, you should see the file you uploaded earlier as a hyperlink. Clicking on the link should download the file.\
-
+Commit these changes, and wait for Code Capsules to redeploy the site. If you navigate to the site now, you should see the file you uploaded earlier as a hyperlink. Clicking on the link should download the file.\\
 
 <figure><img src="https://codecapsules.io/wp-content/uploads/2023/07/download-file.png" alt=""><figcaption></figcaption></figure>
 
@@ -349,8 +347,7 @@ Now let’s hook this function up to the button we added for each file. We’ll 
 <button onclick="deleteFile('{{this}}')">Delete</button>
 ```
 
-Commit these changes, and wait for Code Capsules to redeploy the site. Then navigate to the site and try out the “Delete” button next to the filename.\
-
+Commit these changes, and wait for Code Capsules to redeploy the site. Then navigate to the site and try out the “Delete” button next to the filename.\\
 
 <figure><img src="https://codecapsules.io/wp-content/uploads/2023/07/file-delete.png" alt=""><figcaption></figcaption></figure>
 

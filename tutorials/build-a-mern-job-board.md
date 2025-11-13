@@ -6,11 +6,11 @@ In this tutorial, we’ll extend a boilerplate MERN application to make a job bo
 
 ### Getting Started <a href="#getting-started" id="getting-started"></a>
 
-Head over to the [MERN stack deployment guide](https://docs.codecapsules.io/full-stack/mern-stack) and follow the steps outlined there to set up the boilerplate application. You will need to clone the forked repository to your local development environment to extend the functionality of the boilerplate application.
+Head over to the [MERN stack deployment guide](https://app.gitbook.com/s/xjp0G5hHSJs8nyv5Z5g7/full-stack/mern-stack) and follow the steps outlined there to set up the boilerplate application. You will need to clone the forked repository to your local development environment to extend the functionality of the boilerplate application.
 
 Before we can view the application’s frontend, we need to install the `node_modules` for the backend and set a local `DATABASE_URL` environment variable similar to the one on Code Capsules.
 
-Navigate to the project’s root folder in a terminal or command prompt window and run `npm install` there. Reference this [MongoDB setup guide](https://docs.codecapsules.io/database/mongodb) to ensure that public access is turned on for your data capsule. Copy the value of the connection string and append `&authSource=admin` to it so that its format is similar to `mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin`.
+Navigate to the project’s root folder in a terminal or command prompt window and run `npm install` there. Reference this [MongoDB setup guide](https://app.gitbook.com/s/xjp0G5hHSJs8nyv5Z5g7/database/mongodb) to ensure that public access is turned on for your data capsule. Copy the value of the connection string and append `&authSource=admin` to it so that its format is similar to `mongodb://09229f61-205e-1:325368d6-3c25-e@data-capsule-ndulvw.codecapsules.co.za:27017/app?ssl=true&authSource=admin`.
 
 Set the local `DATABASE_URL` environment variable by following the steps below:
 
