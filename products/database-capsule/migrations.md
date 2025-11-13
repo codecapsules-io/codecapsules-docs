@@ -18,7 +18,7 @@ To use migration commands, install both `db-migrate` and `db-migrate-mysql` with
 
 ## Step 3: Connect to the Database With `database.json`
 
-The `db-migrate` package connects to a database through a `database.json` file. 
+The `db-migrate` package connects to a database through a `database.json` file.
 
 Create a file called `database.json` in your root directory and populate it with your database information. The example below shows how to connect to both a local database called `"dev"` and a MySQL Data Capsule called `"prod"` (be sure to replace the database information with your own):
 
@@ -38,7 +38,7 @@ Here we also add`"sql-file": true` to ensure that database migrations run using 
 
 Find the database URL for a MySQL Data Capsule in the **Config** tab of a Backend Capsule:
 
-![DATABASE URL](../.gitbook/assets/database-capsule/mysql/configure-tab.png)
+![DATABASE URL](../../.gitbook/assets/configure-tab.png)
 
 You can also access the database URL using an environment variable as follows:
 
@@ -52,9 +52,9 @@ Run the following command to create a folder to store migrations:
 
 The folder should contain three files:
 
-![SQL files](../.gitbook/assets/database-capsule/mysql/sql-files.png)
+![SQL files](../../docs/assets/reference/database-migration-images/sql-files.png)
 
-MySQL queries are stored in the two generated SQL files: One named with an `up` suffix and the other with a `down` suffix. 
+MySQL queries are stored in the two generated SQL files: One named with an `up` suffix and the other with a `down` suffix.
 
 #### Down-Migration Query
 
@@ -99,11 +99,11 @@ To run these migrations in a production environment, update the Capsule's **Run 
 
 Edit the **Run Command** in the **Config** tab of the Backend Capsule.
 
-![Run Command](../.gitbook/assets/database-capsule/mysql/configure-tab-run-command.png)
+![Run Command](../../.gitbook/assets/configure-tab-run-command.png)
 
 ## Step 7: Push the Changes
 
-Finally, commit and push your changes to your GitHub repository to update the codebase and trigger the migrations. 
+Finally, commit and push your changes to your GitHub repository to update the codebase and trigger the migrations.
 
 View migration activity in the Backend Capsule's **Logs** tab. The output will look similar to this:
 

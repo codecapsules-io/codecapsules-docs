@@ -1,4 +1,4 @@
-# How to Deploy a WordPress Application to Production on Code Capsules
+# Deploy
 
 Deploy a WordPress application and learn how to host a content management system on Code Capsules.
 
@@ -12,7 +12,7 @@ Before creating your WordPress capsule, you'll need a Team and a Space. You can 
 
 If you already have a Team and Space set up, log in to your Code Capsules account. On the dashboard, click the yellow `+` on the bottom left of the screen then click "New Capsule".
 
-![Create a Capsule](../.gitbook/assets/shared/add-capsule.png)
+![Create a Capsule](../../get-started/.gitbook/assets/add-capsule.png)
 
 ## Create the Capsule
 
@@ -20,15 +20,15 @@ A [Capsule](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/capsules/what-is-a-ca
 
 To create a Wordpress Capsule first choose "WordPress" as the Capsule type, as well as your Team, and Space.
 
-![Choose a Capsule Type](../.gitbook/assets/wordpress-capsule/deploy/wordpress-capsule-type.png)
+![Choose a Capsule Type](../../get-started/.gitbook/assets/wordpress-capsule-type.png)
 
-Next choose your payment plan, or create a custom plan. 
+Next choose your payment plan, or create a custom plan.
 
-![Choose Plan](../.gitbook/assets/wordpress-capsule/deploy/wordpress-choose-plan.png)
+![Choose Plan](../../get-started/.gitbook/assets/wordpress-choose-plan.png)
 
 A Wordpress Capsule requires a connection to a MySQL Database Capsule as well as a Persistent Storage Capsule. Either select a previosuly created instance of each from the dropdowns, or click the yellow `+` next to each and follow the prompts for creating each Capsule. Click "Create Capsule".
 
-![Deploy Configuration](../.gitbook/assets/wordpress-capsule/deploy/wordpress-configure-capsule.png)
+![Deploy Configuration](../../get-started/.gitbook/assets/wordpress-configure-capsule.png)
 
 ## Choose How to Deploy
 
@@ -40,7 +40,7 @@ To automatically download and deploy a Wordpress version on Code Capsules:
 2. Choose your WordPress version
 3. Click "Next"
 
-![Choose Wordpress Version](../.gitbook/assets/wordpress-capsule/deploy/wordpress-version.png)
+![Choose Wordpress Version](../../get-started/.gitbook/assets/wordpress-version.png)
 
 ### Git Managed
 
@@ -51,7 +51,7 @@ To deploy WordPress from your version control repository:
 3. Select the branch to deploy from
 4. Click "Next"
 
-![Choose repo](../.gitbook/assets/wordpress-capsule/deploy/wordpress-git-managed.png)
+![Choose repo](../../get-started/.gitbook/assets/wordpress-git-managed.png)
 
 You can read more about connecting your account to a version control provider in [this guide](https://docs.codecapsules.io/platform/account/connect-version-control).
 
@@ -59,11 +59,11 @@ You can read more about connecting your account to a version control provider in
 
 Code Capsules will automatically build and deploy your WordPress application. You can view the build log by selecting the "Logs" tab to monitor the deployment progress.
 
-![Logs](../.gitbook/assets/wordpress-capsule/deploy/wordpress-logs.png)
+![Logs](../../get-started/.gitbook/assets/wordpress-logs.png)
 
 Once the build is complete, click the URL link in the "Details" tab, to access your WordPress site.
 
-![URL](../.gitbook/assets/wordpress-capsule/deploy/wordpress-url.png)
+![URL](../../get-started/.gitbook/assets/wordpress-url.png)
 
 ## Set Up WordPress
 
@@ -75,8 +75,8 @@ When you first visit your WordPress site, you'll see the installation screen:
 4. Provide your email address.
 5. Click "Install WordPress".
 
-![Setup Wordpress Admin Account](../.gitbook/assets/wordpress-capsule/deploy/wordpress-setup.png)
+![Setup Wordpress Admin Account](../../get-started/.gitbook/assets/wordpress-setup.png)
 
 After installation, you'll see the WordPress admin dashboard and can begin customizing your site.
 
-![Welcome to Wordpress](../.gitbook/assets/wordpress-capsule/deploy/wordpress-welcome.png)
+![Welcome to Wordpress](../../get-started/.gitbook/assets/wordpress-welcome.png)
