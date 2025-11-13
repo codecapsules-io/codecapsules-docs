@@ -22,9 +22,9 @@ layout:
 
 # How to Create and Host a Telegram Bot on Code Capsules
 
-_This guide uses Python. You can find the Node.js version_ [_here_](https://docs.codecapsules.io/tutorials/create-and-host-a-telegram-bot-with-node.js-on-code-capsules)_, and the Go version [_here_](https://docs.codecapsules.io/tutorials/create-and-host-go-ai-telegram-bot)._
+_This guide uses Python. You can find the NodeJS version_ [_here_](create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md)_, and the Go Version [_here_](create-and-host-go-ai-telegram-bot.md)._
 
-In [another tutorial](creating-and-hosting-an-api-with-flask/), we created and hosted an API on Code Capsules. In this tutorial, we'll create a client for this API in the form of a Telegram bot. This will allow us to pull temperature, weather and exchange rate data on the go by messaging our bot in the Telegram app.
+In this tutorial, we'll create a Telegram bot that will allow us to pull temperature, weather and exchange rate data on the go by messaging our bot in the Telegram app.
 
 We'll also learn how to host this bot on [Code Capsules](https://codecapsules.io/) so it can be used by others. Along the way, we'll learn some key concepts about hosting bots securely and efficiently.
 
@@ -64,7 +64,7 @@ To see if your bot was successfully created, search for the bot's username. You 
 
 We're going to implement two commands for our bot.
 
-* When we send the command `/weather`, our bot will reply with the weather data from the weather API.
+* When we send the command `/weather`, our bot will reply with the weather data from the API we created.
 * When we send the command `/currency`, our bot will reply with the exchange rates from USD to CAD, EUR, and ZAR.
 
 #### Creating a virtual environment and installing requirements
@@ -72,13 +72,13 @@ We're going to implement two commands for our bot.
 First, we need to create a local directory. Give it the same name as our bot. Then, from this directory, open a terminal and create a Python [virtual environment](https://docs.python.org/3/tutorial/venv.html) by entering the following command:
 
 ```bash
-python -m venv venv
+virtualenv env
 ```
 
-Activate the virtual environment using the appropriate command for your system:
+Enter the virtual environment using the appropriate command for your system:
 
-* **Linux/MacOSX**: `source venv/bin/activate`
-* **Windows**: `venv\Scripts\activate.bat`
+* **Linux/MacOSX**: `source env/bin/activate`
+* **Windows**: `env\Scripts\activate.bat`
 
 The virtual environment will help manage our dependencies for when we host the bot on Code Capsules.
 
@@ -88,12 +88,13 @@ To interact with the Telegram Bot API, we need to install the [python-telegram-b
 pip install python-telegram-bot requests python-dotenv
 ```
 
-### Registering Accounts on OpenExchangeRates and Weatherstack
+### Registering Accounts on OpenExchangeRates and weatherstack
 
-Our bot will return the current temperature of a chosen city and the USD exchange rates for three currencies. We’ll create our response by combining data from two APIs – Weatherstack and OpenExchangeRates.
+Our API will return the current temperature of a chosen city and the USD exchange rates for three currencies. We’ll create our API by combining data from two other APIs – weatherstack and OpenExchangeRates.
+
+Registering an account is required so that we can receive a unique API key. An API key is a password that lets us use a particular API. In APIs with more sensitive data, these are used to prevent unauthorized access.
 
 #### Getting Our API Keys
-
 In the directory where we are going to create our bot, create a file called `.env` in the same directory where we activated our virtual environment. We will use this to store our API keys temporarily while we code and test.
 
 First, let’s register an account on OpenExchangeRates. Navigate [here](https://openexchangerates.org/) and:
@@ -171,6 +172,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 ```
 
 At the top of our new `main` method, which will be called when this file is run, we instantiate `application`, an instance of the Telegram library's [`Application`](https://docs.python-telegram-bot.org/en/stable/telegram.ext.application.html) class. This object will retrieve commands sent to our bot and handle them using the appropriate handlers we define.
@@ -264,7 +266,7 @@ if __name__ == '__main__':
 
 Below is a conversation with a bot created using this program. Run `bot.py` and try it out yourself.
 
-<figure><img src=".gitbook/assets/telegram-bot-chat.png" alt=""><figcaption><p>Telegram Bot Conversation</p></figcaption></figure>
+<figure><img src=".gitbook/assets/CleanShot 2025-06-02 at 15.09.05@2x.png" alt=""><figcaption><p>Telegram Bot Conversation</p></figcaption></figure>
 
 We won't be able to send messages to our bot if this program isn't running, so hosting it on Code Capsules will allow us to interact with the bot without having to keep this code permanently running on our development PC.
 
@@ -284,11 +286,15 @@ To set up the webhook, replace the line `application.run_polling()` in the `main
 
 ```python
     PORT = int(os.environ.get('PORT', '443'))
-    HOOK_URL = f"https://{os.getenv('APP_URL')}/{TOKEN}"
+    HOOK_URL = 'YOUR-CODECAPSULES-URL-HERE' + '/' + TOKEN
     application.run_webhook(listen='0.0.0.0', port=PORT, url_path=TOKEN, webhook_url=HOOK_URL)
 ```
 
-The `APP_URL` environment variable will be automatically set when the Capsule finishes building on Code Capsules.
+Make sure to add this line to the top of the file:
+
+```python
+import os
+```
 
 And install Telegram webhooks:
 
@@ -299,7 +305,7 @@ pip install "python-telegram-bot[webhooks]"
 Here we start a webhook that will listen on our Code Capsules URL at TCP port 443 and with the path of our token. Thus, Telegram will relay commands sent to our bot to the following URL:
 
 ```
-https://YOUR-CAPSULE-PUBLIC-URL/TOKEN
+https://YOUR-CODECAPSULES-SUBDOMAIN.codecapsules.io:443/TOKEN
 ```
 
 If you've completed some of our other backend tutorials, you will be familiar with setting up web servers that receive `GET` and `POST` requests to different routes. You can think of a webhook as a very simple HTTP server that is intended to be used by bots and automated services rather than humans.
@@ -314,40 +320,42 @@ Code Capsules requires a couple of files to deploy our application: `Procfile` a
 
 To create the `Procfile`:
 
-1. Navigate to the directory containing the `bot.py` file and activate the virtual environment.
+1. Navigate to the directory containing the `bot.py` file and enter the virtual environment.
 2. Create a file named `Procfile` (with no file extension).
 3. Open `Procfile`, enter `web: python3 bot.py`, and save the file.
 
 In the same directory, open a terminal and activate the virtual environment. Then enter `pip3 freeze > requirements.txt` to generate a list of requirements for our Code Capsules server.
 
-Now we can push our code to GitHub. Create a GitHub repository, commit and push the `requirements.txt`, `Procfile`, and `bot.py` files to the repository. Make sure **not** to include the virtual environment files and the `.env` file as this contains our sensitive keys. You can do so by creating a `.gitignore` file with the following contents:
-
-```
-venv/
-.env
-```
+Now we can push our code to GitHub. Create a GitHub repository and send the `requirements.txt`, `Procfile`, and `bot.py` files to the repository. Make sure **not** to include the `.env` file as this contains our sensitive keys.
 
 ### Deploying the Bot to Code Capsules
 
-With all of the necessary files pushed to GitHub, let's deploy the bot to Code Capsules. Log in to Code Capsules and create a Team and Space as necessary.
+With all of the files sent to GitHub, let's deploy the bot to Code Capsules:
 
-1. Click the add Capsule `+` button in your space.
-2. Choose "Backend" for the Capsule type, select your Team, and Space if not already populated.
-3. Choose your payment plan and click "Next".
-4. Click the "Configure Git for Code Capsules" button and give access to the repository you created for the bot.
-5. Press "Next".
-6. Leave the "Run Command" blank.
-7. Click "Create Capsule".
+1. Log in to Code Capsules and create a Team and Space as necessary.
+2. Link Code Capsules to the GitHub repository created previously.
+3. Enter your Code Capsules Space.
+4. Create a new Capsule, selecting the "Backend" capsule type.
+5. Select the GitHub repository containing the bot – leave "Repo subpath" empty and click "Next".
+6. Leave the "Run Command" blank and click "Create Capsule".
 
-We still need to create environment variables for our bot's authorization and API tokens. To create the environment variables:
+We haven't supplied our webhook a URL yet, and we still need to create environment variables for our bot's authorization tokens. To create the environment variables:
 
 1. Navigate to your Capsule.
 2. Click the "Config" tab.
-3. Add environment variables in the same form as our `.env` file. Add three environment variables: `BOT_TOKEN`, `WEATHER_API_KEY`, and `EXCHANGE_API_KEY`.
+3. Add an environment variables in the same form as our `.env` file. So, we add three environment variables: `BOT_TOKEN`, `WEATHER_API_KEY`, and `EXCHANGE_API_KEY`
 
 <figure><img src=".gitbook/assets/bot-api-key-env.png" alt=""><figcaption><p>Bot API Key Environment Variable</p></figcaption></figure>
 
-Once this is done, the Capsule will restart and the bot is ready. Give it a try!
+Next, let's supply our webhook with the correct domain.
+
+1. Navigate to the "Details" tab.
+2. Copy the domain found under "Domains".
+3. Open the `bot.py` file and find the line `HOOK_URL = 'YOUR-CODECAPSULES-URL-HERE' + '/' + TOKEN`.
+4. Replace "YOUR-CODECAPSULES\_URL" with the domain just copied.
+5. Commit and push these changes to GitHub.
+
+After pushing these changes, the Capsule will rebuild. Once this is done, the bot is ready. Give it a try!
 
 ### Further Reading
 
