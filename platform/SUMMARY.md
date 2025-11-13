@@ -1,9 +1,9 @@
 # Table of contents
 
 * [Platform](README.md)
-* [Release notes](<README (1).md>)
+* [Release Notes](<README (1).md>)
 * [What Is Code Capsules?](what-is-code-capsules.md)
-* [Get To Know the Code Capsules Platform](platform.md)
+* [Get to Know the Code Capsules Platform](platform.md)
 
 ## Account
 

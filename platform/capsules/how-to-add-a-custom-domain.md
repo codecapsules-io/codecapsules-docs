@@ -4,7 +4,7 @@ Each application deployed on Code Capsules is assigned a default domain in the f
 
 At no additional cost, you can configure Code Capsules to use a custom domain you own (like `example.com`) instead of the default domain.
 
-## Steps to Add a Custom Domain
+## Add a Custom Domain
 
 The **Domains** tab contains all information about a Capsule's domain, including the option to add a custom domain.
 
@@ -51,7 +51,7 @@ Consult your domain registrar's documentation for specific instructions on addin
 Changes to DNS records can take several hours to propagate.
 {% endhint %}
 
-## Steps to Add a Subdomain
+## Add a Subdomain
 
 Before adding a subdomain, make sure your custom domain has an [A record](how-to-add-a-custom-domain.md#create-an-a-record) pointing to your application on Code Capsules.
 
