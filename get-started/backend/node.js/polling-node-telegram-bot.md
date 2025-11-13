@@ -23,7 +23,7 @@ The BotFather will respond with a message containing an access token for your ne
 
 To confirm that your bot was created successfully, search for the bot's username. You should be able to see it and start a conversation with it, although it won't respond as we haven't written the bot's logic yet.
 
-## Set up
+## Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -31,7 +31,7 @@ To demonstrate how to deploy a Node.js Telegram Bot with Code Capsules, we've pr
 
 Sign in to GitHub, and fork the example bot repository by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.
 
-## Create a Space for your Bot
+## Create a Space for Your Bot
 
 Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 

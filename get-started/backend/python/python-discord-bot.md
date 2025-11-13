@@ -6,7 +6,7 @@ description: A guide to deploying a Python Discord Bot from GitHub.
 
 Deploy a Python Discord Bot and learn how to host backend code on Code Capsules.
 
-## Set up
+## Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -45,7 +45,7 @@ When you've signed in to Discord, follow the steps below:
 
 After actioning these steps, your bot will now have access to all the channels in the server you added it to.
 
-## Create a Space for your App
+## Create a Space for Your App
 
 Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
 

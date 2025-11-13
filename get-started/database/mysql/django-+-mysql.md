@@ -6,7 +6,7 @@ description: A guide to deploying a Django MySQL application from GitHub.
 
 Deploy a Django MySQL application and learn how to host backend code on Code Capsules.
 
-## Set up
+## Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 

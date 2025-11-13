@@ -6,7 +6,7 @@ description: A guide on how to deploy an HTML5 template from GitHub.
 
 Deploy an HTML5 template and learn how to host frontend code on Code Capsules.
 
-## Set up
+## Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 

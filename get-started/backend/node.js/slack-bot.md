@@ -6,7 +6,7 @@ description: A guide to deploying a Slack Bot from GitHub.
 
 Deploy a Node.js Slack Bot and learn how to host backend code on Code Capsules.
 
-## Set up
+## Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -14,7 +14,7 @@ To demonstrate how to deploy a Node.js Slack Bot with Code Capsules, we've provi
 
 Sign in to GitHub, and fork the example bot repository by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.
 
-## Create a Space for your Bot
+## Create a Space for Your Bot
 
 Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
@@ -108,7 +108,7 @@ For the third environment variable, `SLACK_SIGNING_SECRET`:
     <figure><img src="../../.gitbook/assets/slack-signing-secret (1).png" alt=""><figcaption></figcaption></figure>
 4. Confirm your changes by clicking on "Save", then restart your Capsule by toggling the radio button in the top right off and on again.
 
-## Invite Bot to Channel
+## Invite the Bot to the Channel
 
 You need to invite the bot to the chosen channel so that it'll be able to post there. To do this, send a message mentioning `@<bot-name>` the bot in the channel you added it to. Click "Invite Them" when Slack prompts you.
 

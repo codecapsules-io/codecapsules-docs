@@ -20,7 +20,7 @@ We'll use this environment variable in our app to connect to the Redis database.
 
 ![Redis Url](../.gitbook/assets/redis-bind-env.png)
 
-## Connecting to a Redis Data Capsule from a Python application
+## Connecting to a Redis Data Capsule from a Python Application
 
 If your Backend Capsule is a Python application, use the following code to connect to your Redis database:
 
@@ -35,7 +35,7 @@ connection = redis.from_url(redis_url)
 # Do something here
 ```
 
-## Connecting to a Redis Data Capsule from a Node.js application
+## Connecting to a Redis Data Capsule from a Node.js Application
 
 If your Backend Capsule is a Node.js application, use the following code to connect to your Redis database:
 

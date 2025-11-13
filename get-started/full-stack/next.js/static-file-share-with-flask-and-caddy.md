@@ -8,7 +8,7 @@ After following the guide, you'll be able to upload files in the Flask applicati
 
 ![Flask upload server and Caddy file server](../../.gitbook/assets/upload-download.png)
 
-## Set up
+## Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -19,7 +19,7 @@ The code you need for this guide is in the following GitHub projects.
 
 Sign in to GitHub, and fork both example applications by clicking "Fork" at the top right of your screen and selecting your GitHub account as the destination.
 
-## Create a Space for your App
+## Create a Space for Your App
 
 Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 

@@ -1,4 +1,4 @@
-# Peristent Storage
+# Persistent Storage
 
 You need persistent storage to develop your application that solves a real-world problem, but you don't want a full-blown database. In this tutorial, we'll show you how to create a persistent storage Data Capsule that you can use with your backend applications running on Code Capsules.
 
@@ -28,7 +28,7 @@ Click "Bind" to bind your Data and Backend Capsules. During the bind process, Co
 
 The next step is to use this environment variable in code in order to read and write to our Data Capsule. Copy the value of the `PERSISTENT_STORAGE_DIR` variable and paste it in your code as the value of the `db_directory` variable. Alternatively, reference it directly in your code using `os.getenv` for Python or `process.env` for Node.js.
 
-### Connecting to a File Data Capsule From a Python Application
+### Connecting to a File Data Capsule from a Python Application
 
 If your Backend Capsule is a Python application, use the following code to connect to your Data Capsule:
 
@@ -46,7 +46,7 @@ file1.close()
 
 ```
 
-### Connecting to a File Data Capsule From a Node.js Application
+### Connecting to a File Data Capsule from a Node.js Application
 
 If your Backend Capsule is a Node.js application, use the following code to connect to your Data Capsule:
 

@@ -8,7 +8,7 @@ description: >-
 
 This guide will show you how to deploy your application built with PHP and Docker to Code Capsules. By the end of this guide, you'll have an application that looks like the one below which runs on the public internet, and you'll get a URL to share with your users.
 
-## Set up
+## Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -26,7 +26,7 @@ Alternatively, if you're signing in again, click on the "Spaces" tab.
 
 Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/platform).
 
-## Create a Space for your App
+## Create a Space for Your App
 
 Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
 
