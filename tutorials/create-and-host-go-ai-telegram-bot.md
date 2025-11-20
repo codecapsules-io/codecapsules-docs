@@ -146,6 +146,8 @@ Go requires a package and a function named `main` in order to execute. Specify t
 package main
 ```
 
+#### Imports
+
 Now we can add imports for the third-party packages. We'll also need the functionality in some of the default packages that are shipped with Go.
 
 ```go
@@ -162,6 +164,8 @@ import (
     "google.golang.org/genai"
 )
 ```
+
+#### Helper Functions
 
 Before we build out the `main()` function, which will control most of the logic to handle the bot commands, we need to build two helper functions that will make the calls to the third-party APIs.
 
@@ -272,6 +276,8 @@ From there, all we have to do is send our question to our Google AI Studio API i
 
 For some basic error handling, we validate that we received a non-empty response and then check if it exceeds Telegram's message length limit (4096 characters).
 
+#### Main Function
+
 We can now begin to build our `main()` function. We need our code to be aware of the environment variables that we set up in our `.env` file. We're using this file for convenience so that we can run the bot locally. Once our code is deployed, we'll configure the environment variables on our server instead.
 
 ```go
@@ -296,6 +302,8 @@ Now that the variables are loaded into our environment, we can access them with 
         log.Panic(err)
     }
 ```
+
+##### Get Messages
 
 The next step is to enable our backend to respond whenever a user sends a command. Luckily, the Telegram Bot API package offers several ready solutions. The simplest approach is to use polling, in which the backend code continuously queries the bot API to check for new messages.
 
@@ -326,6 +334,8 @@ Next, we add a check to skip any kind of update we receive that doesn't contain 
         
         msg := update.Message
 ```
+
+##### Process Commands
 
 Now that we know we have a message from the user, we can add the logic for the commands that we want to support. To make the code easier to follow, we'll keep all the logic in the main class. If you are coding a more complex bot, with support for a large number of commands, you would probably want to consider improving the extendibility of your code with some object-oriented principles. For example, this code would be suited to the [Factory Method pattern](https://refactoring.guru/design-patterns/factory-method), which could provide some layers of abstraction that make adding new commands more streamlined.
 
@@ -390,6 +400,8 @@ Now we can call our `askGoku()` helper function. If the request succeeds, we cre
             bot.Send(reply)
 ```
  
+##### Default Response
+
 The last thing we need to do is add a default response if the user sends anything other than the commands that we support.
 
 ```go
