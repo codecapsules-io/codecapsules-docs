@@ -1,6 +1,6 @@
 # Deploy
 
-You need persistent storage for your application, but you don't want a full-blown database. 
+You need persistent storage for your application, but you don't want a full-blown database.
 
 This guide will show you how to create a persistent storage Data Capsule that you can use with backend applications running on Code Capsules.
 
@@ -14,7 +14,7 @@ To set up persistent file storage, you'll first create a Persistent Storage Caps
 
 ### Create a File Storage Capsule
 
-Log in to your Code Capsules account and navigate to the Space where you want to create a Data Capsule. 
+Log in to your Code Capsules account and navigate to the Space where you want to create a Data Capsule.
 
 Click the yellow **+** button on the bottom-left corner of the dashboard. Select **New Capsule** and then **Persistent Storage** from the dropdown.
 
@@ -30,9 +30,9 @@ Navigate to the Backend Capsule and open the **Config** tab. Scroll down to the 
 
 ![Bind Data Capsule](../../.gitbook/assets/bind-persistent.png)
 
-Click **Bind** to bind the Capsules. 
+Click **Bind** to bind the Capsules.
 
-During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable that your Backend Capsule will use to access the Storage Capsule. 
+During the bind process, Code Capsules creates a `PERSISTENT_STORAGE_DIR` environment variable that your Backend Capsule will use to access the Storage Capsule.
 
 When the two Capsules are bound, scroll to the top of the **Config** tab to view the value of the variable.
 
@@ -91,7 +91,7 @@ To enable file browsing:
 2. Go to the **Details** tab
 3. Toggle **Public Access** to **Enabled**
 
-![Toggle Storage to Public Acess Enabled](../.gitbook/assets/storage-capsule/deploy/toggle-public-access.png)
+![Toggle Storage to Public Acess Enabled](../../get-started/.gitbook/assets/toggle-public-access.png)
 
 Enabling this setting doesn't make your files publicly accessible on the internet. They are served over the WebDAV protocol and require authentication credentials to access.
 
@@ -109,7 +109,7 @@ The WebDAV server will now appear as a mounted drive in **Finder**.
 
 Here you can see the files inside a WordPress Capsule accessed locally through **Finder** in macOS.
 
-![See Your Files Locally](../.gitbook/assets/storage-capsule/deploy/see-your-files.png)
+![See Your Files Locally](../../get-started/.gitbook/assets/see-your-files.png)
 
 #### Windows
 
@@ -127,8 +127,8 @@ The WebDAV server will now appear as a mapped drive in **File Explorer**.
 
 1. Open your file manager (for example, Nautilus, Dolphin, or Thunar)
 2. In your address bar, enter the WebDAV server URL in the following format:
-   - `davs://server-address` for Nautilus and Thunar
-   - `webdavs://@server-address` for Dolphin
+   * `davs://server-address` for Nautilus and Thunar
+   * `webdavs://@server-address` for Dolphin
 3. Enter the username and password when prompted
 
 The WebDAV server will now appear as a drive in your file manager.

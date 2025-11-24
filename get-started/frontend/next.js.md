@@ -6,7 +6,7 @@ description: A guide to deploying a Next.js application from GitHub.
 
 Deploy a Next application and learn how to host backend code on Code Capsules.
 
-## Set up
+## Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -20,7 +20,7 @@ Log in to your Code Capsules account and navigate to the "Spaces" tab. Once ther
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![Create a New Space](<../.gitbook/assets/space-name (4).png>)
+![Create a New Space](<../.gitbook/assets/space-name (1).png>)
 
 Example instructions to go with numbered annotations
 
@@ -46,7 +46,7 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build Logs](<../.gitbook/assets/backend-capsule-build-logs (1).png>)
+![Build Logs](../../products/.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
 
 Once the build is complete, a URL link will appear in the URL section in the "Details" tab. Click the link, and you should see your deployed application.
 

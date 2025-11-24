@@ -6,6 +6,7 @@
 * [Create and Host a Telegram Bot with Node.js on Code Capsules](create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md)
 * [How to Deploy a React Token dApp to Code Capsules](how-to-deploy-a-react-token-dapp-to-code-capsules.md)
 * [Nuxt3 and Nitro](nuxt3-and-nitro.md)
+* [How to Deploy a React Token dApp to Code Capsules](how-to-deploy-a-react-token-dapp-to-code-capsules.md)
 * [Optimizing Performance in MERN Stack: Tips and Techniques](optimizing-performance-in-mern-stack-tips-and-techniques.md)
 * [Creating and Hosting an API With Flask](creating-and-hosting-an-api-with-flask/README.md)
   * [API Reference \[Sample\]](creating-and-hosting-an-api-with-flask/api-reference-sample.md)

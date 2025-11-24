@@ -6,7 +6,7 @@ description: A guide to deploying a Next.js and Mongo application from GitHub.
 
 Deploy a Next.js and Mongo application and learn how to host backend code on Code Capsules.
 
-## Set up
+## Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -14,13 +14,13 @@ To demonstrate how to deploy a Next.js MongoDB application with Code Capsules, w
 
 Sign in to GitHub, and fork the example application by clicking "Fork" at the top-right of your screen and selecting your GitHub account as the destination.
 
-## Create a Space for your App
+## Create a Space for Your App
 
 Log in to your Code Capsules account and navigate to the Spaces tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![Create a Space](<../../.gitbook/assets/space-name (3).png>)
+![Create a Space](<../../.gitbook/assets/space-name (1).png>)
 
 Example instructions to go with numbered annotations
 
@@ -54,7 +54,7 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build Log](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
+![Build Log](../../../products/.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
 
 ## Connect the Capsules
 

@@ -6,7 +6,7 @@ description: Publish a Svelte application by linking directly to your GitHub rep
 
 Deploy a Svelte application and learn how to host frontend code on Code Capsules.
 
-## Set Up
+## Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -20,7 +20,7 @@ Log in to your Code Capsules account and navigate to the "Spaces" tab. Once ther
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![Create a Space](<../.gitbook/assets/space-name (4).png>)
+![Create a Space](<../.gitbook/assets/space-name (1).png>)
 
 Example instructions to go with numbered annotations
 

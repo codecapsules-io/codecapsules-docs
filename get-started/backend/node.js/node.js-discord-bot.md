@@ -6,7 +6,7 @@ description: A guide to deploying a Node.js Discord Bot from GitHub.
 
 Deploy a Node.js Discord Bot and learn how to host backend code on Code Capsules.
 
-## Set up
+## Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you'll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -45,13 +45,13 @@ When you've signed in to Discord, follow the steps below:
 
 After actioning these steps, your bot will now have access to all the channels in the server you added it to.
 
-## Create a Space for your App
+## Create a Space for Your App
 
 Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![Create a Space](<../../.gitbook/assets/space-name (3).png>)
+![Create a Space](<../../.gitbook/assets/space-name (1).png>)
 
 Example instructions to go with numbered annotations
 
@@ -77,7 +77,7 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build Logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
+![Build Logs](../../../products/.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
 
 ## Add a `TOKEN` Environment Variable
 

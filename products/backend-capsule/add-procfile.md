@@ -4,7 +4,7 @@ A Procfile tells the Backend Capsule which processes to run and how to start the
 
 Instead of using a Procfile, you can specify build and run commands directly in the Code Capsules UI. For example, the screenshot below shows how to enter a run command for a Node.js application.
 
-![Run command for Node application](../.gitbook/assets/database-capsule/procfile/run-command.png) 
+![Run command for Node application](../../.gitbook/assets/run-command.png)
 
 ## Procfile Naming and Location
 
@@ -14,7 +14,7 @@ The Procfile must be placed in the root directory of your project. It won't work
 
 ## Procfile Processes
 
-The Procfile defines the processes that a Backend Capsule must run before deploying a backend application. Common process types include `web`, `worker`, and `clock`. 
+The Procfile defines the processes that a Backend Capsule must run before deploying a backend application. Common process types include `web`, `worker`, and `clock`.
 
 Each process type must be paired with the command that should be used to run it. You can use the command to specify the port the process must run on and other process-specific options.
 

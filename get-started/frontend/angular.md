@@ -11,7 +11,7 @@ Deploy an Angular application and learn how to host frontend code on Code Capsul
 
 <figure><img src="../.gitbook/assets/cc-angular-app.png" alt=""><figcaption><p>Deployed App</p></figcaption></figure>
 
-### Set Up
+### Setup
 
 Code Capsules connects to GitHub repositories to deploy applications. To follow this guide, you’ll need a [Code Capsules](https://codecapsules.io/) account and a [GitHub](https://github.com/) account.
 
@@ -29,13 +29,13 @@ Alternatively, if you’re signing in again, click on the "Spaces" tab.
 
 Code Capsules gives every account a Personal Team by default. A Team is an environment for you to manage your Spaces and Capsules. For a better understanding of Teams, Spaces, and Capsules, take a look at [our explanation](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/platform).
 
-### Create a Space for your App
+### Create a Space for Your App
 
 Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the bottom left of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-<figure><img src="../.gitbook/assets/space-name (3).png" alt=""><figcaption><p>Create a New Space</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/space-name (1).png" alt=""><figcaption><p>Create a New Space</p></figcaption></figure>
 
 Example instructions to go with numbered annotations
 
@@ -70,4 +70,3 @@ Once the build is complete, click the "URL" link in the "Details" tab, and you s
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](https://app.gitbook.com/o/zJVrvoPm6oe6islWnPll/s/xjp0G5hHSJs8nyv5Z5g7/).
 
 <table data-card-size="large" data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td>Video Guides</td><td>If you prefer watching videos to reading text, find videos…</td><td><a href="../.gitbook/assets/Video Guides Angular.png">Video Guides Angular.png</a></td></tr></tbody></table>
-

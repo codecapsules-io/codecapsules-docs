@@ -4,7 +4,7 @@
 
 To add a new Capsule, click the yellow **+** button in the bottom-left corner of the dashboard and select **New Capsule**.
 
-![Create a Capsule](../.gitbook/assets/platform/capsules/add-capsule.png)
+![Create a Capsule](../../get-started/.gitbook/assets/add-capsule.png)
 
 Choose the **Capsule Type**, **Team**, and **Space**. Click **Next** to confirm.
 
@@ -14,11 +14,11 @@ Choose the **Capsule Type**, **Team**, and **Space**. Click **Next** to confirm.
 
 Configure the Capsule's resources by choosing a plan. To customize resources to suit your needs, select **Custom** and move the sliders to increase or decrease **CPU**, **RAM**, and **Replica Scale**. Click **Next**.
 
-![Choose Capsule Plan](../.gitbook/assets/platform/capsules/capsule-plan.png)
+![Choose Capsule Plan](<../.gitbook/assets/platform/billing/capsule-plan (1).png>)
 
 ### Connect to a Repo
 
-Code Capsules connects to your version control provider to deploy applications from your repositories. You need to give Code Capsules permission to access the repository you want to use. 
+Code Capsules connects to your version control provider to deploy applications from your repositories. You need to give Code Capsules permission to access the repository you want to use.
 
 To connect a Capsule to your repository:
 
@@ -40,7 +40,7 @@ Click **Create Capsule** to complete the setup.
 
 To delete a Capsule, navigate to the **Capsule Details** page, scroll to the end, and click **Remove Capsule**.
 
-![Delete Capsule](../.gitbook/assets/platform/capsules/delete-capsule.png)
+![Delete Capsule](../../docs/assets/reference/capsule-management/delete-capsule.png)
 
 In the confirmation dialog, enter the Capsule's name and click **Delete**.
 
@@ -50,11 +50,10 @@ You cannot reverse this action. The Capsule cannot be recovered once deleted.
 
 ## Turn Off a Capsule
 
-To turn off a Capsule, toggle the switch at the top-right corner of the **Capsule Details** page. 
+To turn off a Capsule, toggle the switch at the top-right corner of the **Capsule Details** page.
 
-![Turn Off a Capsule](../.gitbook/assets/platform/capsules/capsule-toggle-button.png)
+![Turn Off a Capsule](../../docs/assets/reference/capsule-management/capsule-toggle-button.png)
 
 Turning a Capsule off is useful when adding or updating environment variables. You’ll need to restart the Capsule after a few seconds for the changes to take effect.
 
 You can also turn off a Capsule during periods of inactivity to reduce costs.
-

@@ -9,7 +9,7 @@
 * [Scale](backend-capsule/scale.md)
 * [Monitor](backend-capsule/monitor.md)
 * [Logs](backend-capsule/logs.md)
-* [Alerting (Coming Soon)](backend-capsule/alerting.md)
+* [Alerting](backend-capsule/alerting.md)
 * [Add a Procfile to a Backend Application](backend-capsule/add-procfile.md)
 
 ## Database Capsule
@@ -23,7 +23,7 @@
 * [Backups](database-capsule/backups.md)
 * [Monitor](database-capsule/monitor.md)
 * [Logs](database-capsule/logs.md)
-* [Alerting (Coming Soon)](alerting.md)
+* [Alerting](alerting.md)
 * [Migrations](database-capsule/migrations.md)
 
 ## Frontend capsule
@@ -36,7 +36,7 @@
 * [Scale](frontend-capsule/scale.md)
 * [Monitor](frontend-capsule/monitor.md)
 * [Logs](frontend-capsule/logs.md)
-* [Alerting (Coming Soon)](alerting-1.md)
+* [Alerting](alerting-1.md)
 * [Custom Domains](frontend-capsule/custom-domains.md)
 
 ## Storage Capsule
@@ -46,7 +46,7 @@
 * [Scale](storage-capsule/scale.md)
 * [Monitor](storage-capsule/monitor.md)
 * [Logs](storage-capsule/logs.md)
-* [Alerting (Coming Soon)](storage-capsule/alerting.md)
+* [Alerting](storage-capsule/alerting.md)
 * [How State Works](storage-capsule/how-state-works.md)
 
 ## Wordpress Capsule
@@ -56,7 +56,7 @@
 * [Scale](wordpress-capsule/scale.md)
 * [Monitor](wordpress-capsule/monitor.md)
 * [Logs](wordpress-capsule/logs.md)
-* [Alerting (Coming Soon)](wordpress-capsule/alerting.md)
+* [Alerting](wordpress-capsule/alerting.md)
 
 ## Enterprise Clusters
 
