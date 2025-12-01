@@ -2,7 +2,7 @@
 description: >-
   Everything you need to know about configuring and deploying apps with Code
   Capsules.
-cover: ../platform/.gitbook/assets/CC Docs Banner.png
+cover: /broken/files/fydPYehZMhtaGvWKKYMs
 coverY: 0
 ---
 
