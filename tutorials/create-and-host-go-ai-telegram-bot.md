@@ -30,7 +30,7 @@ _This guide uses Go. You can find the Node.js version_ [_here_](https://docs.cod
 
 In this tutorial we'll create a [Telegram bot](https://core.telegram.org/bots/) from scratch using [Go](https://go.dev/) and host it in a [new Capsule](https://app.codecapsules.io/new/capsule?capsuleType=backend). The bot will start with the basic functionality of checking the current air temperature of a given city. Then, we'll extend its functionality by adding AI capabilities using Google AI Studio.
 
-#### Getting Started
+### Getting Started
 
 For this project we will use the following tech stack:
 
@@ -43,13 +43,13 @@ Create a Code Capsules account [here](https://codecapsules.io/) if you don't alr
 
 We will host our code on GitHub, so make sure you have a [GitHub account](https://github.com/signup) and are familiar with [Git](https://git-scm.com/). You can find a guide to getting started with Git [here](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control).
 
-**Create a Telegram Account**
+#### **Create a Telegram Account**
 
 Go to [Telegram](https://telegram.org/), download the app for your desired platform, and create an account.
 
 For development purposes, we recommend downloading the version suited to your development environment, but it will work fine on your phone.
 
-**Install Go**
+#### **Install Go**
 
 If you have Homebrew configured, you can run the following code to install Go in a single step:
 
@@ -67,7 +67,7 @@ Start a project by creating a new directory for local development:
 mkdir go-bot && cd go-bot
 ```
 
-**Set Up Third-Party APIs**
+#### **Set Up Third-Party APIs**
 
 We will make use of APIs from Weatherstack and Google AI Studio.
 
@@ -83,7 +83,7 @@ Google AI Studio provides access to generative AI models with a free tier for AP
 * Click on **Get API key** and select **Create API key in new project**.
 * Copy the generated API key and store it securely.
 
-#### Register a Bot Account and Talk to the BotFather
+### Register a Bot Account and Talk to the BotFather
 
 Once you've signed in to Telegram, search for "BotFather" (a bot for managing all other Telegram bots) and start a new chat. Follow the steps below to register a new bot with the BotFather:
 
@@ -96,7 +96,7 @@ The BotFather will respond with a message containing an access token for your ne
 
 To confirm that your bot was created successfully, search for the bot's username. You should be able to see it and start a conversation with it, although it won't respond at this stage as we haven't written the bot's logic yet.
 
-#### Install Required Packages
+### Install Required Packages
 
 Our bot requires four third-party Go packages to handle Telegram communication, HTTP requests, environment variables, and AI integration. We'll install these using Go's package manager.
 
@@ -120,7 +120,7 @@ go get google.golang.org/genai
 
 After running all four commands, Go will automatically download and install each package, and your `go.mod` file will be updated with the dependencies.
 
-#### Set Up the Environment
+### Set Up the Environment
 
 Create a `.env` file in your `go-bot` directory to store your API keys securely.
 
@@ -138,7 +138,7 @@ GEMINI_API_KEY=YOUR_GOOGLE_GEMINI_API_KEY
 
 The godotenv package will automatically load these variables when the bot starts, making them available through `os.Getenv()`.
 
-#### Create the Bot
+### Create the Bot
 
 Create a new file `bot.go`. This will contain all the code for your bot's backend.
 
@@ -148,7 +148,7 @@ Go requires a package and a function named `main` in order to execute. Specify t
 package main
 ```
 
-**Imports**
+#### **Imports**
 
 Now we can add imports for the third-party packages. We'll also need the functionality in some of the default packages that are shipped with Go.
 
@@ -167,7 +167,7 @@ import (
 )
 ```
 
-**Helper Functions**
+#### **Helper Functions**
 
 Before we build out the `main()` function, which will control most of the logic to handle the bot commands, we need to build two helper functions that will make the calls to the third-party APIs.
 
@@ -278,7 +278,7 @@ From there, all we have to do is send our question to our Google AI Studio API i
 
 For some basic error handling, we validate that we received a non-empty response and then check if it exceeds Telegram's message length limit (4096 characters).
 
-**Main Function**
+#### **Main Function**
 
 We can now begin to build our `main()` function. We need our code to be aware of the environment variables that we set up in our `.env` file. We're using this file for convenience so that we can run the bot locally. Once our code is deployed, we'll configure the environment variables on our server instead.
 
@@ -304,7 +304,7 @@ Now that the variables are loaded into our environment, we can access them with 
     }
 ```
 
-**Get Messages**
+#### **Get Messages**
 
 The next step is to enable our backend to respond whenever a user sends a command. Luckily, the Telegram Bot API package offers several ready solutions. The simplest approach is to use polling, in which the backend code continuously queries the bot API to check for new messages.
 
@@ -336,7 +336,7 @@ Next, we add a check to skip any kind of update we receive that doesn't contain 
         msg := update.Message
 ```
 
-**Process Commands**
+#### **Process Commands**
 
 Now that we know we have a message from the user, we can add the logic for the commands that we want to support. To make the code easier to follow, we'll keep all the logic in the main class. If you are coding a more complex bot, with support for a large number of commands, you would probably want to consider improving the extendibility of your code with some object-oriented principles. For example, this code would be suited to the [Factory Method pattern](https://refactoring.guru/design-patterns/factory-method), which could provide some layers of abstraction that make adding new commands more streamlined.
 
@@ -401,7 +401,7 @@ Now we can call our `askGoku()` helper function. If the request succeeds, we cre
             bot.Send(reply)
 ```
 
-**Default Response**
+#### **Default Response**
 
 The last thing we need to do is add a default response if the user sends anything other than the commands that we support.
 
@@ -434,7 +434,7 @@ Open Telegram, find your bot by username, and test the commands:
 
 Check your terminal for any error logs if something doesn't work. Once you've verified that all commands work as expected, you're ready to deploy.
 
-#### Deploy the Bot
+### Deploy the Bot
 
 We will now deploy the bot on Code Capsules and make it more efficient by using webhooks instead of polling.
 
@@ -450,13 +450,13 @@ Commit your bot code and push to your GitHub repository. Then, in the **Deploy**
 
 We can then run the same tests as we ran locally (ensure the local instance is stopped) to check that the bot is still working as intended.
 
-#### Polling vs Webhooks
+### Polling vs Webhooks
 
 The polling approach we used earlier works well for development and small bots. However, polling is not the most bandwidth-efficient method because it requires constant communication between the backend code and the server.
 
 A more efficient alternative is webhooks, which work in the reverse manner. Instead of the bot repeatedly asking Telegram for updates, Telegram will send updates directly to the bot's HTTP server whenever a user sends a message.
 
-**How to Convert to Webhooks**
+#### **How to Convert to Webhooks**
 
 The main architectural change is replacing the polling loop with an HTTP server. Instead of this:
 
@@ -496,7 +496,7 @@ if _, err := bot.Request(wh); err != nil {
 
 The `APP_URL` is the public URL where Telegram can reach our bot. This will be automatically configured in the Capsule.
 
-**Receiving and Processing Webhook Updates**
+#### **Receiving and Processing Webhook Updates**
 
 The HTTP handler receives JSON from Telegram and unmarshals it into an `Update` struct:
 
