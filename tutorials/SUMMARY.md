@@ -1,9 +1,9 @@
 # Table of contents
 
 * [Tutorials Overview](README.md)
-* [How to Create and Host an AI-Backed Telegram Bot with Go on Code Capsules](create-and-host-go-ai-telegram-bot.md)
-* [How to Create and Host a Telegram Bot on Code Capsules](how-to-create-and-host-a-telegram-bot-on-code-capsules.md)
-* [Create and Host a Telegram Bot with Node.js on Code Capsules](create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md)
+* [How to Create and Host a Go Telegram Bot on Code Capsules](create-and-host-go-ai-telegram-bot.md)
+* [How to Create and Host a Python Telegram Bot on Code Capsules](how-to-create-and-host-a-telegram-bot-on-code-capsules.md)
+* [How to Create and Host a Node.js Telegram Bot on Code Capsules](create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md)
 * [How to Deploy a React Token dApp to Code Capsules](how-to-deploy-a-react-token-dapp-to-code-capsules.md)
 * [Nuxt3 and Nitro](nuxt3-and-nitro.md)
 * [How to Deploy a React Token dApp to Code Capsules](how-to-deploy-a-react-token-dapp-to-code-capsules.md)
