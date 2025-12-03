@@ -81,7 +81,7 @@ npm install express body-parser superagent
 
 Now let's create an `index.js` file, which will be the main file for our app. A simple way to do this is to open up your project folder in an editor, like [Visual Studio Code](https://code.visualstudio.com). Now you can create a new `index.js` file.
 
-<figure><img src=".gitbook/assets/create-indexjs.gif" alt=""><figcaption><p>Create Index.js in Visual Studio</p></figcaption></figure>
+<figure><img src=".gitbook/assets/build-a-slackbot-with-node.js-to-monitor-your-applications/create-indexjs.gif" alt=""><figcaption><p>Create Index.js in Visual Studio</p></figcaption></figure>
 
 Save this blank file. Now add another file named `.gitignore` and add this lines to it, and save:
 
