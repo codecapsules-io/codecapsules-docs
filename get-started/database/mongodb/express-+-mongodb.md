@@ -39,7 +39,7 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build Logs](../../../products/.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
+![Build Logs](/broken/files/m10b9QRjcH8SGo8JjPp9)
 
 ## Connect the Capsules
 

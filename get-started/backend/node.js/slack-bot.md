@@ -2,7 +2,7 @@
 description: A guide to deploying a Slack Bot from GitHub.
 ---
 
-# Slack Bot
+# Node.js Slack Bot
 
 Deploy a Node.js Slack Bot and learn how to host backend code on Code Capsules.
 
@@ -20,7 +20,7 @@ Log in to your Code Capsules account and navigate to the "Spaces" tab. Once ther
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![Create a Space](<../../.gitbook/assets/space-name (1).png>)
+![Create a Space](/broken/files/c1RKSsytKv66iCGB7Ln3)
 
 Example instructions to go with numbered annotations
 
@@ -46,7 +46,7 @@ Code Capsules will automatically build your application when you've finished cre
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build Logs](../../../products/.gitbook/assets/backend-capsule/backend-capsule-build-logs.png)
+![Build Logs](/broken/files/m10b9QRjcH8SGo8JjPp9)
 
 ## Register the Bot
 

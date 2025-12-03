@@ -2,7 +2,7 @@
 description: >-
   Comprehensive tutorials, references, example code, and more CodeCapsules
   products.
-cover: ../platform/.gitbook/assets/CC Docs Banner.png
+cover: /broken/files/uRf9AYTumLmkgj6mLxac
 coverY: 0
 ---
 
