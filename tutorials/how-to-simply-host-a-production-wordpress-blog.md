@@ -63,7 +63,7 @@ AWS recommends an architecture with 11 services for production WordPress:
 - VPC with public/private subnets, NAT gateways, security groups.
 - Bastion hosts for secure administrative access.
 
-![WordPress high availability architecture by Bitnami](./assets/wordpress-aws-architecture.png)
+![WordPress high availability architecture by Bitnami](.gitbook/assets/wordpress-aws-architecture.png)
 
 This architecture solves the single-server problems but creates three new ones:
 
@@ -94,31 +94,31 @@ To follow this tutorial, you need:
 
 Spaces organize related capsules. Click the **+** button on the dashboard to create a new space.
 
-![Create new space button](./assets/create-space-button.png)
+![Create new space button](.gitbook/assets/create-space-button.png)
 
 Fill in the space details and select the region closest to your target users to reduce latency for your visitors.
 
-![Space details form with name and region fields](./assets/space-details-form.png)
+![Space details form with name and region fields](.gitbook/assets/space-details-form.png)
 
 ### Create the WordPress Capsule
 
 Navigate to your new space and click the **+** button to create a capsule.
 
-![Create capsule button in space view](./assets/create-capsule-button.png)
+![Create capsule button in space view](.gitbook/assets/create-capsule-button.png)
 
 Select **WordPress** as the capsule type, choose your team and space.
 
-![WordPress capsule type selection](./assets/wordpress-capsule-selection.png)
+![WordPress capsule type selection](.gitbook/assets/wordpress-capsule-selection.png)
 
 Choose a plan based on your expected traffic. Use the [Code Capsules pricing calculator](https://app.codecapsules.io/pricing-calculator) to estimate costs for your monthly visitors and storage needs.
 
-![WordPress capsule pricing plan selection](./assets/wordpress-pricing-plan.png)
+![WordPress capsule pricing plan selection](.gitbook/assets/wordpress-pricing-plan.png)
 
 On the deployment page, select **Default** – Code Capsules provides a ready WordPress instance.
 
 The **Custom** option lets you deploy from your own Git repository if you have a customized WordPress setup.
 
-![WordPress deployment method - default vs custom](./assets/wordpress-deployment-method.png)
+![WordPress deployment method - default vs custom](.gitbook/assets/wordpress-deployment-method.png)
 
 ### Configure Database and Storage
 
@@ -126,15 +126,15 @@ In the next page, name the capsule **Staging WordPress**.
 
 Click the **+** button next to Database to create a new database capsule. This separates your MySQL database from your application server, when traffic spikes hit your WordPress application, your database continues responding normally. Choose a database plan that matches your content volume.
 
-![WordPress database capsule configuration](./assets/wordpress-database-configuration.png)
+![WordPress database capsule configuration](.gitbook/assets/wordpress-database-configuration.png)
 
 Click the **+** button next to Storage to create a storage capsule. This handles uploaded images, videos, and media files separately from your application server. Choose a storage plan based on your media library size.
 
-![WordPress storage capsule configuration](./assets/wordpress-storage-configuration.png)
+![WordPress storage capsule configuration](.gitbook/assets/wordpress-storage-configuration.png)
 
 Your configuration should show Staging WordPress with attached database and storage capsules.
 
-![WordPress configuration with database and storage attached](./assets/wordpress-configuration-overview.png)
+![WordPress configuration with database and storage attached](.gitbook/assets/wordpress-configuration-overview.png)
 
 Click **Create Capsule**.
 
@@ -142,15 +142,15 @@ Click **Create Capsule**.
 
 Once the capsule deploys, you'll see a default URL like `staging-wordpress-slug.ccdns.co`. Configure a custom domain for cleaner URLs.
 
-![WordPress capsule default URL](./assets/wordpress-default-url.png)
+![WordPress capsule default URL](.gitbook/assets/wordpress-default-url.png)
 
 Navigate to the **Domains** tab and click **+** to add a domain.
 
-![Add custom domain button](./assets/add-custom-domain-button.png)
+![Add custom domain button](.gitbook/assets/add-custom-domain-button.png)
 
 You will be redirected to a page to enter the custom domain address. Enter your staging domain, for example, `staging.blog.yourdomain.com`.
 
-![Custom domain entry form](./assets/custom-domain-entry.png)
+![Custom domain entry form](.gitbook/assets/custom-domain-entry.png)
 
 Code Capsules provides DNS instructions. Create a CNAME or ALIAS record with your DNS provider pointing to the provided hostname.
 
@@ -158,19 +158,19 @@ Code Capsules provides DNS instructions. Create a CNAME or ALIAS record with you
 
 Visit your WordPress URL. Select your language.
 
-![WordPress language selection screen](./assets/wordpress-language-selection.png)
+![WordPress language selection screen](.gitbook/assets/wordpress-language-selection.png)
 
 Create your admin account. Use a strong password since this account has full site access.
 
-![WordPress admin account creation form](./assets/wordpress-admin-account-setup.png)
+![WordPress admin account creation form](.gitbook/assets/wordpress-admin-account-setup.png)
 
 Once the installation is successful, you will see the following page.
 
-![WordPress installation success message](./assets/wordpress-installation-success.png)
+![WordPress installation success message](.gitbook/assets/wordpress-installation-success.png)
 
 Log in to verify the installation. You'll see the WordPress admin dashboard.
 
-![WordPress admin dashboard](./assets/wordpress-admin-dashboard.png)
+![WordPress admin dashboard](.gitbook/assets/wordpress-admin-dashboard.png)
 
 Your staging environment is ready. You can install themes, add plugins, and create content for review before pushing to production.
 
@@ -191,11 +191,11 @@ Skip the WordPress admin setup as you'll migrate your staging content instead.
 
 In your Production WordPress capsule, navigate to the **Migrate** tab. Select **Staging WordPress** as the source capsule.
 
-![WordPress migration source capsule selection](./assets/wordpress-migration-source-selection.png)
+![WordPress migration source capsule selection](.gitbook/assets/wordpress-migration-source-selection.png)
 
 Click **Start Migration**. Code Capsules copies your database content, uploaded media files, installed plugins, and theme configurations from staging to production.
 
-![WordPress migration in progress](./assets/wordpress-migration-in-progress.png)
+![WordPress migration in progress](.gitbook/assets/wordpress-migration-in-progress.png)
 
 Once complete, your production environment has identical content to staging. Configure your production domain (like `blog.yourdomain.com`) following the same DNS setup process from the staging section.
 
