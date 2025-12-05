@@ -28,10 +28,9 @@ Small businesses need production WordPress somewhere between these extremes: rel
 
 This tutorial shows how to deploy WordPress on Code Capsules with:
 
-- Separate application, database, and storage layers for reliability
-- Staging and production environments with one-click migration
-- Auto-scaling that handles traffic spikes without manual intervention
-- Setup time under 15 minutes
+- Separate application, database, and storage layers for reliability.
+- Staging and production environments with one-click migration.
+- Auto-scaling that handles traffic spikes without manual intervention.
 
 You'll create a staging environment, configure custom domains, and migrate content to production, without writing deployment scripts or managing server infrastructure.
 
@@ -41,13 +40,13 @@ Most WordPress hosts offer a single-server option: one virtual machine running A
 
 For business blogs, single servers create four critical problems:
 
-- **Traffic spikes crash your site.** Your marketing team sends a newsletter, 500 concurrent users hit your server, and 500 PHP processes overwhelm the CPU while database connections exhaust MySQL. Your site returns 503 errors to potential customers.
+- Traffic spikes crash your site. Your marketing team sends a newsletter, 500 concurrent users hit your server, and 500 PHP processes overwhelm the CPU while database connections exhaust MySQL. Your site returns 503 errors to potential customers.
 
-- **Hardware failures mean downtime.** Cloud instances fail, servers reboot for maintenance, plugin updates crash PHP, and each scenario takes your entire site offline until you manually intervene.
+- Hardware failures mean downtime. Cloud instances fail, servers reboot for maintenance, plugin updates crash PHP, and each scenario takes your entire site offline until you manually intervene.
 
-- **Vertical scaling hits a ceiling.** You can only upgrade to larger instances until you hit the maximum size, and you pay for peak capacity 24/7 even when traffic drops to 10% overnight.
+- Vertical scaling hits a ceiling. You can only upgrade to larger instances until you hit the maximum size, and you pay for peak capacity 24/7 even when traffic drops to 10% overnight.
 
-- **Security compromises everything.** Successful attacks on WordPress give attackers access to your database, uploaded files, environment variables, and, potentially, your cloud provider credentials, with no isolation layers.
+- Security compromises everything. Successful attacks on WordPress give attackers access to your database, uploaded files, environment variables, and, potentially, your cloud provider credentials, with no isolation layers.
 
 ## Why AWS Enterprise Architecture is Overengineered
 
