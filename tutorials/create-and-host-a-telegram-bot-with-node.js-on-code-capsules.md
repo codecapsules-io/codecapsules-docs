@@ -2,12 +2,14 @@
 description: >-
   Social media bots allow you to automate responses and reactions to posts or
   messages sent to the bot.
-cover: .gitbook/assets/telegrambot.jpg
+cover: .gitbook/assets/telegram-bot-cover-nodejs.jpg
 coverY: 0
+coverHeight: 449
 layout:
+  width: default
   cover:
     visible: true
-    size: hero
+    size: full
   title:
     visible: true
   description:
@@ -18,9 +20,13 @@ layout:
     visible: true
   pagination:
     visible: true
+  metadata:
+    visible: true
 ---
 
-# Create and Host a Telegram Bot with Node.js on Code Capsules
+# How to Create and Host a Node.js Telegram Bot on Code Capsules
+
+_This guide uses Node.js. You can find the Python version_ [_here_](https://docs.codecapsules.io/tutorials/how-to-create-and-host-a-telegram-bot-on-code-capsules) _or the Go version_ [_here_](https://docs.codecapsules.io/tutorials/create-and-host-go-ai-telegram-bot).&#x20;
 
 In this tutorial, we'll extend a boilerplate Express application on Code Capsules to create a Telegram bot in [Node.js](https://nodejs.org/en/about/) that tracks and responds with current Ethereum prices.
 

@@ -58,6 +58,18 @@
 * [Logs](wordpress-capsule/logs.md)
 * [Alerting](wordpress-capsule/alerting.md)
 
+## Agent Capsule
+
+* [Deploy](agent-capsule/deploy.md)
+* [Configure](agent-capsule/configure.md)
+* [Scale](agent-capsule/scale.md)
+* [Monitor](agent-capsule/monitor.md)
+* [Logs](agent-capsule/logs.md)
+* [Templates](agent-capsule/templates.md)
+* [Chat](agent-capsule/chat/README.md)
+  * [Agent API (Sample)](agent-capsule/chat/agent-api-sample.md)
+* [Alerting](agent-capsule/alerting.md)
+
 ## Enterprise Clusters
 
 * [Overview](enterprise-clusters/overview.md)
