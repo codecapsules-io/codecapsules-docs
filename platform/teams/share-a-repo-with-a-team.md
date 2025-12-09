@@ -4,4 +4,4 @@ If you've already [linked your Code Capsules account to a version control provid
 
 Click **Share repositories with Team**, toggle on the repos to share with your Team, then click **Share Repos**.
 
-![Edit Team Repos](../../docs/assets/reference/team-management/add-repo.png)
+![Edit Team Repos](../.gitbook/assets/add-repo.png)

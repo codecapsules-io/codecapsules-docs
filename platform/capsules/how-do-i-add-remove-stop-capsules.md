@@ -4,7 +4,7 @@
 
 To add a new Capsule, click the yellow **+** button in the bottom-left corner of the dashboard and select **New Capsule**.
 
-![Create a Capsule](../../get-started/.gitbook/assets/add-capsule.png)
+![Create a Capsule](../.gitbook/assets/add-capsule.png)
 
 Choose the **Capsule Type**, **Team**, and **Space**. Click **Next** to confirm.
 
@@ -40,7 +40,7 @@ Click **Create Capsule** to complete the setup.
 
 To delete a Capsule, navigate to the **Capsule Details** page, scroll to the end, and click **Remove Capsule**.
 
-![Delete Capsule](../../docs/assets/reference/capsule-management/delete-capsule.png)
+![Delete Capsule](../.gitbook/assets/delete-capsule.png)
 
 In the confirmation dialog, enter the Capsule's name and click **Delete**.
 
@@ -52,7 +52,7 @@ You cannot reverse this action. The Capsule cannot be recovered once deleted.
 
 To turn off a Capsule, toggle the switch at the top-right corner of the **Capsule Details** page.
 
-![Turn Off a Capsule](../../docs/assets/reference/capsule-management/capsule-toggle-button.png)
+![Turn Off a Capsule](../.gitbook/assets/capsule-toggle-button.png)
 
 Turning a Capsule off is useful when adding or updating environment variables. You’ll need to restart the Capsule after a few seconds for the changes to take effect.
 

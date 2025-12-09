@@ -1,6 +1,6 @@
-# Get To Know the Code Capsules Platform
+# Get to Know the Code Capsules Platform
 
-![Teams contain Spaces and Spaces contain Capsules](../docs/assets/faq/teamspacecapsule.png)
+![Teams contain Spaces and Spaces contain Capsules](.gitbook/assets/teamspacecapsule.png)
 
 [Teams](teams/what-is-a-team.md), [Spaces](spaces/what-is-a-space.md), and [Capsules](capsules/what-is-a-capsule.md) are the foundation of [Code Capsules](https://codecapsules.io).
 
@@ -12,4 +12,4 @@
 
 For a single, simple project, you would have exactly one team, containing one space, containing one capsule. If you wanted to set up a frontend only project (e.g. a React app) backed by a REST API, you would have two capsules in your space: a frontend Capsule for the React application and a backend Capsule for the REST API.
 
-![simple-and-complex-projects](../docs/assets/faq/simple-and-complex-projects.png)
+![simple-and-complex-projects](.gitbook/assets/simple-and-complex-projects.png)

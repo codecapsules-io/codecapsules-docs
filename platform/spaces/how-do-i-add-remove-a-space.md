@@ -10,7 +10,7 @@ To create a new Space, click the yellow **+** icon on the bottom-left corner of 
 
 Click **Create Space** to finish.
 
-![space name](../../tutorials/.gitbook/assets/space-name.png)
+![space name](../.gitbook/assets/space-name.png)
 
 ## Remove a Space
 
