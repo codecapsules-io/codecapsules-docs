@@ -11,6 +11,8 @@
 * General bug fixes and improvements across the site
 * New agent capsule type: [build and deploy your langchain based agents](https://docs.codecapsules.io/products/agent-capsule/deploy)
 * Improvements to Postgres data capsule horizontal scaling
+* Capsules shouldn't rebuild on certain config changes like port and environment variables, it will just restart the capsule
+* Improvements to instance restarts, previously duplicate restarts occurred
 
 ### November 2025
 
