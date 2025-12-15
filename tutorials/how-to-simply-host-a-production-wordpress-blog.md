@@ -39,7 +39,7 @@ Hosting WordPress in production is confusing because WordPress doesn't fit stand
 
 - **Separate your WordPress layers from the start.** WordPress, MySQL, and file storage should run independently. When one layer fails or requires scaling, the others continue to operate.
 - **Plan for staging-to-production workflows.** WordPress has no built-in mechanism for migrating between environments. Set up either a plugin-based migration ($99-$299/year with manual configuration) or use hosting platforms like Code Capsules, which offer one-click migration built in. Without this, you'll manually recreate approved content or risk breaking production with direct edits.
-- **Match infrastructure to your team's capacity.** A self-hosted VPS (starting from 10$ per month) requires you to handle security patches, backups, and scaling. Managed WordPress removes operational work but limits flexibility and costs more (an average of $50 per month for basic plans). Always choose based on whether you have DevOps resources.
+- **Match infrastructure to your team's capacity.** A self-hosted VPS (starting from $10 per month) requires you to handle security patches, backups, and scaling. Managed WordPress removes operational work but limits flexibility and costs more (an average of $50 per month for basic plans). Always choose based on whether you have DevOps resources.
 
 ## The WordPress Production Problem
 
@@ -234,7 +234,7 @@ This includes infrastructure-level backups, one-click staging-to-production migr
 Choosing a hosting option depends on whether you have DevOps resources and need complete control; a self-hosted VPS or AWS provides maximum flexibility. If you're a small team focused on content rather than infrastructure, managed solutions eliminate maintenance overhead. Code Capsules sits between these extremes: managed infrastructure with staging/production workflows, without the premium pricing of fully managed WordPress hosts or the complexity of AWS enterprise architecture.
 
 | Feature                             | Managed WordPress (Kinsta/WP Engine) | Self-Hosted VPS                        | AWS Enterprise                                | Code Capsules                                |
-| ----------------------------------- | ------------------------------------ | -------------------------------------- | --------------------------------------------- | -------------------------------------------- |
+|-------------------------------------|--------------------------------------|----------------------------------------|-----------------------------------------------|----------------------------------------------|
 | **Monthly Cost**                    | $35-100                              | $10-40                                 | $500-1,500                                    | Starting $30                                 |
 | **Setup Time**                      | Minutes                              | Hours                                  | Days                                          | Minutes                                      |
 | **DevOps Required**                 | No                                   | Yes                                    | Yes                                           | No                                           |
