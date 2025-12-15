@@ -2,9 +2,10 @@
 description: >-
   Create a full stack application with Flask and HTMx to build a lightweight
   interactive site.
-cover: .gitbook/assets/flask-htmx-cover.png
+cover: /broken/files/UA3xgYd6QBlSI3wFjFHf
 coverY: 0
 layout:
+  width: default
   cover:
     visible: true
     size: hero
@@ -17,6 +18,8 @@ layout:
   outline:
     visible: true
   pagination:
+    visible: true
+  metadata:
     visible: true
 ---
 
@@ -35,7 +38,7 @@ This is where a new HTML extension called HTMx enters and shines. HTMx gives tra
 
 In this tutorial, we’ll explore the benefits of HTMx by building a full stack application using Flask and HTMx. Our application will be a book recommendation app that supports CRUD functionality. The final app will look a bit like this:
 
-<figure><img src=".gitbook/assets/flask-htmx.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/building-a-full-stack-application-with-flask-and-htmx/flask-htmx.png" alt=""><figcaption></figcaption></figure>
 
 ### Overview and Requirements
 
@@ -86,7 +89,7 @@ source env/bin/activate
 
 After activating the virtual environment, the name `env` should appear in brackets on the leftmost part of your terminal in your current line. This signals that the activation was successful.
 
-<figure><img src=".gitbook/assets/venvactive.png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/building-a-full-stack-application-with-flask-and-htmx/venvactive.png" alt=""><figcaption></figcaption></figure>
 
 #### Installing Dependencies
 
@@ -223,7 +226,7 @@ In our form, we used the beforeend value to tell HTMx that we want to append the
 
 In the table, however, we used the outerHTML value to denote that we want to swap the entire `<tr>` element with the returned content.
 
-The table rows are dynamically generated using Jinja2's `{% for book in books %}` loop syntax, which iterates through each book in the books list passed from our Flask backend.&#x20;
+The table rows are dynamically generated using Jinja2's `{% for book in books %}` loop syntax, which iterates through each book in the books list passed from our Flask backend.
 
 A full list of acceptable hx-swap values can be viewed [here](https://htmx.org/docs/#swapping).
 
@@ -467,7 +470,7 @@ If the user goes through with updating the book title, then the `/update` route 
 
 Our app is ready to be tested. Navigate to the project’s root folder in a terminal and run the following command: `python3 run.py`. This should start up a development server on port 5000. Open your browser at `http://127.0.0.1:5000/` and you should see your app running:
 
-<figure><img src=".gitbook/assets/flask-htmx (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/broken/files/Sn8ppxh3OGCGN2mm0yJR" alt=""><figcaption></figcaption></figure>
 
 Once you are satisfied with the app, you can commit and push your changes to GitHub with the following commands.
 

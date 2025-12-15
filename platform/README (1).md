@@ -1,4 +1,18 @@
-# Release notes
+# Release Notes
+
+### December 2025
+
+* Improved builds UI, we now include time the build took as well as branch and commit hash details
+* Successful automatic builds have a link to the git commits diff between previous and current build
+* New deployment strategy configuration, select between rolling update or re-create (forces the new instance regardless of the previous builds instance shutting down)
+* Improved metrics accuracy as well as graphs for multiple replicas across capsule types
+* Private enterprise customers: GPU flag to ensure your workloads consume GPU compute
+* Performance improvements to egress networking
+* General bug fixes and improvements across the site
+* New agent capsule type: [build and deploy your langchain based agents](https://docs.codecapsules.io/products/agent-capsule/deploy)
+* Improvements to Postgres data capsule horizontal scaling
+* Capsules shouldn't rebuild on certain config changes like port and environment variables, it will just restart the capsule
+* Improvements to instance restarts, previously duplicate restarts occurred
 
 ### November 2025
 

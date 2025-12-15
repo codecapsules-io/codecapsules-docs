@@ -1,6 +1,6 @@
 ---
 description: Everything you need to know about Code Capsules.
-cover: ../tutorials/.gitbook/assets/CC Docs Banner.png
+cover: .gitbook/assets/CC Docs Banner.png
 coverY: 0
 ---
 

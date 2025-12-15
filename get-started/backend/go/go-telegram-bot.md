@@ -21,8 +21,8 @@ Follow the steps below to register a new bot with the BotFather:
 
 The BotFather will respond with a message containing an access token for your newly created bot. This access token allows our application to:
 
-- Access the Telegram API.
-- Tell our bot what to do when receiving different messages from users.
+* Access the Telegram API.
+* Tell our bot what to do when receiving different messages from users.
 
 To confirm that your bot has been created successfully, search for the bot's username. You should be able to see it and start a conversation with it. However, it won't respond because we haven't written the bot's logic yet.
 
@@ -40,7 +40,7 @@ Log in to your Code Capsules account and navigate to the **Spaces** tab. Then, c
 
 Follow the prompts to choose your region and give your Space a name, then click **Create Space**.
 
-![Create a Space](<../../.gitbook/assets/space-name (3).png>)
+![Create a Space](../../.gitbook/assets/space-name.png)
 
 Example instructions to go with numbered annotations:
 
@@ -66,7 +66,7 @@ Code Capsules automatically builds your application when you've finished creatin
 
 Once your application is live, you can view the build logs by selecting the **Deploy** tab and clicking the **View build log** link in the **Builds** section.
 
-![Build Logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
+![Build Logs](../../.gitbook/assets/backend-capsule-build-logs.png)
 
 ## Add Environment Variables
 
@@ -78,9 +78,9 @@ First, name the `BOT_TOKEN` variable and enter your Telegram access token (which
 
 Name the `URL` variable and set your bot's domain as its **Value**.
 
-- Get the domain by clicking the Capsule's **Details** tab and copying the URL in the **Public URL** section.
-- Paste the URL in the **Value** field.
-- Make sure the URL ends with a `/` or the webhook will not be valid.
+* Get the domain by clicking the Capsule's **Details** tab and copying the URL in the **Public URL** section.
+* Paste the URL in the **Value** field.
+* Make sure the URL ends with a `/` or the webhook will not be valid.
 
 ![Add a URL Environment Variable](../../.gitbook/assets/url-env-variable.png)
 
@@ -90,9 +90,9 @@ Confirm your changes by clicking on **Save**, then restart your Capsule by toggl
 
 The next step is to set up a webhook for your bot:
 
-- Click the **Public URL** link in your Capsule's **Details** tab.
-- In the new tab that opens, add `/setwebhook` to the URL and press `enter`/`return` to visit the URL.
-- If you see `webhook setup ok`, then your bot is ready to chat!
+* Click the **Public URL** link in your Capsule's **Details** tab.
+* In the new tab that opens, add `/setwebhook` to the URL and press `enter`/`return` to visit the URL.
+* If you see `webhook setup ok`, then your bot is ready to chat!
 
 ## Chat with the Bot
 

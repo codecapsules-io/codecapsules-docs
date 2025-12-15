@@ -30,7 +30,7 @@ Log in to your Code Capsules account and navigate to the "Spaces" tab. Once ther
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![Create a Space](<../../.gitbook/assets/space-name (1).png>)
+![Create a Space](/broken/files/c1RKSsytKv66iCGB7Ln3)
 
 Example instructions to go with numbered annotations
 

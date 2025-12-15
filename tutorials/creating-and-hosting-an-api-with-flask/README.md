@@ -2,9 +2,10 @@
 description: >-
   Build a personal API that lets you access up to the minute exchange rates and
   weather data for cities of your choosing.
-cover: ../.gitbook/assets/creating-flask-api-cover.jpg
+cover: /broken/files/VvDc3bsuor0sN6a8xAtG
 coverY: 68.97777777777776
 layout:
+  width: default
   cover:
     visible: true
     size: hero
@@ -17,6 +18,8 @@ layout:
   outline:
     visible: true
   pagination:
+    visible: true
+  metadata:
     visible: true
 ---
 
@@ -71,7 +74,7 @@ envScriptsactivate.bat
 
 If the virtual environment has activated correctly, you’ll see (env) to the left of your name in the terminal.
 
-![env active](https://codecapsules.io/wp-content/uploads/2023/07/env-active.png)
+![env active](.gitbook/assets/env-active.png)
 
 ### Installing the Dependencies
 

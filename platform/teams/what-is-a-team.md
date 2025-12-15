@@ -1,6 +1,6 @@
 # What Is a Team?
 
-![Teams contain Spaces and Spaces contain Capsules](../../docs/assets/faq/teamspacecapsule.png)
+![Teams contain Spaces and Spaces contain Capsules](../.gitbook/assets/teamspacecapsule.png)
 
 Teams, [Spaces](../spaces/what-is-a-space.md), and [Capsules](../capsules/what-is-a-capsule.md) form the foundation of [Code Capsules](https://codecapsules.io).
 

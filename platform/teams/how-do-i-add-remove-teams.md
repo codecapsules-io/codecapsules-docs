@@ -6,11 +6,11 @@ You can create as many teams as you need on Code Capsules.
 
 To add a new Team, click the yellow **+** button in the bottom-left corner of the dashboard and select **New Team**.
 
-![Create a Team](<../../docs/assets/reference/team-management/new-team (1).png>)
+![Create a Team](<../.gitbook/assets/new-team (1).png>)
 
 Give your Team a name and click **I Like It!** to confirm.
 
-![Enter Team Details](<../../docs/assets/reference/team-management/create-team (1).png>)
+![Enter Team Details](<../.gitbook/assets/create-team (1).png>)
 
 ## Remove a Team
 
