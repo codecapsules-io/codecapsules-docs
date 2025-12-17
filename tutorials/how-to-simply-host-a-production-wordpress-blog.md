@@ -106,7 +106,7 @@ WP Synchro offers the most straightforward setup. The free version handles basic
 
   ![WP Synchro license key](.gitbook/assets/wp-synchro-license-key.png)
 
-- Upload the downloaded zip file from the Plugins page.
+- Upload the downloaded zip file on the Add Plugins page.
 
   ![Upload WP Synchro plugin zip](.gitbook/assets/wp-synchro-upload-zip.png)
 
@@ -114,7 +114,7 @@ WP Synchro offers the most straightforward setup. The free version handles basic
 
   ![Add WP Synchro license key](.gitbook/assets/wp-synchro-add-license.png)
 
-- Configure your setup in WP Synchro → Setup by enabling Pushes for the production environment, then save the access key. The staging environment uses this access key to authenticate when pushing changes to production.
+- Configure your setup in WP Synchro → Setup by enabling pushes for the production environment, then save the access key. The staging environment uses this access key to authenticate when pushing changes to production.
 
   ![Configure WP Synchro access key](.gitbook/assets/wp-synchro-access-key.png)
 
@@ -139,9 +139,21 @@ WP Synchro provides a reliable migration workflow for WordPress sites. However, 
 - If someone edited production content while you worked on staging, the plugin can't merge changes. You either overwrite production or cancel the migration.
 - Anyone with access can view the API keys and use them to push unauthorized changes to your production site.
 
-### Using Code Capsules
+## Using Wordpress on Code Capsules
 
-In your Production WordPress capsule, navigate to the **Migrate** tab. Select **Staging WordPress** as the source capsule.
+Code Capsules provides detailed deployment documentation for WordPress. This section covers the setup of the staging-to-production workflow.
+
+- **WordPress deployment:** Follow the [WordPress deployment guide](../products/wordpress-capsule/deploy.md) to create your WordPress capsule with attached database and storage.
+- **Creating staging and production environments:** Deploy two identical WordPress setups, for example, one called "Staging WordPress" and one called "Production WordPress". Each needs its own database and storage capsules. This separation ensures staging changes don't affect production until you explicitly migrate them.
+- **Configuring custom domains:** Navigate to the [Domains](../products/wordpress-capsule/domain.md) tab in each capsule, then add your custom domains. Use subdomains like `staging.yourblog.com` for staging and `yourblog.com` for production. Configure DNS records for your domain with your domain provider using the instructions provided by Code Capsules.
+- **Setting up the migration workflow:** Once both environments are deployed, migrate content from staging to production using the [Migrate](../products/wordpress-capsule/migrate.md) tab in your production capsule. Select staging as the source and start the migration. Code Capsules handles database synchronization, file transfer, and URL updates automatically.
+- **Backup verification:** Database and storage capsules back up automatically daily. Check the Backups tab in each capsule to verify retention settings and test restoration to a new capsule to confirm backup integrity.
+
+For ongoing operations, refer to the [WordPress capsule documentation](../products/wordpress-capsule/) for monitoring, logs, and alerting configuration.
+
+### Migrating Content from Staging to Production
+
+In your production WordPress capsule, navigate to the **Migrate** tab. Select **Staging WordPress** as the source capsule.
 
 ![WordPress migration source capsule selection](.gitbook/assets/wordpress-migration-source-selection.png)
 
@@ -149,25 +161,23 @@ Click **Start Migration**. Code Capsules copies your database content, uploaded 
 
 ![WordPress migration in progress](.gitbook/assets/wordpress-migration-in-progress.png)
 
-Once complete, your production environment will have identical content to the staging environment. Configure your production domain (like `blog.yourdomain.com`) following the same DNS setup process from the staging section.
+Once complete, your production environment will have identical content to the staging environment.
 
-Writers create posts on staging, editors review the content, then you migrate approved changes to production with one click. Migration becomes a deployment step, not a manual synchronization process.
+With this set up writers create posts on staging, editors review the content, then you migrate approved changes to production with one click.
 
 ## Backup in WordPress
 
 Production WordPress requires comprehensive backups capturing your entire site state. A complete backup includes three components:
 
 - **The database.** Your MySQL database contains all posts, pages, comments, user accounts, and plugin settings, your site's dynamic content.
-
 - **The file system.** Your files include themes, plugins, WordPress core, and the uploads directory with all images and media, your site's structure, and assets.
-
 - **Off-site storage.** Backups stored on the same server as your live site provide no protection against hardware failures or hosting issues. Production backups require external storage.
 
 The critical requirement is synchronization. Your database references files by path and URL. If you back up your database at 2 pm and files at 3 pm, a blog post created at 2:30 pm can reference an image that doesn't exist in your file backup. Production backups must capture the database and files simultaneously.
 
 ### How Code Capsules Handles Backups
 
-Code Capsules implements infrastructure-level backups. Your database capsule and storage capsule maintain automatic daily snapshots with 30-day retention. These backups run outside WordPress, avoiding performance impact and resource limits.
+Code Capsules implements infrastructure-level backups. Your database and storage capsule maintain automatic daily snapshots with 30-day retention. These backups run outside WordPress, avoiding performance impact and resource limits.
 
 Database and storage backups capture the same point in time, ensuring a synchronized state. Restoration works regardless of database size, avoiding the 500MB cPanel limitation that breaks manual restoration for production sites.
 
@@ -249,17 +259,6 @@ Choosing a hosting option depends on whether you have DevOps resources and need 
 | **Custom Server Software**          | No                                   | Yes                                    | Yes                                           | Limited                                      |
 | **Best For**                        | Non-technical teams, simple sites    | Teams with DevOps, custom requirements | Enterprise with dedicated infrastructure team | Technical teams needing workflow integration |
 
-## Deploying WordPress on Code Capsules
-
-Code Capsules provides detailed deployment documentation for WordPress. This section covers the setup of the staging-to-production workflow.
-
-- **WordPress deployment:** Follow the [WordPress deployment guide](../products/wordpress-capsule/deploy.md) to create your WordPress capsule with attached database and storage.
-- **Creating staging and production environments:** Deploy two identical WordPress setups, for example, one called "Staging WordPress" and one called "Production WordPress". Each needs its own database and storage capsules. This separation ensures staging changes don't affect production until you explicitly migrate them.
-- **Configuring custom domains:** Navigate to the [Domains](../products/wordpress-capsule/domain.md) tab in each capsule, then add your custom domains. Use subdomains like `staging.yourblog.com` for staging and `yourblog.com` for production. Configure DNS records for your domain with your domain provider using the instructions provided by Code Capsules.
-- **Setting up the migration workflow:** Once both environments are deployed, migrate content from staging to production using the [Migrate](../products/wordpress-capsule/migrate.md) tab in your production capsule. Select staging as the source and start the migration. Code Capsules handles database synchronization, file transfer, and URL updates automatically.
-- **Backup verification:** Database and storage capsules back up automatically daily. Check the Backups tab in each capsule to verify retention settings and test restoration to a new capsule to confirm backup integrity.
-
-For ongoing operations, refer to the [WordPress capsule documentation](../products/wordpress-capsule/) for monitoring, logs, and alerting configuration.
 
 ## Conclusion
 
