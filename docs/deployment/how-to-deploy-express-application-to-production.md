@@ -1,12 +1,13 @@
 ---
 title: Deploy an Express.js Application to Production
-description: Enable auto deployments for an Express.js application from a specified branch on your GitHub repo.
 hide:
   - navigation
+description: >-
+  Enable auto deployments for an Express.js application from a specified branch
+  on your GitHub repo.
 ---
 
 # How to Deploy an Express.js Application to Production on Code Capsules
-
 
 Deploy an Express.js application and learn how to host backend code on Code Capsules.
 
@@ -30,13 +31,14 @@ Code Capsules gives every account a Personal Team by default. A Team is an envir
 
 ## Create a Space for your App
 
-Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/shared/space-name.png)
+![space name](../../.gitbook/assets/space-name.png)
 
 Example instructions to go with numbered annotations
+
 1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
 2. This should remind you of the project, for example “customer-api” or “notetaking-app”
 3. Choose a country close to where most of your users will be
@@ -56,15 +58,14 @@ To create a new Capsule for your space follow the instructions below:
 6. Leave "Run Command" blank.
 7. Click "Create Capsule".
 
-Code Capsules will automatically build your application when you’ve finished creating the Capsule. 
+Code Capsules will automatically build your application when you’ve finished creating the Capsule.
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+![Build logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 Once the build is complete, a "Live Website" link will appear at the top of the tab. Click the link and you should see your deployed application.
 
-![Deployed App](../assets/deployment/express/cc-express-app.png)
+![Deployed App](../../.gitbook/assets/cc-express-app.png)
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
-
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](./).

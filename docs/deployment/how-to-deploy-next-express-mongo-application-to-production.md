@@ -1,8 +1,8 @@
 ---
 title: Deploy a Next.js, Express.js and Mongo Application to Production
-description: A guide to deploying a Next.js, Express.js and Mongo application from GitHub.
 hide:
   - navigation
+description: A guide to deploying a Next.js, Express.js and Mongo application from GitHub.
 ---
 
 # How to Deploy a Next.js, Express.js and Mongo Application to Production on Code Capsules
@@ -24,7 +24,7 @@ A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the se
 Click the yellow`+` button, and follow the instructions below to create a Data Capsule:
 
 1. Choose "Data Capsule".
-2. Under "Data Type", select "MongoDB".  
+2. Under "Data Type", select "MongoDB".
 3. Click "Create Capsule".
 
 To create a new Capsule for your space follow the instructions below:
@@ -37,32 +37,30 @@ To create a new Capsule for your space follow the instructions below:
 6. Leave "Run Command" blank.
 7. Click "Create Capsule".
 
-Code Capsules will automatically build your application when you’ve finished creating the Capsule. 
+Code Capsules will automatically build your application when you’ve finished creating the Capsule.
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+![Build logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 ## Binding the Capsules
 
-Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the MongoDB database in the Data Capsule. 
+Now you need to bind the two capsules together. Navigate to the "Configure" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This enables the capsule to use the MongoDB database in the Data Capsule.
 
-![Bind MERN Capsules](../assets/deployment/shared/bind-mongodb.png)
+![Bind MERN Capsules](../../.gitbook/assets/bind-mongodb.png)
 
 ## Edit `DATABASE_URL` Environment Variable
 
-Once the binding is complete, you have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Capsule parameters" section on the "Configure" tab. 
+Once the binding is complete, you have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Capsule parameters" section on the "Configure" tab.
 
-![Edit DATABASE_URL Environment Variable](../assets/deployment/mern/edit-database-url.png)
+![Edit DATABASE\_URL Environment Variable](../../.gitbook/assets/edit-database-url.png)
 
 Confirm your changes by clicking on "Update Capsule" then restart your capsule by toggling the radio button in the top right off and on again.
-
-
 
 ## View Application
 
 After restarting the capsule, the application will now be ready to be viewed. Once the build is complete, a URL link will appear in the URL section in the "Details" tab. Click the link and you should see your deployed application.
 
-![Deployed App](../assets/deployment/next-express/next-express-mongo-app.png)
+![Deployed App](../../.gitbook/assets/next-express-mongo-app.png)
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](./).

@@ -3,9 +3,9 @@ title: White-Label Your App with Code Capsules
 description: White-Label Your App with Code Capsules.
 ---
 
-
 # White-Label Your App with Code Capsules
 
+## White-Label Your App with Code Capsules
 
 A white-label app is a prebuilt program that offers customers the freedom to customize the application without the hassle of developing the core functionality.
 
@@ -13,17 +13,17 @@ These kinds of apps were developed to meet the need for shorter waiting times an
 
 Do the benefits of a white-label app seem appealing to you? (Who wouldn’t want to save money and time!) Then let’s take a look at the two options available.
 
-# Single Tenant vs Multitenant
+## Single Tenant vs Multitenant
 
 Once you've decided to create a white-label app, you need to consider the level of customization your clients will need. There are two types of white-label applications: single tenant and multitenant. While one allows for greater customization, the other offers a more cost-effective and speedy solution. Let’s take a look at what each type has to offer.
 
-## Single Tenant
+### Single Tenant
 
 A single-tenant application has its own independent database and server, dedicated solely to a single customer's version of the application. This means that changes made to the app will not affect any other versions, allowing customers to have complete control over any updates made to the app, whether stylistic or architectural.
 
 A single-tenant white-label app provides the customer with a template that speeds up the lengthy development process along with the freedom to tailor the application to suit their needs. This template is the perfect foundation for customers who want to save money on building the basics but are willing to put in the resources to maximize customization and user experience.
 
-## Multitenant
+### Multitenant
 
 For customers who are looking for a cost-effective way to get their applications out quickly, the multitenant option is the most suitable choice. Multitenant applications share a server and database across all versions. Customers can focus solely on the UI of their application to suit their brand while enjoying the benefits of a well-designed base architecture.
 
@@ -31,7 +31,7 @@ Multitenant applications provide a one-size-fits-all app architecture that canno
 
 This solution is cost-effective because it requires very little set-up or developer resources on the part of the customer to get going. One downside to this model is that a shared database and server ultimately implies shared impact when it comes to issues or breaches.
 
-# Which Solution is Best for You?
+## Which Solution is Best for You?
 
 Whether you choose to build a single-tenant or multitenant white-label app depends on what your clients need. If your client wants a highly customizable experience and has the budget, a single-tenant app still provides shorter development time and lower costs than a completely custom-built app. However, a multitenant app is a quick, affordable solution to serve many small- to medium-sized companies that want to get an MVP up and running and requires less technical set up, so you can take on more clients.
 
@@ -39,23 +39,23 @@ Once you have decided which type of white-label app you will build, you can begi
 
 In the next section we will walk through:
 
-- Setting up a single-tenant white-label application on GitHub.
-- Hosting two different versions of the app on Code Capsules.
-- Exploring the customization options you might consider when creating your own white-label app.
+* Setting up a single-tenant white-label application on GitHub.
+* Hosting two different versions of the app on Code Capsules.
+* Exploring the customization options you might consider when creating your own white-label app.
 
-# How to Deploy a Single-Tenant White-Label App on Code Capsules
+## How to Deploy a Single-Tenant White-Label App on Code Capsules
 
 Let's take a look at how you can create a single-tenant application and host multiple versions of it on Code Capsules. We will set up two versions of a white-label app, representing two different companies that have bought the app. We'll customize each version of the app by editing environment variables to meet the branding requirements of the customers.
 
-## Overview and Requirements
+### Overview and Requirements
 
 To edit, configure, and deploy both versions of our application, you will need the following:
 
-- Git set up and installed and a registered GitHub account.
-- A [Code Capsules](https://codecapsules.io/) account.
-- An IDE or text editor of your choice.
+* Git set up and installed and a registered GitHub account.
+* A [Code Capsules](https://codecapsules.io/) account.
+* An IDE or text editor of your choice.
 
-## Getting Started
+### Getting Started
 
 To start, initialize a local Git repository and clone the [starter code](https://github.com/ritza-co/demo-htmx-express-white-label) onto your local machine from your terminal with the following command:
 
@@ -72,11 +72,11 @@ npm run start
 
 Then go to [`http://localhost:3005/`](http://localhost:3005/) to see the app.
 
-![Initial app](../assets/tutorials/white-label-app/initial-app.png)
+![Initial app](../../.gitbook/assets/initial-app.png)
 
 The application is currently set up for a singular purpose: to store book recommendations. The scope and branding are limited, but the core functionality—a data store with an intuitive UI—could be a great tool for a number of companies.
 
-## Making the App a White-Label App
+### Making the App a White-Label App
 
 To be a white-label app, this app needs to be customizable to match the requirements of different companies. To make the app customizable, we can remove hard-coded values from the code and replace them with environment variables that can be changed easily.
 
@@ -111,7 +111,7 @@ h1= heading
 
 This changes the hard-coded title of the page to the environment variable accessed through the context dictionary. If you run the app now, you will see that the page has a new heading.
 
-![Custom Heading](../assets/tutorials/white-label-app/custom-heading.png)
+![Custom Heading](../../.gitbook/assets/custom-heading.png)
 
 You can get pretty creative with setting these environment variables. To demonstrate some of the possibilities, define these variables within the `.env` file:
 
@@ -245,17 +245,17 @@ const navStyle = `background-color: ${process.env.navColor}; display: ${display}
 
 If you run the code now, you will see the app has a branded look:
 
-![Branded App](../assets/tutorials/white-label-app/pizza-app.png)
+![Branded App](../../.gitbook/assets/pizza-app.png)
 
-We won’t need the `.env ` file in our deployment, so you can go ahead and delete that file.
+We won’t need the `.env` file in our deployment, so you can go ahead and delete that file.
 
 Now that our application is easily customizable, we can deploy different versions of the application for different companies.
 
-## Deploying the App on Code Capsules
+### Deploying the App on Code Capsules
 
 Now that our application is ready to be customized and deployed, we can use Code Capsules to make this process easy and intuitive.
 
-To get started, create a repository on GitHub and push your app’s code to this new repository. 
+To get started, create a repository on GitHub and push your app’s code to this new repository.
 
 Next, create an account for or log in to [Code Capsules](https://codecapsules.io/). During your account set up, link your GitHub repository to your Code Capsules account and provide access to the repository that stores your code.
 
@@ -263,7 +263,7 @@ Once your set up is complete, you can begin deploying your apps. Let’s pretend
 
 You can deploy two different versions of the app with Code Capsules by following these steps for each application.
 
-### Create the Capsules
+#### Create the Capsules
 
 A Capsule provides the server for hosting an application on Code Capsules.
 
@@ -289,19 +289,19 @@ Code Capsules will automatically build your application when you’ve finished c
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+![Build logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
-### Bind the Capsules
+#### Bind the Capsules
 
 Next, you need to bind the Backend Capsule to its database. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind" option on the appropriate Data Capsule. This enables the Capsule to use persistent storage in the Data Capsule.
 
-![Bind Capsules](../assets/deployment/shared/bind-persistent.png)
+![Bind Capsules](<../../.gitbook/assets/bind-persistent (2).png>)
 
-### Configure Environment Variables
+#### Configure Environment Variables
 
 In the Backend Capsule, navigate to the "Config" tab. Under the "Environment Variables" section, click the "Edit" button. Next, define the name of your environment variable and its value in the UI and click "Save". Repeat these steps for all your environment variables.
 
-![Configure Environment Variables](../assets/deployment/shared/env-variables-persistent-storage.png)
+![Configure Environment Variables](<../../.gitbook/assets/env-variables-persistent-storage (1).png>)
 
 For the first app, the pizza company, set the environment variables to the following:
 
@@ -335,25 +335,25 @@ buttonColor= darkblue
 buttonTextColor= white
 ```
 
-### View Application
+#### View Application
 
 After saving these new variables the Capsule will restart, and the application will now be ready to be viewed. Click the "URL" link in the "Details" tab and you should see your deployed application.
 
 The pizza company’s application has a red theme, a modern sans-serif font, custom headings, and its logo.
 
-![Pizza Company App](../assets/tutorials/white-label-app/pizza-app.png)
+![Pizza Company App](../../.gitbook/assets/pizza-app.png)
 
 The movie company has a dark blue theme, a traditional serif font, custom headings, and its logo.
 
-![Movie Company App](../assets/tutorials/white-label-app/movie-app.png)
+![Movie Company App](../../.gitbook/assets/movie-app.png)
 
 The app also has the option to turn off the navbar, which can be done by setting the `navbar` environment variable to `false`. This would be the result:
 
-![App without Navbar](../assets/tutorials/white-label-app/app-no-nav.png)
+![App without Navbar](../../.gitbook/assets/app-no-nav.png)
 
 Stylistic changes can be made by changing colors, font types, text, and logos, but pretty large changes can also be made to the UI by hiding and revealing its parts through variable choices. It’s all up to the designer of the application to decide how far they want to go in providing this kind of customization to their client.
 
-## Takeaway
+### Takeaway
 
 In this tutorial, two very different-looking applications were deployed from the same codebase simply by changing a couple of variables in the Code Capsules UI. This is a powerful way to get your app solution to more people, more quickly, and at a lower price.
 

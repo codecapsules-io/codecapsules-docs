@@ -1,8 +1,8 @@
 ---
 title: Deploy a Next Application to Production
-description: A guide to deploying a Next application from GitHub.
 hide:
   - navigation
+description: A guide to deploying a Next application from GitHub.
 ---
 
 # How to Deploy a Next Application to Production on Code Capsules
@@ -19,13 +19,14 @@ Sign in to GitHub, and fork the example application by clicking "Fork" at the to
 
 ## Create an Account with Code Capsules
 
-Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/shared/space-name.png)
+![space name](../../.gitbook/assets/space-name.png)
 
 Example instructions to go with numbered annotations
+
 1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
 2. This should remind you of the project, for example “customer-api” or “notetaking-app”
 3. Choose a country close to where most of your users will be
@@ -45,14 +46,14 @@ To create a new Capsule for your space follow the instructions below:
 6. Leave "Run Command" blank.
 7. Click "Create Capsule".
 
-Code Capsules will automatically build your application when you’ve finished creating the Capsule. 
+Code Capsules will automatically build your application when you’ve finished creating the Capsule.
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+![Build logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 Once the build is complete, a URL link will appear in the URL section in the "Details" tab. Click the link and you should see your deployed application.
 
-![Deployed Application](../assets/deployment/next/next-app.png)
+![Deployed Application](../../.gitbook/assets/next-app.png)
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](./).

@@ -11,11 +11,11 @@ A [Team](../FAQ/what-is-a-team.md) is a group of developers who share access to 
 
 You can create as many teams as you need on Code Capsules. To create a new Team, click on the yellow `+` button on the bottom left of the screen.
 
-![Create a Team](../assets/reference/team-management/new-team.png)
+![Create a Team](../../.gitbook/assets/new-team.png)
 
 Click on the "New Team" option, and fill in your Team name in the screen that slides in from the right. Confirm your changes by clicking "I Like It".
 
-![Enter Team Details](../assets/reference/team-management/create-team.png)
+![Enter Team Details](../../.gitbook/assets/create-team.png)
 
 ## Creating Spaces
 
@@ -23,7 +23,7 @@ To create a new Space, click the yellow `+` icon on the bottom left of the scree
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../../.gitbook/assets/space-name.png)
+![space name](<../../.gitbook/assets/space-name (1).png>)
 
 ## Adding Team Repos
 
@@ -33,7 +33,7 @@ Code Capsules connects to GitHub to deploy applications on its platform. Before 
 
 If you've already linked your Code Capsules account to GitHub, you'll be asked which repos to add to your Team. Click "Share repositories with Team" and toggle on the repos you wish to add to your Team, then click "Share Repos".
 
-![Edit Team Repos](../assets/reference/team-management/add-repo.png)
+![Edit Team Repos](../../.gitbook/assets/add-repo.png)
 
 ### Linking to a Git Provider
 
@@ -41,7 +41,7 @@ If you haven't yet linked to your version control provider to your Code Capsules
 
 Click "Install" next to your preferred provider.
 
-![Version Control Providers](../assets/reference/team-management/choose-version-control-providers.png)
+![Version Control Providers](../../.gitbook/assets/choose-version-control-providers.png)
 
 Then follow the prompts to connect your repos to Conde Capsules. For example, when choosing GitHub, you will select your GitHub username and do the following in the dialog box that appears:
 
@@ -49,18 +49,18 @@ Then follow the prompts to connect your repos to Conde Capsules. For example, wh
 2. Choose the GitHub repository you want to deploy from.
 3. Press "Install & Authorize".
 
-![Install & authorize github](../assets/reference/team-management/github-integration.png)
+![Install & authorize github](../../.gitbook/assets/github-integration.png)
 
 ## Team Billing
 
 Next, you'll be asked to enter your Team billing information. You can do so now, or skip this step if you wish to do it later.
 
-![Enter Card Details](../assets/reference/team-management/card-details.png)
+![Enter Card Details](<../../.gitbook/assets/card-details (1).png>)
 
 ## Inviting Team Members
 
 The final step in creating a Team is to invite members to it. Enter your prospective team members' email addresses in the text field and click "Invite Team Members" to send your invitation.
 
-![Invite Team Members](../assets/reference/team-management/add-team-member.png)
+![Invite Team Members](../../.gitbook/assets/add-team-member.png)
 
 Your Team is now ready to begin collaborating.

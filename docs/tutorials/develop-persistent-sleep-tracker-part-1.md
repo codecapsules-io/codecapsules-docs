@@ -1,30 +1,34 @@
 ---
-title: Develop a Persistent Sleep Tracker 
-description: First part in a two-part series that takes you through creating a web application to monitor sleep patterns of registered users and display them graphically. 
-image: assets/tutorials/develop-persistent-sleep-tracker-part-1/code_capsules_sleep_tracker.jpg
+title: Develop a Persistent Sleep Tracker
+image: >-
+  assets/tutorials/develop-persistent-sleep-tracker-part-1/code_capsules_sleep_tracker.jpg
+description: >-
+  First part in a two-part series that takes you through creating a web
+  application to monitor sleep patterns of registered users and display them
+  graphically.
 ---
 
 # Developing a Persistent Sleep Tracker Part 1: Handling Users with Flask-Login
 
-![Sleep Tracker Cover](../assets/tutorials/develop-persistent-sleep-tracker-part-1/code_capsules_sleep_tracker.jpg)
+![Sleep Tracker Cover](../../.gitbook/assets/code_capsules_sleep_tracker.jpg)
 
 ## Introduction
 
-In this two-part tutorial series, we'll learn how to create a sleep tracker web application hosted on Code Capsules. Users will register an account with the sleep tracker and log in. To track their sleep data, users will enter a date and number of hours slept. We'll present users with a graph showing the sleep data they've logged, so users can get a visual representation of their sleep habits over time. 
+In this two-part tutorial series, we'll learn how to create a sleep tracker web application hosted on Code Capsules. Users will register an account with the sleep tracker and log in. To track their sleep data, users will enter a date and number of hours slept. We'll present users with a graph showing the sleep data they've logged, so users can get a visual representation of their sleep habits over time.
 
-Throughout this tutorial series, we'll use many tools to create an interactive experience. We'll learn how to: 
+Throughout this tutorial series, we'll use many tools to create an interactive experience. We'll learn how to:
 
 * Create a user login and register system with Python's [Flask](https://flask.palletsprojects.com/en/1.1.x/).
 * Use a [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL database to store data.
-* Create interactive [Plotly](https://plotly.com/python/) graphs. 
+* Create interactive [Plotly](https://plotly.com/python/) graphs.
 
-This tutorial series is best suited for those with some Python, HTML, and Flask experience. But even if you feel you don't have much experience with these, don't worry. We'll walk through this application step-by-step. Let's get started! 
+This tutorial series is best suited for those with some Python, HTML, and Flask experience. But even if you feel you don't have much experience with these, don't worry. We'll walk through this application step-by-step. Let's get started!
 
 ## MongoDB Data Capsule
 
-One of the most important aspects of this tutorial is using a Mongo Database (MongoDB). With this MongoDB, we can track users' login information and sleep data. MongoDB is a _NoSQL_ databases, which means we can store data easily, in variable formats, without having to first create tables, as we would have to with a traditional SQL databse. If you're unfamiliar with NoSQL databases or MongoDB in general, take a look at [this explainer](https://www.mongodb.com/nosql-explained) by the MongoDB organization. 
+One of the most important aspects of this tutorial is using a Mongo Database (MongoDB). With this MongoDB, we can track users' login information and sleep data. MongoDB is a _NoSQL_ databases, which means we can store data easily, in variable formats, without having to first create tables, as we would have to with a traditional SQL databse. If you're unfamiliar with NoSQL databases or MongoDB in general, take a look at [this explainer](https://www.mongodb.com/nosql-explained) by the MongoDB organization.
 
-Follow [this short tutorial](../reference/set-up-mongodb-data-capsule.md) to create a MongoDB data capsule that we'll use to store the user data for this sleep tracker application. This step is *extremely* important – without a database, our application will not function. 
+Follow [this short tutorial](../reference/set-up-mongodb-data-capsule.md) to create a MongoDB data capsule that we'll use to store the user data for this sleep tracker application. This step is _extremely_ important – without a database, our application will not function.
 
 Once you've set up a MongoDB data capsule, continue with this tutorial.
 
@@ -32,30 +36,30 @@ Once you've set up a MongoDB data capsule, continue with this tutorial.
 
 In addition to creating a MongoDB Data Capsule, make sure you have the following:
 
-- [Git](https://git-scm.com/) installed and a registered [GitHub](https://github.com) account.
-- [Virtualenv](https://pypi.org/project/virtualenv/) installed. 
-- A registered [Code Capsules](https://codecapsules.io) account.
+* [Git](https://git-scm.com/) installed and a registered [GitHub](https://github.com) account.
+* [Virtualenv](https://pypi.org/project/virtualenv/) installed.
+* A registered [Code Capsules](https://codecapsules.io) account.
 
 ## Project Setup and Introduction
 
-Creating this sleep tracker will be a two-part process. First, we will create a login and registration page and a user management backend. Second, we will create a page where users enter their sleep data and view a graph. 
+Creating this sleep tracker will be a two-part process. First, we will create a login and registration page and a user management backend. Second, we will create a page where users enter their sleep data and view a graph.
 
-![login](../assets/tutorials/develop-persistent-sleep-tracker-part-1/login.png)
+![login](../../.gitbook/assets/login.png)
 
-![sleep](../assets/tutorials/develop-persistent-sleep-tracker-part-1/sleep.png)
+![sleep](../../.gitbook/assets/sleep.png)
 
 This tutorial will focus on the first part: dealing with user management. To start, create a `sleep-tracker` directory somewhere on your computer. All of our project's files will be in this directory.
 
 ### Setting up Virtual Env
 
-With our `sleep-tracker` directory created, we need to set up a [virtual environment](https://realpython.com/python-virtual-environments-a-primer/). Setting up a virtual environment will be useful when we host our web application on Code Capsules. Virtual environments ensure that only the libraries used in the development of our sleep tracker application will be installed by Code Capsule's servers. 
+With our `sleep-tracker` directory created, we need to set up a [virtual environment](https://realpython.com/python-virtual-environments-a-primer/). Setting up a virtual environment will be useful when we host our web application on Code Capsules. Virtual environments ensure that only the libraries used in the development of our sleep tracker application will be installed by Code Capsule's servers.
 
 To create a virtual environment, navigate to the `sleep-tracker` directory in a terminal and enter `virtualenv env`.
 
 Then, activate the virtual environment with:
 
-+ **Linux/MacOSX:** `source env/bin/activate`
-+ **Windows:** `\env\Scripts\activate.bat`
+* **Linux/MacOSX:** `source env/bin/activate`
+* **Windows:** `\env\Scripts\activate.bat`
 
 If the virtual environment activated correctly, you'll notice `(env)` to the left of your name in the terminal. Keep this terminal open – we'll install the project dependencies next.
 
@@ -63,11 +67,11 @@ If the virtual environment activated correctly, you'll notice `(env)` to the lef
 
 Our sleep tracker will use the following Python libraries:
 
-- [Flask](https://flask.palletsprojects.com/en/1.1.x/) is a lightweight Python web development framework.
-- [Flask-Login](https://flask-login.readthedocs.io/en/latest/) provides user session management for Flask. This will help us implement a user login and registeration system without having to create one from scratch. 
-- [Flask Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) is a [hashing](https://en.wikipedia.org/wiki/Cryptographic_hash_function) extension for Flask. This allow us to store users' passwords securely and without knowing what they are.
-- [Gunicorn](https://gunicorn.org/) is the [WSGI server](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface) we'll use to host our application on Code Capsules.
-- [Pymongo](https://pymongo.readthedocs.io/en/stable/) is a Python library that has tools for interacting with MongoDBs. We'll use Pymongo to connect and send data to our MongoDB.
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) is a lightweight Python web development framework.
+* [Flask-Login](https://flask-login.readthedocs.io/en/latest/) provides user session management for Flask. This will help us implement a user login and registeration system without having to create one from scratch.
+* [Flask Bcrypt](https://flask-bcrypt.readthedocs.io/en/latest/) is a [hashing](https://en.wikipedia.org/wiki/Cryptographic_hash_function) extension for Flask. This allow us to store users' passwords securely and without knowing what they are.
+* [Gunicorn](https://gunicorn.org/) is the [WSGI server](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface) we'll use to host our application on Code Capsules.
+* [Pymongo](https://pymongo.readthedocs.io/en/stable/) is a Python library that has tools for interacting with MongoDBs. We'll use Pymongo to connect and send data to our MongoDB.
 
 To install these libraries, activate the virtual environment in your terminal and type the following:
 
@@ -75,21 +79,21 @@ To install these libraries, activate the virtual environment in your terminal an
 pip3 install flask flask-login flask-bcrypt gunicorn pymongo
 ```
 
-Next, we'll create all the files and directories that we'll use in both parts of this series. 
+Next, we'll create all the files and directories that we'll use in both parts of this series.
 
 ### Creating the file structure
 
 Because we'll use Flask to render our HTML files and serve static content, we need to have a specific project structure. Flask expects to find HTML files in a directory named `templates` and static content such as CSS stylesheets and images in a directory named `static`. In the `sleep-tracker` directory, create both of these directories.
 
-Inside `templates`, create three files: `base.html`, `login.html`, and `main.html`. 
+Inside `templates`, create three files: `base.html`, `login.html`, and `main.html`.
 
-- `base.html` will contain the skeleton for our website's other HTML pages. 
-- `login.html` will contain the HTML for the main page of our web application. Here, users will log in or register an account with our sleep tracker.
-- `main.html` will contain the HTML for the page where users will enter their sleep data and view a graph of this data. We'll deal with this file in the second part of this tutorial.
+* `base.html` will contain the skeleton for our website's other HTML pages.
+* `login.html` will contain the HTML for the main page of our web application. Here, users will log in or register an account with our sleep tracker.
+* `main.html` will contain the HTML for the page where users will enter their sleep data and view a graph of this data. We'll deal with this file in the second part of this tutorial.
 
 Next, open the `static` directory and create a file named `style.css`. This will be the only file in this directory, and will conain the CSS style for our website.
 
-Finally, in the main `sleep-tracker` directory, create a file named `app.py`. In this file, we'll write the Python code that serves our HTML content to user and manages their activities on the web application. 
+Finally, in the main `sleep-tracker` directory, create a file named `app.py`. In this file, we'll write the Python code that serves our HTML content to user and manages their activities on the web application.
 
 ## Creating the HTML Templates
 
@@ -113,25 +117,32 @@ The `base.html` file will contain all of the HTML code common throughout our app
   </head>
 
 <body>
-{% block content %}{% endblock %}
+
+<div data-gb-custom-block data-tag="block"></div>
 
 </body>
 </html>
 
 ```
 
-This is our skeleton. When Flask serves our `login.html` or  `main.html` pages, it will replace the `{% block content %}{% endblock %}` with that page's unique content.
+This is our skeleton. When Flask serves our `login.html` or `main.html` pages, it will replace the \`
 
-Any code between `{%` and `%}` or `{{` and `}}` is Jinja syntax, which is largely similar to Python code. Flask will evaluate this code before [rendering](https://flask.palletsprojects.com/en/1.1.x/tutorial/templates/) HTML files and serving them to users. In this example, we use Jinja syntax to call Flask's `url_for()` function. To link our stylesheet, Flask uses the `url_for()` function to find the `style.css` file in the `static` directory. 
+\` with that page's unique content.
+
+Any code between `{%` and \`%\}
+
+`or`\{{`and`\}}`is Jinja syntax, which is largely similar to Python code. Flask will evaluate this code before [rendering](https://flask.palletsprojects.com/en/1.1.x/tutorial/templates/) HTML files and serving them to users. In this example, we use Jinja syntax to call Flask's`url\_for()`function. To link our stylesheet, Flask uses the`url\_for()`function to find the`style.css`file in the`static\` directory.
 
 ## Creating the Login Page
 
 Now that we've created the `base.html` file, we can implement our `login.html` file. Open `login.html`and add the following markup:
 
 ```html
-{% extends "base.html" %}
 
-{% block content %}
+<div data-gb-custom-block data-tag="extends" data-0='base.html'></div>
+
+<div data-gb-custom-block data-tag="block">
+
 <h2>Login or register here to track your sleep!</h2>
 <form action="" method="POST">
   <ul>
@@ -149,11 +160,14 @@ Now that we've created the `base.html` file, we can implement our `login.html` f
     </li>
   </ul>
 </form>
-{% endblock %}
+
+</div>
 
 ```
 
-The line `{% extends "base.html" %}` tells Jinja to render this page by populating each of `base.html`'s named [`block` directives](https://jinja.palletsprojects.com/en/2.11.x/templates/#template-inheritance) with the corresponding `block` content defined in `login.html`. In this instance, we've only defined a single block named `content`, but we could define multiple blocks. For example, we might want to have a `head` block that defines some page-specific content that needs to be in the HTML `<head>` tag.
+The line \`
+
+\` tells Jinja to render this page by populating each of \`base.html\`'s named \[\`block\` directives]\(https://jinja.palletsprojects.com/en/2.11.x/templates/#template-inheritance) with the corresponding \`block\` content defined in \`login.html\`. In this instance, we've only defined a single block named \`content\`, but we could define multiple blocks. For example, we might want to have a \`head\` block that defines some page-specific content that needs to be in the HTML \`\` tag.
 
 On this page, we've created a form containing input fields for users to enter their username and password, as well as login and register buttons. Note the [`POST`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) HTTP method – this will ensure that the username and password are sent as `POST` parameters in the HTTP request body, rather than as `GET` parameters in the URL. This allows us to differentate between when a user visits the login page (a `GET` request) versus when they click the register or login button.
 
@@ -208,7 +222,7 @@ h2 {
 
 ```
 
-Feel free to add your own personal touches, such as a favourite colour or font. 
+Feel free to add your own personal touches, such as a favourite colour or font.
 
 ### Testing what we have
 
@@ -231,8 +245,9 @@ def main():
 ```
 
 Here we've created two [routes](https://flask.palletsprojects.com/en/1.1.x/quickstart/#routing):
-+ `/`, which will be our web application's homepage and serve the content of `login.html`.
-+ `/main`, which will be our web application's sleep tracker page and serve the content of `main.html`. 
+
+* `/`, which will be our web application's homepage and serve the content of `login.html`.
+* `/main`, which will be our web application's sleep tracker page and serve the content of `main.html`.
 
 Flask uses the `@app.route` [function decorator](https://realpython.com/primer-on-python-decorators/) to determine which functions will be executed when the user visits different routes.
 
@@ -240,16 +255,17 @@ View the application by opening a terminal in the `sleep-tracker` directory and 
 
 After running the application, Flask will provide you with URL. Enter this URL in your web browser, and you'll see the login screen. It should look something like this:
 
-![](../assets/tutorials/develop-persistent-sleep-tracker-part-1/login.png)
+![](../../.gitbook/assets/login.png)
 
 ## Handling User Registration and Login
 
-Rather than implementing a user registration and login system ourselves, we'll use the Flask Login library that we installed earlier to provide this functionality. This will help us to save time and avoid common usability and security pitfalls. We will store user information in the database we created [at the beginning of this tutorial](#mongodb-data-capsule).
+Rather than implementing a user registration and login system ourselves, we'll use the Flask Login library that we installed earlier to provide this functionality. This will help us to save time and avoid common usability and security pitfalls. We will store user information in the database we created [at the beginning of this tutorial](develop-persistent-sleep-tracker-part-1.md#mongodb-data-capsule).
 
 First, let's import the functionality we'll need from:
-+ `flask-login`, `flask-bcrypt`, to handle users.
-+ `pymongo`, to interface with MongoDB.
-+ `re`, to validate user input. 
+
+* `flask-login`, `flask-bcrypt`, to handle users.
+* `pymongo`, to interface with MongoDB.
+* `re`, to validate user input.
 
 Enter the following code below the line that starts with `from flask import`:
 
@@ -287,7 +303,7 @@ db = client.user_login
 
 Here we import the `pymongo` library and use it to connect to our MongoDB instance. Replace `YOURUSERNAME` and `YOURPASSWORD` with your data capsule account information.
 
-### Create the user class 
+### Create the user class
 
 For Flask Login to work, we need to create a `User` class. This `User` class will contain information pertaining to the user that is currently logged in to our sleep tracker.
 
@@ -329,11 +345,11 @@ Now let's add a `check_password` method. This method will be called to determine
 
 By making `check_password` a [static method](https://realpython.com/instance-class-and-static-methods-demystified/), we enabled it to be called without instantiating an instance of our `User` class.
 
-That's all we need for user login. Now we need to link our login and registration form to this functionality. 
+That's all we need for user login. Now we need to link our login and registration form to this functionality.
 
 ### Add functionality to the login and register buttons
 
-When a user clicks the register button, we will create a new user document in our MongoDB users collection, containing their username and hashed password. When a user clicks "Login", we will log them in if they've entered a valid username and password combination and redirect them to the `main.html` file. 
+When a user clicks the register button, we will create a new user document in our MongoDB users collection, containing their username and hashed password. When a user clicks "Login", we will log them in if they've entered a valid username and password combination and redirect them to the `main.html` file.
 
 To do this, we'll create a new function that handles login and registration. Add the following code below the `def login()` function:
 
@@ -371,15 +387,15 @@ def login_or_register():
 
 First, note the `POST` method. As mentioned when we created our `login.html` file, using a `POST` method for user login and registration allows our application to transmit username and information more securely and allows us to differentiate between a user login or registration (`POST`) and a user merely visiting the page (`GET`).
 
-If the login button is pressed (`if request.form.get('login')`), we check our MongoDB for a username that matches the one entered. Then we check if the password entered matches that user's password in the MongoDB. If `check_password` evaluates to true, we log the user in and redirect to the `main` route (which we'll create in the [next part of this series](https://codecapsules.io/docs/tutorials/develop-persistent-sleep-tracker-part-2/). Otherwise, we provide the user with an error message. To redirect users, we use Flask's `redirect` function and `url_for` functions. The `url_for` function finds the `main` route, and the `redirect` function sends users to that route. 
+If the login button is pressed (`if request.form.get('login')`), we check our MongoDB for a username that matches the one entered. Then we check if the password entered matches that user's password in the MongoDB. If `check_password` evaluates to true, we log the user in and redirect to the `main` route (which we'll create in the [next part of this series](https://codecapsules.io/docs/tutorials/develop-persistent-sleep-tracker-part-2/). Otherwise, we provide the user with an error message. To redirect users, we use Flask's `redirect` function and `url_for` functions. The `url_for` function finds the `main` route, and the `redirect` function sends users to that route.
 
 If a user clicks "Register", we first validate the username and password they've provided. We're restricting usernames to a length of 20 characters, containing only alphanumeric characters and underscores. We're also ensuring that the chosen password is eight or more characters long. We then check whether the username they're trying to use is already taken. If their username and password are acceptable, we create a `new_user` dictionary with the specified name and a bcrypt hash of the specified password, which we then insert it into our MongoDB. Then we send the user back to the login page.
 
 ### Trying out the login system
 
-We've implemented the login and register buttons. Try running the program by opening a terminal in the `sleep-tracker` directory and entering `flask run`. Test out registering a few new accounts and logging into them. Remember, we haven't put any HTML in our `main.html` file, so when you log in, you'll see a blank page. Don't worry, everything is working! 
+We've implemented the login and register buttons. Try running the program by opening a terminal in the `sleep-tracker` directory and entering `flask run`. Test out registering a few new accounts and logging into them. Remember, we haven't put any HTML in our `main.html` file, so when you log in, you'll see a blank page. Don't worry, everything is working!
 
-In the [next part of this series](https://codecapsules.io/docs/tutorials/develop-persistent-sleep-tracker-part-2/), we'll implement the rest of the sleep tracker application. This means populating the `main.html` file and learning how to store user sleep data in MongoDB. 
+In the [next part of this series](https://codecapsules.io/docs/tutorials/develop-persistent-sleep-tracker-part-2/), we'll implement the rest of the sleep tracker application. This means populating the `main.html` file and learning how to store user sleep data in MongoDB.
 
 ## Further Reading
 

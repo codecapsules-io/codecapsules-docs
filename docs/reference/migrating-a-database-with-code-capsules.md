@@ -50,7 +50,7 @@ Run the command above to create a folder to store migrations:
 
 The folder should contain three files:
 
-![SQL files](../assets/reference/database-migration-images/sql-files.png)
+![SQL files](../../.gitbook/assets/sql-files.png)
 
 The two SQL files are named with an `up` and `down` suffix to hold your MySQL queries. The migrations that are performed look for MySQL queries in these files.
 

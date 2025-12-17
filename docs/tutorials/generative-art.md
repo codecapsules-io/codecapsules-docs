@@ -1,11 +1,13 @@
 ---
 title: Build a Generative Art Flask HTMx Application
-description: Create an application that generates cool graphics using Pillow, Flask and HTMx.
+description: >-
+  Create an application that generates cool graphics using Pillow, Flask and
+  HTMx.
 ---
 
 # Build a Generative Art Application with Pillow, Flask and HTMx
 
-![Generative Art Cover](../assets/tutorials/generative-art/generative-art-cover.png)
+![Generative Art Cover](../../.gitbook/assets/generative-art-cover.png)
 
 Python’s Pillow package provides support for image manipulation that we can leverage to create random graphic images.
 
@@ -13,7 +15,7 @@ In this tutorial, we’ll show you how to build a web application that creates i
 
 Here's an example of a graphic image that can be created by the app we'll build:
 
-![Graphic Image](../assets/tutorials/generative-art/graphic.png)
+![Graphic Image](../../.gitbook/assets/graphic.png)
 
 You can also add text to the generated images to create image covers and different marketing posts.
 
@@ -21,10 +23,10 @@ You can also add text to the generated images to create image covers and differe
 
 You will need the following to complete the tutorial and host your application on Code Capsules:
 
-- A [Code Capsules](https://codecapsules.io/) account
-- Git set up and installed, and a registered [GitHub](https://github.com/) account
-- IDE or text editor of your choice
-- Python 3 installed
+* A [Code Capsules](https://codecapsules.io/) account
+* Git set up and installed, and a registered [GitHub](https://github.com/) account
+* IDE or text editor of your choice
+* Python 3 installed
 
 ## Project Set Up
 
@@ -59,7 +61,7 @@ source env/bin/activate
 
 When you’ve activated the virtual environment, the name `env` will appear on the far left of your current line. This confirms that the activation was successful.
 
-![Activated virtual environment](../assets/tutorials/generative-art/envactive.png)
+![Activated virtual environment](../../.gitbook/assets/envactive.png)
 
 Now we can **install dependencies** our app needs to the environment. Run the command below from a terminal in the project root folder to install the packages we’ll need:
 
@@ -186,9 +188,9 @@ Our app has two main features: it allows a user to generate new graphic images a
 
 The `<img>` tag below the page header takes in a Base64 string as input and renders the corresponding graphic image to the screen. The download button also accesses this Base64 string to allow for the download of the image. We’ve assigned an `id` value of `"image-update-div"` to the div that contains both this image and download button to allow us to use HTMx to update the image when a user clicks the "I hate this art, make me another" button. You’ll notice three HTMx attributes in the button's `src` code, which is located at the bottom of the page. Let’s go over them and see what each one is responsible for:
 
-- `hx-target`: This attribute accepts an `id` value prefixed by a `#`. It lets HTMx know which element to swap on a successful request.
-- `hx-get`: The `hx-get` attribute sends a `GET` request to the specified URL. If we wanted to send a `POST` request, we would have used the `hx-post` attribute instead.
-- `hx-swap`: This attribute tells HTMx how to swap out the old with the new elements after a successful request. In our case we’ve used the value of `"outerHTML"` to specify that the entire `<div>` element be replaced by the response. Other accepted values include but are not limited to `innerHTML`, `beforeend`, and `afterend`.
+* `hx-target`: This attribute accepts an `id` value prefixed by a `#`. It lets HTMx know which element to swap on a successful request.
+* `hx-get`: The `hx-get` attribute sends a `GET` request to the specified URL. If we wanted to send a `POST` request, we would have used the `hx-post` attribute instead.
+* `hx-swap`: This attribute tells HTMx how to swap out the old with the new elements after a successful request. In our case we’ve used the value of `"outerHTML"` to specify that the entire `<div>` element be replaced by the response. Other accepted values include but are not limited to `innerHTML`, `beforeend`, and `afterend`.
 
 You can view other HTMx attributes and their functionalities [in this HTMx reference guide](https://htmx.org/reference/).
 
@@ -349,7 +351,6 @@ Next, we need to generate a `requirements.txt` file to tell Code Capsules which 
 pip freeze –local > requirements.txt
 ```
 
-
 ### Add Virtual Environment to `.gitignore`
 
 Before we push our local changes to the remote repository, we need to stop tracking our virtual environment folder. Create a file named `.gitignore` in the project root folder and add the code below to it:
@@ -368,7 +369,7 @@ git commit -m "Added generative graphics files"
 git push -u origin main
 ```
 
-Your remote repository will now be up to date with your local one. 
+Your remote repository will now be up to date with your local one.
 
 ## Deploy to Code Capsules
 
@@ -376,4 +377,4 @@ The final step is to deploy our app. Log into your Code Capsules account and lin
 
 That’s it! Your "Generate Art" app should be live and fully functional now.
 
-![Functional app](../assets/tutorials/generative-art/app.png)
+![Functional app](../../.gitbook/assets/app.png)

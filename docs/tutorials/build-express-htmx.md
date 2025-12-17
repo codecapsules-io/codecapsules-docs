@@ -1,33 +1,35 @@
 ---
 title: Building a Full Stack Express HTMx Application
-description: Create a full stack application with Express, Pug and HTMx to build a lightweight interactive site.
+description: >-
+  Create a full stack application with Express, Pug and HTMx to build a
+  lightweight interactive site.
 ---
 
 # Building a Full Stack Application with Express and HTMx
 
-![cover image](../assets/tutorials/build-express-htmx/express-htmx-cover.png)
+![cover image](../../.gitbook/assets/express-htmx-cover.png)
 
 Single page frameworks like Angular, React, and Vue have become the go-to solution for frontend development in recent years. This shift from traditional multipage websites is mainly due to the lack of interactivity offered by HTML. It’s worth noting however, that single page applications (SPAs) aren’t a perfect solution, as they introduce an added layer of complexity by installing a host of other dependencies that need to be linked together before deploying your site to production.
 
 This is where a new HTML extension called HTMx enters and shines. HTMx gives traditional HTML sites more interactivity while keeping things simple, as it allows you to make requests from any HTML element and not just `<a>` and `<form>` tags. But this is not HTMx’s only benefit. Other benefits include:
 
-- Making it possible to perform partial page reloads in HTML.
-- Support for PUT and DELETE methods in addition to GET and POST.
-- Not being limited to click and submit event triggers only.
-- Lightweight set up – no additional dependencies need to be installed to get HTMx working.
+* Making it possible to perform partial page reloads in HTML.
+* Support for PUT and DELETE methods in addition to GET and POST.
+* Not being limited to click and submit event triggers only.
+* Lightweight set up – no additional dependencies need to be installed to get HTMx working.
 
 In this tutorial, we’ll explore the benefits of HTMx by building a full stack application using Express and HTMx. Our application will be a book recommendation app that supports CRUD functionality. The final app will look a bit like this:
 
-![Express HTMx Application](../assets/tutorials/build-express-htmx/book-app.png)
+![Express HTMx Application](../../.gitbook/assets/book-app.png)
 
 ## Overview and Requirements
 
 After building our application, you’ll want to deploy it to production so you can show it to friends and family. You will therefore need the following to complete the tutorial:
 
-- Git set up and installed, and a registered GitHub account
-- A [Code Capsules](https://codecapsules.io/) account
-- Node.js installed
-- An IDE or text editor of your choice
+* Git set up and installed, and a registered GitHub account
+* A [Code Capsules](https://codecapsules.io/) account
+* Node.js installed
+* An IDE or text editor of your choice
 
 ## Setting up the Project
 
@@ -130,17 +132,13 @@ body
 
 There are a couple of attributes here that aren’t used in traditional HTML. Let’s go over them one by one:
 
-- **hx-[http method]** – Examples of this attribute include `hx-post`, `hx-get`, `hx-put`, and `hx-delete`. This is the HTMx way of denoting what type of request should be sent on form submission or when a request-firing event is triggered. These attributes accept the request route as an argument. In the case of our form, we use the `/submit` route, while the table buttons send requests to the `/delete` and `/get-edit-form` routes.
-
-- **hx-target** – This attribute accepts the `id` of the element you want to update after a successful request or when an event is triggered. Take note of the preceding `#` that’s written before the ID value.
-
-    - You might have noticed that we didn’t use an `id` value in the table, but used a value of closest `tr` instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the "Edit Book" button or the "Delete" button.
-
-- **hx-swap** – The [hx-swap](https://htmx.org/docs/#swapping) attribute allows you to specify how you want to partially reload the page or swap elements with new ones. It updates the UI in the section specified in the `hx-target` attribute.
-
-    - In our form, we used the `beforeend` value to tell HTMx that we want to append the result of the request after the last child in the target element, which is the table with `id=new-book`.
-    - In the table however, we used the `outerHTML` value to denote that we want to swap the entire `<tr>` element with the returned content.
-    - A full list of acceptable `hx-swap` values can be viewed [here](https://htmx.org/docs/#swapping).
+* **hx-\[http method]** – Examples of this attribute include `hx-post`, `hx-get`, `hx-put`, and `hx-delete`. This is the HTMx way of denoting what type of request should be sent on form submission or when a request-firing event is triggered. These attributes accept the request route as an argument. In the case of our form, we use the `/submit` route, while the table buttons send requests to the `/delete` and `/get-edit-form` routes.
+* **hx-target** – This attribute accepts the `id` of the element you want to update after a successful request or when an event is triggered. Take note of the preceding `#` that’s written before the ID value.
+  * You might have noticed that we didn’t use an `id` value in the table, but used a value of closest `tr` instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the "Edit Book" button or the "Delete" button.
+* **hx-swap** – The [hx-swap](https://htmx.org/docs/#swapping) attribute allows you to specify how you want to partially reload the page or swap elements with new ones. It updates the UI in the section specified in the `hx-target` attribute.
+  * In our form, we used the `beforeend` value to tell HTMx that we want to append the result of the request after the last child in the target element, which is the table with `id=new-book`.
+  * In the table however, we used the `outerHTML` value to denote that we want to swap the entire `<tr>` element with the returned content.
+  * A full list of acceptable `hx-swap` values can be viewed [here](https://htmx.org/docs/#swapping).
 
 ## Building the Express Backend
 
@@ -380,8 +378,6 @@ When you've added the start script, Code Capsules will be able to automatically 
 ## Running our App
 
 Our app is ready to be tested. Navigate to the project’s root folder in a terminal and run the following command: `npm run start`. This should start up a development server on port 3005. Open your browser at `http://127.0.0.1:3005/` and you should see your app running.
-
-
 
 ## Add, Commit, and Push Git Changes
 

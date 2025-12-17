@@ -1,38 +1,40 @@
 ---
 title: Building a Full Stack Flask HTMx Application
-description: Create a full stack application with Flask and HTMx to build a lightweight interactive site.
+description: >-
+  Create a full stack application with Flask and HTMx to build a lightweight
+  interactive site.
 ---
 
 # Building a Full Stack Application with Flask and HTMx
 
-![cover image](../assets/tutorials/build-flask-htmx/flask-htmx-cover.png)
+![cover image](<../../.gitbook/assets/flask-htmx-cover (1).png>)
 
-[This tutorial explains how to build an application with Flask and HTMx. If you want to host an HTMx and Flask application on our PaaS, you can find a short deployment guide [here](../../deployment/how-to-deploy-flask-htmx-application-to-production/) that uses the same project.]
+\[This tutorial explains how to build an application with Flask and HTMx. If you want to host an HTMx and Flask application on our PaaS, you can find a short deployment guide [here](../../deployment/how-to-deploy-flask-htmx-application-to-production/) that uses the same project.]
 
-Recent trends in the modern web saw single page frameworks like React.js and Angular take over traditional multipage websites, mainly due to the lack of interactivity offered by HTML. It is worth noting however, that single page applications (SPAs) brought this interactivity at the cost of added complexity. 
+Recent trends in the modern web saw single page frameworks like React.js and Angular take over traditional multipage websites, mainly due to the lack of interactivity offered by HTML. It is worth noting however, that single page applications (SPAs) brought this interactivity at the cost of added complexity.
 
-This is where a new HTML extension called HTMx enters and shines. HTMx gives traditional HTML sites more interactivity while keeping things simple, as it allows you to make requests from any HTML element and not just `<a>` and `<form>` tags. But this is not HTMx’s only benefit. Other benefits include: 
+This is where a new HTML extension called HTMx enters and shines. HTMx gives traditional HTML sites more interactivity while keeping things simple, as it allows you to make requests from any HTML element and not just `<a>` and `<form>` tags. But this is not HTMx’s only benefit. Other benefits include:
 
-- Making it possible to perform partial page reloads in HTML
-- Support for PUT and DELETE methods in addition to GET and POST
-- Not being limited to click and submit event triggers only
-- Lightweight set up – no additional dependencies need to be installed to get it working
+* Making it possible to perform partial page reloads in HTML
+* Support for PUT and DELETE methods in addition to GET and POST
+* Not being limited to click and submit event triggers only
+* Lightweight set up – no additional dependencies need to be installed to get it working
 
 In this tutorial, we’ll explore the benefits of HTMx by building a full stack application using Flask and HTMx. Our application will be a book recommendation app that supports CRUD functionality. The final app will look a bit like this:
 
-![Flask HTMx Application](../assets/deployment/flask-htmx/flask-htmx.png)
+![Flask HTMx Application](../../.gitbook/assets/flask-htmx.png)
 
 ## Overview and Requirements
 
 After building our application, you’ll want to deploy it to production so you can show it to friends and family. You will therefore need the following to complete the tutorial:
 
-- Git set up and installed, and a registered GitHub account
-- Python 3 installed 
-- An IDE or text editor of your choice
+* Git set up and installed, and a registered GitHub account
+* Python 3 installed
+* An IDE or text editor of your choice
 
 ## Setting up the Project
 
-With all the requirements in place, we can go ahead and set up our project. Let’s start by creating the project folder and then we can set up a virtual environment within the project folder. 
+With all the requirements in place, we can go ahead and set up our project. Let’s start by creating the project folder and then we can set up a virtual environment within the project folder.
 
 ### Create Project Folder
 
@@ -47,13 +49,13 @@ From here onwards, the `flask-htmx` directory will be referred to as the project
 
 ### Creating a Virtual Environment
 
-A virtual environment allows you to isolate the packages required to develop Python applications from your computer system. We recommend you use a new virtual environment for every application you develop so as to not corrupt dependencies for other applications. 
+A virtual environment allows you to isolate the packages required to develop Python applications from your computer system. We recommend you use a new virtual environment for every application you develop so as to not corrupt dependencies for other applications.
 
 In the terminal run the following command to create a virtual environment within the project's root folder:
 
 ```
 python3 -m venv env
-``` 
+```
 
 To activate the virtual environment, enter either of the following:
 
@@ -69,9 +71,9 @@ source env/bin/activate
 .\env\Scripts\activate
 ```
 
-After activating the virtual environment, the name `env` should appear in brackets on the leftmost part of your terminal in your current line. This signals that the activation was successful. 
+After activating the virtual environment, the name `env` should appear in brackets on the leftmost part of your terminal in your current line. This signals that the activation was successful.
 
-![Virtual environmeent active](../assets/tutorials/build-flask-htmx/venvactive.png)
+![Virtual environmeent active](../../.gitbook/assets/venvactive.png)
 
 ### Installing Dependencies
 
@@ -85,11 +87,11 @@ You might notice there’s no dependency for HTMx in our dependency list. This i
 
 ### Initialize an Empty Git Repository
 
-While in the project’s root folder, enter the command `git init` to initialize a `git` repository. This will allow you to track changes to your app as you build it. 
+While in the project’s root folder, enter the command `git init` to initialize a `git` repository. This will allow you to track changes to your app as you build it.
 
 Create a `.gitignore` file and add the line below to it:
 
-``` 
+```
 env/
 ```
 
@@ -152,7 +154,7 @@ Next, create an `index.html` file inside the `templates` folder, and populate it
 </html>
 ```
 
-There’s not much going on in the code snippet above, except for line 5 and 8, which are responsible for loading Bootstrap and HTMx into our `index.html` page. This gives you the power to build an interactive page just by including the `<script>` tag that links to HTMx, without needing to install any `npm` packages like with most SPAs. This is how HTMx allows you to build sites that are more lightweight compared to SPA frameworks. 
+There’s not much going on in the code snippet above, except for line 5 and 8, which are responsible for loading Bootstrap and HTMx into our `index.html` page. This gives you the power to build an interactive page just by including the `<script>` tag that links to HTMx, without needing to install any `npm` packages like with most SPAs. This is how HTMx allows you to build sites that are more lightweight compared to SPA frameworks.
 
 The code in between the `<style>` tag adds CSS to style our frontend to make it more visually appealing. Now let’s add code that will be rendered in the body tag of our page. Copy and paste the code below underneath the `</head>` tag:
 
@@ -173,7 +175,8 @@ The code in between the `<style>` tag adds CSS to style our frontend to make it 
           </tr>
         </thead>
         <tbody id="new-book" hx-target="closest tr" hx-swap="outerHTML swap:0.5s"> 
-            {%for book in books%}
+            <div data-gb-custom-block data-tag="for">
+
             <tr>
                 <td>{{book.Book.title}}</td>
                 <td>{{book.Author.name}}</td>
@@ -187,7 +190,9 @@ The code in between the `<style>` tag adds CSS to style our frontend to make it 
                     <button hx-delete="/delete/{{book.Book.book_id}}" class="btn btn-primary">Delete</button>
                 </td>
             </tr>
-            {%endfor%}
+            
+
+</div>
         </tbody>
     </table>
 </body>
@@ -195,17 +200,13 @@ The code in between the `<style>` tag adds CSS to style our frontend to make it 
 
 There are a couple of attributes here that aren’t used in traditional HTML. Let’s go over them one by one:
 
-- **hx-[http method]** – Examples of this attribute include **`hx-post`**, **`hx-get`**, **`hx-put`** and **`hx-delete`**. This is the HTMx way of denoting what type of request should be sent on form submission or when a request firing event is triggered. These attributes accept the request route as an argument. In the case of our form, we use the `/submit` route, while the table buttons send requests to the `/delete` and `/get-edit-form` routes.
-
-- **hx-target** – This attribute accepts the `id` of the element you want to update after a successful request or when an event is triggered. Take note of the preceding `#` that’s written before the `id` value. 
-
-    - You might have noticed that we didn’t use an `id` value in the table, but used a value of `closest tr` instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the "Edit Title" button or the "Delete" button. 
-
-- **hx-swap** – The [hx-swap](https://htmx.org/docs/#swapping) attribute allows you to specify how you want to partially reload the page or swap elements with new ones. It updates the UI in the section specified in the `hx-target` attribute.
-
-    - In our form, we used the `beforeend` value to tell HTMx that we want to append the result of the request after the last child in the target element, which is the table with `id=new-book`. 
-    - In the table however, we used the `outerHTML` value to denote that we want to swap the entire `<tr>` element with the returned content.
-    - A full list of acceptable `hx-swap` values can be viewed [here](https://htmx.org/docs/#swapping).
+* **hx-\[http method]** – Examples of this attribute include **`hx-post`**, **`hx-get`**, **`hx-put`** and **`hx-delete`**. This is the HTMx way of denoting what type of request should be sent on form submission or when a request firing event is triggered. These attributes accept the request route as an argument. In the case of our form, we use the `/submit` route, while the table buttons send requests to the `/delete` and `/get-edit-form` routes.
+* **hx-target** – This attribute accepts the `id` of the element you want to update after a successful request or when an event is triggered. Take note of the preceding `#` that’s written before the `id` value.
+  * You might have noticed that we didn’t use an `id` value in the table, but used a value of `closest tr` instead. This swaps the closest table row with the HTML that will be returned by the request when an action is triggered. The closest row will always be the same row in which an event or request was triggered, either by the "Edit Title" button or the "Delete" button.
+* **hx-swap** – The [hx-swap](https://htmx.org/docs/#swapping) attribute allows you to specify how you want to partially reload the page or swap elements with new ones. It updates the UI in the section specified in the `hx-target` attribute.
+  * In our form, we used the `beforeend` value to tell HTMx that we want to append the result of the request after the last child in the target element, which is the table with `id=new-book`.
+  * In the table however, we used the `outerHTML` value to denote that we want to swap the entire `<tr>` element with the returned content.
+  * A full list of acceptable `hx-swap` values can be viewed [here](https://htmx.org/docs/#swapping).
 
 ## Building the Flask Backend
 
@@ -250,9 +251,9 @@ with app.app_context():
     db.create_all() 
 ```
 
-Here we declare our app object using the Flask package we installed earlier. We’ll be using a SQLite database, which we configure using the `app.config` lines. 
+Here we declare our app object using the Flask package we installed earlier. We’ll be using a SQLite database, which we configure using the `app.config` lines.
 
-We use SQLAlchemy to declare the database object we’ll interact with, as it allows us to read and write to the database using object notation, which is more familiar than raw SQL statements. It is important to import the models only after declaring the database object so that their respective tables are included in the database when it’s created. The last two lines handle the initialization of the database and the creation of all relevant tables in the database based on the models that are imported. 
+We use SQLAlchemy to declare the database object we’ll interact with, as it allows us to read and write to the database using object notation, which is more familiar than raw SQL statements. It is important to import the models only after declaring the database object so that their respective tables are included in the database when it’s created. The last two lines handle the initialization of the database and the creation of all relevant tables in the database based on the models that are imported.
 
 ### Register App Models
 
@@ -292,9 +293,9 @@ def home():
     return render_template("index.html", books=books)
 ```
 
-In the code snippet above, we’ve added the index route and bound the home function to it. The home function first queries the database to get a list of all books before returning the `index.html` template that’s populated with the list of books. 
+In the code snippet above, we’ve added the index route and bound the home function to it. The home function first queries the database to get a list of all books before returning the `index.html` template that’s populated with the list of books.
 
-Add the code below to add the `/submit` route to our app’s `views.py` file: 
+Add the code below to add the `/submit` route to our app’s `views.py` file:
 
 ```py
 @app.route("/submit", methods=["POST"])
@@ -344,7 +345,7 @@ def submit():
     return response
 ```
 
-When a person submits a new book, this is the route that’s called. The logic first checks if the author already exists in the database and if so, saves the book with the author’s `author_id`. Otherwise, it creates a new author and then saves the book. As HTMx expects an HTML response, the `submit` method responds with an HTML table row that updates the list of books on the frontend. The new entry will be for the recently added book. 
+When a person submits a new book, this is the route that’s called. The logic first checks if the author already exists in the database and if so, saves the book with the author’s `author_id`. Otherwise, it creates a new author and then saves the book. As HTMx expects an HTML response, the `submit` method responds with an HTML table row that updates the list of books on the frontend. The new entry will be for the recently added book.
 
 Next, let’s add the code for the `/delete` route. Copy and paste the code below:
 
@@ -358,7 +359,7 @@ def delete_book(id):
     return ""
 ```
 
-The first thing you may have noticed about this route is the `id` query parameter it accepts. This allows us to know which object to delete. After deleting the book, we return an empty string, which causes the row we deleted in the frontend to disappear, as it is swapped for "nothing". 
+The first thing you may have noticed about this route is the `id` query parameter it accepts. This allows us to know which object to delete. After deleting the book, we return an empty string, which causes the row we deleted in the frontend to disappear, as it is swapped for "nothing".
 
 We now have routes for creating, reading, and deleting books. It’s time to add views associated with updating book entries in order to complete our app’s CRUD functionality. Add the code below to `views.py` to add logic for updating book entries to your app:
 
@@ -439,7 +440,7 @@ def update_book(id):
     return response
 ```
 
-There’s more than one view for the update logic, and we’ll see why shortly. The `/get-edit-form` route is called when a user clicks on the "Edit Title" button on the frontend, and it returns a form for updating the selected book. If the user decides to cancel this action, the `/get-book-row` route is called and it returns a table row with the unedited book entry. 
+There’s more than one view for the update logic, and we’ll see why shortly. The `/get-edit-form` route is called when a user clicks on the "Edit Title" button on the frontend, and it returns a form for updating the selected book. If the user decides to cancel this action, the `/get-book-row` route is called and it returns a table row with the unedited book entry.
 
 If the user goes through with updating the book title, then the `/update` route is called. The `update_book` function that’s bound to the `/update` route will update the book title based on the `id` supplied to it as a query parameter. When the update is complete, the method returns an HTML table row with the updated book title.
 
@@ -447,7 +448,7 @@ If the user goes through with updating the book title, then the `/update` route 
 
 Our app is ready to be tested. Navigate to the project’s root folder in a terminal and run the following command: `python3 run.py`. This should start up a development server on port 5000. Open your browser at `http://127.0.0.1:5000/` and you should see your app running:
 
-![Flask HTMx Application](../assets/deployment/flask-htmx/flask-htmx.png)
+![Flask HTMx Application](../../.gitbook/assets/flask-htmx.png)
 
 Once you are satisfied with the app, you can commit and push your changes to GitHub with the following commands.
 
@@ -457,6 +458,6 @@ git commit -m 'commit message'
 git push origin
 ```
 
-We’ve shown you how to build a full stack Flask HTMx application from scratch and you should be able to deploy this basic version, but you may like to consider adding more functionality to enhance our app’s features. We recommend you check out [Alpine.js](https://alpinejs.dev/), a lightweight JavaScript framework that works well with `HTMx` to make sites that are more powerful yet still lightweight. 
+We’ve shown you how to build a full stack Flask HTMx application from scratch and you should be able to deploy this basic version, but you may like to consider adding more functionality to enhance our app’s features. We recommend you check out [Alpine.js](https://alpinejs.dev/), a lightweight JavaScript framework that works well with `HTMx` to make sites that are more powerful yet still lightweight.
 
 You can find the complete code shown above in [this GitHub repository](https://github.com/codecapsules-io/demo-flask-htmx).

@@ -1,13 +1,13 @@
 ---
 title: Deploy a Flask MongoDB Application to Production
-description: A walkthrough on how to deploy a Flask MongoDB application from GitHub.
 hide:
   - navigation
+description: A walkthrough on how to deploy a Flask MongoDB application from GitHub.
 ---
 
 # How to Deploy a Flask MongoDB Application to Production on Code Capsules
 
-Deploy a Flask MongoDB application and learn how to host backend code on Code Capsules. 
+Deploy a Flask MongoDB application and learn how to host backend code on Code Capsules.
 
 ## Set up
 
@@ -26,7 +26,7 @@ Navigate to the "Spaces" tab and open the Space you’ll be using.
 Click the "Create a New Capsule for Your Space" button, and follow the instructions below to create a Data Capsule:
 
 1. Choose "Data Capsule".
-2. Under "Data Type", select "MongoDB Database Cluster".  
+2. Under "Data Type", select "MongoDB Database Cluster".
 3. Click "Create Capsule".
 
 Navigate to the "Space" containing your recently created Data Capsule and click the "New Capsule" button. Follow the instructions below to create a Backend Capsule:
@@ -42,18 +42,18 @@ Code Capsules will automatically build your application when you’ve finished c
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+![Build logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 ## Binding the Capsules
 
-After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Config" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MongoDB database. 
+After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Config" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MongoDB database.
 
-![Bind Capsules](../assets/deployment/shared/bind-mongodb.png)
+![Bind Capsules](../../.gitbook/assets/bind-mongodb.png)
 
 ## View Application
 
 You can now view the application after the two capsules have been binded together. To see how it looks, click on the URL in the "Details" tab.
 
-![Deployed App](../assets/deployment/flask/cc-flask-mongo-app.png)
+![Deployed App](../../.gitbook/assets/cc-flask-mongo-app.png)
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](./).

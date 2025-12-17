@@ -66,7 +66,7 @@ To create a new Space, log in to your Code Capsules account, click the yellow `+
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../../.gitbook/assets/space-name.png)
+![space name](<../../.gitbook/assets/space-name (1).png>)
 
 ## Create the Capsule
 
@@ -90,6 +90,6 @@ Once your application is live, you can view the build log by selecting the "Depl
 
 Once the build is complete, a URL link will appear in the URL section in the "Details" tab. Click the link, and you should see your deployed application.
 
-![Deployed App](../assets/deployment/python/cc-flask-app.png)
+![Deployed App](../../.gitbook/assets/cc-flask-app.png)
 
 If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](../deployment/index.md).

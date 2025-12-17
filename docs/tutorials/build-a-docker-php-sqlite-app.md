@@ -1,33 +1,33 @@
 ---
 title: Building a book recommendations app with PHP, SQLite, and Docker
-description: Create a PHP CRUD application with Docker and SQLite on Code Capsules.
 image: assets/tutorials/creating-and-hosting-a-flask-api/docker-php-cover.png
+description: Create a PHP CRUD application with Docker and SQLite on Code Capsules.
 ---
 
 # Building a Book Recommendations App with PHP, SQLite, and Docker
 
-![Docker PHP CRUD app cover](../assets/tutorials/docker-php-sqlite/docker-php-cover.png)
+![Docker PHP CRUD app cover](../../.gitbook/assets/docker-php-cover.png)
 
 PHP is one of the first technologies that made dynamic web applications possible and it's still widely used today. In this tutorial, we’ll look at how to build a CRUD application with PHP and SQLite. We'll build a basic book recommendation application where we can **C**reate new entries or **R**ead, **U**pdate, or **D**elete existing ones. Nearly all applications rely on these four CRUD operations, so you'll be able to extend this application to do anything else you want.
 
 Here’s what the final app will look like:
 
-![Book Recommendation App](../assets/tutorials/docker-php-sqlite/final-app.png)
+![Book Recommendation App](../../.gitbook/assets/final-app.png)
 
 ## Requirements
 
 You will need the following to complete the tutorial:
 
-- Docker installed locally.
-- IDE or text editor of your choice.
-- (Optional) a local PHP developer environment.
+* Docker installed locally.
+* IDE or text editor of your choice.
+* (Optional) a local PHP developer environment.
 
 You can do all the development using the Docker environment that we'll create as part of the tutorial, but it can be easier to run and debug code locally so if you haven't used PHP before and don't want to do the set up, you can rely only on Docker.
 
 To deploy the application to Code Capsules, you'll also need
 
-- A [GitHub](https://github.com/) account and Git installed locally.
-- A [Code Capsules](https://codecapsules.io/) account.
+* A [GitHub](https://github.com/) account and Git installed locally.
+* A [Code Capsules](https://codecapsules.io/) account.
 
 ## Project Set Up
 
@@ -82,7 +82,7 @@ It then sets up a table structure that we'll use PHP to populate later.
 
 Even though our app doesn't do anything yet, let's run it to see our progress so far. We'll use Docker for this. In the same project directory, create a file called exactly `Dockerfile` (note the capital D and no file extension), and add the following code.
 
-```Docker
+```docker
 FROM php:8.0-apache
 WORKDIR /var/www/html
 
@@ -100,7 +100,7 @@ docker build . -t book-app && docker run -p 8000:80 book-app
 
 This builds a Docker image from the `Dockerfile` in the current directory and gives it `book-app` as a tag. The second command (after `&&`) runs the container, and maps our local port 8000 to the Docker port 80. Once it's running, you can visit `http://localhost:8000` in your web browser to see the application.
 
-![Running frontend](../assets/tutorials/docker-php-sqlite/frontend.png)
+![Running frontend](../../.gitbook/assets/frontend.png)
 
 Hit `Ctrl + C` in the terminal window running Docker to stop the server.
 
@@ -127,10 +127,9 @@ This sets up a form with inputs and a submit button. Note the hidden field with 
 
 If you run the app again, you'll see something like the following.
 
-![frontend with form](../assets/tutorials/docker-php-sqlite/frontend-with-form.png)
+![frontend with form](../../.gitbook/assets/frontend-with-form.png)
 
 Now you can type in a book and author name and press the "Save" button, but then the app will crash as we haven't built the backend yet. Let's do that next.
-
 
 ## Building the Backend
 
@@ -320,7 +319,7 @@ The application should now run fine on your local machine, but let's deploy it t
 * Create a Docker and Data Capsule on Code Capsules and bind them together.
 * Deploy the code to Code Capsules.
 
-Head over to [GitHub](https://github.com/) and create a new repository. Then, in your project's root folder, run the commands below from the terminal, replacing "username" and "repository_name" with your own values from GitHub.
+Head over to [GitHub](https://github.com/) and create a new repository. Then, in your project's root folder, run the commands below from the terminal, replacing "username" and "repository\_name" with your own values from GitHub.
 
 ```bash
 git init
@@ -351,11 +350,6 @@ Now create a new Data Capsule and a Docker Capsule in a single Space in Code Cap
 
 For the Docker capsule, choose your GitHub repository and enter `Dockerfile` for the Dockerfile location. In the configuration tab, set "Network Port" to "80" to match what Apache is running on, and bind the Docker Capsule to the Data Capsule.
 
-![Configuration](../assets/tutorials/docker-php-sqlite/configuration.png)
+![Configuration](../../.gitbook/assets/configuration.png)
 
 Deploy and build the application and you should see it running on a custom URL that you can share with the world.
-
-
-
-
-

@@ -14,11 +14,11 @@ Choose a payment option, and click "Create Capsule".
 
 Now we need to connect our Data Capsule to a Backend Capsule using a database connection URL.
 
-Navigate to your Backend Capsule and click on the "Configure" tab. Scroll down to the "Data capsules" section and click "View". Click the `+` next to the `Connection string`  variable to create a `DATABASE_URL` environmental variable in your Backend Capsule, which gives access to services and features of your Data Capsule.
+Navigate to your Backend Capsule and click on the "Configure" tab. Scroll down to the "Data capsules" section and click "View". Click the `+` next to the `Connection string` variable to create a `DATABASE_URL` environmental variable in your Backend Capsule, which gives access to services and features of your Data Capsule.
 
-We'll use this environment variable in our app to connect to the Redis database.&#x20;
+We'll use this environment variable in our app to connect to the Redis database.
 
-![RedisUrl](../../products/.gitbook/assets/database-capsule/redis/redis-bind-env.png)
+![RedisUrl](../../.gitbook/assets/redis-bind-env.png)
 
 ## Connecting to a Redis Data Capsule from a Python application
 

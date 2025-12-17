@@ -1,16 +1,18 @@
 ---
 title: Deploy an Angular Application to Production
-description: Deploy a boilerplate Angular application provided by Code Capsules to production using a front-end capsule by linking it directly to your GitHub repo.
 hide:
   - navigation
+description: >-
+  Deploy a boilerplate Angular application provided by Code Capsules to
+  production using a front-end capsule by linking it directly to your GitHub
+  repo.
 ---
 
 # How to Deploy an Angular Application to Production on Code Capsules
 
+Deploy an Angular application and learn how to host frontend code on Code Capsules. At the end of the guide, you would have deployed the application in the screenshot below and can adapt it to meet your unique needs.
 
-Deploy an Angular application and learn how to host frontend code on Code Capsules. At the end of the guide, you would have deployed the application in the screenshot below and can adapt it to meet your unique needs. 
-
-![Deployed App](../assets/deployment/angular/cc-angular-app.png)
+![Deployed App](../../.gitbook/assets/cc-angular-app.png)
 
 ## Set Up
 
@@ -32,13 +34,14 @@ Code Capsules gives every account a Personal Team by default. A Team is an envir
 
 ## Create a Space for your App
 
-Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/shared/space-name.png)
+![space name](../../.gitbook/assets/space-name.png)
 
 Example instructions to go with numbered annotations
+
 1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
 2. This should remind you of the project, for example “customer-api” or “notetaking-app”
 3. Choose a country close to where most of your users will be
@@ -47,7 +50,6 @@ Example instructions to go with numbered annotations
 ## Create the Capsule
 
 A [Capsule](https://codecapsules.io/docs/FAQ/what-is-a-capsule/) provides the server for hosting an application on Code Capsules.
-
 
 Navigate to the "Space" containing your recently created Data Capsule and click the yellow `+` icon on the top right of the screen. Follow the instructions below to create a Frontend Capsule:
 
@@ -63,10 +65,10 @@ Code Capsules will automatically build your application when you’ve finished c
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+![Build logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 Once the build is complete, click the "URL" link in the "Config" tab and you should see your deployed application.
 
-![Deployed App](../assets/deployment/angular/cc-angular-app.png)
+![Deployed App](../../.gitbook/assets/cc-angular-app.png)
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](./).

@@ -1,8 +1,8 @@
 ---
 title: Deploy a Static File Share with Flask and Caddy
-description: Deploy a basic file sharing site with Flask and Caddy on Code Capsules
 hide:
   - navigation
+description: Deploy a basic file sharing site with Flask and Caddy on Code Capsules
 ---
 
 # How to Deploy a Static File Share with Flask and Caddy
@@ -13,7 +13,7 @@ We'll use three capsules: a Data Capsule to store the files, a Backend Capsule f
 
 After following the guide, you'll be able to upload files in the Flask application, see a file listing, and get public links to your uploaded files in the Caddy application, as shown below.
 
-![Flask upload server and Caddy file server](../assets/deployment/how-to-deploy-static-file-share-flask-caddy/upload-download.png)
+![Flask upload server and Caddy file server](../../.gitbook/assets/upload-download.png)
 
 ## Set up
 
@@ -21,20 +21,21 @@ Code Capsules connects to GitHub repositories to deploy applications. To follow 
 
 The code you need for this guide is in the following GitHub projects.
 
-* **[Flask file uploads](https://github.com/codecapsules-io/flask-file-uploads)**
-* **[Caddy file server](https://github.com/codecapsules-io/caddy-file-server)**
+* [**Flask file uploads**](https://github.com/codecapsules-io/flask-file-uploads)
+* [**Caddy file server**](https://github.com/codecapsules-io/caddy-file-server)
 
 Sign in to GitHub, and fork both example applications by clicking "Fork" at the top right of your screen and selecting your GitHub account as the destination.
 
 ## Create a Space for your App
 
-Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/shared/space-name.png)
+![space name](../../.gitbook/assets/space-name.png)
 
 Example instructions to go with numbered annotations
+
 1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
 2. This should remind you of the project, for example “customer-api” or “notetaking-app”
 3. Choose a country close to where most of your users will be
@@ -53,7 +54,6 @@ To create a new Data Capsule for your Space follow the instructions below:
 1. Choose "Persistent Storage", your Team and Space.
 2. Choose your payment plan.
 3. Click "Create Capsule".
-
 
 ### Backend Capsule
 
@@ -81,7 +81,7 @@ Code Capsules will automatically build your application when you’ve finished c
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+![Build logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 ## Binding the Capsules
 
@@ -90,4 +90,3 @@ Now navigate to each of the Backend Capsule and Docker Capsule and bind them to 
 ## View Application
 
 Once the build is complete, click the "URL" link in the "Config" tab and you should see your deployed application.
-

@@ -1,14 +1,13 @@
 ---
 title: Deploy a Node.js Telegram Bot
-description: A guide to deploying a Node.js Telegram Bot from GitHub.
 hide:
   - navigation
+description: A guide to deploying a Node.js Telegram Bot from GitHub.
 ---
 
 # How to Deploy a Node.js Telegram Bot to Production on Code Capsules in 5 Minutes
 
 Deploy a Node.js Telegram Bot and learn how to host backend code on Code Capsules.
-
 
 ## Register the Bot
 
@@ -35,13 +34,14 @@ Sign in to GitHub, and fork the example bot repository by clicking "Fork" at the
 
 ## Create a Space for your Bot
 
-Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/shared/space-name.png)
+![space name](../../.gitbook/assets/space-name.png)
 
 Example instructions to go with numbered annotations
+
 1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
 2. This should remind you of the project, for example “customer-api” or “notetaking-app”
 3. Choose a country close to where most of your users will be
@@ -61,12 +61,11 @@ To create a new Capsule for your space follow the instructions below:
 6. Leave "Run Command" blank.
 7. Click "Create Capsule".
 
-Code Capsules will automatically build your application when you’ve finished creating the Capsule. 
+Code Capsules will automatically build your application when you’ve finished creating the Capsule.
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
-
+![Build logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 ## Add Environment Variables
 
@@ -76,13 +75,13 @@ Once the build is complete, you have to add `BOT_TOKEN` and `URL` environment va
 
 Assign the `BOT_TOKEN` variable the value of the access token you were given by the BotFather when you registered the bot.
 
-![Add a `BOT_TOKEN` Environment Variable](../assets/deployment/telegram/add-bot-token-env-var.png)
+![Add a BOT\_TOKEN Environment Variable](../../.gitbook/assets/add-bot-token-env-var.png)
 
 ### `URL`
 
-For the `URL` variable, set it to the value of your bot's domain. You can get it by clicking the "Live Website" link to the left of the capsule's toggle button and copying the url in the new tab that opens. Paste the url you copied in the value field for the `URL` environment variable (make sure the url ends with a `/` or the webhook will not be valid). 
+For the `URL` variable, set it to the value of your bot's domain. You can get it by clicking the "Live Website" link to the left of the capsule's toggle button and copying the url in the new tab that opens. Paste the url you copied in the value field for the `URL` environment variable (make sure the url ends with a `/` or the webhook will not be valid).
 
-![Add a `URL` Environment Variable](../assets/deployment/telegram/url-env-var.png)
+![Add a URL Environment Variable](../../.gitbook/assets/url-env-var.png)
 
 Confirm your changes by clicking on "Save", then restart your Capsule by toggling the radio button in the top right off and on again.
 
@@ -90,4 +89,4 @@ Confirm your changes by clicking on "Save", then restart your Capsule by togglin
 
 The bot will be able to respond to messages after Code Capsules finishes building it. When this is done, search for your bot on Telegram using the username you assigned it and start a chat with it. The bot has been programmed to respond to `/start` and echo any messages you send it.
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](./).

@@ -1,13 +1,13 @@
 ---
 title: Deploy a Flask MySQL Application to Production
-description: A walkthrough on how to deploy a Flask MySQL application from GitHub.
 hide:
   - navigation
+description: A walkthrough on how to deploy a Flask MySQL application from GitHub.
 ---
 
 # How to Deploy a Flask MySQL Application to Production on Code Capsules
 
-Deploy a Flask MySQL application and learn how to host backend code on Code Capsules. 
+Deploy a Flask MySQL application and learn how to host backend code on Code Capsules.
 
 ## Set up
 
@@ -26,7 +26,7 @@ Navigate to the "Spaces" tab and open the Space you’ll be using.
 Click the "Create a New Capsule for Your Space" button, and follow the instructions below to create a Data Capsule:
 
 1. Choose "Data Capsule".
-2. Under "Data Type", select "MySQL Database Cluster".  
+2. Under "Data Type", select "MySQL Database Cluster".
 3. Under "Product", select "Standard".
 4. Click "Create Capsule".
 
@@ -43,19 +43,19 @@ Code Capsules will automatically build your application when you’ve finished c
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+![Build logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 ## Binding the Capsules
 
-After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Configure" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MySQL database. 
+After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Configure" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MySQL database.
 
-![Bind Capsules](../assets/deployment/shared/sql-bind-env.png)
+![Bind Capsules](<../../.gitbook/assets/sql-bind-env (1).png>)
 
 ## Edit `DATABASE_URL` Environment Variable
 
-Once the binding is complete, you have to append `+pymysql` after `mysql` in the `DATABASE_URL` value under the "Capsule parameters" section on the "Configure" tab. 
+Once the binding is complete, you have to append `+pymysql` after `mysql` in the `DATABASE_URL` value under the "Capsule parameters" section on the "Configure" tab.
 
-![Edit DATABASE_URL Environment Variable](../assets/deployment/flask/flask-mysql-edit-db-url.png)
+![Edit DATABASE\_URL Environment Variable](../../.gitbook/assets/flask-mysql-edit-db-url.png)
 
 Confirm your changes by clicking on "Update Capsule" then restart your capsule by toggling the radio button in the top right off and on again.
 
@@ -63,6 +63,6 @@ Confirm your changes by clicking on "Update Capsule" then restart your capsule b
 
 After restarting the capsule, the application will now be ready to be viewed. Click the "Live Website" link at the top of the capsule tab and you should see your deployed application.
 
-![Deployed App](../assets/deployment/flask/flask-mysql-app.png)
+![Deployed App](../../.gitbook/assets/flask-mysql-app.png)
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](./).

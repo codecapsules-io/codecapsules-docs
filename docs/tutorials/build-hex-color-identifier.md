@@ -1,12 +1,12 @@
 ---
 title: Building a Hex Color Identifier API with PHP, Laravel, and Docker
-description: Create a Laravel API that converts hex codes to human readable names.
 image: assets/tutorials/hex-color-identifier/hex-identifier.jpg
+description: Create a Laravel API that converts hex codes to human readable names.
 ---
 
 # Building a Hex Color Identifier API with PHP, Laravel, and Docker
 
-![Hex Color identifier cover](../assets/tutorials/hex-color-identifier/hex-identifier.jpg)
+![Hex Color identifier cover](../../.gitbook/assets/hex-identifier.jpg)
 
 Docker provides containers to run applications in isolation. Among other benefits of this architecture, one is allowing applications on the same server to run independently, reducing the likelihood of having a single point of failure in your project.
 
@@ -14,16 +14,16 @@ In this tutorial, we’ll build a hex color identifier API with PHP using the La
 
 Here’s an example of a response we might get after querying the API.
 
-![Color API](../assets/tutorials/hex-color-identifier/color-identifier.png)
+![Color API](../../.gitbook/assets/color-identifier.png)
 
 ## Requirements
 
 You will need the following to complete the tutorial and host your application on Code Capsules:
 
-- A [Code Capsules](https://codecapsules.io/) account.
-- Git set up and installed, and a registered [GitHub](https://github.com/) account.
-- IDE or text editor of your choice.
-- PHP and composer installed.
+* A [Code Capsules](https://codecapsules.io/) account.
+* Git set up and installed, and a registered [GitHub](https://github.com/) account.
+* IDE or text editor of your choice.
+* PHP and composer installed.
 
 ## Project Set Up
 
@@ -53,7 +53,7 @@ From the project’s root folder, enter the command `git init` to initialize a g
 
 ### Linking to GitHub
 
-Head over to [GitHub](https://github.com/) and create a new repository. Then, in your project's root folder, run the command below from the terminal, replacing "username" and "repository_name" with your own values from GitHub.
+Head over to [GitHub](https://github.com/) and create a new repository. Then, in your project's root folder, run the command below from the terminal, replacing "username" and "repository\_name" with your own values from GitHub.
 
 ```bash
 git remote add origin git@github.com:username/repository_name.git
@@ -219,9 +219,8 @@ The final step is to deploy our app. Log into your Code Capsules account and lin
 
 Once the build is complete, navigate to the "Configure" tab and scroll down to the "Network Port" section. Enter "8000" as the port number and click on "Update Capsule".
 
-![Network Port](../assets/deployment/shared/network-port-8000.png)
+![Network Port](../../.gitbook/assets/network-port-8000.png)
 
 That’s it! Your "Hex Color Identifier" app should be live and fully functional now. You should now be able to query the `/api/color` route.
 
-![Color API](../assets/tutorials/hex-color-identifier/color-identifier.png)
-
+![Color API](../../.gitbook/assets/color-identifier.png)

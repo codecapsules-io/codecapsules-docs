@@ -1,9 +1,14 @@
 ---
 title: SaaS vs PaaS vs IaaS
-description: Learn the differences between three of cloud services popular acronyms. Example providers for each acronym and the services they offer help distinguish between the three.
+description: >-
+  Learn the differences between three of cloud services popular acronyms.
+  Example providers for each acronym and the services they offer help
+  distinguish between the three.
 ---
 
 # SaaS vs PaaS vs IaaS
+
+## SaaS vs PaaS vs IaaS
 
 If you've spent any amount of time trying out or researching cloud services, you've probably come across acronyms like SaaS, PaaS and IaaS. Respectively, these are:
 
@@ -17,13 +22,13 @@ Let's say we're interested in building a budgeting application. This will initia
 
 Roughly speaking, we will need greater depth and breadth of technical expertise as you move up the ladder from SaaS to IaaS, but we'll also have more flexibility. Below, we'll go through each one and discuss how we might use it to build our budgeting application.
 
-## Software as a Service (SaaS)
+### Software as a Service (SaaS)
 
-| Pros | Cons |
-| ---- | ---- |
-| Quick to get started with.  | Limited flexibility. |
-| Requires little or no programming knowledge. | Significant vendor lock-in. |
-&nbsp; | Likely to be inefficient and costly at scale. |
+| Pros                                         | Cons                                          |
+| -------------------------------------------- | --------------------------------------------- |
+| Quick to get started with.                   | Limited flexibility.                          |
+| Requires little or no programming knowledge. | Significant vendor lock-in.                   |
+|                                              | Likely to be inefficient and costly at scale. |
 
 Just about any application that runs in your browser can be considered Software as a Service (SaaS). SaaS examples include Google Drive and its associated office suite – Google Docs, Google Sheets, and others – as well as other file management services like Dropbox, communication platforms like Slack, and knowledge management solutions like Notion and Confluence.
 
@@ -37,7 +42,7 @@ If we want something more than email and Slack alterts, we could use a SaaS plat
 
 Our full application architecture would now look like this:
 
-![](../assets/comparisons/saas-paas-iaas/saas-diagram.svg)
+![](../../.gitbook/assets/saas-diagram.svg)
 
 In this way, we can get a fully functional budgetting application with multiple integrations working by using different SaaS solutions together, and without writing any code. However, if we're interested in building a business out of this application, we may soon run into problems like expensive per-user fees and a lack of flexibility and control. Glide's visual editor may not allow us to design our application in the exact way we want to, or we may run up against the limitations of what sorts of data analysis can reasonably be done using spreadsheets.
 
@@ -49,12 +54,11 @@ And seeing as we're using multiple SaaS platforms together, as in the above arch
 
 SaaS solutions provide a great way to quickly prototype ideas, but may prove unreliable and limiting if you need them to work over a long timescale or for a large number of users. Using Google Sheets and some integrations to build a budgeting app for yourself is not a bad idea, and you could even develop it to the point of accepting other users, but if you want to build a sustainable business with your application, you may be better off looking into a PaaS or IaaS solution instead.
 
+### Platform as a Service (PaaS)
 
-## Platform as a Service (PaaS)
-
-| Pros | Cons | 
-| ---| --- |
-| Requires no infrastructure set-up. | May be inefficient or costly at scale. |
+| Pros                                                                   | Cons                                           |
+| ---------------------------------------------------------------------- | ---------------------------------------------- |
+| Requires no infrastructure set-up.                                     | May be inefficient or costly at scale.         |
 | The vendor is responsible for system maintenance and security patches. | Less vendor lock-in than SaaS, more than IaaS. |
 
 Unlike most SaaS solutions, Platform as a Service (PaaS) solutions are specifically intended for use by developers. You can think of a PaaS as anywhere you can upload code and have it automatically deployed and run. PaaS solutions include Code Capsules, Heroku, Netlify, Google App Engine and AWS Elastic Beanstalk.
@@ -74,11 +78,11 @@ Different PaaS solutions target different parts of the standard three-layer appl
 
 Some PaaS solutions are highly focused on a single part of the stack, while others offer solutions for multiple areas of the stack. The table below gives some examples of each.
 
-| Areas of the stack | PaaS solution examples| 
-| ----|---- |
-| Frontend           | Netlify, Vercel, AWS S3, GitHub Pages, Code Capsules (Frontend capsules) |
+| Areas of the stack | PaaS solution examples                                                                 |
+| ------------------ | -------------------------------------------------------------------------------------- |
+| Frontend           | Netlify, Vercel, AWS S3, GitHub Pages, Code Capsules (Frontend capsules)               |
 | Backend            | Heroku, OpenShift, AWS Elastic Beanstalk, AWS Lambda, Code Capsules (Backend capsules) |
-| Data persistence   | MongoDB Atlas, AWS RDS, Azure SQL Database |
+| Data persistence   | MongoDB Atlas, AWS RDS, Azure SQL Database                                             |
 
 Frontend code can be included with backend code, and some PaaS solutions offer data persistence solutions, so you may be able to deploy a complete application as a single project on a single PaaS, but you can also use multiple PaaS solutions for different stack components.
 
@@ -92,11 +96,11 @@ If we're feeling really ambitious, we could integrate [open banking](https://en.
 
 Using a single backend capsule, our application architecture would look something like this:
 
-![](../assets/comparisons/saas-paas-iaas/paas-diagram-1.svg)
+![](../../.gitbook/assets/paas-diagram-1.svg)
 
 Using a backend and frontend capsule, our application architecture would look like this:
 
-![](../assets/comparisons/saas-paas-iaas/paas-diagram-2.svg)
+![](../../.gitbook/assets/paas-diagram-2.svg)
 
 In the above architecture, we could replace the frontend module with a Netlify site, and the backend module with a collection of AWS Lambda functions, or just about any other PaaS solution that provides the appropriate area of the stack.
 
@@ -104,13 +108,13 @@ Using PaaS solutions is the middleground between using SaaS and IaaS solutions i
 
 As we are not doing our own system administration when we use a PaaS solution, we won't be able to optimise our infrastructure for the needs of our application. If we're not careful about how we design our application, it may end up being [much more expensive to run](https://einaregilsson.com/serverless-15-percent-slower-and-eight-times-more-expensive/) than it would be on an IaaS solution.
 
-## Infrastructure as a Service (IaaS)
+### Infrastructure as a Service (IaaS)
 
-| Pros | Cons |
-| ---|--- |
-| Highly flexible. | Requires programming and system administration knowledge.|
-| Can be configured more precisely and efficiently than SaaS and PaaS solutions. | Requires regular maintenance.|
-| Very little vendor lock-in | ... |
+| Pros                                                                           | Cons                                                      |
+| ------------------------------------------------------------------------------ | --------------------------------------------------------- |
+| Highly flexible.                                                               | Requires programming and system administration knowledge. |
+| Can be configured more precisely and efficiently than SaaS and PaaS solutions. | Requires regular maintenance.                             |
+| Very little vendor lock-in                                                     | ...                                                       |
 
 Infrastructure as a Service (IaaS) solutions are the most technically demanding of their users. Rather than providing end-user software or deployment for user-developed code, most IaaS solutions merely provide you with virtual machines (VMs), commonly called a "compute instance". These are fully capable computers that you have full control over and responsibility for. Examples of IaaS services include AWS Elastic Computing (EC) 2, Google Cloud Platform's Compute Engine, and Digital Ocean's Droplets.
 
@@ -130,7 +134,7 @@ In our budgeting app example, we would be able to take the same code you might d
 
 We could also put the database on a second EC2 instance, and configure your networking rules to allow both instances to speak to each other over the relevant port. Our application architecture would look now look like the diagram below. Note that we would retain our open banking integration, as that is defined in code.
 
-![](../assets/comparisons/saas-paas-iaas/iaas-diagram.svg)
+![](../../.gitbook/assets/iaas-diagram.svg)
 
 The benefit this gives you is total control over your infrastructure, which can have efficiency and cost savings over working with a PaaS. How much will depend on your level of expertise and the amount of time you can allocate to optimising and managing your infrastructure. Depending on our application's architecture, we might create more than one VM for serving the application and managing the database, using load balancers and data replication. Alternatively, we may just dynamically increase the CPU speed, RAM and disk space of one or two VMs.
 
@@ -138,9 +142,8 @@ The other major benefit to using IaaS over SaaS or PaaS is that it has essential
 
 But with great power comes great responsibility. Anything we build on an IaaS solution will require regular maintenance – we will be responsible for keeping our virtual machines' software up-to-date. This is extremely important for internet-facing infrastructure, as out-of-date software can contain security vulnerabilities which could lead to our application being hacked, even if all of our own code is completely secure.
 
-# Conclusion
+## Conclusion
 
 The choice between SaaS, PaaS and IaaS solutions will depend on your and your team's depth and breadth of expertise, how you aim to manage your time, and what stage of development you're in. The same application could go from a proof-of-concept build on SaaS solutions to a custom built application running on PaaS solutions, and then move over to the IaaS to improve performance or costs.
 
 Or you could use a mix of all three: the choice between SaaS, PaaS and IaaS does not have to all-or-nothing. Instead, it's worth making an independent decision for each area of your application stack. For example, you can have an application that runs on an AWS EC2 instance (IaaS), stores data in an AWS RDS database (PaaS) and sends users notifications on Slack (SaaS). Or you could create a Netlify website (PaaS) that communicates with a an API deployed on Code Capsules (PaaS), which in turn uses a PostgreSQL database running on an AWS EC2 instance (IaaS). The possibilities are endless.
-

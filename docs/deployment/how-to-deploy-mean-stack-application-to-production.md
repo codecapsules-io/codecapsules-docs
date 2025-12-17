@@ -1,12 +1,11 @@
 ---
 title: Deploy a MEAN Stack Application to Production
-description: A guide to deploying a MEAN Stack application from GitHub.
 hide:
   - navigation
+description: A guide to deploying a MEAN Stack application from GitHub.
 ---
 
 # How to Deploy a MEAN Stack Application to Production on Code Capsules
-
 
 Deploy a MEAN stack application and learn how to host backend code on Code Capsules.
 
@@ -30,13 +29,14 @@ Code Capsules gives every account a Personal Team by default. A Team is an envir
 
 ## Create a Space for your App
 
-Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/shared/space-name.png)
+![space name](../../.gitbook/assets/space-name.png)
 
 Example instructions to go with numbered annotations
+
 1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
 2. This should remind you of the project, for example “customer-api” or “notetaking-app”
 3. Choose a country close to where most of your users will be
@@ -64,24 +64,23 @@ Navigate to the "Space" containing your recently created Data Capsule and click 
 6. Leave "Run Command" blank.
 7. Click "Create Capsule".
 
-
 Code Capsules will automatically build your application when you’ve finished creating the Capsule. While the build is in progress, you can view the log by clicking "View Build Progress" next to the "Building Capsule" message.
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+![Build logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 ## Binding the Capsules
 
-Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind". This enables the capsule to use the MongoDB database in the Data Capsule. 
+Now you need to bind the two capsules together. Navigate to the "Config" tab of the Backend Capsule you've just created. Scroll to the "Bind Data Capsule" section and click on the "Bind". This enables the capsule to use the MongoDB database in the Data Capsule.
 
-![Bind MEAN Capsules](../assets/deployment/shared/bind-mongodb.png)
+![Bind MEAN Capsules](../../.gitbook/assets/bind-mongodb.png)
 
 ## Edit `DATABASE_URL` Environment Variable
 
-Once the binding is complete, you have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Environment Variables" section on the "Config" tab. 
+Once the binding is complete, you have to append `/app?authSource=admin` to the `DATABASE_URL` value under the "Environment Variables" section on the "Config" tab.
 
-![Edit DATABASE_URL Environment Variable](../assets/deployment/mern/edit-database-url.png)
+![Edit DATABASE\_URL Environment Variable](../../.gitbook/assets/edit-database-url.png)
 
 Confirm your changes by clicking on "Save" then restart your capsule by toggling the radio button in the top right off and on again.
 
@@ -89,7 +88,6 @@ Confirm your changes by clicking on "Save" then restart your capsule by toggling
 
 After restarting the capsule, the application will now be ready to be viewed. Click the "URL" link in the "Details" tab and you should see your deployed application.
 
-![Deployed App](../assets/deployment/mean/cc-mean-app.png)
+![Deployed App](../../.gitbook/assets/cc-mean-app.png)
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
-
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](./).

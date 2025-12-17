@@ -2,18 +2,18 @@
 
 ## What is MongoDB Atlas?
 
-[MongoDB Atlas](https://www.mongodb.com/cloud/atlas) is a _database as a service_ that hosts and manages MongoDBs online. In some ways, this service is similar to Code Capsules. Instead of managing and hosting applications, MongoDB Atlas manages and hosts MongoDBs for you – leaving you to worry about working with your database. 
+[MongoDB Atlas](https://www.mongodb.com/cloud/atlas) is a _database as a service_ that hosts and manages MongoDBs online. In some ways, this service is similar to Code Capsules. Instead of managing and hosting applications, MongoDB Atlas manages and hosts MongoDBs for you – leaving you to worry about working with your database.
 
 If you have a project idea or a project already hosted on Code Capsules that needs a database, this guide will help you. We'll walk step by step through creating an account with MongoDB Atlas and cover how to connect your application on Code Capsules to MongoDB Atlas.
 
 ## Creating an Account, Organization, and Project with MongoDB Atlas
 
-First, create an account with [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and log in. 
+First, create an account with [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) and log in.
 
 Your MongoDB Atlas account consists of two organizational tools – _Organizations_ and _Projects_:
 
-- Projects contain all the [clusters](https://www.capitalone.com/tech/cloud/what-is-a-cluster/) that host your databases.
-- Organizations contain all of the Projects that you've created. 
+* Projects contain all the [clusters](https://www.capitalone.com/tech/cloud/what-is-a-cluster/) that host your databases.
+* Organizations contain all of the Projects that you've created.
 
 Let's start by creating an organization. Navigate to the "Organizations" tab on your dashboard and click "Create an Organization". Then:
 
@@ -30,7 +30,7 @@ Next up is creating a project:
 
 Next, we'll set up a cluster that'll host your database.
 
-### Setting up a cluster 
+### Setting up a cluster
 
 After creating the project, you'll see a "Build a Cluster" button. Click it, and follow the instructions to set up a new cluster. You can choose a paid cluster or a free "Shared Cluster". These "Shared Clusters" are appropriate for small projects or for learning how to use MongoDB.
 
@@ -42,16 +42,15 @@ MongoDB Atlas requires you to create a "user" in order to access the database in
 
 1. Navigate to the "Database Access" tab under "Security".
 2. Click "Add New Database User".
-3. Choose the "Password" authentication method and follow the instructions. 
-	-	**Make sure** to select "read and write to any database" under "Database User Privileges".
+3. Choose the "Password" authentication method and follow the instructions.
+   * **Make sure** to select "read and write to any database" under "Database User Privileges".
 
-Now we need to authorize an IP address to connect to the database. Navigate to the "Network Access" tab under "Security". You'll see a button "Add IP Address". Adding an IP address means only computers on that IP address can connect to the database. 
+Now we need to authorize an IP address to connect to the database. Navigate to the "Network Access" tab under "Security". You'll see a button "Add IP Address". Adding an IP address means only computers on that IP address can connect to the database.
 
 Click "Add IP Address". We have a couple of options for adding an IP address.
 
-- If you only want to access the database from your current IP address, hit "Add Current IP Address" (note: If you select this option, Code Capsules will not be able to access your database).
-
-- **If you already have an application** on Code Capsules, or **plan on hosting an application** on Code Capsules, select "Allow Access From Anywhere".
+* If you only want to access the database from your current IP address, hit "Add Current IP Address" (note: If you select this option, Code Capsules will not be able to access your database).
+* **If you already have an application** on Code Capsules, or **plan on hosting an application** on Code Capsules, select "Allow Access From Anywhere".
 
 By this time, the cluster hosting your database should be ready. Let's see how we can connect to it.
 
@@ -61,18 +60,17 @@ Under "Data Storage" on the dashboard:
 
 1. Click "Clusters".
 2. Find your cluster.
-3. Click "Connect". 
+3. Click "Connect".
 
 There are multiple ways to connect to the a MongoDB Atlas cluster - we want to connect the database to an application, so, click "Connect your application".
 
 MongoDB Atlas provides drivers for various programming languages to connect to their databases. Choose your driver and version, and check the "Include full driver code example" box to see the code you'll need to connect to your database.
 
-Below is their Python driver, with "Fin" as the user. 
-![driver-options](../assets/tutorials/connect-mongodb-atlas-to-code-capsules/driveroptions.png)
+Below is their Python driver, with "Fin" as the user.![driver-options](../../.gitbook/assets/driveroptions.png)
 
-In your driver, you'll see something like this: `mongodb+srv://YOURUSERNAME:<password>@cluster0.e2fw3.mongodb.net/<dbname>?retryWrites=true&w=majorhostity`. This is a [URI](https://danielmiessler.com/study/difference-between-uri-url/). To connect your application to your database, copy and paste the driver into your code. In your URI, **replace** `<password>` and `<dbname>` with the user's password we created [previously](#setting-up-a-cluster-and-access-configurations) . 
+In your driver, you'll see something like this: `mongodb+srv://YOURUSERNAME:<password>@cluster0.e2fw3.mongodb.net/<dbname>?retryWrites=true&w=majorhostity`. This is a [URI](https://danielmiessler.com/study/difference-between-uri-url/). To connect your application to your database, copy and paste the driver into your code. In your URI, **replace** `<password>` and `<dbname>` with the user's password we created [previously](connect-mongodb-atlas-to-code-capsules.md#setting-up-a-cluster-and-access-configurations) .
 
-If you plan on hosting your application on Code Capsules, we need to perform one last step. 
+If you plan on hosting your application on Code Capsules, we need to perform one last step.
 
 ## Connecting your Database to Code Capsules
 
@@ -89,8 +87,8 @@ db = client.test
 ### Do something here
 ```
 
-On Code Capsules you would then set an environment variable named `DATABASE-URI`, containing the URI. 
+On Code Capsules you would then set an environment variable named `DATABASE-URI`, containing the URI.
 
 To set environment variables on Code Capsules, host your application on Code Capsules and navigate to the "Config" tab in your Capsule. Make sure to click "Update" when done.
 
-![enviro-set](../assets/tutorials/connect-mongodb-atlas-to-code-capsules/enviro-set.png)
+![enviro-set](../../.gitbook/assets/enviro-set.png)

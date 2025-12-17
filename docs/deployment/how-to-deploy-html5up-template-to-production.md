@@ -1,13 +1,13 @@
 ---
 title: Deploy an HTML5 template to production
-description: A guide on how to deploy an HTML5 template from GitHub.
 hide:
   - navigation
+description: A guide on how to deploy an HTML5 template from GitHub.
 ---
 
 # How to Deploy an HTML5 Template to Production on Code Capsules
 
-Deploy an HTML5 template and learn how to host frontend code on Code Capsules. 
+Deploy an HTML5 template and learn how to host frontend code on Code Capsules.
 
 ## Set up
 
@@ -19,13 +19,13 @@ To demonstrate how to deploy an HTML5 template to Code Capsules, we'll be using 
 
 Sign in to GitHub and create a repository for the template site you downloaded.
 
-We'll need to push the unzipped template files to your newly created repository for Code Capsules to deploy the template site from your GitHub account. To do this, initialize a git repository in the project's root folder on your machine by running the command `git init` from a terminal window while in the root folder. 
+We'll need to push the unzipped template files to your newly created repository for Code Capsules to deploy the template site from your GitHub account. To do this, initialize a git repository in the project's root folder on your machine by running the command `git init` from a terminal window while in the root folder.
 
 ## Push to GitHub
 
 Before you can push to GitHub, you need to add the untracked files to your local repository. Run `git add -A` in a terminal window from the project's root folder to do so. After adding the files, commit your changes by running `git commit -m "Initial app commit"`.
 
-Run the command below to set the remote repository for your local repo. Be sure to replace `<YOUR-REMOTE-GITHUB-URL>` with the actual URL for your remote repository. 
+Run the command below to set the remote repository for your local repo. Be sure to replace `<YOUR-REMOTE-GITHUB-URL>` with the actual URL for your remote repository.
 
 ```
 git remote add origin <YOUR-REMOTE-GITHUB-URL>
@@ -35,13 +35,14 @@ Push the unzipped files to your remote repository by running `git push origin ma
 
 ## Create an Account with Code Capsules
 
-Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space. 
+Log in to your Code Capsules account and navigate to the "Spaces" tab. Once there, click the yellow `+` icon on the top right of the screen to add a new Space.
 
 Follow the prompts, choosing your region and giving your Space a name, then click "Create Space".
 
-![space name](../assets/deployment/shared/space-name.png)
+![space name](../../.gitbook/assets/space-name.png)
 
 Example instructions to go with numbered annotations
+
 1. Choose a team — you can use a default “personal” team if you’re the only person working on this project, or a named team if you’re collaborating with others
 2. This should remind you of the project, for example “customer-api” or “notetaking-app”
 3. Choose a country close to where most of your users will be
@@ -61,14 +62,14 @@ To create a new Capsule for your space follow the instructions below:
 6. Leave "Build Command" and the "Static content folder path" blank.
 7. Click "Create Capsule".
 
-Code Capsules will automatically build your application when you’ve finished creating the Capsule. 
+Code Capsules will automatically build your application when you’ve finished creating the Capsule.
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+![Build logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 Once the build is complete, a URL link will appear in the URL section in the "Details" tab. Click the link and you should see your deployed application.
 
-![Deployed App](../assets/deployment/html/html5up-site.png)
+![Deployed App](../../.gitbook/assets/html5up-site.png)
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](./).

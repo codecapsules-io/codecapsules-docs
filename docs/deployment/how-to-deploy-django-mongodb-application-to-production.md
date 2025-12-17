@@ -1,8 +1,8 @@
 ---
 title: Deploy a Django MongoDB Application to Production
-description: A guide to deploying a Django MongoDB application from GitHub.
 hide:
   - navigation
+description: A guide to deploying a Django MongoDB application from GitHub.
 ---
 
 # How to Deploy a Django MongoDB Application to Production on Code Capsules
@@ -26,7 +26,7 @@ Navigate to the "Spaces" tab and open the Space you’ll be using.
 Click the "Create a New Capsule for Your Space" button, and follow the instructions below to create a Data Capsule:
 
 1. Choose "Data Capsule".
-2. Under "Data Type", select "MongoDB Database Cluster".  
+2. Under "Data Type", select "MongoDB Database Cluster".
 3. Under "Product", select "Standard".
 4. Click "Create Capsule".
 
@@ -43,18 +43,18 @@ Code Capsules will automatically build your application when you’ve finished c
 
 Once your application is live, you can view the build log by selecting the "Deploy" tab and clicking the "View build log" link in the "Builds" section.
 
-![Build logs](../assets/deployment/shared/backend-capsule-build-logs.png)
+![Build logs](<../../.gitbook/assets/backend-capsule-build-logs (1).png>)
 
 ## Binding the Capsules
 
-After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Config" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MongoDB database. 
+After the two capsules have been successfully built, the next step is to bind them together. To do this, navigate to the "Config" tab of your Backend Capsule. Scroll down to the "Bind Data Capsule" section and click on the "Bind" option in the bottom left. This provides the capsule with information on how to connect to the MongoDB database.
 
-![Bind MERN Capsules](../assets/deployment/shared/bind-mongodb.png)
+![Bind MERN Capsules](../../.gitbook/assets/bind-mongodb.png)
 
 ## View Application
 
 You can now view the application after the two capsules have been binded together. To see how it looks, click on the URL in the "Details" tab.
 
-![Deployed App](../assets/deployment/django/cc-django-mongodb-app.png)
+![Deployed App](../../.gitbook/assets/cc-django-mongodb-app.png)
 
-If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](/docs/deployment/).
+If you’d like to deploy another application in a different language or framework, take a look at our other [deployment guides](./).

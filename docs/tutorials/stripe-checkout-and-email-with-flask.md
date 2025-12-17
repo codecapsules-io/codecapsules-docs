@@ -1,12 +1,15 @@
 ---
-title: Stripe Checkout and Email Subscription 
-description: Add a payment method to your web app using Stripe checkout and set up email subscriptions with Flask.
-image: assets/tutorials/stripe-checkout-and-email-with-flask/stripe-checkout-cover.jpg
+title: Stripe Checkout and Email Subscription
+image: >-
+  assets/tutorials/stripe-checkout-and-email-with-flask/stripe-checkout-cover.jpg
+description: >-
+  Add a payment method to your web app using Stripe checkout and set up email
+  subscriptions with Flask.
 ---
 
-# Adding Functionality to Your Web Application: Setting up Stripe Checkout and Email Subscription with Flask and Code Capsules
+# Adding Functionality to Your Web Application: Setting up Stripe Checkout and Email Subscription with
 
-![Creating Flask API Cover](../assets/tutorials/stripe-checkout-and-email-with-flask/stripe-checkout-cover.jpg)
+![Creating Flask API Cover](../../.gitbook/assets/stripe-checkout-cover.jpg)
 
 ## What We'll Cover
 
@@ -16,16 +19,15 @@ Through a step-by-step process, we'll develop this functionality. We'll use [Fla
 
 Then, we'll host the web application on Code Capsules so people around the world can buy your product and subscribe to your mailing list.
 
-
 ## Requirements
 
 To successfully complete this project, we'll need:
 
-- A text editor (like [Sublime](https://www.sublimetext.com) or [VSCode](https://code.visualstudio.com/)) installed.
-- [Python 3.XX+](https://www.python.org/downloads/) installed.
-- [Virtualenv](https://pypi.org/project/virtualenv/) installed.
-- [Git](https://git-scm.com/) installed and a [GitHub](https://github.com/) account.
-- A [Code Capsules](https://codecapsules.io) account.
+* A text editor (like [Sublime](https://www.sublimetext.com) or [VSCode](https://code.visualstudio.com/)) installed.
+* [Python 3.XX+](https://www.python.org/downloads/) installed.
+* [Virtualenv](https://pypi.org/project/virtualenv/) installed.
+* [Git](https://git-scm.com/) installed and a [GitHub](https://github.com/) account.
+* A [Code Capsules](https://codecapsules.io) account.
 
 ## Setting Up the Frontend
 
@@ -34,9 +36,7 @@ We'll use the [Laurel](https://cruip.com/laurel/) frontend template from https:/
 After downloading the Laurel template:
 
 1. Create a directory named `project`.
-
 2. Within the `project` directory, create a sub-directory named `templates`.
-
 3. Open the downloaded template and extract the files within the `laurel` directory into the `templates` subdirectory.
 
 You can view the template by opening the `index.html` file in the `templates` subdirectory. We'll change the first "Early access" button to "Buy Now" and implement Stripe Checkout functionality for it.
@@ -64,7 +64,7 @@ Replace it with:
 </div>
 ```
 
-As well as changing "Early access" to "Buy Now", we've added [SOMETHING?], and given it an ID with `id="checkout-button"`. This will be useful when implementing Stripe Checkout.
+As well as changing "Early access" to "Buy Now", we've added \[SOMETHING?], and given it an ID with `id="checkout-button"`. This will be useful when implementing Stripe Checkout.
 
 Next, find this line:
 
@@ -81,9 +81,7 @@ View the changes by saving the `index.html` file and re-opening it in a web brow
 To make a functional web application out of our template, Flask requires a specific directory structure, so we will need to reorganize the `project` directory. To do this:
 
 1. Create a new directory named `static` in the `project` directory.
-
 2. Navigate to the `templates` directory and then the `dist` directory.
-
 3. Copy all of the directories located in `dist` into the `static` directory that we created above.
 
 Your `project` file structure should look like this:
@@ -116,7 +114,7 @@ Replace the value of `href` with the string below.
 <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
 ```
 
-In Jinja, anything between `{{` and `}}` is server-side code that will be evaluated before the page is served to users, i.e. when it is [*rendered*](https://flask.palletsprojects.com/en/1.1.x/tutorial/templates/). In this way, we can include the output of Python functions and the values of Python variables in our HTML. Jinja syntax is similar to Python, but not identical.
+In Jinja, anything between `{{` and `}}` is server-side code that will be evaluated before the page is served to users, i.e. when it is [_rendered_](https://flask.palletsprojects.com/en/1.1.x/tutorial/templates/). In this way, we can include the output of Python functions and the values of Python variables in our HTML. Jinja syntax is similar to Python, but not identical.
 
 In the Jinja code above, we're calling the function `url_for()`, which asks Flask to find the location of our `style.css` file in our `static` directory.
 
@@ -140,13 +138,10 @@ If the virtual environment has activated correctly, you'll notice `(env)` to the
 
 For our project, we'll use the following libraries:
 
-- [Flask](https://flask.palletsprojects.com/en/1.1.x/) is a lightweight Python web development framework.
-
-- [Gunicorn](https://gunicorn.org/) is the [WSGI server](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface) we'll use to host our application on Code Capsules.
-
-- [Requests](https://pypi.org/project/requests/) is a Python library that allows us to send [HTTP requests](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html).
-
-- [Stripe](https://pypi.org/project/stripe/) is another Python library that will help us interact with the [Stripe API](https://stripe.com/docs/api).
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) is a lightweight Python web development framework.
+* [Gunicorn](https://gunicorn.org/) is the [WSGI server](https://en.wikipedia.org/wiki/Web_Server_Gateway_Interface) we'll use to host our application on Code Capsules.
+* [Requests](https://pypi.org/project/requests/) is a Python library that allows us to send [HTTP requests](https://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html).
+* [Stripe](https://pypi.org/project/stripe/) is another Python library that will help us interact with the [Stripe API](https://stripe.com/docs/api).
 
 Install these by entering the command below in the virtual environment.
 
@@ -178,15 +173,15 @@ if __name__== '__main__':
 
 We import the following functions from `flask`:
 
-- `Flask`, which provides the Flask application object.
-- `render_template()`, which will render our `index.html` file.
-- `request`, an object which contains any information sent to our web application – later this will be used to retrieve the email address entered in our subscription box. Be careful not to confuse this with the `requests` library.
+* `Flask`, which provides the Flask application object.
+* `render_template()`, which will render our `index.html` file.
+* `request`, an object which contains any information sent to our web application – later this will be used to retrieve the email address entered in our subscription box. Be careful not to confuse this with the `requests` library.
 
 The `index` function has a [route decorator](https://flask.palletsprojects.com/en/1.1.x/api/#flask.Flask.route) which causes it to execute when Flask receives an HTTP [`GET`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET) or [`POST`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) request for the "/" URL, i.e. when someone navigates to the website's domain or IP address in a browser.
 
 When `render_template("index.html")` runs, Flask will look in the `templates` directory for a file named `index.html` and render it by executing its Jinja template code and serving the resulting HTML. To see this, run `app.py` with `flask run` in your terminal. Open the provided IP address in your browser – the web application should look like this:
 
-![website initialise](../assets/tutorials/stripe-checkout-and-email-with-flask/website_init.png)
+![website initialise](../../.gitbook/assets/website_init.png)
 
 Let's make this web application useful and implement the first bit of functionality – the email list feature.
 
@@ -197,15 +192,11 @@ We'll use [Mailgun](https://www.mailgun.com/) to handle our email subscriber lis
 With an account registered, create a mailing list by doing the following:
 
 1. Log in to Mailgun.
+2.  Click "Sending" then "Mailing lists" on the dashboard.
 
-2. Click "Sending" then "Mailing lists" on the dashboard.
-
-    ![Mailing list](../assets/tutorials/stripe-checkout-and-email-with-flask/mailing_lists.png)
-
+    ![Mailing list](../../.gitbook/assets/mailing_lists.png)
 3. At the top right, click "Create mailing list".
-
 4. Enter whatever you'd like for the address prefix, name, and description – leave everything else default.
-
 5. Click "Add mailing list".
 
 Navigate to the mailing list we just created. You'll see something called an _alias address_ – Mailgun provides every new mailing list with one. When you send an email to your alias address, Mailgun sends a copy of the email to everyone who is subscribed to your mailing list. Jot down your alias address, we'll use it soon.
@@ -264,13 +255,13 @@ The important part of this HTML for our functionality is the `form` tag. Let's t
         </form>
 ```
 
-This contains one `input`, for the user's email address, and a `button` for submitting that email address. When the user clicks on the button, an HTTP request will be sent from their browser to our Flask backend, containing the email address. As per the `method` attribute of the `form` tag, this will be a [POST request.
+This contains one `input`, for the user's email address, and a `button` for submitting that email address. When the user clicks on the button, an HTTP request will be sent from their browser to our Flask backend, containing the email address. As per the `method` attribute of the `form` tag, this will be a \[POST request.
 
 Recall that the Python code we entered in the last section provided for both `GET` and `POST` HTTP requests. As submitting this form will also send a request to "/", we can differentiate between a user browsing to our website (`GET`) and subscribing to our mailing list (`POST`) by looking at the HTTP method. We'll do that in the next section.
 
 ### Subscribe functionality in Flask
 
-Return to the `app.py`  file. Find this line:
+Return to the `app.py` file. Find this line:
 
 ```python
 @app.route("/",methods["GET","POST"])
@@ -289,11 +280,9 @@ def subscribe(user_email, email_list, api_key):
 
 This function is called when a user clicks the "Subscribe" button. It takes three arguments:
 
-- `user_email`: The email the user has entered.
-
-- `email_list`: Your Mailgun alias address.
-
-- `api_key`: Your Mailgun secret API key.
+* `user_email`: The email the user has entered.
+* `email_list`: Your Mailgun alias address.
+* `api_key`: Your Mailgun secret API key.
 
 The real logic is contained in the `return` line. Here, we use `requests.post()` to add the `user_email` to our `email_list`, by sending (or "posting") all of the values in `data` to Mailgun's [email list API](https://documentation.mailgun.com/en/latest/api_reference.html).
 
@@ -311,7 +300,7 @@ def index():
   return render_template("index.html")
 ```
 
-In the [previous section](#implementing-the-subscribe-button), we added the `POST` method to the subscribe button. We will therefor know when someone has clicked the subscribe button with the line:
+In the [previous section](stripe-checkout-and-email-with-flask.md#implementing-the-subscribe-button), we added the `POST` method to the subscribe button. We will therefor know when someone has clicked the subscribe button with the line:
 
 ```python
 if request.method == "POST":
@@ -327,9 +316,9 @@ All that's left is to add functionality to our "Buy Now" button.
 
 Stripe Checkout allows business owners to accept payments on their web applications. Let's [create an account](https://dashboard.stripe.com/register). After creating an account, log in and find your API keys by clicking "Developers" then "API keys" on the dashboard.
 
-![stripe-dashboard](../assets/tutorials/stripe-checkout-and-email-with-flask/stripe_dashboard.png)
+![stripe-dashboard](../../.gitbook/assets/stripe_dashboard.png)
 
-Here we'll see two API keys – a *publishable* API key, and a *secret* API key. You can think of these as a username and password. Stripe uses the publishable API key to identify your account, and the secret API key to ensure it's really you using it.
+Here we'll see two API keys – a _publishable_ API key, and a _secret_ API key. You can think of these as a username and password. Stripe uses the publishable API key to identify your account, and the secret API key to ensure it's really you using it.
 
 Open the `app.py` file. Above the subscribe function, add the following lines, replacing `YOUR PUBLISHABLE KEY HERE` and `YOUR SECRET KEY HERE` appropriately:
 
@@ -440,14 +429,13 @@ The "Buy Now" button is good to go – run `app.py` again. Try making a payment 
 
 ## Hosting the Application on Code Capsules
 
-Now that we've added all the functionality, we need to create some files that Code Capsules will use when hosting our application. We'll also take a look at a security problem  in our current application, and how to fix it before we go live.
+Now that we've added all the functionality, we need to create some files that Code Capsules will use when hosting our application. We'll also take a look at a security problem in our current application, and how to fix it before we go live.
 
 ### Creating the "requirements.txt" file and procfile
 
 To host this application on Code Capsules, we need to create a `requirements.txt` file and a `Procfile`.
 
 1. In the `project` directory, ensure the virtual environment is activated and then enter `pip3 freeze > requirements.txt`.
-
 2. Create another file named `Procfile`, containg the line `web: gunicorn app:app`.
 
 With the `requirements.txt` file, Code Capsules will now know what libraries to install to run the application. The `Procfile` tells Code Capsules to use the `gunicorn` WSGI server to serve HTML rendered by Flask to end-users.
@@ -546,9 +534,9 @@ Now let's create the Capsule:
 
 All that's left is to set the environment variables. Navigate to the Capsule and click on the "Config" tab. Use the image below as a guide to properly add your environment variables. Replace each value with the appropriate API key.
 
-![environment-variables](../assets/tutorials/stripe-checkout-and-email-with-flask/enviro_vars.png)
+![environment-variables](../../.gitbook/assets/enviro_vars.png)
 
-After entering the API keys, __make sure to click "Update"__.
+After entering the API keys, **make sure to click "Update"**.
 
 All done – now anyone can view the web application and interact with the "Buy Now" and "Subscribe" buttons.
 
