@@ -6,17 +6,16 @@ description: >-
 
 # Domains
 
-## Default URLs
-
-![Default WordPress URL](../.gitbook/assets/wordpress-capsule/domain/wordpress-default-url.png)
 
 When you deploy a WordPress capsule, Code Capsules assigns a default URL like `wordpress-slug.codecapsules.co.za`. You can access your site immediately using this URL.
 
+![Default WordPress URL](../.gitbook/assets/wordpress-capsule/domain/wordpress-default-url.png)
+
 ## Adding a Custom Domain
 
-Navigate to the **Domains** tab in your WordPress capsule.
+To add a custom domain, navigate to the **Domains** tab in your WordPress capsule.
 
-On the left panel you will see DNS configuration instructions. You'll need to create a CNAME or ALIAS record with your DNS provider or point a Type A record to the provided IP address.
+On the left panel you will see DNS configuration instructions. You'll need to create a CNAME or ALIAS record with your DNS provider or point a Type A record to the provided IP address in your domain provider's management console.
 
 Once you have created your DNS records, click the **+** button to add the domain entry.
 
