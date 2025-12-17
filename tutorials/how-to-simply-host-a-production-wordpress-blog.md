@@ -153,13 +153,11 @@ For ongoing operations, refer to the [WordPress capsule documentation](../produc
 
 ### Migrating Content from Staging to Production
 
-In your production WordPress capsule, navigate to the **Migrate** tab. Select **Staging WordPress** as the source capsule.
-
-![WordPress migration source capsule selection](.gitbook/assets/wordpress-migration-source-selection.png)
+In your production WordPress capsule, navigate to the **Migrate** tab. Select your staging wordpress capsule as the source capsule.
 
 Click **Start Migration**. Code Capsules copies your database content, uploaded media files, installed plugins, and theme configurations from staging to production.
 
-![WordPress migration in progress](.gitbook/assets/wordpress-migration-in-progress.png)
+![WordPress migration source capsule selection](.gitbook/assets/wordpress-migration-source-selection.png)
 
 Once complete, your production environment will have identical content to the staging environment.
 
