@@ -6,15 +6,9 @@ description: >-
 
 # Migration
 
-<figure><img src="../.gitbook/assets/wordpress-capsule/migrate/wordpress-migration-source-selection.png" alt=""><figcaption><p>Migration Source Selection</p></figcaption></figure>
+Navigate to the **Migrate** tab in your destination WordPress capsule. Select the source capsule from the dropdown menu. Click **Start Migration** to begin the synchronization process.
 
-## Starting a Migration
-
-Navigate to the **Migrate** tab in your destination WordPress capsule. Select the source capsule from the dropdown menu.
-
-Click **Start Migration** to begin the synchronization process.
-
-<figure><img src="../.gitbook/assets/wordpress-capsule/migrate/wordpress-migration-in-progress.png" alt=""><figcaption><p>Migration in Progress</p></figcaption></figure>
+![Migration Source Selection](../.gitbook/assets/wordpress-capsule/migrate/wordpress-migration-source-selection.png)
 
 ## What Gets Migrated
 
