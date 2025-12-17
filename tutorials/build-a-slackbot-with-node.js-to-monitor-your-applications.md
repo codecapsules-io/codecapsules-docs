@@ -128,11 +128,11 @@ For this tutorial, we would like the following two functions:
 
 Our first requirement can be configured on the Slack side by clicking "OAuth & Permissions" on the left panel. Scroll down to the _Scopes_ section, click "Add an OAuth Scope" under the _Bot Token Scopes_ section, and choose "Chat:Write" from the options list. This now allows our bot to initiate and post messages to us when it starts up.
 
-<figure><img src="/broken/files/r6EKQtUPE3O2SjmF2KQA" alt=""><figcaption><p>Select Scopes Slack</p></figcaption></figure>
+<figure><img src=".gitbook/assets/slack-scopes.png" alt=""><figcaption><p>Select Scopes Slack</p></figcaption></figure>
 
 Our second requirement can be configured by setting up a _slash command_. Click on the "Slash Commands" menu item on the left, under _Features_.
 
-<figure><img src="/broken/files/pJyVYgw4Xl5BaMkRPSj5" alt=""><figcaption><p>Slash Command Menu</p></figcaption></figure>
+<figure><img src=".gitbook/assets/choose-slash-command.png" alt=""><figcaption><p>Slash Command Menu</p></figcaption></figure>
 
 Then click "Create a new Command". We'll give the command the name _/stats_. For the _Request URL_, copy the _Domain_ name from your Code Capsules Details page.
 
@@ -140,7 +140,7 @@ Then click "Create a new Command". We'll give the command the name _/stats_. For
 
 Paste your domain into the _Request URL_ box on Slack, and add `/slack/command/stats` to the end of it. We can fill in a description as well, something like 'Returns key stats from the app'.
 
-<figure><img src="/broken/files/VH7b06NSiMDG1SUYSq7F" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/create-command.png" alt=""><figcaption></figcaption></figure>
 
 Great, now we can click "Save" at the bottom of the page to finish setting up our slash command.
 
@@ -191,7 +191,7 @@ Let's add this to our environment variables as well, as it keeps all the configu
 
 We also need to invite our bot to the chosen channel, so that it will be able to post there. Go to the channel, and @ mention the name you gave the bot to add it. Click "Invite Them" when Slack prompts you.
 
-<figure><img src="/broken/files/B3Ed9sPXeLDzPPe6GNl6" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/invite-bot.png" alt=""><figcaption></figcaption></figure>
 
 Now let's add the code to call Slack on startup, and write a message to our channel. We can modify our boilerplate code above to make an HTTP POST to the endpoint `https://slack.com/api/chat.postMessage`. We'll use [Superagent](https://www.npmjs.com/package/superagent) to make the call.
 
@@ -408,7 +408,7 @@ Then, on the first few lines of the function, we get the timestamp Slack sends f
 
 After that, we retrieve the Slack Signing Secret from our environment variables. Let's get our Signing Secret from Slack and add it to the Code Capsules environment now. Head over to your Slack app dashboard, and click on "Basic Information" in the left-hand sidebar. Then scroll down to _App Credentials_, and look for the _Signing Secret_. Click "Show", and copy the secret.
 
-<figure><img src="/broken/files/Fu6fbtbEcT1rwDceZf53" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/slack-signing-secret.png" alt=""><figcaption></figcaption></figure>
 
 Now, head over to your Capsule on Code Capsules and click on the _Config_ tab. Add a new environment variable with _Name_ `SLACK_SIGNING_SECRET` and paste in the value of the _Signing Secret_ we copied above. Click "Update & Start Build" to save the changes.
 

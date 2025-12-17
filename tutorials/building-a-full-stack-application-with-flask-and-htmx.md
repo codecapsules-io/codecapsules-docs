@@ -470,7 +470,7 @@ If the user goes through with updating the book title, then the `/update` route 
 
 Our app is ready to be tested. Navigate to the project’s root folder in a terminal and run the following command: `python3 run.py`. This should start up a development server on port 5000. Open your browser at `http://127.0.0.1:5000/` and you should see your app running:
 
-<figure><img src="/broken/files/Sn8ppxh3OGCGN2mm0yJR" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/flask-htmx.png" alt=""><figcaption></figcaption></figure>
 
 Once you are satisfied with the app, you can commit and push your changes to GitHub with the following commands.
 
