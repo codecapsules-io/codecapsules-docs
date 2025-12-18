@@ -4,7 +4,7 @@ description: >-
   database, files, and configurations.
 ---
 
-# Migration
+# Migrate
 
 Navigate to the **Migrate** tab in your destination WordPress Capsule. Select the source Capsule from the dropdown menu. Click **Start Migration** to begin the synchronization process.
 
