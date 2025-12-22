@@ -4,6 +4,7 @@
 * [How to Create and Host a Python Telegram Bot on Code Capsules](how-to-create-and-host-a-telegram-bot-on-code-capsules.md)
 * [How to Create and Host a Node.js Telegram Bot on Code Capsules](create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md)
 * [How to Create and Host a Go Telegram Bot on Code Capsules](create-and-host-go-ai-telegram-bot.md)
+* [How to (Simply) Host a Production WordPress Blog](how-to-simply-host-a-production-wordpress-blog.md)
 * [Creating and Hosting an API With Flask](creating-and-hosting-an-api-with-flask/README.md)
   * [API Reference \[Sample\]](creating-and-hosting-an-api-with-flask/api-reference-sample.md)
 * [Building a Full Stack Application with Flask and HTMx](building-a-full-stack-application-with-flask-and-htmx.md)

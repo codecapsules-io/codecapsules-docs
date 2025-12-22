@@ -142,13 +142,13 @@ WP Synchro provides a reliable migration workflow for WordPress sites. However, 
 
 Code Capsules provides detailed deployment documentation for WordPress. This section covers setting up the staging-to-production workflow.
 
-- **WordPress Deployment:** Follow the [WordPress deployment guide](../products/wordpress-capsule/deploy.md) to create your WordPress Capsule with an attached database and storage.
+- **WordPress Deployment:** Follow the [WordPress deployment guide](https://docs.codecapsules.io/products/wordpress-capsule/deploy) to create your WordPress Capsule with an attached database and storage.
 - **Creating Staging and Production Environments:** Deploy two identical WordPress setups, for example, one called `Staging WordPress` and another called `Production WordPress`. Each needs its own database and storage Capsules. This separation ensures staging changes don't affect production until you explicitly migrate them.
-- **Configuring Custom Domains:** Navigate to the [**Domains**](../products/wordpress-capsule/domain.md) tab in each Capsule, then add your custom domains. Use subdomains like `staging.yourblog.com` for staging and `yourblog.com` for production. Configure DNS records for your domain with your domain provider using the instructions provided by Code Capsules.
-- **Setting Up the Migration Workflow:** Once both environments are deployed, migrate content from staging to production using the [**Migrate**](../products/wordpress-capsule/migrate.md) tab in your production Capsule. Select staging as the source and start the migration. Code Capsules handles database synchronization, file transfer, and URL updates automatically.
+- **Configuring Custom Domains:** Navigate to the [**Domains**](https://docs.codecapsules.io/products/wordpress-capsule/domain) tab in each Capsule, then add your custom domains. Use subdomains like `staging.yourblog.com` for staging and `yourblog.com` for production. Configure DNS records for your domain with your domain provider using the instructions provided by Code Capsules.
+- **Setting Up the Migration Workflow:** Once both environments are deployed, migrate content from staging to production using the [**Migrate**](https://docs.codecapsules.io/products/wordpress-capsule/migrate) tab in your production Capsule. Select staging as the source and start the migration. Code Capsules handles database synchronization, file transfer, and URL updates automatically.
 - **Backup Verification:** Database and storage Capsules automatically back up daily. To confirm backup integrity, check the **Backups** tab in each Capsule, verify the retention settings, and test restoring the backup to a new Capsule.
 
-For ongoing operations, refer to the [WordPress Capsule documentation](../products/wordpress-capsule/) for monitoring, logs, and alerting configuration.
+For ongoing operations, refer to the [WordPress Capsule documentation](https://docs.codecapsules.io/products/wordpress-capsule) for monitoring, logs, and alerting configuration.
 
 ### Migrating Content from Staging to Production
 
