@@ -24,7 +24,7 @@ layout:
 
 # Building a Personal Calendar Assistant with Telegram and Agent Capsules
 
-LLMs with tools allow you to build AI integrations with ease. Instead of just reasoning, your agents can now handle complex tasks from coding to ordering food, scheduling events, or managing your team on Slack and Jira.
+LLMs with tools allow you to build AI integrations with ease. Instead of just reasoning, your agents can now handle complex tasks from coding to ordering food, scheduling events, or managing your team on [Slack](https://slack.com/) and [Jira](https://www.atlassian.com/software/jira).
 
 However, there's a challenge to running agents in production: infrastructure constraints. The complexity of setting up servers, selecting vector databases, managing security, and scaling costs can prevent agent projects from reaching production.
 
@@ -34,7 +34,7 @@ In this tutorial, you'll learn how to build a personal calendar assistant using 
 
 When deploying AI agents to production, developers typically need to manage a mountain of infrastructure concerns. You have to provision servers like EC2 instances and configure load balancers. Then comes container orchestration with Dockerfiles and Kubernetes clusters.
 
-You'll need to deploy and maintain vector databases, whether that's Pinecone, Weaviate, or Redis. Security requires SSL/TLS certificates, API authentication, and careful management of secrets.
+You'll need to deploy and maintain vector databases, whether that's [Pinecone](https://www.pinecone.io/), [Weaviate](https://weaviate.io/), or [Redis](https://redis.io/). Security requires SSL/TLS certificates, API authentication, and careful management of secrets.
 
 Add monitoring and logging for observability and error tracking, plus scaling configuration with auto-scaling policies and resource limits. All this complexity means developers spend more time wrestling with infrastructure than actually building agent capabilities, adding tools, refining prompts, or improving the user experience.
 
@@ -50,7 +50,7 @@ To follow this tutorial, you will need:
 
 - A [GitHub account](https://github.com/) and [Git](https://git-scm.com/) installed.
 - A [Code Capsules](https://codecapsules.io/) account.
-- An LLM API key's information. For this tutorial, we are using Anthropic.
+- An LLM API key's information. For this tutorial, we are using [Anthropic](https://www.anthropic.com/).
 
 The project we will use as a template can be found [here](<to-repo-url>). It's a codebase based on Code Capsules [templates](https://github.com/codecapsules-io/ai-agent-template), to allow developers to kick-start the development. You can read more [here](/docs/products/agent-capsule/templates).
 
@@ -58,7 +58,7 @@ The project we will use as a template can be found [here](<to-repo-url>). It's a
 
 The agents in this tutorial need a vector database. For simplicity, we'll use a Redis capsule.
 
-**Note:** This setup is not recommended for production. Redis is designed for temporary information and caching. For production deployments, consider dedicated vector databases like Pinecone, Weaviate, or Qdrant.
+**Note:** This setup is not recommended for production. Redis is designed for temporary information and caching. For production deployments, consider dedicated vector databases like [Pinecone](https://www.pinecone.io/), [Weaviate](https://weaviate.io/), or [Qdrant](https://qdrant.tech/).
 
 Follow this existing [guide](/docs/database/redis) to create a Redis Capsule. Once created, copy the connection string from the capsule details page.
 
@@ -70,7 +70,7 @@ To set up the Telegram agent, we will use the following [template](<project_temp
 
 ### Creating a Telegram Bot
 
-To create a Telegram Bot, open the Telegram application and search for BotFather. Once found, start a conversation and select `/newbot`. When prompted, give the bot a name, then a username. Once created, the bot will provide you with a token. Copy this token and save it for later.
+To create a Telegram Bot, open the [Telegram](https://telegram.org/) application and search for [BotFather](https://t.me/botfather). Once found, start a conversation and select `/newbot`. When prompted, give the bot a name, then a username. Once created, the bot will provide you with a token. Copy this token and save it for later.
 
 ![Creating Telegram bot with BotFather](.gitbook/assets/telegram-agent-botfather-create-bot.png)
 
@@ -162,7 +162,7 @@ In this tutorial, you built a Telegram bot that acts as an interface to a Code C
 
 This same pattern can enable you to build interesting integrations like:
 
-- **Task management bots**: Connect Todoist, Asana, or Jira to manage tasks through chat.
+- **Task management bots**: Connect [Todoist](https://todoist.com/), [Asana](https://asana.com/), or [Jira](https://www.atlassian.com/software/jira) to manage tasks through chat.
 - **More Personal assistants**: Combine multiple services like email, calendar, and notes in one conversational interface.
 - **Customer support bots**: Integrate with CRM systems and knowledge bases to handle support queries.
 - **Data analysis tools**: Query databases or analytics platforms using natural language.
