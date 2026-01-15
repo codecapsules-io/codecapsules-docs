@@ -24,31 +24,26 @@ layout:
 
 # Build a personal calendar assistant with Telegram and Agent Capsules
 
-LLMs with tools allow you to build AI integrations with ease. Instead of just reasoning, your agents can now handle complex tasks, from coding to ordering food, scheduling events, or managing your team on [Slack](https://slack.com/) and [Jira](https://www.atlassian.com/software/jira).
+Managing your calendar through multiple apps is tedious. You check Google Calendar on desktop, get notifications on mobile, and manually coordinate across platforms. What if you could schedule meetings, check availability, and get reminders through a single Telegram chat?
 
-However, infrastructure constraints pose a challenge to running agents in production. The complexity of setting up servers, selecting vector databases, managing security, and scaling costs can prevent agent projects from reaching production.
+In this tutorial, you'll build a personal calendar assistant that handles your Google Calendar through natural conversation on Telegram. The assistant understands requests like "Schedule a team meeting tomorrow at 2pm" or "What's on my calendar this week?" without requiring you to manage servers, databases, or scaling infrastructure.
 
-This tutorial demonstrates how to build a personal calendar assistant using Telegram and Agent Capsules from Code Capsules.
+<video src=".gitbook/assets/telegram-agent-demo.mp4" controls autoplay muted loop playsinline></video>
 
-## Agentic infrastructure
+## Agentic Infrastructure
 
-When deploying AI agents to production, developers typically need to manage a mountain of infrastructure concerns:
+Deploying AI agents to production requires managing extensive infrastructure:
 
-- Provisioning servers, like EC2 instances
-- Configuring load balancers
-- Orchestrating containers with Dockerfiles and Kubernetes clusters
-- Deploying and maintaing vector databases, like [Pinecone](https://www.pinecone.io/), [Weaviate](https://weaviate.io/), or [Redis](https://redis.io/)
-- Meeting security requirements, like SSL/TLS certificates, API authentication, and careful management of secrets
-- Adding monitoring and logging for observability and error tracking
-- Scaling configuration with auto-scaling policies and resource limits
+- Provision servers like EC2 instances and configure load balancers
+- Deploy and maintain vector databases (Pinecone, Weaviate, or Redis)
+- Configure SSL/TLS certificates and API authentication
+- Manage secrets securely
+- Add monitoring and logging for observability and error tracking
+- Configure auto-scaling policies and resource limits
 
-All this complexity means developers spend more time wrestling with infrastructure than actually building agent capabilities, adding tools, refining prompts, or improving the user experience.
+Code Capsules eliminates this burden. The platform handles infrastructure, databases, security, and scaling automatically, letting you focus on building Agent tools and features.
 
-### Code Capsules abstraction
-
-Code Capsules eliminates this infrastructure burden entirely by using various Capsule types (such as Agent Capsules) to handle GitHub repository connections, automatic deployments on code push, autoscaling based on traffic, managed vector store integration, LLM provider abstraction, SSL certificate management, API authentication, built-in monitoring and logging, and resource allocation.
-
-The platform handles DevOps complexity, allowing developers to focus on building agent tools and features.
+![Code Capsules Agent architecture](.gitbook/assets/telegram-agent-code-capsules-architecture.png)
 
 ## Prerequisites
 
@@ -72,7 +67,7 @@ Once you've created the Redis Capsule, copy the connection string from the **Cap
 
 ![Redis capsule connection string](.gitbook/assets/telegram-agent-redis-connection-string.png)
 
-## Configure the Telegram agent
+## Configuring the Telegram agent
 
 To set up the Telegram agent, use the [project template](<project_template>) and create a new Telegram Agent Capsule by following the [guide to deploying an Agent Capsule](/docs/products/agent-capsule/deploy).
 
@@ -82,9 +77,10 @@ To create a Telegram Bot, open the [Telegram](https://telegram.org/) application
 
 ![Creating Telegram bot with BotFather](.gitbook/assets/telegram-agent-botfather-create-bot.png)
 
-To make sure it's set up correctly, you can start a conversation with the bot, but it won't respond yet.
+To verify setup, start a conversation with the bot, but it won't respond yet.
 
 Once you have the token, go to the Telegram Capsule **Config** page to add the following variables:
+Go to the Telegram Capsule **Config** page to add the following variables.
 
 ```bash
 TELEGRAM_BOT_TOKEN=your_bot_token
@@ -119,11 +115,11 @@ Then, authorize your web application credentials by clicking the **Go to Clients
 
 When doing so, set the redirect URI to the URL of the Calendar Agent Capsule. The redirect URI should be as follows: `{your_agent_capsule_public_url}/api/calendar/auth/callback`. For example: `https://agent-capsule-123.ovh-test.ccdns.co/api/calendar/auth/callback`.
 
-You can find the URI in the dashboard of the Agent Capsule, and the URI becomes the Public URI.
+You can find the URL in the dashboard of the Agent Capsule and the URL is the **Public URL**.
 
 ![Agent Capsule public URI in dashboard](.gitbook/assets/telegram-agent-capsule-public-uri.png)
 
-Once you are done, Google provides you with your credentials, including the Client ID and the Client Secret, which you should copy. 
+After completing setup, Google provides you with credentials such as the client ID and the client secret. Then, in the Agent **Config**, add the following variables after retrieving the Client ID and Client Secret from Google Cloud Platform.
 
 Then, in the Code Capsules Agent **Config** page, add the following variables (pasting in the values of your Google Client ID and Client Secret).
 ```bash
@@ -135,13 +131,13 @@ Your environment variables configuration should look as follows:
 
 ![Complete environment variables configuration](.gitbook/assets/telegram-agent-capsule-full-env-vars.png)
 
-You can then test the configuration by opening the **Chat** tab and sending the following prompt:
+Test the configuration by clicking on the **Chat** tab where you can make the following request:
 
 ```txt
 Get the list of events in the calendar for February in the first 3 days.
 ```
 
-The agent gives you a link, which you click to authorize its access to the Google Calendar API.
+The Agent should give you a link to click to authorize access to the Calendar API.
 
 ![Agent chat showing authorization link](.gitbook/assets/telegram-agent-chat-auth-link.png)
 
@@ -159,7 +155,7 @@ To test the integration, go to Telegram and start a conversation with the bot. A
 
 ![Telegram bot authorization prompt](.gitbook/assets/telegram-agent-bot-auth-prompt.png)
 
-After granting access, remind the agent to continue.
+After granting access, remind the Agent to continue.
 
 ![Telegram bot calendar events list](.gitbook/assets/telegram-agent-bot-calendar-list.png)
 
@@ -169,7 +165,7 @@ You can also add events to the calendar.
 
 ## Conclusion
 
-In this tutorial, you built a Telegram bot that acts as an interface to a Code Capsules agent with Google Calendar capabilities. The agent uses an LLM to understand your requests and interact with your calendar through natural language.
+In this tutorial, you built a Telegram bot that acts as an interface to a Code Capsules Agent with Google Calendar capabilities. The Agent uses an LLM to understand your requests and interact with your calendar through natural language.
 
 This same pattern can enable you to build interesting integrations like:
 
@@ -178,6 +174,6 @@ This same pattern can enable you to build interesting integrations like:
 - **Customer support bots:** Integrate with CRM systems and knowledge bases to handle support queries.
 - **Data analysis tools:** Query databases or analytics platforms using natural language.
 
-The Agent Capsule architecture makes it easy to add new tools and capabilities without managing infrastructure. You can extend your bot by creating new tools that call external APIs, process data, or integrate with other services.
+The Agent Capsule architecture makes it easy to add new tools and capabilities without managing infrastructure. You can extend your bot by creating new tools that call external APIs, process data, and integrate with other services.
 
 If you're interested in learning more about building with Agent Capsules, check out the [Code Capsules documentation](/docs/products/agent-capsule).
