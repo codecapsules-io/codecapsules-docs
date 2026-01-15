@@ -39,7 +39,7 @@ Deploying AI agents to production requires managing extensive infrastructure:
 - Configure SSL/TLS certificates and API authentication
 - Manage secrets securely
 - Add monitoring and logging for observability and error tracking
-- Configure auto-scaling policies and resource limits
+- Configure autoscaling policies and resource limits
 
 Code Capsules eliminates this burden. The platform handles infrastructure, databases, security, and scaling automatically, letting you focus on building Agent tools and features.
 
@@ -67,7 +67,7 @@ Once you've created the Redis Capsule, copy the connection string from the **Cap
 
 ![Redis capsule connection string](.gitbook/assets/telegram-agent-redis-connection-string.png)
 
-## Configuring the Telegram agent
+## Configure the Telegram agent
 
 To set up the Telegram agent, use the [project template](<project_template>) and create a new Telegram Agent Capsule by following the [guide to deploying an Agent Capsule](/docs/products/agent-capsule/deploy).
 
@@ -77,7 +77,7 @@ To create a Telegram Bot, open the [Telegram](https://telegram.org/) application
 
 ![Creating Telegram bot with BotFather](.gitbook/assets/telegram-agent-botfather-create-bot.png)
 
-To verify setup, start a conversation with the bot, but it won't respond yet.
+To verify the setup, start a conversation with the bot, but it won't respond yet.
 
 Once you have the token, go to the Telegram Capsule **Config** page to add the following variables:
 Go to the Telegram Capsule **Config** page to add the following variables.
@@ -113,9 +113,9 @@ Then, authorize your web application credentials by clicking the **Go to Clients
 
 ![Google OAuth clients button](.gitbook/assets/telegram-agent-google-oauth-clients.png)
 
-When doing so, set the redirect URI to the URL of the Calendar Agent Capsule. The redirect URI should be as follows: `{your_agent_capsule_public_url}/api/calendar/auth/callback`. For example: `https://agent-capsule-123.ovh-test.ccdns.co/api/calendar/auth/callback`.
+When doing so, set the redirect URI to the URL of the Calendar Agent Capsule. To find it, open your Agent Capsule dashboard and copy the **Public URL**.
 
-You can find the URL in the dashboard of the Agent Capsule and the URL is the **Public URL**.
+The redirect URI should be as follows: `{your_agent_capsule_public_url}/api/calendar/auth/callback`. For example: `https://agent-capsule-123.ovh-test.ccdns.co/api/calendar/auth/callback`.
 
 ![Agent Capsule public URI in dashboard](.gitbook/assets/telegram-agent-capsule-public-uri.png)
 
@@ -131,7 +131,7 @@ Your environment variables configuration should look as follows:
 
 ![Complete environment variables configuration](.gitbook/assets/telegram-agent-capsule-full-env-vars.png)
 
-Test the configuration by clicking on the **Chat** tab where you can make the following request:
+Test the configuration by clicking on the **Chat** tab, where you can make the following request:
 
 ```txt
 Get the list of events in the calendar for February in the first 3 days.
