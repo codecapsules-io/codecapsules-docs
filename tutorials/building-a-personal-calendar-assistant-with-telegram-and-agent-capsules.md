@@ -35,7 +35,6 @@ In this tutorial, you'll build a personal calendar assistant that handles your G
 Deploying AI agents to production requires managing extensive infrastructure:
 
 - Provision servers like EC2 instances and configure load balancers
-- Set up container orchestration with Dockerfiles and Kubernetes clusters
 - Deploy and maintain vector databases (Pinecone, Weaviate, or Redis)
 - Configure SSL/TLS certificates and API authentication
 - Manage secrets securely
@@ -50,9 +49,9 @@ Code Capsules eliminates this burden. The platform handles infrastructure, datab
 
  To follow this tutorial, you need:
 
-- A [GitHub account](https://github.com/) and [Git](https://git-scm.com/) installed.
-- A [Code Capsules](https://codecapsules.io/) account.
-- An LLM API key's information. This tutorial uses [Anthropic](https://www.anthropic.com/).
+- A [GitHub account](https://github.com/) and [Git](https://git-scm.com/) installed
+- A [Code Capsules](https://codecapsules.io/) account
+- An LLM API key's information. This tutorial uses [Anthropic](https://www.anthropic.com/)
 
 The project we are using as a template can be found [calendar assistant template](to-repo-url) It's a codebase based on Code Capsules [templates](https://github.com/codecapsules-io/ai-agent-template), to allow developers to kick-start the development. You can read more on templates documentation [page](/docs/products/agent-capsule/templates).
 
@@ -166,10 +165,10 @@ In this tutorial, you built a Telegram bot that acts as an interface to a Code C
 
 This same pattern can enable you to build interesting integrations like:
 
-- **Task management bots**: Connect [Todoist](https://todoist.com/), [Asana](https://asana.com/), or [Jira](https://www.atlassian.com/software/jira) to manage tasks through chat.
-- **Personal assistants**: Combine multiple services like email, calendar, and notes in one conversational interface.
-- **Customer support bots**: Integrate with CRM systems and knowledge bases to handle support queries.
-- **Data analysis tools**: Query databases or analytics platforms using natural language.
+- Task management bots: Connect [Todoist](https://todoist.com/), [Asana](https://asana.com/), or [Jira](https://www.atlassian.com/software/jira) to manage tasks through chat
+- Personal assistants: Combine multiple services like email, calendar, and notes in one conversational interface
+- Customer support bots: Integrate with CRM systems and knowledge bases to handle support queries
+- Data analysis tools: Query databases or analytics platforms using natural language
 
 The Agent Capsule architecture makes it easy to add new tools and capabilities without managing infrastructure. You can extend your bot by creating new tools that call external APIs, process data, and integrate with other services.
 
