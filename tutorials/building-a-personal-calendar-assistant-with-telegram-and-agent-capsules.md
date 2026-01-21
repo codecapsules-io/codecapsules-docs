@@ -1,6 +1,6 @@
 ---
 description: >-
-  Build a personal calendar assistant with Telegram and Agent Capsules
+  Build a Personal Calendar Assistant with Telegram and Agent Capsules
 cover: /broken/files/LZ9vKYmOY5gPQMepT9Cj
 coverY: 0
 layout:
@@ -22,7 +22,7 @@ layout:
     visible: true
 ---
 
-# Build a personal calendar assistant with Telegram and Agent Capsules
+# Build a Personal Calendar Assistant with Telegram and Agent Capsules
 
 Managing your calendar through multiple apps is tedious. You check Google Calendar on desktop, get notifications on mobile, and manually coordinate across platforms. What if you could schedule meetings, check availability, and get reminders through a single Telegram chat?
 
@@ -55,7 +55,7 @@ To follow this tutorial, you need:
 
 We use [this codebase](<to-repo-url>) as a starter project for kickstarting the development. It's based on the Code Capsules [templates](https://github.com/codecapsules-io/ai-agent-template), which you can read more about in our [docs](/docs/products/agent-capsule/templates).
 
-## Set up a Redis Capsule
+## Set Up a Redis Capsule
 
 The agents in this tutorial need a vector database. For simplicity, we use a Redis Capsule.
 
@@ -67,7 +67,7 @@ Once you've created the Redis Capsule, copy the connection string from the **Cap
 
 ![Redis capsule connection string](.gitbook/assets/telegram-agent-redis-connection-string.png)
 
-## Configure the Telegram agent
+## Configure the Telegram Agent
 
 To set up the Telegram agent, use the [project template](<project_template>) and create a new Telegram Agent Capsule by following the [guide to deploying an Agent Capsule](/docs/products/agent-capsule/deploy).
 
@@ -149,7 +149,7 @@ After the validation, return to the **Chat** and tell the agent to proceed. You 
 
 ![Agent chat calendar events response](.gitbook/assets/telegram-agent-chat-calendar-response.png)
 
-## Test the integration
+## Test the Integration
 
 To test the integration, go to Telegram and start a conversation with the bot. Ask the bot to retrieve your calendar events for a particular period. If the bot prompts you for login or authorization, click on the link and grant it access.
 
@@ -169,10 +169,10 @@ In this tutorial, you built a Telegram bot that acts as an interface to a Code C
 
 This same pattern can enable you to build interesting integrations like:
 
-- **Task management bots:** Connect [Todoist](https://todoist.com/), [Asana](https://asana.com/), or [Jira](https://www.atlassian.com/software/jira) to manage tasks through chat.
-- **More personal assistants:** Combine multiple services like email, calendar, and notes in one conversational interface.
-- **Customer support bots:** Integrate with CRM systems and knowledge bases to handle support queries.
-- **Data analysis tools:** Query databases or analytics platforms using natural language.
+- **Task Management Bots:** Connect [Todoist](https://todoist.com/), [Asana](https://asana.com/), or [Jira](https://www.atlassian.com/software/jira) to manage tasks through chat.
+- **More Personal Assistants:** Combine multiple services like email, calendar, and notes in one conversational interface.
+- **Customer Support Bots:** Integrate with CRM systems and knowledge bases to handle support queries.
+- **Data Analysis Tools:** Query databases or analytics platforms using natural language.
 
 The Agent Capsule architecture makes it easy to add new tools and capabilities without managing infrastructure. You can extend your bot by creating new tools that call external APIs, process data, and integrate with other services.
 
