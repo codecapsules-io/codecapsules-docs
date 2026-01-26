@@ -20,13 +20,13 @@ layout:
 
 # How to Migrate WordPress Content Between Environments Using WP Synchro
 
-So you are looking to move your WordPress aproved content or pages by the editor or the QA to production? Congratulations but now you will need coordination of moving files and correct tables and data from the staging database to production.
+WordPress migration between staging and production is selective, not wholesale. When you need to migrate five approved articles and a new landing page while keeping production's existing users, published posts, and live settings intact, you can't just copy everything. Staging contains draft content, test users, and experimental configurations that live users should never see.
 
-WordPress stores data in two places: Database and file storages.
+WordPress stores content in two places: the MySQL database (posts, pages, user accounts, settings) and the file system (themes, plugins, uploaded media). Selective migration means choosing which database records and files to copy without overwriting production data, then updating URLs to match the production environment. There is a high risk of copying the wrong tables and missing files, which can lead to broken URLs.
 
-In this tutorial, you will learn how to migrate data from a staging WordPress environment to a production environment using WP Synchro.
+This tutorial shows how to use WP Synchro to handle selective WordPress migration. The plugin lets you choose specific content to migrate (individual posts, pages, or media files) while preserving production data and automatically updating URLs.
 
-## How to Migrate in Wordpress?
+## How Does Migration Work in WordPress?
 
 WordPress migration is more complex than deploying typical web applications, because WordPress stores data in two separate locations:
 
@@ -36,21 +36,17 @@ WordPress migration is more complex than deploying typical web applications, bec
 
 ![WordPress data storage split](.gitbook/assets/wordpress-data-storage-split.png)
 
-This split storage creates migration complexity. For a successful migration, you need to follow three coordinated steps:
-
-- **Copy the Database:** Export the MySQL database from staging and import it to production. This transfers all your content (posts, pages, and comments), plugin configurations, user accounts, and custom fields.
-- **Copy the File System:** Transfer all files from staging to production, including uploaded media, installed plugins, active themes, and WordPress core files.
-- **Update URLs in the Database:** Search through every database table and replace staging URLs with production URLs. This affects blog post content, plugin settings, theme options, widget configurations, and metadata.
+Migration requires three coordinated steps: copying the database, transferring files, and updating all URLs to match the new environment.
 
 ![WordPress migration process](.gitbook/assets/wordpress-migration-process.png)
 
 WordPress has no built-in migration tool, so you need to use plugins most of the time.
 
-### Migrating WordPress Content Using a Plugin
+## Migrating WordPress Content Using a Plugin
 
 Most WordPress users handle staging-to-production migrations with plugins such as [WP Synchro](https://wordpress.org/plugins/wpsynchro/), [UpdraftPlus](https://teamupdraft.com/updraftplus/), or [All-in-One WP Migration](https://wordpress.org/plugins/all-in-one-wp-migration/). These plugins automate the three-step process: database export/import, file transfer, and URL replacement.
 
-WP Synchro offers the most straightforward setup. The free version handles basic migrations but limits the database size to 10MB. Production sites require the premium version at $99 to $299 per year for extensive database support, selective sync, and conflict resolution. The setup process looks like this:
+WP Synchro offers the most straightforward setup. The free version supports basic migrations but limits the database size to 10 MB. Production sites require the premium version at $99-$299 per year for extensive database support, selective sync, and conflict resolution. The setup process looks like this:
 
 - Install the plugin on both the staging and production environments. The premium version requires you to download the zip file manually.
 
@@ -60,7 +56,7 @@ WP Synchro offers the most straightforward setup. The free version handles basic
 
   ![WP Synchro license key](.gitbook/assets/wp-synchro-license-key.png)
 
-- Upload the downloaded zip file on the **Add Plugins** page.
+- Upload the downloaded zip file to the **Add Plugins** page.
 
   ![Upload WP Synchro plugin zip](.gitbook/assets/wp-synchro-upload-zip.png)
 
@@ -82,7 +78,7 @@ WP Synchro offers the most straightforward setup. The free version handles basic
 
 - **Save** and execute the migration.
 
-If any content has changed on the production since your last sync, the plugin shows conflicts. You manually choose whether to keep production changes or overwrite them with staging content. Unlike Git, there's no automatic conflict resolution — you choose which complete version to keep.
+If any content has changed on the production since your last sync, the plugin shows conflicts. You manually choose whether to keep production changes or overwrite them with staging content. Unlike Git, there's no automatic conflict resolution – you choose which complete version to keep.
 
 ![WP Synchro migration conflicts](.gitbook/assets/wp-synchro-migration-conflicts.png)
 
@@ -93,21 +89,24 @@ WP Synchro provides a reliable migration workflow for WordPress sites. However, 
 - If someone edited production content while you worked on staging, the plugin can't merge changes. You either overwrite production or cancel the migration.
 - Anyone with access can view the API keys and use them to push unauthorized changes to your production site.
 
-## Why Use Code Capsules?
+## Why Use Code Capsules Instead?
 
-When you deploy your WordPress application on CodeCapsules, with two environments, meaning a staging codecapsules and a production codecapsules,
-you can automatically migrate content between them:
+Code Capsules provides built-in migration between WordPress environments. Deploy staging and production WordPress Capsules, then migrate content with one click.
 
-- It's one click away. You just need to go on the target for the migration, and select the capsule you want the content from.
-- There is no plugin or license short: you pay for the capsule and have access to the functionality.
-- There is no need for manual configuration or keys configuration, so no risks or keys leak or stealing.
+Migrating content requires two steps:
 
-To learn more about migrating in a production Wordpress environment, learn here.
+* Navigate to your production WordPress Capsule and open the Migrate tab
+* Select your staging Capsule as the source
+* Click Start Migration
 
-### Conclusion
+Code Capsules handles database synchronization, file transfers, and URL updates automatically. No plugin installation, no license costs ($99 to $299 per year saved), no API key configuration, and no security risks from exposed credentials.
+
+For the complete setup guide, see [How to Host a Production WordPress Blog on Code Capsules](link-to-document-1).
+
+## Conclusion
 
 WordPress migration plugins like WP Synchro provide a working solution for moving content between staging and production environments. However, this approach requires annual licensing costs ($99-$299), manual configuration of database credentials and sync rules, and periodic troubleshooting when conflicts arise during migration.
 
 Hosting your WordPress website on Code Capsules offers one-click staging-to-production migration without plugins, licensing fees, or manual configuration. The migration process handles database synchronization, file transfers, and URL updates automatically.
 
-For a simpler approach to WordPress staging and production workflows, see our guide on hosting production WordPress with Code Capsules.
+To learn more about WordPress on Code Capsules, check out the official [documentation](/products/wordpress-capsule/deploy).
