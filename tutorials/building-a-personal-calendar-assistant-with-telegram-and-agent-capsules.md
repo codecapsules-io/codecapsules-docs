@@ -51,7 +51,7 @@ To follow this tutorial, you need:
 
 - A [GitHub account](https://github.com/) and [Git](https://git-scm.com/) installed
 - A [Code Capsules](https://codecapsules.io/) account
-- An LLM API key (this guide uses [Anthropic](https://www.anthropic.com/))
+- An LLM API key. For example: [Anthropic](https://www.anthropic.com/) or [OpenAI](https://openai.com/index/openai-api/)
 
 We use [this codebase](<to-repo-url>) as a starter project for kickstarting the development. It's based on the Code Capsules [templates](https://github.com/codecapsules-io/ai-agent-template), which you can read more about in our [docs](/docs/products/agent-capsule/templates).
 
@@ -69,7 +69,7 @@ Once you've created the Redis Capsule, copy the connection string from the **Cap
 
 ## Configure the Telegram Agent
 
-To set up the Telegram agent, use the [project template](<project_template>) and create a new Telegram Agent Capsule by following the [guide to deploying an Agent Capsule](/docs/products/agent-capsule/deploy).
+To set up the Telegram agent go to: [project template](<project_template>) and click **Use this template** to create a copy in your own GitHub account. Then, follow the [guide to deploying an Agent Capsule](/docs/products/agent-capsule/deploy), selecting your newly created repository when prompted.
 
 ### Create a Telegram Bot
 
@@ -77,10 +77,9 @@ To create a Telegram Bot, open the [Telegram](https://telegram.org/) application
 
 ![Creating Telegram bot with BotFather](.gitbook/assets/telegram-agent-botfather-create-bot.png)
 
-To verify the setup, start a conversation with the bot, but it won't respond yet.
+To verify the setup, make sure you can start a conversation with the bot (it won't respond yet).
 
-Once you have the token, go to the Telegram Capsule **Config** page to add the following variables:
-Go to the Telegram Capsule **Config** page to add the following variables.
+Now that you have the token, go to the Telegram Capsule **Config** page to add the following variables:
 
 ```bash
 TELEGRAM_BOT_TOKEN=your_bot_token
@@ -95,9 +94,9 @@ The Telegram agent is now ready. Let's configure the calendar capabilities.
 
 ### Configure the Google Calendar API
 
-We have steps for configuring the Google Calendar API [here](https://github.com/codecapsules-io/ai-calendar-agent-template?tab=readme-ov-file#setup). To ensure the agent can access the calendar, you must configure Google Cloud to integrate with it. 
+To ensure the agent can access the calendar, you must configure Google Cloud to integrate with it. 
 
-First, visit the Google Calendar API [quickstart](https://developers.google.com/workspace/calendar/api/quickstart/js). Then, scroll down and click the **Enable the API** button.
+First, visit the Google Calendar API [quickstart](https://developers.google.com/workspace/calendar/api/quickstart/js). Scroll down and click the **Enable the API** button.
 
 ![Enable Google Calendar API button](.gitbook/assets/telegram-agent-google-calendar-enable-api.png)
 
@@ -113,15 +112,16 @@ Then, authorize your web application credentials by clicking the **Go to Clients
 
 ![Google OAuth clients button](.gitbook/assets/telegram-agent-google-oauth-clients.png)
 
-When doing so, set the redirect URI to the URL of the Calendar Agent Capsule. To find it, open your Agent Capsule dashboard and copy the **Public URL**.
+When doing so, set the redirect URI to the URL of the Calendar Agent and specify the endpoint `/api/calendar/auth/callback`. To find the public URL of your Calendar Agent, open your Agent Capsule dashboard, navigate to the **Details** tab, and copy the **Public URL**. For example: 
 
-The redirect URI should be as follows: `{your_agent_capsule_public_url}/api/calendar/auth/callback`. For example: `https://agent-capsule-123.ovh-test.ccdns.co/api/calendar/auth/callback`.
+```
+https://agent-capsule-123.ovh-test.ccdns.co/api/calendar/auth/callback
+```
 
 ![Agent Capsule public URI in dashboard](.gitbook/assets/telegram-agent-capsule-public-uri.png)
 
-After completing setup, Google provides you with credentials such as the client ID and the client secret. Then, in the Agent **Config**, add the following variables after retrieving the Client ID and Client Secret from Google Cloud Platform.
+After completing setup, Google provides you with credentials such as the client ID and the client secret. Add these in the Agent Capsule dashboard **Config** tab as follows:
 
-Then, in the Code Capsules Agent **Config** page, add the following variables (pasting in the values of your Google Client ID and Client Secret).
 ```bash
 GOOGLE_CALENDAR_CLIENT_ID=your_client_id
 GOOGLE_CALENDAR_CLIENT_SECRET=your_client_secret
@@ -131,7 +131,7 @@ Your environment variables configuration should look as follows:
 
 ![Complete environment variables configuration](.gitbook/assets/telegram-agent-capsule-full-env-vars.png)
 
-Test the configuration by clicking on the **Chat** tab, where you can make the following request:
+Test the calendar configuration by clicking on the **Chat** tab, where you can make the following request:
 
 ```txt
 Get the list of events in the calendar for February in the first 3 days.
