@@ -31,9 +31,9 @@ This guide demonstrates how to run a production WordPress site with:
 - Automatic scaling for traffic spikes
 - Infrastructure-level backups
 
-Learn about the operational challenges WordPress creates, the different hosting approaches that address them, and deploying a staging-to-production workflow.
+You'll learn how to deploy WordPress infrastructure, configure a content review workflow, and set up production operations for backups, scaling, and monitoring.
 
-## What You Need To Know
+## What You Need to Know
 
 Hosting WordPress in production is confusing because WordPress doesn't fit standard deployment workflows. You can't version-control content, staging-to-production migration isn't built-in, and backups require you to synchronize files and databases separately. Here's what you need to know to host a production WordPress site simply:
 
@@ -77,27 +77,27 @@ To follow this tutorial, you need:
 
 ### Create a Space
 
-Spaces organize related capsules. Click the **+** button on the dashboard to create a new space.
+Spaces organize related Capsules. Click the **+** button on the dashboard to create a new Space.
 
-![Create new space button](.gitbook/assets/create-space-button.png)
+![Create new Space button](.gitbook/assets/create-space-button.png)
 
-Fill in the space details and select the region closest to your target users to reduce latency for your visitors.
+Fill in the Space details and select the region closest to your target users to reduce latency for your visitors.
 
 ![Space details form with name and region fields](.gitbook/assets/space-details-form.png)
 
 ### Create the WordPress Capsule
 
-Navigate to your new space and click the **+** button to create a capsule.
+Navigate to your new Space and click the **+** button to create a Capsule.
 
-![Create capsule button in space view](.gitbook/assets/create-capsule-button.png)
+![Create Capsule button in Space view](.gitbook/assets/create-capsule-button.png)
 
-Select **WordPress** as the capsule type, choose your team and space.
+Select **WordPress** as the Capsule type, and choose your Team and Space.
 
-![WordPress capsule type selection](.gitbook/assets/wordpress-capsule-selection.png)
+![WordPress Capsule type selection](.gitbook/assets/wordpress-capsule-selection.png)
 
 Choose a plan based on your expected traffic. Use the [Code Capsules pricing calculator](https://app.codecapsules.io/pricing-calculator) to estimate costs for your monthly visitors and storage needs.
 
-![WordPress capsule pricing plan selection](.gitbook/assets/wordpress-pricing-plan.png)
+![WordPress Capsule pricing plan selection](.gitbook/assets/wordpress-pricing-plan.png)
 
 On the deployment page, select **Default** – Code Capsules provides a ready WordPress instance.
 
@@ -107,27 +107,27 @@ The **Custom** option lets you deploy from your own Git repository if you have a
 
 ### Configure Database and Storage
 
-In the next page, name the capsule **Staging WordPress**.
+In the next page, name the Capsule **Staging WordPress**.
 
-Click the **+** button next to Database to create a new database capsule. This separates your MySQL database from your application server, when traffic spikes hit your WordPress application, your database continues responding normally. Choose a database plan that matches your content volume.
+Click the **+** button next to Database to create a new Database Capsule. This separates your MySQL database from your application server, when traffic spikes hit your WordPress application, your database continues responding normally. Choose a database plan that matches your content volume.
 
-![WordPress database capsule configuration](.gitbook/assets/wordpress-database-configuration.png)
+![WordPress Database Capsule configuration](.gitbook/assets/wordpress-database-configuration.png)
 
-Click the **+** button next to Storage to create a storage capsule. This handles uploaded images, videos, and media files separately from your application server. Choose a storage plan based on your media library size.
+Click the **+** button next to Storage to create a Storage Capsule. This handles uploaded images, videos, and media files separately from your application server. Choose a storage plan based on your media library size.
 
-![WordPress storage capsule configuration](.gitbook/assets/wordpress-storage-configuration.png)
+![WordPress Storage Capsule configuration](.gitbook/assets/wordpress-storage-configuration.png)
 
-Your configuration should show Staging WordPress with attached database and storage capsules.
+Your configuration should show Staging WordPress with attached Database and Storage Capsules.
 
-![WordPress configuration with database and storage attached](.gitbook/assets/wordpress-configuration-overview.png)
+![WordPress configuration with Database and Storage attached](.gitbook/assets/wordpress-configuration-overview.png)
 
 Click **Create Capsule**.
 
 ### Configure Your Domain (Optional)
 
-Once the capsule deploys, you'll see a default URL like `staging-wordpress-slug.ccdns.co`. Configure a custom domain for cleaner URLs.
+Once the Capsule deploys, you'll see a default URL like `staging-wordpress-slug.ccdns.co`. Configure a custom domain for cleaner URLs.
 
-![WordPress capsule default URL](.gitbook/assets/wordpress-default-url.png)
+![WordPress Capsule default URL](.gitbook/assets/wordpress-default-url.png)
 
 Navigate to the **Domains** tab and click **+** to add a domain.
 
@@ -161,6 +161,20 @@ Click **Log In** to verify the installation. You should see the WordPress admin 
 
 ![WordPress admin dashboard](.gitbook/assets/wordpress-admin-dashboard.png)
 
+Navigate to the website home page. You should have a similar page.
+
+![WordPress default homepage with Twenty Twenty-Five theme](.gitbook/assets/wordpress-default-homepage.png)
+
+### Creating a Sample Post Section
+
+To demonstrate the content review workflow, create a sample blog post in your staging environment.
+
+Navigate to **Posts** → **Add New**.
+
+![WordPress Add New Post editor screen with title and content fields](.gitbook/assets/wordpress-add-new-post.png)
+
+Enter a post title and content. For this example, create a post titled "Welcome to Our Blog" with sample content about your company or services. Then, click **Publish** to make the post visible on your staging site. Visit your staging site to verify the post appears.
+
 ### Creating User Accounts
 
 To create user accounts, navigate to **Users** and click **Add New User**.
@@ -175,15 +189,17 @@ On the **Role** field, select Admin, Contributor, Editor, or Author. These roles
 
 Your staging environment is ready. You can install themes, add plugins, and create content for review before pushing to production. Code Capsules has by default three Themes: Twenty Twenty-Five, Twenty Twenty-Four, and Twenty Twenty-Three. The active theme is Twenty Twenty-Five.
 
-## How To Manage Content Across Environments Effectively
+You can repeat the same steps to create a production environment. Make sure to name the Capsules accordingly.
+
+## How to Manage Content Across Environments Effectively
 
 Content review workflow with staging and production environments:
 
 - The author of a post publishes a post in staging.
 - The editor takes a review.
 - The author makes changes.
-- Editor validate the changes.
-- Then, Editor gives the green signal for a push to production.
+- The editor validates the changes.
+- Then, the editor gives the green signal for a push to production.
 
 WordPress has no built-in push-to-production mechanism. Content migration solves this problem. Plugins like WP Synchro move content between staging and production. This approach requires:
 
@@ -193,11 +209,11 @@ WordPress has no built-in push-to-production mechanism. Content migration solves
 
 Code Capsules provides a Migrate feature that lets you move content from one WordPress Capsule to another.
 
-In your production WordPress Capsule (The target capsule), navigate to the **Migrate** tab. Select your staging WordPress Capsule as the **Source Capsule**.
+In your production WordPress Capsule (the target Capsule), navigate to the **Migrate** tab. Select your staging WordPress Capsule as the **Source Capsule**.
 
 Click **Start Migration**. Code Capsules copies your database content, uploaded media files, installed plugins, and theme configurations from staging to production.
 
-![WordPress migration source capsule selection](.gitbook/assets/wordpress-migration-source-selection.png)
+![WordPress migration source Capsule selection](.gitbook/assets/wordpress-migration-source-selection.png)
 
 Once complete, your production environment will have identical content to the staging environment.
 
@@ -205,7 +221,7 @@ With this setup, writers create posts in staging, editors review the content, an
 
 ## Managing Production WordPress
 
-A production WordPress site requires maintenance, and the most important part of maintenance are backups, scaling, observability, and monitoring. Code Capsules provides features for each part.
+A production WordPress site requires maintenance, and the most important part of maintenance is backups, scaling, observability, and monitoring. Code Capsules provides features for each part.
 
 ### Backups
 
@@ -219,9 +235,9 @@ The critical requirement is synchronization. Your database references files by p
 
 #### How Code Capsules Handles Backups
 
-Code Capsules implements infrastructure-level backups. Your database and storage Capsules maintain automatic daily snapshots with 30-day retention. These backups run outside WordPress, avoiding performance impact and resource limits.
+Code Capsules implements infrastructure-level backups. Your Database and Storage Capsules maintain automatic daily snapshots with 30-day retention. These backups run outside WordPress, avoiding performance impact and resource limits.
 
-Database and storage backups capture the same point in time, ensuring a synchronized state. Restoration works regardless of database size, avoiding the 500 MB cPanel limitation that breaks manual restoration for production sites.
+Database and Storage backups capture the same point in time, ensuring a synchronized state. Restoration works regardless of database size, avoiding the 500 MB cPanel limitation that breaks manual restoration for production sites.
 
 With migration and backup requirements established, the next question is cost. Different hosting approaches address these requirements with varying levels of automation, complexity, and price.
 
@@ -247,7 +263,7 @@ You can learn more about scaling on WordPress in the [scaling documentation](/pr
 
 ### Observability and Monitoring
 
-WordPress manages multiple systems: database, file storage, security, plugins, and website hosting. To ensure your site is always operational, monitoring is an important part. WordPress provides no built-in monitoring or logging interface. Logs are accessible on the server via SSH or file access, requiring manual parsing of log files and external monitoring tools.
+WordPress manages multiple systems: database, file storage, security, plugins, and website hosting. To ensure your site is always operational, monitoring is essential. WordPress provides no built-in monitoring or logging interface. Logs are accessible on the server via SSH or file access, requiring manual parsing and external monitoring tools.
 
 Production WordPress observability requires:
 
@@ -257,19 +273,19 @@ Production WordPress observability requires:
 
 Code Capsules provides these capabilities through the WordPress Capsule interface:
 
-- [Monitoring](https://docs.codecapsules.io/products/wordpress-capsule/monitor) - View real-time metrics for CPU, memory, and traffic. Identify performance trends and resource constraints.
+- [Monitoring](/products/wordpress-capsule/monitor) - View real-time metrics for CPU, memory, and traffic. Identify performance trends and resource constraints.
 
-- [Logs](https://docs.codecapsules.io/products/wordpress-capsule/logs) - Access application logs directly from the dashboard. Filter by severity, search for specific errors, and troubleshoot issues without server access.
+- [Logs](/products/wordpress-capsule/logs) - Access application logs directly from the dashboard. Filter by severity, search for specific errors, and troubleshoot issues without server access.
 
   ![WordPress Capsule logs interface showing application error logs](.gitbook/assets/wordpress-capsule-logs-interface.png)
 
-- [Access Logs](https://docs.codecapsules.io/products/wordpress-capsule/logs) – Track actions performed by WordPress users in the admin interface.
+- [Access Logs](/products/wordpress-capsule/logs) – Track actions performed by WordPress users in the admin interface.
 
   ![WordPress access logs view showing user activity in admin dashboard](.gitbook/assets/wordpress-access-logs-view.png)
 
-- [Alerting](https://docs.codecapsules.io/products/wordpress-capsule/alerting) - Configure alerts for high CPU usage, error rates, or downtime. Receive notifications via email or webhook before users report problems.
+- [Alerting](/products/wordpress-capsule/alerting) – Configure alerts for high CPU usage, error rates, or downtime. Receive notifications via email or webhook before users report problems.
 
-- [Metrics](https://docs.codecapsules.io/products/wordpress-capsule/monitor) – To check resources usage on the machine.
+- [Metrics](/products/wordpress-capsule/monitor) – To check resources usage on the machine.
 
   ![WordPress Capsule metrics dashboard showing CPU, memory, and resource usage](.gitbook/assets/wordpress-metrics-dashboard.png)
 
@@ -286,88 +302,6 @@ Production WordPress requires ongoing maintenance beyond infrastructure manageme
   - Weekly: Review error logs and performance metrics
   - Monthly: Test staging-to-production migration workflow
   - Quarterly: Security audit and backup restoration test
-
-## WordPress Hosting Cost Breakdown
-
-The cost of hosting a production WordPress site varies widely based on the approach. Understanding what you're paying for helps you evaluate whether the infrastructure matches your requirements.
-
-### Single-Server WordPress Hosting
-
-Single-server WordPress runs everything on one machine: web server, PHP, MySQL, and file storage. DigitalOcean Droplets and Amazon Lightsail offer this for $5 to $20 per month.
-
-![Single server WordPress architecture](.gitbook/assets/single-server-wordpress.png)
-
-With a single-server WordPress website, scaling requires handling several operational challenges:
-
-- **Traffic Spikes:** When your marketing team sends a newsletter, 1,000 concurrent visitors means 1,000 PHP processes competing for CPU, while database connections exhaust MySQL's connection pool. Separating the application server from the database server allows each to scale independently based on resource demands.
-- **Hardware Failures and Maintenance:** When the server reboots for system updates or a plugin update crashes PHP, your entire site goes offline. This requires redundancy across multiple servers or accepting downtime during failures.
-- **Storage Scaling:** As your media library grows, you need to expand disk space. On a single server, this means upgrading to a larger instance and migrating all data. Separated storage scales file storage independently, without touching your application or database.
-
-However, a single-server or self-hosted approach provides complete control. You choose your tech stack, install any software, and customize everything. The cost is your time, spent on tasks such as server administration, security patching, backup verification, and troubleshooting when issues arise.
-
-Self-hosted VPS requires technical expertise. You need to understand Linux server administration, MySQL database tuning, PHP configuration, web server optimization, and security hardening. For teams with DevOps resources, this works. For teams focused on content and marketing, the maintenance overhead outweighs the cost savings.
-
-### Managed WordPress Hosting
-
-Managed WordPress providers like Kinsta and WP Engine handle server configuration, updates, security, and backups for you.
-
-- **Kinsta** starts at $35 per month for a single site with 25,000 monthly visits, 10 GB storage, and automatic backups. This includes Cloudflare CDN, malware scanning, and staging environments. The plan scales to $675 per month for 250,000 visits and 100 GB storage.
-- **WP Engine** starts at $20 per month for personal sites with 25,000 monthly visits and 10 GB storage. Business plans supporting 100,000 visits and staging environments begin at $50 per month. Enterprise plans reach over $500 per month.
-
-These services provide convenience. You get WordPress optimized for performance without managing servers yourself. The tradeoff is limited control. You can't install custom server software, extensively modify PHP configurations, or integrate WordPress into your existing infrastructure automation.
-
-### AWS Enterprise Architecture
-
-AWS's reference architecture for production WordPress runs 11 services: CloudFront CDN, Application Load Balancer, EC2 Auto Scaling, Elastic File System, Aurora, ElastiCache, S3, NAT Gateways, and VPC networking. Monthly costs range from $500 to $1,500, depending on traffic.
-
-![WordPress high availability architecture by Bitnami](.gitbook/assets/wordpress-aws-architecture.png)
-
-This architecture provides enterprise-grade reliability and scale. You get distributed infrastructure, automatic failover, and performance optimization. The tradeoff is complexity. You need dedicated DevOps staff to monitor, maintain, and debug across all these services. Troubleshooting failures requires expertise in multiple AWS services simultaneously.
-
-AWS also provides no built-in WordPress staging-to-production migration. You need expensive sync plugins (over $200 per year) or custom deployment scripts.
-
-### Code Capsules
-
-![Code Capsules WordPress architecture](.gitbook/assets/code-capsules-wordpress-architecture.png)
-
-Code Capsules WordPress hosting starts with separate application, database, and storage Capsules. Billing is based on actual resource usage.
-
-A typical small production setup costs approximately $15 to $25 per month and includes:
-
-- A WordPress application Capsule handling web traffic
-- A MySQL database Capsule with automatic daily backups
-- A storage Capsule for media files with backup retention
-
-Staging environments add the same components, roughly doubling the cost for a complete staging-to-production setup, at $30 to $50 per month in total. This includes:
-
-- Infrastructure-level backups
-- One-click staging-to-production migration
-- Auto-scaling for traffic spikes
-- Separated application, database, and storage layers
-
- There are no plugin licensing costs, no DevOps staff requirements, and no complex AWS service configurations.
-
-The hosting option you choose depends on your resources and need for control.
-
-- If you have DevOps resources and need complete control, a self-hosted VPS or AWS provides maximum flexibility.
-- If you're a small team focused on content rather than infrastructure, managed solutions eliminate maintenance overhead.
-- If you sit between these extremes, Code Capsules provides managed infrastructure with staging and production workflows, without the premium pricing of fully managed WordPress hosts or the complexity of AWS enterprise architecture.
-
-| Feature                             | Managed WordPress (Kinsta/WP Engine) | Self-Hosted VPS                        | AWS Enterprise                                | Code Capsules                                |
-|-------------------------------------|--------------------------------------|----------------------------------------|-----------------------------------------------|----------------------------------------------|
-| **Monthly Cost**                    | $35-100                              | $10-40                                 | $500-1,500                                    | Starting $30                                 |
-| **Setup Time**                      | Minutes                              | Hours                                  | Days                                          | Minutes                                      |
-| **DevOps Required**                 | No                                   | Yes                                    | Yes                                           | No                                           |
-| **Staging Environment**             | Included                             | Manual setup                           | Manual setup                                  | Included                                     |
-| **Staging-to-Production Migration** | Manual or plugins ($200+/year)       | Custom scripts                         | Custom scripts                                | One-click built-in                           |
-| **Auto-scaling**                    | Limited                              | Manual                                 | Full control                                  | Automatic                                    |
-| **Infrastructure Control**          | Limited                              | Complete                               | Complete                                      | Moderate                                     |
-| **Backup Management**               | Automatic                            | Manual setup                           | Manual setup                                  | Automatic infrastructure-level               |
-| **Database Size Limits**            | Plan-dependent                       | Server capacity                        | Unlimited                                     | Capsule plan                                 |
-| **Performance Optimization**        | Managed by provider                  | Your responsibility                    | Your configuration                            | Platform-managed                             |
-| **Security Updates**                | Managed by provider                  | Your responsibility                    | Your responsibility                           | Platform-managed                             |
-| **Custom Server Software**          | No                                   | Yes                                    | Yes                                           | Limited                                      |
-| **Best For**                        | Non-technical teams, simple sites    | Teams with DevOps, custom requirements | Enterprise with dedicated infrastructure team | Technical teams needing workflow integration |
 
 ## Conclusion
 
