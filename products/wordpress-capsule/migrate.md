@@ -1,9 +1,3 @@
----
-description: >-
-  Migrate content between WordPress Capsules with one-click synchronization of
-  database, files, and configurations.
----
-
 # Migrate
 
 Navigate to the **Migrate** tab in your destination WordPress Capsule. Select the source Capsule from the dropdown menu. Click **Start Migration** to begin the synchronization process.
