@@ -77,9 +77,9 @@ To create a Telegram Bot, open the [Telegram](https://telegram.org/) application
 
 ![Creating Telegram bot with BotFather](.gitbook/assets/telegram-agent-botfather-create-bot.png)
 
-To verify the setup, start a conversation with the bot, but it won't respond yet.
+To verify the setup, make sure you can start a conversation with the bot (it won't respond yet).
 
-Once you have the token, go to the Telegram Capsule **Config** page to add the following variables:
+Now that you have the token, go to the Telegram Capsule **Config** page to add the following variables:
 
 ```bash
 TELEGRAM_BOT_TOKEN=your_bot_token
