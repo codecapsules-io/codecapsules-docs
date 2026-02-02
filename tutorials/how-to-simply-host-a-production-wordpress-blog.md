@@ -126,7 +126,7 @@ Navigate to the **Domains** tab and click **+** to add a domain.
 
 ![Add custom domain button](.gitbook/assets/add-custom-domain-button.png)
 
-You will be redirected to a page to enter the custom domain address. Enter your staging domain, for example, `staging.blog.yourdomain.com`.
+On the domain configuration page, enter your staging domain, for example, `staging.blog.yourdomain.com`.
 
 ![Custom domain entry form](.gitbook/assets/custom-domain-entry.png)
 
