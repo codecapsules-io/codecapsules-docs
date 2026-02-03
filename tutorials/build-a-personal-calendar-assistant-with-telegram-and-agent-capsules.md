@@ -39,7 +39,7 @@ Once you've created the Redis Capsule, copy the connection string from the **Cap
 
 ### Configure the Telegram Agent
 
-To set up the Telegram agent, go to the [telegram calendar agent](https://github.com/ritza-co/telegram-calendar-agent) GitHub repository, and click **Use this template** to create a copy in your own GitHub account.&#x20;
+To set up the Telegram agent, go to the [Telegram calendar agent](https://github.com/ritza-co/telegram-calendar-agent) GitHub repository, and click **Use this template** to create a copy in your own GitHub account.&#x20;
 
 Then, deploy the Agent Capsule:
 
