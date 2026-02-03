@@ -23,7 +23,7 @@ layout:
     visible: true
 ---
 
-# Creating and Hosting an API With Flask
+# Create and Host an API With Flask
 
 An API, or Application Programming Interface, is a tool enabling developers to interact with data online. Imagine: you navigate to some website and see your location’s temperature displayed on their homepage. How did they present this information?
 
@@ -74,7 +74,7 @@ envScriptsactivate.bat
 
 If the virtual environment has activated correctly, you’ll see (env) to the left of your name in the terminal.
 
-![env active](../.gitbook/assets/env-active.png)
+![env active](<.gitbook/assets/env-active (1).png>)
 
 ### Installing the Dependencies
 

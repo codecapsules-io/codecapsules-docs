@@ -19,4 +19,5 @@
 * [White-Label Your App With Code Capsules](white-label-your-app-with-code-capsules.md)
 * [Building a Game Catalogue API](building-a-game-catalogue-api.md)
 * [Best Practices for Structuring MEAN/MERN/MEVN Projects](best-practices-for-structuring-mean-mern-mevn-projects.md)
+* [Build a Personal Calendar Assistant with Telegram and Agent Capsules](build-a-personal-calendar-assistant-with-telegram-and-agent-capsules.md)
 * [Video Guides](video-guides.md)
