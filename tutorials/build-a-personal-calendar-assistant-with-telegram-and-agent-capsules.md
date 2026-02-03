@@ -4,6 +4,8 @@ Managing your calendar through multiple apps is tedious. You check Google Calend
 
 In this tutorial, you'll build a personal calendar assistant that handles your Google Calendar through natural conversation on Telegram. The assistant understands requests like "Schedule a team meeting tomorrow at 2pm" or "What's on my calendar this week?" without requiring you to manage servers, databases, or scaling infrastructure.
 
+<figure><img src=".gitbook/assets/telegram-agent-bot-add-event.png" alt="The finished calendar assistant responding to a natural language request to schedule a meeting"><figcaption><p>The calendar assistant you'll build in this tutorial</p></figcaption></figure>
+
 ### Agentic Infrastructure
 
 Deploying AI agents to production requires managing extensive infrastructure:
