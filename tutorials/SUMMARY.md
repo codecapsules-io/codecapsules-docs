@@ -5,6 +5,7 @@
 * [How to Create and Host a Node.js Telegram Bot on Code Capsules](create-and-host-a-telegram-bot-with-node.js-on-code-capsules.md)
 * [How to Create and Host a Go Telegram Bot on Code Capsules](create-and-host-go-ai-telegram-bot.md)
 * [How to (Simply) Host a Production WordPress Blog](how-to-simply-host-a-production-wordpress-blog.md)
+* [Build a Personal Calendar Assistant with Telegram and Agent Capsules](build-a-personal-calendar-assistant-with-telegram-and-agent-capsules.md)
 * [Create and Host an API With Flask](create-and-host-an-api-with-flask.md)
 * [Building a Full Stack Application with Flask and HTMx](building-a-full-stack-application-with-flask-and-htmx.md)
 * [Nuxt3 and Nitro](nuxt3-and-nitro.md)
@@ -19,5 +20,4 @@
 * [White-Label Your App With Code Capsules](white-label-your-app-with-code-capsules.md)
 * [Building a Game Catalogue API](building-a-game-catalogue-api.md)
 * [Best Practices for Structuring MEAN/MERN/MEVN Projects](best-practices-for-structuring-mean-mern-mevn-projects.md)
-* [Build a Personal Calendar Assistant with Telegram and Agent Capsules](build-a-personal-calendar-assistant-with-telegram-and-agent-capsules.md)
 * [Video Guides](video-guides.md)
