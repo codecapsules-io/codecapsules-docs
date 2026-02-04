@@ -1,6 +1,6 @@
 ---
 description: >-
-  Learn how to deploy blog content to a WordPress production site with separated application, database, and storage layers, built-in staging-to-production migration, and autoscaling without AWS complexity.
+  Compare WordPress hosting costs and features across single-server VPS, AWS enterprise architecture, managed WordPress providers, and Code Capsules to match infrastructure to your team's technical capacity.
 coverY: 0
 layout:
   cover:
@@ -37,13 +37,13 @@ You'll learn how to deploy WordPress infrastructure, configure a content review 
 
 In a development team, the workflow for releasing changes usually looks like this:
 
-![Developer workflow diagram](.gitbook/assets/developer-workflow.png)
+![Developer workflow diagram](./assets/developer-workflow.png)
 
 Your developers write code locally, commit to GitHub, run automated tests, and deploy changes to staging for review. Only after stakeholder approval does anything touch production. Every change is tracked, every deployment is reversible, and nothing reaches your live site without multiple checkpoints.
 
 WordPress doesn't work this way.
 
-![WordPress workflow diagram](.gitbook/assets/wordpress-workflow.png)
+![WordPress workflow diagram](./assets/wordpress-workflow.png)
 
 WordPress splits data between files and the database, breaking Git workflows:
 
@@ -82,18 +82,22 @@ For a detailed comparison of hosting costs and trade-offs, see [WordPress Hostin
 
 ### Why This Guide Uses Code Capsules
 
-Code Capsules solves specific production WordPress problems: separated infrastructure layers prevent single points of failure, built-in migration eliminates $99-$299 annual plugin costs, and infrastructure-level backups keep databases and files synchronized.
+Code Capsules solves the primary challenges of hosting a WordPress production site:
 
-Production WordPress requires content review workflows. Writers create posts in staging, editors review and approve them, and then the changes migrate to production. WordPress provides no built-in migration mechanism. Plugin-based solutions like WP Synchro require licensing costs, API key management, and manual selection of files and database tables to migrate.
+- Separate infrastructure layers prevent single points of failure.
+- Built-in migration eliminates $99-$299 annual plugin costs.
+- Infrastructure-level backups keep databases and files synchronized.
 
-Code Capsules provides one-click migration between WordPress Capsules, automatically handling database synchronization, file transfers, and URL updates.
+WordPress production environments require content review workflows. Writers create posts in staging, editors review and approve them, and then the changes migrate to production. WordPress provides no built-in migration mechanism. Plugin-based solutions like WP Synchro require licensing costs, API key management, and manual selection of files and database tables to migrate.
+
+Code Capsules provides one-click migration between WordPress Capsules, such as from a staging WordPress Capsule to a production WordPress Capsule, automatically handling database synchronization, file transfers, and URL updates.
 
 ## Hosting a WordPress Blog on Code Capsules
 
 To follow this tutorial, you need:
 
 - A Code Capsules account.
-- Some knowledge of WordPress configuration is required, as you will create an admin user.
+- Some knowledge of WordPress configuration, as you will create an admin user.
 
 ### Create a Space
 
@@ -101,11 +105,11 @@ Spaces organize related Capsules.
 
 On your Code Capsules dashboard, navigate to the **Spaces** tab and click the **+** button to create a new Space.
 
-![Create new Space button](.gitbook/assets/create-space-button.png)
+![Create new Space button](./assets/create-space-button.png)
 
 Fill in the Space details and select the region closest to your target users to reduce latency for your visitors.
 
-![Space details form with name and region fields](.gitbook/assets/space-details-form.png)
+![Space details form with name and region fields](./assets/space-details-form.png)
 
 ### Create the WordPress Capsule
 
@@ -120,15 +124,15 @@ This guide assumes you've already deployed a WordPress Capsule following the [Wo
 
 Once the Capsule deploys, you'll see a default URL like `staging-wordpress-slug.ccdns.co`. You can configure a custom domain for cleaner URLs.
 
-![WordPress Capsule default URL](.gitbook/assets/wordpress-default-url.png)
+![WordPress Capsule default URL](./assets/wordpress-default-url.png)
 
 Navigate to the **Domains** tab and click **+** to add a domain.
 
-![Add custom domain button](.gitbook/assets/add-custom-domain-button.png)
+![Add custom domain button](./assets/add-custom-domain-button.png)
 
 On the domain configuration page, enter your staging domain, for example, `staging.blog.yourdomain.com`.
 
-![Custom domain entry form](.gitbook/assets/custom-domain-entry.png)
+![Custom domain entry form](./assets/custom-domain-entry.png)
 
 Code Capsules provides DNS instructions. Create a CNAME or ALIAS record with your DNS provider pointing to the provided hostname.
 
@@ -140,39 +144,39 @@ With the WordPress Capsule deployed, let's complete the WordPress installation f
 
 After creating the Code Capsules, you need to configure the staging WordPress site. Visit your WordPress URL and select your language.
 
-![WordPress language selection screen](.gitbook/assets/wordpress-language-selection.png)
+![WordPress language selection screen](./assets/wordpress-language-selection.png)
 
 Create your admin account. Use a strong password since this account has full site access.
 
-![WordPress admin account creation form](.gitbook/assets/wordpress-admin-account-setup.png)
+![WordPress admin account creation form](./assets/wordpress-admin-account-setup.png)
 
 Once the installation is successful, you will see the following page.
 
-![WordPress installation success message](.gitbook/assets/wordpress-installation-success.png)
+![WordPress installation success message](./assets/wordpress-installation-success.png)
 
 Click **Log In** to verify the installation. You should see the staging WordPress admin dashboard.
 
-![WordPress admin dashboard](.gitbook/assets/wordpress-admin-dashboard.png)
+![WordPress admin dashboard](./assets/wordpress-admin-dashboard.png)
 
 Navigate to the website home page. You should have a similar page.
 
-![WordPress default homepage with Twenty Twenty-Five theme](.gitbook/assets/wordpress-default-homepage.png)
+![WordPress default homepage with Twenty Twenty-Five theme](./assets/wordpress-default-homepage.png)
 
 Code Capsules includes three default WordPress themes: Twenty Twenty-Five (active), Twenty Twenty-Four, and Twenty Twenty-Three. These are blog-focused templates that display posts on the homepage by default.
 
 To change themes, navigate to **Appearance** → **Themes**.
 
-![WordPress Themes page showing available themes](.gitbook/assets/wordpress-themes-page.png)
+![WordPress Themes page showing available themes](./assets/wordpress-themes-page.png)
 
 ### Creating User Accounts
 
 To create user accounts, navigate to **Users** and click **Add New User**.
 
-![WordPress Users page with Add New User button](.gitbook/assets/wordpress-add-new-user-button.png)
+![WordPress Users page with Add New User button](./assets/wordpress-add-new-user-button.png)
 
 Fill the form with user information and select a role.
 
-![WordPress user creation form with role selection options](.gitbook/assets/wordpress-user-role-form.png)
+![WordPress user creation form with role selection options](./assets/wordpress-user-role-form.png)
 
 From the **Role** dropdown, select **Admin**, **Contributor**, **Editor**, or **Author**. These roles determine permissions for content creation and review in your staging-to-production workflow.
 
@@ -184,7 +188,7 @@ To demonstrate the content review workflow, create a sample blog post in your st
 
 Navigate to **Posts** → **Add New**.
 
-![WordPress Add New Post editor screen with title and content fields](.gitbook/assets/wordpress-add-new-post.png)
+![WordPress Add New Post editor screen with title and content fields](./assets/wordpress-add-new-post.png)
 
 Enter a post title and content. For this example, create a post titled "Welcome to Our Blog" with sample content about your company or services. Then, click **Publish** to make the post visible on your staging site. Visit your staging site to verify the post appears.
 
@@ -205,7 +209,7 @@ In your production WordPress Capsule (the target Capsule), navigate to the **Mig
 
 Click **Start Migration**. Code Capsules copies your database content, uploaded media files, installed plugins, and theme configurations from staging to production.
 
-![WordPress migration source Capsule selection](.gitbook/assets/wordpress-migration-source-selection.png)
+![WordPress migration source Capsule selection](./assets/wordpress-migration-source-selection.png)
 
 Once complete, your production environment will have identical content to the staging environment.
 
@@ -230,7 +234,7 @@ Websites scale either horizontally (more instances) or vertically (more resource
 
 Code Capsules handles scaling by letting you allocate more resources to the Capsule. Navigate to the **Scale** tab, click **Edit**, select **Custom**, and adjust allocated resources with the slider.
 
-![WordPress Capsule Scale tab showing custom resource allocation slider](.gitbook/assets/wordpress-scale-tab-custom-resources.png)
+![WordPress Capsule Scale tab showing custom resource allocation slider](./assets/wordpress-scale-tab-custom-resources.png)
 
 You can learn more about scaling on WordPress in the [scaling documentation](/products/wordpress-capsule/scale).
 
@@ -242,17 +246,17 @@ Code Capsules provides the following capabilities through the WordPress Capsule 
 
 - [Logs](/products/wordpress-capsule/logs) – Access application logs directly from the dashboard. Filter by severity, search for specific errors, and troubleshoot issues without server access.
 
-  ![WordPress Capsule logs interface showing application error logs](.gitbook/assets/wordpress-capsule-logs-interface.png)
+  ![WordPress Capsule logs interface showing application error logs](./assets/wordpress-capsule-logs-interface.png)
 
 - [Access Logs](/products/wordpress-capsule/logs) – Track actions performed by WordPress users in the admin interface.
 
-  ![WordPress access logs view showing user activity in admin dashboard](.gitbook/assets/wordpress-access-logs-view.png)
+  ![WordPress access logs view showing user activity in admin dashboard](./assets/wordpress-access-logs-view.png)
 
 - [Alerting](/products/wordpress-capsule/alerting) – Configure alerts for high CPU usage, error rates, or downtime. Receive notifications via email or webhook before users report problems.
 
 - [Metrics](/products/wordpress-capsule/monitor) – To check resources usage on the machine.
 
-  ![WordPress Capsule metrics dashboard showing CPU, memory, and resource usage](.gitbook/assets/wordpress-metrics-dashboard.png)
+  ![WordPress Capsule metrics dashboard showing CPU, memory, and resource usage](./assets/wordpress-metrics-dashboard.png)
 
 ### Best Practices in WordPress
 
