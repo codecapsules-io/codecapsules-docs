@@ -22,7 +22,7 @@ layout:
 
 The Amazon Web Services (AWS) WordPress reference architecture has become a meme in DevOps circles. The 2018 [best practices whitepaper](https://aws.amazon.com/blogs/architecture/wordpress-best-practices-on-aws/) recommends you use 11 services costing $500 to $1,500 monthly, and assumes you have dedicated DevOps staff. The alternative is to use a single Amazon Lightsail instance, where you handle operating system (OS) updates, security hardening, and MySQL tuning yourself.
 
-Production WordPress needs infrastructure that falls between these extremes: reliable enough to handle traffic spikes and hardware failures, yet simple enough to manage without a DevOps team.
+WordPress production sites need infrastructure that is reliable enough to handle traffic spikes and hardware failures, yet simple enough to manage without a DevOps team.
 
 This guide demonstrates how to run a production WordPress site with:
 
@@ -48,11 +48,11 @@ WordPress doesn't work this way.
 WordPress splits data between files and the database, breaking Git workflows:
 
 - You can commit theme changes to Git, but blog posts aren't in your repository.
-- You can deploy code via a continuous integration and continuous delivery (CI/CD) pipeline, but you need to make database changes directly in the production site, via the WordPress Admin dashboard.
+- You can deploy code via a continuous integration and continuous delivery (CI/CD) pipeline, but you need to make database changes directly in the production site, via the WordPress admin dashboard.
 - You can run tests on your code, but there's no automated testing for scenarios such as when someone installs a plugin that conflicts with your theme.
 - You can roll back a bad deployment, but WordPress only rolls back file-system changes; database modifications remain, so you can't recover from bad content changes.
 
-The split between files and database creates production problems such as:
+The split between files and the database causes production problems, like in these scenarios:
 
 - Marketing installs a plugin on production. It conflicts with your theme, and the site breaks during business hours.
 - A content creator deletes a popular post. You can't recover it because there is no Git history for database content.
@@ -64,21 +64,21 @@ WordPress migration, backups, and staging workflows each require specific approa
 
 ## What You Need To Know
 
-Due to WordPress limitations we discussed above, here's what you need to know to host a production WordPress site simply:
+Due to these WordPress limitations, here's what you need to know to host a production WordPress site simply:
 
 - **Separate Your WordPress Layers from the Start:** WordPress, MySQL, and file storage should run independently. When one layer fails or requires scaling, the others continue to operate.
-- **Plan for Staging-to-Production Workflows:** WordPress has no built-in mechanism for migrating between environments. Either set up a plugin-based migration, which costs $99 to $299 per year with manual configuration, or use a hosting platform, like Code Capsules, that offers built-in one-click migrations. Without this, you have to manually recreate approved content or risk breaking production with direct edits.
+- **Plan for Staging-to-Production Workflows:** WordPress has no built-in mechanism for migrating between environments. Either set up a plugin-based migration (which costs $99 to $299 per year with manual configuration) or use a hosting platform, like Code Capsules, that offers built-in one-click migrations. Without this, you have to recreate approved content manually or risk breaking production with direct edits.
 - **Match Infrastructure to Your Team's Capacity:** A self-hosted VPS (starting from $10 per month) requires you to handle security patches, backups, and scaling. Managed WordPress removes operational work but limits flexibility and costs more (an average of $50 per month for basic plans). Always choose based on whether you have DevOps resources.
 
 ### Hosting Options For WordPress Sites
 
 WordPress hosting options range from $5 single-server VPS setups to $1,500 AWS enterprise architectures:
 
-- Self-hosted VPS provides complete control but requires Linux administration and manual backup management. 
-- AWS delivers maximum reliability but needs dedicated DevOps staff to manage 11 separate services. 
+- Self-hosted VPS provides complete control but requires Linux administration and manual backup management.
+- AWS delivers maximum reliability but needs dedicated DevOps staff to manage 11 separate services.
 - Managed WordPress providers remove server management but limit customization, and cost $35 to $100 per month.
 
-For a detailed comparison of hosting costs and trade-offs, see [WordPress Hosting Cost Comparison](link).
+For a detailed comparison of hosting costs and trade-offs, see our [WordPress Hosting Cost Comparison](link).
 
 ### Why This Guide Uses Code Capsules
 
@@ -88,18 +88,18 @@ Code Capsules solves the primary challenges of hosting a WordPress production si
 - Built-in migration eliminates $99-$299 annual plugin costs.
 - Infrastructure-level backups keep databases and files synchronized.
 
-WordPress production environments require content review workflows. Writers create posts in staging, editors review and approve them, and then the changes migrate to production. WordPress provides no built-in migration mechanism. Plugin-based solutions like WP Synchro require licensing costs, API key management, and manual selection of files and database tables to migrate.
+WordPress production environments require content review workflows. Writers create posts in staging, editors review and approve them, and then the changes migrate to production. WordPress provides no built-in migration mechanism. Plugin-based solutions like WP Synchro incur licensing costs, require API key management, and you still need to manually select which files and database tables to migrate.
 
-Code Capsules provides one-click migration between WordPress Capsules, such as from a staging WordPress Capsule to a production WordPress Capsule, automatically handling database synchronization, file transfers, and URL updates.
+Code Capsules provides one-click migration between staging and production WordPress Capsules, automatically handling database synchronization, file transfers, and URL updates.
 
-## Hosting a WordPress Blog on Code Capsules
+## Prerequisites
 
 To follow this tutorial, you need:
 
-- A Code Capsules account.
-- Some knowledge of WordPress configuration, as you will create an admin user.
+- A Code Capsules account
+- Some knowledge of WordPress configuration, as you will create an admin user
 
-### Create a Space
+### Create a Space for Hosting Your WordPress Blog on Code Capsules
 
 Spaces organize related Capsules.
 
@@ -111,9 +111,15 @@ Fill in the Space details and select the region closest to your target users to 
 
 ![Space details form with name and region fields](./assets/space-details-form.png)
 
+## Setting Up the WordPress Staging Site
+
+We'll create two application Capsules in this space: one for the staging site, and one for the production site. Let's begin with staging.
+
 ### Create the WordPress Capsule
 
-This guide assumes you've already deployed a WordPress Capsule following the [WordPress Capsule deployment documentation](/wordpress#create-the-capsule). After completing that deployment, you should have:
+Next, you need a WordPress Capsule to serve as your staging environment.
+
+Follow the [WordPress Capsule deployment guide](/wordpress#create-the-capsule) to set up:
 
 - A WordPress application Capsule running the latest WordPress version
 - A MySQL Database Capsule storing posts, users, and settings
@@ -122,7 +128,7 @@ This guide assumes you've already deployed a WordPress Capsule following the [Wo
 
 ### Configure Your Domain (Optional)
 
-Once the Capsule deploys, you'll see a default URL like `staging-wordpress-slug.ccdns.co`. You can configure a custom domain for cleaner URLs.
+After deploying the WordPress Capsule, you'll see a default URL like `staging-wordpress-slug.ccdns.co`. You can configure a custom domain for cleaner URLs.
 
 ![WordPress Capsule default URL](./assets/wordpress-default-url.png)
 
@@ -136,45 +142,41 @@ On the domain configuration page, enter your staging domain, for example, `stagi
 
 Code Capsules provides DNS instructions. Create a CNAME or ALIAS record with your DNS provider pointing to the provided hostname.
 
-## Creating The WordPress Staging Site
+### Build the Site Structure in WordPress
 
-With the WordPress Capsule deployed, let's complete the WordPress installation for the staging environment first.
-
-### Building The Site Structure
-
-After creating the Code Capsules, you need to configure the staging WordPress site. Visit your WordPress URL and select your language.
+After creating the Capsules, you need to install the WordPress staging site. Visit your WordPress URL and select your language.
 
 ![WordPress language selection screen](./assets/wordpress-language-selection.png)
 
-Create your admin account. Use a strong password since this account has full site access.
+Create your admin account. Use a strong password, since this account has full site access.
 
 ![WordPress admin account creation form](./assets/wordpress-admin-account-setup.png)
 
-Once the installation is successful, you will see the following page.
+Once WordPress has been installed, you'll receive a success notification.
 
 ![WordPress installation success message](./assets/wordpress-installation-success.png)
 
-Click **Log In** to verify the installation. You should see the staging WordPress admin dashboard.
+Click **Log In** to verify the installation and open the WordPress admin dashboard for your staging site.
 
 ![WordPress admin dashboard](./assets/wordpress-admin-dashboard.png)
 
-Navigate to the website home page. You should have a similar page.
+Navigate to the website homepage. The WordPress Capsule sets up a default homepage similar to the following:
 
 ![WordPress default homepage with Twenty Twenty-Five theme](./assets/wordpress-default-homepage.png)
 
-Code Capsules includes three default WordPress themes: Twenty Twenty-Five (active), Twenty Twenty-Four, and Twenty Twenty-Three. These are blog-focused templates that display posts on the homepage by default.
+Code Capsules includes three default WordPress themes, Twenty Twenty-Five (active in the screenshot), Twenty Twenty-Four, and Twenty Twenty-Three. These blog-focused templates display posts on the homepage by default.
 
 To change themes, navigate to **Appearance** → **Themes**.
 
 ![WordPress Themes page showing available themes](./assets/wordpress-themes-page.png)
 
-### Creating User Accounts
+### Create User Accounts
 
-To create user accounts, navigate to **Users** and click **Add New User**.
+To create user accounts, navigate to **Users** in the WordPress side panel and click **Add User**.
 
 ![WordPress Users page with Add New User button](./assets/wordpress-add-new-user-button.png)
 
-Fill the form with user information and select a role.
+Fill the form with the user's information and select a role.
 
 ![WordPress user creation form with role selection options](./assets/wordpress-user-role-form.png)
 
@@ -182,7 +184,7 @@ From the **Role** dropdown, select **Admin**, **Contributor**, **Editor**, or **
 
 Your staging environment is ready. You can install themes, add plugins, and create content for review before pushing to production.
 
-### Creating a Sample Post Section
+### Create a Sample Post
 
 To demonstrate the content review workflow, create a sample blog post in your staging environment.
 
@@ -190,20 +192,20 @@ Navigate to **Posts** → **Add New**.
 
 ![WordPress Add New Post editor screen with title and content fields](./assets/wordpress-add-new-post.png)
 
-Enter a post title and content. For this example, create a post titled "Welcome to Our Blog" with sample content about your company or services. Then, click **Publish** to make the post visible on your staging site. Visit your staging site to verify the post appears.
+Enter a post title and content. For this example, create a post titled `Welcome to Our Blog` with sample content about your company or services. Then, click **Publish** to make the post visible on your staging site. Visit your staging site to verify that the post appears.
 
-## Creating the Production WordPress Site
+## Setting Up the WordPress Production Site
 
-Create a second WordPress Capsule for production using the same process from the [WordPress Capsule deployment documentation](/wordpress). Use clear naming to distinguish environments:
+Create a second WordPress Capsule for production using the same [WordPress Capsule deployment guide](/wordpress). Use clear naming to distinguish environments:
 
-- **Capsule name:** Production WordPress
-- **Database Capsule:** Production WordPress Database  
-- **Storage Capsule:** Production WordPress Storage
+- **Capsule name:** `Production WordPress`
+- **Database Capsule:** `Production WordPress Database`  
+- **Storage Capsule:** `Production WordPress Storage`
 - **Domain:** `yourblog.com` (or `blog.yourdomain.com`)
 
 This separates production data completely from staging. Changes in staging won't affect production until you explicitly migrate them.
 
-## How to migrate content from staging to production using Code Capsules
+## Migrating Content from Staging to Production with Code Capsules
 
 In your production WordPress Capsule (the target Capsule), navigate to the **Migrate** tab. Select your staging WordPress Capsule as the **Source Capsule**.
 
@@ -211,50 +213,59 @@ Click **Start Migration**. Code Capsules copies your database content, uploaded 
 
 ![WordPress migration source Capsule selection](./assets/wordpress-migration-source-selection.png)
 
-Once complete, your production environment will have identical content to the staging environment.
+After migration, the production environment contains the same content as the staging environment.
 
-## Managing Production WordPress
+## Managing WordPress Production Sites with Code Capsules
 
-A production WordPress site requires maintenance, and the most important parts are backups, scaling, observability, and monitoring. Code Capsules provides features for each part.
+A WordPress production site requires maintenance. Code Capsules provides features to help you maintain WordPress sites by:
 
-### Backups
+- **Backing Up Site Data Regularly:** Ensure you can recover from hardware failures and other problems.
+- **Enabling the Site To Scale as You Grow:** Adjust resources so that the site can handle spikes in user traffic.
+- **Monitoring Performance and User Interactions:** Detect errors and resolve issues before they affect users.
 
-Production WordPress requires synchronized backups of both database (posts, users, settings) and file storage (themes, plugins, media). Code Capsules provides infrastructure-level backups through automatic daily snapshots with 30-day retention for Database and Storage Capsules.
+### Create Backups
 
-To configure and manage backups:
+Because WordPress data is separated into database and file storage, you need to back up both simultaneously.
 
-- [Database Capsule Backups](/products/backups) – Configure retention and restore database snapshots
-- [Storage Capsule Backups](/products/storage/backups) – Manage file storage backup settings
+Code Capsules provides infrastructure-level backups using automatic daily snapshots with 30-day retention for your WordPress Database Capsule (containing the posts, users, and settings in the database) and Storage Capsule (containing the themes, plugins, and media in file storage).
 
-Test backup restoration quarterly to verify backups work when needed.
+Configure and manage your backups with the following guides:
 
-### Scaling WordPress on Code Capsules
+- **[Database Capsule Backups:](/products/backups)** Configure retention and restore database snapshots.
+- **[Storage Capsule Backups:](/products/storage/backups)** Manage your file storage backup settings.
 
-Websites scale either horizontally (more instances) or vertically (more resources per instance). Code Capsules uses vertical scaling.
+Test backup restoration quarterly to verify that backups work when needed.
 
-Code Capsules handles scaling by letting you allocate more resources to the Capsule. Navigate to the **Scale** tab, click **Edit**, select **Custom**, and adjust allocated resources with the slider.
+### Scale Your Site
+
+Websites scale either horizontally (by adding more instances) or vertically (by adding more resources per instance). Code Capsules uses vertical scaling.
+
+Code Capsules handles scaling by letting you allocate more resources to your Capsules:
+
+- Open your WordPress Capsule and navigate to the **Scale** tab.
+- Click **Edit**, select **Custom**, and use the slider to adjust the Capsule's allocated resources.
 
 ![WordPress Capsule Scale tab showing custom resource allocation slider](./assets/wordpress-scale-tab-custom-resources.png)
 
-You can learn more about scaling on WordPress in the [scaling documentation](/products/wordpress-capsule/scale).
+You can also set up scaling rules to automatically adjust the site's capacity based on traffic. To learn more, visit our [WordPress scaling documentation](/products/wordpress-capsule/scale).
 
-### Observability and Monitoring
+### Observe and Monitor Your Site
 
-Code Capsules provides the following capabilities through the WordPress Capsule dashboard admin:
+Use the following Code Capsules capabilities to monitor your WordPress site.
 
-- [Monitoring](/products/wordpress-capsule/monitor) – View real-time metrics for CPU, memory, and traffic. Identify performance trends and resource constraints.
+- **[Monitoring:](/products/wordpress-capsule/monitor)** View real-time metrics for CPU, memory, and traffic. Identify performance trends and resource constraints.
 
-- [Logs](/products/wordpress-capsule/logs) – Access application logs directly from the dashboard. Filter by severity, search for specific errors, and troubleshoot issues without server access.
+- **[Logs:](/products/wordpress-capsule/logs)** Access application logs directly from the dashboard. Filter by severity, search for specific errors, and troubleshoot issues without server access.
 
   ![WordPress Capsule logs interface showing application error logs](./assets/wordpress-capsule-logs-interface.png)
 
-- [Access Logs](/products/wordpress-capsule/logs) – Track actions performed by WordPress users in the admin interface.
+- **[Access Logs:](/products/wordpress-capsule/logs)** Track actions performed by WordPress users in the admin interface.
 
   ![WordPress access logs view showing user activity in admin dashboard](./assets/wordpress-access-logs-view.png)
 
-- [Alerting](/products/wordpress-capsule/alerting) – Configure alerts for high CPU usage, error rates, or downtime. Receive notifications via email or webhook before users report problems.
+- **[Alerting:](/products/wordpress-capsule/alerting)** Configure alerts for high CPU usage, error rates, and downtime. Receive notifications via email or webhooks before users report problems.
 
-- [Metrics](/products/wordpress-capsule/monitor) – To check resources usage on the machine.
+- **[Metrics:](/products/wordpress-capsule/monitor)** Check resource usage on the machine.
 
   ![WordPress Capsule metrics dashboard showing CPU, memory, and resource usage](./assets/wordpress-metrics-dashboard.png)
 
@@ -262,25 +273,19 @@ Code Capsules provides the following capabilities through the WordPress Capsule 
 
 A WordPress production site requires ongoing maintenance beyond infrastructure management:
 
-- **Security:** Keep WordPress core, themes, and plugins up to date. Security patches address vulnerabilities that attackers exploit.
+- **Security:** Keep the WordPress core, themes, and plugins up to date. Security patches address vulnerabilities that attackers exploit.
 - **Update Strategy:** WordPress releases regular updates. Code Capsules supports updates without issues, but always review changelogs before updating. Test updates on staging before applying to production.
 - **Password Management:** Use strong, unique passwords for all WordPress accounts. Enable two-factor authentication where possible.
-- **Backup Verification:** Test backup restoration quarterly to verify backups work when needed.
-- **Plugin Audits:** Review installed plugins monthly. Remove unused plugins and update active ones.
-- **Monitoring Schedule:**
-  - Weekly: Review error logs and performance metrics
-  - Monthly: Test staging-to-production migration workflow
-  - Quarterly: Security audit and backup restoration test
+- **Backup Verification:** Test backup restoration quarterly to verify that backups work when needed.
+- **Plugin Audits:** Review your installed plugins monthly. Remove unused plugins and update active ones.
+- **Schedule Monitoring Tasks:** Review error logs and performance metrics weekly; test the staging-to-production migration workflow monthly; and audit the security and test backup restoration quarterly.
 
 ## Conclusion
 
-Hosting a WordPress production site doesn't require choosing between single-server fragility and AWS enterprise complexity. Code Capsules provides built-in staging-to-production migration and separate application, database, and storage layers.
+You now know the three keys to hosting a production WordPress blog without single-server fragility or AWS enterprise complexity:
 
-With Code Capsules, your WordPress infrastructure can handle traffic spikes through auto-scaling, survive hardware failures through component separation, and deploy content changes with a one-click migration. You can focus on creating content instead of maintaining servers.
+- Independent application, database, and storage layers
+- A reliable staging-to-production workflow
+- Scalable site management infrastructure
 
-For production operations, Code Capsules provides:
-
-- [Monitoring](https://docs.codecapsules.io/products/wordpress-capsule/monitor) for tracking performance metrics
-- [Logs](https://docs.codecapsules.io/products/wordpress-capsule/logs) for debugging issues
-- [Scaling rules](https://docs.codecapsules.io/products/wordpress-capsule/scale) for automatic capacity adjustments
-- [Alerting](https://docs.codecapsules.io/products/wordpress-capsule/alerting) for proactive issue detection
+With separate Capsules for each layer of the site, built-in staging-to-production migration, and automatable scaling options, Code Capsules provides a simple hosting solution, so you can focus on creating content.
