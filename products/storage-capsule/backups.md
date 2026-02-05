@@ -4,7 +4,7 @@ Configure manual and automatic backups for your Storage Capsule to protect uploa
 
 ![Storage Capsule backups configuration interface](../.gitbook/assets/storage-capsule/backups/backups.png)
 
-## Manual Backup
+## Manual Backups
 
 Click the **Backup** button in the **Manual Backup** section to create an immediate backup.
 
@@ -22,4 +22,4 @@ Code Capsules retains backups based on your selected schedule and automatically 
 
 The **Backups** section in the right-hand panel lists all completed backups. Restore and manage backup files here.
 
-Backup storage costs $0.50/GB.
+Backup storage costs $0.50 per GB.
