@@ -80,7 +80,7 @@ WordPress hosting options range from $5 single-server VPS setups to $1,500 AWS e
 
 For a detailed comparison of hosting costs and trade-offs, see our [WordPress Hosting Cost Comparison](link).
 
-### Why This Guide Uses Code Capsules
+### Why Code Capsules Works Well for WordPress Hosting
 
 Code Capsules solves the primary challenges of hosting a WordPress production site:
 
@@ -128,7 +128,7 @@ Follow the [WordPress Capsule deployment guide](/wordpress#create-the-capsule) t
 
 ### Configure Your Domain (Optional)
 
-After deploying the WordPress Capsule, you'll see a default URL like `staging-wordpress-slug.ccdns.co`. You can configure a custom domain for cleaner URLs.
+After deploying the WordPress Capsule, you'll see a default URL like `wordpress-slug.ccdns.co`. You can configure a custom domain for cleaner URLs.
 
 ![WordPress Capsule default URL](./assets/wordpress-default-url.png)
 
@@ -188,7 +188,7 @@ Your staging environment is ready. You can install themes, add plugins, and crea
 
 To demonstrate the content review workflow, create a sample blog post in your staging environment.
 
-Navigate to **Posts** → **Add New**.
+Navigate to **Posts** → **Add Post**.
 
 ![WordPress Add New Post editor screen with title and content fields](./assets/wordpress-add-new-post.png)
 
