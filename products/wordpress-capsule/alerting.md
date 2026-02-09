@@ -27,4 +27,4 @@ Available notification types include:
 * **High Data Usage** - Alert when data usage exceeds 80%
 * **CPU Throttle** - Notify when CPU is being throttled
 
-Use "Enable All" or "Disable All" buttons to quickly configure all notifications, then click "Save Preferences" to apply your changes.
+Use **Enable All** or **Disable All** buttons to quickly configure all notifications, then click **Save Preferences** to apply your changes.

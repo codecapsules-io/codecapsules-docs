@@ -52,5 +52,5 @@
   * [Flask + HTMX](full-stack/flask-+-htmx.md)
   * [MEAN Stack](full-stack/mean-stack.md)
   * [MERN Stack](full-stack/mern-stack.md)
-* [Peristent Storage](peristent-storage.md)
+* [Persistent Storage](persistent-storage.md)
 * [WordPress](wordpress.md)

@@ -1,9 +1,3 @@
----
-description: >-
-  Configure custom domains for your WordPress capsule to replace the default
-  Code Capsules URL.
----
-
 # Domains
 
 

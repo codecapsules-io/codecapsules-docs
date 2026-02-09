@@ -1,4 +1,4 @@
-# Peristent Storage
+# Persistent Storage
 
 You need persistent storage to develop your application that solves a real-world problem, but you don't want a full-blown database. In this tutorial, we'll show you how to create a persistent storage Data Capsule that you can use with your backend applications running on Code Capsules.
 
