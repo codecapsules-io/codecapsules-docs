@@ -15,9 +15,6 @@
 ## Database Capsule
 
 * [Deploy](database-capsule/overview.md)
-
-***
-
 * [Configure](database-capsule/configure.md)
 * [Scale](database-capsule/scale.md)
 * [Backups](database-capsule/backups.md)
@@ -29,9 +26,6 @@
 ## Frontend capsule
 
 * [Deploy](frontend-capsule/deploy.md)
-
-***
-
 * [Configure](frontend-capsule/configure.md)
 * [Scale](frontend-capsule/scale.md)
 * [Monitor](frontend-capsule/monitor.md)
