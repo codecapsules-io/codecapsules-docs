@@ -4,12 +4,10 @@ description: >-
   weather forecasts for areas of your choosing.
 cover: .gitbook/assets/telegram-bot-cover-python.jpg
 coverY: 0
-coverHeight: 445
 layout:
-  width: default
   cover:
     visible: true
-    size: full
+    size: hero
   title:
     visible: true
   description:
