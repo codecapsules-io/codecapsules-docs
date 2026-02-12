@@ -1,3 +1,22 @@
+---
+cover: .gitbook/assets/generative-art-cover.jpg
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Build a Generative Art Application With Pillow, Flask and HTMx
 
 Python’s Pillow package provides support for image manipulation that we can leverage to create random graphic images.

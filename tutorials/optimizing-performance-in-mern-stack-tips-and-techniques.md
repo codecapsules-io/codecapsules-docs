@@ -1,6 +1,20 @@
 ---
-cover: .gitbook/assets/tutorial common hero.png
+cover: .gitbook/assets/mern-optimization-cover.jpg
 coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
 ---
 
 # Optimizing Performance in MERN Stack: Tips and Techniques

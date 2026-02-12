@@ -1,3 +1,22 @@
+---
+cover: .gitbook/assets/php-book-app-cover.jpg
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Building a Book Recommendations App With PHP, SQLite, and Docker
 
 PHP is one of the first technologies that made dynamic web applications possible, and it’s still widely used today. In this tutorial, we’ll look at how to build a CRUD application with PHP and SQLite. We’ll build a basic book recommendation application where we can **C**reate new entries or **R**ead, **U**pdate, or **D**elete existing ones. Nearly all applications rely on these four CRUD operations, so you’ll be able to extend this application to do anything else you want.
