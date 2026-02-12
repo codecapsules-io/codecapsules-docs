@@ -1,3 +1,22 @@
+---
+cover: .gitbook/assets/best-practices-cover.jpg
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Best Practices for Structuring MEAN/MERN/MEVN Projects
 
 ### Introduction <a href="#introduction" id="introduction"></a>
