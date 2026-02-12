@@ -4,12 +4,10 @@ description: >-
   messages sent to the bot.
 cover: .gitbook/assets/telegram-bot-cover-nodejs.jpg
 coverY: 0
-coverHeight: 449
 layout:
-  width: default
   cover:
     visible: true
-    size: full
+    size: hero
   title:
     visible: true
   description:
