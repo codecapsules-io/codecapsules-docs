@@ -1,3 +1,22 @@
+---
+cover: .gitbook/assets/file-store-cover.jpg
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Building a Web File Store
 
 An online file storage drive you can access from all your devices is a very useful tool. It’s the basis of services like Dropbox and Google Drive.

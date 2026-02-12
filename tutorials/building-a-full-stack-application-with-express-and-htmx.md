@@ -1,3 +1,22 @@
+---
+cover: .gitbook/assets/express-htmx-cover.jpg
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Building a Full Stack Application With Express and HTMx
 
 Single page frameworks like Angular, React, and Vue have become the go-to solution for frontend development recently. This shift from traditional multipage websites is mainly due to the lack of interactivity offered by HTML. It’s worth noting, however, that single page applications (SPAs) aren’t a perfect solution, as they introduce an added layer of complexity by installing a host of other dependencies that need to be linked together before deploying your site to production.

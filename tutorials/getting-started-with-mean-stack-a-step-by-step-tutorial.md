@@ -1,3 +1,22 @@
+---
+cover: .gitbook/assets/mean-stack-cover.jpg
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # Getting Started With MEAN Stack: A Step-by-Step Tutorial
 
 As a web developer, diving into the world of full-stack development can be both exciting and challenging. One of the popular choices for building robust web applications is the MEAN stack. MEAN stands for MongoDB, Express.js, Angular, and Node.js – a powerful combination of technologies that allows you to create modern, scalable, and efficient web applications.

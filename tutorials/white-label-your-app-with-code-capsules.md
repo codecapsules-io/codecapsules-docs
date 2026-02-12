@@ -1,3 +1,22 @@
+---
+cover: .gitbook/assets/white-label-cover.jpg
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: true
+  tableOfContents:
+    visible: true
+  outline:
+    visible: true
+  pagination:
+    visible: true
+---
+
 # White-Label Your App With Code Capsules
 
 A white-label app is a prebuilt program that offers customers the freedom to customize the application without the hassle of developing the core functionality.
