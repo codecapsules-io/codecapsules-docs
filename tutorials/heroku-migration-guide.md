@@ -17,9 +17,9 @@ layout:
 
 # How to Migrate from Heroku to Code Capsules
 
-This guide demonstrates how to move a suite of applications running on the Heroku platform as a service (PaaS) to Code Capsules. You'll learn the Code Capsules equivalents for Heroku components, what changes to make to your connection settings to work on Code Capsules, how to export and restore your database, and common pitfalls to avoid.
+This guide demonstrates how to move a suite of applications running on the Heroku platform as a service (PaaS) to Code Capsules. It walks you through the Code Capsules equivalents of Heroku components, how to change your connection settings to work on Code Capsules, how to export and restore your database, and common pitfalls to avoid.
 
-[Heroku is no longer adding new features](https://www.theregister.com/2026/02/09/heroku_freeze) as their parent company focuses on AI business opportunities. If you're considering moving your Heroku app to another PaaS, consider the [benefits of Code Capsules](https://www.codecapsules.io/compare).
+[Heroku is no longer adding new features](https://www.theregister.com/2026/02/09/heroku_freeze) as its parent company focuses on AI business opportunities. If you're considering moving your Heroku app to another PaaS, consider the [benefits of Code Capsules](https://www.codecapsules.io/compare).
 
 Even if you don't intend to move to Code Capsules, this guide should help you create a general migration plan for most similar providers.
 
@@ -29,46 +29,57 @@ Even if you don't intend to move to Code Capsules, this guide should help you cr
   - [Reviewing the App on Heroku](#reviewing-the-app-on-heroku)
     - [The Frontend](#the-frontend)
     - [The Backend](#the-backend)
-    - [The Cron job](#the-cron-job)
+    - [The Cron Job](#the-cron-job)
     - [Summary of the System](#summary-of-the-system)
   - [Creating the App on Code Capsules](#creating-the-app-on-code-capsules)
     - [The Database](#the-database)
     - [The Backend and Frontend](#the-backend-and-frontend)
-    - [The Cron job](#the-cron-job-1)
+    - [The Cron Job](#the-cron-job-1)
   - [Other Components and Cross-Cutting Concerns in Code Capsules](#other-components-and-cross-cutting-concerns-in-code-capsules)
   - [Next Steps](#next-steps)
 
 ## Document Your Heroku System
 
-No matter where you plan to move your app, you first need to document all of its components and settings.
+Before moving your app, you first need to document all of its components and settings:
 
-- Using either the Heroku CLI or web interface, list all apps to migrate.
-- Check each app's **Resources** tab (or `Procfile` in your repository) to see if the dyno is `web`, which has a public URL, or `worker`, which is for backend tasks only. Note if the dyno is a standard framework (like Python) or a custom Docker image. Also note how much CPU, RAM, and disk space it uses.
+- Using either the Heroku CLI or web interface, list all the apps you want to migrate.
+- Check each app's **Resources** tab (or `Procfile` in your repository) to see whether the dyno is `web`, which has a public URL, or `worker`, which is for backend tasks only. Note whether the dyno is a standard framework (like Python) or a custom Docker image, and note how much CPU, RAM, and disk space it uses.
 - List all addons for each app, like databases and schedulers, and their connection settings.
 - Note the exact URLs, domains, and subdomains of each app and addon.
 - Copy the settings (config vars) into a spreadsheet.
 - Examine the deployment process of each app. If you are migrating to Code Capsules, deployment is done by pushing to a Git hosting provider. Organize your repositories so that each app and version (QA, production) are in their own branch, or subfolder in a branch. This allows each to be deployed separately.
 
-If your database is large, it might be the most complicated component to migrate. The simplest solution is to take your entire system offline, so that no new data is added. Then, backup your database from Heroku and restore it to your new host. However, if you don't want to take your app offline, you need to do a dual-write, which works roughly as follows:
-- Create a database on your new host. Deploy your applications to the new host as well.
-- Backup and restore static tables (enumerations) to the new database. These tables won't change, so can be done in advance.
-- Point your new application to the database on the old host, but write new data to both databases — new and old. This allows you to do a gradual migration to the new host. Eventually you will be able to point all applications to the database on the new host and take the old database offline.
+If your database is large, it may be the most complicated component to migrate. The simplest solution is to take your entire system offline, so that no new data is added. Then, back up your database from Heroku and restore it to your new host.
 
-There are a lot of edge cases and reconciliation problems with dual-write. Consult a dedicated guide for more detail.
+If you don't want to take your app offline, you need to use the dual-write method, which works roughly as follows:
+
+- Create a database on your new host. Deploy your applications to the new host as well.
+- Back up and restore static tables (enumerations) to the new database. These tables won't change, so you can migrate them in advance.
+- Point your new application to the database on the old host, but write new data to both databases — new and old. This allows you to migrate gradually to the new host. Eventually you'll be able to point all applications to the database on the new host and take the old database offline.
+
+There are a lot of edge cases and reconciliation problems with dual-writing. Consult a dedicated guide for more details.
 
 ## An Example Full-Stack Application
 
-Let's look at the most common type of application hosted on Heroku: a full-stack web app. It needs:
-- a static web server to serve the website (or a dynamic host in something like PHP or Node.js),
-- a backend webservice the website talks to,
-- a database for the web service to store user data,
-- and some other backend service, like a cron job (scheduled task) that processes data in the database, analytics service, or email server.
+Let's look at the most common type of application hosted on Heroku: a full-stack web application.
 
-In Heroku, each of these components is run in a separate "dyno" (container). This system is shown in the diagram below.
+Full-stack web apps need a system comprised of the following components:
 
 ![System design](.gitbook/assets/app.svg)
 
-Other common components include: object storage (to store images), QA versions of the live components, a message queue (like RabbitMQ), and an in-memory cache (like Redis). We discuss these at the end of the guide.
+- A static web server to serve the website (or a dynamic host in something like PHP or Node.js)
+- A backend web service that the website talks to
+- A database, where the web service stores user data
+- Another backend service, such as a cron job (scheduled task) that processes database data, an analytics service, or an email server
+
+In Heroku, each of these components runs in a separate "dyno" (container).
+
+Other common components include:
+
+- Object storage, for storing images
+- QA versions of the live components
+- A message queue, like RabbitMQ
+- An in-memory cache, like Redis
 
 ## Reviewing the App on Heroku
 
@@ -82,19 +93,21 @@ All our code was in TypeScript and Node.js. Heroku supports similar features in 
 
 Heroku doesn't support static websites. This was previously possible using a custom "buildpack", `heroku-buildpack-static`, but that's now deprecated. Instead, our example frontend dyno uses a Node.js static server — `http-server`.
 
-Heroku has multiple ways to deploy code to a dyno. Review which you use:
-- [API (HTTP calls)](https://devcenter.heroku.com/articles/build-and-release-using-the-api) — the simplest solution. Just zip your code and use `curl` to send the file to Heroku.
-- CLI — an app you download and run in your terminal to connect to Heroku. This actually provides three ways to deploy to Heroku:
-  1. Zip and push a build (same as the API)
-  2. Use the CLI to add Heroku as a Git remote server to your app's local Git repository. Thereafter, you can `git push` to that remote and Heroku will deploy it.
-  3. Build your own Docker image and push it to the Heroku Registry. You lose the PaaS benefits of automated security patching and runtime optimization.
-- GitHub — Heroku will pull from your repository when you push to GitHub. (GitLab, BitBucket, and Codeberg are not supported.)
+Heroku has multiple ways to deploy code to a dyno. Identify which method your app uses:
 
-For a frontend to work correctly you need to set a backend URL, so the website knows where to talk to the web service. In Heroku, there are two ways to use settings:
-1. You can set the values you need as ["config vars"](https://devcenter.heroku.com/articles/config-vars) in your dyno's **Settings** tab. The values will appear as environment variables at runtime. For example, in Node.js you could then access `process.env.DATABASE_URL`.
-2. You can add the settings you need to a `.env` file along with your deployed code, accessing them in the same way as you would a Heroku config var.
+- **[API (HTTP calls)](https://devcenter.heroku.com/articles/build-and-release-using-the-api):** The simplest solution. Just zip your code and use `curl` to send the file to Heroku.
+- **CLI:** By downloading and running the Heroku CLI in your terminal, you can deploy your app to Heroku in three ways:
+  1. By zipping and pushing a build (same as the API)
+  2. By using the CLI to add Heroku as a Git remote server to your app's local Git repository, you can `git push` to that remote and Heroku will deploy it.
+  3. By building your own Docker image and pushing it to the Heroku Registry. You lose the PaaS benefits of automated security patching and runtime optimization.
+- **GitHub:** Set Heroku to pull from your repository when you push to GitHub. (GitLab, Bitbucket, and Codeberg are not supported.)
 
-If you need to change a variable in any way before using it, you can add a postbuild step in your `package.json` file. Below is our example package file, which copied our backend URL to a JavaScript file that was included directly in our static HTML page:
+For the frontend to work correctly, you need to set a backend URL, so the website knows where to talk to the web service. In Heroku, there are two ways to do this:
+
+1. You can set the values you need as [config vars](https://devcenter.heroku.com/articles/config-vars) in your dyno's **Settings** tab. The values will appear as environment variables at runtime. For example, in Node.js you could then access `process.env.DATABASE_URL`.
+2. You can add the settings you need to a `.env` file along with your deployed code, and access them in the same way you would access a Heroku config var.
+
+If you need to change a variable in any way before using it, you can add a postbuild step in your `package.json` file. For example, the following package file copies the backend URL to a JavaScript file that is included directly in the static HTML page:
 
 ```json
 "scripts": {
@@ -125,14 +138,14 @@ username | password
 (1 row)
 ```
 
-### The Cron job
+### The Cron Job
 
 Deploying a cron job is almost identical to deploying the backend in Heroku, with three differences:
 - You need to specify the dyno type as a `worker` not a `web`.
 - You need to attach the app to the existing database addon, instead of creating a new one.
 - You need to add a scheduler addon to the app.
 
-The scheduler addon is like a cron manager — it specifies when your app should run. Other than these times, the app isn't running, saving money. For our scheduler, we set it to run the command `node job.ts` every hour. The script this command runs connects to the database and prints every user — to mimic sending a welcome email or extracting analytics information.
+The scheduler addon is like a cron manager — it specifies when your app should run. Other than these times, the app isn't running, saving money. For our example scheduler, we set it to run the command `node job.ts` every hour. The script this command runs connects to the database and prints every user — to mimic sending a welcome email or extracting analytics information.
 
 You can see what that looks like below:
 
@@ -140,7 +153,7 @@ You can see what that looks like below:
 
 ### Summary of the System
 
-Our Heroku system consists of three apps, shown below, with one database addon, and one scheduler addon.
+Our example Heroku system consists of three apps, shown below, with one database addon and one scheduler addon.
 
 ![App components](.gitbook/assets/appComponents.webp)
 
@@ -152,9 +165,9 @@ First we create a Code Capsules [Space](https://docs.codecapsules.io/platform/pl
 
 ![Code Capsules Space](.gitbook/assets/ccSpace.webp)
 
-Next, create a new Capsule for each component you have in Heroku. To see all available Capsule types, navigate to the **Capsules** tab and scroll through the type selector. The [documentation](https://docs.codecapsules.io/frontend) also lists all available types, as shown below. Note that a frontend Capsule can serve any JavaScript framework, not just the ones shown in the **Quickstart** tab.
+Next, create a new Capsule for each component you have in Heroku. From your Space, click the yellow `+` icon at the bottom left of the screen to create a new Capsule. Select a [Capsule type](https://docs.codecapsules.io/frontend) and follow the prompts provided. Note that a frontend Capsule can serve any JavaScript framework, not just the ones shown in the **Quickstart** tab.
 
-![Code Capsules available capsules](.gitbook/assets/ccAvailableCapsules.webp)
+![Code Capsules new capsule](.gitbook/assets/ccNewCapsule.webp)
 
 Below is a mapping of the Heroku components to Code Capsules Capsules:
 
@@ -177,6 +190,10 @@ Scheduler | Free (addon) | Included (in-app)
 **Total** | **~$26/mo** | **~$26/mo**
 
 Heroku has cheaper 'Eco dynos' at $5/mo, but they sleep after 30 minutes of inactivity, which is unsuitable for production.
+
+If you don't see the appropriate Capsule type at first, search for it by name or use the hidden scrollbar to find it in the dropdown.
+
+![Code Capsules new capsule scrolled](.gitbook/assets/ccNewCapsuleDown.webp)
 
 ### The Database
 
