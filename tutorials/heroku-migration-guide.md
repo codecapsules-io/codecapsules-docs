@@ -17,9 +17,9 @@ layout:
 
 # How to Migrate from Heroku to Code Capsules
 
-This guide demonstrates how to move a suite of applications running on the Heroku platform as a service (PaaS) to Code Capsules. You'll learn the Code Capsules equivalents for Heroku components, what changes to make to your connection settings to work on Code Capsules, how to export and restore your database, and common pitfalls to avoid.
+This guide demonstrates how to move a suite of applications running on the Heroku platform as a service (PaaS) to Code Capsules. It walks you through the Code Capsules equivalents of Heroku components, how to change your connection settings to work on Code Capsules, how to export and restore your database, and common pitfalls to avoid.
 
-[Heroku is no longer adding new features](https://www.theregister.com/2026/02/09/heroku_freeze) as their parent company focuses on AI business opportunities. If you're considering moving your Heroku app to another PaaS, consider the [benefits of Code Capsules](https://www.codecapsules.io/compare).
+[Heroku is no longer adding new features](https://www.theregister.com/2026/02/09/heroku_freeze) as its parent company focuses on AI business opportunities. If you're considering moving your Heroku app to another PaaS, consider the [benefits of Code Capsules](https://www.codecapsules.io/compare).
 
 Even if you don't intend to move to Code Capsules, this guide should help you create a general migration plan for most similar providers.
 
@@ -29,46 +29,57 @@ Even if you don't intend to move to Code Capsules, this guide should help you cr
   - [Reviewing the App on Heroku](#reviewing-the-app-on-heroku)
     - [The Frontend](#the-frontend)
     - [The Backend](#the-backend)
-    - [The Cron job](#the-cron-job)
+    - [The Cron Job](#the-cron-job)
     - [Summary of the System](#summary-of-the-system)
   - [Creating the App on Code Capsules](#creating-the-app-on-code-capsules)
     - [The Database](#the-database)
     - [The Backend and Frontend](#the-backend-and-frontend)
-    - [The Cron job](#the-cron-job-1)
+    - [The Cron Job](#the-cron-job-1)
   - [Other Components and Cross-Cutting Concerns in Code Capsules](#other-components-and-cross-cutting-concerns-in-code-capsules)
   - [Next Steps](#next-steps)
 
 ## Document Your Heroku System
 
-No matter where you plan to move your app, you first need to document all of its components and settings.
+Before moving your app, you first need to document all of its components and settings:
 
-- Using either the Heroku CLI or web interface, list all apps to migrate.
-- Check each app's **Resources** tab (or `Procfile` in your repository) to see if the dyno is `web`, which has a public URL, or `worker`, which is for backend tasks only. Note if the dyno is a standard framework (like Python) or a custom Docker image. Also note how much CPU, RAM, and disk space it uses.
+- Using either the Heroku CLI or web interface, list all the apps you want to migrate.
+- Check each app's **Resources** tab (or `Procfile` in your repository) to see whether the dyno is `web`, which has a public URL, or `worker`, which is for backend tasks only. Note whether the dyno is a standard framework (like Python) or a custom Docker image, and note how much CPU, RAM, and disk space it uses.
 - List all addons for each app, like databases and schedulers, and their connection settings.
 - Note the exact URLs, domains, and subdomains of each app and addon.
 - Copy the settings (config vars) into a spreadsheet.
 - Examine the deployment process of each app. If you are migrating to Code Capsules, deployment is done by pushing to a Git hosting provider. Organize your repositories so that each app and version (QA, production) are in their own branch, or subfolder in a branch. This allows each to be deployed separately.
 
-If your database is large, it might be the most complicated component to migrate. The simplest solution is to take your entire system offline, so that no new data is added. Then, backup your database from Heroku and restore it to your new host. However, if you don't want to take your app offline, you need to do a dual-write, which works roughly as follows:
-- Create a database on your new host. Deploy your applications to the new host as well.
-- Backup and restore static tables (enumerations) to the new database. These tables won't change, so can be done in advance.
-- Point your new application to the database on the old host, but write new data to both databases — new and old. This allows you to do a gradual migration to the new host. Eventually you will be able to point all applications to the database on the new host and take the old database offline.
+If your database is large, it may be the most complicated component to migrate. The simplest solution is to take your entire system offline, so that no new data is added. Then, back up your database from Heroku and restore it to your new host.
 
-There are a lot of edge cases and reconciliation problems with dual-write. Consult a dedicated guide for more detail.
+If you don't want to take your app offline, you need to use the dual-write method, which works roughly as follows:
+
+- Create a database on your new host. Deploy your applications to the new host as well.
+- Back up and restore static tables (enumerations) to the new database. These tables won't change, so you can migrate them in advance.
+- Point your new application to the database on the old host, but write new data to both databases — new and old. This allows you to migrate gradually to the new host. Eventually you'll be able to point all applications to the database on the new host and take the old database offline.
+
+There are a lot of edge cases and reconciliation problems with dual-writing. Consult a dedicated guide for more details.
 
 ## An Example Full-Stack Application
 
-Let's look at the most common type of application hosted on Heroku: a full-stack web app. It needs:
-- a static web server to serve the website (or a dynamic host in something like PHP or Node.js),
-- a backend webservice the website talks to,
-- a database for the web service to store user data,
-- and some other backend service, like a cron job (scheduled task) that processes data in the database, analytics service, or email server.
+Let's look at the most common type of application hosted on Heroku: a full-stack web application.
 
-In Heroku, each of these components is run in a separate "dyno" (container). This system is shown in the diagram below.
+Full-stack web apps need a system comprised of the following components:
 
 ![System design](.gitbook/assets/app.svg)
 
-Other common components include: object storage (to store images), QA versions of the live components, a message queue (like RabbitMQ), and an in-memory cache (like Redis). We discuss these at the end of the guide.
+- A static web server to serve the website (or a dynamic host in something like PHP or Node.js)
+- A backend web service that the website talks to
+- A database, where the web service stores user data
+- Another backend service, such as a cron job (scheduled task) that processes database data, an analytics service, or an email server
+
+In Heroku, each of these components runs in a separate "dyno" (container).
+
+Other common components include:
+
+- Object storage, for storing images
+- QA versions of the live components
+- A message queue, like RabbitMQ
+- An in-memory cache, like Redis
 
 ## Reviewing the App on Heroku
 
@@ -82,19 +93,21 @@ All our code was in TypeScript and Node.js. Heroku supports similar features in 
 
 Heroku doesn't support static websites. This was previously possible using a custom "buildpack", `heroku-buildpack-static`, but that's now deprecated. Instead, our example frontend dyno uses a Node.js static server — `http-server`.
 
-Heroku has multiple ways to deploy code to a dyno. Review which you use:
-- [API (HTTP calls)](https://devcenter.heroku.com/articles/build-and-release-using-the-api) — the simplest solution. Just zip your code and use `curl` to send the file to Heroku.
-- CLI — an app you download and run in your terminal to connect to Heroku. This actually provides three ways to deploy to Heroku:
-  1. Zip and push a build (same as the API)
-  2. Use the CLI to add Heroku as a Git remote server to your app's local Git repository. Thereafter, you can `git push` to that remote and Heroku will deploy it.
-  3. Build your own Docker image and push it to the Heroku Registry. You lose the PaaS benefits of automated security patching and runtime optimization.
-- GitHub — Heroku will pull from your repository when you push to GitHub. (GitLab, BitBucket, and Codeberg are not supported.)
+Heroku has multiple ways to deploy code to a dyno. Identify which method your app uses:
 
-For a frontend to work correctly you need to set a backend URL, so the website knows where to talk to the web service. In Heroku, there are two ways to use settings:
-1. You can set the values you need as ["config vars"](https://devcenter.heroku.com/articles/config-vars) in your dyno's **Settings** tab. The values will appear as environment variables at runtime. For example, in Node.js you could then access `process.env.DATABASE_URL`.
-2. You can add the settings you need to a `.env` file along with your deployed code, accessing them in the same way as you would a Heroku config var.
+- **[API (HTTP calls)](https://devcenter.heroku.com/articles/build-and-release-using-the-api):** The simplest solution. Just zip your code and use `curl` to send the file to Heroku.
+- **CLI:** By downloading and running the Heroku CLI in your terminal, you can deploy your app to Heroku in three ways:
+  1. By zipping and pushing a build (same as the API)
+  2. By using the CLI to add Heroku as a Git remote server to your app's local Git repository, you can `git push` to that remote and Heroku will deploy it.
+  3. By building your own Docker image and pushing it to the Heroku Registry. You lose the PaaS benefits of automated security patching and runtime optimization.
+- **GitHub:** Set Heroku to pull from your repository when you push to GitHub. (GitLab, Bitbucket, and Codeberg are not supported.)
 
-If you need to change a variable in any way before using it, you can add a postbuild step in your `package.json` file. Below is our example package file, which copied our backend URL to a JavaScript file that was included directly in our static HTML page:
+For the frontend to work correctly, you need to set a backend URL, so the website knows where to talk to the web service. In Heroku, there are two ways to do this:
+
+1. You can set the values you need as [config vars](https://devcenter.heroku.com/articles/config-vars) in your dyno's **Settings** tab. The values will appear as environment variables at runtime. For example, in Node.js you could then access `process.env.DATABASE_URL`.
+2. You can add the settings you need to a `.env` file along with your deployed code, and access them in the same way you would access a Heroku config var.
+
+If you need to change a variable in any way before using it, you can add a postbuild step in your `package.json` file. For example, the following package file copies the backend URL to a JavaScript file that is included directly in the static HTML page:
 
 ```json
 "scripts": {
@@ -125,14 +138,14 @@ username | password
 (1 row)
 ```
 
-### The Cron job
+### The Cron Job
 
 Deploying a cron job is almost identical to deploying the backend in Heroku, with three differences:
 - You need to specify the dyno type as a `worker` not a `web`.
 - You need to attach the app to the existing database addon, instead of creating a new one.
 - You need to add a scheduler addon to the app.
 
-The scheduler addon is like a cron manager — it specifies when your app should run. Other than these times, the app isn't running, saving money. For our scheduler, we set it to run the command `node job.ts` every hour. The script this command runs connects to the database and prints every user — to mimic sending a welcome email or extracting analytics information.
+The scheduler addon is like a cron manager — it specifies when your app should run. Other than these times, the app isn't running, saving money. For our example scheduler, we set it to run the command `node job.ts` every hour. The script this command runs connects to the database and prints every user — to mimic sending a welcome email or extracting analytics information.
 
 You can see what that looks like below:
 
@@ -140,7 +153,7 @@ You can see what that looks like below:
 
 ### Summary of the System
 
-Our Heroku system consists of three apps, shown below, with one database addon, and one scheduler addon.
+Our example Heroku system consists of three apps, shown below, with one database addon and one scheduler addon.
 
 ![App components](.gitbook/assets/appComponents.webp)
 
@@ -152,9 +165,9 @@ First we create a Code Capsules [Space](https://docs.codecapsules.io/platform/pl
 
 ![Code Capsules Space](.gitbook/assets/ccSpace.webp)
 
-Next, create a new Capsule for each component you have in Heroku. To see all available Capsule types, navigate to the **Capsules** tab and scroll through the type selector. The [documentation](https://docs.codecapsules.io/frontend) also lists all available types, as shown below. Note that a frontend Capsule can serve any JavaScript framework, not just the ones shown in the **Quickstart** tab.
+Next, create a new Capsule for each component you have in Heroku. From your Space, click the yellow `+` icon at the bottom left of the screen to create a new Capsule. Select a [Capsule type](https://docs.codecapsules.io/frontend) and follow the prompts provided. Note that a frontend Capsule can serve any JavaScript framework, not just the ones shown in the **Quickstart** tab.
 
-![Code Capsules available capsules](.gitbook/assets/ccAvailableCapsules.webp)
+![Code Capsules new capsule](.gitbook/assets/ccNewCapsule.webp)
 
 Below is a mapping of the Heroku components to Code Capsules Capsules:
 
@@ -165,9 +178,26 @@ migrate-backend  | Node.js Dyno | Backend Node.js Capsule
 migrate-frontend | Node.js Dyno | Frontend Node.js or static site Capsule
 migrate-emailer | Node.js worker Dyno, using Heroku Scheduler addon | Backend Node.js Capsule with internal scheduling
 
+The table below shows a rough monthly cost comparison for this example app, using the smallest always-on tier for each component. Actual costs depend on your usage and configuration. See [Code Capsules pricing](https://www.codecapsules.io/pricing) and [Heroku pricing](https://www.heroku.com/pricing) for current details.
+
+Component | Heroku | Code Capsules
+---|---|---
+PostgreSQL | $5/mo (Essential-0, 1 GB) | From $8/mo (PostgreSQL Capsule, custom, 1 GB)
+Backend | $7/mo (Basic dyno) | From $7.50/mo (Backend Capsule, custom)
+Frontend | $7/mo (Basic dyno) | From $3/mo (Frontend Capsule)
+Cron Worker | $7/mo (Basic dyno) | From $7.50/mo (Backend Capsule, custom)
+Scheduler | Free (addon) | Included (in-app)
+**Total** | **~$26/mo** | **~$26/mo**
+
+Heroku has cheaper 'Eco dynos' at $5/mo, but they sleep after 30 minutes of inactivity, which is unsuitable for production.
+
+If you don't see the appropriate Capsule type at first, search for it by name or use the hidden scrollbar to find it in the dropdown.
+
+![Code Capsules new capsule scrolled](.gitbook/assets/ccNewCapsuleDown.webp)
+
 ### The Database
 
-We'll first deploy the component with no dependencies — the database. Unlike in Heroku, databases are their own entities in Code Capsules. We created a PostgreSQL database Capsule. You can see below the User, Space, and Capsule name.
+We'll first deploy the component with no dependencies. Unlike in Heroku, databases are their own entities in Code Capsules. We created a PostgreSQL database Capsule. You can see below the User, Space, and Capsule name.
 
 ![Code Capsules database setup](.gitbook/assets/ccDbSetup.webp)
 
@@ -198,7 +228,7 @@ apt update && apt install -y libsecret-1-0 dbus dbus-x11 gnome-keyring xsel
 dbus-uuidgen > /var/lib/dbus/machine-id
 
 # log in to code capsules
-eval $(dbus-launch --sh-syntax) && echo "" | gnome-keyring-daemon --unlock --components=secrets && npx @codecapsules/cli login -e richard@ritza.co
+eval $(dbus-launch --sh-syntax) && echo "" | gnome-keyring-daemon --unlock --components=secrets && npx @codecapsules/cli login -e your-email@example.com
 
 # create a proxy connection to the database
 npx @codecapsules/cli proxy capsule -s migrate-cgkq -c 3861e1ca-0741-f73d-9135-d950af76e42e -P 5432
@@ -210,7 +240,7 @@ pg_restore --no-acl --no-owner -d "postgresql://postgres:b41eb84b-6698-9@localho
 psql "postgresql://postgres:b41eb84b-6698-9@localhost:5432/app" -c 'SELECT * FROM "user"'
 ```
 
-Copy the connection URL from the Capsule website details rather than using the CLI's copy prompt. If the proxy connection fails on the first attempt, retry the command.
+Copy the connection URL from the Capsule website details rather than using the CLI's copy prompt.
 
 ![Code Capsules CLI](.gitbook/assets/ccCli.webp)
 
@@ -242,11 +272,11 @@ In GitHub, choose which repositories Code Capsules should have access to. We dep
 
 ![Code Capsules Install GitHub addon](.gitbook/assets/ccInstallGithubNew.webp)
 
-If someone else in your organization has already linked Code Capsules to your Git provider, you may see an error.
+If someone else in your organization has already connected Code Capsules to your Git provider, they can share repository access with you directly within Code Capsules.
 
 ![Code Capsules GitHub error](.gitbook/assets/ccGithubError.webp)
 
-In this case, the original user needs to authorize the repository and then share it in Code Capsules itself. Contact Code Capsules support on Slack for help with this.
+Contact Code Capsules support on Slack if you need help with this.
 
 Code Capsules requires linking a repository when creating a Capsule, so ensure your code is ready to deploy before setting up your infrastructure.
 
@@ -262,7 +292,7 @@ Nowhere in the process above did we choose which framework to run our code with.
 
 Deploying the backend code was identical to the frontend, except for using a backend Capsule type, and specifying a run command.
 
-If you browse to the logs you can check if your server is running. Our example backend did not run, since Code Capsules defaults to Node.js 20, which does not support TypeScript files natively (this requires Node.js 24).
+If you browse to the logs you can check if your server is running. Code Capsules lets you specify which Node.js version to use. Our example needed Node.js 24 for native TypeScript support, so we set that in our `package.json`.
 
 ```sh
 2026-02-18T15:19:50.617
@@ -299,7 +329,7 @@ To add a connection from the backend to the database, click your database Capsul
 
 Save your variables at the top right and restart the Capsule.
 
-Like in Heroku, both frontend and backend apps must be deployed before you can get the URLs of them both. You then set both URLs as environment variables, so they can call each other. Code Capsules provides the URLs without the `https://` prefix, so remember to add it when setting your environment variables.
+Like in Heroku, both frontend and backend apps must be deployed before you can get the URLs of them both. You then set both URLs as environment variables, so they can call each other. When setting URLs as environment variables, include the `https://` prefix with the URL that Code Capsules provides.
 
 Static sites cannot access environment variables at runtime, so you must include in your build process a way to inject the backend URL into the JavaScript of the website.
 
@@ -307,7 +337,7 @@ The final step was to delete the Heroku `Procfile`s from our repository, as they
 
 ### The Cron job
 
-In Code Capsules, scheduling is handled within your application code. Deploy your code as a backend Capsule that manages its own scheduling. For our Node.js example, we could use node-cron or JavaScript's native `setInterval()`. We chose `node-cron` and added it as a dependency.
+Code Capsules gives you full control over scheduling within your application code, rather than depending on a platform-specific addon. This means your scheduling logic lives in your repository alongside the rest of your code. For our Node.js example, we used `node-cron` as a dependency.
 
 Our scheduler code is shown below.
 
@@ -322,7 +352,7 @@ cron.schedule("0 * * * *", emailJob);
 
 ![Code Capsules emailer](.gitbook/assets/ccEmailer.webp)
 
-There are some trade-offs to consider with application-level scheduling:
+Here are some considerations for any application-level scheduler (these apply regardless of hosting provider):
 - **Memory persistence**: If your Capsule restarts during a task, the schedule is lost until the process starts again.
 - **Scaling**: If you scale your app to more than one Capsule, the schedule will run on every container simultaneously, duplicating the work. To prevent this, you need a distributed lock (like Redis).
 - **Missed executions**: If the Capsule is down at the exact second a job is scheduled, the scheduler will not run missed jobs once it comes back online.
@@ -334,15 +364,16 @@ Another scheduling option is to use an external cron service (like [cron-job.org
 We've discussed how to move common system components to Code Capsules, but you might have a few more:
 
 - **Object storage (file storage)**: Object storage, like AWS S3, is used for storing binary files like photos, for which databases are not suitable. Code Capsules has a file storage Capsule type. Like the database Capsule, the storage Capsule exposes an environment variable for other backend Capsules to use to access it. The variable is just a file path, like `/mnt/storage`, which other Capsules can write to like a normal file system.
+- **SSL/TLS**: All Capsules are served over HTTPS automatically with managed TLS certificates. If you use a custom domain, Code Capsules provisions and renews certificates for it automatically once you've created the CNAME record. This is equivalent to Heroku's Automated Certificate Management (ACM).
 - **Domains**: Each Capsule exposes a URL in the **Domains** tab you can use to create a CNAME record with your DNS provider, so you can use your company's domain name.
-- **QA environments**: While Heroku provides [pipelines](https://devcenter.heroku.com/articles/pipelines) to automatically provision testing and production versions of dynos, Code Capsules doesn't have built-in pipelines. Instead, create a separate Capsule pointing to a QA branch in your repository.
-- **Blue/green deployments**: A blue/green deployment is a technique to achieve zero service downtime by deploying to a standby server and then rotating the live URL. Code Capsules deploys in-place, so expect a brief delay while the Capsule restarts and installs dependencies.
-- **CLI automation**: Heroku provides an API and CLI that allow you to write scripts to automate creating, editing, scaling, and deleting dynos. Code Capsules manages infrastructure through its web interface rather than a CLI.
-- **Monitoring, logs, and dashboards**: Code Capsules provides monitoring, logs, and dashboards per Capsule.
+- **QA environments**: Code Capsules uses Git branches for environment management — point a separate Capsule at your QA branch to create a test environment. This keeps your deployment configuration in Git rather than in a platform-specific pipeline tool.
+- **Deployments**: Code Capsules builds and deploys automatically when you push to your linked branch. You can choose between a rolling update (new instance starts before the old one stops) or a re-create strategy (old instance is replaced immediately) in the Capsule settings. Auto-deploy can be turned off if you prefer to trigger builds manually. If you use an external CI tool like GitHub Actions, configure it to run on the same branch so that a failing CI blocks the merge and prevents a broken deploy from reaching Code Capsules.
+- **CLI automation**: Code Capsules provides a web interface for infrastructure management, along with a [CLI](https://docs.codecapsules.io/cli/readme/getting-started/quick-start) for tasks like database access.
+- **Monitoring, logs, and dashboards**: Each Capsule provides built-in log streaming, resource usage graphs (CPU, memory, disk), and health status in the web dashboard. Logs are available in real-time and are retained for review. If you need to forward logs to an external service like Datadog, Grafana, or an ELK stack, you can configure your application to send logs via HTTP or syslog to your provider of choice.
 - **Backups**: You can configure a Code Capsules database to automatically backup your database regularly, and you can create manual backups at any time. Backups can be restored with one click.
-- **Scaling**: You can adjust the RAM, CPU, and disk space of a Capsule, as well as increase the number of instances (replicas) from one to three.
+- **Scaling**: You can adjust the RAM, CPU, disk space, and number of instances for each Capsule to match your workload.
 - **Message queues and caches**: Components like RabbitMQ and Redis can be deployed in their own backend Capsule, which other Capsules can talk to through HTTP. There is a dedicated Redis Capsule type.
-- **Custom Docker containers**: If your Heroku app uses a framework that Code Capsules doesn't support, like .NET or Ruby, you can deploy a custom Docker image. To do this, create a Capsule using the Docker type. Point the Capsule to a repository that has your code and a Dockerfile that specifies how to build a Docker image to run your code. Below is an example Dockerfile from the Code Capsules Python Flask tutorial:
+- **Custom Docker containers**: If your Heroku app uses a framework beyond Code Capsules's built-in options, you can deploy a custom Docker image. To do this, create a Capsule using the Docker type. Point the Capsule to a repository that has your code and a Dockerfile that specifies how to build a Docker image to run your code. Below is an example Dockerfile from the Code Capsules Python Flask tutorial:
   ```dockerfile
   # syntax=docker/dockerfile:1
 
@@ -357,7 +388,7 @@ We've discussed how to move common system components to Code Capsules, but you m
 
   CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
   ```
-  Code Capsules supports only Dockerfiles, and not Docker compose files and prebuilt Docker images. However, you can prebuild a Docker image on your local computer, upload it to DockerHub, and point your Dockerfile to that image, with no other build steps required.
+  Code Capsules builds Docker images from your Dockerfile in your repository. If you have a complex build, you can prebuild an image, publish it to DockerHub, and reference it in a minimal Dockerfile.
 - **Running multiple applications in a Capsule**: If you want to run two different services in one Capsule, like a PHP and Ruby server, you need to use a custom Dockerfile that includes both frameworks.
 
 ## Next Steps
