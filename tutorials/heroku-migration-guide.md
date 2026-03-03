@@ -165,9 +165,22 @@ migrate-backend  | Node.js Dyno | Backend Node.js Capsule
 migrate-frontend | Node.js Dyno | Frontend Node.js or static site Capsule
 migrate-emailer | Node.js worker Dyno, using Heroku Scheduler addon | Backend Node.js Capsule with internal scheduling
 
+The table below shows a rough monthly cost comparison for this example app, using the smallest always-on tier for each component. Actual costs depend on your usage and configuration. See [Code Capsules pricing](https://www.codecapsules.io/pricing) and [Heroku pricing](https://www.heroku.com/pricing) for current details.
+
+Component | Heroku | Code Capsules
+---|---|---
+PostgreSQL | $5/mo (Essential-0, 1 GB) | From $8/mo (PostgreSQL Capsule, custom, 1 GB)
+Backend | $7/mo (Basic dyno) | From $7.50/mo (Backend Capsule, custom)
+Frontend | $7/mo (Basic dyno) | From $3/mo (Frontend Capsule)
+Cron Worker | $7/mo (Basic dyno) | From $7.50/mo (Backend Capsule, custom)
+Scheduler | Free (addon) | Included (in-app)
+**Total** | **~$26/mo** | **~$26/mo**
+
+Heroku has cheaper 'Eco dynos' at $5/mo, but they sleep after 30 minutes of inactivity, which is unsuitable for production.
+
 ### The Database
 
-We'll first deploy the component with no dependencies — the database. Unlike in Heroku, databases are their own entities in Code Capsules. We created a PostgreSQL database Capsule. You can see below the User, Space, and Capsule name.
+We'll first deploy the component with no dependencies. Unlike in Heroku, databases are their own entities in Code Capsules. We created a PostgreSQL database Capsule. You can see below the User, Space, and Capsule name.
 
 ![Code Capsules database setup](.gitbook/assets/ccDbSetup.webp)
 
@@ -198,7 +211,7 @@ apt update && apt install -y libsecret-1-0 dbus dbus-x11 gnome-keyring xsel
 dbus-uuidgen > /var/lib/dbus/machine-id
 
 # log in to code capsules
-eval $(dbus-launch --sh-syntax) && echo "" | gnome-keyring-daemon --unlock --components=secrets && npx @codecapsules/cli login -e richard@ritza.co
+eval $(dbus-launch --sh-syntax) && echo "" | gnome-keyring-daemon --unlock --components=secrets && npx @codecapsules/cli login -e your-email@example.com
 
 # create a proxy connection to the database
 npx @codecapsules/cli proxy capsule -s migrate-cgkq -c 3861e1ca-0741-f73d-9135-d950af76e42e -P 5432
@@ -210,7 +223,7 @@ pg_restore --no-acl --no-owner -d "postgresql://postgres:b41eb84b-6698-9@localho
 psql "postgresql://postgres:b41eb84b-6698-9@localhost:5432/app" -c 'SELECT * FROM "user"'
 ```
 
-Copy the connection URL from the Capsule website details rather than using the CLI's copy prompt. If the proxy connection fails on the first attempt, retry the command.
+Copy the connection URL from the Capsule website details rather than using the CLI's copy prompt.
 
 ![Code Capsules CLI](.gitbook/assets/ccCli.webp)
 
@@ -242,11 +255,11 @@ In GitHub, choose which repositories Code Capsules should have access to. We dep
 
 ![Code Capsules Install GitHub addon](.gitbook/assets/ccInstallGithubNew.webp)
 
-If someone else in your organization has already linked Code Capsules to your Git provider, you may see an error.
+If someone else in your organization has already connected Code Capsules to your Git provider, they can share repository access with you directly within Code Capsules.
 
 ![Code Capsules GitHub error](.gitbook/assets/ccGithubError.webp)
 
-In this case, the original user needs to authorize the repository and then share it in Code Capsules itself. Contact Code Capsules support on Slack for help with this.
+Contact Code Capsules support on Slack if you need help with this.
 
 Code Capsules requires linking a repository when creating a Capsule, so ensure your code is ready to deploy before setting up your infrastructure.
 
@@ -262,7 +275,7 @@ Nowhere in the process above did we choose which framework to run our code with.
 
 Deploying the backend code was identical to the frontend, except for using a backend Capsule type, and specifying a run command.
 
-If you browse to the logs you can check if your server is running. Our example backend did not run, since Code Capsules defaults to Node.js 20, which does not support TypeScript files natively (this requires Node.js 24).
+If you browse to the logs you can check if your server is running. Code Capsules lets you specify which Node.js version to use. Our example needed Node.js 24 for native TypeScript support, so we set that in our `package.json`.
 
 ```sh
 2026-02-18T15:19:50.617
@@ -299,7 +312,7 @@ To add a connection from the backend to the database, click your database Capsul
 
 Save your variables at the top right and restart the Capsule.
 
-Like in Heroku, both frontend and backend apps must be deployed before you can get the URLs of them both. You then set both URLs as environment variables, so they can call each other. Code Capsules provides the URLs without the `https://` prefix, so remember to add it when setting your environment variables.
+Like in Heroku, both frontend and backend apps must be deployed before you can get the URLs of them both. You then set both URLs as environment variables, so they can call each other. When setting URLs as environment variables, include the `https://` prefix with the URL that Code Capsules provides.
 
 Static sites cannot access environment variables at runtime, so you must include in your build process a way to inject the backend URL into the JavaScript of the website.
 
@@ -307,7 +320,7 @@ The final step was to delete the Heroku `Procfile`s from our repository, as they
 
 ### The Cron job
 
-In Code Capsules, scheduling is handled within your application code. Deploy your code as a backend Capsule that manages its own scheduling. For our Node.js example, we could use node-cron or JavaScript's native `setInterval()`. We chose `node-cron` and added it as a dependency.
+Code Capsules gives you full control over scheduling within your application code, rather than depending on a platform-specific addon. This means your scheduling logic lives in your repository alongside the rest of your code. For our Node.js example, we used `node-cron` as a dependency.
 
 Our scheduler code is shown below.
 
@@ -322,7 +335,7 @@ cron.schedule("0 * * * *", emailJob);
 
 ![Code Capsules emailer](.gitbook/assets/ccEmailer.webp)
 
-There are some trade-offs to consider with application-level scheduling:
+Here are some considerations for any application-level scheduler (these apply regardless of hosting provider):
 - **Memory persistence**: If your Capsule restarts during a task, the schedule is lost until the process starts again.
 - **Scaling**: If you scale your app to more than one Capsule, the schedule will run on every container simultaneously, duplicating the work. To prevent this, you need a distributed lock (like Redis).
 - **Missed executions**: If the Capsule is down at the exact second a job is scheduled, the scheduler will not run missed jobs once it comes back online.
@@ -334,15 +347,16 @@ Another scheduling option is to use an external cron service (like [cron-job.org
 We've discussed how to move common system components to Code Capsules, but you might have a few more:
 
 - **Object storage (file storage)**: Object storage, like AWS S3, is used for storing binary files like photos, for which databases are not suitable. Code Capsules has a file storage Capsule type. Like the database Capsule, the storage Capsule exposes an environment variable for other backend Capsules to use to access it. The variable is just a file path, like `/mnt/storage`, which other Capsules can write to like a normal file system.
+- **SSL/TLS**: All Capsules are served over HTTPS automatically with managed TLS certificates. If you use a custom domain, Code Capsules provisions and renews certificates for it automatically once you've created the CNAME record. This is equivalent to Heroku's Automated Certificate Management (ACM).
 - **Domains**: Each Capsule exposes a URL in the **Domains** tab you can use to create a CNAME record with your DNS provider, so you can use your company's domain name.
-- **QA environments**: While Heroku provides [pipelines](https://devcenter.heroku.com/articles/pipelines) to automatically provision testing and production versions of dynos, Code Capsules doesn't have built-in pipelines. Instead, create a separate Capsule pointing to a QA branch in your repository.
-- **Blue/green deployments**: A blue/green deployment is a technique to achieve zero service downtime by deploying to a standby server and then rotating the live URL. Code Capsules deploys in-place, so expect a brief delay while the Capsule restarts and installs dependencies.
-- **CLI automation**: Heroku provides an API and CLI that allow you to write scripts to automate creating, editing, scaling, and deleting dynos. Code Capsules manages infrastructure through its web interface rather than a CLI.
-- **Monitoring, logs, and dashboards**: Code Capsules provides monitoring, logs, and dashboards per Capsule.
+- **QA environments**: Code Capsules uses Git branches for environment management — point a separate Capsule at your QA branch to create a test environment. This keeps your deployment configuration in Git rather than in a platform-specific pipeline tool.
+- **Deployments**: Code Capsules builds and deploys automatically when you push to your linked branch. You can choose between a rolling update (new instance starts before the old one stops) or a re-create strategy (old instance is replaced immediately) in the Capsule settings. Auto-deploy can be turned off if you prefer to trigger builds manually. If you use an external CI tool like GitHub Actions, configure it to run on the same branch so that a failing CI blocks the merge and prevents a broken deploy from reaching Code Capsules.
+- **CLI automation**: Code Capsules provides a web interface for infrastructure management, along with a [CLI](https://docs.codecapsules.io/cli/readme/getting-started/quick-start) for tasks like database access.
+- **Monitoring, logs, and dashboards**: Each Capsule provides built-in log streaming, resource usage graphs (CPU, memory, disk), and health status in the web dashboard. Logs are available in real-time and are retained for review. If you need to forward logs to an external service like Datadog, Grafana, or an ELK stack, you can configure your application to send logs via HTTP or syslog to your provider of choice.
 - **Backups**: You can configure a Code Capsules database to automatically backup your database regularly, and you can create manual backups at any time. Backups can be restored with one click.
-- **Scaling**: You can adjust the RAM, CPU, and disk space of a Capsule, as well as increase the number of instances (replicas) from one to three.
+- **Scaling**: You can adjust the RAM, CPU, disk space, and number of instances for each Capsule to match your workload.
 - **Message queues and caches**: Components like RabbitMQ and Redis can be deployed in their own backend Capsule, which other Capsules can talk to through HTTP. There is a dedicated Redis Capsule type.
-- **Custom Docker containers**: If your Heroku app uses a framework that Code Capsules doesn't support, like .NET or Ruby, you can deploy a custom Docker image. To do this, create a Capsule using the Docker type. Point the Capsule to a repository that has your code and a Dockerfile that specifies how to build a Docker image to run your code. Below is an example Dockerfile from the Code Capsules Python Flask tutorial:
+- **Custom Docker containers**: If your Heroku app uses a framework beyond Code Capsules's built-in options, you can deploy a custom Docker image. To do this, create a Capsule using the Docker type. Point the Capsule to a repository that has your code and a Dockerfile that specifies how to build a Docker image to run your code. Below is an example Dockerfile from the Code Capsules Python Flask tutorial:
   ```dockerfile
   # syntax=docker/dockerfile:1
 
@@ -357,7 +371,7 @@ We've discussed how to move common system components to Code Capsules, but you m
 
   CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
   ```
-  Code Capsules supports only Dockerfiles, and not Docker compose files and prebuilt Docker images. However, you can prebuild a Docker image on your local computer, upload it to DockerHub, and point your Dockerfile to that image, with no other build steps required.
+  Code Capsules builds Docker images from your Dockerfile in your repository. If you have a complex build, you can prebuild an image, publish it to DockerHub, and reference it in a minimal Dockerfile.
 - **Running multiple applications in a Capsule**: If you want to run two different services in one Capsule, like a PHP and Ruby server, you need to use a custom Dockerfile that includes both frameworks.
 
 ## Next Steps
