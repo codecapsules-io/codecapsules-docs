@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/best-practices-cover.jpg
+cover: .gitbook/assets/best-practices-cover-v2.jpg
 coverY: 0
 coverHeight: 424
 layout:
