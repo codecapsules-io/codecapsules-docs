@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/mern-optimization-cover.jpg
+cover: .gitbook/assets/mern-optimization-cover-v2.jpg
 coverY: 0
 coverHeight: 427
 layout:

@@ -34,7 +34,6 @@ Follow the prompts, choosing your region and giving your Space a name, then clic
 
 ![Create a Space](<../../.gitbook/assets/space-name (1).png>)
 
-Example instructions to go with numbered annotations
 
 1. Choose a team — you can use a default **personal** team if you're the only person working on this project, or a named team if you're collaborating with others
 2. This should remind you of the project, for example, **customer-api** or **notetaking-app**

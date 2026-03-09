@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/php-book-app-cover.jpg
+cover: .gitbook/assets/php-book-app-cover-v2.jpg
 coverY: 0
 coverHeight: 425
 layout:

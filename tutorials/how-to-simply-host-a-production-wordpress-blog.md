@@ -3,7 +3,7 @@ description: >-
   Compare WordPress hosting costs and features across single-server VPS, AWS
   enterprise architecture, managed WordPress providers, and Code Capsules to
   match infrastructure to your team's technical capa
-cover: .gitbook/assets/wordpress-hosting-cover.jpg
+cover: .gitbook/assets/wordpress-hosting-cover-v2.jpg
 coverY: 0
 coverHeight: 425
 layout:

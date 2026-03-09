@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/mean-stack-cover.jpg
+cover: .gitbook/assets/mean-stack-cover-v2.jpg
 coverY: 0
 coverHeight: 422
 layout:

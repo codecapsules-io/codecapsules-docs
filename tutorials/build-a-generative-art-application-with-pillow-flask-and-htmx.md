@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/generative-art-cover.jpg
+cover: .gitbook/assets/generative-art-cover-v2.jpg
 coverY: 0
 coverHeight: 421
 layout:

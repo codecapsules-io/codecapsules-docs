@@ -26,22 +26,23 @@ When you've signed in to Discord, follow the steps below:
 2. Navigate to the [Application Page](https://discord.com/developers/applications).
 3. Click on the **New Application** button.
 4. Give the application a name and click **Create**.
-5.  Go to the **Bot** tab and click **Add Bot**. Confirm your decision by clicking, **Yes, do it!**
+5.  Go to the **Bot** tab and click **Add Bot**.
 
     <figure><img src="../../.gitbook/assets/add-bot.png" alt=""><figcaption></figcaption></figure>
-6.  Click the **Copy** button under the **TOKEN** section to copy your bot's token.
+6.  Under **Privileged Gateway Intents**, enable **Message Content Intent**.
+7.  Click **Reset Token**, confirm, then click **Copy** to copy your bot's token.
 
     <figure><img src="../../.gitbook/assets/token.png" alt=""><figcaption></figcaption></figure>
-7.  Go to the **OAuth2/URL Generator** tab and select the **bot** option under the **Scopes** section.
+8.  Go to the **OAuth2/URL Generator** tab and select the **bot** option under the **Scopes** section.
 
     <figure><img src="../../.gitbook/assets/bot-option.png" alt=""><figcaption></figcaption></figure>
-8.  Select all the text permission options under the **Bot Permissions** section.
+9.  Select all the text permission options under the **Bot Permissions** section.
 
     <figure><img src="../../.gitbook/assets/text-permissions.png" alt=""><figcaption></figcaption></figure>
-9.  Click the **Copy** button under the **Generated URL** section
+10. Click the **Copy** button under the **Generated URL** section
 
     <figure><img src="../../.gitbook/assets/url.png" alt=""><figcaption></figcaption></figure>
-10. Paste the URL you copied in the previous step in another browser tab and add the bot to the server you created in the first step. Click **Continue** to confirm your changes.
+11. Paste the URL you copied in the previous step in another browser tab and add the bot to the server you created in the first step. Click **Continue** to confirm your changes.
 
 After actioning these steps, your bot will now have access to all the channels in the server you added it to.
 
@@ -53,7 +54,6 @@ Follow the prompts, choosing your region and giving your Space a name, then clic
 
 ![Create a Space](<../../.gitbook/assets/space-name (1).png>)
 
-Example instructions to go with numbered annotations
 
 1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
 2. This should remind you of the project, for example, **customer-api** or **notetaking-app**
@@ -81,7 +81,7 @@ Once your application is live, you can view the build log by selecting the **Dep
 
 ## Add a `TOKEN` Environment Variable
 
-Once the build is complete, you have to add a `TOKEN` environment variable on the **Config** tab under the **Environment Variables** section. Assign it the value of the token you copied in step 6 of the [Register the Bot](node.js-discord-bot.md#register-the-bot) section above.
+Once the build is complete, you have to add a `TOKEN` environment variable on the **Config** tab under the **Environment Variables** section. Assign it the value of the token you copied in step 7 of the [Register the Bot](node.js-discord-bot.md#register-the-bot) section above.
 
 ![Add a TOKEN Environment Variable](<../../.gitbook/assets/token-env-variable (1).png>)
 

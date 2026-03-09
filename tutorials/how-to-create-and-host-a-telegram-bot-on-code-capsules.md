@@ -2,7 +2,7 @@
 description: >-
   Learn how to build a Telegram bot that messages you exchange rate data and
   weather forecasts for areas of your choosing.
-cover: .gitbook/assets/telegram-bot-cover-python.jpg
+cover: .gitbook/assets/telegram-bot-cover-python-v2.jpg
 coverY: 0
 coverHeight: 427
 layout:

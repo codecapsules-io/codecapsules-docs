@@ -2,7 +2,7 @@
 description: >-
   Create a full stack application with Flask and HTMx to build a lightweight
   interactive site.
-cover: .gitbook/assets/flask-htmx-cover.jpg
+cover: .gitbook/assets/flask-htmx-cover-v2.jpg
 coverY: 0
 coverHeight: 423
 layout:
