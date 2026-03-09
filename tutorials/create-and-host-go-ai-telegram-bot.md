@@ -2,7 +2,7 @@
 description: >-
   Build a Telegram bot that uses AI to respond to users with a custom
   personality.
-cover: .gitbook/assets/telegram-bot-cover-go.jpg
+cover: .gitbook/assets/telegram-bot-cover-go-v2.jpg
 coverY: 0
 coverHeight: 422
 layout:

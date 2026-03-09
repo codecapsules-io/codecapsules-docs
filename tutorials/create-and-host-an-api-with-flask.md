@@ -2,7 +2,7 @@
 description: >-
   Build a personal API that lets you access up to the minute exchange rates and
   weather data for cities of your choosing.
-cover: .gitbook/assets/flask-api-cover.jpg
+cover: .gitbook/assets/flask-api-cover-v2.jpg
 coverY: 0
 coverHeight: 423
 layout:

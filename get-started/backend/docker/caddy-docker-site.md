@@ -32,7 +32,6 @@ Follow the prompts, choosing your region and giving your Space a name, then clic
 
 ![Create a Space](<../../.gitbook/assets/space-name (1).png>)
 
-Example instructions to go with numbered annotations
 
 1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
 2. This should remind you of the project, for example, **customer-api** or **notetaking-app**
@@ -45,12 +44,13 @@ A [Capsule](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/capsules/what-is-a-ca
 Navigate to the **Space** containing your recently created Data Capsule and click the yellow `+` icon on the bottom left of the screen. Follow the instructions below to create a Backend Capsule:
 
 1. Choose **Docker Capsule**, your Team, and Space.
-2. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
-3. Choose the GitHub repository you forked.
-4. Press **Next**.
-5. Enter **Dockerfile** as the input in the **Dockerfile location** field.
-6. Leave the **Docker build context** field blank.
-7. Click **Create Capsule**.
+2. Choose your payment plan.
+3. Click the GitHub button and give access to the repository you forked at the start of the tutorial.
+4. Choose the GitHub repository you forked.
+5. Press **Next**.
+6. Enter **Dockerfile** as the input in the **Dockerfile location** field.
+7. Leave the **Docker build context** field blank.
+8. Click **Create Capsule**.
 
 Code Capsules will automatically build your application when you've finished creating the Capsule. While the build is in progress, you can view the log by clicking **View Build Progress** next to the **Building Capsule** message.
 
@@ -60,7 +60,7 @@ Once your application is live, you can view the build log by selecting the **Dep
 
 ## View Application
 
-Once the build is complete, click the **URL** link in the **Config** tab, and you should see your deployed application.
+Once the build is complete, click the **URL** link in the **Details** tab, and you should see your deployed application.
 
 ![Deployed App](../../.gitbook/assets/caddy-docker-site.png)
 

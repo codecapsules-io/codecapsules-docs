@@ -30,7 +30,6 @@ Log in to your Code Capsules account and navigate to the **Spaces** tab. Once th
 
 Follow the prompts, choosing your region and giving your Space a name, then click **Create Space**.
 
-Example instructions to go with numbered annotations
 
 1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
 2. This should remind you of the project, for example, **customer-api** or **notetaking-app**

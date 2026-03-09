@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/nuxt3-nitro-cover.jpg
+cover: .gitbook/assets/nuxt3-nitro-cover-v2.jpg
 coverY: 0
 coverHeight: 424
 layout:

@@ -2,7 +2,7 @@
 description: >-
   Social media bots allow you to automate responses and reactions to posts or
   messages sent to the bot.
-cover: .gitbook/assets/telegram-bot-cover-nodejs.jpg
+cover: .gitbook/assets/telegram-bot-cover-nodejs-v2.jpg
 coverY: 0
 coverHeight: 423
 layout:

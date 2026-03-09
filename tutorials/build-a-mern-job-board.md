@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/mern-job-board-cover.jpg
+cover: .gitbook/assets/mern-job-board-cover-v2.jpg
 coverY: 0
 coverHeight: 425
 layout:

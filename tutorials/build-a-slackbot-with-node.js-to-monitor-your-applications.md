@@ -2,7 +2,7 @@
 description: >-
   Create a bot that monitors the state of your applications and reports any
   status changes via Slack.
-cover: .gitbook/assets/slackbot-cover.jpg
+cover: .gitbook/assets/slackbot-cover-v2.jpg
 coverY: 0
 coverHeight: 424
 layout:

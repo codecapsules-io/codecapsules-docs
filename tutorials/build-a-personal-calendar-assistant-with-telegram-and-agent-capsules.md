@@ -2,7 +2,7 @@
 description: >-
   Build an AI-powered calendar assistant that manages your Google Calendar
   through natural Telegram conversations, deployed on Code Capsules.
-cover: .gitbook/assets/calendar-assistant-cover.jpg
+cover: .gitbook/assets/calendar-assistant-cover-v2.jpg
 coverY: 0
 coverHeight: 421
 layout:

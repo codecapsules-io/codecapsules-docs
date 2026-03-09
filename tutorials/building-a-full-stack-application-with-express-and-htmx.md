@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/express-htmx-cover.jpg
+cover: .gitbook/assets/express-htmx-cover-v2.jpg
 coverY: 0
 coverHeight: 421
 layout:

@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/heroku-migration-cover.jpg
+cover: .gitbook/assets/heroku-migration-cover-v2.jpg
 coverY: 0
 coverHeight: 425
 layout:
@@ -17,7 +17,11 @@ layout:
 
 # How to Migrate from Heroku to Code Capsules
 
-This guide demonstrates how to move a suite of applications running on the Heroku platform as a service (PaaS) to Code Capsules. It walks you through the Code Capsules equivalents of Heroku components, how to change your connection settings to work on Code Capsules, how to export and restore your database, and common pitfalls to avoid.
+This guide demonstrates how to move a suite of applications running on the Heroku platform as a service (PaaS) to Code Capsules.
+
+[Code Capsules](https://www.codecapsules.io/) lets you deploy frontends, backends, and databases from a single dashboard, with built-in GitHub integration and support for most popular frameworks including Node.js, Python, and Docker.
+
+The guide walks you through the Code Capsules equivalents of Heroku components, how to change your connection settings to work on Code Capsules, how to export and restore your database, and common pitfalls to avoid.
 
 [Heroku is no longer adding new features](https://www.theregister.com/2026/02/09/heroku_freeze) as its parent company focuses on AI business opportunities. If you're considering moving your Heroku app to another PaaS, consider the [benefits of Code Capsules](https://www.codecapsules.io/compare).
 

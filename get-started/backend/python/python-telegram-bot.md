@@ -39,12 +39,6 @@ Follow the prompts, choosing your region and giving your Space a name, then clic
 
 ![Create a Space](../../.gitbook/assets/space-name.png)
 
-Example instructions to go with numbered annotations
-
-1. Choose a Team — you can use a default **personal** Team if you're the only person working on this project, or a named Team if you're collaborating with others
-2. This should remind you of the project, for example, **customer-api** or **notetaking-app**
-3. Choose a country close to where most of your users will be
-
 ## Create the Capsule
 
 A [Capsule](https://app.gitbook.com/s/gIlxo9gU7Lotj1cdGRh6/capsules/what-is-a-capsule) provides the server for hosting an application on Code Capsules.
