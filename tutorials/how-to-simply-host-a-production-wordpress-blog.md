@@ -5,7 +5,7 @@ description: >-
   match infrastructure to your team's technical capa
 cover: .gitbook/assets/wordpress-hosting-cover-v2.jpg
 coverY: 0
-coverHeight: 425
+coverHeight: 435
 layout:
   width: default
   cover:

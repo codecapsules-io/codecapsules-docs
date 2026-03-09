@@ -1,7 +1,7 @@
 ---
 cover: .gitbook/assets/mean-stack-cover-v2.jpg
 coverY: 0
-coverHeight: 422
+coverHeight: 435
 layout:
   width: default
   cover:

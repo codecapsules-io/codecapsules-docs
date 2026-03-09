@@ -1,7 +1,7 @@
 ---
 cover: .gitbook/assets/express-htmx-cover-v2.jpg
 coverY: 0
-coverHeight: 421
+coverHeight: 435
 layout:
   width: default
   cover:
