@@ -4,7 +4,7 @@ description: >-
   through natural Telegram conversations, deployed on Code Capsules.
 cover: .gitbook/assets/calendar-assistant-cover-v2.jpg
 coverY: 0
-coverHeight: 421
+coverHeight: 435
 layout:
   width: default
   cover:

@@ -4,7 +4,7 @@ description: >-
   personality.
 cover: .gitbook/assets/telegram-bot-cover-go-v2.jpg
 coverY: 0
-coverHeight: 422
+coverHeight: 435
 layout:
   width: default
   cover:

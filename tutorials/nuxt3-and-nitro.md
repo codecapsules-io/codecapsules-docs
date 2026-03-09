@@ -1,7 +1,7 @@
 ---
 cover: .gitbook/assets/nuxt3-nitro-cover-v2.jpg
 coverY: 0
-coverHeight: 424
+coverHeight: 435
 layout:
   width: default
   cover:

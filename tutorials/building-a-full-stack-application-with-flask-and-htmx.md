@@ -4,7 +4,7 @@ description: >-
   interactive site.
 cover: .gitbook/assets/flask-htmx-cover-v2.jpg
 coverY: 0
-coverHeight: 423
+coverHeight: 435
 layout:
   width: default
   cover:
