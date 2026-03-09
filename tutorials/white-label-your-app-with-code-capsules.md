@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/white-label-cover.jpg
+cover: .gitbook/assets/white-label-cover-v2.jpg
 coverY: 0
 coverHeight: 421
 layout:
