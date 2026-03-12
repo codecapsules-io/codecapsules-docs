@@ -8,7 +8,7 @@ image: .gitbook/assets/agent-deploy-cover.jpg
 
 Using AI, we can build entire applications without leaving the terminal. Now, with agent skills, we can also deploy and manage these applications on cloud servers without ever opening a browser.
 
-In this guide, we'll deploy an Express.js application without using Claude Code with a custom Code Capsules skill. We'll install the skill that gives Claude Code direct API access, then deploy an application by describing what we want in plain English. By the end, we'll have backend, database, and frontend capsules running and the tools to manage them.
+In this guide, we'll deploy an Express.js application using Claude Code with a custom Code Capsules skill. We'll install the skill that gives Claude Code direct API access, then deploy an application by describing what we want in plain English. By the end, we'll have backend, database, and frontend capsules deployed and have access to a suite of tools to manage them.
 
 ## Setup
 
