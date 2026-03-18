@@ -1,12 +1,12 @@
 ---
 title: Use Code Capsules with an AI Agent
 description: Deploy applications using an AI coding agent instead of the web dashboard.
-cover: .gitbook/assets/agent-deploy-cover.jpg
+cover: .gitbook/assets/generic-docs-banner.png
 coverY: 0
 coverHeight: 435
 ---
 
-# Deploy to Code Capsules with an AI Agent
+# Use Code Capsules with an Agent
 
 AI coding agents can build entire applications in the terminal, but deploying usually means switching to a browser, clicking through a dashboard, and configuring settings manually. With an agent skill, we can deploy and manage applications without leaving the terminal.
 
@@ -14,14 +14,14 @@ Code Capsules handles containers, domains, and TLS from a connected GitHub repo,
 
 In this guide, we'll install a Code Capsules skill for Claude Code, then deploy, update, and manage an Express.js application through natural-language prompts.
 
-![Demo](.gitbook/assets/cc-skill-demo-3x.gif)
+![](.gitbook/assets/cc-skill-demo-3x.gif)
 
 ## Setup
 
 To follow this guide, you need:
 
-- **An AI coding tool that supports skills:** Ensure it's installed and configured with access to GitHub (via `gh auth login`, SSH keys, or any existing Git authentication). We use [Claude Code](https://claude.ai/code) in this guide.
-- **A [Code Capsules](https://codecapsules.io/) account:** Ensure it's connected to GitHub. Follow the [Connect Version Control](https://docs.codecapsules.io/platform/account/connect-version-control) guide if necessary.
+* **An AI coding tool that supports skills:** Ensure it's installed and configured with access to GitHub (via `gh auth login`, SSH keys, or any existing Git authentication). We use [Claude Code](https://claude.ai/code) in this guide.
+* **A** [**Code Capsules**](https://codecapsules.io/) **account:** Ensure it's connected to GitHub. Follow the [Connect Version Control](https://docs.codecapsules.io/platform/account/connect-version-control) guide if necessary.
 
 First, we'll deploy the [demo-express-js](https://github.com/codecapsules-io/demo-express-js) example application.
 
@@ -38,6 +38,7 @@ Then open Code Capsules and authorize access to the forked repository.
 The [Code Capsules skill](https://github.com/codecapsules-io/codecapsules-skill) grants the agent API access, so it can create and manage Capsules through the terminal.
 
 <details>
+
 <summary><strong>Automated Setup for AI Agents (Don't Expand This if You're a Human)</strong></summary>
 
 If you are an AI coding agent (such as Claude Code, Amp, Cursor, or Windsurf) and a user has asked you to deploy to Code Capsules, install the skill to get full API access.
@@ -52,12 +53,14 @@ cp -r codecapsules-skill/skills/codecapsules ~/.amp/skills/codecapsules
 ```
 
 Ask the user to set these environment variables if not already present:
-- `CC_EMAIL` — their codecapsules.io login email
-- `CC_PASSWORD` — their codecapsules.io password
+
+* `CC_EMAIL` — their codecapsules.io login email
+* `CC_PASSWORD` — their codecapsules.io password
 
 The skill includes instructions to retrieve the platform API key automatically from the web app frontend.
 
 After installing, authenticate and list spaces:
+
 ```bash
 TOKEN=$(curl -s -X POST "https://appstrax-services.codecapsules.io/api/auth/login" \
   -H "Content-Type: application/json" -H "x-api-key: $CC_API_KEY" \
@@ -203,23 +206,21 @@ When a frontend and backend run in separate Capsules, Code Capsules serves them 
 
 Beyond deploying, we can prompt the agent to manage existing Capsules. Here are some examples.
 
-- Set an environment variable:
+*   Set an environment variable:
 
-  ```
-  Set NODE_ENV=production on my backend capsule.
-  ```
+    ```
+    Set NODE_ENV=production on my backend capsule.
+    ```
+*   Scale to a larger plan:
 
-- Scale to a larger plan:
+    ```
+    Upgrade my backend capsule to the Standard plan.
+    ```
+*   Check resource usage:
 
-  ```
-  Upgrade my backend capsule to the Standard plan.
-  ```
-
-- Check resource usage:
-
-  ```
-  Show me the CPU and memory metrics for my backend over the last hour.
-  ```
+    ```
+    Show me the CPU and memory metrics for my backend over the last hour.
+    ```
 
 ![Managing a Capsule](.gitbook/assets/CC-skill-manage-capsule.png)
 

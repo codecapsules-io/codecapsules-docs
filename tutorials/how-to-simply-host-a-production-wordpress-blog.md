@@ -220,7 +220,7 @@ In your production WordPress Capsule (the target Capsule), navigate to the **Mig
 
 Click **Start Migration**. Code Capsules copies your database content, uploaded media files, installed plugins, and theme configurations from staging to production.
 
-<figure><img src=".gitbook/assets/wordpress-migration-source-selection (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src=".gitbook/assets/wordpress-migration-source-selection (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 After migration, the production environment contains the same content as the staging environment.
 
