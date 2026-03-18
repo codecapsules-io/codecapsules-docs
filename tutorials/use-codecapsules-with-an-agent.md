@@ -1,7 +1,9 @@
 ---
 title: Use Code Capsules with an AI Agent
 description: Deploy applications using an AI coding agent instead of the web dashboard.
-image: .gitbook/assets/agent-deploy-cover.jpg
+cover: .gitbook/assets/agent-deploy-cover.jpg
+coverY: 0
+coverHeight: 435
 ---
 
 # Deploy to Code Capsules with an AI Agent
