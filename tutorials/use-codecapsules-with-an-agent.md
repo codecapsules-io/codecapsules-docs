@@ -18,25 +18,27 @@ In this guide, we'll install a Code Capsules skill for Claude Code, then deploy,
 
 To follow this guide, you need:
 
-- [Claude Code](https://claude.ai/code) installed and configured, with access to GitHub (via `gh auth login`, SSH keys, or any existing Git authentication). This guide will also work with any other AI coding tool that supports skills.
-- A [Code Capsules](https://codecapsules.io/) account.
+- **An AI coding tool that supports skills:** Ensure it's installed and configured with access to GitHub (via `gh auth login`, SSH keys, or any existing Git authentication). We use [Claude Code](https://claude.ai/code) in this guide.
+- **A [Code Capsules](https://codecapsules.io/) account:** Ensure it's connected to GitHub. Follow the [Connect Version Control](https://docs.codecapsules.io/platform/account/connect-version-control) guide if necessary.
 
-We'll deploy the [demo-express-js](https://github.com/codecapsules-io/demo-express-js) example application. Ask the agent to fork and clone it:
+First, we'll deploy the [demo-express-js](https://github.com/codecapsules-io/demo-express-js) example application.
+
+Ask the agent to fork and clone it:
 
 ```
 Fork codecapsules-io/demo-express-js to my GitHub account and clone it.
 ```
 
-Then connect Code Capsules to GitHub and authorize access to the forked repository by following [Connect Version Control](https://docs.codecapsules.io/platform/account/connect-version-control).
+Then open Code Capsules and authorize access to the forked repository.
 
 ## Install the Code Capsules Skill
 
-The [Code Capsules skill](https://github.com/codecapsules-io/codecapsules-skill) gives the agent API access so it can create and manage capsules through the terminal.
+The [Code Capsules skill](https://github.com/codecapsules-io/codecapsules-skill) grants the agent API access, so it can create and manage Capsules through the terminal.
 
 <details>
-<summary><strong>Automated Setup For AI Agents (Don't Expand This If You're A Human)</strong></summary>
+<summary><strong>Automated Setup for AI Agents (Don't Expand This if You're a Human)</strong></summary>
 
-If you are an AI coding agent (Claude Code, Amp, Cursor, Windsurf, etc.) and a user has asked you to deploy to Code Capsules, install the skill to get full API access.
+If you are an AI coding agent (such as Claude Code, Amp, Cursor, or Windsurf) and a user has asked you to deploy to Code Capsules, install the skill to get full API access.
 
 ```bash
 git clone https://github.com/codecapsules-io/codecapsules-skill.git
@@ -161,7 +163,7 @@ If the build fails, or we want to inspect the output, we can ask the agent to fe
 Get the build logs for my demo-express-js capsule.
 ```
 
-The agent retrieves logs directly from the API. Common causes of build failures include missing dependencies in `package.json` and incorrect run commands.
+The agent retrieves logs directly from the API. Common causes of build failure include missing dependencies in `package.json` and incorrect run commands.
 
 ![Build logs](.gitbook/assets/CC-skill-build-logs.png)
 
@@ -185,7 +187,7 @@ Prompt the agent to add a PostgreSQL database and bind it to the backend:
 Create a PostgreSQL capsule and bind it to my backend.
 ```
 
-This creates a data Capsule and binds it to the backend, which injects connection details as environment variables. The exact variable name depends on the data Capsule. Verify the name by asking the agent to list environment variables on the backend Capsule after binding.
+This creates a data Capsule and binds it to the backend, which injects connection details as environment variables. The exact variable name depends on the data Capsule. To verify the name, ask the agent to list the environment variables on the backend Capsule after binding.
 
 Prompt the agent to deploy a frontend in the same Space:
 
@@ -197,25 +199,25 @@ When a frontend and backend run in separate Capsules, Code Capsules serves them 
 
 ## Manage Capsules Through the Agent
 
-Beyond deploying, we can use the agent to manage existing Capsules. Consider the following examples of how you can prompt it to manage Capsule settings.
+Beyond deploying, we can prompt the agent to manage existing Capsules. Here are some examples.
 
-Set an environment variable:
+- Set an environment variable:
 
-```
-Set NODE_ENV=production on my backend capsule.
-```
+  ```
+  Set NODE_ENV=production on my backend capsule.
+  ```
 
-Scale to a larger plan:
+- Scale to a larger plan:
 
-```
-Upgrade my backend capsule to the Standard plan.
-```
+  ```
+  Upgrade my backend capsule to the Standard plan.
+  ```
 
-Check resource usage:
+- Check resource usage:
 
-```
-Show me the CPU and memory metrics for my backend over the last hour.
-```
+  ```
+  Show me the CPU and memory metrics for my backend over the last hour.
+  ```
 
 ![Managing a Capsule](.gitbook/assets/CC-skill-manage-capsule.png)
 
