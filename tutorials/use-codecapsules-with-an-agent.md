@@ -20,18 +20,16 @@ In this guide, we'll install a Code Capsules skill for Claude Code, then deploy,
 
 To follow this guide, you need:
 
-* **An AI coding tool that supports skills:** Ensure it's installed and configured with access to GitHub (via `gh auth login`, SSH keys, or any existing Git authentication). We use [Claude Code](https://claude.ai/code) in this guide.
-* **A** [**Code Capsules**](https://codecapsules.io/) **account:** Ensure it's connected to GitHub. Follow the [Connect Version Control](https://docs.codecapsules.io/platform/account/connect-version-control) guide if necessary.
+- [Claude Code](https://claude.ai/code) installed and configured, with access to GitHub (via `gh auth login`, SSH keys, or any existing Git authentication). This guide will also work with any other AI coding tool that supports skills.
+- A [Code Capsules](https://codecapsules.io/) account.
 
-First, we'll deploy the [demo-express-js](https://github.com/codecapsules-io/demo-express-js) example application.
-
-Ask the agent to fork and clone it:
+We'll deploy the [demo-express-js](https://github.com/codecapsules-io/demo-express-js) example application. Ask the agent to fork and clone it:
 
 ```
 Fork codecapsules-io/demo-express-js to my GitHub account and clone it.
 ```
 
-Then open Code Capsules and authorize access to the forked repository.
+Then connect Code Capsules to GitHub and authorize access to the forked repository by following [Connect Version Control](https://docs.codecapsules.io/platform/account/connect-version-control).
 
 ## Install the Code Capsules Skill
 
