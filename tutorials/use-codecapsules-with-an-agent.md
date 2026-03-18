@@ -12,7 +12,7 @@ Code Capsules handles containers, domains, and TLS from a connected GitHub repo,
 
 In this guide, we'll install a Code Capsules skill for Claude Code, then deploy, update, and manage an Express.js application through natural-language prompts.
 
-<video src=".gitbook/assets/cc-skill-demo-3x.mp4" autoplay muted loop></video>
+![Demo](.gitbook/assets/cc-skill-demo-3x.gif)
 
 ## Setup
 
@@ -169,7 +169,7 @@ The agent retrieves logs directly from the API. Common causes of build failure i
 
 ## Update and Redeploy
 
-Whenever we push changes to the connected GitHub branch, Code Capsules automatically triggers a new build. We can also ask the agent to make changes and redeploy in a single step:
+Whenever we push changes to the connected GitHub branch, it automatically triggers a new build. We can also ask the agent to make changes and redeploy in a single step:
 
 ```
 Add a /health endpoint to the app, push to GitHub, and check the build logs.
